@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="dyncelllibrary" xml:lang="en-us" rev="shv2">
+<title rev="shv2">Dynamic library call</title>
+<titlealts>
+<navtitle>Dynamic library call</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Dynamic library call</searchtitle>
+</titlealts>
+<shortdesc>View some <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> code samples for a
+dynamic library call.</shortdesc><?Pub Caret 22?>
+<prolog><metadata>
+<keywords><indexterm>dynamic library call</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><screen>
+#include &lt;stdlib.h>
+#include &lt;errno.h>
+#include &lt;stdio.h>
+#include &lt;dlfcn.h>
+<ph rev="shv2">#include &lt;opencryptoki/pkcs11.h></ph>
+
+CK_RV init();
+CK_RV cleanup();
+CK_RV rc;                                   /* return code */
+void *dllPtr, (*symPtr)();                  /* pointer to the ock library */
+CK_FUNCTION_LIST_PTR  FunctionPtr = NULL;   /* pointer to function list */
+
+int main(int argc, char *argv[]){
+  /* opencryptoki initialization   */
+  rc = init("/usr/lib64/opencryptoki/libopencryptoki.so");
+  /* further opencryptoki commands */
+  rc = cleanup();                           /* cleanup/close shared library */
+  return 0;
+} 
+
+CK_RV init(char *libPath){
+
+  dllPtr = dlopen(libPath, RTLD_NOW);       /* open the PKCS11 library */ 
+  if (!dllPtr) {
+     printf("Error loading PKCS#11 library \n");
+     return errno;
+  }
+  /* Get ock function list */
+  symPtr = (void (*)())dlsym(dllPtr, "C_GetFunctionList"); 
+  if (!symPtr) {
+     printf("Error getting function list \n");
+     return errno;
+  }
+  symPtr(&amp;FunctionPtr);
+  rc = FunctionPtr->C_Initialize(NULL);     /* initialize opencryptoki/tokens) */
+   if (rc != CKR_OK) {
+    printf("Error initializing the opencryptoki library: 0x%X\n", rc);
+    cleanup();
+    }
+    printf("Opencryptoki initialized.\n");
+    return CKR_OK;
+}
+
+  CK_RV cleanup(void) {
+      rc = FunctionPtr->C_Finalize(NULL);
+      if (dllPtr)
+          dlclose(dllPtr);
+      return rc;
+}
+</screen><p>To compile your sample code you need to provide the path of the source/include files. Issue a
+command of the form:<codeblock scale="80">gcc sample_dynamic.c -g -O0 -o sample_dynamic 
+</codeblock></p></section>
+</refbody>
+</reference>

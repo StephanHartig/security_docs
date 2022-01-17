@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_common_body" title="openCryptoki features" xml:lang="en-US">
+<topicref href="lxoc_ock_whatis_pkcs11.dita">
+<topicref href="lxoc_pkcs11_intro.dita"/>
+<topicref href="lxoc_ock_intro.dita"/>
+</topicref>
+<topicref href="lxoc_ock_features.dita"/>
+<topicref href="lxoc_ock_installing.dita"/>
+<topicref href="lxoc_ock_config_file.dita"/>
+<topicref href="lxoc_ock_env_variables.dita"/>
+</map>

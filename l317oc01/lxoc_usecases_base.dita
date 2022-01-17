@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l31xce00_linklib_base_samples" xml:lang="en-us">
+   <title>Base procedures</title>
+   <shortdesc>View some <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> code samples for
+base procedures, such as a main program, an initialization procedure, and finalize
+information.</shortdesc>
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>code sample<indexterm>base procedures</indexterm><indexterm>dynamic library
+                  calls</indexterm></indexterm>
+            <indexterm>sample code<indexterm>dynamic library calls</indexterm></indexterm>
+         </keywords>
+      </metadata>
+   </prolog>
+   <refbody>
+      <?Pub Caret 0?>
+      <section>
+         <title>Main program</title>
+         <screen scale="80">
+/* Example program to test opencryptoki
+ * build: gcc test_ock.c -g -O0 -o test_ock -lopencryptoki 
+ * execute: ./test_ock -c &lt;slot> -p &lt;PIN> */
+#include &lt;stdlib.h>
+#include &lt;errno.h>
+#include &lt;stdio.h>
+#include &lt;dlfcn.h>
+<ph rev="shv2">#include &lt;opencryptoki/pkcs11.h></ph>
+#include &lt;string.h>
+#include &lt;unistd.h>
+
+void *lib_ock;
+char *pin = NULL;
+int count, arg;
+CK_SLOT_ID  slotID = 0;
+CK_ULONG rsaKeyLen = 2048, cipherTextLen = 0, clearTextLen = 0;
+CK_BYTE *pCipherText = NULL, *pClearText = NULL;
+CK_BYTE *pRSACipher = NULL, *pRSAClear = NULL;
+CK_FLAGS rw_sessionFlags = CKF_RW_SESSION | CKF_SERIAL_SESSION;
+CK_SESSION_HANDLE hSession;
+CK_BYTE keyValue[] = {0x01,0x23,0x45,0x67,0x89,0xab,0xcd,0xef,
+                      0xCA,0xFE,0xBE,0xEF,0xCA,0xFE,0xBE,0xEF};
+CK_BYTE msg[] = "The quick brown fox jumps over the lazy dog";
+CK_ULONG msgLen = sizeof(msg);
+CK_OBJECT_HANDLE hPublicKey, hPrivateKey;
+
+/*** &lt;insert helper functions (provided below) here> ***/
+/*** usage / help ***/
+void usage(void)
+{
+  printf("Usage:\n");
+  printf(" -s &lt;slot number> \n");
+  printf(" -p &lt;user PIN>\n");
+  printf("\n");
+  exit (8);  }
+
+int main(int argc, char *argv[]) {
+   while ((arg = getopt (argc, argv, "s:p:")) != -1) {
+	switch (arg) {
+	case 's':   slotID = atoi(optarg);
+		     break;
+	case 'p':   pin = malloc(strlen(optarg));
+            	strcpy(pin,optarg);
+		     break;
+	default:    printf("wrong option %c", arg);
+		     usage();
+	}  }
+
+  if ((!pin) || (!slotID)) {
+	printf("Incorrect parameter given!\n");
+	usage();
+	exit (8);   }
+
+  init();
+  openSession(slotID, rw_sessionFlags, &amp;hSession);
+  loginSession(CKU_USER, pin, 8, hSession);
+  createKeyObject(hSession, (CK_BYTE_PTR)&amp;keyValue, sizeof(keyValue));
+  AESencrypt(hSession, (CK_BYTE_PTR)&amp;msg, msgLen, &amp;pCipherText, &amp;cipherTextLen);
+  AESdecrypt(hSession, pCipherText, cipherTextLen, &amp;pClearText, &amp;clearTextLen);
+  generateRSAKeyPair(hSession, rsaKeyLen, &amp;hPublicKey, &amp;hPrivateKey);
+  RSAencrypt(hSession, hPublicKey, (CK_BYTE_PTR)&amp;msg, msgLen, &amp;pRSACipher, &amp;rsaKeyLen);
+  RSAdecrypt(hSession, hPrivateKey, pRSACipher, rsaKeyLen, &amp;pRSAClear, &amp;rsaKeyLen);
+  logoutSession(hSession); closeSession(hSession);
+  finalize();
+  return 0;
+}
+</screen>
+      </section>
+      <section>
+         <title>C_Initialize</title>
+         <screen>/*
+ * initialize
+ */
+CK_RV init(void){
+  CK_RV rc;
+  rc = C_Initialize(NULL);
+  if (rc != CKR_OK) {
+     printf("Error initializing the opencryptoki library: 0x%X\n", rc);
+  }
+  return rc;
+}
+</screen>
+      </section>
+      <section>
+         <title>C_Finalize</title>
+         <screen rev="iv3">
+/*
+ * finalize
+ */
+CK_RV finalize(void) {
+  CK_RV rc;
+  rc = C_Finalize(NULL);
+  if (rc != CKR_OK) {
+		 printf("Error during finalize: %x\n", rc);
+  }
+  if (pCipherText) free(pCipherText);
+  if (pClearText)  free(pClearText);
+  if (pRSACipher)  free(pRSACipher);
+  if (pRSAClear)   free(pRSAClear);
+  return rc;
+}</screen>
+      </section>
+   </refbody>
+</reference>
+<?Pub *0000001770?>

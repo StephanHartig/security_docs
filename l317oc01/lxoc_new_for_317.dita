@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<topic id="lxoc_ed01" xml:lang="en-us" rev="shv2">
+<title>Edition SC34-7730-01: Updates for <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+version 3.17</title>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>summary of changes<indexterm>edition SC34-7730-01 </indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<section>
+<?Pub Caret 43?>
+<ul>
+<li>A new information unit describing <keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific
+mechanisms and attributes has been added (see <xref href="lxoc_tok_ibm_mechfeat.dita"/>).</li>
+<li>Conceptional information on the handling of objects and attributes in <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> has been added.</li>
+<li><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> code samples have been transferred from
+<ph conref="lxcommon.dita#pubs/cit-zl-libica-ref"/>, and <ph
+conref="lxcommon.dita#pubs/cit-zl-ep11-ref"/>, into this current edition.</li>
+<li>All <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>-related information from <ph
+conref="lxcommon.dita#pubs/cit-zl-libica-ref"/>, has been integrated into this current edition.</li>
+<li>Comprehensive extensions have been applied to the documentation of all tokens in <xref
+href="lxoc_tokens_part.dita"/>.</li>
+<li>A new topic to assist you in solving problems while working with <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> has been included (see <xref
+href="lxoc_usecases_troubles.dita"/>).</li>
+<li>The <cmdname>p11sak</cmdname> offers a new option to obtain a listing of keys in a long output
+format.</li>
+</ul>
+</section>
+</body>
+</topic>
+<?Pub *0000001545?>

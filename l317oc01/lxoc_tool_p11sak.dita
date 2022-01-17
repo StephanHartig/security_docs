@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="lxoc_tool_p11sak" xml:lang="en-us">
+<title>Generating and listing keys - <cmdname>p11sak</cmdname> utility</title>
+<!--SH: Acrolinx run on Apr. 11, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle><cmdname>p11sak</cmdname></navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: The <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> tool <cmdname>p11sak</cmdname> - generate and list
+symmetric and asymmetric keys</searchtitle>
+</titlealts>
+<shortdesc>Use the <cmdname>p11sak</cmdname> tool to list the token keys in an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token repository with their <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> attributes. You can also use the tool to generate and
+delete symmetric and asymmetric keys in an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+token repository. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>p11sak tool</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token repository</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The general invocation scheme of the command line tool is:</p>
+<codeblock>p11sak COMMAND [ARGS] [OPTIONS]</codeblock>
+<syntaxdiagram frame="all" expanse="page">
+<title>p11sak syntax - General invocation scheme</title>
+<groupseq>
+<kwd>p11sak</kwd>
+<sep> </sep>
+<var>&lt;subcommand></var>
+<groupchoice>
+<groupseq>
+<groupcomp importance="optional">
+<sep> </sep>
+<kwd>args</kwd>
+</groupcomp>
+<groupcomp importance="optional">
+<sep> </sep>
+<kwd>options</kwd>
+</groupcomp>
+</groupseq>
+</groupchoice>
+</groupseq>
+</syntaxdiagram>
+<p>where </p>
+<parml>
+<plentry>
+<pt>subcommand</pt>
+<pd>is described in the following sections:<ul>
+<li><xref href="#lxoc_tool_p11sak/p11_genkey" format="dita"/>
+</li>
+<li><xref href="#lxoc_tool_p11sak/p11_listkey" format="dita"/>
+</li>
+<li><xref href="#lxoc_tool_p11sak/p11_delete" format="dita"/></li>
+</ul></pd>
+</plentry>
+</parml>
+<p>Also, read the information in section <xref href="#lxoc_tool_p11sak/pk11_help" format="dita"/> to
+learn how to use the tool efficiently.</p>
+</section>
+<section id="p11_genkey">
+<title>Generating keys</title>
+<p>Use the <cmdname>p11sak generate-key</cmdname> subcommand to generate keys in the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token repository. The tool supports the generation
+of:</p><ul>
+<li>symmetric keys (AES, 3DES, DES) with <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+attributes</li>
+<li>asymmetric keys (RSA, EC) with <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+attributes.</li>
+</ul>
+
+<syntaxdiagram frame="all" expanse="page"><title>p11sak syntax - Generate a key</title>
+<groupseq>
+<kwd>p11sak</kwd>
+<var>generate-key</var>
+<groupchoice>
+<groupcomp><var>des</var></groupcomp>
+<groupcomp><var>3des</var></groupcomp>
+<groupcomp><var>aes </var><groupchoice>
+<groupcomp><kwd>128</kwd></groupcomp>
+<groupcomp><kwd>192</kwd></groupcomp>
+<groupcomp><kwd>256</kwd></groupcomp>
+</groupchoice></groupcomp>
+<groupcomp><var>rsa </var><groupchoice>
+<groupcomp><kwd>1024</kwd></groupcomp>
+<groupcomp><kwd>2048</kwd></groupcomp>
+<groupcomp><kwd>4096</kwd></groupcomp>
+</groupchoice><groupcomp importance="optional">
+<kwd>--exponent</kwd><var>&lt;number></var>
+</groupcomp></groupcomp>
+<groupcomp rev="shv2"><var>ec </var><groupchoice>
+<groupcomp><kwd>prime256v1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>prime192</kwd></groupcomp>
+<groupcomp><kwd>secp224</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>secp384r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>secp256k1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>secp521r1</kwd></groupcomp>
+<groupcomp><kwd>
+brainpoolP160r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP160t1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP192r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP192t1</kwd></groupcomp>
+<groupcomp><kwd>brainpoolP224r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP224t1</kwd><sep> </sep><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP256r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP256t1</kwd></groupcomp>
+<groupcomp><kwd>brainpoolP320r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP320t1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP384r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP384t1</kwd></groupcomp>
+<groupcomp><kwd>brainpoolP512r1</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>brainpoolP512t1</kwd></groupcomp>
+</groupchoice></groupcomp>
+</groupchoice><groupseq>
+<groupcomp>
+<kwd>--slot</kwd><var>&lt;slot ID></var>
+</groupcomp>
+<groupcomp>
+<kwd>--pin</kwd><var>&lt;PIN></var>
+</groupcomp>
+<groupcomp>
+<kwd>--label</kwd><var>&lt;key name></var>
+</groupcomp>
+</groupseq><groupseq>
+<groupcomp importance="optional">
+<kwd>--attr</kwd>
+<kwd> [M | R | L | S | E | D | G | V | W | U | A | X | N]</kwd>
+</groupcomp>
+</groupseq>
+</groupseq></syntaxdiagram>
+<p>where </p>
+<parml>
+<plentry>
+<pt>des</pt>
+<pd>specifies a symmetric DES key to be generated.</pd>
+</plentry>
+<plentry>
+<pt>3des</pt>
+<pd>specifies a symmetric triple DES key.</pd>
+</plentry>
+<plentry>
+<pt>aes</pt>
+<pd>specifies a symmetric AES key to be generated. You must specify a key length in bits: 128, 192,
+or 256.</pd>
+</plentry>
+<plentry>
+<pt>rsa</pt>
+<pd>specifies an asymmetric RSA key pair (private and public) to be generated. You must specify a
+key length in bits: 1024, 2048, or 4096.</pd>
+</plentry>
+<plentry>
+<pt>--exponent</pt>
+<pd>specifies an exponent for an RSA key pair generation. This option is optional and only
+considered for RSA key pair generation. The default is 65537.</pd>
+</plentry>
+<plentry rev="shv2">
+<pt>ec</pt>
+<pd>specifies an elliptic curve key pair (private and public) to be generated. You must specify an
+elliptic curve for the ECC key pair. Select one supported curve as shown in the syntax diagram.</pd>
+</plentry>
+<plentry>
+<pt>--slot</pt>
+<pd>specifies the slot ID of an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token with
+the repository.</pd>
+</plentry>
+<plentry>
+<pt>--pin</pt>
+<pd>specifies the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token repository user
+PIN. If not specified, the user can enter the PIN on request.</pd>
+</plentry>
+<plentry>
+<pt>--label</pt>
+<pd> specifies the label (name) of the generated key. This option is mandatory.</pd>
+</plentry>
+<plentry>
+<pt>--attr</pt>
+<pd><ph rev="shv2">This option is optional and can be used to set one or more of the binary key
+attributes by specifying one or more of the the respective letters from the subsequent list. With an
+upper case letter, the respective attribute is set to TRUE and with a lower case letter it is set to
+FALSE. For multiple attributes add the respective letters without space, for example:
+</ph><codeph>MLD</codeph> or <codeph>MrS</codeph>.<dl>
+<dlentry>
+<dt>M</dt>
+<dd>CKA_MODIFIABLE</dd>
+</dlentry>
+<dlentry>
+<dt>R</dt>
+<dd>CKA_DERIVE</dd>
+</dlentry>
+<dlentry>
+<dt>L</dt>
+<dd>CKA_LOCAL</dd>
+</dlentry>
+<dlentry>
+<dt>S</dt>
+<dd>CKA_SENSITIVE</dd>
+</dlentry>
+<dlentry>
+<dt>E</dt>
+<dd>CKA_ENCRYPT</dd>
+</dlentry>
+<dlentry>
+<dt>D</dt>
+<dd>CKA_DECRYPT</dd>
+</dlentry>
+<dlentry>
+<dt>G</dt>
+<dd>CKA_SIGN</dd>
+</dlentry>
+<dlentry>
+<dt>V</dt>
+<dd>CKA_VERIFY</dd>
+</dlentry>
+<dlentry>
+<dt>W</dt>
+<dd>CKA_WRAP</dd>
+</dlentry>
+<dlentry>
+<dt>U</dt>
+<dd>CKA_UNWRAP</dd>
+</dlentry>
+<dlentry>
+<dt>A</dt>
+<dd>CKA_ALWAYS_SENSITIVE</dd>
+</dlentry>
+<dlentry>
+<dt>X</dt>
+<dd>CKA_EXTRACTABLE</dd>
+</dlentry>
+<dlentry>
+<dt>N</dt>
+<dd>CKA_NEVER_EXTRACTABLE</dd>
+</dlentry>
+</dl>
+<p>The key attributes CKA_TOKEN and CKA_PRIVATE are set by default.</p>
+</pd>
+</plentry>
+</parml>
+</section>
+<section id="p11_listkey">
+<title>Listing keys in the repository</title>
+<p>The tool supports the listing of:</p>
+<ul>
+<li>symmetric keys (AES, 3DES, DES) with <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+attributes,</li>
+<li>asymmetric keys (RSA, EC) with <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+attributes,</li>
+<li>public, private and secure keys.</li>
+<li rev="shv2">all keys of any type</li>
+</ul>
+<p rev="shv2">With the options in the <cmdname>list-key</cmdname> subcommand, you can filter the
+keys that you want to list. They have the same meaning as described in section <xref
+href="#lxoc_tool_p11sak/p11_genkey" format="dita"/>, with additional options to filter for public,
+private and secure keys. The <parmname>--long</parmname> or <parmname>-l</parmname> parameter
+produces the long output format. If omitted, you obtain a short output format.</p>
+<syntaxdiagram frame="all" expanse="page"><title>p11sak syntax - Listing keys</title>
+<groupseq>
+<kwd>p11sak</kwd>
+<sep> </sep>
+<var rev="shv2">list-key|ls-key|ls</var>
+<groupchoice importance="required">
+<groupcomp><var>des</var></groupcomp>
+<groupcomp><var>3des</var></groupcomp>
+<groupcomp><var>aes </var></groupcomp>
+<groupcomp><var>rsa </var></groupcomp>
+<groupcomp><var>ec </var></groupcomp>
+<groupcomp><var>public </var></groupcomp>
+<groupcomp><var>private </var></groupcomp>
+<groupcomp><var>secret </var></groupcomp>
+<groupcomp><var rev="shv2">all, ALL </var></groupcomp>
+</groupchoice><groupseq>
+<groupcomp><kwd>--slot</kwd><var>&lt;slot ID></var></groupcomp>
+<groupcomp><kwd>--pin</kwd><var>&lt;PIN></var></groupcomp>
+<groupcomp importance="optional"><kwd>--long, -l</kwd></groupcomp>
+</groupseq>
+</groupseq></syntaxdiagram>
+<p><b>Example for a listing output in short format (default):</b></p>
+<screen>
+# # p11sak list-key aes --slot 2 --pin 98765432
+
+| M R L S E D G V W U X A N * | KEY TYPE | LABEL
+|---------------------------------------+-------------+-------------
+| 0 0 1 0 0 0 0 0 0 0 0 0 1 1 | AES 128 | 2020-04-29_aes128-M-1.key
+| 1 0 1 0 0 0 0 0 0 0 0 0 1 1 | AES 128 | 2020-04-29_aes128-M-2.key
+| 0 0 1 0 0 0 0 0 0 0 0 0 1 1 | AES 128 | 2020-04-29_aes128-2.key
+| 0 0 1 0 0 0 0 0 0 0 0 0 1 1 | AES 128 | 2020-04-29_aes128-2.key
+| 1 1 1 0 0 0 0 0 0 0 0 0 1 1 | AES 128 | 2020-04-29_aes128-MR.key
+| 1 1 1 1 1 0 0 0 0 0 0 1 1 1 | AES 128 | 2020-04-29_aes128-MRLSE.key
+| 1 1 1 1 1 1 1 1 1 1 1 1 0 1 | AES 128 | 2020-04-29_aes128-MRLSEDGVWUAX
+</screen>
+<note rev="v2i1">The number <codeph>1</codeph> in column <b>*</b> indicates whether at least one
+attribute is defined in the <keyword conref="lxoc_conref.dita#lxoc_conref/outconfig"/>. Otherwise,
+number <codeph>0</codeph> is shown. To see these attributes, use the long output format as described
+hereafter.</note>
+<p rev="shv2"><b>How to get a listing output in long format</b></p>
+<p rev="shv2">Request a long output format by specifying option <option>--long</option> or
+<option>-l</option> with the <cmdname>list-key</cmdname> command. You need to provide an <keyword
+conref="lxoc_conref.dita#lxoc_conref/outconfig"/> called
+<filepath>p11sak_defined_attrs.conf</filepath> to specify attributes to be printed in addition to
+the ones specified with key generation. You can use the environment variable
+<codeph>P11SAK_DEFAULT_CONF_FILE</codeph> to set the full path name for this file. If this variable
+is not set, the system looks for this configuration file in your user directory. If no configuration
+file is found there, the default <keyword conref="lxoc_conref.dita#lxoc_conref/outconfig"/>
+<filepath>/etc/opencryptoki/p11sak_defined_attrs.conf</filepath> is used. </p>
+<p rev="shv2">The <keyword conref="lxoc_conref.dita#lxoc_conref/outconfig"/> lists the desired
+attributes in the following format:</p>
+<codeblock rev="shv2">
+attribute {  
+   name = CKA_IBM_ATTRBOUND
+   type = CK_BBOOL
+   id = 0x80010004
+}
+attribute {
+   name = CKA_IBM_USE_AS_DATA
+   type = CK_BBOOL
+   id = 0x80010008
+}
+attribute {
+   name = CKA_IBM_PROTKEY_EXTRACTABLE
+   type = CK_BBOOL
+   id = 0x8001000c
+}
+attribute {
+   name = CKA_MODULUS_BITS
+   type = CK_ULONG
+   id = 0x00000121
+}
+attribute {
+   name = CKA_MODULUS  
+   type = CK_BYTE
+   id = 0x00000120
+}</codeblock>
+<p rev="shv2"><b>Example for a listing output in long format:</b></p>
+<screen rev="shv2">
+# p11sak list-key rsa --slot 1 --pin 11223344 <b>-l</b>
+
+Label: rsa1:pub
+       Key: public RSA
+       Attributes:
+           CKA_TOKEN: CK_TRUE
+           CKA_PRIVATE: CK_TRUE
+           CKA_MODIFIABLE: CK_TRUE
+           CKA_DERIVE: CK_FALSE
+           CKA_LOCAL: CK_FALSE
+           CKA_ENCRYPT: CK_TRUE
+           CKA_VERIFY: CK_TRUE
+           CKA_WRAP: CK_TRUE
+           <b>CKA_IBM_PROTKEY_EXTRACTABLE: CK_FALSE</b>
+           <b>CKA_MODULUS_BITS: 1024 (0x400)</b>
+           <b>CKA_MODULUS: len=128 value:
+             AD 8E A4 0C 3E 18 62 FE 3F 0B 95 F8 67 73 30 BF
+             3B A6 83 18 4B 32 91 AD 37 7D D8 4E 35 6F 97 E3
+             EC 22 34 E4 F9 7C 43 E5 6B 96 FE 65 AE 78 1C B2
+             A8 81 24 5F 11 B2 8D 0F C6 13 A8 BA 41 75 E7 07
+             A4 DC E3 53 95 0E D7 2E 55 7C 6D 1C 78 95 AF 9A
+             5B 18 4C AC 43 C7 F4 51 73 8C 4B 07 A6 48 E2 28
+             06 65 5A 22 F3 B9 7E C2 F6 5B B5 42 EB E5 CE 81
+             29 C4 91 6B 43 3F 19 5C FB 0E 20 47 D4 4C C4 E1
+</b>
+Label: rsa-key:prv
+       Key: private RSA
+       Attributes:
+           CKA_TOKEN: CK_TRUE
+           CKA_PRIVATE: CK_TRUE
+           CKA_MODIFIABLE: CK_TRUE
+           CKA_DERIVE: CK_FALSE
+           CKA_LOCAL: CK_FALSE
+           CKA_SENSITIVE: CK_FALSE
+           CKA_DECRYPT: CK_TRUE
+           CKA_SIGN: CK_TRUE
+           CKA_UNWRAP: CK_TRUE
+           CKA_EXTRACTABLE: CK_TRUE
+           CKA_ALWAYS_SENSITIVE: CK_FALSE
+           CKA_NEVER_EXTRACTABLE: CK_FALSE
+           <b>CKA_IBM_ATTRBOUND: CK_FALSE</b>
+           <b>CKA_IBM_USE_AS_DATA: CK_FALSE</b>
+           <b>CKA_IBM_PROTKEY_EXTRACTABLE: CK_FALSE
+           CKA_MODULUS: len=128 value:
+             AD 8E A4 0C 3E 18 62 FE 3F 0B 95 F8 67 73 30 BF
+             3B A6 83 18 4B 32 91 AD 37 7D D8 4E 35 6F 97 E3
+             EC 22 34 E4 F9 7C 43 E5 6B 96 FE 65 AE 78 1C B2
+             A8 81 24 5F 11 B2 8D 0F C6 13 A8 BA 41 75 E7 07
+             A4 DC E3 53 95 0E D7 2E 55 7C 6D 1C 78 95 AF 9A
+             5B 18 4C AC 43 C7 F4 51 73 8C 4B 07 A6 48 E2 28
+             06 65 5A 22 F3 B9 7E C2 F6 5B B5 42 EB E5 CE 81
+             29 C4 91 6B 43 3F 19 5C FB 0E 20 47 D4 4C C4 E1</b>
+...
+</screen>
+</section>
+<section id="p11_delete" rev="shv2">
+<title>Remove a key</title>
+<p>Use the <cmdname>p11sak remove-key</cmdname> subcommand to remove keys from the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token repository. The tool supports the deletion
+of:</p>
+<ul>
+<li>symmetric keys (AES, 3DES, DES)</li>
+<li>asymmetric keys (RSA, EC).</li>
+</ul>
+<syntaxdiagram frame="all" expanse="page">
+<title>p11sak syntax - Removing keys</title>
+<groupseq>
+<kwd>p11sak</kwd>
+<sep> </sep>
+<var>remove-key</var>
+<groupchoice importance="optional">
+<groupcomp><var>des</var></groupcomp>
+<groupcomp><var>3des</var></groupcomp>
+<groupcomp><var>aes </var></groupcomp>
+<groupcomp><var>rsa </var></groupcomp>
+<groupcomp><var>ec </var></groupcomp>
+</groupchoice><groupseq>
+<groupcomp><kwd>--slot</kwd><var>&lt;slot ID></var></groupcomp>
+<groupcomp><kwd>--pin</kwd><var>&lt;PIN></var></groupcomp>
+<groupcomp importance="optional">
+<sep> </sep>
+<kwd>--label</kwd><var>&lt;key name></var>
+</groupcomp>
+<groupcomp importance="optional">
+<sep> </sep>
+<kwd>--force</kwd><sep> </sep><sep>|</sep><sep> </sep><kwd>-f</kwd>
+</groupcomp>
+</groupseq>
+</groupseq></syntaxdiagram>
+<p>With the parameters you can select the key or the keys that you want to delete.</p>
+<p>Either select a specific key for deletion by specifying its name with the
+<parmname>--label</parmname> option. Or select multiple keys by specifying a key type together with
+the slot ID and the user PIN. The parameters and options that define the key type are optional if
+the <parmname>--label</parmname> option is set. The <parmname>--label</parmname> option takes
+precedence over the key type and deletes all keys with that label. </p>
+<p>You are prompted to confirm the deletion of the selected key or keys. To suppress the
+confirmation, use the <parmname>--force | -f</parmname> option. </p>
+</section>
+<section id="pk11_help">
+<title>Command help</title>
+<p>Request general help with the following command:</p>
+<codeblock># p11sak -h</codeblock>
+<p>to receive the following information:</p>
+<screen>
+Usage: p11sak COMMAND [ARGS] [OPTIONS]
+
+Commands:
+     generate-key        Generate a key
+     list-key            List keys in the repository
+     <ph rev="shv2">remove-key          Delete keys in the repository
+</ph>
+Options:
+-h, --help          Show this help
+</screen>
+<p>Request help for a subcommand:</p>
+<codeblock># p11sak generate-key -h
+# p11sak list-key -h
+<ph rev="shv2"># p11sak remove-key -h</ph></codeblock>
+<p>For the <cmdname>generate-key</cmdname> subcommand, you receive the following information:</p>
+<screen rev="shv2">
+# p11sak generate-key -h
+
+Usage: p11sak generate-key [ARGS] [OPTIONS]
+
+Args:
+     des
+     3des
+     aes [128 | 192 | 256]
+     rsa [1024 | 2048 | 4096]
+      ec [prime256v1 | prime192 | secp224 | secp384r1 | secp521r1 | secp256k1 |
+          brainpoolP160r1 | brainpoolP160t1 | brainpoolP192r1 | brainpoolP192t1 |
+          brainpoolP224r1 | brainpoolP224t1 | brainpoolP256r1 | brainpoolP256t1 |
+          brainpoolP320r1 | brainpoolP320t1 | brainpoolP384r1 | brainpoolP384t1 |
+          brainpoolP512r1 | brainpoolP512t1]
+
+
+Options:
+     --slot SLOTID                           openCryptoki repository token SLOTID.
+     --pin PIN                               pkcs11 user PIN 
+     --label LABEL                           key label LABEL to be listed
+     --exponent EXP                          set RSA exponent EXP
+     --attr [M R L S E D G V W U A X N]      set key attributes
+     -h, --help                              Show this help
+
+</screen>
+<p>For the <cmdname>generate-key</cmdname> subcommand, you can request help for a selected key type, 
+for example, for an AES key:</p>
+<screen rev="shv2"># p11sak generate-key aes -h
+
+ Usage: p11sak generate-key aes [ARGS] [OPTIONS]
+
+ Args:
+      128
+      192
+      256
+
+ Options:
+      --slot SLOTID                           openCryptoki repository token SLOTID.
+      --pin PIN                               pkcs11 user PIN
+      --label LABEL                           key label LABEL to be listed
+      --attr [M R L S E D G V W U A X N T]    set key attributes
+      -h, --help                              Show this help
+</screen>
+</section>
+</refbody>
+</reference>
+<?Pub *0000014551?>

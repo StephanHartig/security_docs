@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_usecases_map" title="Programming basics and user scenarios" xml:lang="en-US">
+<topicref href="lxoc_usecases_basics.dita"><topicmeta><navtitle>Programming with openCyptoki</navtitle></topicmeta>
+<topicref href="lxoc_usecases_objects.dita"><topicmeta><navtitle>How to create objects</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_attributes.dita"><topicmeta><navtitle>How to apply attributes to objects</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_structure.dita"><topicmeta><navtitle>Structure of an openCryptoki application</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_sampleprog.dita"><topicmeta><navtitle>Sample openCryptoki application</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_codesamples.dita"><topicmeta><navtitle>openCryptoki code samples</navtitle></topicmeta>
+<topicref href="lxoc_usecases_dynamic_call.dita"><topicmeta><navtitle>Dynamic library call</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_shared_lib.dita"><topicmeta><navtitle>Shared linked library</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_base.dita"><topicmeta><navtitle>Base procedures</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_sessions.dita"><topicmeta><navtitle>Session and login</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_object_handling.dita"><topicmeta><navtitle>Object handling</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_crypto_ops.dita"><topicmeta><navtitle>Cryptographic operations</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_usecases_troubles.dita"><topicmeta><navtitle>Trouble shooting</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_usecases_config.dita"><topicmeta><navtitle>Configuration applications</navtitle></topicmeta>
+<topicref href="lxoc_usecases_config_server.dita"><topicmeta><navtitle>Server side setup</navtitle></topicmeta></topicref>
+<topicref href="lxoc_usecases_config_client.dita"><topicmeta><navtitle>Client side setup</navtitle></topicmeta></topicref>
+</topicref>
+</map>

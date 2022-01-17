@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_EP11_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/></title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> mechanisms</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> mechanisms</searchtitle>
+</titlealts>
+<shortdesc>View a list of mechanisms provided by <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> which you can use to exploit the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> features for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> from within your application. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>mechanisms for the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/><indexterm>supported <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<p>Use the <cmdname>pkcsconf</cmdname> command with the shown parameters to retrieve a complete list
+of mechanisms  that are supported by the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"
+/>:<screen>$ pkcsconf -m -c &lt;slot>
+Mechanism #2
+        Mechanism: 0x131 (CKM_DES3_KEY_GEN)
+        Key Size: 24-24
+        Flags: 0x8001 (CKF_HW|CKF_GENERATE)
+&mldr;
+Mechanism #10
+        Mechanism: 0x132 (CKM_DES3_ECB)
+        Key Size: 24-24
+        Flags: 0x60301 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT|CKF_WRAP|CKF_UNWRAP)
+Mechanism #11
+        Mechanism: 0x133 (CKM_DES3_CBC)
+        Key Size: 24-24
+        Flags: 0x60301 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT|CKF_WRAP|CKF_UNWRAP)
+...</screen></p>
+<p>On an <keyword conref="lxoc_conref.dita#lxoc_conref/cexallplong"/> (CEX*P) which is configured to
+support all applicable <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms from the
+current <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> can exploit the mechanisms <ph rev="shv2">listed
+by the <cmdname>pkcsconf -m -c &lt;slot></cmdname> command output. This output corresponds to the
+list shown in</ph>
+<xref href="#lxoc_EP11_token/ep11_mechanisms" format="dita"/>. Each mechanism provides its supported
+key size and some further properties such as hardware support and mechanism information flags. These
+flags provide information about the <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+functions that may use the mechanism. In some cases, the flags also provide further attributes that
+describe the supported variants of the mechanism. Typical functions are for example,
+<term>encrypt</term>, <term>decrypt</term>, <term>wrap key</term>, <term>unwrap key</term>,
+<term>sign</term>, or <term>verify</term>.</p>
+</section>
+<section>
+<!-- ***************************************************************************************************
+*******************  Verify the list of mechanisms with: # pkcsconf -m -c 4  ***************************
+***************************************************************************************************  -->
+<table id="ep11_mechanisms"><title><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+mechanisms supported by the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></title><desc>
+<p outputclass="summary">Table with 4 columns that contain information about <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/>.</p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="14*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="11*"/>
+<colspec colname="col4" colwidth="5*"/>
+<thead>
+<row>
+<entry>Mechanism</entry>
+<entry>Key sizes in bits or bytes</entry>
+<entry>Properties</entry>
+<entry>Support with OC version</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CKM_RSA_PKCS_OAEP</entry>
+<entry>1024-4096 bits</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS_KEY_PAIR_GEN</entry>
+<entry>1024-4096 bits</entry>
+<entry>GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_X9_31_KEY_PAIR_GEN</entry>
+<entry>1024-4096 bits</entry>
+<entry>GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_X9_31</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_PKCS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_RSA_PKCS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_RSA_PKCS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_RSA_PKCS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_RSA_PKCS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_RSA_PKCS_PSS</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_KEY_GEN</entry>
+<entry>16-32 bytes</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_ECB</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CBC</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CBC_PAD</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES2_KEY_GEN</entry>
+<entry>16-16 bytes</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_KEY_GEN</entry>
+<entry>24-24 bytes</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_ECB</entry>
+<entry>16-24 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC</entry>
+<entry>16-24 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC_PAD</entry>
+<entry>16-24 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_KEY_DERIVATION</entry>
+<entry>n/a</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_HMAC</entry>
+<entry>128-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_KEY_DERIVATION</entry>
+<entry>n/a</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_HMAC</entry>
+<entry>112-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA_1</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_KEY_DERIVATION</entry>
+<entry>n/a</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA_1_HMAC</entry>
+<entry>80-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_KEY_DERIVATION</entry>
+<entry>n/a</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_HMAC</entry>
+<entry>192-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_KEY_DERIVATION</entry>
+<entry>n/a</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_HMAC</entry>
+<entry>256-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_256</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_256_HMAC</entry>
+<entry>128-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_224</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_224_HMAC</entry>
+<entry>112-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_KEY_PAIR_GEN</entry>
+<entry>192-521 bits</entry>
+<entry>GENERATE_KEY_PAIR, EC_F_P, <ph rev="shv2">EC_F_P, EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_F_P, EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA1</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_F_P, EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDH1_DERIVE</entry>
+<entry>192-521 bits</entry>
+<entry>DERIVE, EC_F_P, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DSA_PARAMETER_GEN</entry>
+<entry>1024-3072 bits</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DSA_KEY_PAIR_GEN</entry>
+<entry>1024-3072 bits</entry>
+<entry>GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DSA</entry>
+<entry>1024-3072 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DSA_SHA1</entry>
+<entry>1024-3072 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DH_PKCS_PARAMETER_GEN</entry>
+<entry>1024-3072 bits</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DH_PKCS_KEY_PAIR_GEN</entry>
+<entry>1024-3072 bits</entry>
+<entry>GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DH_PKCS_DERIVE</entry>
+<entry>1024-3072 bits</entry>
+<entry>DERIVE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_DILITHIUM</entry>
+<entry>256-256 bytes</entry>
+<entry>SIGN, VERIFY, GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_X9_31</entry>
+<entry>1024-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_PBE_SHA1_DES3_EDE_CBC</entry>
+<entry>24-24 bytes</entry>
+<entry>GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_224</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_256</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_384</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_512</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_224_HMAC</entry>
+<entry>112-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_256_HMAC</entry>
+<entry>128-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_384_HMAC</entry>
+<entry>192-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_512_HMAC</entry>
+<entry>256-256 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA224</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA256</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA384</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA512</entry>
+<entry>192-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph>, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_EC_C25519</entry>
+<entry>256-256 bytes</entry>
+<entry>DERIVE, EC_F_P, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_EC_X25519</entry>
+<entry></entry>
+<entry>is a synonym for CKM_IBM_EC_C25519</entry>
+<entry></entry>
+</row>
+<row>
+<entry>CKM_IBM_EC_C448</entry>
+<entry>448-448 bytes</entry>
+<entry>DERIVE, EC_F_P, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_EC_X448</entry>
+<entry></entry>
+<entry>is a synonym for CKM_IBM_EC_C448</entry>
+<entry></entry>
+</row>
+<row>
+<entry>CKM_IBM_ED25519_SHA512</entry>
+<entry>256-256 bytes</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_EDDSA_SHA512</entry>
+<entry></entry>
+<entry>is a synonym for CKM_IBM_ED25519_SHA512</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_ED448_SHA3</entry>
+<entry>448-448 bytes</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_UNCOMPRESS</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_CMAC</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CMAC</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CMAC</entry>
+<entry>16-24 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row rev="shv2">
+<entry>CKM_IBM_ATTRIBUTEBOUND_WRAP</entry>
+<entry>0-4096 bits</entry>
+<entry>WRAP, UNWRAP</entry>
+<entry>3.16</entry>
+</row>
+<!-- 
+<row rev="shv2">
+<entry>CKM_IBM_CPACF_WRAP *** wird nicht dokumentiert, da nur intern verwendet</entry>
+<entry></entry>
+<entry></entry>
+<entry>3.17 ???6</entry>
+</row>
+<row rev="shv2">
+<entry>CKM_IBM_BTC_DERIVE</entry>
+<entry></entry>
+<entry></entry>
+<entry>3.16</entry>
+</row>  
+<row rev="shv2">
+<entry>CKM_IBM_ECDSA_OTHER</entry>
+<entry></entry>
+<entry></entry>
+<entry>3.16</entry>
+</row>  
+-->
+</tbody>
+</tgroup>
+</table>
+<p rev="shv2">For a description of mechanisms with a name pattern of <codeph>CKM_IBM_...</codeph>
+refer to <xref href="lxoc_tok_ibm_mechfeat.dita"/>.</p>
+<p>For more detailed information on how to use the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>, refer to <xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html"
+scope="external">Exploiting Enterprise PKCS #11 using openCryptoki</xref>. </p>
+<p>For explanation about the key object properties see the <xref
+conref="lxoc_conref.dita#links/pkcs11_standard_url"/>.</p>
+</section>
+</conbody>
+</concept>

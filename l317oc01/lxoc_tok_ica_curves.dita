@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ica_curves" xml:lang="en-us">
+<title>ECC curves supported by the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"
+/></title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> ECC curves</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and supported  <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> ECC curves</searchtitle>
+</titlealts>
+<shortdesc>View a list of curves supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> for elliptic curve cryptography
+(ECC).</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>ECC curves of the
+<keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/><indexterm>supported ECC
+curves</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<p><xref href="#lxoc_ica_curves/ica_curves" format="dita"/> shows the maximum number of curves that
+the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> can support if all prerequisites
+are fulfilled at their best conditions. The following dependencies exist:</p>
+<ul>
+<li>Which <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version (and thus which <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> version) is used? Refer to the applicable  <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> documentation for information about supported
+curves.</li>
+<li>Which <keyword conref="lxoc_conref.dita#lxoc_conref/cryptocoprocs"/> are available?</li>
+<li>Is the MSA9 component of <ph conref="lxcommon.dita#phrases/ph_ibmz15"/> or later available?</li>
+<li rev="shv2">Is <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> or  <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/> running in FIPS mode? When FIPS mode is active for
+<keyword conref="lxoc_conref.dita#lxoc_conref/libica"/>, <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/> is also set into FIPS mode. However, note that the
+case where <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> does not run in FIPS mode, but
+<keyword conref="lxoc_conref.dita#lxoc_conref/openssl"/> does, may cause errors when software
+fallbacks are used. If, for example, an elliptic curve is supported by hardware in <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/>, but not by  <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/>, because <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/> runs in FIPS mode, this software fallback
+fails.</li>
+</ul>
+</section>
+<section>
+<table id="ica_curves"><title>Curves supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> for elliptic curve cryptography (ECC)</title><desc>
+<p outputclass="summary" platform="">Table with three columns that contain information about
+supported curves by the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/>.</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="20*"/>
+<thead>
+<row>
+<entry>Curve</entry>
+<entry>Purpose</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>brainpoolP160r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP192r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP224r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP256r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP320r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP1384r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>brainpoolP512r1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>prime192v1 <b>(1), (3)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>prime256v1 <b>(1), (2)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>secp224r1 <b>(1)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and CKM_ECDSA_SHAnnn</li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>secp384r1 <b>(1), (2)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and
+<codeph>CKM_ECDSA_SHAnnn</codeph></li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>secp521r1 <b>(1), (2)</b></entry>
+<entry>
+<ul>
+<li>for Sign/Verify operations with <codeph>CKM_ECDSA</codeph> and
+<codeph>CKM_ECDSA_SHAnnn</codeph></li>
+<li>for ECDH with CKM_ECDH1_DERIVE</li>
+</ul>
+</entry>
+</row>
+<!-- ********************************* 
+<row>
+<entry>ed448 <b>(2)</b></entry>
+<entry>
+<ul>
+<li>Sign/Verify with <codeph>CKM_IBM_ED448_SHA3</codeph></li>
+</ul></entry>
+</row>
+<row>
+<entry>ed25519 <b>(2)</b></entry>
+<entry>
+<ul>
+<li>Sign/Verify with <codeph>CKM_IBM_ED25519_SHA512</codeph></li>
+</ul></entry>
+</row>
+<row>
+<entry>X448 <b>(2)</b></entry>
+<entry>
+<ul>
+<li>ECDH with <codeph>CKM_IBM_EC_C448</codeph></li>
+</ul></entry>
+</row>
+<row>
+<entry>X25519 <b>(2)</b></entry>
+<entry>
+<ul>
+<li>ECDH with <codeph>CKM_IBM_EC_C25519</codeph></li>
+</ul></entry>
+</row>
+*********************************  -->
+<row>
+<entry namest="col1" nameend="col2">
+<note othertype="Notes" type="other">
+<sl>
+<sli><b>(1)</b> supported via CryptoExpress <keyword conref="lxoc_conref.dita#lxoc_conref/cca"/> coprocessor</sli>
+<sli><b>(2)</b> supported via <keyword conref="lxoc_conref.dita#lxoc_conref/cpacf"/> on processors 
+with MSA9 component of <ph conref="lxcommon.dita#phrases/ph_ibmz15"/> or later </sli>
+<sli><b>(3)</b> not available if <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> runs in
+FIPS mode</sli>
+</sl>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</conbody>
+</concept>

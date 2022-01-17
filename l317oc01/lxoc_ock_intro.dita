@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_intro_ock" xml:lang="en-us">
+<title>What is <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>?</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>What is <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>?</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: What is <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>?</searchtitle>
+</titlealts>
+<abstract>
+<shortdesc>The <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> standard comprises the
+definition of an API called <term>Cryptoki</term> (from <term>cryptographic token interface</term>).
+However, the term <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> is often used instead, to
+refer to the API as well as to the standard that defines it. <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> in turn is an open source  implementation of
+<term>Cryptoki</term>. As such, <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> provides a
+standard programming interface between applications and all kinds of portable cryptographic devices. </shortdesc>
+</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm> shared library (C
+API)</indexterm></indexterm>
+<indexterm>C API</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> consists of an implementation of the
+<keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+<term>Cryptoki</term> API, a slot manager, a set of slot token dynamic link libraries (STDLLs), and
+an API for these STDLLs. For example, the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>
+type is a STDLL introduced with <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version
+3.1.</p>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> provides support for several
+cryptographic algorithms according to the <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+standard. The <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> library loads the tokens that
+provide hardware or software specific support for cryptographic functions.</p>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> can be used directly through the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> shared library (C API) from all
+applications which are written in a language that provides a foreign language interface for C.</p>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> is available for major <keyword
+conref="lxoc_conref.dita#lxoc_conref/linux"/> distributions, for example, Red Hat Enterprise Linux,
+SUSE Linux Enterprise Server, or Ubuntu. </p>
+<p>For more information about the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> services,
+or about the interfaces between the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> main
+module and its tokens, see
+<codeblock><xref conref="lxoc_conref.dita#links/ock_github"/>.
+</codeblock></p>
+</conbody>
+</concept>
+<?Pub *0000003393?>

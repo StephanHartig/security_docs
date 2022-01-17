@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ibmcommon" xml:lang="en-us" rev="shv2">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and features for
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+</title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and features for
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and features for<keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+</searchtitle>
+</titlealts>
+<shortdesc>Numerous <keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and
+features are available across multiple token-types or for certain tokens only. Scan the content of this topic to find the appropriate information.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and features
+<indexterm>common for <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"
+/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+<indexterm>common <keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms and
+features </indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section/>
+</conbody>
+</concept>
+<?Pub *0000003393?>

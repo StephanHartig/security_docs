@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="accessibility" xml:lang="en-us">
+<title>Accessibility</title>
+<shortdesc>Accessibility features help users who have a disability,
+such as restricted mobility or limited vision, to use information
+technology products successfully.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>accessibility</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<section><title>Documentation accessibility</title><p>The <ph conref="lxcommon.dita#phrases/lib_title">Linux on System z</ph> publications are in Adobe
+Portable Document Format (PDF) and should be compliant with accessibility standards. If you
+experience difficulties when you use the PDF file and want to request a Web-based format for this
+publication send an email to eservdoc@de.ibm.com or write to:</p><?Pub Caret 23?><p><lines>IBM Deutschland Research &amp; Development GmbH
+Information Development
+Department 3282
+Schoenaicher Strasse 220
+71032 Boeblingen
+Germany</lines></p><p>In the request, be sure to include the publication
+number and title.</p><p>When you send information to IBM, you grant
+IBM a nonexclusive right to use or distribute the information in any
+way it believes appropriate without incurring any obligation to you.</p></section>
+<section><title>IBM and accessibility</title><!--Include the following statement exactly as written.--><p>See
+the IBM Human Ability and Accessibility Center for more information
+about  the commitment that IBM has to accessibility at <codeblock><xref
+href="http://www.ibm.com/able" scope="external">www.ibm.com/able</xref></codeblock></p> </section>
+</conbody>
+</concept>
+<?Pub *0000001891?>

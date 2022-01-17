@@ -1,0 +1,5 @@
+/STG/LinuxIC/v3r0m0/lnz/common/lxcommon_library.dita
+/STG/LinuxIC/v3r0m0/lnz/common/lxcommon.dita
+/STG/LinuxIC/v3r0m0/lnz/common/lxcommon_specialnotice.dita
+/STG/LinuxIC/v3r0m0/lnz/common/lxcommon_accessibility.dita
+/STG/LinuxIC/v3r0m0/lnz/common/lxcommon_notices.dita

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ep11_stackoverview" xml:lang="en-us">
+<title>Managing tokens - <cmdname>pkcsconf</cmdname> utility</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<?Pub Caret -1?>
+<titlealts>
+<navtitle>pkcsconf</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Configuring and administering tokens with
+<cmdname>pkcsconf</cmdname></searchtitle>
+</titlealts>
+<shortdesc><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> provides a command line program
+<filepath rev="shv2">(/sbin/pkcsconf)</filepath> to configure and administer tokens that are
+supported within the system. The <codeph>pkcsconf</codeph> capabilities include token
+initialization, and security officer (SO) PIN and user PIN initialization and maintenance. These
+PINs are required for token initialization.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>pkcsconf</indexterm>
+<indexterm>utility <indexterm>pkcsconf</indexterm></indexterm>
+<indexterm>tools <indexterm>pkcsconf</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><codeph>pkcsconf</codeph> operations that address a specific token must specify the slot that
+contains the token with the <cmdname>-c</cmdname> option. You can view the list of tokens present
+within the system by specifying the <cmdname>-t</cmdname> option. Type <codeph>pkcsconf
+--help</codeph> or <codeph>pkcsconf -h</codeph> into a command line to show the options for the
+<codeph>pkcsconf</codeph> command: </p>
+<p>
+<screen># pkcsconf -h 
+usage: pkcsconf [-itsmlIupPh] [-c slotnumber -U user-PIN -S SO-PIN -n new PIN]</screen>
+</p>
+<p>The available options have the following meanings: </p>
+<dl>
+<dlentry>
+<dt>-i</dt>
+<dd>display <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> info</dd>
+</dlentry>
+<dlentry>
+<dt>-t</dt>
+<dd>display token info</dd>
+</dlentry>
+<dlentry>
+<dt>-s</dt>
+<dd>display slot info</dd>
+</dlentry>
+<dlentry>
+<dt>-m</dt>
+<dd>display mechanism list</dd>
+</dlentry>
+<dlentry>
+<dt>-l</dt>
+<dd>display slot description </dd>
+</dlentry>
+<dlentry>
+<dt>-I</dt>
+<dd>initialize token</dd>
+</dlentry>
+<dlentry>
+<dt>-u</dt>
+<dd>initialize user PIN</dd>
+</dlentry>
+<dlentry>
+<dt>-p</dt>
+<dd>set the user PIN</dd>
+</dlentry>
+<dlentry>
+<dt>-P</dt>
+<dd>set the SO PIN</dd>
+</dlentry>
+<dlentry>
+<dt>-h | --help | ?</dt>
+<dd>show this help</dd>
+</dlentry>
+<dlentry>
+<dt>-c</dt>
+<dd>specify the token slot ID</dd>
+</dlentry>
+<dlentry>
+<dt>-U</dt>
+<dd>the current user PIN (for use when changing the user PIN with -u and -p options). If not
+specified, user will be prompted.</dd>
+</dlentry>
+<dlentry>
+<dt>-S</dt>
+<dd>the current security officer (SO) PIN (for use when changing the SO PIN with -P option). If not
+specified, user will be prompted.</dd>
+</dlentry>
+<dlentry>
+<dt>-n</dt>
+<dd>the new PIN (for use when changing either the user PIN or the SO PIN with -u, -p or -P options).
+If not specified, user will be prompted.</dd>
+</dlentry>
+</dl>
+<p>For more information about the <codeph>pkcsconf</codeph> command, see the <xref
+href="https://linux.die.net/man/1/pkcsconf" format="html" scope="external"><cite>pkcsconf man
+page</cite></xref>.</p>
+<section id="start_slotd">
+<title>Starting the slot manager</title>
+<p>A prerequisite for accessing a token is a running slot manager daemon
+(<cmdname>pkcsslotd</cmdname>) .</p>
+<p>Use one of the following commands to start the slot daemon, which reads out the configuration
+information and sets up the tokens:<screen>
+$ service pkcsslotd start 
+$ systemctl start pkcsslotd.service   /* for Linux distributions providing systemd */     
+</screen></p>
+<p>For a permanent solution, specify:<screen>
+$ chkconfig pkcsslotd on
+$ systemctl enable pkcsslotd.service  /* for Linux distributions providing systemd */</screen></p>
+</section>
+<section><title>Initializing a token with
+<cmdname>pkcsconf</cmdname></title><indexterm>pkcsconf</indexterm><indexterm>token<indexterm>initializing</indexterm></indexterm><indexterm><keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>SO PIN</indexterm><indexterm>standard
+PIN</indexterm></indexterm><indexterm>security officer (SO)<indexterm>log-in
+PIN</indexterm></indexterm><indexterm>SO<indexterm>log-in
+PIN</indexterm></indexterm><indexterm>standard user (User)<indexterm>log-in
+PIN</indexterm></indexterm><indexterm>User<indexterm>log-in
+PIN</indexterm></indexterm><indexterm>PIN</indexterm><indexterm>log-in PIN</indexterm><p>Once the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> configuration file and, if applicable,
+token-specific configuration files are set up, and the <cmdname>pkcsslotd</cmdname> daemon is
+started, the token instances must be initialized. Use the <cmdname>pkcsconf</cmdname> command as
+shown to perform this task.</p><note>As mentioned in <xref
+href="lxoc_ock_features.dita#lxoc_ock_features/roles"/>, <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> defines a <b><i>security officer</i></b> (SO) and a
+(standard) <b><i>User</i></b> for each token instance. <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> requires that for both a log-in PIN is defined as
+part of the token initialization.</note><p>The following command provides some useful slot
+information:<screen># pkcsconf -s
+
+Slot #1 Info
+        Description: ICA Token
+        Manufacturer: IBM
+        Flags: 0x1 (TOKEN_PRESENT)
+        Hardware Version: 4.0
+        Firmware Version: 2.11
+...
+...
+Slot #4 Info
+        Description: EP11 Token
+        Manufacturer: IBM
+        Flags: 0x1 (TOKEN_PRESENT)
+        Hardware Version: 4.0
+        Firmware Version: 2.10</screen></p><p>Receive more detailed information about a token using
+the following command:</p><fig id="pkcsconf_t"><title>Token information with <cmdname>pkcsconf
+-t</cmdname></title><screen># pkcsconf -t
+...
+...
+Token #4 Info:
+        Label: ep11tok
+        Manufacturer: IBM
+        Model: EP11
+        Serial Number: 93AABC5H53107366
+        Flags: 0x880045 (RNG|LOGIN_REQUIRED|CLOCK_ON_TOKEN|USER_PIN_TO_BE_CHANGED|SO_PIN_TO_BE_CHANGED)
+        Sessions: 0/[effectively infinite]
+        R/W Sessions: [information unavailable]/[effectively infinite]
+        PIN Length: 4-8
+        Public Memory: [information unavailable]/[information unavailable]
+        Private Memory: [information unavailable]/[information unavailable]
+        Hardware Version: 7.24
+        Firmware Version: 3.1
+        Time: 2021031912021700
+
+
+
+</screen></fig><p>Find the token instance you want to initialize in the output list and note the
+correct slot number. This number is used in the next initialization steps to identify your
+token:<screen>
+$ pkcsconf -I -c &lt;slot>   /* Initialize the Token and set up a Token Label */
+
+$ pkcsconf -P -c &lt;slot>   /* change the SO PIN (recommended) */
+
+$ pkcsconf -u -c &lt;slot>   /* Initialize the User PIN (SO PIN required) */
+
+$ pkcsconf -p -c &lt;slot>   /* change the User PIN (optional) */</screen></p><dl>
+<dlentry>
+<dt><codeph>pkcsconf -I</codeph></dt>
+<dd>During token initialization, you are asked for a token label. Provide a meaningful name, because
+you may need this reference for identification purposes.</dd>
+</dlentry>
+<dlentry>
+<dt><codeph>pkcsconf -P</codeph></dt>
+<dd>For security reasons, <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> requires that you
+change the default SO PIN (<userinput>87654321</userinput>) to a different value. Use the
+<codeph>pkcsconf -P</codeph> option to change the SO PIN. </dd>
+</dlentry>
+<dlentry>
+<dt><codeph>pkcsconf -u</codeph></dt>
+<dd>When you enter the user PIN initialization you are asked for the newly set SO PIN. The length of
+the user PIN must be 4 - 8 characters.</dd>
+</dlentry>
+<dlentry>
+<dt><codeph>pkcsconf -p</codeph></dt>
+<dd>You must at least once change the user PIN with <codeph>pkcsconf -p</codeph> option. After you
+completed the PIN setup, the token is prepared and ready for use.</dd>
+</dlentry>
+</dl><?Pub Caret 754?><note>Define a user PIN that is different from
+<userinput>12345678</userinput>, because this pattern is checked internally and marked as default
+PIN. A log-in attempt with this user PIN is recognized as <term>not initialized</term>.
+</note></section>
+</conbody>
+</concept>
+<?Pub *0000000942?>

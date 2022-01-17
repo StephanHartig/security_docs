@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_icsf_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/></title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>ICSF token</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and  <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/></searchtitle>
+</titlealts>
+<shortdesc>ICSF (Integrated Cryptographic Service Facility) is a software element of
+<keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>
+<keyword conref="lxoc_conref.dita#lxoc_conref/zos"/>. The <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/> is a clear-key, remote cryptographic token. The
+actual operations are performed remotely on a server and all the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> key objects are stored remotely on the server. Adding
+an <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> requires a running remote  <keyword
+conref="lxoc_conref.dita#lxoc_conref/zos"/> instance.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p></p>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the
+<keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> are not documented in this edition.
+Instead, read the information about the purpose and use of the <cmdname>pkcsicsf</cmdname> tool. </p>
+<p>For more information about <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+and ICSF, refer to <xref
+href="https://www.ibm.com/docs/en/zos/2.4.0?topic=zcs-zos-cryptographic-services-icsf-writing-pkcs-11-applications"
+format="html" scope="external"><cite>Cryptographic Services ICSF: Writing PKCS #11
+Applications</cite>.</xref></p>
+<?Pub Caret 204?>
+</conbody>
+</concept>
+<?Pub *0000003393?>

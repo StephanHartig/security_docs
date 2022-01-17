@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="lxoc_common_baseline" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> Baseline Provider support</title>
+<titlealts>
+<navtitle>Baseline Provider support</navtitle>
+<?Pub Caret -1?>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> Baseline Provider support</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> implements the <term>PKCS #11
+Baseline Provider</term> specification. A library implementing <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> according to the standards of the <b>Baseline
+Provider Clause</b> is called a <term>PKCS #11 Baseline Provider</term>. Such a provider has the
+ability to provide information about its cryptographic services. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+<indexterm>Baseline Provider</indexterm><indexterm><keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></indexterm> Baseline Provider</indexterm>
+<indexterm>Baseline Provider </indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>A <term>PKCS #11 Baseline Provider</term> library can be exploited by an application conforming
+to the <b>Baseline Consumer Clause</b>. Such an application is therefore called a <term>PKCS #11
+Baseline Consumer</term>. A <term>Baseline Consumer</term> calls a <term>Baseline Provider</term>
+implementation of the <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> API in order to use
+the cryptographic functionality from that provider. Thus, at run-time, a consumer can query
+information about a provider, for example, about the offered cryptographic services. </p>
+<p>For detailed information about the conformance of a <term>PKCS #11 Baseline Consumer</term> and
+of a <term>PKCS #11 Baseline Provider</term> read <xref
+href="https://docs.oasis-open.org/pkcs11/pkcs11-profiles/v3.0/pkcs11-profiles-v3.0.html"
+format="html" scope="external">PKCS #11 Cryptographic Token Interface Profiles Version
+3.0</xref>.</p>
+</conbody>
+</concept>
+<?Pub *0000000808?>
