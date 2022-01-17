@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Rcsfb4-gen395_accesspt" xml:lang="en-us" rev="hw20i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control points of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/></searchtitle>
+</titlealts>
+<shortdesc>The access control points of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34 Key Receive (CSNDT34R)<indexterm>access control points</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<?Pub Caret 130?>
+<p>This verb requires the following commands to be enabled in the active role:</p>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><desc>
+<p outputclass="summary">Access control points for TR-34 Key Receive</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="4*"/>
+<colspec colname="c2" colnum="2" colwidth="3*"/>
+<colspec colname="c3" colnum="3" colwidth="20*"/>
+<thead>
+<row>
+<entry>Rule array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>2PASSRCV</entry>
+<entry>X'01FD'</entry>
+<entry>TR-34 Key Receive – Allow 2PASSRCV.</entry>
+</row>
+<row>
+<entry>1PASSRCV</entry>
+<entry>X'01FE'</entry>
+<entry>TR-34 Key Receive – Allow 1PASSRCV.</entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>X'01FF'</entry>
+<entry>Permit X.509 without PKI root validation.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>When key wrapping method keyword specifies a wrapping method that is not the default method, the
+<b>TR-34 Key Receive – Allow wrapping override keywords</b> access control must be enabled.</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="TR34exp" pgwide="1" scale="80"><title>Valid TR-34 to
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> import translations and required
+access controls</title><desc>
+<p outputclass="summary">Valid TR-34 to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> import translations and required access
+controls. This table contains columns for Rule array keyword, Access control name, Offset (hex), and
+Specific key type and control vector attributes and a row for "K0" and "K1": TR-31 key encryption or
+wrapping, or key block protection keys.</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.28*"/>
+<colspec colname="c2" colnum="2" colwidth="3.45*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<colspec colname="c4" colnum="4" colwidth="1.81*"/>
+<thead>
+<row>
+<entry>Rule array keyword</entry>
+<entry>Command</entry>
+<entry>Offset </entry>
+<entry>Specific key type and control vector attributes</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c4">"K0" and "K1": TR-31 key encryption or wrapping, or key block
+protection keys</entry>
+</row>
+<row>
+<entry morerows="1">N/A</entry>
+<entry>TR-34 Key Receive - Permit DES EXPORTER</entry>
+<entry>X'0248'</entry>
+<entry morerows="1">See <xref
+href="wskc_tr34_Receive_parameters.dita#rcsfb4-gen392_parameters/importDEStr34"/>.</entry>
+</row>
+<row>
+<entry>TR-34 Key Receive - Permit DES IMPORTER</entry>
+<entry>X'0249'</entry>
+</row>
+<row>
+<entry morerows="3">N/A</entry>
+<entry>TR-34 Key Receive - Permit AES EXPORTER</entry>
+<entry>X'024A'</entry>
+<entry morerows="3">See <xref
+href="wskc_tr34_Receive_parameters.dita#rcsfb4-gen392_parameters/table_lcg_4fp_xhb"/>.</entry>
+</row>
+<row>
+<entry>TR-34 Key Receive - Permit AES IMPORTER</entry>
+<entry>X'024B'</entry>
+</row>
+<row>
+<entry>TR-34 Key Receive - Permit AES EXPORTER with EXPTT31D</entry>
+<entry>X'024C'</entry>
+</row>
+<row>
+<entry>TR-34 Key Receive - Permit AES IMPORTER with IMPTT31D</entry>
+<entry>X'024D'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000077566?>

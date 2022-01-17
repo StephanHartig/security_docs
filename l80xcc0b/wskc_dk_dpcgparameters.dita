@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpcgparameters" rev="sh15">
+<title>Parameters</title><titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>ENCRYPT</indexterm>
+<indexterm>BCD</indexterm>
+<indexterm>CLEAR</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 0.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+There are no keywords for this service.</pd></plentry>
+<plentry>
+<pt>current_PAN_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the length in bytes of the
+<parmname>current_PAN_data</parmname> variable. This value must be in the range 10 - 19.
+</pd>
+</plentry>
+<plentry>
+<pt>current_PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The current PAN data. The full account number, including check digit, should be included.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PAN_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the length in bytes of the
+<parmname>new_PAN_data</parmname> variable. This value must be in the range 10 - 19.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The new PAN data. The full account number, including check digit, should be included.
+</pd>
+</plentry>
+<plentry>
+<pt>current_card_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the length in bytes of the
+<parmname>current_card_data</parmname> variable. This value must be in the range 4 - 512.
+</pd>
+</plentry>
+<plentry>
+<pt>current_card_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The current card data, determined by the card issuer.
+</pd>
+</plentry>
+<plentry>
+<pt>new_card_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the length in bytes of the
+<parmname>new_card_data</parmname> variable. This value must be in the range 4 - 512.
+</pd>
+</plentry>
+<plentry>
+<pt>new_card_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The new card data, determined by the card issuer.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PIN_reference_value</parmname> parameter. This
+value must be 16. On output, <parmname>PIN_reference_value_length</parmname> is set to 16.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 16-byte PIN reference value of the current PIN.
+</pd>
+</plentry>
+<plentry>
+<pt>CMAC_FUS_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>CMAC_FUS_key_identifier</parmname> variable. If
+the <parmname>CMAC_FUS_key_identifier</parmname> contains a label, the length must be 64. Otherwise,
+the value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>CMAC_FUS_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to generate the MAC. The key identifier is an operational token or the
+key label of an operational token in key storage. The key algorithm of this key must be AES, the key
+type must be MAC, and the key usage fields must indicate GENONLY, CMAC, and DKPINAD2.
+<p>If the token supplied was encrypted under the old master key, the token is returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>CMAC_FUS_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable that specifies the length in bytes of the
+<parmname>CMAC_FUS</parmname> variable. This value must be in the range 8 - 16.
+</pd>
+</plentry>
+<plentry>
+<pt>CMAC_FUS</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The MAC of the current and new PANs and card data strings.
+</pd>
+</plentry>
+</parml></section>
+</refbody></reference>

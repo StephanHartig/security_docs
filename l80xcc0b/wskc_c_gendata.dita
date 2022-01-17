@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_gendata">
+<title>General data-encryption processes</title>
+  <titlealts>
+    <navtitle>General data-encryption processes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): General data-encryption
+processes</searchtitle>
+  </titlealts><shortdesc>Although the fundamental concepts of enciphering and deciphering
+data are simple, different methods exist to process data strings that
+are not a multiple of eight bytes in length. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>ANSI X3.106</indexterm>
+<indexterm>ANSI X9.23</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Two widely used methods for enciphering general data are defined
+in these ANSI standards: 
+<ul>
+<li>ANSI X3.106 cipher block chaining (CBC)</li>
+<li>ANSI X9.23</li>
+</ul> </p>
+<p>These methods also differ in how they define the initial chaining
+value (ICV).</p>
+<p>This section describes how the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs implement
+these methods. </p>
+</conbody></concept>

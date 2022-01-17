@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kimrequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></searchtitle>
+  </titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Key Import</cmdname> command (offset <ph>X'0012'</ph>) to be
+enabled in the active role.</p></section>
+<section><p>By also enabling the <cmdname>Key Import - Unrestricted</cmdname> command (offset
+<ph>X'027B'</ph>), you can permit a less secure mode of operation that enables an equal key-halves
+<synph><kwd>IMPORTER</kwd></synph> key-encrypting key to import a key having unequal key-halves (key
+parity bits are ignored).</p>
+<p rev="shr2">To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p rev="shr2">To receive a warning when wrapping a key with a weaker master key, enable the
+<cmdname>Warn when weak wrap - Master keys</cmdname> command (offset X'0332') in the active role.
+The <cmdname>Prohibit weak wrapping - Master keys</cmdname> command overrides this command.</p>
+</section>
+</refbody></reference>

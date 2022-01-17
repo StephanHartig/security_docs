@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_rebind" xml:lang="en-us">
+<title>REBIND</title>
+<titlealts>
+<navtitle>REBIND</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow: REBIND</searchtitle>
+</titlealts>
+<abstract><shortdesc>Rebind a Key Receiving Device (KRD) to a Key Distribution Host (KDH).
+</shortdesc> This is done when a KDH needs to update the credentials held at the KRD that represent
+the KDH; for example, if the certificate is about to expire. These are the steps, in sequence, with
+the<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service APIs
+identified:</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>REBIND</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>
+<ol>
+<li><b><u>On KDH</u></b><ol>
+<li>Generate a new RSA key pair (E-kdh-new, D-kdh-new), made by the HSM in their mainframe.<ul>
+<li>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>.</li>
+</ul></li>
+<li>Extract public key (E-kdh-new) into PKCS #10 certificate signing request (CSR-KDH-new).<ul>
+<li>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>.</li>
+</ul></li>
+<li>KDH sends CSR-KDH-new to the Certificate Authority to be turned into a certificate CredKDH-new
+under the agreed CA.</li>
+<li>KDH receives from CA these TR-34 objects.<ol>
+<li>CredKDH-new: A certificate holding (E-kdh-new). Store certificate for use with all KRDs during
+REBIND.</li>
+<li>CRL-CA: New Certificate Revocation List. Store for use until not considered fresh any
+longer.</li>
+<li>CredCA: A certificate for CA. Install this in the CCA HSM PKI manually from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> for each domain that will use the TR-34
+protocol. Also, keep this for new card provisioning.</li>
+</ol></li>
+<li>The KDH requests a random number from the KRD. </li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/> using keyword RT-KRD  to create the
+TR-34 token that contains the random number that is needed by the KDH.<ol>
+<li><b>INPUT</b>:<ul>
+<li>RN-length: Length of the random number needed.</li>
+</ul></li>
+<li><b>OUTPUT</b>:<ul>
+<li>RT-KRD: Random number token.</li>
+</ul></li>
+<li><b>KEY STORAGE</b>: <ul>
+<li>RT-KRD stored in application space.</li>
+</ul></li>
+</ol></li>
+<li>Send RT-KRD to KDH.</li>
+</ol></li>
+<li><b><u>On KDH</u></b><ol>
+<li>If CRL-CA is not fresh any longer, the KDH should obtain a new CRL-CA before doing the next
+step. </li>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/> using keyword REBINDCR.<ol>
+<li><b>INPUT</b>: <ol>
+<li>RT-KRD: Random number token received from KRD. </li>
+<li>CRL-CA: Certificate Revocation List from CA.</li>
+<li>CredKRD: KRD credential with ID and public key.</li>
+<li>CredKDH-new: New KDH credential with ID and public key.</li>
+<li>CredKDH-old: Old KDH credential with ID and public key.</li>
+<li>D-kdh: Old private key needed to sign the REBIND data block.</li>
+</ol></li>
+<li><b>OUTPUT</b>: <ul>
+<li>UBT-KDH: REBIND token.</li>
+</ul></li>
+</ol></li>
+<li>KDH sends the UBT-KDH token to the KRD.</li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>The KRD receives the UBT-KDH token from the KDH and now must process it to complete the
+REBIND.</li>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/> using keyword REBINDRV. <ol>
+<li><b>INPUT</b>: <ol>
+<li>UBT-KDH: REBIND token received from KDH.</li>
+<li>CredKRD: KRD credential with ID and public key.</li>
+<li>CredKDH: Old KDH credential with ID and public key.</li>
+<li>RT-KRD. Token originally sent by the KRD to the KDH and used now for validation.</li>
+</ol></li>
+<li><b>OUTPUT</b>:<ol>
+<li>UBT-KDH – is – valid: (yes or no/error)</li>
+<li>CredKDH-new: New KRD credential.</li>
+</ol></li>
+<li><b>KEY STORAGE</b>:<ul>
+<li>CredKDH-new stored in application space.</li>
+</ul></li>
+</ol></li>
+<li>The application on the KRD removes all the keys associated with the CredKDH that sent the REBIND
+request (they are regarded as invalid). The KRD stores the CredKDH-new so that future key
+distribution events can be handled. This completes the REBIND phase.</li>
+</ol></li>
+</ol>
+</p>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

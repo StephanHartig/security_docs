@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdpnuprwcard2" rev="sh20i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/></searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> verb to update a
+PIN reference value or word (PRW) with updated time-sensitive card data (and a newly generated
+random number), but without changing either the customer PIN, primary account number, or permanent
+card data. The updated PIN reference value and associated PRW random number are returned for later
+use by other PIN processes for PIN verification. </p>
+<p>In addition to updating a PRW, the verb can optionally use the specified outbound PIN encryption
+key to return a new encrypted PIN block (EPB) together with a new PIN block MAC that can be used to
+validate the PIN block, a new chip-encrypted PIN block with the specified outbound PIN
+chip-encryption key, or both. </p>
+<p>Finally, the verb can optionally test the clear PAN recovered from the input encrypted PIN block
+by comparing it to the clear PAN provided as input, and report the result in the
+<parmname>return_code</parmname> variable. </p>
+<note>This verb deprecates the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"
+/> verb.</note>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/> verb performs the
+following tasks: </p>
+<ul>
+<li>It verifies the integrity and authenticity of the input PIN by comparing the MAC in the
+<parmname>PIN_block_MAC</parmname> variable to the one calculated over the concatenation of the
+input encrypted PIN block and permanent card data. The MAC is calculated using CMAC, a block
+cipher-based MAC algorithm defined by NIST SP 800-38B, and the inbound encrypted PIN block MAC
+key.</li>
+<li>It recovers the PBF-1 PIN block from the <parmname>encrypted_PIN_block</parmname> variable using
+AES decryption in CBC mode and the inbound PIN encryption key. Then it checks the consistency of the
+PIN block, including the PIN length, PIN digits, and PAN digits.</li>
+<li>It generates a 4-byte random number and uses the CMAC algorithm with the PRW key to calculate a
+PIN reference value based on the random number, the updated time-sensitive data in the
+<parmname>card_t_data</parmname> variable, the unchanged permanent data in the
+<parmname>card_p_data</parmname> variable, and data from the recovered PIN block. The calculated
+value and the random number are returned in the <parmname>new_PIN_reference_value</parmname> and
+<parmname>PRW_random_number</parmname> variables.</li>
+<li>If <parmname>EPB</parmname> is specified in the rule array: <ol>
+<li>AES encrypts the recovered PBF-1 PIN block in CBC mode using the outbound PIN encryption key,
+and returns the result in the<parmname> new_encrypted_PIN_block</parmname> variable. </li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/> calculates the MAC over
+the concatenation of the new encrypted PIN block and <parmname>card_p_data</parmname> variable using
+CMAC and the outbound EPB MAC key, and returns the 8 leftmost, high-order bytes of the result in the
+<parmname>new_PIN_block_MAC</parmname> variable. </li>
+</ol>This information can be stored for later use in other processes for validation of the PIN and
+personalizing smart (chip) cards.</li>
+<li>If <parmname>CHIP-EPB</parmname> is specified in the rule array, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/> encrypts the recovered PIN block in
+PBF-1 format using AES encryption in CBC mode and the outbound PIN chip encryption key. This
+encrypted PIN block can be stored for later use in other processes to personalize smart (chip)
+cards.</li>
+<li>If <parmname>PANTST</parmname> is specified in the rule array, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/> tests the equality of the clear PAN
+recovered from the <parmname>encrypted_PIN_block</parmname> and the clear PAN provided by the
+<parmname>PAN_data</parmname> variable. The verb reports the result in the
+<parmname>return_code</parmname> variable. Return code 4 indicates that the clear PAN values are not
+equal, while return code 0 indicates that they are equal (success).</li>
+</ul>
+<note>This verb supports PCI-HSM 2016 compliant-tagged key tokens.</note></section>
+</refbody>
+</reference>

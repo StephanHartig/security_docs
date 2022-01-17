@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syi">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> <ph>verb</ph> to import a symmetric AES DATA
+or DES DATA key enciphered under an RSA public key. The verb returns
+the key in operational form, enciphered under the master key.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</indexterm></indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>RSA key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb also supports import of a PKA92-formatted DES key-encrypting
+key under a PKA96 RSA public key.</p>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

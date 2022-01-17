@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_sumdea" xml:lang="en-us">
+<title>Summary of the AES, DES, and HMAC verbs</title>
+<titlealts>
+<navtitle>AES, DES, and HMAC verbs summary</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Summary of the AES, DES, and HMAC
+verbs</searchtitle>
+</titlealts>
+<shortdesc>Hash Message Authentication Code (HMAC) support was added in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 4.1.0. All of the HMAC verbs and
+features listed in this summary require <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.1.0 or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.2.0 in order to run.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/></indexterm><indexterm>AES</indexterm><indexterm>DES</indexterm><indexterm>HMAC</indexterm><indexterm>hashing</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb</indexterm><indexterm>AES verb</indexterm>
+<indexterm>DES verb</indexterm><indexterm>HMAC verb</indexterm>
+<indexterm>hashing verb</indexterm><indexterm>Interbank PIN</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p><xref href="#l0wskc02_sumdea/l0wskc02_summ"/> lists the AES, DES, and HMAC verbs described in
+this document. The table also references the chapter that describes the verb. </p>
+<table frame="all" id="l0wskc02_summ" pgwide="1">
+<title>Summary of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> AES, DES, and
+HMAC verbs</title>
+<desc>
+<p outputclass="summary">Summary of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> AES, DES, and HMAC verbs</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="22*"/>
+<colspec colname="col3" colwidth="29*"/>
+<colspec colname="col4" colwidth="19*"/>
+<thead>
+<row>
+<entry>Entry point</entry>
+<entry>Verb name</entry>
+<entry>Description</entry>
+<entry>Topic/Page</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col4" namest="col1">
+<b><xref href="wskc_r_apmky.dita#l0wskc02_apmky"/></b></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"
+/>
+</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"
+/></entry>
+<entry>Imports an 8-byte clear DATA key, enciphers it under the master
+key, and places the result into an internal key token. This verb converts the clear key into
+operational form as a DATA key.</entry>
+<entry><xref href="wskc_r_cki.dita#l0wskc02_cki"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"
+/></entry>
+<entry>Imports a single-length, double-length, or triple-length clear DATA
+key that is used to encipher or decipher data. It accepts a clear key and enciphers the key under
+the host master key, returning an encrypted DATA key in operational form in an internal key
+token.</entry>
+<entry><xref href="wskc_r_ckm.dita#l0wskc02_ckm"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"
+/></entry>
+<entry>Builds a control vector from keywords specified by the
+<synph><var>key_type</var></synph> and <synph><var>rule_array</var></synph> parameters.</entry>
+<entry><xref href="wskc_r_cvg1.dita#l0wskc02_cvg1"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/></entry>
+<entry>Changes the control vector used to encipher an external DES key.</entry>
+<entry><xref href="wskc_r_cvxl.dita#l0wskc02_cvxl"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/></entry>
+<entry>Encrypts plaintext using a CVARENC key to produce ciphertext using the Cipher
+Block Chaining (CBC) method.</entry>
+<entry><xref href="wskc_r_cvenc.dita#l0wskc02_cvenc"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"
+/></entry>
+<entry>Re-enciphers a DATA key from encryption under the master key to
+encryption under an exporter key-encrypting key, making it suitable for export to another
+system.</entry>
+<entry><xref href="wskc_r_dkx.dita#l0wskc02_dkx"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkm"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"
+/></entry>
+<entry>Imports an encrypted source DES single-length or double-length DATA
+key and creates or updates a target internal key token with the master key enciphered source
+key.</entry>
+<entry><xref href="wskc_r_dkm.dita#l0wskc02_dkm"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/></entry>
+<entry>Generates a key based upon the key-generating key, the processing
+method, and the parameter data that is supplied. The control vector of the key-generating key also
+determines the type of target key that can be generated.</entry>
+<entry><xref href="wskc_r_dkg.dita#l0wskc02_dkg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/></entry>
+<entry>Generates an AES key based on a function of a key-generating key, the process rule, and data
+that you supply.</entry>
+<entry><xref href="wskc_dkg2.dita#l0wskc02_dkg2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/></entry>
+<entry>Selectively generates and derives a pair of associated keys in connection with a
+<term>directed key diversification</term> key scheme.</entry>
+<entry><xref href="wskc_ddk.dita"/></entry>
+</row>
+
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/>
+</entry>
+<entry>Creates symmetric key material from a pair of Elliptic Curve Cryptography (ECC) keys using
+the Elliptic Curve Diffie-Hellman (ECDH) protocol.</entry>
+<entry><xref href="wskc_r_vbecdhvb.dita#vbecdhvb"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"
+/></entry>
+<entry>Re-enciphers a key from encryption under a master key variant to
+encryption under the same variant of an exporter key-encrypting key, making it suitable for export
+to another system.</entry>
+<entry><xref href="wskc_r_kex.dita#l0wskc02_kex"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"
+/></entry>
+<entry>Generates a 64-bit, 128-bit, 192-bit, <ph>or 256-bit</ph> odd
+parity key, or a pair of keys; and returns them in encrypted forms (operational, exportable, or
+importable). <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> does not produce
+keys in plaintext.</entry>
+<entry><xref href="wskc_r_kgn.dita#l0wskc02_kgn"/></entry>
+</row>
+<row>
+<entry><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></entry>
+<entry><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/></entry>
+<entry>Generates either one or two HMAC keys. This verb does not produce
+keys in clear form and all keys are returned in encrypted form. When two keys are generated, each
+key has the same clear value, although this clear value is not exposed outside the secure
+cryptographic feature. <p>This verb returns variable-length <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key tokens and uses the AESKW wrapping
+method. Operational keys will be encrypted under the AES master key.</p></entry>
+<entry><xref href="wskc_r_kgn2.dita#l0wskc02_kgn2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"
+/></entry>
+<entry>Re-enciphers a key from encryption under an importer key-encrypting
+key to encryption under the master key. The re-enciphered key is in the operational form.</entry>
+<entry><xref href="wskc_r_kim.dita#l0wskc02_kim"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"
+/></entry>
+<entry>Combines the clear key parts of any key type and returns the
+combined key value in an internal key token or an update to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage file.</entry>
+<entry><xref href="wskc_r_kpi.dita#l0wskc02_kpi"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/></entry>
+<entry>Combines the clear key parts of any HMAC key type from an internal variable-length symmetric
+key-token, and returns the combined key value in an internal variable-length symmetric key-token or
+an update to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage
+file.</entry>
+<entry><xref href="wskc_r_kpi2.dita#l0wskc02_kpi2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"
+/></entry>
+<entry>Generates or verifies (depending on keywords in the
+<varname>rule_array</varname>) a secure verification pattern for keys. This verb requires the tested
+key to be in the clear or encrypted under the master key. </entry>
+<entry><xref href="wskc_r_kyt.dita#l0wskc02_kyt"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/></entry>
+<entry>Generates or verifies (depending on keywords in the <varname>rule_array</varname>) a secure
+cryptographic verification pattern for keys contained in a variable-length symmetric key-token. The
+key to test can be in the clear or encrypted under a master key. Requires the tested key to be in
+the clear or encrypted under the master key.</entry>
+<entry><xref href="wskc_r_kyt2.dita#l0wskc02_kyt2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/></entry>
+<entry>This verb is essentially the same as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/>, except for the following: <ul
+compact="yes">
+<li>In addition to operating on internal keys and key parts, this verb also operates on external
+keys and key parts.</li>
+<li>This verb does not operate on clear keys, and does not accept <i>rule_array</i> keywords
+CLR-A128, CLR-A192, CLR-A256, KEY-CLR, and KEY-CLRD.</li>
+</ul></entry>
+<entry><xref href="wskc_r_kyt_ext.dita#l0wskc02_kyt_ext"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"
+/></entry>
+<entry>Builds an internal or external token from the supplied parameters.
+You can use this verb to build <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key
+tokens for all key types that <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+supports. The resulting token can be used as input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verbs.</entry>
+<entry><xref href="wskc_r_ktb.dita#l0wskc02_ktb"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/></entry>
+<entry>Builds variable-length internal or external key tokens for all key types that the coprocessor
+supports. The key token is built based on parameters that you supply. The resulting token can be
+used as input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>, and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> verbs. A clear key token
+built by this verb can be used as input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb. <p>This verb supports internal
+HMAC tokens, both as clear key tokens and as skeleton tokens containing no key.</p></entry>
+<entry><xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/></entry>
+<entry>Re-enciphers a DES key from encryption under the old master key to encryption
+under the current master key, and to update the keys in internal DES key-tokens.</entry>
+<entry><xref href="wskc_r_bktc.dita#l0wskc02_bktc"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/></entry>
+<entry>Re-enciphers a variable-length HMAC key from encryption under the old master key to
+encryption under the current master key. This verb also updates the keys in internal HMAC
+key-tokens.</entry>
+<entry><xref href="wskc_r_bktc2.dita#l0wskc02_bktc2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/></entry>
+<entry>Disassembles a key <ph>token</ph> into separate pieces of information. This
+verb can disassemble an external key-token or an internal key-token in application storage.</entry>
+<entry><xref href="wskc_r_ktp.dita#l0wskc02_ktp"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/></entry>
+<entry>Disassembles a variable-length symmetric key-token into separate pieces of information. The
+verb can disassemble an external or internal variable-length symmetric key-token in application
+storage. The verb returns some of the key-token information in a set of variables identified by
+individual parameters, and returns the remaining information as keywords in the rule array.</entry>
+<entry><xref href="wskc_r_ktp2.dita#l0wskc02_ktp2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"
+/></entry>
+<entry>Uses one key-encrypting key to decipher an input key and then
+enciphers this key using another key-encrypting key within the secure environment.</entry>
+<entry><xref href="wskc_r_ktr1.dita#l0wskc02_ktr1"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/></entry>
+<entry>Uses one key-encrypting key to decipher an input key and then enciphers this key using
+another key-encrypting key within the secure environment. This verb differs from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> verb in that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> can process both fixed-length and
+variable-length symmetric key tokens.</entry>
+<entry><xref href="wskc_r_ktr2.dita#l0wskc02_ktr2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"
+/></entry>
+<entry>Uses an RSA private key to decrypt the RSA-encrypted key value and
+return the clear key value to the application.</entry>
+<entry><xref href="wskc_r_spkd.dita#l0wskc02_spkd"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"
+/></entry>
+<entry>Encrypts a supplied clear key value under an RSA public key. The
+supplied key can be formatted using the PKCS 1.2 or ZERO-PAD methods prior to encryption.</entry>
+<entry><xref href="wskc_r_spke.dita#l0wskc02_spke"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"
+/></entry>
+<entry>Modifies the control vector of a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token so that the key cannot be
+exported. This verb operates only on internal key tokens.</entry>
+<entry><xref href="wskc_r_pee.dita#l0wskc02_pee"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"
+/></entry>
+<entry>Modifies an external DES key-token so that the key can no longer be
+exported after it has been imported. This verb operates only on internal key tokens.</entry>
+<entry><xref href="wskc_r_peex.dita#l0wskc02_peex"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/></entry>
+<entry>Modifies an operational variable-length key so that it cannot be exported.</entry>
+<entry><xref href="wskc_r_rkat.dita#l0wskc02_rkat"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"
+/></entry>
+<entry>Generates an 8-byte cryptographic-quality random number suitable
+for use as an encryption key or for other purposes. The output can be specified in three forms of
+parity: RANDOM, ODD, and EVEN.</entry>
+<entry><xref href="wskc_r_rng.dita#l0wskc02_rng"/></entry>
+</row>
+<row>
+<entry><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/></entry>
+<entry><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/></entry>
+<entry>Generates a cryptographic-quality random number suitable for use as
+an encryption key or for other purposes, ranging from 1 - 8192 bytes in length. The output can be
+specified in three forms of parity: RANDOM, ODD, and EVEN.</entry>
+<entry><xref href="wskc_r_rngl.dita#l0wskc02_rngl"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/></entry>
+<entry>Transfer an application-supplied symmetric key (a DATA key) from encryption under the AES,
+DES or HMAC master key to encryption under an application-supplied RSA public key. The
+application-supplied DATA key must be an AES, DES or HMAC internal key token, or the label of an AES
+or DES key token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key
+storage file. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb can import the PKA-encrypted key
+form at the receiving node. Support for HMAC key was added beginning with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.1.0.</entry>
+<entry><xref href="wskc_r_syx.dita#l0wskc02_syx"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/></entry>
+<entry>Export a symmetric key, along with some application supplied data, encrypted using an RSA
+key. </entry>
+<entry><xref href="wskc_pka.dita#wskc_pka"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/></entry>
+<entry>Generate a symmetric key (a DATA key) and return the key in two forms: DES-encrypted and
+encrypted under an RSA public key. The DES-encrypted key can be an internal token encrypted under a
+host DES master key, or an external form encrypted under a KEK. (You can use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb to import the PKA-encrypted
+form.)</entry>
+<entry><xref href="wskc_r_syg.dita#l0wskc02_syg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/></entry>
+<entry>Import a symmetric AES or DES DATA key enciphered under an RSA public key into operational
+form enciphered under a DES master key. </entry>
+<entry><xref href="wskc_r_syi.dita#l0wskc02_syi"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/></entry>
+<entry>Use this verb to import an HMAC key that has been previously formatted and enciphered under
+an RSA public key by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> verb.
+The formatted and RSA-enciphered key is contained in an external variable-length symmetric
+key-token. The key is deciphered using the associated RSA private-key. The recovered HMAC key is
+re-enciphered under the AES master-key. The re-enciphered key is then returned in an internal
+variable-length symmetric key-token. The key algorithm for this verb is HMAC.</entry>
+<entry><xref href="wskc_r_syi2.dita#l0wskc02_syi2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/></entry>
+<entry>Performs the key derivation process as defined in ANSI X9.24 Part 1. The process derives keys
+from two values: the base derivation key (BDK) and the derivation data. Rule array keywords
+determine the types and number of keys derived on a particular call.</entry>
+<entry/>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><b><xref
+href="wskc_c_apenc.dita#l0wskc02_apenc"/></b></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"
+/></entry>
+<entry>Deciphers data using cipher block chaining mode of DES. The result
+is called plaintext. </entry>
+<entry><xref href="wskc_r_dec.dita#l0wskc02_dec"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"
+/></entry>
+<entry>Enciphers data using the cipher block chaining mode of DES. The
+result is called ciphertext. </entry>
+<entry><xref href="wskc_r_enc.dita#l0wskc02_enc"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></entry>
+<entry>Deciphers data using the AES cipher block chaining mode.</entry>
+<entry><xref href="wskc_r_syma_dec.dita#l0wskc02_syma_dec"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/></entry>
+<entry>Enciphers data using the AES cipher block chaining mode</entry>
+<entry><xref href="wskc_r_syma_enc.dita#l0wskc02_syma_enc"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/></entry>
+<entry>Deciphers encrypted data (ciphertext) under one ciphertext translation key and re-enciphers
+it under another ciphertext translation key without having the data appear in the clear outside the
+cryptographic coprocessor.</entry>
+<entry><xref href="wskc_protdata_ciphertt2.dita#wskc_ctt2"/></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><b><xref
+href="wskc_c_apmac.dita#l0wskc02_apmac"/></b></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/></entry>
+<entry>Generates a keyed hash message authentication code (HMAC) for the text string
+provided as input. See <xref href="wskc_c_apmac.dita#l0wskc02_apmac"/>.</entry>
+<entry><xref href="wskc_r_zapghmacg.dita#l0wskc02_zapghmacg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/></entry>
+<entry>Verifies a keyed hash message authentication code (HMAC) for the text string
+provided as input. See <xref href="wskc_c_apmac.dita#l0wskc02_apmac"/>.</entry>
+<entry><xref href="wskc_r_zapghmacv.dita#l0wskc02_zapghmacv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"
+/></entry>
+<entry>Generates a 4, 6, or 8-byte Message Authentication Code (MAC) for a
+text string that the application program supplies. The MAC is computed using either the ANSI X9.9-1
+algorithm or the ANSI X9.19 optional double key algorithm <ph>and padding could be applied according
+to the EMV specification.</ph></entry>
+<entry><xref href="wskc_r_mgn.dita#l0wskc02_mgn"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/></entry>
+<entry>Generates a keyed hash message authentication code (HMAC) or a ciphered message
+authentication code (CMAC) for the message string provided as input. A MAC key with key usage that
+can be used for generate is required to calculate the MAC.</entry>
+<entry><xref href="wskc_mgn2.dita#wskc_mgn2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"
+/></entry>
+<entry>Verifies a 4, 6, or 8-byte Message Authentication Code (MAC) for a
+text string that the application program supplies. The MAC is computed using either the ANSI X9.9-1
+algorithm or the ANSI X9.19 optional double key algorithm <ph>and padding could be applied according
+to the EMV specification.</ph> The computed MAC is compared with a user-supplied MAC. </entry>
+<entry><xref href="wskc_r_mvr.dita#l0wskc02_mvr"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/>
+</entry>
+<entry>Verifies a keyed hash message authentication code (HMAC) or a ciphered message authentication
+code (CMAC) for the message text provided as input. A MAC key with key usage that can be used for
+verify is required to verify the MAC. </entry>
+<entry><xref href="wskc_mvr2.dita#wskc_mvr2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/></entry>
+<entry>Creates a 128-bit hash value (Modification Detection Code) on a data string
+whose integrity you intend to confirm.</entry>
+<entry><xref href="wskc_r_mdc_generate.dita#l0wskc02_mdc_generate"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"
+/></entry>
+<entry>Generates a one-way hash on specified text.</entry>
+<entry><xref href="wskc_r_owh.dita#l0wskc02_owh"/></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><b><xref
+href="wskc_c_appin.dita#l0wskc02_appin"/></b></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"/></entry>
+<entry>Generates an authentication parameter (AP) and returns it encrypted using the key supplied in
+an input parameter.</entry>
+<entry><xref href="wskc_apg.dita#csnbapg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"
+/></entry>
+<entry>Formats a PIN into a PIN block format and encrypts the results. You
+can also use this <ph>verb</ph> to create an encrypted PIN block for transmission. With the RANDOM
+keyword, you can have the <ph>verb</ph> generate random PIN numbers.</entry>
+<entry><xref href="wskc_r_cpe.dita#l0wskc02_cpe"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"
+/></entry>
+<entry>Generates a clear personal identification number (PIN), a PIN
+verification value (PVV), or an offset using one of the following algorithms: <ul compact="yes">
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> 3624 (IBM-PIN or IBM-PINO)</li>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> German Bank Pool (GBP-PIN or GBP-PINO)</li>
+<li>VISA PIN validation value (VISA-PVV)</li>
+<li>Interbank PIN (INBK-PIN) </li>
+</ul></entry>
+<entry><xref href="wskc_r_pgn.dita#l0wskc02_pgn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"
+/></entry>
+<entry>Generates a clear VISA PIN validation value (PVV) from an input
+encrypted PIN block. The PIN block might have been encrypted under either an input or output PIN
+encrypting key. The IBM-PINO algorithm is supported to produce a 3624 offset from a customer
+selected encrypted PIN. The PIN block must be encrypted under either an input PIN-encrypting key
+(IPINENC) or output PIN-encrypting key (OPINENC).</entry>
+<entry><xref href="wskc_r_cpa.dita#l0wskc02_cpa"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"
+/></entry>
+<entry>Generates a VISA Card Verification Value (CVV) or a MasterCard Card
+Verification Code (CVC) as defined for track 2.</entry>
+<entry><xref href="wskc_r_csg.dita#l0wskc02_csg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/></entry>
+<entry>Combine two single-length operational DES keys that are suitable for use with the CVV
+(card-verification value) algorithm into one operational TDES key.</entry>
+<entry><xref href="wskc_r_vbspckcombine.dita#vbspckcombine"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/></entry>
+<entry>Verifies a VISA Card Verification Value (CVV) or a MasterCard Card
+Verification Code (CVC) as defined for track 2. </entry>
+<entry><xref href="wskc_r_csv.dita#l0wskc02_csv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"
+/></entry>
+<entry>Generates and formats a PIN and encrypts the PIN block. </entry>
+<entry><xref href="wskc_r_epg1.dita#l0wskc02_epg1"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>
+</entry>
+<entry>Re-enciphers a PIN block from one PIN-encrypting key to another
+and, optionally, changes the PIN block format. UKPT keywords are supported. You must identify the
+input PIN-encrypting key that originally enciphers the PIN. You also need to specify the output
+PIN-encrypting key that you want the <ph>verb</ph> to use to encipher the PIN. If you want to change
+the PIN block format, specify a different output PIN block format from the input PIN block
+format.</entry>
+<entry><xref href="wskc_r_ptr.dita#l0wskc02_ptr"/></entry>
+</row>
+
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+</entry>
+<entry>This verb is a superset of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>) verb. It provides all the functions of
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/> and, in addition, supports the
+AES encrypted ISO-4 PIN-block (as defined in ISO 9564-1) and authenticated PAN change support (which
+only applies to ISO-4 to ISO-4 PIN-block format translations).</entry>
+<entry><xref href="wskc_ptr2.dita"/></entry>
+</row>
+
+<row>
+<entry>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/></entry>
+<entry>Reformats a PIN into a different PIN-block format using an enciphered PAN field. You can use
+this verb in an interchange-network application, or to change the PIN block to conform to the format
+and encryption key used in a PIN-verification database.</entry>
+<entry><xref href="wskc_ptre.dita#ptre"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/></entry>
+<entry>Verifies a supplied PIN using one of the following algorithms: <ul
+compact="yes">
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> 3624 (IBM-PIN or IBM-PINO)</li>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> German Bank Pool (GBP-PIN or GBP-PINO)</li>
+<li>VISA PIN validation value (VISA-PVV)</li>
+<li>Interbank PIN (INBK-PIN)</li>
+</ul>
+<p>UKPT keywords are supported.</p></entry>
+<entry><xref href="wskc_r_pvr.dita#l0wskc02_pvr"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/></entry>
+<entry> Decrypts payment card data for the Visa Data Secure Platform (VDSP) processing.</entry>
+<entry><xref href="wskc_fped.dita#csnbfped"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/>
+</entry>
+<entry>Encrypts payment card data for the Visa Data Secure Platform (VDSP) processing.</entry>
+<entry><xref href="wskc_fpee.dita#csnbfpee"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/>
+</entry>
+<entry>Translates payment data from encryption under one key to encryption under another key with a
+possibly different format.</entry>
+<entry><xref href="wskc_fpet.dita#csnbfpet"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"
+/></entry>
+<entry>Supports the PIN change algorithms specified in the VISA Integrated
+Circuit Card Specification; available only on an <tm tmtype="reg" trademark="IBM">IBM</tm> z890 or
+<tm tmtype="reg" trademark="IBM">IBM</tm> z990 with May 2004 or later version of Licensed Internal
+Code (LIC).</entry>
+<entry><xref href="wskc_r_pcu.dita#l0wskc02_pcu"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpfo"/>
+</entry>
+<entry>Calculates the encrypted customer-entered PIN from a PIN generating key, account information,
+and an IBM-PINO Offset.</entry>
+<entry><xref href="wskc_bpfo.dita#csnbpfo"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsky"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"
+/></entry>
+<entry>Encrypts a text block, including a clear key value decrypted from
+an internal or external DES token.</entry>
+<entry><xref href="wskc_r_sky.dita#l0wskc02_sky"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"
+/></entry>
+<entry>Encrypts a text block, including a clear PIN block recovered from
+an encrypted PIN block.</entry>
+<entry><xref href="wskc_r_spn.dita#l0wskc02_spn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"
+/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"
+/></entry>
+<entry>Supports the generation and validation of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> card security codes; available only on an
+<tm tmtype="reg" trademark="IBM">IBM</tm> z890 or <tm tmtype="reg" trademark="IBM">IBM</tm> z990
+with May 2004 or later version of Licensed Internal Code (LIC).</entry>
+<entry><xref href="wskc_r_trv.dita#l0wskc02_trv"/></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept><?Pub Caret -3?>
+<?Pub *0000037543?>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kex">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb to
+re-encipher any type of key (except an IMP-PKA) from encryption under a master key variant to
+encryption under the same variant of an exporter key-encrypting key. <ph rev="sh20i1">The source key can be a single-length DES key, a double-length Triple-
+DES key or, beginning with Release 5.4, a triple-length Triple-DES key, and must be in an operational
+fixed-length DES key-token.</ph></shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</indexterm></indexterm>
+<indexterm>key<indexterm>re-enciphering</indexterm></indexterm>
+<indexterm>exporter key encrypting key<indexterm>any
+DES key</indexterm></indexterm>
+<indexterm>key encrypting key<indexterm>exporter</indexterm></indexterm>
+<indexterm>IMP-PKA</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>no-export bit</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The re-enciphered key can be exported to another system.</p></section>
+<section><p>If the key to be exported is a <synph><kwd>DATA</kwd></synph> key, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb
+generates a key token with the same key length as the input token's
+key.</p></section>
+<section><p>This verb supports the no-export bit that the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> verb sets
+in the internal token.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

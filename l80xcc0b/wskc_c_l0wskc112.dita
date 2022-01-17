@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc112">
+<title>Checking the adapter settings</title>
+<titlealts>
+<navtitle>Checking the adapter settings</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Checking the adapter
+settings</searchtitle>
+</titlealts><shortdesc>Use the <cmdname>lszcrypt</cmdname> command with the <synph><kwd>-b</kwd></synph> option
+to display information about the settings for your cryptographic adapters.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>lszcrypt -b</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>
+<codeblock>
+# lszcrypt -b
+ap_domain=0x4
+ap_max_domain_id=0x54
+ap_interrupts are disabled
+config_time=30 (seconds)
+poll_thread is disabled
+poll_timeout=1500000 (nanoseconds)</codeblock></p>
+<p>As seen in the example, the command output shows:
+<ul>
+<li>the used domain in <ph rev="sh18i2">hexadecimal notation</ph>
+<note>To change the domain you must unload the <cmdname>z90crypt</cmdname> module and reload it with
+the appropriate <parmname>domain=</parmname> module parameter. <ph rev="sh18i2">In installations
+with the in-kernel <cmdname>ap</cmdname> module and multi-domain support, you achieve this directly
+by changing the <parmname>ap_domain</parmname> value via <filepath>sysfs</filepath>.
+</ph></note></li>
+<li>whether <cmdname>ap</cmdname> interrupts are used</li>
+<li>whether the polling thread is used and, if so, at which frequency <note>Polling threads cannot
+be enabled if <cmdname>ap</cmdname> interrupts are available.</note></li>
+</ul></p>
+<p>If your distribution does not include the <cmdname>lszcrypt</cmdname> command, see the version of
+<cite conref="lxcommon.dita#pubs/cit-zl-dd-title"/> that applies to your distribution about how to
+use the <cmdname>sysfs</cmdname> interface to retrieve this information.</p>
+</conbody></concept>

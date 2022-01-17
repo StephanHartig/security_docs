@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc298">
+<title>Trusted block integrity</title>
+ <titlealts>
+    <navtitle>Trusted block integrity</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block integrity</searchtitle>
+  </titlealts>
+<shortdesc>An enciphered confounder and triple-length MAC key contained within
+the required information section of  the trusted block is used to
+protect the integrity of the trusted block. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>trusted block integrity</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The randomly generated MAC key is used to calculate an ISO 16609
+CBC mode TDES MAC of the trusted block contents. Together, the MAC
+key and MAC value provide a way to verify that the trusted block originated
+from an authorized source, and binds it to the local system. </p></section>
+<section><p>An external trusted block has its MAC key enciphered under an IMP-PKA
+key-encrypting key. An internal trusted block has its MAC key enciphered
+under a variant of the PKA master key, and the master-key verification
+pattern is stored in the information section.</p></section>
+</refbody></reference>

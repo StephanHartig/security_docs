@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8pinenckey">
+<title>PIN-Encrypting keys</title>
+  <titlealts>
+    <navtitle>PIN-Encrypting keys</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> ():
+PIN-Encrypting keys</searchtitle>
+  </titlealts><shortdesc>A unique master key variant enciphers each type of key.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>encrypting
+key</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Note that the PIN block variant constant (PBVC) are not supported
+in this version of CCA.</p>
+<section>
+<title>Derived unique key per transaction algorithms</title>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports ANSI X9.24 derived
+unique key per transaction algorithms to generate PIN-encrypting keys from user data.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports both single-length and
+double-length key generation. Keywords for single-length and double-length key generation cannot be
+mixed.</p>
+</section>
+<section><title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"
+/></title><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</indexterm><p>The
+<synph><kwd>UKPTIPIN</kwd></synph>, <synph><kwd>IPKTOPIN</kwd></synph>, and
+<synph><kwd>UKPTBOTH</kwd></synph> keywords will cause the verb to generate single-length keys. and
+<synph><kwd>DUKPT-IP</kwd></synph>, <synph><kwd>DKPT-OP</kwd></synph>, and
+<synph><kwd>DUKPT-BH</kwd></synph> are the respective keywords to generate double-length keys.
+</p><p>The <i>input_PIN_profile</i> and <i>output_PIN_profile</i> parameters must supply the current
+key serial number when these keywords are specified.</p></section>
+<section>
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/></title>
+<p>The <synph><kwd>UKPTIPIN</kwd></synph> keyword will cause the verb to verify single-length keys.
+<synph><kwd>DUKPT-IP</kwd></synph> is the keyword for double-length key generation. </p>
+<p>The <synph><var>input_PIN_profile</var></synph> parameter must supply the current key serial
+number when these keywords are specified.</p>
+</section>
+</conbody></concept>

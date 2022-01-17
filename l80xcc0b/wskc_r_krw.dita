@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_krw">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> <ph>verb</ph> to copy an internal DES key token
+from application storage into the DES key storage file. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/>)</indexterm>
+<indexterm>CSNBKRW (DES Key Record Write)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUDESDS</indexterm></indexterm>
+<indexterm>CSUDESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The key label must be unique and the record must already exist
+in the key storage file.</p></section>
+<section><p>DES key records are stored in the external key-storage file defined
+by the CSUDESDS environment variable.</p></section><section>
+<note>Before you use this verb, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> verb (see <xref href="wskc_r_krc.dita#l0wskc02_krc"/>) to create a key record in the key storage file.</note></section>
+</refbody></reference>

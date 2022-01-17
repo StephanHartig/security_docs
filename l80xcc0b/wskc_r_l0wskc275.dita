@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc275">
+<title>JNI version</title>
+ <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspnj"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)<indexterm>JNI version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspnj"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section><title>Format</title>
+<codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspnj"/>(
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>rule_array_count</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>rule_array</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>input_PIN_block</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>PIN_encrypting_key_identifier</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>input_PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>input_PAN_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>secmsg_key_identifier</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>output_PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>output_PAN_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>text_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>clear_text</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>initialization_vector</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>PIN_offset</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>PIN_offset_field_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>enciphered_text</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>output_chaining_vector</var></synph>);</codeblock></section>
+</refbody></reference>

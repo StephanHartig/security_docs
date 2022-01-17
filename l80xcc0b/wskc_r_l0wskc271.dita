@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc271">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The verb requires the following commands to be enabled in the active role based on the keyword
+specified for the operation rule: </p>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row>
+<entry colname="col1"><i>rule_array</i> keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>INACTIVE</kwd></synph></entry>
+<entry><ph>X'030F'</ph></entry>
+<entry><cmdname>Trusted Block Create - Create Block in inactive form</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ACTIVE</kwd></synph></entry>
+<entry><ph>X'0310'</ph></entry>
+<entry><cmdname>Trusted Block Create - Activate an inactive block</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>To prevent a weaker transport key (key-encrypting key) from being used to encipher a
+triple-length MAC key into an external trusted block, enable the <cmdname>TBC - Disallow
+triple-length MAC key</cmdname>command (offset X'032E') to be enabled in the active role.</p>
+</section>
+</refbody></reference>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_install_rpm" xml:lang="en-us">
+<title>Download and install the <ph rev="sh16a">RPM or DEB</ph> file</title>
+ <titlealts>
+    <navtitle>Download and install the RPM or DEB file</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Download and install the RPM or DEB
+file</searchtitle>
+  </titlealts>
+<shortdesc rev="sh16a">RPM is the installation package format for Red Hat Enterprise Linux (RHEL)
+and SUSE Linux Enterprise Server (SLES) distributions. DEB is the package format for the Ubuntu
+distribution. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM or DEB
+packages contain files, samples, and groups.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+RPM<indexterm>installation</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+DEB<indexterm>installation</indexterm></indexterm>
+<indexterm>DEB installation package</indexterm>
+<indexterm>RPM installation package</indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<context><?Pub Caret 109?>
+<p>To download the RPM or DEB package, complete these steps:</p></context>
+<steps>
+<step>
+<cmd>Point your Web browser at this location: </cmd>
+<info>
+<codeblock><xref conref="wskc_conref-l0wskc04.dita#links/cardsite"/></codeblock>
+</info>
+</step>
+<step rev="sh20i2">
+<cmd>Click the appropriate link for your cryptographic coprocessor / HSM from the
+<synph><kwd>Products</kwd></synph> pull down choice.</cmd>
+</step>
+<step rev="sh20i2">
+<cmd>Click <synph><kwd>Download software</kwd></synph> from the selected CEX*S Overview page.</cmd>
+</step>
+<step rev="sh20i2">
+<cmd>On the appearing CEX*S - Software page, click the <xref
+href="https://www.ibm.com/security/cryptocards/pciecc4/lonzsoftware" format="html" scope="external"
+>software-package selection page</xref> link.</cmd>
+</step>
+<step rev="sh20i2">
+<cmd>Navigate to the desired RPM or DEB package by opening the <b>+</b> sign besides the appropriate
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> release. From here, you can access
+the following parts:</cmd>
+<info>
+<ul>
+<li>the RPM or DEB installation file that installs the host code</li>
+<li>the README file for the RPM or DEB</li>
+<li>the Release Notes</li>
+<li>the license information.</li>
+</ul>
+</info>
+</step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000002205?>

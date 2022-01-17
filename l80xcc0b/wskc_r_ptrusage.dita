@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ptrusage">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)<indexterm>usage notes</indexterm></indexterm>
+<indexterm>PIN block format<indexterm>additional names</indexterm></indexterm>
+<indexterm>ANSI X9.8</indexterm>
+<indexterm>VISA-1</indexterm>
+<indexterm>ECI-1</indexterm>
+<indexterm>ECI-4</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Some PIN block formats are known by several names. The following
+table shows the additional names. </p></section>
+<table id="l0wskc02_pinn" pgwide="0" frame="all">
+<title>Additional names
+for PIN formats</title><desc><p outputclass="summary">Additional names for PIN formats</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="140*"/>
+<colspec colname="col2" colwidth="328*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">PIN format</entry>
+<entry valign="bottom" align="left">Additional name</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top" align="left"><synph><kwd>ISO-0</kwd></synph></entry>
+<entry valign="top" align="left">ANSI X9.8, VISA format 1, ECI format
+1</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ISO-1</kwd></synph></entry>
+<entry valign="top" align="left">ECI format 4</entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

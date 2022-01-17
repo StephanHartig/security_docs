@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc_panelexe_legacy">
+<title>panel.exe legacy syntax</title>
+<titlealts>
+<navtitle>panel.exe legacy syntax</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): panel.exe legacy syntax</searchtitle>
+</titlealts>
+<shortdesc rev="sh18i1">The <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> legacy
+syntax is available if you set the environment variable <codeph>CSU_LEGACY_PANEL</codeph> to
+<codeph>TRUE</codeph>. Precise usage information can be obtained by running the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility with no arguments on the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> shell command line. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>panel.exe<indexterm>legacy syntax</indexterm></indexterm>
+<indexterm>legacy syntax<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>syntax, legacy<indexterm>panel.exe</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p rev="sh18i1">The legacy <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>
+command-line arguments:</p>
+<codeblock>
+Panel usage ([-k,-a &lt;num>,-o,-g][-?,-h,-x,-m,-l,-s,-c,-q,-t,-i,-r,-p,-n,-u-v]
+>> [CC] Arg >> arg must precede non-[CC] args
+
+          [CC] -k:          Can TKE administer a card?
+          [CC] -a &lt;num>:    use non-default card
+                            &lt;num> is the card number [0 - 63]
+          [CC] -o:          Disable output to stdout:
+          [CC] -g &lt;level>:  Set the log level:
+                            &lt;level> can be NONE, TRANSACTIONS, NONZERO,
+                                           ALL, DEBUG, and FUNCTIONS
+
+>> non-[CC] Args >>: (all are mutually exclusive)
+
+---BASIC ADMIN---
+         -? , -h:              Usage
+         -v:                   Print CCA Host Library version
+         -x:                   List crypto resources (and basic status) 
+         -m:                   List CPACF (local CPU crypto) resources
+         -mrl:                 List roles from card
+         -mrp "ID":            Print role for "ID"
+         -mrq "ID" &lt;0xAAAA>:   Query ACP bit
+                               --0xAAAA is hexadecimal ACP bit number
+                               --quote IDs with spaces: "DEFAULT "
+         -ue "ID list":        Enable ACP tracking for role "ID list"
+         -ud "ID list":        Disable ACP tracking for role "ID list"
+         -uc  "ID list":       CLEAR ACP tracking for role "ID list"
+         -us "ID list":        ACP tracking data size: role "ID list"
+         -ugs "ID list":       ACP tracking data show: role "ID list"
+         -ugr "ID list":       ACP tracking data (raw): role "ID list"
+         -uts "ID list":       ACP tracking state show: role "ID list"
+         -utr "ID list":       ACP tracking state (raw): role "ID list"
+                               if no "ID list": all roles will be processed
+
+         -y:                      Get SYSLOG or CCALOG info
+         -y [no options] ::       sizes of all card logs and card logging level
+         -yl [4|8|12]::           sets 4, 8 or 12 as card logging level
+                                  4,8,12 are CCA return code trigger levels
+         -yc::                    dump card CCA log to stdout
+         -ys [0|1|2|3|4]::        dump card SYS log to stdout
+                                  0 = current/default, 4 = oldest
+         -a &lt;num> -y [options]::  perform on non-default card
+
+---MASTER KEY (MK)---
+
+To LOAD a Master Key (MK) PART:
+        -l (for interactive)
+        OR====>
+        -l -t [A|S|E|P] -p [F|M|L] KEYPART
+        where: -t [A|S|E|P] is which MK: A=ASYM, S=SYM, E=AES P=APKA
+        where: -p [F|M|L] is the part: F=FIRST, M=MIDDLE, L=LAST
+        where: KEYPART is string in hex 2* size of key
+               (recall: 2 text chars = 1 binary Byte)
+
+To SET a Master Key:
+        -s (for interactive)
+        OR====>
+        -s -t [A|S|E|P]
+        where: -t [A|S|E|P] is which MK: A=ASYM, S=SYM, E=AES P=APKA
+
+To CLEAR a Master Key 'New' Register:
+        -c (for interactive)
+        OR====>
+        -c -t [A|S|E|P]
+        where: -t [A|S|E|P] is which MK: A=ASYM, S=SYM, E=AES P=APKA
+
+To QUERY a Master Key Verification Pattern:
+        -q (for interactive)
+        OR====>
+        -q -t [A|S|E|P] -r [N|C|O]
+        where: -t [A|S|E|P] is which MK: A=ASYM, S=SYM, E=AES P=APKA
+        where: -r [N|C|O] is which register: N=NEW, C=CURRENT, O=OLD
+
+---KEY STORAGE---
+
+To INIT a KEY STORAGE file:
+        -t &lt;type> -i
+To REENCipher KEY STORAGE:
+        -t &lt;type> -r
+To LIST a KEY STORAGE:
+        -t &lt;type> -p
+        where:
+        &lt;type> can be AES, DES, PKA
+        **environment variables for key storage files**
+        --the key DISK STORAGE (DS) variables are:
+              CSUDESDS, CSUAESDS, CSUPKADS
+        **the path must exist and specify a filename. The file
+        will be created on key storage initialization.
+        --the key LIST DIRECTORY (LD) variables are:
+              CSUDESLD, CSUAESLD, CSUPKALD
+        **the full path must exist.
+
+---RETAINED KEYS---
+
+To LIST RETAINED KEYS (this domain ONLY):
+        -n
+
+</codeblock>
+</conbody>
+</concept>

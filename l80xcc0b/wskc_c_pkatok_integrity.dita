@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="pkatok_integrity" rev="sh16">
+<title>Integrity of PKA private key sections containing an encrypted RSA key</title>
+<titlealts>
+<navtitle>Integrity of PKA private key sections</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Integrity of PKA private key sections
+containing an encrypted RSA key</searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>private key<indexterm>integrity</indexterm></indexterm>
+<indexterm>PKA private key<indexterm>integrity</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>With the exception of RSA key tokens containing an AES encrypted OPK (sections X'30' and
+X'31'), if an RSA key-token contains information for an encrypted private-key, then the integrity of
+the information within the token can be verified by computing and comparing the SHA-1 
+message digest values that are found at offsets 4 and 30 within the private-key section.
+</p>
+<p>The SHA-1 message digest at offset 4 requires access to the
+cleartext values of the private-key components. The cryptographic engine verifies this hash quantity
+whenever it retrieves the secret key for productive use.</p>
+<p>A second SHA-1 message digest, located at offset 30 (excluding
+sections X'30' and X'31'), is computed on optional, designated key-token information following the
+public-key section. The value of this SHA-1 message digest is included in the
+computation of the message digest at offset 4. As with the offset 4 value, the
+message digest at offset 30 is validated whenever a private key is recovered
+from the token for productive use.</p>
+<p>CCA provides PKA private key sections X'30' and X'31'.
+These sections can contain an AESKW-wrapped (ANS X9.102) RSA private key (wrapped by the OPK) and an
+AES encrypted OPK. When the RSA key with an AES encrypted OPK is wrapped, a message digest is calculated over the associated data section contained in the private-key section. The
+calculated message digest becomes part of the payload before it is wrapped.
+There is no way for a user to retrieve this value to validate it. The same is true for ECC private
+keys, which are AESKW-wrapped.</p>
+<p>In addition to the hash checks, various token-format and content checks are performed to validate
+the key values.</p>
+<p>The optional PKA private-key name section can be used by access-monitor systems to ensure that the application program is entitled to
+employ the particular private key.</p>
+</conbody>
+</concept>

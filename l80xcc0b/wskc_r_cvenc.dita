@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cvenc">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/></searchtitle>
+</titlealts><shortdesc>This verb is used to encrypt plaintext using a CVARENC key to produce ciphertext using
+the Cipher Block Chaining (CBC) method. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</indexterm></indexterm>
+<indexterm>CVARENC</indexterm>
+<indexterm>Cipher Block Chaining (CBC)</indexterm>
+<indexterm>DES key token</indexterm>
+<indexterm>key label</indexterm>
+<indexterm>ciphertext</indexterm>
+<indexterm>plaintext<indexterm>encrypt</indexterm><indexterm>encipher</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The plaintext must be a multiple of eight bytes in length.</p></section>
+<section><p>Specify the following parameters to encrypt plaintext:
+<ul>
+<li>An operational DES key-token or a key label of an operational
+DES key-token record that contains the key to be used to encrypt the
+plaintext with the <synph><var>c-variable_encrypting_key_identifier</var></synph> parameter.
+The control vector in the key token must specify the <synph><kwd>CVARENC</kwd></synph> key-type.</li>
+<li>The length of the plaintext, which is the same as the length of
+the returned ciphertext, with the <synph><var>text_length</var></synph> parameter.
+The plaintext must be a multiple of eight bytes in length.</li>
+<li>The plaintext with the <synph><var>plaintext</var></synph> parameter.</li>
+<li>The initialization vector with the <synph><var>initialization_vector</var></synph> parameter.</li>
+<li>A variable for the returned ciphertext with the <synph><var>ciphertext</var></synph> parameter.
+The length of this field is specified with the <synph><var>text_length</var></synph> variable.</li>
+</ul></p></section>
+<section><p>This verb does the following:
+<ul>
+<li>Uses the <synph><kwd>CVARENC</kwd></synph> key and the initialization value with
+the CBC method to encrypt the plaintext.</li>
+<li>Returns the encrypted plaintext in the variable pointed to by
+the <synph><var>ciphertext</var></synph> parameter.</li>
+</ul></p></section>
+</refbody></reference>

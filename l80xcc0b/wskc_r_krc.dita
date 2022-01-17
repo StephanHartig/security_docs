@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_krc">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> <ph>verb</ph> to add a key record to the <ph>DES
+key storage file</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/>)</indexterm>
+<indexterm>environment variable<indexterm>CSUDESDS</indexterm></indexterm>
+<indexterm>CSUDESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The record contains a key token set to binary zeros and is identified
+by the label passed in the <synph><var>key_label</var></synph> parameter. The key label
+must be unique.</p></section>
+<section><p>DES key records are stored in the external key-storage file defined
+by the CSUDESDS environment variable.</p></section>
+</refbody></reference>

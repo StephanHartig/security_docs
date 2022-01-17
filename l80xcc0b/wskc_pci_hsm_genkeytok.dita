@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_genkeytok" xml:lang="en-us" rev="sh18i1">
+<title>Generating <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant
+keys</title>
+<titlealts>
+<navtitle>Generating <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant keys</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant keys for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> running in
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> can use
+compliant-tagged key tokens. Read the contained information about how to generate <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant keys.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>generating keys</indexterm></indexterm>
+<indexterm>generating keys<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm></indexterm>
+<indexterm>keys<indexterm>generating in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>A compliant-tagged key token is a key token that must adhere to the requirements of a compliance
+mode. The compliant tag is indicated by bit 58 in the control vector of the key token. For more
+information about the compliant tag, see the description of the <parmname>COMP-TAG</parmname>
+keyword in  <xref href="wskc_c_ap1me.dita#l0wskc02_ap1me"/>. </p>
+<p>In turn, a compliance mode places certain restrictions on the use of compliant-tagged key tokens,
+as described in <xref href="wskc_pci_hsm_key_restrictions.dita#wskc_pci_hsm_key_restrictions"/>.</p>
+<p>To generate a compliant-tagged key token, you must at first build a skeleton token with the
+compliant tag (bit 58) switched  on. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>) services allow that. This skeleton
+token can then be passed to any callable service that generates key tokens and supports
+compliant-tagged key tokens, for example, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>).</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>) and EMV services are exceptions as
+they do not support skeleton tokens as input. When importing a TR-31 key block, if the key
+encrypting key is compliant-tagged, the resulting key is also compliant-tagged. </p>
+<note>Only internal, fixed-length TDES key tokens can be compliant-tagged.</note>
+</conbody>
+</concept>
+<?Pub *0000002516?>

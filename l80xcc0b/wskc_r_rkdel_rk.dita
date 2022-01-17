@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rkdel_rk">
+<title>Using retained keys</title>
+ <titlealts>
+    <navtitle>Using retained keys</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/>: Using retained keys <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/></searchtitle>
+  </titlealts>
+<shortdesc>Retained key use is discouraged on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> platform because a retained key
+can exist only in one <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>
+Cryptographic adapter, by definition. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>retained key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<ul>
+<li>This has potential problems:
+<ul>
+<li>The key cannot be exported, so it cannot be backed up.</li>
+<li>The key cannot be exported to another card in the same group,
+so operations concerning the retained key cannot participate in load-balancing.</li>
+<li>There is an exception to the above points, in that keys generated
+in a deterministic fashion using externally saved regeneration data
+(it is possible to save so-called 'regen data' securely)
+can be recreated from that data or created in multiple cards across
+a card group.
+<p>However, this is a very sophisticated topic, and
+is beyond the scope of this document. Also, the complexity required
+to implement this properly, as well as the sophistication involved
+in its data management, present formidable obstacles.</p></li>
+</ul></li>
+</ul></p></section>
+<section><p>Retained key support is offered in this release, however.  The
+following verbs work with retained keys:
+<ul>
+<li><xref href="wskc_r_xpkg.dita#l0wskc02_xpkg"/> generates an RSA retained key. The
+same restrictions that Integrated Cryptographic Service Facility (ICSF)
+has for retained key creation are implemented here.  These are:
+<ul>
+<li>Notice that <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> will let you create 'key-mgmt'
+skeleton key tokens, and this is as designed. You can still pass these
+to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> and have a key pair created. What is not allowed is specifying
+that this 'key-mgmt' token is to be generated in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> as
+a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> key token: a retained key. Such an attempt will fail with
+error 12 reason code 3046.</li>
+<li>The maximum modulus size is 2048 bits.</li>
+<li>The usage flags are restricted to signature generation.
+<p>Specifically,
+key management usage for retained keys is not allowed because of the
+dangers of losing your key encrypting key (kek) for important keys,
+when that kek exists only inside a single adapter.</p></li>
+</ul></li>
+<li><xref href="wskc_r_rklist.dita#l0wskc02_rklist"/> lists the retained keys inside
+an adapter.</li>
+<li><xref href="wskc_r_rkdel.dita#l0wskc02_rkdel"/> deletes a retained key from adapter
+internal storage.</li>
+</ul></p></section>
+</refbody></reference>

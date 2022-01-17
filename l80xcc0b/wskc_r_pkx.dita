@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pkx">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> <ph>verb</ph> to extract a PKA public key token
+from a supplied PKA internal or external private key token. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p rev="sh21i1">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> verb is
+used to extract a public-key from a PKA key-token that contains a public-private key-pair. The
+public-private keys can be an RSA, ECC, or<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> key-pair. The extracted public key
+is returned in a PKA public-key token. Both the public key and the related private key must be
+present in the source PKA key-token. The source private-key can be in the clear or enciphered.</p><p>This verb performs no cryptographic verification of the PKA private
+token. You can verify the private token by using it in a verb such
+as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/>.</p></section>
+</refbody></reference>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_aptri" xml:lang="en-us">
+<title>Multiple decipherment and encipherment</title>
+<titlealts>
+<navtitle>Multiple de- and encipherment</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Multiple decipherment and
+encipherment</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses multiple
+encipherment and decipherment to protect and retrieve cryptographic keys and PIN data.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>multiple<indexterm>decipherment</indexterm></indexterm>
+<indexterm>multiple<indexterm>encipherment</indexterm></indexterm>
+<indexterm>key<indexterm>multiple decipherment/encipherment</indexterm></indexterm>
+<indexterm>electronic code book (ECB)</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses multiple encipherment
+whenever it enciphers a key under a key-encrypting key such as the master key or the transport key
+<ph rev="sh21i2">using the WRAP-ECB key wrapping method,</ph> and in triple-DES encipherment for
+data privacy. Multiple encipherment is superior to single encipherment because multiple encipherment
+increases the work needed to break a key. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides extra protection for a key by
+enciphering it under an enciphering key multiple times rather than once. The multiple encipherment
+method for keys enciphered under a key-encrypting key uses a double-length (128-bit) key split into
+two 64-bit halves. Like single encipherment, multiple encipherment uses a DES based on the
+electronic code book (ECB) mode of encipherment.</p>
+<p>Keys can either be double-length or single-length depending on
+the installation and their cryptographic function. When a single-length
+key is encrypted under a double-length key, multiple encipherment
+is performed on the key. In the multiple encipherment method, the
+key is encrypted under the left half of the enciphering key. The result
+is then decrypted under the right half of the enciphering key. Finally,
+this result is encrypted under the left half of the enciphering key
+again.</p>
+<p>When a double-length key is encrypted with multiple encipherment, the method is similar, except
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses two enciphering keys. One
+enciphering key encrypts each half of the double-length key. Double-length keys active on the system
+have two master key variants used when enciphering them.</p>
+<p>Multiple encipherment and decipherment is not only used to protect
+or retrieve a cryptographic key, but they are also used to protect
+or retrieve 64-bit data in the area of PIN applications. For example,
+the following two sections use a double-length *KEK as an example
+to cipher a single-length key even though the same algorithms apply
+to cipher 64-bit data by a double-length PIN-related cryptographic
+key.</p>
+<p>CCA also supports triple-DES encipherment for data privacy using
+double-length and triple-length DATA keys. For this procedure the
+data is first enciphered using the first DATA key. The result is then
+deciphered using the second DATA key. This second result is then enciphered
+using the third DATA key when a triple-length key is provided or reusing
+the first DATA key when a double-length key is provided.</p>
+<p>Note that an asterisk (*) preceding the key means the key is double-length.
+Notations in this chapter have the following meaning:  <ul>
+<li>eK(x), where x is enciphered under K</li>
+<li>dK(y) represents plaintext, where K is the key and y is the ciphertext</li>
+</ul></p>
+<p>Therefore, dK(eK(x)) equals x for any 64-bit key K and any 64-bit plaintext x.</p>
+<p>When a key (*K) to be protected is double-length, two double-length
+*KEKs are used. One *KEK is used for protecting the left half of the
+key (*K); another is for the right half. Multiple encipherment is
+used with the appropriate *KEK for protecting each half of the key.</p>
+</conbody>
+</concept>
+<?Pub *0000003873?>

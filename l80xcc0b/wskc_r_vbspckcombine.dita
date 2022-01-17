@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbspckcombine">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb to combine two operational DES keys into
+one operational TDES key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> )</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The verb accepts as input two single-length keys that are suitable
+for use with the CVV (card-verification value) algorithm. The resulting
+double-length key meets a more recent industry standard of using TDES
+to support PIN-based transactions. In addition, the double-length
+key is in a format that can be wrapped using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs use the CVV algorithm to generate
+and verify card security codes required by Visa (CVV) and MasterCard
+(CVC). Previously, these verbs only accepted as input two single-length
+MAC-capable keys. These verbs will additionally accept as input a
+double-length MAC or MAC-capable <synph><kwd>DATA</kwd></synph> key that contains key-A
+as the left half of the key, and key-B as the right half of the key.
+The double-length key must be usable with either the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> verb,
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb, or both.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb allows combining most pairs of single-length
+DES keys that formerly functioned as a separate key-A and key-B into
+one double-length CVVKEY-A key. The CVVKEY-A attribute in the control
+vector is now changed to mean single-length CVV key containing key-A
+or double-length CVV key containing key-A and key-B.</p></section>
+<section><p>To use this verb, specify the following:
+<ul>
+<li>Up to two optional rule-array keywords:
+<ol>
+<li>A key wrapping method keyword that specifies whether to use the
+new enhanced wrapping method, the original wrapping method, or the
+wrapping method defined as the default according to a configuration
+setting.</li>
+<li>A translation control keyword that restricts the translation method
+to the enhanced method.</li>
+</ol></li>
+<li>A single-length operational DES key for <synph><kwd>key-A</kwd></synph>
+<p>Identify
+a single-length operational DES key that has a key type of <synph><kwd>MAC</kwd></synph> or <synph><kwd>DATA</kwd></synph>.
+The key identifier length must be 64, which is the length of a DES
+key-token or a key label. This parameter identifies the <synph><kwd>key-A</kwd></synph> key
+used  with the CVV algorithm. It is placed in the <synph><kwd>left</kwd></synph> half
+of the double-length output key. When a <synph><kwd>MAC</kwd></synph> key is identified,
+it must have as its subtype extension ANY-MAC (CV bits 0 - 3 = <ph>B'0000'</ph>)
+or CVVKEY-A (CV bits 0 - 3 = <ph>B'0010'</ph>). If a <synph><kwd>DATA</kwd></synph> key
+is identified, it must have its MAC generate bit on (CV bit 20), its
+MAC verify bit on (CV bit 21), or both bits on.</p></li>
+<li>A single-length operational DES key for <synph><kwd>key-B</kwd></synph>
+<p>Identify
+a single-length operational DES key that has a key type of <synph><kwd>MAC</kwd></synph> or <synph><kwd>DATA</kwd></synph>.
+The key identifier length must be 64, which is the length of a DES
+key-token or a key label. This parameter identifies the <synph><kwd>key-B</kwd></synph> key
+used  with the CVV algorithm. It is placed in the <synph><kwd>right</kwd></synph> half
+of the double-length output key. When a <synph><kwd>MAC</kwd></synph> key is identified,
+it must have as its subtype extension ANY-MAC (CV bits 0 - 3 = <ph>B'0000'</ph>)
+or CVVKEY-B (CV bits 0 - 3 = <ph>B'0011'</ph>). If a <synph><kwd>DATA</kwd></synph> key
+is identified, it must have its MAC generate bit on (CV bit 20), its
+MAC verify bit on (CV bit 21), or both bits on.</p></li>
+<li>An output key identifier
+<p>Identify a null key-token in a 64-byte
+buffer, or the key label of a DES null key-token. If the input parameter
+identifies a key label, the output key is placed in DES key-storage.
+otherwise, the output is returned in the buffer provided.</p>
+<p>The
+following table shows the various output combinations that are returned
+for the MAC generate and MAC verify attributes. These results are
+based on the three possible MAC generate and MAC verify control-vector-bit
+combinations (bits 20 - 21) that the pair of input keys can have.
+<table pgwide="0" rowheader="firstcol"><desc><p outputclass="summary">Combinations
+that are returned for the MAC generate and MAC verify attributes</p></desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="8*"/>
+<colspec colname="col4" colwidth="8*"/>
+<thead>
+<row>
+<entry colname="col1" morerows="1" valign="bottom" align="center">CV
+bits 20 - 21 of input key key-A, single length</entry>
+<entry namest="col2" nameend="col4" align="center">CV bits 20 - 21
+of input key key-B, single length</entry></row>
+<row>
+<entry valign="bottom">MAC generate andMAC verify</entry>
+<entry valign="bottom">MAC generate only,single length</entry>
+<entry valign="bottom">MAC verify only</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">MAC generate andMAC verify</entry>
+<entry colname="col2">MAC generate and MAC verifydouble-length
+key-A</entry>
+<entry colname="col3">MAC generate only double-length key-A</entry>
+<entry colname="col4">MAC verify only double-length key-A</entry></row>
+<row>
+<entry colname="col1">MAC generate only</entry>
+<entry colname="col2">MAC generate onlydouble-length key-A</entry>
+<entry colname="col3">MAC generate only double-length key-A</entry>
+<entry colname="col4">Invalid combination, control vector conflict</entry></row>
+<row>
+<entry colname="col1">MAC verify only</entry>
+<entry colname="col2">MAC verify onlydouble-length key-A</entry>
+<entry colname="col3">Invalid combination, control vector conflict</entry>
+<entry colname="col4">MAC verify only double-length key-A</entry></row>
+</tbody>
+</tgroup>
+</table></p></li>
+</ul></p></section>
+</refbody></reference>

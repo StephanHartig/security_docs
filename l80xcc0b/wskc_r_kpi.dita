@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpi">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> <ph>verb</ph> to combine, by XORing, the clear
+key parts of any key type and return the combined key value either
+in an internal token or as an update to the <ph>key storage file.</ph></shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</indexterm></indexterm>
+<indexterm>key storage</indexterm>
+<indexterm>FIRST</indexterm>
+<indexterm>MIDDLE</indexterm>
+<indexterm>LAST</indexterm>
+<indexterm>ADD-PART</indexterm>
+<indexterm>COMPLETE</indexterm>
+<indexterm>even parity</indexterm>
+<indexterm>odd parity</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p/></section>
+<section><p>Before you use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb for the first key part, you must
+use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb to create the internal key token
+into which the key will be imported. Subsequent key parts are combined
+with the first part in internal token form or as a label from the <ph>key
+storage file.</ph></p></section>
+<section><p>The preferred way to specify key parts is <synph><kwd>FIRST</kwd></synph>, <synph><kwd>ADD-PART</kwd></synph>,
+and <synph><kwd>COMPLETE</kwd></synph> in the <synph><var>rule_array</var></synph>. Only when the combined
+key parts have been marked as complete can the key token be used in
+any cryptographic operation. The partial key can be passed to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb
+for re-encipherment, in case building the key was started during a
+master key change operation. The partial key can be passed to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb,
+in order to discover how the key token was originally specified, if
+researching an old partial key. Partial keys can also be passed to
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/>, and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> verbs.</p></section>
+<section><p>Key parts can also be specified as <synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>,
+or <synph><kwd>LAST</kwd></synph> in the <synph><var>rule_array</var></synph>. <synph><kwd>ADD-PART</kwd></synph> or <synph><kwd>MIDDLE</kwd></synph> can
+be executed multiple times for as many key parts as necessary. Only
+when the <synph><kwd>LAST</kwd></synph> part has been combined can the key token be
+used in any other service.</p></section>
+<section><p>New applications should employ the <synph><kwd>ADD-PART</kwd></synph> and <synph><kwd>COMPLETE</kwd></synph> keywords
+in lieu of the <synph><kwd>MIDDLE</kwd></synph> and <synph><kwd>LAST</kwd></synph> keywords in order
+to ensure a separation of responsibilities between someone who can
+add key-part information and someone who can declare that appropriate
+information has been accumulated in a key.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> <ph>verb</ph> can also be used to import a key  without
+using key parts. Call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb FIRST with key part value <ph>X'0000...'</ph> then
+call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb <synph><kwd>LAST</kwd></synph> with the complete value.</p></section>
+<section><p>Keys created using this service have odd parity. The <synph><kwd>FIRST</kwd></synph> key
+part is adjusted to odd parity. All subsequent key parts are adjusted
+to even parity before being combined.</p></section>
+</refbody></reference>

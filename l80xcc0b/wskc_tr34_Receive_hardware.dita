@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Rcsfb4-gen396_hardware" xml:lang="en-us" rev="hw20i1">
+<title>Required hardware</title>
+<titlealts>
+<navtitle>Required hardware</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required hardware for
+CSNDT34R</searchtitle>
+</titlealts>
+<shortdesc>Required hardware for CSNDT34R.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34 Key Receive (CSNDT34R)<indexterm>required hardware</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This table lists the required cryptographic hardware for each server type and describes
+restrictions for this callable service.</p>
+<table frame="all" pgwide="1" rowheader="firstcol" id="table_s3w_sln_dlb"><title>TR-34 Key Receive
+required hardware</title><desc>
+<p outputclass="summary">TR-34 Key Receive required hardware</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="75*"/>
+<colspec colname="col2" colwidth="75*"/>
+<colspec colname="col3" colwidth="150*"/>
+<thead>
+<row>
+<entry align="left" nameend="col1" namest="col1" valign="top">Server</entry>
+<entry align="left" nameend="col2" namest="col2" valign="top">Required cryptographic
+hardware</entry>
+<entry align="left" nameend="col3" namest="col3" valign="top">Restrictions</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" nameend="col1" namest="col1">
+<lines>IBM System z9 EC
+IBM System z9 BC</lines>
+</entry>
+<entry align="left" nameend="col2" namest="col2" valign="top"/>
+<entry align="left" nameend="col3" namest="col3" valign="top">This service is not supported.</entry>
+</row>
+<row>
+<entry align="left" nameend="col1" namest="col1">
+<lines>IBM System z10 EC
+IBM System z10 BC</lines>
+</entry>
+<entry align="left" nameend="col2" namest="col2" valign="top"/>
+<entry align="left" nameend="col3" namest="col3" valign="top">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col1">
+<lines>IBM zEnterprise 196
+IBM zEnterprise 114</lines>
+</entry>
+<entry colname="col2"/>
+<entry colname="col3">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col1">
+<lines>IBM zEnterprise EC12
+IBM zEnterprise BC12</lines>
+</entry>
+<entry colname="col2"/>
+<entry colname="col3">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col1">
+<lines>IBM z13
+IBM z13s</lines>
+</entry>
+<entry colname="col2"/>
+<entry colname="col3">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">
+<lines>IBM z14
+IBM z14 ZR1</lines>
+</entry>
+<entry colname="col2">Crypto Express5 CCA Coprocessor</entry>
+<entry colname="col3">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col2">Crypto Express6 CCA Coprocessor</entry>
+<entry colname="col3">This service requires the July 2019 or later licensed internal code.</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">
+<lines>IBM z15
+</lines>
+</entry>
+<entry colname="col2">Crypto Express5 CCA Coprocessor </entry>
+<entry colname="col3">This service is not supported.</entry>
+</row>
+<row>
+<entry colname="col2">
+<lines>Crypto Express6 CCA 
+Coprocessor
+Crypto Express7 CCA 
+Coprocessor</lines>
+</entry>
+<entry colname="col3"/>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>
+<?Pub *0000077566?>

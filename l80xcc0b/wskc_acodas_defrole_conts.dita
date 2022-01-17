@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_defrole_conts" xml:lang="en-us" rev="sh16">
+<title>Default role contents</title>
+<titlealts>
+<navtitle>Default role contents</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Default role contents</searchtitle>
+</titlealts>
+<shortdesc>Read about the purpose and characteristics of the default role.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>DEFAULT role</indexterm></indexterm>
+<indexterm>DEFAULT role<indexterm> contents</indexterm></indexterm>
+<indexterm>contents of the DEFAULT role</indexterm>
+<indexterm>function control
+vector<indexterm>load</indexterm><indexterm>clear</indexterm></indexterm>
+<indexterm>DEFALTXX</indexterm>
+<indexterm>DFLTXXxx</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You can use the default role from a CEX*C coprocessor to access a certain domain in order to
+process the appropriate verbs that are allowed by the ACP list assigned to that role. Using the TKE,
+you can adapt the default role according to your needs for each domain that you want to access and
+thus use one role for each domain. The name that you apply to a default role for a domain depends on
+the domain number. </p>
+<p>There are two variants for naming the default role for a domain on an S390 system:
+<codeph>DEFALTXX</codeph> and <codeph>DFLTXXXX</codeph>, where the <codeph>XX</codeph> or
+<codeph>XXXX</codeph> stand for a multi-digit decimal number indicating the domain number. The
+<codeph>DFLTXXXX</codeph> naming scheme was introduced for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/> machines.</p>
+<p>
+<b>Examples: </b><ul compact="yes" rev="sh18i2">
+<li><codeph>DEFALT02</codeph> is the default role ID for domain 2 on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z10"/> machine (CEX3C or CEX4C).</li>
+<li><codeph>DFLT0052</codeph> is the default role ID for domain 52 on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/> (CEX5C) or on a <ph
+conref="lxcommon.dita#phrases/ph_z14"/> (CEX6C).</li>
+</ul></p>
+<p>The role ID names are always 8 characters, ASCII. Role names on some platforms and through some
+interfaces may end with ASCII space characters (0x20), therefore every input mechanism is designed
+to explicitly allow space characters.</p>
+<p rev="sh18i2">See a list of the current roles: <screen># panel.exe --list-roles</screen>
+</p>
+<p>The default role has the following characteristics:</p>
+<ul>
+<li>The required authentication strength level is zero.</li>
+<li>The role is valid at all times and on all days of the week.</li>
+<li>The only functions that are permitted are those related to access control initialization. This
+guarantees that the owner initializes the coprocessor before any cryptographic work can be done.
+This requirement prevents security accidents in which unrestricted default authority might
+accidentally be left intact when the system is put into service.</li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000003873?>

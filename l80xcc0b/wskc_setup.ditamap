@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_i">
+<title>Initial system set up tips</title>
+<topicref href="wskc_c_setup.dita">
+<topicref href="wskc_c_setupilzdd.dita"/>
+<topicref href="wskc_c_unload_dd.dita"/>
+<topicref href="wskc_c_setup_sysfs.dita"/>
+<topicref href="wskc_c_l0wskc112.dita"/>
+<topicref href="wskc_c_l0wskc113.dita"/>
+<topicref href="wskc_c_l0wskc114.dita"/>
+</topicref>
+</map>

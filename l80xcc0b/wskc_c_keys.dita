@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_keys" xml:lang="en-us">
+<title>Types of keys</title>
+<titlealts>
+<navtitle>Types of keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Types of keys</searchtitle>
+</titlealts>
+<shortdesc>The cryptographic keys are grouped into the following categories
+based on the functions that they perform.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key types</indexterm>
+<indexterm>key<indexterm>symmetric
+master key</indexterm></indexterm><indexterm>symmetric keys master
+key</indexterm><indexterm>SYM-MK</indexterm><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+<indexterm>key<indexterm>AES master key</indexterm></indexterm>
+<indexterm>AES master key</indexterm><indexterm>AES-MK</indexterm>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+<indexterm>key<indexterm>asymmetric master key</indexterm></indexterm>
+<indexterm>asymmetric keys master key</indexterm><indexterm>ASYM-MK</indexterm>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+<indexterm>AES CIPHER keys<indexterm>definition</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)</indexterm><indexterm>data-encrypting
+key<indexterm>length</indexterm></indexterm><indexterm>data-encrypting
+key<indexterm>definition</indexterm></indexterm><indexterm>DATAC</indexterm>
+<indexterm>clear key</indexterm>
+<indexterm>encrypted key</indexterm>
+<indexterm>key<indexterm>CIPHER</indexterm><indexterm>ENCIPHER</indexterm><indexterm>DECIPHER</indexterm></indexterm>
+<indexterm>DES CIPHER keys<indexterm>definition</indexterm></indexterm>
+<indexterm>key<indexterm>HMAC</indexterm><indexterm>MAC</indexterm><indexterm>clear
+key</indexterm></indexterm><indexterm>HMAC
+keys<indexterm>definition</indexterm></indexterm>
+<indexterm>MAC keys<indexterm>definition</indexterm></indexterm>
+<indexterm>MAC</indexterm><indexterm>MACVER</indexterm><indexterm>DATAM</indexterm>
+<indexterm>key<indexterm>PIN</indexterm></indexterm><indexterm>PIN
+keys</indexterm><indexterm>personal identification number (PIN)<indexterm>keys</indexterm></indexterm>
+<indexterm>key<indexterm>AES transport</indexterm></indexterm>
+<indexterm>AES transport key</indexterm><indexterm>key<indexterm>key-encrypting</indexterm><indexterm>DES
+transport</indexterm><indexterm>DES exporter key-encrypting</indexterm><indexterm>NOCV importers and
+exporters</indexterm></indexterm>
+<indexterm>key-encrypting key</indexterm><indexterm>DES transport key</indexterm>
+<indexterm>importer key-encrypting key</indexterm><indexterm>OKEYXLAT</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>clear key</indexterm><indexterm>NOCV importers and
+exporters</indexterm><indexterm>double-length key<indexterm>using</indexterm></indexterm>
+<indexterm>single-length key<indexterm>using</indexterm></indexterm>
+<indexterm>key generating key<indexterm>definition</indexterm></indexterm>
+<indexterm>key type<indexterm>list</indexterm></indexterm><indexterm>AESDATA</indexterm><indexterm>AESTOKEN</indexterm><indexterm>CIPHER
+key type</indexterm><indexterm>CLRAES</indexterm><indexterm>CVARDEC</indexterm><indexterm>CVARENC</indexterm><indexterm>CVARPINE</indexterm><indexterm>CVARXCVL</indexterm><indexterm>CVARXCVR</indexterm><indexterm>DATA</indexterm><indexterm>DATAC</indexterm><indexterm>DATAM</indexterm><indexterm>DATAMV</indexterm><indexterm>DATAXLAT</indexterm><indexterm>DECIPHER</indexterm><indexterm>DKYGENKY</indexterm><indexterm>ENCIPHER</indexterm><indexterm>EXPORTER</indexterm><indexterm>HMAC</indexterm><indexterm>HMACVER</indexterm><indexterm>IEKYXLAT</indexterm><indexterm>IMPORTER</indexterm><indexterm>IMP-PKA</indexterm><indexterm>IPINENC</indexterm><indexterm>KEYGENKY</indexterm><indexterm>MAC</indexterm><indexterm>MACVER</indexterm><indexterm>OKEYXLAT</indexterm><indexterm>OPINENC</indexterm><indexterm>PINGEN</indexterm><indexterm>PINVER</indexterm><indexterm>SECMSG</indexterm><indexterm>TOKEN</indexterm><indexterm>key
+subtype<indexterm>specified by rule_array</indexterm><indexterm>list</indexterm></indexterm>
+<indexterm>AMEX-CSC</indexterm><indexterm>ANSI X9.9</indexterm><indexterm>ANY</indexterm><indexterm>ANY-MAC</indexterm><indexterm>CVVKEY-A</indexterm>
+<indexterm>CVVKEY-B</indexterm><indexterm>DATA</indexterm>
+<indexterm>EPINGENA</indexterm><indexterm>LMTD-KEK</indexterm><indexterm>NOT-KEK</indexterm><indexterm>PIN</indexterm><indexterm>control vector keyword combinations</indexterm>
+<indexterm>keyword combinations</indexterm>
+<indexterm>CIPHERXI</indexterm>
+<indexterm>CIPHERXL</indexterm>
+<indexterm>CIPHERXO</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<dl>
+<dlentry>
+<dt>Symmetric keys master key (SYM-MK)</dt>
+<dd>The SYM-MK master key is a <ph>triple-length (192-bit)</ph> key that is used only to encrypt
+other DES keys on the <ph>coprocessor</ph>. The administrator installs and changes the SYM-MK master
+key using the <cmdname>panel.exe</cmdname> utility, the clear key entry panels, the <tm tmtype="reg"
+trademark="z/OS">z/OS</tm> clear key entry panels, or the optional Trusted Key Entry (TKE)
+workstation. The master key always remains within the secure boundary of the <ph>coprocessor</ph>.
+It is used only to encipher and decipher keys that are in operational form. <note>If the coprocessor
+is shared with <tm tmtype="reg" trademark="z/OS">z/OS</tm>, the SYM-MK key must be a double-length
+(128-bit) key. This means that the first 64 bits and the last 64 bits of the key must be identical.
+If the master key is loaded by <tm tmtype="reg" trademark="z/OS">z/OS</tm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> or from a TKE workstation, it will
+automatically be a double-length key.</note></dd>
+</dlentry>
+<dlentry>
+<dt>AES keys master key (AES-MK)</dt>
+<dd>The AES-MK master key is a 256-bit key that is used to encrypt other AES keys and HMAC keys on
+the coprocessor. The administrator installs and changes the AES-MK master key using the
+<cmdname>panel.exe</cmdname> utility, the clear key entry panels, the <tm tmtype="reg"
+trademark="z/OS">z/OS</tm> clear key entry panels, or the optional Trusted Key Entry (TKE)
+workstation. The master key always remains within the secure boundary of the coprocessor. It is used
+only to encipher and decipher keys that are in operational form. </dd>
+</dlentry>
+<dlentry>
+<dt>Asymmetric keys master key (ASYM-MK)</dt>
+<dd>The ASYM-MK is a triple-length (192-bit) key that is used to protect RSA private keys on the
+coprocessor. The administrator installs and changes the ASYM-MK master key using the
+<cmdname>panel.exe</cmdname> utility, the clear key entry panels, the <tm tmtype="reg"
+trademark="z/OS">z/OS</tm> clear key entry panels, or the optional Trusted Key Entry (TKE)
+workstation. The master key always remains within the secure boundary of the coprocessor. It is used
+only to encipher and decipher keys that are in operational form. </dd>
+</dlentry>
+<dlentry>
+<dt>AES CIPHER keys</dt>
+<dd>The AES cipher keys are 128-bit, 192-bit, and 256-bit keys that protect data privacy. If you
+intend to use a cipher key for an extended period, you can store it in key storage so that it will
+be re-enciphered if the master key is changed.</dd>
+</dlentry>
+<dlentry>
+<dt>AES PKA master key (APKA-MK)</dt>
+<dd>The APKA-MK key, introduced to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+beginning with Release 4.1.0, is used to encrypt and decrypt the Object Protection Key (OPK) that is
+itself used to wrap the key material of an Elliptic Curve Cryptography (ECC) key. ECC keys are
+asymmetric. The APKA-MK is a 256-bit (32-byte) value. The administrator installs and changes the
+APKA-MK master key using the <cmdname>panel.exe</cmdname> utility, the clear key entry panels, the
+<tm tmtype="reg" trademark="z/OS">z/OS</tm> clear key entry panels, or the optional Trusted Key
+Entry (TKE) workstation.</dd>
+</dlentry>
+<dlentry>
+<dt>Data-encrypting keys</dt>
+<dd>The data-encrypting keys are single-length DES (64-bit), double-length DES (128-bit), or
+triple-length DES (192-bit) keys, or 128-bit, 192-bit or 256-bit AES keys that protect data privacy.
+Single-length DES data-encrypting keys can also be used to encode and decode data and authenticate
+data sent in messages. If you intend to use a data-encrypting key for an extended period of time,
+you can store it in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key
+storage file so that it will be re-enciphered if the master key is changed. <p>You can use
+single-length DES data-encrypting keys in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs to manage data, and also in the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs. Double-length DES and
+triple-length DES data-encrypting keys can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs for more secure data privacy.
+DATAC is also a double-length DES data encrypting key.</p>
+<p>AES data-encrypting keys can be used in services similar to DES data-encrypting key services.</p>
+</dd>
+</dlentry>
+<dlentry>
+<dt>DES CIPHER keys</dt>
+<dd>These consist of CIPHER, ENCIPHER, and DECIPHER keys. They are single and double length DES keys
+for enciphering and deciphering data.</dd>
+</dlentry>
+<dlentry>
+<dt>Ciphertext translation keys</dt>
+<dd>These ciphertext translation keys consist of CIPHERXI, CIPHERXL, and CIPHERXO keys. They protect
+data that is transmitted through intermediate systems when the originator and receiver do not share
+a common key. Data that is enciphered under one ciphertext translation key is re-enciphered under
+another ciphertext translation key on the intermediate node. During this process, the data never
+appears in the clear. These keys are double-length.</dd>
+</dlentry>
+<dlentry>
+<dt>HMAC keys</dt>
+<dd>HMAC keys are variable-length symmetric keys. The length is in the range of 80 - 2024. HMAC keys
+are used to generate and verify HMACs using the FIPS-198 algorithm, with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> verbs. <ul>
+<li>Operational keys will be encrypted under the AES master key</li>
+<li>HMAC keys can be imported and exported under an RSA key.</li>
+<li>HMAC keys will be stored in the AES key storage file. The AES master key must be active.</li>
+</ul><p>For more information about HMAC keys and verb processing, see <xref
+href="wskc_c_apmac.dita#l0wskc02_apmac"/>.</p></dd>
+</dlentry>
+<dlentry>
+<dt>MAC keys</dt>
+<dd>The MAC keys are single-length DES (64-bits - <ph>DATAM, DATAMV</ph>, MAC, and MACVER, ) and
+double-length DES (128-bits - DATAM, DATAMV, <ph>MAC, and MACVER</ph>) keys used for the
+<ph>verbs</ph> that generate and verify MACs.</dd>
+</dlentry>
+<dlentry>
+<dt>PIN keys</dt>
+<dd>The personal identification number (PIN) is a basis for verifying the identity of a customer
+across financial industry networks. PIN keys are used in cryptographic functions to generate,
+translate, and verify PINs, and protect PIN blocks. They are all double-length DES (128 bits) keys.
+PIN keys are used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/>,
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>
+<ph>verbs</ph>. <p>For installations that do not support double-length DES 128-bit keys, effective
+single-length DES keys are provided. For a single-length DES key, the left key half of the key
+equals the right key half.</p>
+<p><xref href="wskc_c_pin.dita#l0wskc02_pin"/> gives an overview of the PIN algorithms you need to
+know to write your own application programs.</p></dd>
+</dlentry>
+<dlentry>
+<dt>AES transport keys (or key-encrypting keys)</dt>
+<dd>Transport keys are also known as key-encrypting keys. They are used to protect AES and HMAC keys
+when you distribute them from one system to another. <p>There are two types of AES transport keys: <dl>
+<dlentry>
+<dt>Exporter key-encrypting key</dt>
+<dd>This type of key protects keys of any type that are sent from your system to another system. The
+exporter key at the originator is the same key as the importer key of the receiver.</dd>
+</dlentry>
+<dlentry>
+<dt>Importer key-encrypting key</dt>
+<dd>This type of key protects keys of any type that are sent from another system to your system. It
+also protects keys that you store externally in a file that you can import to your system at another
+time. The importer key at the receiver is the same key as the exporter key at the originator.</dd>
+</dlentry>
+</dl></p></dd>
+</dlentry>
+<dlentry>
+<dt>DES transport keys (or key-encrypting keys)</dt>
+<dd>Transport keys are also known as key-encrypting keys. They are double-length (128 bits) DES keys
+used to protect keys when you distribute them from one system to another. <p>There are several types
+of DES transport keys: <dl>
+<dlentry>
+<dt>Exporter or OKEYXLAT key-encrypting key</dt>
+<dd>This type of key protects keys of any type that are sent from your system to another system. The
+exporter key at the originator is the same key as the importer key of the receiver.</dd>
+</dlentry>
+<dlentry>
+<dt>Importer or IKEYXLAT key-encrypting key</dt>
+<dd>This type of key protects keys of any type that are sent from another system to your system. It
+also protects keys that you store externally in a file that you can import to your system later. The
+importer key at the receiver is the same key as the exporter key at the originator.</dd>
+</dlentry>
+<dlentry id="l0wskc02_nnocv">
+<dt>NOCV importers and exporters</dt>
+<dd>These keys are key-encrypting keys used to exchange keys with systems that do not recognize
+key-encrypting key variants. There are some requirements and restrictions for the use of NOCV
+key-encrypting keys: <ul>
+<li>The use of NOCV IMPORTERs and EXPORTERs is controlled by access control points in the
+coprocessor's role-based access control system.</li>
+<li>Only programs in system or supervisor state can use the NOCV key-encrypting key in the form of
+tokens in <ph>verbs</ph>. <ph>Any program can use NOCV key-encrypting keys with label names from the
+key storage.</ph></li>
+<li>Access to NOCV key-encrypting keys should be carefully controlled, because use of these keys can
+reduce security in your key management process.</li>
+<li>NOCV key-encrypting key can be used to encrypt single or double length DES keys with standard
+CVs for key types DATA, DATAC, DATAM , DATAMV, DATAXLAT, EXPORTER, IKEYXLAT, IMPORTER, IPINENC,
+single-length MAC, single-length MACVER, OKEYXLAT, OPINENC, PINGEN and PINVER.</li>
+<li>NOCV key-encrypting keys can be used with triple length DATA keys. Because DATA keys have 0 CVs,
+processing will be the same as if the key-encrypting keys are standard key-encrypting keys (not the
+NOCV key-encrypting key).</li>
+</ul>
+<note>A key-encrypting key should be as strong or stronger than the key that it is
+wrapping.</note></dd>
+</dlentry>
+</dl></p>
+<p>You use key-encrypting keys to protect keys that are transported using any of the following
+<ph>verbs</ph>: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/>.</p>
+<p>For installations that do not support double-length key-encrypting keys, effective single-length
+keys are provided. For an effective single-length key, the clear key value of the left key half
+equals the clear key value of the right key half. </p></dd>
+</dlentry>
+<dlentry>
+<dt>Key-generating keys</dt>
+<dd>Key-generating keys are double-length keys used to derive other keys. This is often used in
+smart card applications.</dd>
+</dlentry>
+<dlentry>
+<dt>Clear keys</dt>
+<dd>A clear key is the base value of a key, and is not encrypted under another key. Encrypted keys
+are keys whose base value has been encrypted under another key. <p>To convert a clear key to an
+encrypted data key in operational form, use either the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/>
+<ph>verb</ph> or the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/>
+<ph>verb</ph>.</p></dd>
+</dlentry>
+</dl>
+<p><xref href="#l0wskc02_keys/l0wskc02_keyta"></xref> describes the
+key types.
+<table frame="all" id="l0wskc02_keyta" pgwide="1">
+<title>Key types</title>
+<desc><p outputclass="summary">Key types</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Key type</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AESDATA</kwd></synph></entry>
+<entry>Data encrypting key. Use the AES
+128-bit, 192-bit, or 256-bit key to encipher and decipher data.</entry>
+</row>
+<row>
+<entry><synph><kwd>AESTOKEN</kwd></synph></entry>
+<entry>Can contain an AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>CIPHER</kwd></synph></entry>
+<entry> <dl compact="yes"><dlentry>
+<dt>AES</dt>
+<dd>This 128-bit, 192-bit, or 256-bit key is used to encrypt or decrypt
+data. It can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"></keyword> verbs.</dd>
+</dlentry><dlentry>
+<dt>DES</dt>
+<dd>This single or double-length key is used to encrypt or decrypt
+data. It can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> verbs</dd>
+</dlentry></dl>Used only to encrypt or decrypt data. This is a single
+or double length key and can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> verbs.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>CIPHERXI</kwd></synph></entry>
+<entry>Usable with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> verb (translate inbound key
+only)</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>CIPHERXL</kwd></synph></entry>
+<entry>Usable with the  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> verb (translate inbound or outbound
+key)</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>CIPHERXO</kwd></synph></entry>
+<entry>Usable with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> verb (translate outbound key
+only)</entry>
+</row>
+<row>
+<entry><synph><kwd>CLRAES</kwd></synph></entry>
+<entry>Data encrypting key. The key value
+is not encrypted. Use this AES 128-bit, 192-bit, or 256-bit key to
+encipher and decipher data.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVARDEC</kwd></synph></entry>
+<entry><ph>The cryptographic variable decipher service, which is available in some <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> implementations</ph>, uses a
+<synph><kwd>CVARDEC</kwd></synph> key to decrypt plaintext by using the Cipher Block Chaining (CBC)
+method. This is a single-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVARENC</kwd></synph></entry>
+<entry><ph>The cryptographic variable encipher service, which is available in some <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> implementations</ph>, uses a
+<synph><kwd>CVARENC</kwd></synph> key to encrypt plaintext by using the Cipher Block Chaining (CBC)
+method. This is a single-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVARPINE</kwd></synph></entry>
+<entry>Used to encrypt a PIN value for decryption
+in a PIN-printing application. This is a single-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVARXCVL</kwd></synph></entry>
+<entry>Used to encrypt special control values
+in DES key management. This is a single-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVARXCVR</kwd></synph></entry>
+<entry>Used to encrypt special control values
+in DES key management. This is a single-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>DATA</kwd></synph></entry>
+<entry>Data encrypting key. Use this DES
+single-length, double-length, or triple-length key to encipher and
+decipher data. Use the AES 128-bit, 192-bit, or 256-bit key to encipher
+and decipher data.</entry>
+</row>
+<row>
+<entry><synph><kwd>DATAC</kwd></synph></entry>
+<entry>Used to specify a <synph><kwd>DATA</kwd></synph>-class
+key that  will perform in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> <ph>verbs</ph>,
+but not in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"></keyword> <ph>verbs</ph>.
+ This is a double-length key. Only available with a <ph><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></ph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>DATAM</kwd></synph></entry>
+<entry>Key-encrypting keys that have a control
+vector with this attribute formerly could only be used to transport
+keys with a key type of <synph><kwd>DATA</kwd></synph>, <synph><kwd>CIPHER</kwd></synph>,
+ENCIPHER, <synph><kwd>DECIPHER</kwd></synph>, <synph><kwd>MAC</kwd></synph>,
+and <synph><kwd>MACVER</kwd></synph>. The meaning of this keyword
+has been discontinued and its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry><synph><kwd>DATAMV</kwd></synph></entry>
+<entry>Used to specify a <synph><kwd>DATA</kwd></synph>-class
+key that performs in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"></keyword> verb,
+but not in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword>,
+or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> verbs.</entry>
+</row>
+<row>
+<entry><synph><kwd>DATAXLAT</kwd></synph></entry>
+<entry>Data translation key. Use this single-length
+key to reencipher text from one DATA key to another.</entry>
+</row>
+<row>
+<entry><synph><kwd>DECIPHER</kwd></synph></entry>
+<entry>Used only to decrypt data. <synph><kwd>DECIPHER</kwd></synph> keys
+cannot be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"></keyword>) <ph>verb</ph>.
+This is a single-length key. <p>This is a single or double length
+key and can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> <ph>verb</ph>.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>DKYGENKY</kwd></synph></entry>
+<entry>Used to generate a diversified key
+based on the key-generating key. This is a double-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>ENCIPHER</kwd></synph></entry>
+<entry>Used only to encrypt data. <synph><kwd>ENCIPHER</kwd></synph> keys
+cannot be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"></keyword>) <ph>verb</ph>.
+This is a single-length key. <p>This is a single or double length
+key and can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> <ph>verb</ph>.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry>Exporter key-encrypting key. Use
+this double-length DES key or 128-bit, 192-bit or 256-bit AES key
+to convert a key from operational form into exportable form.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>Variable-length HMAC generation key.
+Use this key to generate or verify a Message Authentication Code using
+the keyed-hash MAC algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMACVER</kwd></synph></entry>
+<entry>Variable-length HMAC verification
+key. Use this key to verify a Message Authentication Code using the
+keyed-hash MAC algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry>Used to decrypt an input key in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"></keyword> <ph>verbs</ph>.
+This is a double-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry>Importer key-encrypting key. Exporter
+key-encrypting key. Use this double-length DES key or 128-bit, 192-bit
+or 256-bit AES key to convert a key from importable form into operational
+form.</entry>
+</row>
+<row>
+<entry><synph><kwd>IMP-PKA</kwd></synph></entry>
+<entry>Double-length limited-authority importer
+key used to encrypt PKA private key values in PKA external tokens.</entry>
+</row>
+<row>
+<entry><synph><kwd>IPINENC</kwd></synph></entry>
+<entry>Double-length input PIN-encrypting
+key. PIN blocks received from other nodes or automatic teller machine
+(ATM) terminals are encrypted under this type of key. These encrypted
+PIN blocks are the input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"></keyword>,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> <ph>verbs</ph>. </entry>
+</row>
+<row>
+<entry><synph><kwd>KEYGENKY</kwd></synph></entry>
+<entry>Used to generate a key based on the
+key-generating key. This is a double-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>MAC</kwd></synph></entry>
+<entry>Single, double-length, or variable-length
+MAC generation key. Use this key to generate a message authentication
+code.</entry>
+</row>
+<row>
+<entry><synph><kwd>MACVER</kwd></synph></entry>
+<entry>Single, double-length, or variable-length
+MAC verification key. Use this key to verify a message authentication
+code.</entry>
+</row>
+<row>
+<entry><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry>Used to encrypt an output key in
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"></keyword> <ph>verbs</ph>.
+This is a double-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPINENC</kwd></synph></entry>
+<entry>Output PIN-encrypting key. Use this
+double-length output key to translate PINs. The output PIN blocks
+from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"></keyword>,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> <ph>verbs</ph> are
+encrypted under this type of key. </entry>
+</row>
+<row>
+<entry><synph><kwd>PINGEN</kwd></synph></entry>
+<entry>PIN generation key. Use this double-length
+key to generate PINs.</entry>
+</row>
+<row>
+<entry><synph><kwd>PINVER</kwd></synph></entry>
+<entry>PIN verification key. Use this double-length
+key to verify PINs.</entry>
+</row>
+<row>
+<entry><synph><kwd>SECMSG</kwd></synph></entry>
+<entry>Used to encrypt PINs or keys in a
+secure message. This is a double-length key.</entry>
+</row>
+<row>
+<entry><synph><kwd>TOKEN</kwd></synph></entry>
+<entry>A key token that might contain a
+key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+<p><xref href="#l0wskc02_keys/l0wskc02_keytrulearray"/> lists key subtypes passed in the
+<i>rule_array</i> keyword. </p>
+<table id="l0wskc02_keytrulearray" pgwide="1">
+<title>Key subtypes specified by the <i>rule_array</i> keyword</title>
+<desc>
+<p outputclass="summary">Key subtypes specified by the <i>rule_array</i> keyword</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1"><i>rule_array</i> keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>AMEX-CSC</kwd></synph></entry>
+<entry colname="col2">A MAC key that can be used for the AMEX CSC transaction validation process MAC
+calculation method, used with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>) verb.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ANSIX9.9</kwd></synph></entry>
+<entry colname="col2">A MAC key that can be used for the ANSI X9.9 MAC calculation method, either
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>), or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>). Other Control Vector bits could limit
+these usages.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ANY</kwd></synph></entry>
+<entry colname="col2">Key-encrypting keys that have a control vector with this attribute can be used
+to transport any type of key. The meaning of this keyword has been discontinued, and its usage is
+allowed for backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ANY-MAC</kwd></synph></entry>
+<entry colname="col2">Can be used with any function or MAC calculation method that uses a MAC key,
+such as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>), or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>). This is the default configuration for
+a MAC key control vector.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>CVVKEY-A</kwd></synph></entry>
+<entry colname="col2">Can be used as 'Key A' in either the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>) verbs, as controlled by the CVV
+generation and verification Control Vector bits (bits 20 and 21 respectively).</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>CVVKEY-B</kwd></synph></entry>
+<entry colname="col2">Can be used as 'Key B' in either the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>) verbs, as controlled by the CVV
+generation and verification Control Vector bits (bits 20 and 21 respectively).</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>DATA</kwd></synph></entry>
+<entry colname="col2">Data encrypting key. Use this 8-byte, 16-byte or 24-byte DES key or 16-byte,
+24-byte or 32-byte AES key to encipher and decipher data.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>EPINGENA</kwd></synph></entry>
+<entry colname="col2">Legacy key subtype, used to turn on bit 19 of a PIN Generating Key Control
+Vector. The default PIN Generating Key type will have this bit on. No PIN generating or processing
+behavior is currently influenced by this key subtype parameter. <synph><kwd>EPINGENA</kwd></synph>
+is no longer supported, although the bit retains this definition for compatibility There is no
+Encrypted Pin Generate Alternate verb</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>LMTD-KEK</kwd></synph></entry>
+<entry colname="col2">Key-encrypting keys that have a control vector with this attribute formerly
+could only be used to exchange keys with key-encrypting keys that carry NOT-KEK, PIN, or DATA
+key-type ciphering restrictions. The usage of this keyword has been discontinued and its usage is
+allowed for backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>NOT-KEK</kwd></synph></entry>
+<entry colname="col2">Key-encrypting keys that have a control vector with this attribute formerly
+could not be used to transport key-encrypting keys. The meaning of this keyword has been
+discontinued and its usage is allowed for backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>PIN</kwd></synph></entry>
+<entry colname="col2">Key-encrypting keys that have a control vector with this attribute formerly
+could only be used to transport keys with a key type of <synph><kwd>PINVER</kwd></synph>,
+<synph><kwd>IPINENC</kwd></synph>, and <synph><kwd>OPINENC</kwd></synph>. The usage of this keyword
+has been discontinued and its usage is allowed for backward compatibility reasons only.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<!--******** This figure is replaced by  17 new figures listed in Table CSNBCVG, CSNBKTB, and CSNBKTP keyword combinations by DES key type '  in section 'DES key usage restrictions' hereafter  ************** 
+<fig expanse="page" id="l0wskc02_kytpfig" scale="80"> <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> CV keyword combinations for fixed-length DES key tokens</title> <image href="wskc_c_keys.jpg" width="600" id="image_uyl_cwv_zgb"><alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> CV keyword combinations for fixed-length DES key tokens</alt> </image> <?Pub Caret 0?></fig>-->
+</conbody>
+</concept>
+<?Pub *0000043308?>

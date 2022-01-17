@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2hashf">
+<title>Hashing functions</title>
+  <titlealts>
+    <navtitle>Hashing functions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Hashing functions</searchtitle>
+  </titlealts><shortdesc>Hashing functions are provided by two verbs.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>hashing functions</indexterm>
+<indexterm>hashing</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>These verbs are:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</li>
+</ul> </p>
+</conbody></concept>

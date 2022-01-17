@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_pkirestrictions" xml:lang="en-us">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"></keyword>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p>This verb imports RSA keys of up to 4096 bits. However, the hardware configuration sets the
+limits on the modulus size of keys for digital signatures and key management; thus, the key can be
+successfully imported but fail when used if the limits are exceeded.</p>
+<?Pub Caret 37?>
+</section>
+<section>
+<p>The <parmname>importer_key_identifier</parmname> parameter is a limited-authority key-encrypting
+key.</p>
+</section>
+<section>
+<p>CRT form tokens with a private section ID of <ph>X'05'</ph> cannot be imported.</p>
+</section>
+<section>
+<note rev="sh20i1">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key
+TDES keys. As a key management service this includes three-key TDES key encrypting keys
+(KEKs).</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001309?>

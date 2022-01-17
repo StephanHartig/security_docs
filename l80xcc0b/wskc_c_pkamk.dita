@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_pkamk" xml:lang="en-us">
+<title>PKA master keys</title>
+<titlealts>
+<navtitle>PKA master keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA master keys </searchtitle>
+</titlealts>
+<shortdesc>On the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>, PKA
+keys are protected by the Asymmetric-Keys Master Key (ASYM-MK). </shortdesc><?Pub
+Caret 7?>
+<prolog><metadata>
+<keywords><indexterm>PKA master key</indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key token</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography (ECC)</indexterm></indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm><indexterm>ASYM-MK</indexterm><indexterm>AES
+PKA Master Key (APKA-MK)</indexterm><indexterm>APKA-MK</indexterm>
+<indexterm>SYM-MK</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The ASYM-MK is a triple-length DES key used to protect PKA private keys. On the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>, the ASYM-MK protects RSA private
+keys.</p>
+<p>There are two PKA master keys: the ASYM-MK mentioned above, and the 256-bit AES PKA Master Key
+(APKA-MK), used to protect ECC private keys stored in ECC key tokens.</p>
+<p>In order for PKA verbs to function on the processor, the hash pattern of the ASYM-MK must match
+the hash pattern of the SYM-MK on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>. The administrator installs the
+PKA master keys and the ASYM-MK on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>  by using either the pass phrase
+initialization routine, the Clear Master Key Entry panels, or the optional <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>).</p>
+<section><title>Operational private keys</title><indexterm>operational private
+key</indexterm><indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm><indexterm>ASYM-MK</indexterm><indexterm>APKA-MK</indexterm><p>Operational
+private keys are protected under two layers of DES encryption. </p><p>They are encrypted under an
+Object Protection Key (OPK) that in turn is encrypted under the ASYM-MK. You dynamically generate
+the OPK for each private key at import time or when the private key is generated on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides a public key storage file for the
+storage of application PKA keys. Although you cannot change PKA master keys dynamically, the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb can be run to change a
+private PKA token (RSA or ECC) from encryption under the old ASYM-MK (or APKA-MK) to encryption
+under the current ASYM-MK (or APKA-MK).</p></section>
+</conbody>
+</concept>
+<?Pub *0000002065?>

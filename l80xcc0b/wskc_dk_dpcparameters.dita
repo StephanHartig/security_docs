@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpcparameters" rev="sh15">
+<title>Parameters</title><titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>ENCRYPT</indexterm>
+<indexterm>BCD</indexterm>
+<indexterm>CLEAR</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be <ph rev="sh21i1">in the range 0-7.</ph></pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Keywords that provide control information to the verb. The keywords must be in contiguous storage
+with each of the keywords left-justified in its own 8-byte location and padded on the right with
+blanks. The <parmname>rule_array</parmname> keywords are described in <xref
+href="#dpcparameters/dpc_table"/>.
+<table id="dpc_table" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN Block output selection
+keyword</i></b> (One, optional) </entry>
+</row>
+
+<row>
+<entry><synph><kwd>EPB</kwd></synph></entry>
+<entry>Return an encrypted PIN block and a MAC to verify the encrypted PIN
+block.</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEPB</kwd></synph></entry>
+<entry>Do not return an encrypted PIN block (EPB). This is the default
+value.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN-block format</i></b> (One, optional). Release 5.4 or later.</entry>
+</row>
+<row>
+<entry><synph>ISO-1<kwd></kwd></synph></entry>
+<entry>Specifies that the encrypted PIN-block identified by both of the
+<parmname>cur_ISO_encrypted_PIN_block</parmname> and <parmname>new_ISO_encrypted_PIN_block</parmname> 
+parameters are in the ISO-1 format. This is the default.</entry>
+</row>
+<row>
+<entry><synph>ISO-4<kwd/></synph></entry>
+<entry>Specifies that the encrypted PIN-block identified by both of the
+<parmname>cur_ISO_encrypted_PIN_block</parmname> and <parmname>new_ISO_encrypted_PIN_block</parmname> 
+parameters are in the ISO-4 format.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Script selection algorithm and
+method</i></b> (One, optional) </entry>
+</row>
+<row>
+<entry><synph><kwd>AES-CBC</kwd></synph>
+</entry>
+<entry>Use CBC mode to AES encrypt the PIN block in the script. If SCR2020 is specified, AES-CBC specifies to AES
+encrypt the PIN block plus additional data in the script.</entry>
+</row>
+<row>
+<entry><synph><kwd>NOSCRIPT</kwd></synph></entry>
+<entry>Do not return an encrypted SMPIN message with a MAC. This is the
+default value.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-CBC</kwd></synph></entry>
+<entry>Use CBC mode to TDES encrypt the PIN block in the script. 
+If SCR2020 is specified, TDES-CBC specifies to encrypt the PIN block
+plus additional data in the script with  TDES CBC.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-ECB</kwd></synph></entry>
+<entry>Use ECB mode to TDES encrypt the PIN block in the script. 
+If SCR2020 is specified, TDES-EBC specifies to encrypt the PIN block
+plus additional data in the script with TDES EBC.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">
+<lines>
+<b><i>PIN encryption keyword</i></b>  (One, optional)
+Only valid if TDES-CBC or TDES-ECB is selected.
+</lines>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>CLEARPIN</kwd></synph></entry>
+<entry>Do not encrypt the PIN prior to inserting in the script block. This
+is the default value.</entry>
+</row>
+<row>
+<entry><synph><kwd>SELF-ENC</kwd></synph></entry>
+<entry>Copy the PIN-block self-encrypted to the clear PIN block within the
+clear output message. Use this rule array keyword to specify that the 8-byte PIN block shall be used
+as a DES key to encrypt the PIN block. The service copies the self-encrypted PIN block to the clear
+PIN block in the output message.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">
+<lines>
+<b><i>MAC Ciphering Method</i></b>
+(One required for AES-CBC, one optional for TDES-CBC or TDES-ECB,
+otherwise not allowed.)
+</lines>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>CMAC</kwd></synph>
+</entry>
+<entry>Specifies to use the cipher-based MAC algorithm block cipher mode of operation
+for authentication, recommended in NIST SP 800-38B. Required for AES-CBC.
+Only valid with <keyword>AES-CBC</keyword>.
+</entry>
+</row>
+<row>
+<entry><synph><kwd>EMVMACD</kwd></synph></entry>
+<entry>Specifies the EMV-related message-padding and calculation
+method.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-MAC</kwd></synph></entry>
+<entry>Specifies the ANS X9.9 Option 1 (binary data) procedure and a CBC
+Triple-DES encryption of the data.</entry>
+</row>
+<row>
+<entry><synph><kwd>X9.19OPT</kwd></synph></entry>
+<entry>Specifies the ANS X9.19 Optional Procedure. A double-length key is
+required. This is the default value.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">
+<b><i>MAC Length and presentation</i></b>
+(one optional, with keyword AES-CBC, TDES-CBC or TDES-ECB,
+otherwise not allowed.)
+</entry>
+</row>
+<row>
+<entry><synph><kwd>MACLEN8</kwd></synph></entry>
+<entry>Specifies an 8-byte MAC. This is the default for TDES-CBC and
+TDES-ECB.</entry>
+</row>
+<row>
+<entry><synph><kwd>MACLEN16</kwd></synph>
+</entry>
+<entry>Specifies a 16-byte MAC. Only valid with CMAC. This is the default for AES-CBC.
+</entry>
+</row>
+
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2">
+Script process (one optional for AES-CBC, TDES-CBC or TDES-ECB, otherwise not allowed).
+</entry>
+</row>
+
+<row>
+<entry><synph><kwd>SCR2013</kwd></synph>
+</entry>
+<entry>Specifies to use script processing rules introduced with the service in 2013. This is
+the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>SCR2020</kwd></synph></entry>
+<entry>Specifies to use script processing rules introduced with the service in 2020. The new process
+encrypts only the new PIN block and some additional data in the
+<parmname>card_script_data</parmname> parameter, rather than encrypting the entire field, and
+returns only the encrypted portion of the <parmname>card_script_data</parmname> parameter as the
+output.</entry>
+</row>
+
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry>
+<pt>PAN_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PAN_data</parmname> parameter. The value must be
+in the range 10 - 19.
+</pd>
+</plentry>
+<plentry>
+<pt>PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The PAN data to which the PIN is associated. The full account number, including check digit,
+should be included.
+</pd>
+</plentry>
+<plentry>
+<pt>card_p_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>card_p_data</parmname> parameter. The value must
+be in the range 2 - 256.
+</pd>
+</plentry>
+<plentry>
+<pt>card_p_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The time-invariant card data (CDp), determined by the card issuer, which is used to differentiate
+between multiple cards for one account.
+</pd>
+</plentry>
+<plentry>
+<pt>card_t_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>card_t_data</parmname> parameter. The value must
+be in the range 2 - 256.
+</pd>
+</plentry>
+<plentry>
+<pt>card_t_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The time-sensitive card data, determined by the card issuer, which, together with the account
+number and the <parmname>card_p_data</parmname>, specifies an individual card.
+</pd>
+</plentry>
+<plentry>
+<pt>cur_ISO_PIN_block_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>cur_ISO_PIN_block</parmname> parameter. 
+<ph rev="sh20i1">The value must be 8 for ISO-1 or 16 for ISO-4.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>cur_ISO_PIN_block</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The encrypted PIN block in ISO-1 or ISO-4 PIN-block format for the current customer-chosen PIN.
+</pd>
+</plentry>
+<plentry>
+<pt>new_ISO_PIN_block_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>new_ISO_PIN_block</parmname> parameter. 
+<ph rev="sh20i1">The value must be 8 for ISO-1 or 16 for ISO-4.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>new_ISO_PIN_block</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh20i1">The new encrypted PIN block in ISO-1 or ISO-4 format for the new customer-chosen PIN.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>card_script_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of bytes of data in the
+<parmname>card_script_data</parmname> variable. If the script selection of the rule array specifies
+to not return an encrypted SMPIN message with a PIN block MAC (that is, AES-CBC, TDES-CBC, or
+TDES-ECB is not specified), the value must be 0. Otherwise, set the value less than or equal to 4096 for AES_CBC.  
+Set this value to a multiple of 8 and less than or equal to 4096 for TDES-CBC or TDES-ECB.</pd>
+</plentry>
+<plentry>
+<pt>card_script_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh21i1">The cleartext data from which to produce a MAC. The <parmname>script_offset</parmname> value can 
+be considered the PIN block offset. If the <keyword>SCR2013</keyword> keyword or no script process rule is specified, 
+the entire field is encrypted and returned in the <parmname>script</parmname> parameter. 
+If the <keyword>SCR2020</keyword> keyword is specified, <parmname>script_length</parmname> bytes are encrypted 
+starting at the offset indicated by the <parmname>script_offset</parmname> parameter. 
+The PIN block plus additional data are encrypted and inserted at the offset specified by the 
+<parmname>script_offset</parmname> parameter where the 
+MAC operation is performed. The smaller encrypted result is returned in the <parmname>script</parmname> parameter.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>script_offset</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">The offset in bytes from the beginning of the cleartext data in the 
+<parmname>card_script_data</parmname> variable to the location for the clear PIN block. The first byte of the cleartext 
+data is offset 0. If the <keyword>SCR2013</keyword> keyword or no script process rule is specified, this offset 
+plus the <parmname>script_offset_field_length</parmname> must be less than
+or equal to the <parmname>card_script_data_length</parmname>. 
+If the <keyword>SCR2020</keyword> keyword is specified, the value of the
+<parmname>script_offset</parmname> plus the <parmname>script_length</parmname> must be less than or equal to the 
+<parmname>card_script_data_length</parmname>.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>script_offset_field_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh21i1">The number of bytes of data in the PIN block format referenced by the output PIN profile. 
+This length must be 8. The PIN block must fit entirely within the <parmname>card_script_data</parmname> parameter.</ph> 
+If <keyword>NOSCRIPT</keyword> is specified in the rule array, this parameter is ignored.
+</pd>
+</plentry>
+<plentry>
+<pt>script_initialization_vector_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of bytes of data in the
+<parmname>script_initialization_vector</parmname> parameter. For script selection algorithm and
+method keyword AES-CBC the value must be 16, and for TDES-CBC the value must be 8. Otherwise, set
+the value to 0.</pd>
+</plentry>
+<plentry>
+<pt>script_initialization_vector</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> a pointer to a string variable containing the initialization vector to use when encrypting
+the script in CBC mode. If the <parmname>script_initialization_vector_length</parmname> variable is
+0 or if keyword TDES-ECB is specified, this parameter is ignored but must be declared. Otherwise,
+this parameter must point to a string of hexadecimal zeros.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_profile</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A 24-byte string containing the PIN profile, including the PIN block format for the script. See
+<xref href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information. You can use PIN-block
+formats ISO-0, ISO-1, ISO-2, ISO-3, <ph rev="sh20i1">and beginning with Release 5.4, ISO-4</ph> with this service. 
+If NOSCRIPT is specified in the rule array, this parameter is ignored.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PIN_reference_value</parmname> parameter. This
+value must be 16.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 16-byte PIN reference value of the current PIN for comparison to the calculated value.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_random_number_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PRW_random_number</parmname> parameter. The value
+must be 4.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_random_number</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 4-byte random number associated with the PIN reference value of the current PIN.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PRW_key_identifier</parmname> parameter. If the
+<parmname>PRW_key_identifier</parmname> contains a label, the length must be 64. Otherwise, the
+value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to verify the PRW of the current PIN block. The key identifier is an
+operational token or the key label of an operational token in key storage. The key algorithm of this
+key must be AES, the key type must be PINPRW, and the key usage fields must indicate VERIFY, CMAC,
+and DKPINOP.
+<p>If the token supplied was encrypted under the old master key, the token is returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>cur_IPIN_encryption_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>cur_IPIN_encryption_key_identifier</parmname>
+parameter.  <ph rev="sh20i1">Set the
+value to 64 for an ISO-1 PIN-block, or a maximum of 3500 for an ISO-4 PIN-block. A key label must
+be at least 64 bytes, and only the first 64 bytes of a key label are used.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>cur_IPIN_encryption_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh20i1">A pointer to a string variable containing
+an operational fixed-length DES key-token or the key label of such a record in DES key-storage 
+or an operational variable-length AES key-token or the key label of such a
+record in AES key-storage. The key token contains the current inbound PIN encryption key used to
+recover the PIN from the encrypted PIN block identified by the <parmname>cur_ISO_PIN_block</parmname> parameter.</p>
+<p rev="sh20i1">If ISO-1 is requested, the Triple-DES key must have a key type of IPINENC. In addition, the control
+vector must enable the verification of an encrypted PIN (EPINVER, CV bit 19 = B'1').</p>
+<p rev="sh20i1">Beginning with Release 5.4, if ISO-4 is requested, the key token must have a token algorithm of AES
+and a key type of PINPROT. In addition, the key usage fields must have the encryption operation
+set so that the key can be used for decryption but not encryption (DECRYPT). The encryption mode
+must be Cipher Block Chaining (CBC), the common control usage must be set to no field format specification
+(NOFLDFMT), the PIN-block format usage must be set to allow ISO-4, and the inbound function usage
+must allow verifying an encrypted PIN (EPINVER).</p>
+</pd>
+</plentry>
+<plentry>
+<pt>new_IPIN_encryption_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>new_IPIN_encryption_key_identifier</parmname>
+parameter. <ph rev="sh20i1">Set the
+value to 64 for an ISO-1 PIN-block, or a maximum of 3500 for an ISO-4 PIN-block. A key label must
+be at least 64 bytes, and only the first 64 bytes of a key label are used.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>new_IPIN_encryption_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh20i1">A pointer to a string variable containing an
+operational fixed-length Triple-DES key-token or the key label of such a record in DES key-storage
+or, beginning with Release 5.4, a variable-length AES key-token or the key label of such a record in
+AES key-storage. The key token contains the new inbound PIN encryption key used to recover the
+PIN from the encrypted PIN-block identified by the <parmname>new_ISO_PIN_block</parmname> parameter and verify the
+recovered value.</p>
+<p rev="sh20i1">If the encrypted PIN-block is in ISO-1 format, the Triple-DES key-token must have a key type of
+IPINENC. In addition, the control vector must enable translation of an encrypted PIN (TRANSLAT, CV
+bit 21 = B'1').</p>
+<note rev="sh20i1">To use the same key token for the current and the new IPIN encryption key, the control vector
+must have CV bit 19 = B'1' and CV bit 21 = B'1'. An IPINENC key has these bits on by default in the
+control vector.</note>
+<p rev="sh20i1">Beginning with Release 5.4, if the encrypted PIN-block is in ISO-4 format, the key
+token must have a token algorithm of AES and a key type of PINPROT. In addition, the key usage
+fields must have the encryption operation set so that the key can be used for decryption but not
+encryption (DECRYPT), the encryption mode must be Cipher Block Chaining (CBC), the common control
+usage set to no field format specification (NOFLDFMT), and the inbound function usage must allow
+translation (PINXLATE). To use the same key token for the current and the new IPIN encryption key,
+the inbound function usage must allow encrypted PIN verification (EPINVER) and the common control
+usage must be set to no field format specification (NOFLDFMT).</p>
+</pd>
+</plentry>
+<plentry>
+<pt>script_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of bytes of data in the
+<parmname>script_key_identifier</parmname> variable. If the
+<parmname>script_key_identifier</parmname> parameter identifies a key label, the length must be 64.
+Otherwise, for script selection algorithm and method keyword NOSCRIPT or its default, set the length
+to 0 or the length of a null key token, for AES-CBC set a maximum length of 725, and for TDES-CBC or
+TDES-ECB set the length to 64.</pd>
+</plentry>
+<plentry>
+<pt>script_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing an operational fixed-length DES key-token or the
+key label of such a record in DES key-storage. Beginning with Release 4.4, it can be a pointer to a
+string variable containing an operational variable-length AES key-token or the key label of such a
+record in AES key-storage. The type of key depends on the script selection algorithm and method of
+the rule array: <ul>
+<li>If AES-CBC is specified to return an AES-enciphered SMPIN message with a PIN block MAC, the key
+must be contained in a variable-length symmetric key-token. The key must have a token algorithm of
+AES and a key type of SECMSG. In addition, the key usage fields must enable the encryption of PINs
+in an EMV secure message (SMPIN), and must allow the key to be used by the CSNBDPC verb (ANY-USE or
+DPC-ONLY). </li>
+<li>If TDES-ECB or TDES-CBC) is specified to return a DES-enciphered SMPIN message with a PIN block
+MAC, the key must be contained in a fixed-length DES key token and have a key type of SECMSG. In
+addition, the control vector must enable the encryption of PINs (SMPIN bit 19 = B'1') . </li>
+<li>If NOSCRIPT or its default is specified to not return an enciphered SMPIN message with a PIN
+block MAC, the <parmname>script_key_identifier_length</parmname> variable should be set to 0. If the
+length is greater than 0, this parameter must identify a valid DES or, beginning with release 4.4, a
+valid AES key-token that is otherwise ignored. </li>
+</ul>
+</pd>
+</plentry>
+<plentry>
+<pt>script_MAC_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> The script_MAC_key_identifier_length parameter is a pointer to an integer variable
+containing the number of bytes of data in the <parmname>script_MAC_key_identifier</parmname>
+variable. If the <parmname>script_MAC_key_identifier</parmname> parameter identifies a key label,
+the length must be 64. Otherwise, for script selection algorithm and method keyword NOSCRIPT or its
+default, set the value to 0 or the length of a null key token, for AES-CBC set a maximum length of
+725, and for TDES-CBC or TDES-ECB set the length to 64.</pd>
+</plentry>
+<plentry>
+<pt>script_MAC_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing an operational fixed-length DES key-token or the
+key label of such a record in DES key-storage. Beginning with Release 4.4, it can be a pointer to a
+string variable containing an operational variable-length AES key-token or the key label of such a
+record in AES key-storage. The type of key depends on the script selection algorithm and method of
+the rule array: <ul>
+<li>If AES-CBC is specified to return an AES-enciphered SMPIN message with a PIN block MAC, the key
+must be contained in a variable-length symmetric key-token. The key must have a token algorithm of
+AES and a key type of MAC. In addition, the key usage fields must have the MAC operation set so that
+the key can be used for generate (GENERATE or GENONLY), and the MAC mode must be CMAC.</li>
+<li>If TDES-ECB or TDES-CBC is specified to return a DES-enciphered SMPIN message with a PIN block
+MAC, the key must be double length and have a key type of MAC (generate is allowed). In addition,
+the control vector must have a subtype of ANY-MAC (bits 0-3 = B'0000').</li>
+<li>If NOSCRIPT or its default is specified to not return an enciphered SMPIN message with a PIN
+block MAC, the<parmname> script_key_identifier_length</parmname> variable should be set to 0. If the
+length is greater than 0, this parameter must identify a valid DES or, beginning with Release 4.4, a
+valid AES key-token that is otherwise ignored. </li>
+</ul></pd>
+</plentry>
+<plentry>
+<pt>new_PRW_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>new_PRW_key_identifier</parmname> parameter.  If
+the <parmname>new_PRW_key_identifier</parmname> contains a label, the length must be 64. Otherwise,
+the value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PRW_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to verify the new PRW. The key identifier is an operational token or
+the key label of an operational token in key storage. The key algorithm of this key must be AES, the
+key type must be PINPRW, and the key usage fields must indicate GENONLY, CMAC, and DKPINOP.
+<p>If the token supplied was encrypted under the old master key, the token is returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>OPIN_encryption_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>OPIN_encryption_key_identifier</parmname>
+parameter. If the rule array indicates that no encrypted PIN block is to be returned, this value
+must be 0. If the <parmname>OPIN_encryption_key_identifier</parmname> contains a label, the length
+must be 64. Otherwise, the value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>OPIN_encryption_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to encrypt the new PIN block. The key identifier is an operational
+token or the key label of an operational token in key storage. If the
+OPIN_encryption_key_identifier_length is 0, this parameter is ignored. The key algorithm of this key
+must be AES, the key type must be PINPROT, and the key usage fields must indicate ENCRYPT, CBC, and
+DKPINOP.
+<p>If the token supplied was encrypted under the old master key, the token is returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>OEPB_MAC_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>OEPB_MAC_key_identifier</parmname> parameter.  If
+the rule array indicates that no encrypted PIN block is to be returned, this value must be 0. If the
+<parmname>OEPB_MAC_key_identifier</parmname> contains a label, the length must be 64. Otherwise, the
+value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>OEPB_MAC_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to generate the MAC of new PIN block. The key identifier is an
+operational token or the key label of an operational token in key storage. If the
+<parmname>OEPB_MAC_key_identifier_length</parmname> is 0, this parameter is ignored. The key
+algorithm of this key must be AES, the key type must be MAC, and the key usage fields must indicate
+CMAC, GENONLY, and DKPINOP.
+<p>If the token supplied was encrypted under the old master key, the token is returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>script_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> <ph rev="sh21i1">The number of bytes of data in the script variable. 
+The value must be 0 if the script selection algorithm and method of the rule array specifies NOSCRIPT. 
+For scripting, if the <keyword>SCR2020</keyword> keyword is specified,
+the value must be set to the PIN block length plus the length of the additional customer defined data.
+Otherwise, the value of the <parmname>script_offset</parmname> plus the <parmname>script_length</parmname> must be 
+less than or equal to the <parmname>card_script_data_length</parmname>.</ph></pd>
+</plentry>
+<plentry>
+<pt>script</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh21i1">The script returned. If the rule array specifies to return a script,
+<parmname>script_length</parmname> bytes of this variable are overwritten. If
+<keyword>SCR2020</keyword> is specified, the <parmname>script</parmname> parameter is a pointer to a
+string variable containing the encrypted part of the script. Otherwise, it contains the entire
+script.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>script_MAC_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>  A pointer to an integer variable containing the number of bytes of data in the
+<parmname>script_MAC</parmname> variable. Set to 0 if script selection algorithm and method of the
+rule array specifies <keyword>NOSCRIPT</keyword> or its default. Otherwise, on input set the value to at least 8 for
+MAC length and presentation keyword <keyword>MACLEN8</keyword>, or at least 16 for <keyword>MACLEN16</keyword>. 
+<ph rev="sh21i1">Set this value between 4 and 16 (inclusive), if <keyword>MACLEN16</keyword> keyword is not specified, 
+but the <keyword>AES-CBC</keyword> keyword is specified.</ph> On output, the value is
+updated with the length of data returned in the <parmname>script_MAC</parmname> variable.</pd>
+</plentry>
+<plentry>
+<pt>script_MAC</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing the MAC calculated on the script returned in the
+<parmname>script</parmname> variable. The value is left-aligned in the variable and is truncated on
+the right as needed to the length specified by the MAC length and presentation keyword.</pd>
+</plentry>
+<plentry>
+<pt>new_PIN_reference_value_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>new_PIN_reference_value</parmname> parameter. The
+value must be at least 16. On output, it is set to 16.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PIN_reference_value</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 16-byte new PIN reference value of the new PIN block.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PRW_random_number_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>new_PRW_random_number</parmname> parameter. The
+value must be at least 4. On output, it is set to 4.
+</pd>
+</plentry>
+<plentry>
+<pt>new_PRW_random_number</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 4-byte random number associated with the new PIN reference value.
+</pd>
+</plentry>
+<plentry>
+<pt>output_encrypted_PIN_block_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>output_encrypted_PIN_block</parmname> parameter.
+If the rule array indicates that no encrypted PIN block should be returned, this value must be 0.
+Otherwise, it should be at least 32. On output it is set to 32.
+</pd>
+</plentry>
+<plentry>
+<pt>output_encrypted_PIN_block</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 32-byte encrypted new PIN block. If the
+<parmname>output_encrypted_PIN_block_length</parmname> is 0, this parameter is ignored.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_block_MAC_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PIN_block_MAC</parmname> parameter. If the
+rule_array indicates that no PIN block MAC should be returned, this value must be 0. Otherwise, it
+must be at least 8.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_block_MAC</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 8-byte MAC of the new encrypted PIN block. If the PIN_block_MAC_length is 0, this parameter
+is ignored.
+</pd>
+</plentry>
+</parml></section>
+</refbody></reference>

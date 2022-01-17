@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_kegekf" xml:lang="en-us">
+<title>Key forms and types used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</title>
+<titlealts>
+<navtitle>Key forms and types used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key forms and types used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<ph>verb</ph> is the most complex of all the CCA <ph>verbs</ph>. You can generate different key
+forms and key types with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<ph>verb</ph>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key form</indexterm>
+<indexterm>key type</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"
+/>)<indexterm>using</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+</concept>
+<?Pub *0000001595?>

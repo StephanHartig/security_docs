@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_basrole_struct" xml:lang="en-us" rev="sh16">
+<title>Basic structure of a role</title>
+<titlealts>
+<navtitle>Basic role structure</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Basic structure of a role</searchtitle>
+</titlealts><shortdesc>View a table that describes how the role data is structured.</shortdesc> 
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>basic structure of a role</indexterm></indexterm>
+<indexterm>role structures<indexterm>basic structure of a role</indexterm></indexterm>
+<indexterm>basic structure of a role</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+
+<table id="acodas_baserole_struct_tab" frame="all">
+<title>Access-control system: basic structure of a role</title>
+<desc><p outputclass="summary">Access-control system: basic structure of a role. 
+A table with three columns providing Offset, length and a description.</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="7*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>01</entry>
+<entry>Role structure major version number: X'01'.</entry>
+</row>
+<row>
+<entry>01</entry>
+<entry>01</entry>
+<entry>Role structure minor version number: X'00'.</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>02</entry>
+<entry>Role structure length (big endian).</entry>
+</row>
+<row>
+<entry>04</entry>
+<entry>20</entry>
+<entry>Comment.<p>A 20-character variable padded on the right with spaces, 
+containing a comment which describes the role. 
+This variable is not null (X'00') terminated.</p></entry>
+</row>
+<row>
+<entry>24</entry>
+<entry>02</entry>
+<entry>Checksum (big endian).<p>The checksum value is not used in the current role structure. It can
+be verified by the <tm tmtype="reg" trademark="IBM">IBM</tm> Cryptographic Coprocessor with a future
+version of the role structure.</p>
+</entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>02</entry>
+<entry>Reserved (big endian): X'0000'.</entry>
+</row>
+<row>
+<entry>28</entry>
+<entry>08</entry>
+<entry>Role ID.</entry>
+</row>
+<row>
+<entry>36</entry>
+<entry>02</entry>
+<entry>Required authentication strength (big endian). 
+<p>A 2-byte integer defining how secure the user authentication must be in order to
+authorize this role.</p></entry>
+</row>
+<row>
+<entry>38</entry>
+<entry>02</entry>
+<entry>Lower time limit. <p>The earliest time of day that this role can be used. 
+Format is <codeph>h : m</codeph> where:</p> 
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd><ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>h</dt>
+<dd>Hour in 24-hour format (binary integer, 0 - 23).</dd>
+</dlentry>
+<dlentry>
+<dt>m</dt>
+<dd>Minute (binary integer, 0 - 59).</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>40</entry>
+<entry>02</entry>
+<entry>Upper time limit. <p>The latest time of day that this role can be used. Format is the same as
+lower time limit (offset 38).</p><p>If the lower time limit and upper time limit are identical, the
+role is valid for use at any time of the day.</p></entry>
+</row>
+<row>
+<entry>42</entry>
+<entry>01</entry>
+<entry>Valid days of week (DOW): 
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd><ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'0xxx xxxx'</dt>
+<dd>Role cannot be used on Sunday.</dd>
+</dlentry><dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Role can be used on Sunday.</dd>
+</dlentry><dlentry>
+<dt>B'x0xx xxxx'</dt>
+<dd>Role cannot be used on Monday.</dd>
+</dlentry><dlentry>
+<dt>B'x1xx xxxx'</dt>
+<dd>Role can be used on Monday.</dd>
+</dlentry><dlentry>
+<dt>B'xx0x xxxx'</dt>
+<dd>Role cannot be used on Tuesday.</dd>
+</dlentry><dlentry>
+<dt>B'xx1x xxxx'</dt>
+<dd>Role can be used on Tuesday.</dd>
+</dlentry><dlentry>
+<dt>B'xxx0 xxxx'</dt>
+<dd>Role cannot be used on Wednesday.</dd>
+</dlentry><dlentry>
+<dt>B'xxx1 xxxx'</dt>
+<dd>Role can be used on Wednesday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx 0xxx'</dt>
+<dd>Role cannot be used on Thursday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx 1xxx'</dt>
+<dd>Role can be used on Thursday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx x0xx'</dt>
+<dd>Role cannot be used on Friday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx x1xx'</dt>
+<dd>Role can be used on Friday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Role cannot be used on Saturday.</dd>
+</dlentry><dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Role can be used on Saturday.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xxx0'</dt>
+<dd>Reserved (must be 0).</dd>
+</dlentry><dlentry>
+<dt>B'xxxx xxx1'</dt>
+<dd>Undefined.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>43</entry>
+<entry>01</entry>
+<entry>Reserved (X'00')</entry>
+</row>
+<row>
+<entry>44</entry>
+<entry>variable</entry>
+<entry>Access-control-point list (permitted or disallowed operations). The permitted operations are
+defined by the access control point list, described in <xref
+href="wskc_acodas_role_acp.dita#acodas_role_acp/acplist_struc"/>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>
+<?Pub *0000003873?>

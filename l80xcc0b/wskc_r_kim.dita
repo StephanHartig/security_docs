@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kim">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> <ph>verb</ph> to re-encipher a key from encryption
+under an importer key-encrypting key to encryption under the master
+key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</indexterm></indexterm>
+<indexterm>master key<indexterm>enciphered key</indexterm></indexterm>
+<indexterm>key token</indexterm>
+<indexterm>null key token</indexterm>
+<indexterm>key type</indexterm>
+<indexterm>master key</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>key encrypting key</indexterm>
+<indexterm>key<indexterm>re-encipher</indexterm></indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>DATA</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The re-enciphered key is in operational form.</p></section>
+<section><p>Choose one of the following options: 
+<ul>
+<li>Specify the <synph><var>key_type</var></synph> parameter as <synph><kwd>TOKEN</kwd></synph> and
+specify the external key token in the <synph><var>source_key_identifier</var></synph> parameter.
+The key type information is determined from the control vector in
+the external key token.</li>
+<li>Specify a key type in the <synph><var>key_type</var></synph> parameter and specify
+an external key token in the <synph><var>source_key_identifier</var></synph> parameter.
+The specified key type must be compatible with the control vector
+in the external key token.</li>
+<li>Specify a valid key type in the <synph><var>key_type</var></synph> parameter and
+a null key token in the <synph><var>source_key_identifier</var></synph> parameter.
+The default control vector for the <synph><var>key_type</var></synph> specified will
+be used to process the key.</li>
+</ul></p>
+<p>For <synph><kwd>DATA</kwd></synph> keys, this verb generates a key of the same length as that
+contained in the input token.</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

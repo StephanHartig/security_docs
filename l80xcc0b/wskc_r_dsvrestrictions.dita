@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsvrestrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></searchtitle>
+  </titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The ability to recover a message from a signature (which ISO-9796
+allows but does not require) is <b>not</b> supported.</p></section>
+<section><p>The exponent of the RSA public key must be odd.</p></section>
+<section><p>Although ISO-9796 does not require the input hash to be an integral
+number of bytes in length, this service requires you to specify the <synph><var>hash_length</var></synph> in
+bytes.</p></section>
+<section><p>X9.31 requires the RSA token to have a minimum modulus bit length
+of 1024, and the length must also be a multiple of  256 bits (or 32
+bytes).</p></section>
+</refbody></reference>

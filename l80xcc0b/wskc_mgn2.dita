@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_mgn2" rev="sh15">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> service to
+generate a keyed hash message authentication code (HMAC) or a ciphered message authentication code
+(CMAC) for the message string provided as input. A MAC key with key usage that can be used for
+generate is required to calculate the MAC. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)</indexterm></indexterm>
+<indexterm>HMAC<indexterm>hash message authentication code</indexterm></indexterm>
+<indexterm>hash message authentication code<indexterm>HMAC</indexterm></indexterm>
+<indexterm>CMAC</indexterm>
+<indexterm>AES MAC</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The MAC generate key must be in a variable-length HMAC key token for HMAC and an AES MAC token
+for CMAC. <ph rev="sh21i1">The key must have key usage that allows the key to generate
+MACs.</ph></p>
+<p>For the HMAC algorithm, clear key tokens are supported. Clear HMAC keys can be built using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) callable service.</p>
+</section>
+</refbody>
+</reference>

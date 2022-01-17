@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_ctt2usage">
+<title>Usage notes</title><titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></searchtitle>
+</titlealts>
+<shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"
+    />.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>)<indexterm>usage
+            notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+    <section rev="sh15">
+      <note type="restriction">The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> callable service is only available on
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zec12"/> and later servers.</note>
+    </section>
+<section><p>The initialization vectors must have already been established between the communicating
+        applications or must be passed with the data.</p>
+      <p><xref href="#wskc_ctt2usage/ctt2_usage_table1" format="dita"/> outlines the restrictions
+        for the <parmname>cipher_text_in_length</parmname> and
+          <parmname>cipher_text_out_length</parmname> parameters. The DES blocks referred to in this
+        table are 8 bytes. The AES blocks referred to in this table are 16 bytes.</p>
+     <table id="ctt2_usage_table1" pgwide="1" frame="all">
+        <title>Restrictions for <cmdname>cipher_text_in_length</cmdname> and
+            <cmdname>cipher_text_out_length</cmdname></title>
+        <desc>
+          <p outputclass="summary">Restrictions for <cmdname>cipher_text_in_length</cmdname> and
+<cmdname>cipher_text_out_length</cmdname> Table with four columns: Input cipher method, Output
+cipher method, Input ciphertext length restriction(s), and Output ciphertext length
+restriction(s)</p>
+        </desc>
+        <tgroup cols="4" colsep="1" rowsep="1">
+          <colspec colname="col1" colwidth="4*"/>
+          <colspec colname="col2" colwidth="4*"/>
+          <colspec colname="col3" colwidth="9*"/>
+          <colspec colname="col4" colwidth="16*"/>
+          <thead>
+            <row>
+              <entry>Input cipher method</entry>
+              <entry>Output cipher method</entry>
+              <entry>Input ciphertext length restriction(s)</entry>
+              <entry>Output ciphertext length restriction(s)</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>DES CBC</entry>
+              <entry>DES CBC X9.23</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the
+length of the input ciphertext and a DES block.</entry>
+            </row>
+            <row>
+              <entry>DES CBC </entry>
+              <entry> AES CBC PKCSPAD</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>If the input ciphertext is not a multiple of an AES block, then the output
+ciphertext length must be greater than or equal to the sum of the input ciphertext length and a
+DES block. If the input ciphertext is a multiple of an AES block, then the output ciphertext
+length must be greater than or equal to the sum of the input ciphertext length and an AES block. </entry>
+            </row>
+            <row>
+              <entry>DES CBC</entry>
+              <entry>DES CUSP or IPS</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC</entry>
+              <entry>DES CBC</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry> Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC</entry>
+              <entry>AES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC</entry>
+              <entry>AES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>No restrictions</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>DES CBC</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>AES CBC or ECB</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>DES CBC X9.23</entry>
+              <entry>No restrictions</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the input
+ciphertext length and a DES block.</entry>
+            </row>
+            <row>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>No restrictions</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the input
+ciphertext length and an AES block.</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>DES CBC X9.23</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the input
+ciphertext length and a DES bock.</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>DES CBC</entry>
+              <entry>Input ciphertext must be a multiple of a DES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.
+<note>This operation is not possible if the padding is determined by the adapter to be
+from 1-7 bytes.</note>
+</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>AES CBC</entry>
+              <entry>Input ciphertext must be a multiple of a DES block but must not be a multiple
+of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.
+<note>This operation is not possible if the padding is determined by the adapter to be
+from 1-7 bytes.</note>
+</entry>
+            </row>
+            <row>
+              <entry>DES CBC X9.23</entry>
+              <entry>AES ECB</entry>
+              <entry>Input ciphertext must be a multiple of a DES block but must not be a multiple
+of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.
+<note>This operation is not possible if the padding is determined by the adapter to be
+from 1-7 bytes.</note>
+</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB</entry>
+              <entry>DES CBC X9.23</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the input
+ciphertext length and a DES bock.</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB</entry>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the sum of the input
+ciphertext length and an AES bock.</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB </entry>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB</entry>
+              <entry>DES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB</entry>
+              <entry>AES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC or ECB</entry>
+              <entry>AES ECB</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>DES CBC X9.23</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length.</entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>DES CBC CUSP or IPS</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length minus 1.</entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>DES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block. Output ciphertext length
+must be greater than or equal</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length minus the
+length of a DES block. <note>This operation is not possible if the padding is
+determined by the adapter to be from 1-7 bytes or 9-15 bytes.</note></entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>AES CBC</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length minus the
+length of a AES block. <note>This operation is not possible if the padding is determined by the adapter to be
+from 1-15 bytes.</note></entry>
+            </row>
+            <row>
+              <entry>AES CBC PKCSPAD</entry>
+              <entry>AES ECB</entry>
+              <entry>Input ciphertext must be a multiple of an AES block.</entry>
+              <entry>Output ciphertext length must be greater than or equal to the input ciphertext length minus the
+length of an AES block. <note>This operation is not possible if the padding is
+determined by the adapter to be from 1-15 bytes.</note></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table><p>There are requirements for the keys for the <parmname>key_identifier_in</parmname> and
+          <parmname>key_identifier_out</parmname> parameters. The
+          <parmname>key_identifier_in</parmname> key must be able to decipher text. The
+          <parmname>key_identifier_out</parmname> key must be able to encipher text.</p>
+      <p><xref href="#wskc_ctt2usage/ctt2_usage_table2" format="dita"/> table shows the valid key
+        types which are allowed for the <parmname>key_identifier_in</parmname> and
+          <parmname>key_identifier_out</parmname> parameters. In the table, a variable length key
+        token cipher key is denoted by vCIPHER. vCIPHER is the default which has the ENCRYPT and
+        DECRYPT bits on in the usage field. vCIPHERe has only the ENCRYPT bit on in the usage field.
+        vCIPHERd has only the DECRYPT bit on in the usage field. Adding <userinput>x</userinput> to
+        either of the preceding names means the TRANSLAT bit is on in the usage field for that key.
+        For example, vCIPHERex means a variable length token with the ENCRYPT and TRANSLAT bits
+        turned on.</p>
+      <p>AESDATA is the 64-byte AES DATA key type.</p>
+      <table pgwide="0" frame="all" id="ctt2_usage_table2">
+        <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> key
+          usage</title>
+        <desc>
+          <p outputclass="summary"><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> key usage. Table with
+            two columns</p>
+        </desc>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="col1" colwidth="1*"/>
+          <colspec colname="col2" colwidth="1*"/>
+          <thead>
+            <row>
+              <entry><parmname>key_identifier_in</parmname> (DEC bit except DATA and
+                AESDATA)</entry>
+              <entry><parmname>key_identifier_out</parmname> (ENC bit except DATA and
+                AESDATA)</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <lines>DATA
+CIPHER
+DECIPHER
+CIPHERXI
+CIPHERXL</lines>
+              </entry>
+              <entry>
+                <lines>DATA
+CIPHER
+ENCIPHER
+CIPHERXO
+CIPHERXL
+AESDATA
+vCIPHER
+vCIPHERe
+vCIPHERex
+vCIPHERedx</lines>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <lines>AESDATA
+vCIPHER
+vCIPHERd
+vCIPHERdx
+vCIPHERdex</lines>
+              </entry>
+              <entry>
+                <lines>DATA (must be at least double-length
+key with ACP)
+CIPHER (requires ACP to be enabled)
+ENCIPHER (requires ACP to be enabled)
+CIPHERXO (requires ACP to be enabled)
+CIPHERXL (requires ACP to be enabled)
+AESDATA
+vCIPHER
+vCIPHERe
+vCIPHERex
+vCIPHERedx</lines>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note>
+       <ol>
+         <li>Translation from stronger encryption to single-key DES is not allowed.</li>
+         <li>Translation from a triple-length DES key to a double-length DES key requires the
+<cmdname>Cipher Text Translate2 - Allow translate to weaker DES</cmdname> access control point
+(offset X'01C3') to be enabled. </li>
+         <li>When the <cmdname rev="shd3">Cipher Text Translate2 - Allow only cipher text translate
+types</cmdname> access control point <ph rev="shd3">(offset X'01C4')</ph> is enabled, only CIPHERXI,
+CIPHERXL, and CIPHERXO DES key types are allowed <ph rev="shd3">and AES key tokens with key type
+CIPHER must be set to allow data translate (C-XLATE). </ph>
+</li>
+      </ol></note></section>
+</refbody></reference>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc116" xml:lang="en-us">
+<title>Samples in the <ph rev="sh16a">RPM or DEB</ph></title>
+<titlealts>
+<navtitle>Samples in the RPM or DEB</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Samples in the RPM  or DEB</searchtitle>
+</titlealts>
+<shortdesc>These samples are included in the <ph rev="sh16a">RPM  or DEB</ph>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CCA RPM<indexterm>samples</indexterm></indexterm>
+<indexterm>CCA DEB<indexterm>samples</indexterm></indexterm>
+<indexterm>RPM<indexterm>samples</indexterm></indexterm>
+<indexterm>DEB<indexterm>samples</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p> <dl><dlentry>
+<dt>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples/mac.c</dt>
+<dd>C code sample</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples/makefile.lnx</dt>
+<dd>Used to build mac.c</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples/mac.java</dt>
+<dd><tm tmtype="tm" trademark="Java">Java</tm> code sample</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples/RNGpk.java</dt>
+<dd><tm tmtype="tm" trademark="Java">Java</tm> code sample</dd>
+</dlentry></dl><?Pub Caret -2?></p>
+</conbody>
+</concept>
+<?Pub *0000001452?>

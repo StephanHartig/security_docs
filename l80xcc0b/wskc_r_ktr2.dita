@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktr2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/></searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb uses one
+key-encrypting key to decipher an input key and then enciphers this key using another key-encrypting
+key within the secure environment. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</indexterm></indexterm>
+<indexterm>key encrypting key</indexterm>
+<indexterm>key wrapping</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>REFORMAT</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>It can also be used to change the wrapping method of the key with
+a single key-encrypting key.</p></section>
+<section><p>To re-encipher a key token, specify the external key token, input and output key-encrypting keys.
+You can specify which key wrapping method to use. If no wrapping method is specified, the wrapping
+method of the <synph><var>input_key_token</var></synph> will be used.</p></section>
+<section><p>To change the wrapping method of an external DES key token, specify the
+<synph><kwd>REFORMAT</kwd></synph> rule array keyword, the wrapping method to use, the external key
+token, and the input key-encrypting key. If no wrapping method is specified, <ph rev="sh20i1">the
+system default wrapping method </ph> will be used. Note that the
+<synph><var>output_KEK_identifier</var></synph> will be ignored.</p>
+<p rev="sh20i1">To convert an operational AES DATA token (version X’04’) to an operational AES CIPHER token (version
+X’05’) or vice versa, specify the REFORMAT rule array keyword, the operational key token as
+<parmname>input_key_token</parmname>, and either a NULL token or skeleton token as <parmname>output_key_token</parmname>. 
+Note that both the <parmname>input_KEK_identifier</parmname> 
+and the <parmname>output_KEK_identifier</parmname> will be ignored as the corresponding lengths must be zero.</p>
+<p rev="sh20i1">To convert an internal or external variable-length AES key token (version X’05’) from a variable-length
+payload to a fixed-length payload, specify the <b>V1PYLD</b> rule array keyword. The fixed-length payload will
+obfuscate the key length. This keyword is only valid for the CIPHER, EXPORTER and IMPORTER key types.</p>
+<p rev="sh20i1">To convert an internal or external variable-length AES key token (version X’05’) from a fixed-length
+payload to a varialbe-length payload, specify the <b>V0PYLD</b> rule array keyword. 
+This keyword is only valid for the CIPHER, EXPORTER and IMPORTER key types.</p>
+</section>
+<section>
+<note>
+<ul>
+<li>All key labels must be unique.</li>
+<li rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+<li rev="sh20i1">It can check if the key token to be translated or reformatted can have the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliance tag. For this purpose,
+specify the <synph><kwd>COMP-CHK</kwd></synph> rule array keyword. </li>
+<li rev="sh20i1">To convert a key token from a non-compliant-tagged key token to a compliant-tagged key token, specify
+the <synph><kwd>COMP-TAG</kwd></synph> rule array keyword.</li>
+</ul>
+</note></section>
+</refbody></reference>

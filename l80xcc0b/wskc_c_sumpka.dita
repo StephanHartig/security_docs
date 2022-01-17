@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_sumpka" xml:lang="en-us">
+<title>Summary of the PKA verbs</title>
+<titlealts>
+<navtitle>PKA verbs summary</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA verbs summary</searchtitle>
+</titlealts>
+<shortdesc>Use this table of the PKA verbs to map them to their corresponding verb names
+and descriptions. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>PKA</indexterm></indexterm>
+<indexterm>PKA verb summary</indexterm>
+<indexterm>summary of PKA verbs</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The PKA verb names start with CSND. This table also references the topic that describes the
+verb.</p>
+<table frame="all" id="l0wskc02_xsumpka" pgwide="1"><title>Summary
+of PKA verbs</title><desc><p outputclass="summary">Summary of PKA
+verbs</p></desc>
+<tgroup cols="4" colsep="1" rowsep="1"><colspec colname="col1"
+colwidth="11*"/><colspec colname="col2" colwidth="22*"/><colspec
+colname="col3" colwidth="29*"/><colspec colname="col4" colwidth="19*"/>
+<thead>
+<row>
+<entry>Entry point</entry>
+<entry>Verb name</entry>
+<entry>Description</entry>
+<entry>Topic/Page</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col4" namest="col1"><b><xref
+href="wskc_r_pk3.dita#l0wskc02_pk3"></xref></b></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"></keyword></entry>
+<entry>Generates a digital signature using an RSA, <ph rev="sh21i1">ECC, or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> private key.</entry>
+<entry><xref href="wskc_r_dsg.dita#l0wskc02_dsg"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"></keyword></entry>
+<entry>Verifies a digital signature using an RSA, <ph rev="sh21i1">ECC, or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> public key.</entry>
+<entry><xref href="wskc_r_dsv.dita#l0wskc02_dsv"></xref></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><b><xref href="wskc_r_pk4.dita#l0wskc02_pk4"></xref></b></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword></entry>
+<entry>Generates an RSA, <ph rev="sh21i1">ECC, or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> public-private key-pair </entry>
+<entry><xref href="wskc_r_xpkg.dita#l0wskc02_xpkg"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"></keyword></entry>
+<entry>Imports a key token containing either a clear key or an RSA, <ph rev="sh21i1">ECC, or
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> key enciphered under a transport key.</entry>
+<entry><xref href="wskc_r_pki.dita#l0wskc02_pki"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"></keyword></entry>
+<entry>Creates an external PKA key token containing a clear private RSA, <ph rev="sh21i1">ECC, or
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> key. Using this token as input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb returns an operational internal
+token containing an enciphered private key. Using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> on a clear public RSA, <ph rev="sh21i1"
+>ECC, or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph>, returns the public key in a token format that other PKA verbs can directly use. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> can also be used to create a skeleton
+token for input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb
+for the generation of an internal RSA, <ph rev="sh21i1">ECC, or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> key token.</entry>
+<entry><xref href="wskc_r_pkb.dita#l0wskc02_pkb"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword></entry>
+<entry rev="sh21i1">Changes PKA key tokens (RSA, ECC, or  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>) or trusted block key tokens, from
+encipherment under the cryptographic coprocessor's old RSA master key or ECC master key to
+encipherment under the current cryptographic coprocessor's RSA master key or ECC master key. This
+callable service only changes private internal tokens.</entry>
+<entry><xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"></keyword></entry>
+<entry>Translates PKA key tokens from encipherment under the old asymmetric-keys master key to
+encipherment under the current asymmetric-keys master key. This verb changes only private internal
+PKA key tokens.</entry>
+<entry><xref href="wskc_r_zapgkxlate.dita#l0wskc02_zapgkxlate"></xref></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"></keyword></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"></keyword></entry>
+<entry>Extracts a PKA public key token from a supplied PKA internal or external private key token. Performs no
+cryptographic verification of the PKA private token.</entry>
+<entry><xref href="wskc_r_pkx.dita#l0wskc02_pkx"></xref></entry>
+</row>
+<row>
+<entry colname="col1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword></entry>
+<entry colname="col3">Secure transport of DES keys using asymmetric techniques from a security
+module (for example, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>) to
+a remote device such as an Automated Teller Machine (ATM).</entry>
+<entry><xref href="wskc_r_rkx.dita#l0wskc02_rkx"></xref></entry>
+</row>
+<row>
+<entry colname="col1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"></keyword></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"></keyword></entry>
+<entry colname="col3">Creates an external trusted block under dual control. A trusted block is an
+extension of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> PKA key tokens using
+new section identifiers.</entry>
+<entry><xref href="wskc_r_tbc.dita#l0wskc02_tbc"></xref></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>
+<?Pub *0000007479?>

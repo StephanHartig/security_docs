@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="acodas_intro" xml:lang="en-us" rev="sh16">
+<title>Access control data structures</title>
+<titlealts>
+<navtitle>Access control data structures</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control data
+structures.</searchtitle>
+</titlealts>
+<shortdesc>Learn about the data structures that are used in the access control system. You can also
+view examples of the access-control data structures</shortdesc>
+<?Pub Caret 0?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p otherprops="pdf">Read the following topics which provide more detailed information in their
+contained subtopics:</p>
+<ul otherprops="pdf">
+<li><xref href="wskc_acodas_role_structs.dita#acodas_role_structs"/></li>
+<li><xref href="wskc_acodas_xmp.dita#acodas_xmp"/></li>
+</ul>
+<p>Unless otherwise noted, all 2-byte and 4-byte integers are in big-endian format. The high-order
+byte of the value is in the lowest-numbered address in memory.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000154884?>

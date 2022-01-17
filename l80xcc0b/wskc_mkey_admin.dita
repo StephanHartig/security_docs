@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="wsck_ccamkey" rev="sh16i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Master Key administration:
+choosing the right method or tool</title>
+<titlealts>
+<navtitle>Master Key administration</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Master Key administration: choosing the
+right method or tool</searchtitle>
+</titlealts>
+<shortdesc>Read the provided information why it is important to choose the correct tool to
+administer your <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoprocs"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>master key<indexterm>administration</indexterm><indexterm>methods or
+tools</indexterm></indexterm>
+<indexterm>administration of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+master key<indexterm>methods or tools</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master
+key<indexterm>administration</indexterm><indexterm>methods or tools</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>There are several factors that influence the procedure of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key administration:</p>
+<ul compact="yes">
+<li>security requirements</li>
+<li>regulatory requirements</li>
+<li>characteristics of your environment</li>
+</ul>
+<p>Available methods are listed in <xref href="#wsck_ccamkey/mkey_admin_methods" format="dita"
+/>.</p>
+<table id="mkey_admin_methods" pgwide="1">
+<title>Tools and methods for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+master key administration</title>
+<desc>
+<p outputclass="summary">Table with four columns describing available methods for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key administration.</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="9*"/>
+<colspec colname="col2" colwidth="17*"/>
+<colspec colname="col3" colwidth="17*"/>
+<colspec colname="col3" colwidth="17*"/>
+<thead>
+<row>
+<entry>Method</entry>
+<entry>Description</entry>
+<entry>Security</entry>
+<entry>Environment</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/></entry>
+<entry>
+<ul>
+<li>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> can be used to change the
+master keys for all the CEX*C adapters in a group, across multiple domains and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>.</li>
+<li>TKE administration is a fully tested and supported solution for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> installations.</li>
+</ul>
+</entry>
+<entry>
+<ul>
+<li>The TKE workstation is typically deployed in a secure location.</li>
+<li>A TKE can leverage smart card credentials for a fully standards compliant remote administration
+solution.</li>
+</ul>
+</entry>
+<entry>
+<ul>
+<li>No extra pieces are needed to support TKE administration, the required daemon is installed by
+default from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> rpm as an
+automated service.</li>
+<li>TKE administration does not conflict with any key storage approach you might use, but
+application use of key storage should be taken into account as you update keys.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> exchange method </entry>
+<entry>An operator temporarily assigns the domains to a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> partition, where ICSF user IDs and
+configuration panels are used to configure the master keys.</entry>
+<entry>Since the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> tool is a host
+utility the users' key parts are potentially exposed: <ul>
+<li>in host memory on the system where they are entered</li>
+<li>on the network channel for communication to the z host</li>
+<li>in host memory for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/>
+partition</li>
+</ul>
+</entry>
+<entry>There is no conflict with any key storage approach you might use, but application use of key
+storage should be taken into account as you update keys and re-assign domains. </entry>
+</row>
+<row>
+<entry>user application</entry>
+<entry>A user application built to use the <synph><var>libcsulccamk.so</var></synph> library for
+this purpose, which can be programmed to: <ul>
+<li>Allocate a CEX*C by invoking the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> verb (see <xref
+href="wskc_r_cra.dita#l0wskc02_cra"/>).</li>
+<li>Change the master key.</li>
+<li>Deallocate each adapter in the group before exiting, by invoking the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/> verb (see <xref
+href="wskc_r_crd.dita#l0wskc02_crd"/>).</li>
+</ul></entry>
+<entry>Security features would depend on the implementation, but may have host memory or
+communication channel exposures.</entry>
+<entry>Environment considerations would depend on the implementation.</entry>
+</row>
+<row>
+<entry><cmdname>panel.exe</cmdname> (included in <ph rev="sh18i2">RPM or DEB</ph>)</entry>
+<entry>A general purpose simple utility that can be used to set the master keys. Keys are set one
+part at a time to one card at a time, which has some implications. <note rev="sh18i2">If a domain on
+a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> is set to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>, you can perform master key
+changes only on a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>. You cannot use
+<cmdname>panel.exe</cmdname> for this purpose.</note></entry>
+<entry>Since <cmdname>panel.exe</cmdname> is a host utility that runs natively on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> instance, a local terminal and
+communication session are required. The users' key parts are potentially exposed: <ul>
+<li>in host memory on the system where they are entered</li>
+<li>on the network channel for communication to the z host</li>
+<li>in host memory for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>
+partition</li>
+</ul></entry>
+<entry rev="sh18i2">While <cmdname>panel.exe</cmdname> is installed by default from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM, because of the simple nature of
+<cmdname>panel.exe</cmdname>, conflicts can occur in a multi-card environment. Especially, key
+storage conflicts occurred in prior releases when loading a master key to multiple adapters. This
+has been fixed as of  CCA 6.0  (see <xref href="wskc_c_fhk_chmk.dita#l0wskc02_fhk_chmk"/> ).</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>

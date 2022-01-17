@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ksirequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/> required commands. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>In order to access key storage, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/> verb requires the <cmdname rev="sh18i2"
+>Compute Verification Pattern</cmdname> command (offset X'001D') to be enabled in the active role. </p></section>
+</refbody></reference>

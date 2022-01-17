@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc11">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh18i2">
+<p>None.</p>
+</section>
+</refbody></reference>

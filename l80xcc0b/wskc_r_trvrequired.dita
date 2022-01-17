@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_trvrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the listed commands to be enabled in the active role, depending on the
+operation and card security code specified: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="7*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="16*"/>
+<thead>
+<row>
+<entry>Operation keyword</entry>
+<entry>Card security code keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>GENERATE</kwd></synph></entry>
+<entry><synph><kwd>CSC-345</kwd></synph></entry>
+<entry><ph>X'0291'</ph></entry>
+<entry><cmdname>Transaction Validation - Generate</cmdname></entry>
+</row>
+<row>
+<entry morerows="2"><synph><kwd>VERIFY</kwd></synph></entry>
+<entry><synph><kwd>CSC-3</kwd></synph></entry>
+<entry><ph>X'0292'</ph></entry>
+<entry><cmdname>Transaction Validation - Verify CSC-3</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-4</kwd></synph></entry>
+<entry><ph>X'0293'</ph></entry>
+<entry><cmdname>Transaction Validation - Verify CSC-4</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-5</kwd></synph></entry>
+<entry><ph>X'0294'</ph></entry>
+<entry><cmdname>Transaction Validation - Verify CSC-5</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_akrc">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/></searchtitle>
+</titlealts><shortdesc rev="sh18i2">Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> verb to create an AES or HMAC
+key-token record in AES key-storage. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>environment variable<indexterm>CSUDESDS</indexterm></indexterm>
+<indexterm>CSUAESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p rev="sh18i2">The new key record can be a null AES key-token or a valid internal fixed-length AES
+key-token or an external or internal variable-length AES or HMAC key-token. It is identified by the
+key label specified with the <parmname>key_label</parmname> parameter.</p></section>
+<section><p>After creating an AES key-record, use any of the following verbs
+to add or update a key token in the record:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/></li>
+</ul></p></section><section>
+<note><ol>
+<li>To delete a key record from AES key-storage, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/> verb.</li>
+<li>AES key records are stored in the external key-storage file defined
+by the CSUAESDS environment variable.</li></ol>
+</note></section>
+</refbody></reference>

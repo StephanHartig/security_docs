@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Dcsfb4-gen392_parameters" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"
+/></indexterm><indexterm>parameters</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"
+/><indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The number of keywords you supplied in the <parmname>rule_array</parmname> parameter. 
+The value must be in the range 5 - 8.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Direction</entry>
+<entry>Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Input</entry>
+<entry>Character</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <parmname>rule_array</parmname> contains keywords that provide control information to the callable service.
+The keywords must be in contiguous storage with each of the keywords left-justified in its own
+8-byte location and padded on the right with blanks.</p>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><title>Keywords for TR-34
+Key Distribution</title><desc>
+<p outputclass="summary">Keywords for TR-34 Key Distribution. This table contains two columns:
+Keyword and Meaning, and it contains rows for Requested action (one, required), Public Key
+Infrastructure Usage (one, optional), Source key algorithm (one, required), and Key block version
+(one required).</p>
+</desc><tgroup cols="2">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="2.7*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Requested action (one, required).</i></b></entry>
+</row>
+<row>
+<entry>2PASSCRE</entry>
+<entry>TR34 Key Transport (2-pass) KTKDH CREATE service.</entry>
+</row>
+<row>
+<entry>1PASSCRE</entry>
+<entry>TR34 Key Transport (1-pass) KTKDH CREATE service.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Public Key Infrastructure Usage (one,
+optional).</i></b></entry>
+</row>
+<row>
+<entry>PKI-CHK</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is to be validated against the
+trust chain of the PKI hosted in the adapter. This requires that the CA credentials have been
+installed using the Trusted Key Entry (TKE) workstation. This is required for compliance-tagged key
+token export with TR-34 services.<p>This is the default.</p></entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is not to be validated against
+the trust chain of the PKI hosted in the adapter. This is suitable if the certificate has been
+validated using host-based PKI services.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Source key algorithm (one, required).</i></b></entry>
+</row>
+<row>
+<entry>SKEY-DES</entry>
+<entry>Specifies that the <parmname>source_key_identifer</parmname> is a DES key. If the
+<i>source_key_identifier</i> is external then the <parmname>unwrap_kek_identifier</parmname> 
+is also a DES key.</entry>
+</row>
+<row>
+<entry>SKEY-AES</entry>
+<entry>Specifies that the <parmname>source_key_identifer</parmname> is an AES key. 
+If the <parmname>source_key_identifier</parmname> is external then the 
+<parmname>unwrap_kek_identifier</parmname> is also an AES key.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Key block version (one, required).</i></b> Specifies which
+version of the TR-31 key block to use. However, this value has no impact to the wrapping of the
+TR-34 key block or format of the key block. Choose this value for compatibility with the target
+KRD.</entry>
+</row>
+<row>
+<entry>VARXOR-A</entry>
+<entry>Specifies to use TR-31 Key Block Version ID of "A" (X'41'). This is typically a DES
+version.</entry>
+</row>
+<row>
+<entry>VARDRV-B</entry>
+<entry>Specifies to use TR-31 Key Block Version ID of "B" (X'42'). This is typically a DES
+version.</entry>
+</row>
+<row>
+<entry>VARXOR-C</entry>
+<entry>Specifies to use TR-31 Key Block Version ID of "C" (X'43'). This is typically a DES
+version.</entry>
+</row>
+<row>
+<entry>VARDRV-D</entry>
+<entry>Specifies to use TR-31 Key Block Version ID of "D" (X'44'). This is typically for AES or
+DES.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>EncryptedContent format (one, optional).</i></b> TR-34-2012 in
+examples B.8 and B.9 places the EncryptedContent according to X9.73, after the
+ContentEncryptionAlgorithmIdentifier. TR-34-2019 has changed this, introducing a small
+incompatibility, placing the EncryptedContent as the last field inside of the
+ContentEncryptionAlgorithmIdentifier. Check with your ATM vendor to ensure that you are using the
+correct option.</entry>
+</row>
+<row>
+<entry>T34-2012 </entry>
+<entry>Builds the EncryptedContentInfo section of the EnvelopedData of the
+<parmname>output_token</parmname> according to the sample description in X9 TR-34-2012 sections B.8
+and B.9. The EncryptedContent appears after the ContentEncryptionAlgorithmIdentifier. This keyword
+impact applies to either the 1PASSCRE or 2PASSCRE <parmname>output_token</parmname> as the
+compatibility issue applies to both. This is the default.</entry>
+</row>
+<row>
+<entry>T34-2019</entry>
+<entry>Builds the EncryptedContentInfo section of the EnvelopedData of the
+<parmname>output_token</parmname> according to the sample description in X9 TR-34-2019 sections B.8
+and B.9. The EncryptedContent appears inside the ContentEncryptionAlgorithmIdentifier. This keyword
+impact applies to either the 1PASSCRE or 2PASSCRE <parmname>output_token</parmname> as the
+compatibility issue applies to both.</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="c1" nameend="c2"><b><i>SignedAttributes order</i></b> (one, optional). TR-34-2012 and
+TR-34-2019 define a <term>SignedAttributes</term> object that is part of the Signer Info, in the
+<parmname>output_token</parmname> parameter. The <term>SignedAttributes</term> object is a
+<term>Set-of</term> as defined in ITU T-REC-X.690.201508. The components of a <term>Set-of</term>
+are meant to be ordered by increasing size. Some ATM vendors implemented the <term>Set-of</term>
+object with a static order of components matching the order shown in the TR-34-2012 (repeated in
+TR-34-2019), in section B.9.1. Check with your ATM vendor to ensure you are using the correct
+option. Only valid with <keyword>2PASSCRE</keyword>.</entry>
+</row>
+<row rev="sh21i1">
+<entry>SASORTSZ</entry>
+<entry>Use the flexible ordering for <term>Set-of</term> components as defined in 
+ITU T-REC-X.690.201508, which requires order by increasing size. This is the default.</entry>
+</row>
+<row rev="sh21i1">
+<entry>SASORTEX</entry>
+<entry>Use the static ordering shown in the parsed example of TR-34-2012 in section B.9.1.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><title>TR-31 key usage value for output key
+block</title><desc>
+<p outputclass="summary">TR-31 key usage value for output key block (one required). The TR-34 key
+transport key block contains a TR-31 key header contains the key usage.</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.08*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1.23*"/>
+<colspec colname="c4" colnum="4" colwidth="3.9*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>TR-31 key usage</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key types</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c4"><i><b>TR-31 key usage value for output key block (one
+required).</b></i> The TR-34 key transport key block contains a TR-31 key header contains the key
+usage.</entry>
+</row>
+<row>
+<entry>KEK</entry>
+<entry>"K0"</entry>
+<entry>IMPORTER or EXPORTER DES or AES.</entry>
+<entry>Specifies to export a key-encrypting key (KEK) to an external TR-31 key block. You must
+select one TR-31 mode of key use keyword from <xref
+href="wskc_tr34_Distribution_required.dita#Dcsfb4-gen395_accesspt/TR34exp"/> with this usage
+keyword. The table shows all the supported translations for key usage keyword KEK. It also shows the
+access control commands that must be enabled in the active role to use the combination of inputs
+shown.</entry>
+</row>
+<row>
+<entry>KEK-WRAP </entry>
+<entry>"K1"</entry>
+<entry>IMPORTER or EXPORTER DES or AES. AES must have TR-31 wrap permission. </entry>
+<entry>AES must have TR-31 wrap permission. Specifies to export a TR-31 key block protection key
+(KEK-WRAP) to an external TR-31 key block. You must select one TR-31 mode of key use keyword from
+<xref href="wskc_tr34_Distribution_required.dita#Dcsfb4-gen395_accesspt/TR34exp"/> with this usage
+keyword. The table shows all the supported translations for key usage keyword KEK-WRAP. It also
+shows the access control commands that must be enabled in the active role to use the combination of
+inputs shown.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><title>TR-31 mode of key use</title><desc>
+<p outputclass="summary">TR-31 mode of key use (one required). Only those TR-31 modes shown are
+supported. Modes requested must match or be included in the capabilities of the key being exported.
+For example, DEC-ONLY and GENVER cannot be used if the exported key has ENC-ONLY capability.</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.03*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1.23*"/>
+<colspec colname="c4" colnum="4" colwidth="1.53*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>TR-31 key usage</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key types</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c4"><b><i>TR-31 mode of key use (one required).</i></b> Only those TR-31
+modes shown are supported. Modes requested must match or be included in the capabilities of the key
+being exported. For example, DEC-ONLY and GENVER cannot be used if the exported key has ENC-ONLY
+capability.</entry>
+</row>
+<row>
+<entry>DEC-ONLY</entry>
+<entry>"D"</entry>
+<entry>KEK, KEK-WRAP</entry>
+<entry>Specifies to decrypt and unwrap only.</entry>
+</row>
+<row>
+<entry>ENC-ONLY</entry>
+<entry>"E"</entry>
+<entry>KEK, KEK-WRAP</entry>
+<entry>Specifies to encrypt and wrap only.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" id="table_lwm_nr3_xhb" pgwide="1"><title>TR-31
+exportability </title><desc>
+<p outputclass="summary">TR-31 exportability (one, optional). Use to set exportability field in
+TR-31 key block. Defines whether the key may be transferred outside the cryptographic domain in
+which the key is found.</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="1.02*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="2.62*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>TR-31 mode</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c3"><i><b>TR-31 exportability (one, optional).</b></i> Use to set
+exportability field in TR-31 key block. Defines whether the key may be transferred outside the
+cryptographic domain in which the key is found.</entry>
+</row>
+<row>
+<entry>EXP-ANY </entry>
+<entry>"E"</entry>
+<entry>Specifies that the key in the TR-31 key block is exportable under a key-encrypting key in a
+form that meets the requirements of X9.24 Parts 1 or 2. <p>This is the default.</p></entry>
+</row>
+<row>
+<entry>EXP-TRST</entry>
+<entry>"S"</entry>
+<entry>Specifies that the key in the TR-31 key block is sensitive, exportable under a key-encrypting
+key in a form not necessarily meeting the requirements of X9.24 Parts 1 or 2.<note>A TR-31 key block
+with a key block version ID of "B" or "C" and an exportability field value of "E" cannot be wrapped
+by a key-encrypting key that is wrapped in ECB mode (legacy wrap mode). This is because ECB mode
+does not comply with ANS X9.24 Part 1.</note></entry>
+</row>
+<row>
+<entry>EXP-NONE</entry>
+<entry>"N"</entry>
+<entry>Specifies that the key in the TR-31 key block is non-exportable.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>The following tables map the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key types for the DES and AES keys to the corresponding allowed key usage keywords and mode of use
+keywords, as well as the access control points that are required.<table frame="all" rowsep="1"
+colsep="1" pgwide="1" id="exportDEStr34"><title>Export translation table for DES keys in TR-34 key
+blocks</title><desc>
+<p outputclass="summary">Export translation table for DES keys in TR-34 key blocks. </p>
+</desc><tgroup cols="6">
+<colspec colname="c1" colwidth="1*"/>
+<colspec colname="c2" colwidth="1*"/>
+<colspec colname="c3" colwidth="1*"/>
+<colspec colname="c4" colwidth="1*"/>
+<colspec colname="c5" colwidth="1*"/>
+<colspec colname="c6" colwidth="1*"/>
+<thead>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key type (and required
+attributes)</entry>
+<entry>Key usage keyword</entry>
+<entry>Key block protection method keyword</entry>
+<entry>TR-31 mode of key use keyword</entry>
+<entry>Offset (hex)</entry>
+<entry>Access control name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c6">Security note: The TR-31 modes requested must match or be included
+in the capabilities of the key being exported. For example, DEC-ONLY and GENVER cannot be used if
+the exported key has ENC-ONLY capability.</entry>
+</row>
+<row>
+<entry morerows="1">DES EXPORTER</entry>
+<entry>KEK ("K0")</entry>
+<entry morerows="1">VARXOR-A, VARDRV-B, VARXOR-C, VARDRV-D</entry>
+<entry morerows="1">ENC-ONLY ("E") </entry>
+<entry morerows="1">0242</entry>
+<entry morerows="1">TR-34 Key Distribution - Permit DES EXPORTER to K0 or K1</entry>
+</row>
+<row>
+<entry>KEK-WRAP ("K1")</entry>
+</row>
+<row>
+<entry morerows="1">DES IMPORTER</entry>
+<entry>KEK ("K0")</entry>
+<entry morerows="1">VARXOR-A, VARDRV-B, VARXOR-C, VARDRV-D</entry>
+<entry morerows="1">DEC-ONLY ("D")</entry>
+<entry morerows="1">0243</entry>
+<entry morerows="1">TR-34 Key Distribution - Permit DES IMPORTER to K0 or K1</entry>
+</row>
+<row>
+<entry>KEK-WRAP ("K1")</entry>
+</row>
+</tbody>
+</tgroup></table><table frame="all" rowsep="1" colsep="1" id="AESexporttr34" pgwide="1"
+><title>Export translation table for AES keys in TR-34 key blocks</title><desc>
+<p outputclass="summary">Export translation table for AES keys in TR-34 key blocks. </p>
+</desc><tgroup cols="6">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<colspec colname="c4" colnum="4" colwidth="1*"/>
+<colspec colname="c5" colnum="5" colwidth="1*"/>
+<colspec colname="c6" colnum="6" colwidth="1*"/>
+<thead>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key type (and required
+attributes)</entry>
+<entry>Key usage keyword</entry>
+<entry>Key block protection method keyword</entry>
+<entry>TR-31 mode of key use keyword</entry>
+<entry>Offset (hex)</entry>
+<entry>Access control name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c6">Security note: The TR-31 modes requested must match or be included
+in the capabilities of the key being exported. For example, DEC-ONLY and GENVER cannot be used if
+the exported key has ENC-ONLY capability.</entry>
+</row>
+<row>
+<entry>AES EXPORTER</entry>
+<entry>KEK ("K0")</entry>
+<entry>VARDRV-D</entry>
+<entry>ENC-ONLY ("E")</entry>
+<entry>0244</entry>
+<entry>TR-34 Key Distribution - Permit AES EXPORTER to K0</entry>
+</row>
+<row>
+<entry>AES EXPORTER (EXPTT31D)</entry>
+<entry>KEK-WRAP ("K1")</entry>
+<entry>VARDRV-D</entry>
+<entry>ENC-ONLY ("E")</entry>
+<entry>0245</entry>
+<entry>TR-34 Key Distribution - Permit AES EXPORTER to K1</entry>
+</row>
+<row>
+<entry>AES IMPORTER</entry>
+<entry>KEK ("K0")</entry>
+<entry>VARDRV-D</entry>
+<entry>DEC-ONLY ("D")</entry>
+<entry>0246</entry>
+<entry>TR-34 Key Distribution - Permit AES IMPORTER to K0</entry>
+</row>
+<row>
+<entry>AES IMPORTER (IMPTT31D)</entry>
+<entry>KEK-WRAP ("K1")</entry>
+<entry>VARDRV-D</entry>
+<entry>DEC-ONLY ("D")</entry>
+<entry>0247</entry>
+<entry>TR-34 Key Distribution - Permit AES IMPORTER to K1</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</pd>
+</plentry>
+<plentry>
+<pt>source_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Specifies the length in bytes of the <i>source_key_identifier</i> parameter. If the
+<i>source_key_identifier</i> contains a label, the length must be 64. Otherwise, the value must be
+between the actual length of the token and 900. </pd>
+</plentry>
+<plentry>
+<pt>source_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the key to be exported using the TR-34 protocol. The key identifier is an
+internal or external token or the label of an operational token in key storage. If the source key is
+an external token, an identifier for the KEK that wraps the source key must be passed in the
+<i>unwrap_kek_identifier</i> parameter.<p>The control vector of a DES token or the key usage field
+of an AES token must not indicate that the key in the token is a partial key. Partial keys are not
+exportable using TR-34.</p><p> If the token supplied was encrypted under the old master key, the
+token will be returned encrypted under the current master key.</p></pd>
+</plentry>
+<plentry>
+<pt>unwrap_kek_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Specifies the length in bytes of the <i>unwrap_kek_identifier</i> parameter. When the
+<i>source_key_identifier</i> is an internal key, the value must be 0. When the
+<i>unwrap_kek_identifier</i> contains a label, the length must be 64. Otherwise, the value must be
+between the actual length of the token and 725.</pd>
+</plentry>
+<plentry>
+<pt>unwrap_kek_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the wrapping key of the source key identifier when the source key is an
+external token. The key identifier is an operational token or the key label of an operational token
+in key storage.<p>When the <i>unwrap_kek_identifier_length</i> is zero, this parameter is ignored.
+</p><p>The wrapping key must be a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+DES key of type EXPORTER or OKEYXLAT, or an AES key with type EXPORTER.</p><p>If the token supplied
+was encrypted under the old master key, the token will be returned encrypted under the current
+master key.</p></pd>
+</plentry>
+<plentry>
+<pt>freshness_indicator_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>freshness_indicator</i> parameter in bytes. The maximum length is 200
+bytes. <p>The value is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>2PASSCRE</dt>
+<dd>This parameter contains the length of the random number token received from the KRD
+(RTKRD).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSCRE</dt>
+<dd>This parameter contains the length of the ASCII timestamp for use in the key transport token.
+The value must be 13 or 15.</dd>
+</dlentry>
+</dl></p></pd>
+</plentry>
+<plentry>
+<pt>freshness_indicator</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The freshness indicator. The meaning is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>2PASSCRE</dt>
+<dd>This parameter contains the DER encoded random number token received from the KRD (RT-KRD).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSCRE</dt>
+<dd>This parameter contains an ASCII timestamp for use in the key transport token. The timestamp is
+encoded as a SigningTime object in the token (OID of iso(1) member-body(2) us(840) rsadsi(113549)
+pkcs(1) pkcs-9(9) signing-time(5)}, defined in IETF RFC 2985). Two input encodings are accepted for
+this parameter, UTCTime encoded as YYMMDDHHMMSSZ (13 bytes) and GeneralizedTime encoded as
+YYYYMMDDHHMMSSZ (15 bytes). Date ranges allowed for each format are:<dl>
+<dlentry>
+<dt>GeneralizedTime</dt>
+<dd>Dates between 1 January 2050 and 31 December 2105 (inclusive).</dd>
+</dlentry>
+<dlentry>
+<dt>UTCTime</dt>
+<dd>Dates between 1 January 1950 and 31 December 2049 (inclusive).</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl><p>There must be an ASCII 'Z' character at the end. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verifies  that timestamps passed with
+either encoding are valid timestamps. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> makes no attempt to validate the timestamp
+against the clock inside the coprocessor.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>crl_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>crl</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>crl</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The certificate revocation list (CRL) from the certificate authority the is in common with
+the KRD for the requested service. The CRL may be in DER or PEM format.</pd>
+</plentry>
+<plentry>
+<pt>cred_kdh_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_kdh</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>cred_kdh</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KDH for the requested service. The
+certificate may be in DER or PEM format.<note>This service is acting as the KDH so the
+<i>cred_kdh</i> is not expected to validate against the internal PKI of the adapter.</note></pd>
+</plentry>
+<plentry>
+<pt>cred_krd_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_krd</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>cred_krd</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KRD for the requested service (the
+CredKRD). The certificate may be in DER or PEM format.<p>The usage attributes in the X.509
+certificate must allow keyEncipherment. The public key will be extracted and used to encrypt the
+ephemeral key wrapping key that protects the TMK that is being transported</p><note>This service is
+acting as the KDH so the <i>cred_krd</i> is normally expected to validate against the internal PKI
+of the adapter. Use the PKI-NONE keyword to override this validation,</note></pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>private_key_identifier</var></synph> parameter. If the
+<i>private_key_identifier</i> contains a label, the value must be 64. Otherwise, the value must be
+between the actual length of the token and 3500.</pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the private key used to sign the output token. The key identifier is an
+operational RSA secure token or the label of such a token in key storage.<p>The key usage of the
+token must allow digital signature. Retained private keys are not supported in this
+service.</p></pd>
+</plentry>
+<plentry>
+<pt>key_version_number</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The two-byte value to be copied into the Key Version Number field of the output TR-31 key
+block. If no key version number is needed, the value must be EBCDIC ("00"). The value is not allowed
+to indicate a partial key.</pd>
+</plentry>
+<plentry>
+<pt>opt_blocks_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>opt_blocks</var></synph> parameter in bytes. If no optional
+data is to be included in the TR-31 key block, this parameter must be set to zero.</pd>
+</plentry>
+<plentry>
+<pt>opt_blocks</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The optional block data to be included in the output TR-31 key block. The optional block
+data is prepared using the TR-31 Optional Data Build callable service and must be in ASCII. This
+parameter is ignored if <parmname>opt_blocks_length</parmname> is zero.</pd>
+</plentry>
+<plentry>
+<pt>output_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The length of the <parmname>output_token</parmname> parameter in bytes. The maximum length is
+3500 bytes. On input, the value is the size of the buffer to receive the
+<parmname>output_token</parmname>. On output, the value is the actual size of the data returned in
+the <parmname>output_token</parmname> parameter.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The generated DER encoded TR-34 token.<dl>
+<dlentry>
+<dt>2PASSCRE</dt>
+<dd>This parameter will contain the 2 pass TR-34 key transport token (KTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSCRE</dt>
+<dd>This parameter will contain the 1 pass TR-34 key transport token (KTKDH).</dd>
+</dlentry>
+</dl></pd>
+</plentry>
+<plentry>
+<pt>reserved_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is reserved. The value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

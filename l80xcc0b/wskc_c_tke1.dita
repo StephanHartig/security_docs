@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_tke1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/> support</title>
+<titlealts>
+<navtitle>Trusted Key Entry support</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/> support</searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) provides a secure method of initializing
+and administering cryptographic coprocessors. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"
+/>)<indexterm>overview</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>It is an optional <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>
+feature, but it is mandatory if <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/>
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> are not available on your
+system. Initialization of the coprocessor can be done through <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> for both the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> environments, either with or without
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>.  Also, you can use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> workstation to load DES master keys, PKA
+master keys, and operational keys in a secure way.</p>
+<p rev="sh20i2">For information on which <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> version is required for managing which
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>, read topic <xref
+href="wskc_c_hardwareneeds.dita"/>.</p>
+<p>You can load keys remotely and for multiple coprocessors, which can be in a single machine or in
+multiple machines. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>
+workstation eases the administration for using one coprocessor as a production machine and as a test
+machine at the same time, while maintaining security and reliability.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> workstation can be used
+for enabling and disabling access control points for verbs executed on the cryptographic
+coprocessor. See <xref href="wskc_r_apn.dita#l0wskc02_apn"/> for additional information.</p>
+<p>For complete details about the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>
+workstation, see <xref conref="wskc_conref-l0wskc04.dita#links/icsf_tke_ug"/>.</p>
+</conbody></concept>

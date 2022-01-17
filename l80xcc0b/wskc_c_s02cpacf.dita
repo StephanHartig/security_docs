@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_s02cpacf" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> support</title>
+<titlealts>
+<navtitle>CPACF support</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> support for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Central Processor Assist for Cryptographic Functions (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>) must be configured and enabled on the
+system before you can use it.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/></indexterm><indexterm>Central Processor Assist for Cryptographic Functions (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>)</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<!--   ********* CPACF support for ECC and EC-Edwards keys is delayed to CCA 7.2 ********************** 
+<p rev="sh????">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.1, ECC and EC-Edwards private 
+key export to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> is supported. 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> exploitation is added for clear ECC and EC-Edwards 
+private and public keys. The curves that are supported for this function are:</p>
+<ul compact="yes" rev="sh20i1"><li>P256</li><li>P384</li><li>P521</li><li>Ed25519</li><li>Ed448</li></ul> 
+**********************  -->
+<p otherprops="pdf"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> support has
+these features: <ul>
+<li><xref href="wskc_c_cpacf_conopt_envar.dita#l0wskc02_cpacf_conopt_envar"/></li>
+<li><xref href="wskc_c_cpacf_conopt.dita#l0wskc02_cpacf_conopt"/></li>
+<li><xref href="wskc_c_cpacf_opsc.dita#l0wskc02_cpacf_opsc"/></li>
+<li><xref href="wskc_t_cpacf_prep.dita#l0wskc02_cpacf_prep"/></li>
+<li><xref href="wskc_c_ibdccpacf.dita#l0wskc02_ibdccpacf"/></li>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000001123?>

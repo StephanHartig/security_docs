@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbecdhvb_req_cmd">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/> required
+commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This table describes access control points that the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb must have enabled in the active
+role under certain circumstances. </p>
+<table id="l0wskc_edh_table">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row>
+<entry>Command</entry>
+<entry>Offset</entry>
+<entry>When required</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><cmdname>ECC Diffie-Hellmann</cmdname></entry>
+<entry><ph>X'0360'</ph></entry>
+<entry>When using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</entry>
+</row>
+<row>
+<entry><cmdname>ECC Diffie-Hellman - Allow DRIV02</cmdname></entry>
+<entry><ph>X'035F'</ph></entry>
+<entry>When using the DERIV02 rule</entry>
+</row>
+<row>
+<entry><cmdname>ECC Diffie-Hellman - Allow key wrap override</cmdname></entry>
+<entry><ph>X'0362'</ph></entry>
+<entry>If the <parmname>output_key_identifier</parmname> parameter
+identifies a DES key-token, and the wrapping method specified is WRAP-ECB or WRAP-ENH.</entry>
+</row>
+<row>
+<entry>
+<cmdname>Prohibit weak wrapping - Transport keys</cmdname><p>This command affects multiple verbs.
+See <xref href="wskc_r_apn.dita#l0wskc02_apn"/>.</p></entry>
+<entry><ph>X'0328'</ph></entry>
+<entry>To disable the wrapping of a stronger key with a weaker transport key</entry>
+</row>
+<row>
+<entry><cmdname>Warn when weak wrap - Transport keys</cmdname><p>The command <cmdname>Prohibit weak
+wrapping - Transport keys</cmdname> (offset <ph>X'0328'</ph>) overrides this command.</p></entry>
+<entry><ph>X'032C'</ph></entry>
+<entry>To receive a warning against the wrapping of a stronger key with a weaker transport
+key</entry>
+</row>
+<row>
+<entry><cmdname>ECC Diffie-Hellman - Prohibit weak key generate</cmdname></entry>
+<entry><ph>X'036F'</ph></entry>
+<entry>To disable a weaker key from being used to generate a stronger key</entry>
+</row>
+<row>
+<entry><cmdname>ECC Diffie-Hellman - Allow PASSTHRU</cmdname></entry>
+<entry><ph>X'0361'</ph></entry>
+<entry>When specifying the <synph><kwd>PASSTHRU</kwd></synph> rule-array
+keyword.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>Depending on curve type, each length of <synph><var>p</var></synph> in bits contained in the ECC
+private-key section and the ECC public-key section must have the following command enabled in the
+active role: </p>
+<table rowheader="firstcol">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb, depending on curve type. Note
+that this is a complex table: Column one has more than one row.</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="2*"/>
+<colspec colname="col4" colwidth="5*"/>
+<thead>
+<row>
+<entry colname="col1">Curve type</entry>
+<entry colname="col2">Length of prime <synph><var>p</var></synph> in bits</entry>
+<entry colname="col3">Offset</entry>
+<entry colname="col4">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="6">Brainpool</entry>
+<entry>160 (X'00A0')</entry>
+<entry>X'0368'</entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 160</cmdname></entry>
+</row>
+<row>
+<entry>192 (X'00C0')</entry>
+<entry>X'0369'</entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 192</cmdname></entry>
+</row>
+<row>
+<entry>224 (<ph>X'00E0'</ph>)</entry>
+<entry><ph>X'036A'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 224</cmdname></entry>
+</row>
+<row>
+<entry>256 (<ph>X'0100'</ph>)</entry>
+<entry><ph>X'036B'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 256</cmdname></entry>
+</row>
+<row>
+<entry>320 (<ph>X'0140'</ph>)</entry>
+<entry><ph>X'036C'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 320</cmdname></entry>
+</row>
+<row>
+<entry>384 (<ph>X'0180'</ph>)</entry>
+<entry><ph>X'036D'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 384</cmdname></entry>
+</row>
+<row>
+<entry>512 (<ph>X'0200'</ph>)</entry>
+<entry><ph>X'036E'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow BP Curve 512</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="4">Prime</entry>
+<entry>192 (<ph>X'00C0'</ph>)</entry>
+<entry><ph>X'0363'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow Prime Curve 192</cmdname></entry>
+</row>
+<row>
+<entry>224 (<ph>X'00E0'</ph>)</entry>
+<entry><ph>X'0364'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow Prime Curve 224</cmdname></entry>
+</row>
+<row>
+<entry>256 (<ph>X'0100'</ph>)</entry>
+<entry><ph>X'0365'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow Prime Curve 256</cmdname></entry>
+</row>
+<row>
+<entry>384 (<ph>X'0180'</ph>)</entry>
+<entry><ph>X'0366'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow Prime Curve 384</cmdname></entry>
+</row>
+<row>
+<entry>521 (<ph>X'0209'</ph>)</entry>
+<entry><ph>X'0367'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellmann - Allow Prime Curve 521</cmdname></entry>
+</row>
+<row>
+<entry rev="sh21i1">Koblitz</entry>
+<entry>256 (<ph>X'0100'</ph>)</entry>
+<entry><ph>X'035E'</ph></entry>
+<entry><cmdname>ECC Diffie-Hellman - Allow Koblitz Curve 256</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak wrapping -
+Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</p></section>
+</refbody></reference>

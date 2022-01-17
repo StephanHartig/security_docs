@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_autoprotkey" xml:lang="en-us">
+<title>Using the AUTOSELECT option and the use of protected key <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/></title>
+<titlealts>
+<navtitle>AUTOSELECT and protected key <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/></navtitle><?Pub Caret 15?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the AUTOSELECT option and the use
+of protected key <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/><indexterm>AUTOSELECT
+option</indexterm><indexterm>protected key</indexterm></indexterm><indexterm>protected key <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"
+/></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>While the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> can be used to
+encrypt and decrypt data in the absence of a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>, for protected key operations a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> is still necessary, because
+the users' key tokens are translated with a service only available on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> for use with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>. </p>
+<p>Therefore, when enabling the AUTOSELECT option, all <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors available to the operating
+system must be CEX3C or newer. See <xref format="dita" href="wskc_c_multico.dita" scope="local"
+type="concept"/> for more information.</p>
+</conbody>
+</concept>
+<?Pub *0000001849?>

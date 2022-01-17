@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdmuldectlkey" xml:lang="en-us">
+<title>Multiple decipherment of triple-length keys</title>
+<titlealts>
+<navtitle>Triple-length key decipherment</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Multiple decipherment of triple-length
+keys</searchtitle>
+</titlealts>
+<shortdesc>Definition of the multiple decipherment of an encrypted
+triple-length key **Y =  e*KEKa(KL) || e*KEKb(KM) || e*KEKa(KR), using
+two double-length  *KEKs, *KEKa, and *KEKb.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>triple-length keys<indexterm>mutiple decipherment</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The multiple decipherment of an encrypted triple-length key **Y
+=  e*KEKa(KL) || e*KEKb(KM) || e*KEKa(KR), using two double-length
+   *KEKs, *KEKa, and *KEKb, is defined as follows: <codeblock>d*KEKa(YL) || d*KEKb(YM) || d*KEKa(YR)
+   = dKEKaL(eKEKaR(dKEKaL(YL))) ||
+     dKEKbL(eKEKbR(dKEKbL(YM))) ||
+     dKEKaL(eKEKaR(dKEKaL(YR)))
+   = d*KEKa(e*KEKa(KL)) ||
+     d*KEKb(e*KEKb(KM)) ||
+     d*KEKa(e*KEKa(KR))
+   = **K
+ </codeblock>where: <ul>
+<li>YL is the left 64 bits of **Y</li>
+<li>YM is the next 64 bits of **Y</li>
+<li>YR is the right 64 bits of **Y</li>
+<li>KEKaL is the left 64 bits of *KEKa</li>
+<li>KEKaR is the right 64 bits of *KEKa</li>
+<li>KEKbL is the left 64 bits of *KEKb</li>
+<li>KEKbR is the right 64 bits of *KEKb</li>
+<li>|| means concatenation</li>
+</ul></p>
+<p><xref href="#l0wskc02_appdmuldectlkey/l0wskc02_trikeyd"></xref> illustrates
+the definition.</p>
+<fig expanse="column" id="l0wskc02_trikeyd"><title>Multiple decipherment
+of triple-length keys</title>
+<image href="l0wskc02_fig14.jpg" placement="break" height="300">
+<alt>Multiple decipherment of triple-length keys</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000001938?>

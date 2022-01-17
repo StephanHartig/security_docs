@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ckmparameters" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword></indexterm></indexterm>
+<indexterm>AES</indexterm><indexterm>DES</indexterm><indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm><indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm><indexterm>clear_key_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> verb</indexterm></indexterm>
+<indexterm>clear_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> verb</indexterm></indexterm>
+<indexterm>target_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, 2, or 3.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Zero or one keyword that supplies control information to the <ph>verb</ph>. The keyword must
+be in eight bytes of contiguous storage, left-aligned and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_ckmparameters/l0wskc02_ckmci"/>.<table frame="all" id="l0wskc02_ckmci" pgwide="0">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row>
+<entry align="left" valign="bottom">Keyword</entry>
+<entry align="left" valign="bottom">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" nameend="col2" namest="col1" valign="top"><b><i>Algorithm</i></b> (On,
+optional)</entry>
+</row>
+<row>
+<entry align="left" valign="top"><synph><kwd>AES</kwd></synph></entry>
+<entry align="left" valign="top"><ph>The key should be enciphered under the master key as an AES
+key.</ph></entry>
+</row>
+<row>
+<entry align="left" valign="top"><synph><kwd>DES</kwd></synph></entry>
+<entry align="left" valign="top"><ph>The key should be enciphered under the master key as a DES key.
+This is the default.</ph></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key-wrapping method</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for the
+default wrapping method. The default wrapping method configuration setting may be changed using the
+TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method. This keyword is ignored for AES
+keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method. Valid only for DES
+keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+
+<row>
+<entry nameend="col2" namest="col1"><b><i>Translation control</i></b> (Optional). This is valid only
+with key-wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with
+<synph><kwd>USECONFG</kwd></synph> when the default wrapping method is
+<synph><kwd>WRAP-ENH</kwd></synph>. This option cannot be used on a key with a control vector valued
+to binary zeros.</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy wrapping method after it has
+been wrapped with the enhanced wrapping method. Sets bit 56 (<synph><kwd>ENH-ONLY</kwd></synph>) of
+the control vector to <ph>B'1'</ph>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry><plentry>
+<pt>clear_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>clear_key_length</var></synph> specifies the length of the clear key value
+to import. This length must be 8, 16, or 24.</pd>
+</plentry><plentry>
+<pt>clear_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>clear_key</var></synph> specifies the clear key value to import.</pd>
+</plentry><plentry>
+<pt>target_key_identifier</pt><?Pub Caret 0?>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string that is to receive the internal key token. <xref
+href="wskc_r_aptkn.dita#l0wskc02_aptkn"/> describes the key tokens.</pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000006407?>

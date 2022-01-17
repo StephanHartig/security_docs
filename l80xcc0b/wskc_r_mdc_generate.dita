@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_mdc_generate" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword>)</title>
+ <titlealts>
+    <navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to create a 128-bit hash value (Modification
+Detection Code) on a data string whose integrity you intend to confirm. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword>)</indexterm></indexterm>
+<indexterm>Modification Detection Code (MDC)</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>After using this verb to generate an MDC, you can compare the MDC to a known value or communicate
+the value to another entity so that they can compare the MDC hash value to one that they calculate.
+This verb enables you to perform the following tasks: <ul>
+<li>Specify the two-encipherment or four-encipherment version of the algorithm.</li>
+<li>Segment your text into a series of verb calls.</li>
+<li>Use the default or a keyed-hash algorithm.</li>
+</ul></p></section><?Pub Caret -2?>
+<section><p>The user must enable the <cmdname>MDC Generate</cmdname>  command (offset X'008A') with a Trusted
+Key Entry (TKE) workstation before using this verb.</p></section>
+<section><p>For a description of the MDC calculations, see <xref
+href="wskc_c_algomdc.dita#l0wskc02_algomdc"></xref>.</p></section>
+<section><p><synph><kwd>Specifying two or four encipherments:</kwd></synph> Four
+encipherments per algorithm round improve security; two encipherments
+per algorithm round improve performance. To specify the number of
+encipherments, use the <synph><kwd>MDC-2</kwd></synph>, <synph><kwd>MDC-4</kwd></synph>, <synph><kwd>PADMDC-2</kwd></synph>,
+or <synph><kwd>PADMDC-4</kwd></synph> keyword with the <synph><var>rule_array</var></synph> parameter.
+Two encipherments create results that differ from four encipherments;
+ensure that the same number of encipherments are used to verify the
+MDC.</p></section>
+<section><p><synph><kwd>Segmenting text:</kwd></synph> This verb lets
+you segment text into a series of verb calls. If you can present all
+of the data to be hashed in a single invocation of the verb (32 MB)
+of data, use the <synph><var>rule_array</var></synph> keyword <synph><kwd>ONLY</kwd></synph>.
+Alternatively, you can segment your text and present the segments
+with a series of verb calls. Use the <synph><var>rule_array</var></synph> keywords
+and <synph><kwd>LAST</kwd></synph> for the first and last segments.
+If more than two segments are used, specify the <synph><var>rule_array</var></synph> keyword <synph><kwd>MIDDLE</kwd></synph> for
+the additional segments.</p></section>
+<section><p>Between verb calls, unprocessed text data and intermediate
+information from the partial MDC calculation is stored in the <synph><var>chaining_vector</var></synph> variable
+and the MDC key in the <synph><var>MDC</var></synph> variable. During
+segmented processing, the application program must not change the
+data in either of these variables.</p></section>
+<section><p><synph><kwd>Keyed hash:</kwd></synph> This verb can be
+used with a default key, or as a keyed-hash algorithm. A default key
+is used whenever the <synph><kwd>ONLY</kwd></synph> or <synph><kwd>FIRST</kwd></synph> segmenting
+and key control keywords are used. To use the verb as a keyed-hash
+algorithm, do the following: <ol>
+<li>On the first call to the verb, place the non-null key into the <synph><var>MDC</var></synph> variable.</li>
+<li>Ensure that the <synph><var>chaining_vector</var></synph> variable
+is set to null (18 bytes of <ph>X'00'</ph>).</li>
+<li>Decide if the text will be processed in a single segment or multiple
+segments. <ul>
+<li>For a single segment of text, use the <synph><kwd>LAST</kwd></synph> keyword.</li>
+<li>For multiple segments of text, begin with the <synph><kwd>MIDDLE</kwd></synph> keyword
+and continue using the <synph><kwd>MIDDLE</kwd></synph> keyword up
+to the final segment of text. For the final segment, use the <synph><kwd>LAST</kwd></synph> keyword.</li>
+</ul></li>
+</ol></p></section>
+<section><p>As with the default key, you must not alter the value
+of the <synph><var>MDC</var></synph> or <synph><var>chaining_vector</var></synph> variables
+between calls.</p></section>
+</refbody>
+</reference>
+<?Pub *0000005830?>

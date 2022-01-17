@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syiparameters2">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for symmetric
+key import</indexterm></indexterm>
+<indexterm>AES</indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>AESKW</indexterm>
+<indexterm>PKOAEP2</indexterm>
+<indexterm>DES</indexterm>
+<indexterm>AESKWCV</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>enciphered_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+<indexterm>transport_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+<indexterm>key_name parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+<indexterm>target_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+This value must be 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keywords that provide control information to the verb. The following table provides a
+list. The recovery method is the method to use to recover the symmetric key. <ph>The keywords must
+be 8 bytes of contiguous storage with the keyword left-aligned in its 8-byte location and padded on
+the right with blanks.</ph> The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_syiparameters2/l0wskc02_ski2ra"/>.
+<table id="l0wskc02_ski2ra" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="18*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Algorithm</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>The key being imported is an AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>The key being imported is a DES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>The key being imported is an HMAC key. Only the <synph><kwd>PKOAEP2</kwd></synph> recovery
+method is supported.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Recovery method</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AESKW</kwd></synph></entry>
+<entry>Specifies the enciphered key has been wrapped with the AESKW formatting method.</entry>
+</row>
+<row>
+<entry><synph><kwd>AESKWCV</kwd></synph></entry>
+<entry>Specifies that the key is to be formatted using AESKW and placed in a symmetric variable
+length CCA token of type DESUSECV. The <parmname>transport_key_identifier</parmname> must be an AES
+EXPORTER key. The DES control vector and other significant token information is in the associated
+data section of the variable length key token. Only valid with the DES token algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>PKOAEP2</kwd></synph></entry>
+<entry>Specifies to format the key according to the method found in RSA DSI PKCS #1 v2.1 RSAES-OAEP
+documentation.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key wrapping method</i></b> (Optional, valid only for DES
+algorithm. The access control point <cmdname>Symmetric Key Import2 – Allow wrapping override
+keywords</cmdname> must be enabled to specify these keywords)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for the
+default wrapping method. The default wrapping method configuration setting may be changed using the
+TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies that the new enhanced wrapping method is to be used to wrap the key.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies that the original wrapping method is to be used.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Translation Control</i></b> (Optional, valid only for
+enhanced wrapping)</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specify this keyword to indicate that the key once wrapped with the enhanced method cannot be
+wrapped with the original method. This restricts translation to the original method.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><note>There is no need for a hash method keyword, because the hash method is encoded in the
+external key-token carrying the encoded and encrypted payload.</note></pd></plentry>
+<plentry><pt>enciphered_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>enciphered_key</var></synph> parameter. The maximum size is
+900 bytes.</pd></plentry>
+<plentry><pt>enciphered_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The key to import, protected under either an RSA public key or an AES KEK. If the recovery
+method is <synph><kwd>PKOAEP2</kwd></synph>, the encrypted key is in the low-order bits
+(right-aligned) of a string whose length is the minimum number of bytes that can contain the
+encrypted key. If the recovery method is <synph><kwd>AESKW</kwd></synph>, the encrypted key is an
+AES key or HMAC key in the external variable length key token.</pd></plentry>
+<plentry><pt>transport_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>transport_key_identifier</var></synph> parameter. When the
+<synph><var>transport_key_identifier</var></synph> parameter is a key label, this field must be 64.
+The maximum size is 3500 bytes for an RSA private key, or 725 bytes for an AES IMPORTER KEK.</pd></plentry>
+<plentry><pt>transport_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal RSA private key token, internal AES IMPORTER KEK, or the 64-byte label of a key
+token whose corresponding key protects the symmetric key.<p>When the <synph><kwd>AESKW</kwd></synph>
+key formatting method is specified, this parameter must be an AES IMPORTER key with the IMPORT bit
+on in the key-usage field. Otherwise, this parameter must be an RSA private key.</p></pd></plentry>
+<plentry><pt>key_name_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>key_name</var></synph> parameter for
+<synph><var>target_key_identifier</var></synph>. Valid values are 0 and 64.</pd></plentry>
+<plentry><pt>key_name</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte key store label to be stored in the associated data structure of
+<synph><var>target_key_identifier</var></synph>.</pd></plentry>
+<plentry><pt>target_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length in bytes of the buffer for the
+<synph><var>target_key_identifier</var></synph> parameter. The buffer must be large enough to
+receive the target key token. The maximum value is 725 bytes. <p>On output, the parameter will hold
+the actual length of the target key token.</p></pd></plentry>
+<plentry><pt>target_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter contains the internal token of the imported symmetric key. 
+<p>When the <synph><var>transport_key_identifier</var></synph> is compliant-tagged, 
+the key is imported as a compliant-tagged key token.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

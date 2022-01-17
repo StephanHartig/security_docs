@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ckiparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>clear_key parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> verb</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> verb</indexterm></indexterm>
+<indexterm>key identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>clear_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>clear_key</var></synph> specifies the 8-byte clear key value to import.</pd></plentry>
+<plentry><pt>target_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string that is to receive the internal key token. <xref
+href="wskc_c_keytli.dita#l0wskc02_keytli"/> describes the internal key token.</pd></plentry>
+</parml></section>
+</refbody></reference>

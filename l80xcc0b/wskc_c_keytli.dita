@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_keytli" xml:lang="en-us">
+<title>Key tokens, key labels, and key identifiers</title>
+<titlealts>
+<navtitle>Key tokens, key labels, and key identifiers</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key tokens, key labels, and key
+identifiers for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Essentially all cryptographic operations employ one or more keys. In <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, keys are retained within a structure
+called a <i>key token</i>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key token</indexterm><indexterm>key label</indexterm>
+<indexterm>key identifier</indexterm><indexterm>internal key token</indexterm>
+<indexterm>key token<indexterm>internal</indexterm></indexterm>
+<indexterm>operational key token</indexterm><indexterm>key token<indexterm>operational</indexterm></indexterm>
+<indexterm>external key token</indexterm><indexterm>key token<indexterm>external</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>A verb parameter can point to a variable that contains a key token. Generally you do not need to
+be concerned with the details of a key token. You can deal with it as an entity.</p>
+<p>Key tokens are described as either internal, operational, or external,
+as follows:  <dl><dlentry>
+<dt>Internal</dt>
+<dd>A key token that contains an encrypted key for local use. The cryptographic engine decrypts an
+internal key to use the key in a local operation. When a key is entered into the system, it is
+always encrypted if it appears outside the protected environment of the cryptographic engine. The
+engine has a special key-encrypting key, called a master key. This key is held within the engine to
+wrap and unwrap locally used keys.</dd>
+</dlentry><dlentry>
+<dt>Operational</dt>
+<dd>An internal key token that is complete and ready for use and contains
+a key that is encrypted under a master key. During entry of a key,
+the internal key-token can have a flag set indicating the key information
+is incomplete.</dd>
+</dlentry><dlentry>
+<dt>External</dt>
+<dd>A key token that contains a key that is either in the clear or
+is encrypted by some key-encrypting key other than the master key.
+Generally, when a key is to be transported from place to place or
+is to be held for a significant period of time, the key must be encrypted
+with a transport key. A key wrapped by a (transport) key-encrypting
+key is designated as being external.  <p>RSA and ECC public-keys are
+not encrypted values and, when not accompanied by private-key information,
+are retained in an external key-token.</p></dd>
+</dlentry></dl><?Pub Caret -2?></p>
+<p>Internal key tokens can be stored in a file maintained by the directory
+server. These key tokens are referenced by use of a key label. A <i>key
+label</i> is an alphanumeric string you place in a variable and reference
+with a verb parameter.</p>
+<p>Parameter descriptions specify how you can provide a key using these terms:</p>
+<dl>
+<dlentry>
+<dt>Key token</dt>
+<dd>The parameter  must contain a proper key-token structure.</dd>
+</dlentry>
+<dlentry>
+<dt>Key label</dt>
+<dd>The parameter must contain a key-label string used to locate a key record in key storage.</dd>
+</dlentry>
+<dlentry>
+<dt>Key identifier</dt>
+<dd>The parameter must contain either a key token or a key label. The first byte in the parameter
+indicates whether it  contains a key token or a key label. <dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>indicates a DES null key-token. </dd>
+</dlentry>
+<dlentry>
+<dt>range X'01' - X'1F'</dt>
+<dd>indicates that the variable is processed as a key token.</dd>
+</dlentry>
+<dlentry>
+<dt>range X'20' - X'FE'</dt>
+<dd>indicates that the variable is processed as a key label. There are additional restrictions on
+the value of a key label.</dd>
+</dlentry>
+<dlentry>
+<dt>X'FF'</dt>
+<dd>raises an error condition when passed to the API.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl>
+</conbody>
+</concept>
+<?Pub *0000003878?>

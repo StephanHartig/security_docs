@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_apint" xml:lang="en-us">
+<title>Using AES, DES, and HMAC cryptography and verbs </title>
+<titlealts>
+<navtitle>AES, DES, and HMAC cryptography and verbs</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Using AES, DES, and HMAC cryptography and verbs</searchtitle>
+</titlealts>
+<shortdesc>You can use AES, DES, and HMAC cryptographic functions that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> also provides cryptographic key functions,
+and you can use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> to build key
+tokens.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>AES, DES, and HMAC cryptography and verbs</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword><indexterm>functions</indexterm></indexterm>
+<indexterm>DES cryptography</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword><indexterm>data
+protection</indexterm></indexterm><indexterm>algorithm<indexterm>DES</indexterm></indexterm>
+<indexterm>DES algorithm</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> protects data from
+unauthorized disclosure or modification. This coprocessor protects data stored within a system,
+stored in a file off a system on magnetic tape, and sent between systems. The coprocessor also
+authenticates the identity of customers in the financial industry and authenticates messages from
+originator to receiver. The coprocessor uses cryptography to perform these functions.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API for the coprocessor
+provides access to cryptographic functions through verbs. A verb is a routine that receives control
+using a function call from an application program. Each verb performs one or more cryptographic
+functions, including: <ul>
+<li>Generating and managing cryptographic keys</li>
+<li>Enciphering and deciphering data with encrypted keys using either the U.S. National Institute of
+Standards and Technology (NIST) Data Encryption Standard (DES) or Advanced Encryption Standard
+(AES)</li>
+<li>Re-enciphering text from encryption under one key to encryption under another key</li>
+<li>Encoding and decoding data with clear keys</li>
+<li>Generating random numbers</li>
+<li>Ensuring data integrity and verifying message authentication</li>
+<li>Generating, verifying, and translating personal identification numbers (PINs) that identify a
+customer on a financial system</li>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000002864?>

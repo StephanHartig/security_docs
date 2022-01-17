@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_csg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> <ph>verb</ph> to generate a VISA Card Verification
+Value (CVV) or MasterCard Card Verification Code (CVC) as defined
+for track 2. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb generates a CVV that is based on the information that
+the <synph><var>PAN_data</var></synph>, the <synph><var>expiration_date</var></synph>, and the <synph><var>service_code</var></synph> parameters
+provide.  This verb uses the Key-A and the Key-B keys to cryptographically
+process this information. <ph>Key-A and Key-B can be single-length <synph><kwd>DATA</kwd></synph> or <synph><kwd>MAC</kwd></synph> keys,
+or a combined Key-A, Key-B double length DATA or MAC key.</ph> If
+the requested CVV is shorter than 5 characters, the CVV is padded
+on the right by space characters. The CVV is returned in the 5-byte
+variable that the <synph><var>CVV_value</var></synph> parameter identifies. When you
+verify a CVV, compare the result to the value that the <synph><var>CVV_value</var></synph> supplies.</p></section>
+<section><p>See <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>) for information on combining two single-length
+MAC-capable keys into one double-length key.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

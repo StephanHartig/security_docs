@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Using the 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 
+nodes and resource control verbs</title>
+<topicref href="wskc_r_acc.dita">
+<topicref href="wskc_r_acm.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Access Control Maintenance (CSUAACM)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_acmformat.dita" toc="no"/>
+<topicref href="wskc_r_acmparameters.dita" toc="no"/>
+<topicref href="wskc_r_acmrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_acmrequired.dita" toc="no"/>
+<topicref href="wskc_r_acmusage.dita" toc="no"/>
+<topicref href="wskc_r_acmjni.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_act.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Access Control Tracking (CSUAACT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_actformat.dita" toc="no"/>
+<topicref href="wskc_r_actparameters.dita" toc="no"/>
+<topicref href="wskc_r_acttracking.dita" toc="no"/>
+<topicref href="wskc_r_actrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_actrequired.dita" toc="no"/>
+<topicref href="wskc_r_actusage.dita" toc="no"/>
+<topicref href="wskc_r_actjni.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_cfq.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Cryptographic Facility Query (CSUACFQ)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_cfq_2_or_3.dita" toc="no"/>
+<topicref href="wskc_r_cfqformat.dita" toc="no"/>
+<topicref href="wskc_r_cfqparameters.dita" toc="no"/>
+<topicref href="wskc_r_cfq_vdras390.dita" toc="no">
+<topicref href="wskc_domcont.dita" toc="no"/>
+<topicref href="wskc_domnums.dita" toc="no"/>
+<topicref href="wskc_domusag.dita" toc="no"/>
+<topicref href="wskc_r_cfq_getcompd.dita" toc="no"/>
+<topicref href="wskc_r_cfq_vdras390_gudx.dita" toc="no"/>
+<topicref href="wskc_r_cfq_num-dect.dita" toc="no"/>
+<topicref href="wskc_r_cfq_sizewpin.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statdect.dita" toc="no"/>
+<topicref href="wskc_r_cfq_staticsa.dita" toc="no"/>
+<topicref href="wskc_r_cfq_staticsb.dita" toc="no"/>
+<topicref href="wskc_r_cfq_staticsc.dita" toc="no"/>
+<topicref href="wskc_r_cfq_staticse.dita" toc="no"/>
+<topicref href="wskc_r_cfq_staticsx.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statkpr.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statkprl.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statoahl.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statvkpl.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statvkpr.dita" toc="no"/>
+<topicref href="wskc_r_cfq_statwpin.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_cfqrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_cfqrequired.dita" toc="no"/>
+<topicref href="wskc_r_cfqusage.dita" toc="no"/>
+<topicref href="wskc_r_cfqrelated.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_cfv.dita">
+<topicmeta>
+<retrievalKeys><retkey>Cryptographic Facility Version (CSUACFV)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_cfvformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_cfvparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_cfvrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_cfvrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_cfvusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_cfvrelated.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_cra.dita">
+<topicmeta>
+<retrievalKeys><retkey>Cryptographic Resource Allocate (CSUACRA)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_craformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_craparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_crarestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_crarequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_crausage.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_crajni.dita" toc="no">
+</topicref>
+</topicref>
+<topicref href="wskc_r_crd.dita">
+<topicmeta>
+<retrievalKeys><retkey>Cryptographic Resource Deallocate (CSUACRD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_crdformat.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_crdparameters.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_crdrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_crdrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_crdusage.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_l0wskc67.dita" toc="no">
+</topicref>
+</topicref>
+<topicref href="wskc_r_ksi.dita">
+<topicmeta>
+<retrievalKeys><retkey>Key Storage Initialization (CSNBKSI)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ksiformat.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_ksiparameters.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_ksirestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_ksirequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_ksiusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc137.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_lgq.dita"><topicmeta>
+<retrievalKeys>
+<retkey>Log Query (CSUALGQ)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_lgqformat.dita" toc="no"/>
+<topicref href="wskc_lgqparameters.dita" toc="no"/>
+<topicref href="wskc_lgqrestrictions.dita" toc="no"/>
+<topicref href="wskc_lgqrequired.dita" toc="no"/>
+<topicref href="wskc_lgqusage.dita" toc="no"/>
+<topicref href="wskc_lgqjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_mkp.dita"><topicmeta>
+<retrievalKeys><retkey>Master Key Process (CSNBMKP)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_mkpformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_mkpparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_mkprestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_mkprequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_mkpusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_mkprelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc178.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_rnt.dita">
+<topicmeta>
+<retrievalKeys><retkey>Random Number Tests (CSUARNT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_rntformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_rntparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_rntrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_rntrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_rntusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc267.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

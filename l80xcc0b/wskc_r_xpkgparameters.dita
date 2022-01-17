@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_xpkgparameters" xml:lang="en-us">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/>
+<indexterm>parameters</indexterm></indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"
+/><indexterm>parameters</indexterm></indexterm><indexterm>ITER-38</indexterm><indexterm>OKEK-AES</indexterm><indexterm>OKEK-DES</indexterm><indexterm>regeneration_data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb</indexterm></indexterm><indexterm>regeneration_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb</indexterm></indexterm><indexterm>skeleton_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb</indexterm></indexterm><indexterm>skeleton_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb</indexterm></indexterm><indexterm>transport_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb</indexterm></indexterm><indexterm>generated_key_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb</indexterm></indexterm><indexterm>generated_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, or 3.</pd>
+</plentry><plentry>
+<pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A keyword that provides control information to the <ph>verb</ph>. A keyword is left-aligned
+in an 8-byte field and padded on the right with blanks. The <synph><var>rule_array</var></synph>
+keywords are described in <xref href="#l0wskc02_xpkgparameters/l0wskc02_pkg"/>.<table frame="all"
+id="l0wskc02_pkg" pgwide="1">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row>
+<entry align="left" valign="bottom">Keyword</entry>
+<entry align="left" valign="bottom">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" nameend="col2" namest="col1" valign="top"><b><i>Private key encryption</i></b>
+(One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>CLEAR</kwd></synph></entry>
+<entry>Return the private key in cleartext. The private key in cleartext
+is an external token. This keyword is valid only for RSA and ECC keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>MASTER</kwd></synph></entry>
+<entry>Encipher the private key or OPK using the PKA master-key for an RSA
+key, or the OPK using the APKA master-key for an ECC key. The
+<synph><var>transport_key_identifier</var></synph> parameter should specify a null key-token. The
+keyword is not supported if a skeleton token with a <synph><kwd>09</kwd></synph> section is
+provided.</entry>
+</row>
+<row>
+<entry><synph><kwd>RETAIN</kwd></synph></entry>
+<entry>Retains the private key within the cryptographic engine and returns
+the public key. This is only valid for RSA signature keys. Because of this, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> keyword is not supported for: <ul
+compact="yes">
+<li>A skeleton token with a <ph>X'09'</ph> section provided.</li>
+<li>An ECC token.</li>
+<li>A CRYSTALS-Dilithium token.</li>
+<li rev="sh21i1">RSA private-key sections X'30' and X'31'.</li>
+</ul>
+<p>Before using this keyword, see the information about retained keys in <xref
+href="wskc_r_rkdel_rk.dita#l0wskc02_rkdel_rk"/>.</p>
+<note>Take special notice on the types of skeleton key tokens that can be passed. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb will, of course, let you create
+many more types of skeleton key tokens than can be used to generate retained keys, because this is
+the minority of supported function.</note></entry>
+</row>
+<row>
+<entry><synph><kwd>XPORT</kwd></synph></entry>
+<entry>Enciphers the private key under the IMPORTER or EXPORTER
+key-encrypting-key identified by the <synph><var>transport_key_identifier</var></synph> parameter.
+For an RSA key, this is an EXPORTER or IMPORTER transport key in a fixed-length operational DES
+key-token. For an ECC key, this is an EXPORTER or IMPORTER transport key in an operational
+variable-length AES key-token. This keyword is valid only for RSA and ECC keys.
+<p>This keyword is not supported for CRYSTALS-Dilithium tokens.</p></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> option</i></b> (one, optional). Valid
+only with the <synph><kwd>RETAIN</kwd></synph> keyword.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>CLONE</kwd></synph></entry>
+<entry colname="col2">Mark a generated and retained private key as usable in cryptographic engine
+cloning process. This keyword is supported only if <synph><kwd>RETAIN</kwd></synph> is also
+specified. Only valid for RSA keys. The keyword is not supported for: <ul compact="yes">
+<li>A skeleton token with a <ph>X'09'</ph> section provided</li>
+<li>An ECC private key token</li>
+<li>A CRYSTALS-Dilithium token.</li>
+</ul></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Regeneration data option</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>ITER-38</kwd></synph></entry>
+<entry>Force 38 iterations of tests for primality, as required by ANSI
+X9.31 for the Miller-Rabin primality tests. This option produces a more secure key, but it is labor
+intensive. This keyword is invalid for ECC key generation.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Transport key-type</i></b> (one, optional; one required if
+<synph><var>transport_key_identifier</var></synph> is a label). If this keyword is specified, it
+must match the type of key to be transported, whether the identifier is a label or not.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>OKEK-AES</kwd></synph></entry>
+<entry colname="col2">The outbound key-encrypting key represents an AES key-token.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>OKEK-DES</kwd></synph></entry>
+<entry colname="col2">The outbound key-encrypting key represents a DES key-token. This is the
+default.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry><plentry>
+<pt>regeneration_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>regeneration_data</parmname> variable. This parameter must be 0 for ECC tokens 
+and CRYSTALS-Dilithium tokens. For RSA tokens, the value must be 8 - 512.
+<p>If the value is 0, the generated keys are based on a
+random-seed value. If this value is between 8 - 256, the regeneration data is hashed to form a seed
+value used in the key generation process to provide a means for recreating a public-private key
+pair.</p></pd>
+</plentry><plentry>
+<pt>regeneration_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field points to a string variable containing a string used as the basis for creating a
+particular public-private key pair in a repeatable manner. The regeneration data is hashed to form a
+seed value used in the key generation process and provides a means for recreating a public-private
+key pair.</pd>
+</plentry><plentry>
+<pt>skeleton_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>skeleton_key_identifier</parmname> parameter in bytes. The
+maximum allowed value is 6500 bytes.</pd>
+</plentry><plentry>
+<pt>skeleton_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to the application-supplied skeleton key token generated by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/>, or the label of the token that
+contains the required modulus length and public exponent for RSA key generation, or the required
+curve type and bit length for ECC key generation.<p>If <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> was specified and the
+<synph><var>skeleton_key_identifier</var></synph> is a label, the label must match the private key
+name of the key. For RSA keys, the <synph><var>skeleton_key_identifier</var></synph> parameter must
+contain a token that specifies a modulus length in the range 512 - 4096 bits.</p><p rev="sh20i1"
+>To generate a compliant-tagged key token, a compliant-tagged skeleton token must be supplied.</p></pd>
+</plentry><plentry>
+<pt>transport_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an operational AES or DES key-encrypting-key
+token, a null key-token, or a key label of such a key. Use an <synph><kwd>IMPORTER</kwd></synph> key
+to encipher a private key to be used at this node. Use an <synph><kwd>EXPORTER</kwd></synph> key to
+encipher a private key to be used at another node. Choose one of the following: <ul>
+<li>When generating an ECC key with the <synph><kwd>XPORT</kwd></synph> rule-array keyword, provide
+the variable-length symmetric <synph><kwd>IMPORTER</kwd></synph> or
+<synph><kwd>EXPORTER</kwd></synph> key-token to be used to wrap the generated ECC key. Key bit
+lengths of 128, 192, and 256 are supported. If this parameter points to a key label, specify
+rule-array keyword <synph><kwd>OKEK-AES</kwd></synph> to indicate that the AES key-storage dataset
+contains the key token.</li>
+<li>When generating an RSA key with the <synph><kwd>XPORT</kwd></synph> rule-array keyword, provide
+the fixed-length DES <synph><kwd>IMPORTER</kwd></synph> or <synph><kwd>EXPORTER</kwd></synph>
+key-token to be used to wrap the generated RSA key. If this parameter points to a key label, specify
+rule-array keyword <synph><kwd>OKEK-DES</kwd></synph> to indicate that the DES key-storage dataset
+contains the key token.</li>
+<li>If the <synph><kwd>XPORT</kwd></synph> rule-array keyword is not specified, specify a null
+key-token. If this parameter points to a key label, specify keyword
+<synph><kwd>OKEK-AES</kwd></synph> for an ECC key or keyword <synph><kwd>OKEK-DES</kwd></synph> for
+an RSA key.</li>
+</ul></pd>
+</plentry><plentry>
+<pt>generated_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the generated key token. The field is checked to ensure that it is at least
+equal to the size of the token being returned. The maximum size is 6500 bytes. On output, this field
+is updated with the actual token length.</pd>
+</plentry><plentry>
+<pt>generated_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The internal key token or key label of the generated RSA or ECC key. When generating an RSA
+retained key, on output the verb returns the public token in this variable.<p>If the key label
+identifies a key record in PKA key-storage: </p><ul>
+<li>A record must already exist in the PKA key storage file with this same label or the verb will
+fail</li>
+<li>The generated key token replaces any key token associated with the label.</li>
+<li>the <synph><var>generated_key_token_length</var></synph> returned to the application will be the
+same as the input length.</li>
+</ul><p>If the first byte of the identified string does not indicate a key label (that is, not in
+the range X'20' - X'FE'), and the variable is of sufficient length to receive the result, then the
+generated key token is returned in the identified variable.</p></pd>
+</plentry></parml></section>
+</refbody>
+</reference><?Pub Caret -2?>
+<?Pub *0000014143?>

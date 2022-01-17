@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mkprelated">
+<title>Questionable DES keys</title>
+ <titlealts>
+    <navtitle>Questionable DES keys</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Questionable DES keys for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></searchtitle>
+  </titlealts>
+<shortdesc>These keys are considered questionable DES keys, and so should
+probably not be used when entering SYM-MK or ASYM-MK master keys. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)<indexterm>Questionable
+DES keys</indexterm></indexterm>
+<indexterm>DES key<indexterm>questionable</indexterm></indexterm>
+<indexterm>questionable DES key</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>ASYM-MK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p id="l0wskc02_weakdes"> </p></section><example>
+<codeblock>      01 01 01 01 01 01 01 01  /* weak */
+      FE FE FE FE FE FE FE FE  /* weak */
+      1F 1F 1F 1F 0E 0E 0E 0E  /* weak */
+      E0 E0 E0 E0 F1 F1 F1 F1  /* weak */
+      01 FE 01 FE 01 FE 01 FE  /* semi-weak */
+      FE 01 FE 01 FE 01 FE 01  /* semi-weak */
+      1F E0 1F E0 0E F1 0E F1  /* semi-weak */
+      E0 1F E0 1F F1 0E F1 0E  /* semi-weak */
+      01 E0 01 E0 01 F1 01 F1  /* semi-weak */
+      E0 01 E0 01 F1 01 F1 01  /* semi-weak */
+      1F FE 1F FE 0E FE 0E FE  /* semi-weak */
+      FE 1F FE 1F FE 0E FE 0E  /* semi-weak */
+      01 1F 01 1F 01 0E 01 0E  /* semi-weak */
+      1F 01 1F 01 0E 01 0E 01  /* semi-weak */
+      E0 FE E0 FE F1 FE F1 FE  /* semi-weak */
+      FE E0 FE E0 FE F1 FE F1  /* semi-weak */
+      1F 1F 01 01 0E 0E 01 01  /* possibly semi-weak  */
+      01 1F 1F 01 01 0E 0E 01  /* possibly semi-weak  */
+      1F 01 01 1F 0E 01 01 0E  /* possibly semi-weak  */
+      01 01 1F 1F 01 01 0E 0E  /* possibly semi-weak  */
+      E0 E0 01 01 F1 F1 01 01  /* possibly semi-weak  */
+      FE FE 01 01 FE FE 01 01  /* possibly semi-weak  */
+      FE E0 1F 01 FE F1 0E 01  /* possibly semi-weak  */
+      E0 FE 1F 01 F1 FE 0E 01  /* possibly semi-weak  */
+      FE E0 01 1F FE F1 01 0E  /* possibly semi-weak  */
+      E0 FE 01 1F F1 FE 01 0E  /* possibly semi-weak  */
+      E0 E0 1F 1F F1 F1 0E 0E  /* possibly semi-weak  */
+      FE FE 1F 1F FE FE 0E 0E  /* possibly semi-weak  */
+      FE 1F E0 01 FE 0E F1 01  /* possibly semi-weak  */
+      E0 1F FE 01 F1 0E FE 01  /* possibly semi-weak  */
+      FE 01 E0 1F FE 01 F1 0E  /* possibly semi-weak  */
+      E0 01 FE 1F F1 01 FE 0E  /* possibly semi-weak  */
+      01 E0 E0 01 01 F1 F1 01  /* possibly semi-weak  */
+      1F FE E0 01 0E FE F1 01  /* possibly semi-weak  */
+      1F E0 FE 01 0E F1 FE 01  /* possibly semi-weak  */
+      01 FE FE 01 01 FE FE 01  /* possibly semi-weak  */
+      1F E0 E0 1F 0E F1 F1 0E  /* possibly semi-weak  */
+      01 FE E0 1F 01 FE F1 0E  /* possibly semi-weak  */
+      01 E0 FE 1F 01 F1 FE 0E  /* possibly semi-weak  */
+      1F FE FE 1F 0E FE FE 0E  /* possibly semi-weak  */
+      E0 01 01 E0 F1 01 01 F1  /* possibly semi-weak  */
+      FE 1F 01 E0 FE 0E 01 F1  /* possibly semi-weak  */
+      FE 01 1F E0 FE 01 0E F1  /* possibly semi-weak  */
+      E0 1F 1F E0 F1 0E 0E F1  /* possibly semi-weak  */
+      FE 01 01 FE FE 01 01 FE  /* possibly semi-weak  */
+      E0 1F 01 FE F1 0E 01 FE  /* possibly semi-weak  */
+      E0 01 1F FE F1 01 0E FE  /* possibly semi-weak  */
+      FE 1F 1F FE FE 0E 0E FE  /* possibly semi-weak  */
+      1F FE 01 E0 E0 FE 01 F1  /* possibly semi-weak  */
+      01 FE 1F E0 01 FE 0E F1  /* possibly semi-weak  */
+      1F E0 01 FE 0E F1 01 FE  /* possibly semi-weak  */
+      01 E0 1F FE 01 F1 0E FE  /* possibly semi-weak  */
+      01 01 E0 E0 01 01 F1 F1  /* possibly semi-weak  */
+      1F 1F E0 E0 0E 0E F1 F1  /* possibly semi-weak  */
+      1F 01 FE E0 0E 01 FE F1  /* possibly semi-weak  */
+      01 1F FE E0 01 0E FE F1  /* possibly semi-weak  */
+      1F 01 E0 FE 0E 01 F1 FE  /* possibly semi-weak  */
+      01 1F E0 FE 01 E0 F1 FE  /* possibly semi-weak  */
+      01 01 FE FE 01 01 FE FE  /* possibly semi-weak  */
+      1F 1F FE FE 0E 0E FE FE  /* possibly semi-weak  */
+      FE FE E0 E0 FE FE F1 F1  /* possibly semi-weak  */
+      E0 FE FE E0 F1 FE FE F1  /* possibly semi-weak  */
+      FE E0 E0 FE FE F1 F1 FE  /* possibly semi-weak  */
+      E0 E0 FE FE F1 F1 FE FE  /* possibly semi-weak  */</codeblock></example>
+</refbody></reference>

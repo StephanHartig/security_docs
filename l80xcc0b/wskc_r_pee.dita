@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pee">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this <ph>verb</ph> to modify an operational key so that it
+cannot be exported. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</indexterm></indexterm>
+<indexterm>operational key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<note type="other" othertype="Notes">
+<ul>
+<li>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</li>
+<li rev="sh21i1">This service has been deprecated. New applications should use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/> service that is described in <xref
+href="wskc_r_rkat.dita"/>.</li>
+</ul>
+</note>
+</section>
+</refbody></reference>

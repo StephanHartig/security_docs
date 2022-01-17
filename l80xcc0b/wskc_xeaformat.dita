@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="xeaformat" rev="sh15">
+  <title>Format</title>
+  <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/></searchtitle>
+  </titlealts>
+  <shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"
+    />.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"
+            />)<indexterm>format</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <table pgwide="0" frame="all">
+      <tgroup cols="1" colsep="1" rowsep="1">
+        <colspec colname="col1" colwidth="468*"/>
+        <tbody>
+          <row>
+            <entry valign="top" align="left">
+             <codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>text_length</var></synph>,
+             <synph><var>source_text</var></synph>,
+             <synph><var>target_text</var></synph>,
+             <synph><var>code_table_length</var></synph>,
+             <synph><var>code_table</var></synph>)</codeblock></entry></row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refbody>
+</reference>

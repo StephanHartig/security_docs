@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdpcgprwcmac" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> verb to
+    generate a message authentication code (MAC) over specific values involved in an account number
+    change transaction. The input includes the current and new PAN and card data and the PIN
+    reference value.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The output of this service is used as input to the DK PAN Modify in Transaction callable
+        service, which will create the new PIN reference value (PRW) to be used to verify the
+        PIN.</p>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+    </section>
+  </refbody>
+</reference>

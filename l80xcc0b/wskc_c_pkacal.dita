@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pkacal">
+<title>PKA verbs</title>
+<titlealts>
+<navtitle>PKA verbs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA verbs</searchtitle>
+</titlealts><shortdesc rev="shd3">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>
+features provide application programming interfaces to PKA functions.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm>PKA</indexterm></indexterm>
+<indexterm>PKA verbs</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>These PKA functions are: </p>
+<ul>
+<li>RSA digital signature functions</li>
+<li>Key management and key generation functions</li>
+<li>DES key distribution functions</li>
+<li>Data encryption functions</li>
+<li rev="shd3">ECC digital signature functions</li>
+<li rev="shd3">ECC key management and key generation functions</li>
+<li rev="shd3">ECC-based and RSA-based services for: <ul compact="yes">
+<li>DES and AES key derivation</li>
+<li>Diffie-Hellman key agreement for DES and AES</li>
+<li>Key distribution functions for DES and AES keys</li>
+</ul></li>
+</ul>
+<p>Starting with the CEX3C feature, the CEX*C adapters add application programming interfaces to the
+following PKA functions: <ul>
+<li>ECC digital signature functions</li>
+<li>ECC key management and key generation functions</li>
+<li>ECC-based and RSA-based services for: <ul>
+<li>DES and AES key derivation</li>
+<li>Diffie-Hellman key agreement for DES and AES</li>
+<li>Key distribution functions for DES and AES keys</li>
+</ul></li>
+</ul></p>
+</conbody></concept>

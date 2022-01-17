@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_mvr2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb to
+verify a keyed hash message authentication code (HMAC) or a ciphered message authentication code
+(CMAC) for the message text provided as input. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)</indexterm></indexterm>
+<indexterm>Message Authentication Code (MAC)<indexterm>verifying</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"
+/>)<indexterm>methods</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The MAC verify key must be in a variable-length HMAC key token for HMAC and an AES MAC token for
+CMAC. <ph rev="sh21i1">The key must have a key usage that allows the key to verify MACs.</ph></p>
+<p rev="sh21i1">For the HMAC algorithm, clear key tokens are supported. Clear HMAC keys can be built
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2j"/>) callable service.</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>

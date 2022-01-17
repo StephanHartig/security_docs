@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN" "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_codecv" xml:lang="en-us">
+<title>Specifying a control-vector-base value</title>
+ <titlealts>
+    <navtitle>Specifying a control-vector-base value</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Specifying a control-vector-base
+value</searchtitle>
+  </titlealts>
+<shortdesc>You can determine the value of a control vector by working through a series of questions.</shortdesc>
+<prolog><metadata>
+<keywords></keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<stepsection>Work through this series of questions: </stepsection>
+<step><cmd>Begin with a field of 64 bits (eight bytes) set to <ph>B'0'</ph>. The most significant bit is referred to as bit 0. Define the key type and subtype (bits 8 - 14) as follows:  </cmd><info><ul>
+<li>The main key type bits (bits 8 - 11). Set bits 8 - 11 to one of the following values:  <table frame="all" pgwide="0"><title>Main key type bits</title><desc><p outputclass="summary">Main key type bits</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colname="col1" colwidth="43*"/><colspec colname="col2" colwidth="200*"/>
+<thead>
+<row rowsep="1">
+<entry align="center" valign="top">Bits 8 - 11</entry>
+<entry valign="top">Main Key Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" valign="top">0000</entry>
+<entry valign="top">Data operation keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">0010</entry>
+<entry valign="top">PIN keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">0011</entry>
+<entry valign="top">Cryptographic variable-encrypting keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">0100</entry>
+<entry valign="top">Key-encrypting keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">0101</entry>
+<entry valign="top">Key-generating keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">0111</entry>
+<entry valign="top">Diversified key-generating keys</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>The key subtype bits (bits 12 - 14). Set bits 12 - 14 to one of the following values:  <note>For Diversified Key Generating Keys, the subtype field specifies the hierarchical level of the DKYGENKY. If the subtype is nonzero, the DKYGENKY can generate only another DKYGENKY key with the hierarchy level decremented by one. If the subtype is zero,  the DKYGENKY can generate only the final diversified key (a non-DKYGENKY key) with the key type specified by the usage bits.</note> <table frame="all" pgwide="0"><title>Key subtype bits</title><desc><p outputclass="summary">Key subtype bits</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colname="col1" colwidth="43*"/><colspec colname="col2" colwidth="200*"/>
+<thead>
+<row rowsep="1">
+<entry align="center" valign="top">Bits 12 - 14</entry>
+<entry valign="top">Key Subtype</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><i>Data Operation Keys</i></entry>
+</row>
+<row>
+<entry align="center" valign="top">000</entry>
+<entry valign="top">Compatibility key (DATA)</entry>
+</row>
+<row>
+<entry align="center" valign="top">001</entry>
+<entry valign="top">Confidentiality key (CIPHER, DECIPHER, or ENCIPHER)</entry>
+</row>
+<row>
+<entry align="center" valign="top">010</entry>
+<entry valign="top">MAC key (MAC or MACVER)</entry>
+</row>
+<row>
+<entry align="center" valign="top">101</entry>
+<entry valign="top">Secure messaging keys</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><i>Key-Encrypting Keys</i></entry>
+</row>
+<row>
+<entry align="center" valign="top">000</entry>
+<entry valign="top">Transport-sending keys (EXPORTER and OKEYXLAT)</entry>
+</row>
+<row>
+<entry align="center" valign="top">001</entry>
+<entry valign="top">Transport-receiving keys (IMPORTER and IKEYXLAT)</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><i>PIN Keys</i></entry>
+</row>
+<row>
+<entry align="center" valign="top">001</entry>
+<entry valign="top">PIN-generating key (PINGEN, PINVER)</entry>
+</row>
+<row>
+<entry align="center" valign="top">000</entry>
+<entry valign="top">Inbound PIN-block decrypting key (IPINENC)</entry>
+</row>
+<row>
+<entry align="center" valign="top">010</entry>
+<entry valign="top">Outbound PIN-block encrypting key (OPINENC)</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><i>Cryptographic Variable-Encrypting Keys</i></entry>
+</row>
+<row>
+<entry align="center" valign="top">111</entry>
+<entry valign="top">Cryptographic variable-encrypting key (CVAR....)</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><i>Diversified Key Generating Keys</i></entry>
+</row>
+<row>
+<entry align="center" valign="top">000</entry>
+<entry valign="top">DKY Subtype 0</entry>
+</row>
+<row>
+<entry align="center" valign="top">001</entry>
+<entry valign="top">DKY Subtype 1</entry>
+</row>
+<row>
+<entry align="center" valign="top">010</entry>
+<entry valign="top">DKY Subtype 2</entry>
+</row>
+<row>
+<entry align="center" valign="top">011</entry>
+<entry valign="top">DKY Subtype 3</entry>
+</row>
+<row>
+<entry align="center" valign="top">100</entry>
+<entry valign="top">DKY Subtype 4</entry>
+</row>
+<row>
+<entry align="center" valign="top">101</entry>
+<entry valign="top">DKY Subtype 5</entry>
+</row>
+<row>
+<entry align="center" valign="top">110</entry>
+<entry valign="top">DKY Subtype 6</entry>
+</row>
+<row>
+<entry align="center" valign="top">111</entry>
+<entry valign="top">DKY Subtype 7</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+</ul></info></step>
+<step><cmd>For key-encrypting keys, set the following bits:</cmd><info><ul>
+<li>The key-generating usage bits (gks, bits 18 - 20). Set the gks bits to <ph>B'111'</ph> to
+indicate the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<ph>verb</ph> can use the associated key-encrypting key to encipher generated keys when the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb is generating various key-pair
+key-form combinations (see the Key-Encrypting Keys section of <xref
+href="wskc_r_cvbbmap.dita#l0wskc02_cvbbmap/wskc_cv_base_bit_map_1_of_4"/>). Without any of the gks
+bits set to <ph>B'1'</ph>, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<ph>verb</ph> cannot use the associated key-encrypting key. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>
+<ph>verb</ph> can set the gks bits to <ph>B'1'</ph> when you supply the <synph><kwd>OPIM, IMEX,
+IMIM, OPEX</kwd></synph>, and <synph><kwd>EXEX</kwd></synph> keywords.</li>
+<li>The IMPORT and EXPORT bit and the XLATE bit (ix, bits 21 and 22). If the ‘i’ bit is set to <ph>B'1'</ph>, the associated key-encrypting key can be used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"></keyword>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"></keyword>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"></keyword>, and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"></keyword> <ph>verbs</ph>. If the ‘x’ bit is set to <ph>B'1'</ph>, the associated key-encrypting key can be used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"></keyword> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"></keyword> <ph>verbs</ph>.</li>
+<li>The key-form bits (fff, bits 40 - 42). The key-form bits indicate how the key was generated and how the control vector participates in multiple-enciphering. To indicate the parts can be the same value, set these bits to <ph>B'010'</ph>. For information about the value of the key-form bits in the right half of a control vector, see Step <xref href="#l0wskc02_codecv/l0wskc02_keks8"></xref>.</li>
+</ul></info></step>
+<step><cmd>For MAC and MACVER keys, set the following bits: </cmd><info><ul>
+<li>The MAC control bits (bits 20 and 21). For a MAC-generate key, set bits 20 and 21 to <ph>B'11'</ph>. For a MAC-verify key, set bits 20 and 21 to <ph>B'01'</ph>.</li>
+<li>The key-form bits (fff, bits 40 - 42). For a single-length key, set the bits to <ph>B'000'</ph>. For a double-length key, set the bits to <ph>B'010'</ph>.</li>
+</ul></info></step>
+<step><cmd>For PINGEN and PINVER keys, set the following bits:</cmd><info><ul>
+<li>The PIN calculation method bits (aaaa, bits 0 - 3). Set these bits to one of the following values:  <table frame="all" pgwide="0"><title>Calculation method keyword bits</title><desc><p outputclass="summary">Calculation method keyword bits</p></desc>
+<tgroup cols="3" colsep="1" rowsep="1"><colspec colname="col1" colwidth="43*"/><colspec colname="col2" colwidth="43*"/><colspec colname="col3" colwidth="57*"/>
+<thead>
+<row rowsep="1">
+<entry align="center" valign="top">Bits 0 - 3</entry>
+<entry valign="top">Calculation Method Keyword</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" valign="top">0000</entry>
+<entry valign="top">NO-SPEC</entry>
+<entry valign="top">A key with this control vector can be used with any PIN calculation method.</entry>
+</row>
+<row>
+<entry align="center" valign="top">0001</entry>
+<entry valign="top">IBM-PIN or IBM-PINO</entry>
+<entry valign="top">A key with this control vector can be used only with the <tm tmtype="reg" trademark="IBM">IBM</tm> PIN or PIN Offset calculation method.</entry>
+</row>
+<row>
+<entry align="center" valign="top">0010</entry>
+<entry valign="top">VISA-PVV</entry>
+<entry valign="top">A key with this control vector can be used only with the VISA-PVV calculation method.</entry>
+</row>
+<row>
+<entry align="center" valign="top">0100</entry>
+<entry valign="top">GBP-PIN or GBP-PINO</entry>
+<entry valign="top">A key with this control vector can be used only with the German Banking Pool PIN or PIN Offset calculation method.</entry>
+</row>
+<row>
+<entry align="center" valign="top">0011</entry>
+<entry valign="top">INBK-PIN</entry>
+<entry valign="top">A key with this control vector can be used only with the Interbank PIN calculation method.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>The prohibit-offset bit (o, bit 37) to restrict operations to the PIN value. If set to <ph>B'1'</ph>, this bit prevents operation with the <tm tmtype="reg" trademark="IBM">IBM</tm> 3624 PIN Offset calculation method and the <tm tmtype="reg" trademark="IBM">IBM</tm> German Bank Pool PIN Offset calculation method.</li>
+</ul></info></step>
+<step><cmd>For PINGEN, IPINENC, and OPINENC keys, set bits 18 - 22 to indicate whether the key can be used with the following <ph>verbs:</ph>  </cmd><info><table frame="all" pgwide="0"><title>INGEN, IPINENC, and OPINENC key bits</title><desc><p outputclass="summary">INGEN, IPINENC, and OPINENC key bits</p></desc>
+<tgroup cols="3" colsep="1" rowsep="1"><colspec colname="col1" colwidth="57*"/><colspec colname="col2" colwidth="43*"/><colspec colname="col3" colwidth="43*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Service Allowed</entry>
+<entry valign="top">Bit Name</entry>
+<entry valign="top">Bit</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"></keyword></entry>
+<entry valign="top">CPINGEN</entry>
+<entry valign="top">18</entry>
+</row>
+<row>
+<entry valign="top">Encrypted PIN Generate Alternate</entry>
+<entry valign="top">EPINGENA**</entry>
+<entry valign="top">19</entry>
+</row>
+<row>
+<entry valign="top"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"></keyword></entry>
+<entry valign="top">EPINGEN</entry>
+<entry valign="top">20 for PINGEN  <p>19 for OPINENC</p></entry>
+</row>
+<row>
+<entry valign="top"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword></entry>
+<entry valign="top">CPINGENA</entry>
+<entry valign="top">21 for PINGEN  <p>20 for IPINENC</p></entry>
+</row>
+<row>
+<entry valign="top"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"></keyword></entry>
+<entry valign="top">EPINVER</entry>
+<entry valign="top">19</entry>
+</row>
+<row>
+<entry valign="top"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"></keyword></entry>
+<entry valign="top">CPINENC</entry>
+<entry valign="top">18</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">** EPINGENA is no longer supported, although the bit retains this definition for compatibility There is no Encrypted Pin Generate Alternate verb. </entry>
+</row>
+</tbody>
+</tgroup>
+</table></info></step>
+<step><cmd>For the IPINENC (inbound) and OPINENC (outbound) PIN-block ciphering keys, do the following:  </cmd><info><ul>
+<li>Set the TRANSLAT bit (t, bit 21) to <ph>B'1'</ph> to permit the key to be used in the PIN Translate <ph>verb</ph>. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"></keyword> <ph>verb</ph> can set the TRANSLAT bit to <ph>B'1'</ph> when you supply the <synph><kwd>TRANSLAT</kwd></synph> keyword.</li>
+<li>Set the REFORMAT bit (r, bit 22) to <ph>B'1'</ph> to permit the key to be used in the PIN Translate <ph>verb</ph>. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"></keyword> <ph>verb</ph> can set the REFORMAT bit and the TRANSLAT bit to <ph>B'1'</ph> when you supply the <synph><kwd>REFORMAT</kwd></synph> keyword.</li>
+</ul></info></step>
+<step><cmd>For the cryptographic variable-encrypting keys (bits 18 - 22), set the variable-type bits (bits 18 - 22) to one of the following values:</cmd><info><table frame="all" pgwide="0"><title>Generic key type bits</title><desc><p outputclass="summary"></p></desc>
+<tgroup cols="3" colsep="1" rowsep="1"><colspec colname="col1" colwidth="43*"/><colspec colname="col2" colwidth="43*"/><colspec colname="col3" colwidth="57*"/>
+<thead>
+<row rowsep="1">
+<entry align="center" valign="top">Bits 18 - 22</entry>
+<entry valign="top">Generic Key Type</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" valign="top">00000</entry>
+<entry valign="top">CVARPINE</entry>
+<entry valign="top">Used in the Encrypted PIN Generate Alternate verb to encrypt a clear PIN.</entry>
+</row>
+<row>
+<entry align="center" valign="top">00010</entry>
+<entry valign="top">CVARXCVL</entry>
+<entry valign="top">Used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph> to decrypt the left mask array.</entry>
+</row>
+<row>
+<entry align="center" valign="top">00011</entry>
+<entry valign="top">CVARXCVR</entry>
+<entry valign="top">Used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph> to decrypt the right mask array.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></info></step>
+<step id="l0wskc02_keks8"><cmd>For key-generating keys, set the following bits:  </cmd><info><ul>
+<li>For KEYGENKY, set bit 18 for UKPT usage and bit 19 for CLR8-ENC usage.</li>
+<li>For DKYGENKY, bits 12–14 will specify the hierarchical level of the DKYGENKY key. If the subtype CV bits  are nonzero, the DKYGENKY can generate only another DKYGENKY key with the hierarchical level decremented by one. If the subtype CV bits are zero, the DKYGENKY can generate only the final diversified key (a  non-DKYGENKY key) with the key type specified by usage bits.  <p>To specify the subtype values of the DKYGENKY, keywords DKYL0, DKYL1, DKYL2, DKYL3, DKYL4, DKYL5, DKYL6, and DKYL7 will be used.</p></li>
+<li>For DKYGENKY, bit 18 is reserved and must be zero.</li>
+<li>Usage bits 18-22 for the DKYGENKY key type are defined as follows. They will be encoded as the final key type that the DKYGENKY key generates.  <table frame="all" pgwide="0"><title>DKYGENKY key type bits</title><desc><p outputclass="summary">DKYGENKY key type bits</p></desc>
+<tgroup cols="3" colsep="1" rowsep="1"><colspec colname="col1" colwidth="43*"/><colspec colname="col2" colwidth="43*"/><colspec colname="col3" colwidth="57*"/>
+<thead>
+<row rowsep="1">
+<entry align="center" valign="top">Bits 19 - 22</entry>
+<entry valign="top">Keyword</entry>
+<entry valign="top">Usage</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" valign="top">0001</entry>
+<entry valign="top">DDATA</entry>
+<entry valign="top">DATA, DATAC, single or double length</entry>
+</row>
+<row>
+<entry align="center" valign="top">0010</entry>
+<entry valign="top">DMAC</entry>
+<entry valign="top">MAC, DATAM</entry>
+</row>
+<row>
+<entry align="center" valign="top">0011</entry>
+<entry valign="top">DMV</entry>
+<entry valign="top">MACVER, DATAMV</entry>
+</row>
+<row>
+<entry align="center" valign="top">0100</entry>
+<entry valign="top">DIMP</entry>
+<entry valign="top">IMPORTER, IKEYXLAT</entry>
+</row>
+<row>
+<entry align="center" valign="top">0101</entry>
+<entry valign="top">DEXP</entry>
+<entry valign="top">EXPORTER, OKEYXLAT</entry>
+</row>
+<row>
+<entry align="center" valign="top">0110</entry>
+<entry valign="top">DPVR</entry>
+<entry valign="top">PINVER</entry>
+</row>
+<row>
+<entry align="center" valign="top">1000</entry>
+<entry valign="top">DMKEY</entry>
+<entry valign="top">Secure message key for encrypting keys</entry>
+</row>
+<row>
+<entry align="center" valign="top">1001</entry>
+<entry valign="top">DMPIN</entry>
+<entry valign="top">Secure message key for encrypting PINs</entry>
+</row>
+<row>
+<entry align="center" valign="top">1111</entry>
+<entry valign="top">DALL</entry>
+<entry valign="top">All key types can be generated except <synph><kwd>DKYGENKY</kwd></synph> and <synph><kwd>KEYGENKY</kwd></synph> keys. Usage of the <synph><kwd>DALL</kwd></synph> keyword is controlled by a separate access control point.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+</ul></info></step>
+<step><cmd>For secure messaging keys, set the following bits: </cmd><info><ul>
+<li>Set bit 18 to <ph>B'1'</ph> if the key will be used in the secure messaging for PINs service. Set bit 19 to <ph>B'1'</ph> if the key will be used in the secure messaging for keys service.</li>
+</ul></info></step>
+<step rev="sh20i1"><cmd>For CIPHER keys, set the CPACF exportable bit (XPRTCPAC, F – bit 59) to 1 to allow the key token to
+be exportable to the CPACF protected key format.</cmd></step>
+<step><cmd>For all keys, set the following bits:</cmd><info><ul>
+<li>The export bit (E, bit 17). If set to <ph>B'0'</ph>, the export bit prevents a key from being
+exported. By setting this bit to <ph>B'0'</ph>, you can prevent the receiver of a key from exporting
+or translating the key for use in another cryptographic subsystem. After this bit is set to
+<ph>B'0'</ph>, it cannot be set to <ph>B'1'</ph> by any service other than <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/>
+<ph>verb</ph> can reset the export bit.</li>
+<?Pub Caret 342?>
+<li>The key-part bit (K, bit 44). Set the key-part bit to <ph>B'1'</ph> in a control vector
+associated with a key part. When the final key part is combined with previously accumulated key
+parts, the key-part bit in the control vector for the final key part is set to <ph>B'0'</ph>. The
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>
+<ph>verb</ph> can set the key-part bit to <ph>B'1'</ph> when you supply the
+<synph><kwd>KEY-PART</kwd></synph> keyword.</li>
+<li>The anti-variant bits (bit 30 and bit 38). Set bit 30 to <ph>B'0'</ph> and bit 38 to
+<ph>B'1'</ph>. Many cryptographic systems have implemented a system of variants where a 7-bit value
+is XORed with each 7-bit group of a key-encrypting key before enciphering the target key. By setting
+bits 30 and 38 to opposite values, control vectors do not produce patterns that can occur in
+variant-based systems.</li>
+<li>Control vector bits 64 - 127. If bits 40 - 42 are <ph>B'000'</ph> (single-length key), set bits
+64 - 127 to <ph>B'0'</ph>. Otherwise, copy bits 0 - 63 into bits 64 - 127 and set bits 105 and 106
+to <ph>B'01'</ph>.</li>
+<li>Set the parity bits (low-order bit of each byte, bits 7, 15, …, 127). These bits contain the
+parity bits (P) of the control vector. Set the parity bit of each byte so the number of zero-value
+bits in the byte is an even number.</li>
+<li>For secure messaging keys, usage bit 18 on will enable the encryption of keys in a secure
+message and usage bit 19 on will enable the encryption of PINs in a secure message.</li>
+<li rev="sh20i1">The ENH-ONLY bit (H, bit 56). Set the ENH-ONLY bit to 1 in a control vector to
+require the key value be encrypted with the enhanced wrapping. method. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> callable service can set the ENH-ONLY
+bit to 1 when you supply the ENH-ONLY keyword.</li>
+<li rev="sh20i1">The NOT31XPT bit (T, bit 57). Set T31XPOK bit to 1 to prevent the key from being
+exported by the TR-31 Export service. Once this bit is set to 1, it cannot be set to 0 by any
+service. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> service can set
+the bit to 1.</li>
+<li rev="sh20i1">The compliance-tagged bit (COMP-TAG, C - bit 58). Set the COMP-TAG bit to 1 to
+prevent the token from being used in a non-compliant manner. Once this bit has been set to 1, it
+cannot be reset to 0. Key tokens may be created with the COMP-TAG bit set or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) service can be used to set the bit in
+an existing key token.</li>
+</ul></info></step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000020044?>

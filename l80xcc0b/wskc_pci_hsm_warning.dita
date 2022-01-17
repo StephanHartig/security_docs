@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pci_hsm_warning" xml:lang="en-us" rev="sh19???">
+<title>Compliance warning events </title>
+<titlealts>
+<navtitle>Compliance warnings</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> warning events for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> can generate warning
+events for operations that might need modifications to meet requirements for the request to be
+compliant. In the system log, the compliance warning indicates whether the request was compliant or
+not, while the request processes normally with no change in behavior noticeable to the application. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>warnings</indexterm></indexterm>
+<indexterm>compliance warnings</indexterm>
+<indexterm>warning events<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm></indexterm>
+<indexterm>CSU_CMP_WARN_MODE</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<title>Using the system log for warning events</title>
+<p>You set the environment variable <codeph>CSU_CMP_WARN_MODE=SYSLOG</codeph> to indicate that the
+generation of warning events is desired.</p>
+<ul>
+<li>Warning events are generated for requests that can be successfully made compliant. When the
+request is potentially compliant, you can convert the used key tokens to compliant-tagged key tokens
+and the operation is successful.</li>
+<li>When the request is non-compliant, the key tokens, the verb, or the verb and rule combination
+must be updated to be compliant before the key tokens used can be converted to be
+compliant-tagged.</li>
+</ul>
+<p>Warning events are generated for potentially successful requests where at least one of the key
+tokens that are used is an internal, version 00 or version 01 DES key token and none of the key
+tokens is already compliant-tagged. This includes external key tokens and output key tokens. For
+services that do not accept compliant-tagged key tokens, only internal key tokens that are used as
+input to the service are included in the event. For services that accept compliant-tagged key
+tokens, all key tokens that are used are included in the event.</p>
+<p>Warning events are generated in the form of SYSLOG entries. See <xref
+href="wskc_pci_hsm_warnevents.dita#wskc_pci_hsm_warnevents"/> for more information and examples.</p>
+<p>For detailed information about the format of generated warning events and the required steps for
+making applications compliant, read <xref href="wskc_pci_hsm_migrate.dita#wskc_pci_hsm_migrate"
+/>.</p>
+</section>
+<section rev="sh20i1">
+<title>Using an alternative log for warning events</title>
+<!--Input from note from Richard:   Fw: Updated release notes for next deb & rpm 6.0.13-03 for S390 Linux CCA 6.0   from   21.09.2018 21:49-->
+<p>You can control to use an alternative log for warning events in an independent flat text file log
+that is managed by libcsulcca.so.</p>
+<p> This new method is recommended for environments with <apiname>systemd</apiname>. Certain
+configurations of SYSLOG may not consistently be reliable for the purpose of putting every warning
+log message into the log file within a consistent time frame. This alternative log method is
+introduced to avoid potentially missing a compliance warning event. </p>
+<p>To start using the new system log method, set the following environment variables using the
+allowed values and restart the application that is linked with libcsulcca.so. </p>
+<p>To use the alternative log: export CSU_CMP_WARN_MODE=ALTLOG</p>
+<p>To configure the alternative log file management, perform the following steps:</p>
+<ol>
+<li>Specify a path to the log files.<p>The filename is not controlled by the user, but the path to
+the files is configurable. The path specified must be an absolute path, starting from the root of
+the filesystem. In practical terms it must begin with a slash ( '/'). Use the following command to
+set the environment variable for the path:
+<codeblock>export CSU_CMP_WARN_FILE_PATH=&lt;your-absolute-path></codeblock></p><p> If the
+environment variable is not set, the default path is used: <codeblock>/tmp</codeblock></p><p>Using
+the default path and the pre-determined file names, the full paths and names would be:
+<codeblock>/tmp/csucmpwarnlog
+/tmp/csucmpwarnlog.1
+...
+/tmp/csucmpwarnlog.&lt;N>
+</codeblock> File
+numbering starts at '0', so that &lt;N> is the maximum count of files minus 1 (maximum -
+1).</p></li>
+<li>Define the maximum count of log files.<p>You can control the count of log files to maintain by
+using the following
+command:</p><codeblock>export CSU_CMP_WARN_FILE_COUNT=&lt;your-maximum-count></codeblock><p>The
+minimum value is 2. The maximum value is 25. The default value is 5.</p><p>Therefore a fully
+populated list of files at the default path and at default count would appear as
+shown:</p><codeblock>/tmp/csucmpwarnlog 
+/tmp/csucmpwarnlog.1 
+/tmp/csucmpwarnlog.2 
+/tmp/csucmpwarnlog.3 
+/tmp/csucmpwarnlog.4</codeblock></li>
+<li>Define the maximum size of the log files.<p>Control the maximum size of each log file with the
+following environment
+variable:</p><codeblock>export CSU_CMP_WARN_FILE_MAX=&lt;your-maximum-size> </codeblock><p>The
+minimum value is 1048576 (1 MB). The maximum value is 30 * 1048576 (30 MB). The default value is 5 *
+1048576 ( 5 MB).</p></li>
+<li>Control the file rotation.<p>File rotation is triggered when the next log message would not fit
+into the current log file without increasing the file size beyond the maximum file size (as
+configured, or the default maximum if not configured).</p><p> File rotation proceeds as follows for
+a maximum file count of N:</p><p> The N-2 file is changed to be the N-1 file, the last numbered
+file, which causes an unlink of the N-1 file if there already was
+one.</p><codeblock>/tmp/csucmpwarnlog.&lt;N-2> --> /tmp/csucmpwarnlog.&lt;N-1></codeblock><p>
+Default values are used for all settings:
+</p><codeblock>/tmp/csucmpwarnlog.3 --> /tmp/csucmpwarnlog.4</codeblock><p> This is repeated for
+(N-3) --> (N-2) and so on, until the file numbered <codeph>1</codeph> has been changed' to be file
+numbered
+<codeph>2</codeph>:</p><codeblock>/tmp/csucmpwarnlog.1 --> /tmp/csucmpwarnlog.2</codeblock><p>Then
+the first file (with no number) is changed to be the file numbered
+<codeph>1</codeph>:</p><codeblock>/tmp/csucmpwarnlog --> /tmp/csucmpwarnlog.1</codeblock><p> Then a
+new first log file is created and opened, and the pending log message is written to this file.
+</p></li>
+</ol>
+<note othertype="Notes" type="other">
+<ol>
+<li>If the CSU_CMP_WARN_FILE_COUNT is reduced, then <apiname>libcsulcca.so</apiname> does not manage
+any files past the new file count maximum number. These must be managed or deleted manually.</li>
+<li>The default log file path of <filepath>/tmp/</filepath> is often configured as a memory
+file-system, a non-persistent store. Therefore configure your own desired path. The default path is
+a location that is typically not constrained by size or access. It is suitable for initial testing.
+After this testing, you should select and configure a production store. </li>
+</ol>
+</note>
+<note type="restriction"> Cryptographic coprocessors earlier than CEX6C do not respond to a
+specification of desired warning events. In addition, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> sometimes buffers log entries before
+posting them, thus causing a short delay.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002516?>

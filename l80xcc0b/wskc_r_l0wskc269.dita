@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc269">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/></indexterm></indexterm>
+<indexterm>INACTIVE</indexterm>
+<indexterm>ACTIVE</indexterm>
+<indexterm>input_block_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>input_block_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>transport_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>trusted_block_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+<indexterm>trusted_block_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are eight bytes
+in length and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc269/l0wskc02_tbctab1"/>. <table id="l0wskc02_tbctab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="18*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" colsep="1" align="left"><b><i>Operation</i></b>
+(One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>INACTIVE</kwd></synph></entry>
+<entry>Create an external trusted block, based on the
+<synph><var>input_block_identifier</var></synph> variable, and set the active flag to <ph>B'0'</ph>.
+This makes the trusted block unusable in any other CCA services.</entry>
+</row>
+<row>
+<entry><synph><kwd>ACTIVE</kwd></synph></entry>
+<entry>Create an external trusted block, based on the token identified by
+the <synph><var>input_block_identifier</var></synph> parameter, and change the active flag from
+<ph>B'0'</ph> to <ph>B'1'</ph>. This makes the trusted block usable in other CCA services</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>input_block_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>input_block_identifier</var></synph> variable. The maximum length is 3500 bytes.</pd></plentry>
+<plentry><pt>input_block_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a trusted block key-token or the key label of a
+trusted block key-token that has been built according to the format specified in <xref
+href="wskc_r_zapgtblk.dita#l0wskc02_zapgtblk"/>. The trusted block key-token will be updated by the
+verb and returned in the <synph><var>trusted_block_identifier</var></synph> variable.<p>When the
+operation is <synph><kwd>INACTIVE</kwd></synph>, the trusted block can have MAC protection (for
+example, due to recycling of an existing trusted block), but typically it does not.</p></pd></plentry>
+<plentry><pt>transport_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an operational CCA DES key-token or the key label
+of an operational CCA DES key-token record. The key token must be of type
+<synph><kwd>IMP-PKA</kwd></synph>.<p>An <synph><kwd>IMP-PKA</kwd></synph> key type is an
+<synph><kwd>IMPORTER</kwd></synph> key-encrypting key with only its <synph><kwd>IMPORT</kwd></synph>
+key-usage bit (bit 21) on; its other key-usage bits (IMEX, OPIM, IMIM, and XLATE) must be
+off.</p><note>An <synph><kwd>IMP-PKA</kwd></synph> control vector can be built using <xref
+href="wskc_r_cvg1.dita#l0wskc02_cvg1"/> with a key type of <synph><kwd>IMPORTER</kwd></synph> and a
+<synph><var>rule_array</var></synph> keyword of <synph><kwd>IMPORT</kwd></synph>.</note></pd></plentry>
+<plentry><pt>trusted_block_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>trusted_block_identifier</var></synph> variable. The maximum length is 3500 bytes. The
+output trusted block token can be up to seven bytes longer than the input trusted block token due to
+padding.</pd></plentry>
+<plentry><pt>trusted_block_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a trusted block token or a label of a trusted
+block token returned by the verb.</pd></plentry>
+</parml></section>
+</refbody></reference>

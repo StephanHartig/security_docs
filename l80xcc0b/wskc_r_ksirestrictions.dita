@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ksirestrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>
+</searchtitle>
+  </titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>)<indexterm>restrictions</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>ECC and variable-length symmetric key tokens are not supported
+in releases before Release 4.1.0.</p></section>
+</refbody></reference>

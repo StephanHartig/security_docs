@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="pfojniv" rev="sh15" xml:lang="en-us">
+<title>JNI version</title>
+<titlealts>
+<navtitle>JNI version</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/></searchtitle>
+</titlealts>
+<shortdesc>This verb has a <tm tmtype="tm" trademark="Java">Java</tm> Native
+Interface (JNI)     version, which is named <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"></keyword> . </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpfo"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"></keyword>)<indexterm>JNI
+            version</indexterm></indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"></keyword></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>       <p>See <xref
+href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"></xref>.</p>     </section>
+<section><title>Format</title>       <codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/>(
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>rule_array_count</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>rule_array</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>PIN_encryption_key_identifier_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>PIN_encryption_key_identifier</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>PIN_generation_key_identifier_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>PIN_generation_key_identifier</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>PAN_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>offset</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_1</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>data_array</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>encrypted_PIN_block_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>encrypted_PIN_block</var></synph>);
+</codeblock>     </section>
+</refbody>
+</reference>
+<?Pub *0000004112?>

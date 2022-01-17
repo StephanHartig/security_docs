@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l0wskc16" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+<indexterm>key_label parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+<indexterm>dataset_name_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+<indexterm>dataset_name parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUAESLD</indexterm></indexterm>
+<indexterm>CSUAESLD</indexterm><indexterm>security_server_name parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<synph><var>rule_array</var></synph> variable. This value must be 0.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. This verb currently does not
+use keywords.</pd>
+</plentry><plentry>
+<pt>key_label</pt>
+<pd> <table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the key label of
+a key-token record in key storage. In a key label, you can use a wild
+card (*) to identify multiple records in key storage.</pd>
+</plentry><plentry>
+<pt>dataset_name_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data returned by the verb
+in the <i>dataset_name</i> variable. The maximum returned length is 64 bytes.</pd>
+</plentry><plentry>
+<pt>dataset_name</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the name of the file returned by the verb. The
+file contains the AES key-record information. When the verb stores a key-record-list file, it
+overlays any older file with the same name.<p>The file name returned by this verb is defined by the
+CSUAESLD environment variable.</p><p>This verb returns the file name as a fully qualified file
+specification (for example, /opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/keys/KYRLT<synph><var>nnn</var></synph>.LST), where <synph><var>nnn</var></synph> is the
+numeric portion of the name. This value increases by one every time that you use this verb. When
+this value reaches 999, it resets to 001.</p></pd>
+</plentry><plentry>
+<pt>security_server_name</pt>
+<pd> <table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. The information in this variable
+is not currently used, but the variable must be declared. </pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000006456?>

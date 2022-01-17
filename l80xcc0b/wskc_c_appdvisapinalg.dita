@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_appdvisapinalg">
+<title>VISA PIN algorithms</title>
+  <titlealts>
+    <navtitle>VISA PIN algorithms</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): VISA PIN algorithms</searchtitle>
+  </titlealts><shortdesc>The VISA PIN verification algorithm performs a multiple encipherment
+of a value, called the transformed security parameter (TSP), and a
+extraction of a 4-digit PIN verification value (PVV) from the ciphertext. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>algorithm<indexterm>VISA PIN</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>VISA
+PIN algorithm</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The calculated PVV is compared with the referenced PVV and stored
+on the plastic card or data base. If they match, verification is successful.</p>
+</conbody></concept>

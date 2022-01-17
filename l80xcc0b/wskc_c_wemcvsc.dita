@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_wemcvsc">
+<title>Working with Europay-Mastercard-Visa Smart cards</title>
+<titlealts>
+<navtitle>Working with Europay-Mastercard-Visa Smart cards</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Working with Europay-Mastercard-Visa
+Smart cards</searchtitle>
+</titlealts><shortdesc>There are several verbs you can use in secure communications with
+Europay-Mastercard-Visa (EMV) smart cards. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The processing capabilities are consistent with the specifications
+provided in these documents:
+<ul>
+<li><cite>EMV 2000 Integrated
+Circuit Card Specification for Payment Systems Version 4.0 (EMV4.0)
+Book 2</cite></li>
+<li><cite>Design Visa Integrated
+Circuit Card Specification Manual</cite></li>
+<li><cite>Integrated Circuit Card
+Specification (VIS) 1.4.0 Corrections</cite></li>
+</ul></p>
+<p>EMV smart cards include the following processing capabilities:
+<ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb with rule-array options <synph><kwd>TDES-XOR</kwd></synph>, <synph><kwd>TDESEMV2</kwd></synph>,
+and <synph><kwd>TDESEMV4</kwd></synph> enables you to derive a key used to cipher and
+authenticate messages, and more particularly message parts, for exchange
+with an EMV smart card. You use the derived key with verbs such as: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/>,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/>. These message parts can be combined with message parts
+created using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/> verb enables secure incorporation of a key into
+a message part (generally the value portion of a TLV component of
+a secure message for a card). Similarly, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb enables
+secure incorporation of a PIN block into a message part.</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb enables encryption of a new PIN to send to a new
+EMV card, or to update the PIN value on an initialized EMV card. This
+verb generates both the required session key (from the master encryption
+key) and the required authentication code (from the master authentication
+key).</li>
+<li>The <synph><kwd>ZERO-PAD</kwd></synph> option of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> enables validation
+of a digital signature created according to ISO 9796-2 standard by
+encrypting information that you format, including a hash value of
+the message to be validated. You compare the resulting enciphered
+data to the digital signature accompanying the message to be validated.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs post-pad a <ph>X'80'</ph>...<ph>X'00'</ph> string
+to a message as required for authenticating messages exchanged with
+EMV smart cards.</li>
+</ul></p>
+</conbody></concept>

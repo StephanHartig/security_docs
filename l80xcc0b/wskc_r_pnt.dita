@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pnt">
+<title>PKA null key token</title>
+ <titlealts>
+    <navtitle>PKA null key token</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA null key token</searchtitle>
+  </titlealts>
+<shortdesc>The format for a PKA null key token. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>null key token<indexterm>format</indexterm></indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>null</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_pnt/l0wskc02_nulky2"/> shows the format for a PKA null
+key token. </p></section>
+<table id="l0wskc02_nulky2" pgwide="1" frame="all">
+<title>PKA null key
+token format</title><desc><p outputclass="summary">PKA null key token format</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left"><b>Bytes</b></entry>
+<entry valign="bottom" align="left"><b>Description</b></entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top" align="left">0</entry>
+<entry valign="top" align="left"><ph>X'00'</ph> Token identifier (indicates
+that this is a null key token).</entry></row>
+<row>
+<entry valign="top" align="left">1</entry>
+<entry valign="top" align="left">Version, <ph>X'00'</ph>.</entry></row>
+<row>
+<entry valign="top" align="left">2 - 3</entry>
+<entry valign="top" align="left"><ph>X'0008'</ph> Length of the key
+token structure.</entry></row>
+<row>
+<entry valign="top" align="left">4 - 7</entry>
+<entry valign="top" align="left">Ignored (should be zero).</entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

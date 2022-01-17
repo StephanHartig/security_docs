@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wsck02_tbs15">
+<title>Trusted block section <ph>X'15'</ph></title>
+ <titlealts>
+    <navtitle>Trusted block section <ph>X'15'</ph></navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section
+<ph>X'15'</ph></searchtitle>
+  </titlealts>
+<shortdesc>Trusted block section <ph>X'15'</ph> contains application-defined
+data. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The trusted block application-defined data section can be used
+to include application-defined data in the trusted block. The purpose
+of the data in this section is defined by the application; it is neither
+examined nor used by CCA in any way. </p>
+<p>Section <ph>X'15'</ph> is optional. No multiple sections are allowed. It has no subsections
+defined. </p>
+<table id="l0wskc02_srsasff" pgwide="1" frame="all">
+<title>Trusted block application-defined data section <ph>(<ph>X'15'</ph>)</ph></title>
+<desc>
+<p outputclass="summary">Trusted block application-defined data section</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row>
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section identifier: <dl>
+<dlentry>
+<dt><ph>X'15'</ph></dt>
+<dd>Application-defined data</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Section length (6 + <i>xxx</i>)</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Application data length <p>The value of <i>xxx</i> must be between 0 and
+<synph><var>N</var></synph>, where <synph><var>N</var></synph> does not cause the overall length of
+the trusted block to exceed its maximum size of 3500 bytes.</p></entry>
+</row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top"><i>xxx</i></entry>
+<entry valign="top">Application-defined data <p>Could be used to hold a public-key certificate for
+the trusted public key.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

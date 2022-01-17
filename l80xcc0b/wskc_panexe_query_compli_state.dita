@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="panexe_query_compli_state" xml:lang="en-us" rev="sh18i1">
+<title>Using panel.exe to query the adapter compliance state</title>
+<titlealts>
+<navtitle><ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>: query the adapter
+compliance state</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>: query adapter compliance
+state</searchtitle>
+</titlealts>
+<shortdesc>Using the <parmname>--qcomp --vsig</parmname> parameter, the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility allows you to query the
+compliance state of a specified <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utilities<indexterm>panel.exe<indexterm>query adapter compliance
+state</indexterm></indexterm></indexterm>
+<indexterm>panel.exe<indexterm>query adapter compliance state</indexterm></indexterm>
+<indexterm>query adapter compliance state<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>adapter compliance state<indexterm>querying with panel.exe</indexterm></indexterm>
+<indexterm>compliance state of adapter<indexterm>querying with panel.exe</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This command returns the status of a specified domain and parses all of the data fields to
+display the information on the console. <xref
+href="#panexe_query_compli_state/fig_panexe_compliance1" format="dita"/> and <xref
+href="#panexe_query_compli_state/fig_panexe_compliance2" format="dita"/> show a successful run  -
+with added explanations -  for a domain that is not in compliance mode, with the additional
+<parmname>--vsig</parmname> option which requests that the output be signed by the card, and that
+the signature be verified by <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>.</p>
+<fig id="fig_panexe_compliance1">
+<title>Querying an adapter's compliance mode (part 1)</title>
+<screen>
+<cmdname>panel.exe -–qcomp --vsig</cmdname>
+---------------------------------------------------------------
+------------- ------------- ------------- for domain [42]...
+------------- Compliance Data for this card --[0x96 bytes]--
+CARD PN [01KU719]                  <b>&lt;---</b> CARD PART NUMBER
+CARD EC [0N37513]                  <b>&lt;---</b> CARD EC level (hardware sub-version)
+CARD SN [YH10DV731308]             <b>&lt;---</b> CARD Serial Number
+rsvd1/2 [0x00 0x00]                <b>&lt;---</b> EMPTY fields
+CCA vs [6.0.8z ]                   <b>&lt;---</b> Segment 3 firmware level (CCA version)
+UDX vs1 [NONE ]                    <b>&lt;---</b> UDX version first field
+UDX vs2 [NONE ]                    <b>&lt;---</b> UDX version second field
+CCA CARD TIME NOW [20180131185938] <b>&lt;---</b> Current timestamp according to card internal clock
+CCA BUILD TIME [20171108150441]    <b>&lt;---</b> Timestamp for build of Segment 3 firmware
+CCA COMPLIANCE ]                   <b>&lt;---</b> Detailed flags fields, see below 
+
+   cardact[0x00000000] cmp iss[0x00000000
+             CARD ACTIONS on:
+             &lt;NONE>
+   slogmax[0x00000200] slgevsz[0x00D2] kdf/rsvd [0x0000]
+   dom act[0x00000000]
+            DOM ACTIONS:
+            &lt;NONE>
+   dom cmp[0x00000000]
+            DOM COMPLIANCE FLAGS:
+            &lt;NONE>
+   slogcnt [0x00000000]
+
+CARD Seg2 ownerID [0x0002]         <b>&lt;---</b> Owner ID code for Segment 2 firmware
+CARD Seg3 ownerID [0x0002]         <b>&lt;---</b> Owner ID code for Segment 3 firmware
+CARD AdapterID [0x00000008]        <b>&lt;---</b> Adapter ID code for internal work
+CARD MiniBoot-0 Ver [0x00]         <b>&lt;---</b> Miniboot 0 version (unused)
+CARD MiniBoot-0 Rel [0x00]         <b>&lt;---</b> Miniboot 0 release (unused)
+CARD MiniBoot-1 Ver [0x48]         <b>&lt;---</b> Miniboot 1 version (unused)
+CARD MiniBoot-1 Rel [0x00]         <b>&lt;---</b> Miniboot 1 release (unused)
+
+<b>---></b> Following output is added because of --vsig option <b>---></b>
+               Getting Epoch Cert to verify Sig
+Epoch Cert Subject Name:
+      [07C8F43AD7854F599EB21EE9DC3651CAAC44DF745886CF3D83A6487F4616E455] 32
+Signer Name:
+      [55EB692CE3368F3DD1CCCA9115B6B50B51EDCF0BCB6B21F69734E44438DF991A] 32
+------------- Compliance Data for this card Signature Verified.--
+</screen>
+</fig>
+<fig id="fig_panexe_compliance2" expanse="page">
+<title>Querying an adapter's compliance mode (part 2)</title>
+<screen expanse="page">
+<b><u>COMPLIANCE Fields detail:</u></b>
+Note: all un-used bits are reserved
+
+cardact[0x00000000]   <b>&lt;---</b> (bitfield) Card state or actions in force now
+          0x80000000, "CARDZEROSTRT" -- the card is in the middle of a whole card zeroize
+          0x40000000, "CARDCLOCKSET" -- the card has had the internal clock set
+cmp iss[0x00000000    <b>&lt;---</b> (bitfield) Bits representing reasons this domain cannot go into 
+                      compliance mode, if any
+          0x80000000, -- Card Firmware is a UDX, cannot enter compliance mode
+          0x40000000, -- CCA responding is from a simulator or debug image, cannot enter compliance mode
+          0x20000000, -- Outbound Authentication certificate chain is not valid, cannot enter compliance 
+                      mode (contact IBM service if this occurs)
+slogmax[0x00000200]   <b>&lt;---</b> Maximum count of secure audit log entries
+slgevsz[0x00D2]       <b>&lt;---</b> Size of each secure audit log entry
+kdf/rsvd [0x0000]     <b>&lt;---</b> Current KDF for compliance level
+dom act[0x00000000]   <b>&lt;---</b> (bitfield) Domain compliance / restart actions in force now
+          0x80000000, "DOM_ZEROSTRT" -- the domain is in the middle of a domain-scope zeroize
+          0x40000000, "DOM_IMPRSTRT" - the domain internal state is transitioning to imprint mode
+          0x20000000, "DOM_IMPR_ACT" - the domain is now in imprint mode, a configuration state before  
+		              compliance mode
+          0x10000000, "DOM_COMP_ACT" - the domain is now in compliance mode
+          0x08000000, "DOM_COMPRMST" - the domain internal state is transitioning out of compliance mode
+          0x04000000, "DOM_COMP_MIG" - the domain is now in migration mode, a sub-state of  
+                      compliance mode
+          0x00008000, "DOM_SLOGENAB" - the domain secure audit log is enabled (required for imprint and  
+		              compliance modes)
+          0x00004000, "DOM_SLOGNOWR" - the domain secure audit log is enabled for <q>no-wrap</q> mode: 
+                      secure read/clear is required
+dom cmp[0x00000000]   <b>&lt;---</b> (bitfield) Domain compliance configuration (if in compliance mode)
+          0x80000000, "CMP_PCIH2016"
+slogcnt [0x00000000]  <b>&lt;---</b> Current count of secure audit log entries
+</screen>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000002489?>

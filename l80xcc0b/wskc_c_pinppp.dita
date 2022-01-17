@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_pinppp" xml:lang="en-us">
+<title>The PIN profile</title>
+<titlealts>
+<navtitle>The PIN profile</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): The PIN profile</searchtitle>
+</titlealts>
+<shortdesc>The PIN profile components include a block format,
+format control, pad digit, and key serial number.</shortdesc><?Pub
+Caret 4?>
+<prolog><metadata>
+<keywords><indexterm>PIN profile</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The PIN profile consists of the following:</p>  <ul>
+<li>PIN block format (see <xref href="wskc_c_pbf.dita#l0wskc02_pbf"></xref>)</li>
+<li>Format control (see <xref href="wskc_c_fc.dita#l0wskc02_fc"></xref>)</li>
+<li>Pad digit (see <xref href="wskc_c_pd.dita#l0wskc02_pd"></xref>)</li>
+</ul>
+<p rev="sh21i1">The PIN profile can optionally contain one of the following:</p>
+<ul rev="sh21i1">
+<li>Current Key Serial Number (for <synph><kwd>UKPT</kwd></synph> and
+<synph><kwd>DUKPT</kwd></synph> &ndash; see <xref href="wskc_c_cksn.dita#l0wskc02_cksn"/>)</li>
+<li>AES-DUKPT Derivation Data (see <xref href="wskc_aes_dukpt.dita#aes_dukpt/dukpt_ddata"/>). </li>
+</ul>
+<p><xref href="#l0wskc02_pinppp/l0wskc02_cpaprof"></xref> shows the
+format of a PIN profile. 
+<table frame="all" id="l0wskc02_cpaprof" pgwide="0">
+<title>Format of a PIN profile</title>
+<desc><p outputclass="summary">Format of a PIN profile</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="3*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0 - 7</entry>
+<entry>PIN block format</entry>
+</row>
+<row>
+<entry>8 - 15</entry>
+<entry>Format control</entry>
+</row>
+<row>
+<entry>16 - 23</entry>
+<entry>Pad digit</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2">The layout of the next section depends on the used DUKPT
+algorithm.</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2">DES-DUKPT</entry>
+</row>
+<row>
+<entry>24 - 47</entry>
+<entry>Current Key Serial Number</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2">AES-DUKPT</entry>
+</row>
+<row>
+<entry>24 - 43</entry>
+<entry>AES-DUKPT derivation data</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+</conbody>
+</concept>
+<?Pub *0000002342?>

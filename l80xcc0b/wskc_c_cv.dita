@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_cv">
+<title>Control vector</title>
+  <titlealts>
+    <navtitle>Control vector</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Control
+      vector</searchtitle>
+  </titlealts><shortdesc>A unique control vector exists for each type of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key<indexterm>control vector</indexterm></indexterm>
+<indexterm>control vector<indexterm>definition</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>For an internal key token, the coprocessor XORs the master key with the control vector associated
+with the type of key the master key will encipher. The control vector ensures that an operational
+key is used only in cryptographic functions for which it is intended. For example, the control
+vector for an input PIN-encrypting key ensures that such a key can be used only in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> functions.</p>
+</conbody></concept>

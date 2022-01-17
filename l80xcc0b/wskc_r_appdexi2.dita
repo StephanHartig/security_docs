@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdexi2">
+<title>ECI Format 2</title>
+  <titlealts>
+    <navtitle>ECI Format 2</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ECI Format 2</searchtitle>
+  </titlealts><shortdesc>This format defines the PIN to be 4 digits. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>ECI-2</indexterm></indexterm>
+<indexterm>ECI-2 PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<codeblock>   PIN Block = PPPPRRRRRRRRRRRR</codeblock></p></section>
+</refbody></reference>

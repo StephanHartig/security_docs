@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpi2parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>AES</indexterm>
+<indexterm>MIN3PART</indexterm>
+<indexterm>MIN2PART</indexterm>
+<indexterm>MIN1PART</indexterm>
+<indexterm>RETRKPR</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+This value must be 2 or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> contains keywords that provide control information
+to the verb. The keywords must be in contiguous storage with each of the keywords left-aligned in
+its own 8-byte location and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_kpi2parameters/l0wskc02_kpi2_ra_tab1"/>.<table id="l0wskc02_kpi2_ra_tab1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row valign="bottom">
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Token algorithm</i></b>
+(Required)</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph>
+</entry>
+<entry>Specifies to import an HMAC key token. </entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies to import an AES key token. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" colsep="1" align="left"><b><i>Key part</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph>
+</entry>
+<entry>This keyword specifies that an initial key part is being entered. This verb
+returns this key-part encrypted by the master key in the key token that you supplied.</entry>
+</row>
+<row>
+<entry><synph><kwd>ADD-PART </kwd></synph></entry>
+<entry>This keyword specifies that additional key-part information is
+provided.</entry>
+</row>
+<row>
+<entry><synph><kwd>COMPLETE </kwd></synph></entry>
+<entry>This keyword specifies that the key-part bit shall be turned off in the
+control vector of the key rendering the key fully operational. Note that no key-part information is
+added to the key with this keyword.</entry>
+</row>
+<row>
+<entry><synph><kwd>RETRKPR</kwd></synph></entry>
+<entry>A key label must be passed as the <synph><var>key_identifier</var></synph>. This key label
+corresponds to a key stored in <ph rev="sh18i2">an internal</ph> register inside the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> (not in host key storage). The key
+in that register has been loaded by label and key part securely form the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>. The RETRKPR keyword for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/> allows the user to tell the card to
+wrap that key loaded from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> (it
+must be in the complete state) using the master key, place it in an internal token, and return that
+token to the user. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> .</p></entry>
+</row>
+<row rev="sh20i2">
+<entry namest="col1" nameend="col2"><b><i>RETRKPR token return</i></b> (Optional)</entry>
+</row>
+<row rev="sh20i2">
+<entry><synph><kwd>RT-TOKEN</kwd></synph></entry>
+<entry>The token returned by the <synph><kwd>RETRKPR</kwd></synph> service is returned directly to
+the caller and not stored in key storage. This optional keyword is usable only with the
+<synph><kwd>RETRKPR</kwd></synph> service. <p>If this keyword is not used, the
+<synph><kwd>RETRKPR</kwd></synph> service functions normally by storing the token according to the
+designated key storage label.</p>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Split knowledge</i></b> (Optional, required when keyword
+<synph><kwd>FIRST</kwd></synph> is used)</entry>
+</row>
+<row>
+<entry><synph><kwd>MIN3PART</kwd></synph></entry>
+<entry>Specifies that the key must be entered in at least three parts. </entry>
+</row>
+<row>
+<entry><synph><kwd>MIN2PART</kwd></synph></entry>
+<entry>Specifies that the key must be entered in at least two parts.</entry>
+</row>
+<row>
+<entry><synph><kwd>MIN1PART</kwd></synph></entry>
+<entry>Specifies that the key must be entered in at least one part.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_part_bit_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the clear key in bits. This indicates the bit length of the key supplied in
+the <synph><var>key_part</var></synph> field. For <synph><kwd>FIRST</kwd></synph> and
+<synph><kwd>ADD-PART</kwd></synph> keywords, valid values are 80 - 2048 for HMAC keys, or 128, 192,
+or 256 for AES keys. The value must be 0 for the <ph rev="sh19???"
+><synph><kwd>COMPLETE</kwd></synph> and <synph><kwd>RETRKPR</kwd></synph> keywords</ph>.</pd></plentry>
+<plentry><pt>key_part</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is the clear key value to be applied. The key part must be left-aligned. This
+parameter is ignored if <synph><kwd>COMPLETE</kwd></synph> is specified.</pd></plentry>
+<plentry><pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length of the buffer for the <parmname>key_identifier</parmname> parameter.
+For labels, the value is 64. The <parmname>key_identifier</parmname> must be left-aligned in the
+buffer. The buffer must be large enough to receive the updated token. The maximum value is 725. The
+output token will be longer when the first key part is imported. <p>On output, the actual length of
+the token returned to the caller. For labels, the value will be 64.</p><p rev="sh19???">If the
+<parmname>rule_array</parmname> parameter contains the keyword <synph><kwd>RETRKPR</kwd></synph>, on
+input the <parmname>key_identifier_length</parmname> must be 64 to indicate the input label size,
+while the buffer must be large enough to receive the returned token, (725 is recommended). On
+output, <parmname>key_identifier_length</parmname> is updated to the length of the returned
+<parmname>key_identifier</parmname> parameter.</p></pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The parameter containing an internal token or a 64-byte label of an existing key storage
+file record. If <synph><var>rule_array</var></synph> is <synph><kwd>FIRST</kwd></synph>, the key is
+a skeleton token. If <synph><var>rule_array</var></synph> is <synph><kwd>ADD-PART</kwd></synph>,
+this is an internal token or the label of a key storage file record of a partially combined key.
+Depending on the input format, the accumulated partial or complete key is returned as an internal
+token or as an updated record in a key storage file. The returned
+<synph><var>key_identifier</var></synph> will be encrypted under the current master key.</pd></plentry>
+</parml></section>
+</refbody></reference>

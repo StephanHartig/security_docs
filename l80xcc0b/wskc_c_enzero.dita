@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_enzero">
+<title>Encrypt zeros DES-key verification algorithm</title>
+  <titlealts>
+    <navtitle>Encrypt zeros DES-key verification algorithm</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Encrypt zeros DES-key verification
+algorithm</searchtitle>
+  </titlealts><shortdesc>The cryptographic engine provides a method for verifying the value
+of a DES cryptographic key or key part without revealing information
+about the value of the key or key part.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>encrypt zeros DES-key verification</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In this method the single-length or double-length key DEA encodes
+a 64-bit value that is all zero bits. The leftmost 32 bits of the
+result are compared to the trial input value or returned from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verbs.</p>
+<p>For a single-length key, the key DEA encodes an 8-byte, all-zero-bits
+value.</p>
+<p>For a double-length key, the key DEA triple-encodes an 8-byte,
+all-zero-bits value. The left half (high-order half) key encodes the
+zero-bit value, this result is DEA decoded by the right key half,
+and that result is DEA encoded by the left key half. </p>
+</conbody></concept>

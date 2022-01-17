@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appareascod16">
+<title>Reason codes that accompany return code 16</title>
+<titlealts>
+<navtitle>Reason codes that accompany return code 16</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes that accompany return code
+16</searchtitle>
+</titlealts><shortdesc>Reason codes that accompany return code 16. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>reason codes<indexterm>with return code 16</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These codes are listed in <xref href="#l0wskc02_appareascod16/l0wskc02_rcrc16"/>. </p>
+<table id="l0wskc02_rcrc16" pgwide="1">
+<title>Reason codes for return code 16</title>
+<desc>
+<p outputclass="summary">Reason codes for return code 16</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="33*"/>
+<thead>
+<row>
+<entry>Return code, decimal</entry>
+<entry>Reason code, decimal (hex)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>16</entry>
+<entry>099 (063) </entry>
+<entry>An unrecoverable error occurred in the security server; contact the <tm
+trademark="IBM" tmtype="reg">IBM</tm> support center.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>336 (150) </entry>
+<entry>An error occurred in a cryptographic hardware or software component. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>337 (151) </entry>
+<entry>A device software error occurred. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>339 (153) </entry>
+<entry>A system error occurred in the interprocess communication routine.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>444 (1BC) </entry>
+<entry>The verb-unique-data has an invalid length. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>556 (22C) </entry>
+<entry>The request parameter block failed consistency checking. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>708 (2C4) </entry>
+<entry>The cryptographic engine is returning inconsistent data.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>709 (2C5) </entry>
+<entry>Cryptographic engine internal error. Could not access the master-key data.
+</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>710 (2C6) </entry>
+<entry>An unrecoverable error occurred while attempting to update master-key data
+items. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>712 (2C8) </entry>
+<entry>An unexpected error occurred in the master-key manager. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>800 (320)</entry>
+<entry>A problem occurred in internal SHA operation processing.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2022 (7E6)</entry>
+<entry>TKE-related internal file open error.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2047 (7FF) </entry>
+<entry>Unable to transfer request data from host to coprocessor. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2057 (809) </entry>
+<entry>Internal error: memory allocation failure. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2058 (80A)</entry>
+<entry>Internal error: unexpected return code from OAEP routines. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2059 (80B)</entry>
+<entry>Internal error: OAEP SHA-1 request failure. </entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2061 (80D)</entry>
+<entry>Internal error in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/>, OAEP-decode: enciphered message too
+long.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2063 (80F)</entry>
+<entry>The reply message too long for the requestor's command reply buffer.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2107 (83B)</entry>
+<entry>Internal files failed verification check when loading from encrypted
+storage.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>2150 (866)</entry>
+<entry>An error occurred while attempting to open or save the DECTABLE SRDI that is
+stored on the coprocessor.</entry>
+</row>
+<row rev="shd3">
+<entry>16</entry>
+<entry>2195 (893)</entry>
+<entry>An error occurred reading the weak PIN file stored on the coprocessor.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

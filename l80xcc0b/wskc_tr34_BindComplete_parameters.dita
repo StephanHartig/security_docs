@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Ctrcsfb4-gen215_parameters" xml:lang="en-us" rev="hw20i1">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>input_token_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>input_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>cred_kdh_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>cred_kdh parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>cred_krd_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>cred_krd parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>random_number_token_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>random_number_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>output_token_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>output_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>reserved_data_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+<indexterm>reserved_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt> rule_array_count </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <i>rule_array</i> parameter. The value must be 1
+- 2.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Character</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <synph><var>rule_array</var></synph> contains keywords that provide control information to
+the callable service. The keywords must be 8 bytes of contiguous storage with the keyword
+left-justified in its 8-byte location and padded on the right with blanks. <table frame="all"
+pgwide="0" id="table_mbh_qkm_dlb"><title>Keywords for TR-34 Bind-Complete</title><desc>
+<p outputclass="summary">Keywords for TR-34 Bind-Complete. This table contains two columns: Keyword
+and Meaning, and it contains rows for Requested action (one, required) and Public Key Infrastructure
+Usage (one, optional).</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="128*"/>
+<colspec colname="col2" colwidth="268*"/>
+<thead>
+<row>
+<entry align="left" valign="bottom">Keyword</entry>
+<entry align="left" valign="bottom">Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Requested action (one,
+required).</i></b></entry>
+</row>
+<row>
+<entry>BINDKRDC</entry>
+<entry>TR34 BIND CTKRD creation service. Creates the KRD credential token
+that is needed by the KDH to take the next step in the TR-34 BIND action.</entry>
+</row>
+<row>
+<entry>BINDRV</entry>
+<entry>TR34 BIND CTKDH RECEIVE service. Receives and processes the token
+sent by the KDH to the KRD to accomplish the BIND action in the TR-34 protocol. This binds the KRD
+to the KDH for a later key distribution action.</entry>
+</row>
+<row>
+<entry>UNBINDRV</entry>
+<entry>TR34 UNBIND UBTKDH RECEIVE service. Receives and processes the
+token sent by the KDH to the KRD to accomplish the UNBIND action in the TR-34 protocol. This frees
+the KRD from the currently bound KDH and causes the KRD to remove all keys received while bound to
+this KDH.</entry>
+</row>
+<row>
+<entry>REBINDRV</entry>
+<entry>TR34 REBIND RBTKDH RECEIVE service. Receives and processes the
+token sent by the KDH to the KRD to accomplish the REBIND action in the TR-34 protocol. This frees
+the KRD from the current binding key of the KDH and binds the KRD to a new binding key from the KDH.
+This also causes the KRD to remove all keys received while bound to the KDH under the prior binding
+key.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Public Key Infrastructure Usage
+(one, optional).</i></b></entry>
+</row>
+<row>
+<entry>PKI-CHK</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is
+to be validated against the trust chain of the PKI hosted in the adapter. This requires that the CA
+credentials have been installed using the Trusted Key Entry (TKE) workstation. This is required for
+compliance-tagged key token export with TR-34 services.<p>This is the default.</p><p>Cannot be combined
+with BINDKRDC. There are no other-party credentials to evaluate.</p></entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is
+not to be validated against the trust chain of the PKI hosted in the adapter. This is suitable if
+the certificate has been validated using host-based PKI services.<p>Cannot be combined with
+BINDKRDC. There are no other-party credentials to evaluate.</p></entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>input_token</i> parameter in bytes. The maximum length is 3500 bytes.
+When the requested action keyword is BINDKRDC, the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>input_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The DER encoded TR-34 token object. The requested action keyword defines the object.<p>When
+the <i>input_token_length</i> is zero, this parameter is ignored.</p><p>The requested action keyword
+determines the input token:<dl>
+<dlentry>
+<dt>BINDRV</dt>
+<dd>The BIND token received from the KDH (CTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>UNBINDRV</dt>
+<dd>The UNBIND token received from the KDH (UBTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>REBINDRV</dt>
+<dd>The REBIND token received from the KDH (RBTKDH).</dd>
+</dlentry>
+</dl></p></pd>
+</plentry>
+<plentry>
+<pt>cred_kdh_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_kdh</i> parameter in bytes. The maximum length is 3500 bytes. When
+the requested action keyword is BINDKRDC or BINDRV, the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>cred_kdh</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KDH for the requested service. The
+certificate may be in DER or PEM format.<p>When the <i>cred_kdh_length</i> is zero, this parameter
+is ignored.</p><note>This service is acting as the KDH so the <i>cred_kdh</i> is not expected to
+validate against the internal PKI of the adapter. Use the PKI-NONE keyword to override this
+validation.</note></pd>
+</plentry>
+<plentry>
+<pt>cred_krd_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_krd</i> parameter in bytes. The maximum length is 3500 bytes. When
+the requested action keyword is BINDRV, the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>cred_krd</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KRD for the requested service (the
+CredKRD). The certificate may be in DER or PEM format.<p>When the <i>cred_krd_length</i> is zero,
+this parameter is ignored. </p><note>This service is acting as the KDH so the <i>cred_krd</i> is
+normally expected to validate against the internal PKI of the adapter. Use the PKI-NONE keyword to
+override this validation,</note></pd>
+</plentry>
+<plentry>
+<pt>random_number_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>random_number_token</i> parameter. The maximum length is 200 bytes.
+When the requested action keyword is BINDKRDC or BINDRV, the value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>random_number_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The DER encoded random number token RTKRD that was sent to the KDH. The
+<i>random_number_token</i> is used by the KRD to validate the random number sent by the KDH in the
+<i>input_token</i> parameter. <p> When the <i>random_number_token_length</i> is zero, this parameter
+is ignored.</p></pd>
+</plentry>
+<plentry>
+<pt>output_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>output_token</i> parameter in bytes. The maximum length is 3500 bytes.
+On input, the value is the size of the buffer to receive the <i>output_token</i>. On output, the
+value is the actual size of the data returned in the <i>output_token</i> parameter. <p>When the
+requested action keyword is UNBINDRV, the value must be zero.</p></pd>
+</plentry>
+<plentry>
+<pt>output_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The generated DER encoded TR-34 token.<dl>
+<dlentry>
+<dt>BINDKRDC</dt>
+<dd>The TR-34 credential token for the KRD (CTKRD).</dd>
+</dlentry>
+<dlentry>
+<dt>BINDRV and REBINDRV</dt>
+<dd>The TR-34 credential X.509 certificate for the KDH (CredKDH).</dd>
+</dlentry>
+</dl><p>When the <i>output_token_length</i> is zero, this parameter is ignored.</p></pd>
+</plentry>
+<plentry>
+<pt>reserved_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is reserved. The value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000037185?>

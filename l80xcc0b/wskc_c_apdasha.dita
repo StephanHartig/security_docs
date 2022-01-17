@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_apdasha" xml:lang="en-us">
+<title>SHA-1 based master-key verification method</title>
+<titlealts>
+<navtitle>SHA-1 based method</navtitle><?Pub Caret 12?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): SHA-1 based master-key verification
+method</searchtitle>
+</titlealts>
+<shortdesc>A SHA-1 hash algorithm is calculated on the quantity X'01' prepended to the 24-byte
+register contents. </shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The resulting 20-byte hash value is used in the following ways:
+ <ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verbs use the first eight bytes of the
+20-byte hash value as the random_number variable, and uses the second eight bytes as the
+verification_pattern.</li>
+<li>A SHA-1 based master-key verification pattern stored in a two-byte
+or an eight-byte master-key verification pattern field in a key token
+consists of the first two or the first eight bytes of the calculated
+SHA-1 value, respectively.</li>
+</ul> </p>
+</conbody>
+</concept>
+<?Pub *0000001374?>

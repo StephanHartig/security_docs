@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spnrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Secure Messaging for PINs</cmdname> command (offset
+<ph>X'0274'</ph>) to be enabled in the active role.</p></section>
+<section><p>The following three commands at offsets X'0350', X'0351', and X'0352' affect how PIN processing
+is performed as described below: <ol>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Enforce PIN block restrictions</cmdname> command (offset
+<ph>X'0350'</ph>) in the active role to apply additional restrictions to PIN processing implemented
+in CCA 4.1.0, as follows: <ul>
+<li>Constrain use of <synph><kwd>ISO-2</kwd></synph> PIN blocks to offline PIN verification and PIN
+change operations in integrated circuit card environments only. Specifically, do not allow
+<synph><kwd>ISO-2</kwd></synph> input or output PIN blocks.</li>
+<li>Do not reformat a PIN-block format that includes a PAN into a PIN-block format that does not
+include a PAN.</li>
+<li>Do not allow a change of PAN data. Specifically, when performing translations between PIN block
+formats that both include PAN data, do not allow the <synph><var>input_PAN_data</var></synph> and
+<synph><var>output_PAN_data</var></synph> variables to be different from the PAN data enciphered in
+the input PIN block.</li>
+</ul>
+<note>A role with offset <ph>X'0350'</ph> enabled also affects access control of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verbs.</note></li>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Allow modification of PAN</cmdname> command (offset
+<ph>X'0351'</ph>) in the active role to override the restriction to not allow a change of PAN data.
+This override is applicable only when either the <cmdname>ANSI X9.8 PIN - Enforce PIN block
+restrictions</cmdname> command (offset <ph>X'0350'</ph>) or the <cmdname>ANSI X9.8 PIN - Allow only
+ANSI PIN blocks</cmdname> command (offset <ph>X'0352'</ph>) or both are enabled in the active role.
+This override is to support account number changes in issuing environments. Offset <ph>X'0351'</ph>
+has no effect if neither offset <ph>X'0350'</ph> nor offset <ph>X'0352'</ph> is enabled in the
+active role. <note>A role with offset <ph>X'0351'</ph> enabled also affects access control of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verbs.</note></li>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Allow only ANSI PIN blocks</cmdname> command (offset
+<ph>X'0352'</ph>) in the active role to apply a more restrictive variation of the <cmdname>ANSI X9.8
+PIN - Enforce PIN block restrictions</cmdname> command (offset <ph>X'0350'</ph>). In addition to the
+previously described restrictions of offset <ph>X'0350'</ph>, this command also restricts the
+<synph><var>input_PIN_profile</var></synph> and the <synph><var>output_PIN_profile</var></synph> to
+contain only ISO-0, ISO-1, and ISO-3 PIN block formats. Specifically, the <tm trademark="IBM"
+tmtype="reg">IBM</tm> 3624 PIN-block format is not allowed with this command. Offset
+<ph>X'0352'</ph> overrides offset <ph>X'0350'</ph>. <note>A role with offset <ph>X'0352'</ph>
+enabled also affects access control of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verbs.</note></li>
+</ol></p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is enabled in the domain role, 
+the PIN block format in the <parmname>input_PIN_profile</parmname> and <parmname>output_PIN_profile</parmname> 
+parameters is not allowed to be <keyword>ISO-1</keyword>.</p></section>
+<section><p>For more information, see <xref href="wskc_c_x98_rest.dita#l0wskc02_x98_rest"/>.</p></section>
+</refbody></reference>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_rsamee_opk" xml:lang="en-us" rev="sh16">
+<title>RSA private key token, 1024-bit Modulus-Exponent format with OPK section</title>
+<titlealts>
+<navtitle>RSA private key, 1024-bit Modulus-Exponent with OPK</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key, 1024-bit
+Modulus-Exponent format with OPK section</searchtitle>
+</titlealts>
+<shortdesc>View a table describing the RSA private key token format with section identifier X'06'.
+For this key token, there is only an internal format available.</shortdesc>
+<?Pub Caret 85?>
+<prolog>
+<metadata>
+<keywords><indexterm>private key<indexterm>OPK, object protection
+key</indexterm></indexterm><indexterm>OPK, object protection key</indexterm><indexterm>object
+protection key (OPK)</indexterm></keywords>
+</metadata>
+</prolog>
+<refbody>
+<table frame="all" id="bsm_rsas06" pgwide="1">
+<title>RSA private key, 1024-bit Modulus-Exponent format with OPK section (X'06')</title>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="44*"/>
+<colspec colname="col2" colwidth="41*"/>
+<colspec colname="col3" colwidth="210*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'06'</ph></dt>
+<dd>RSA private key, 1024-bit maximum Modulus-Exponent format</dd>
+</dlentry>
+</dl>
+<p>This section type is created by the <tm tmtype="reg" trademark="IBM">IBM</tm> Version 2 and later
+CCA Support Program. This section type provides compatibility and interchangeability with the CCF
+hardware in <tm tmtype="reg" trademark="z/OS">z/OS</tm> processors.</p></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes (<ph>X'0198'</ph>).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the private-key subsection cleartext, offset 28 up to and including the
+modulus that ends at offset 363.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security flag byte.<p>Internal key-token:</p><dl compact="yes">
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>Encrypted RSA private key with OPK subsection identifier</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry>Private key source flag byte: <dl compact="yes">
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>Imported from cleartext</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>Imported from ciphertext</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'23'</ph></dt>
+<dd>Generated using regeneration data</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'24'</ph></dt>
+<dd>Randomly generated</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of all optional sections that follow the public-key section, if any, else 20 bytes
+of <ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key-usage and translation control flag byte.<p>Key usage:</p><dl compact="yes">
+<dlentry>
+<dt><ph>B'11xx xxxx'</ph></dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'10xx xxxx'</ph></dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'01xx xxxx'</ph></dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry rev="sh18i1">
+<dt><ph>B'00xx xxxx'</ph></dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry>
+</dl><p>Translation control:</p><dl compact="yes">
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry>
+</dl><p>All other bits are reserved and must be zero.</p></entry>
+</row>
+<row rev="sh18i1">
+<entry>051</entry>
+<entry>001</entry>
+<entry>Format restriction for digital-signature hash-formatting method: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'0000 0000'</dt>
+<dd>No format restriction</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0001'</dt>
+<dd>ISO-9796 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0010'</dt>
+<dd>PKCS-1.0 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0011'</dt>
+<dd>PKCS-1.1 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0100'</dt>
+<dd>PKCS-PSS only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0101'</dt>
+<dd>X9.31 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0110'</dt>
+<dd>ZERO-PAD only</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p>
+</entry>
+</row>
+<row rev="sh18i1">
+<entry>052</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>054</entry>
+<entry>006</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>048</entry>
+<entry>Object Protection Key (OPK) data. 8-byte confounder, three 8-byte DES keys, and two 8-byte
+initialization vector values.<p>External key-token: Reserved, binary zero.</p><p>Internal key-token:
+The asymmetric master key encrypts the OPK data using the EDE3 algorithm. See <xref
+href="wskc_c_algtdes.dita#l0wskc02_algtdes"/>.</p></entry>
+</row>
+<row>
+<entry>108</entry>
+<entry>128</entry>
+<entry>Private-key exponent, <i>d</i>. <i>d</i> =
+<i>e</i><sup>-1</sup>mod((<i>p</i>-1)(<i>q</i>-1)), 1 &lt; <i>d</i> &lt; <i>n</i>, and where
+<i>e</i> is the public exponent. <p>The OPK encrypts the private key exponent using the EDE5
+algorithm. See <xref href="wskc_c_algtdes.dita#l0wskc02_algtdes"/>.</p></entry>
+</row>
+<row>
+<entry>236</entry>
+<entry>128</entry>
+<entry>Modulus, <i>n</i>. <i>n</i> = <i>pq</i>, where <i>p</i> and <i>q</i> are prime and
+2<sup>512</sup> ≤ <i>n</i> &lt; 2<sup>1024</sup>.</entry>
+</row>
+<row>
+<entry>364</entry>
+<entry>016</entry>
+<entry>Asymmetric-keys master-key verification pattern.</entry>
+</row>
+<row>
+<entry>380</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the subsection cleartext, offset 400 to the section end. This hash value
+is checked after an enciphered private key is deciphered for use.</entry>
+</row>
+<row>
+<entry>400</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero. </entry>
+</row>
+<row>
+<entry>402</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>404</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero. </entry>
+</row>
+<row>
+<entry>406</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>
+<?Pub *0000006259?>

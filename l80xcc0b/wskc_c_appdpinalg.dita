@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_appdpinalg" xml:lang="en-us">
+<title><tm tmtype="reg" trademark="IBM">IBM</tm> PIN algorithms</title>
+<titlealts>
+<navtitle>IBM PIN algorithms</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): IBM PIN algorithms</searchtitle>
+</titlealts>
+<shortdesc>There are several PIN algorithms, including the <tm
+tmtype="reg" trademark="IBM">IBM</tm> PIN generation algorithms, <tm
+tmtype="reg" trademark="IBM">IBM</tm> PIN offset generation algorithm,
+and <tm tmtype="reg" trademark="IBM">IBM</tm> PIN verification algorithms.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>personal identification number (PIN)<indexterm>detailed
+algorithms</indexterm></indexterm><indexterm>algorithm<indexterm>PIN,
+detailed</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody></conbody>
+</concept>
+<?Pub *0000000976?>

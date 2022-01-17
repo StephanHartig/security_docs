@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="pka_pubkcert">
+<title>PKA public-key certificate section</title>
+<titlealts>
+<navtitle>PKA public-key certificate section</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA public-key certificate section
+</searchtitle>
+</titlealts>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PKA public-key<indexterm>certificate section</indexterm></indexterm>
+<indexterm>certificate section<indexterm>PKA public-key</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>A PKA public-key certificate section can be optionally included in a PKA key token. The section
+is composed of a series of subsections and optional tag-length-value (TLV) objects to form a
+self-defining data structure. One or more TLV objects can be included in the variable portion of a
+higher-level TLV object. The section and subsections must occur in the following order:<ul
+compact="yes">
+<li>A required PKA public-key certificate (section identifier <ph>X'40'</ph>)</li>
+<li>A required public-key subsection: <ul compact="yes">
+<li>For an ECC key, an ECC public-key subsection (subsection identifier X'22')</li>
+<li>For an RSA key, an RSA public-key subsection (subsection identifier X'41')</li>
+</ul></li>
+<li>An optional PKA certificate information subsection (subsection identifier X'42') which includes
+one, two, or three TLV objects:<ol>
+<li>PKA user-data TLV object (tag identifier X'50')</li>
+<li>PKA private key ID object (tag identifier X'51')</li>
+<li>PKA serial number TLV object (tag identifier X'52')</li>
+</ol></li>
+<li>A required PKA signature subsection (subsection identifier X'45'), followed by any number of
+optional PKA signature subsections</li>
+</ul></p>
+<p>The PKA public-key certification section is described followed by descriptions of the
+related subsections and TLV objects that can be concatenated to the section.</p>
+<table frame="all" id="bsm_rsas40" pgwide="1">
+<title>PKA public-key certificate section (X'40')</title><desc><p outputclass="summary">Table with three columns 
+describing the PKA public-key certificate section (X'40')</p></desc>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row rowsep="1">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'40'</ph></dt>
+<dd>PKA public-key certificate</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes. Includes: <ul compact="yes">
+<li>Section header</li>
+<li>Public key subsection</li>
+<li>Information subsection (optional)</li>
+<li>Signature subsections</li>
+</ul></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table id="table_obn_rwc_kv" pgwide="1">
+<title>ECC public-key subsection (X'22') of PKA public-key certificate section (X'40')</title>
+<tgroup cols="3">
+<colspec colnum="1" colname="col1" colwidth="1*"/>
+<colspec colnum="2" colname="col2" colwidth="1.03*"/>
+<colspec colnum="3" colname="col3" colwidth="5.21*"/>
+<thead>
+<row>
+<entry><b>Offset (bytes)</b></entry>
+<entry><b>Length (bytes)</b></entry>
+<entry><b>Description</b></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Subsection identifier: <dl compact="yes">
+<dlentry>
+<dt>X'22'</dt>
+<dd> ECC public-key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Subsection version number (X'00')</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Subsection length in bytes (14 + <i>xxx</i>)</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>001</entry>
+<entry>Curve type: <dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Prime</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Brainpool</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>009</entry>
+<entry>001</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>
+<p>Length of prime <i>p </i>in bits. Refer to <xref href="wskc_r_ecckt.dita#l0wskc02_ecckt/sbecc"/>,
+and <xref href="wskc_r_ecckt.dita#l0wskc02_ecckt/specurve"/>. </p>
+<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Length (bits)</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'00A0'</dt>
+<dd>160 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt>X'00C0'</dt>
+<dd>192 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'00E0'</dt>
+<dd>224 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0100'</dt>
+<dd>256 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0140'</dt>
+<dd>320 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0180'</dt>
+<dd>384 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0200'</dt>
+<dd>512 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0209'</dt>
+<dd>521 (Prime)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>Length of public key <i>q</i> in bytes. Value includes length key material plus one (to
+include a one-byte flag that indicates if the key material is compressed).</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry><i>xxx</i></entry>
+<entry>Public key <i>q</i>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas41" pgwide="1">
+<title>RSA public-key subsection <ph>(<ph>X'41'</ph>) of PKA public-key certificate section
+(X'40')</ph></title>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'41'</ph></dt>
+<dd>RSA public-key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (12 + <i>xxx</i> + <i>yyy</i>).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Reserved, binary zero.</entry>
+</row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top">002</entry>
+<entry valign="top">RSA public-key exponent field length in bytes, <i>xxx</i>.</entry>
+</row>
+<row>
+<entry valign="top">008</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Public-key modulus length in bits.</entry>
+</row>
+<row>
+<entry valign="top">010</entry>
+<entry valign="top">002</entry>
+<entry valign="top">RSA public-key modulus field length in bytes, <i>yyy</i>.</entry>
+</row>
+<row>
+<entry valign="top">012</entry>
+<entry valign="top"><i>xxx</i></entry>
+<entry valign="top">Public-key exponent, <ph>e</ph> (this field length is typically 1, 3, or 64 -
+512 bytes). <i>e</i> must be odd, and 1 ≤ <i>e</i> &lt; <i>n</i>. </entry>
+</row>
+<row>
+<entry valign="top">012+<i>xxx</i></entry>
+<entry valign="top"><i>yyy</i></entry>
+<entry valign="top">Modulus, <i>n</i>. <i>n</i> = <i>pq</i>, where <i>p</i> and <i>q</i> are prime
+and 2<sup>512</sup> ≤ <i>n</i> &lt; 2<sup>4096</sup>. This field is absent when the modulus is
+contained in the private-key section. If present, the field length is 64 - 512 bytes. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas42" pgwide="1">
+<title>PKA certificate-information subsection <ph>(<ph>X'42'</ph>) of PKA public-key certificate
+section (X'40')</ph></title>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'42'</ph></dt>
+<dd>PKA certificate information</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (4+<i>iii</i>), where <i>iii</i> is:
+<lines>length of TLV object <ph>X'50'</ph> +
+length of TLV object <ph>X'51'</ph> +
+length of TLV object <ph>X'52'</ph>.</lines></entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top"><i>iii</i></entry>
+<entry valign="top">The information field that contains any of the optional TLV objects: <dl
+compact="yes">
+<dlhead>
+<dthd>Tag</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'50'</ph></dt>
+<dd>User data</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'51'</ph></dt>
+<dd>Private key EID</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'52'</ph></dt>
+<dd>Serial number</dd>
+</dlentry>
+</dl></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas50" pgwide="1">
+<title>PKA user-data TLV object <ph>(<ph>X'50'</ph>) of PKA certificate-information subsection
+(X'42')</ph></title>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Tag identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'50'</ph></dt>
+<dd>PKA user-data TLV object</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>TLV object version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>TLV object length in bytes (4+<i>uuu</i>; 0≤<i>uuu</i>≤64).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry><synph><var>uuu</var></synph></entry>
+<entry >User-provided data.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas51" pgwide="1">
+<title>PKA private-key EID TLV object <ph>(<ph>X'51'</ph>) of PKA certificate-information subsection
+(X'42')</ph></title>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Tag identifier: 
+<dl compact="yes">
+<dlentry>
+<dt>X'51'</dt>
+<dd>PKA private-key EID TLV object</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">TLV object version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">TLV object length in bytes (<ph>X'0014'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">016</entry>
+<entry valign="top">EID string of the CCA node that generated the public and private key. This TLV
+must be provided in a skeleton key-token with usage of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. The verb fills in the EID string
+prior to certifying the public key. The EID value is encoded using the ASCII character set.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas52" pgwide="1">
+<title>PKA serial number TLV object (X'52') of PKA certificate-information subsection
+(X'42')</title>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Tag identifier: <dl compact="yes">
+<dlentry>
+<dt>X'52'</dt>
+<dd>PKA serial number TLV object</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>TLV object version number (X'00').</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>TLV object length in bytes (X'000C'). </entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>008</entry>
+<entry>Serial number of the coprocessor that generated the public and private key. This
+TLV must be provided in a skeleton key-token with usage of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. The verb fills in the serial
+number prior to certifying the public key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="bsm_rsas45" pgwide="1">
+<title>PKA signature subsection (X'45') of the PKA public-key certificate section
+(X'40')</title><desc><p outputclass="summary">Table with three columns 
+describing the PKA signature subsection (X'45') of the PKA public-key certificate section
+(X'40')</p></desc>
+<tgroup align="left" cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row rowsep="1">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Subsection identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'45'</ph></dt>
+<dd>PKA signature</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Subsection version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Subsection length in bytes (70+<i>sss</i>). </entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>001</entry>
+<entry>Hash algorithm identifier: <p>For RSA public-key (X'04') with PKA
+public-key certificate (X'40'):</p><dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>SHA-1</dd>
+</dlentry>
+</dl><p>For ECC public-key (X'21') with PKA public-key certificate (X'40'):</p><dl compact="yes">
+<dlentry>
+<dt><ph>X'03'</ph></dt>
+<dd>SHA-256</dd>
+</dlentry>
+</dl><dl compact="yes">
+<dlentry>
+<dt><ph>X'04'</ph></dt>
+<dd>SHA-512</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>005</entry>
+<entry>001</entry>
+<entry>Signature formatting identifier: <p>For RSA public-key (X'04') with PKA
+public-key certificate (X'40'):</p><dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>ISO/IEC 9796-1 process</dd>
+</dlentry>
+</dl><p>For ECC public-key (X'21') with PKA public-key certificate (X'40'):</p><dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'05'</dt>
+<dd>ANS X9.62 ECDSA</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>064</entry>
+<entry>Signature-key identifier; the key label of the key used to generate the
+signature.</entry>
+</row>
+<row>
+<entry>070</entry>
+<entry><i>sss</i></entry>
+<entry>The signature field: <p>The signature is calculated on data that begins with the
+signature section identifier (X'40') through the byte immediately preceding this signature
+field.</p></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">
+<note>More than one signature subsection can be included in a signature section. This accommodates
+the possibility of a self-signature as well as a device-key signature.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

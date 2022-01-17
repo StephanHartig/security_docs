@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="trcsfb4-gen218_accesspt" xml:lang="en-us" rev="hw20i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34 Bind-Begin (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"
+/>)<indexterm>access control points</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<?Pub Caret 130?>
+<p>This verb requires the following commands to be enabled in the active role:</p>
+<table frame="all" rowsep="1" colsep="1" id="table_n1p_qsh_xhb" pgwide="1"><desc>
+<p outputclass="summary">Access control points for TR-34 Bind-Begin</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="4*"/>
+<colspec colname="c2" colnum="2" colwidth="3*"/>
+<colspec colname="c3" colnum="3" colwidth="20*"/>
+<thead>
+<row>
+<entry>Rule array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>BINDCR</entry>
+<entry>X'01F1'</entry>
+<entry>TR-34 Bind-Begin - Allow BINDCR.</entry>
+</row>
+<row>
+<entry>UNBINDCR</entry>
+<entry>X'01F2'</entry>
+<entry>TR-34 Bind-Begin - Allow UNBINDCR.</entry>
+</row>
+<row>
+<entry>REBINDCR</entry>
+<entry>X'01F3'</entry>
+<entry>TR-34 Bind-Begin - Allow REBINDCR.</entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>X'01FF'</entry>
+<entry>Permit X.509 without PKI root validation.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>
+<?Pub *0000037185?>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdpvvgenalg" xml:lang="en-us">
+<title>PVV Generation algorithm</title>
+<titlealts>
+<navtitle>PVV Generation algorithm</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PVV Generation algorithm</searchtitle>
+</titlealts>
+<shortdesc>The algorithm generates a 4-digit PIN verification value
+(PVV) based on the transformed security parameter (TSP).</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>algorithm<indexterm>PVV generation</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>PVV generation
+algorithm</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The algorithm requires the following input parameters:  <ul>
+<li>A 64-bit TSP</li>
+<li>A 128-bit PVV generation key</li>
+</ul>  <ol>
+<li>A multiple encipherment of the TSP using the double-length PVV
+generation key is performed.</li>
+<li>The ciphertext is scanned from left to right. Decimal digits are
+selected during the scan until four decimal digits are found. Each
+selected digit is placed from left to right according to the order
+of selection. If four decimal digits are found, those digits are the
+PVV.</li>
+<li>If, at the end of the first scan, less than four decimal digits
+have been selected, a second scan is performed from left to right.
+During the second scan, all decimal digits are skipped and only non-decimal
+digits can be processed. Non-decimal digits are converted to decimal
+digits by subtracting 10. The process proceeds until four digits of
+PVV are found.</li>
+</ol></p>
+<p><xref href="#l0wskc02_appdpvvgenalg/l0wskc02_vpg"></xref> illustrates
+the PVV generation algorithm.</p>
+<fig expanse="column" id="l0wskc02_vpg"><title>PVV generation algorithm</title>
+<image href="l0wskc02_fig6.jpg" placement="break" width="200"><alt>PVV
+generation algorithm</alt></image>
+</fig><?Pub Caret -1?>
+<note othertype="Programming Note" type="other">For VISA PVV algorithms, the leftmost 11 digits of
+the TSP are the personal account number (PAN), the leftmost 12th digit is a key table index to
+select the PVV generation key, and the rightmost 4 digits are the PIN. The key table index should
+have a value in the range 1 - 6.</note>
+</conbody>
+</concept>
+<?Pub *0000002273?>

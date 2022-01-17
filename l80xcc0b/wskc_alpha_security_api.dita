@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="alpa_security_api" xml:lang="en-us">
+<title>Security API command and sub-command codes</title>
+<titlealts>
+<navtitle>Security API command codes</navtitle><?Pub Caret 20?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Security API command and sub-command
+codes</searchtitle>
+</titlealts>
+<shortdesc>View an alphabetical list of security API command and sub-command
+codes returned by the output <parmname>rule-array</parmname> for option
+STATDIAG of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"></keyword> verb. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm> security API<indexterm>command and sub-command
+codes</indexterm></indexterm><indexterm> command codes<indexterm>security
+API</indexterm></indexterm><indexterm> sub-command codes<indexterm>security
+API</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section> <p>Elements 9, 11, 13, 15, and 17 contain these API command
+and sub-command codes to indicate the last five commands run. See <xref
+href="wskc_r_cfqparameters.dita#l0wskc02_cfqparameters/l0wskc02_cfqoa"></xref>. <note>The
+security API command is <term>T2</term> padded on the right with 2
+space characters, and the subcommand code is a 2-byte uppercase alphabetic
+value padded on the right with 2 space characters. </note></p> <table
+frame="all" id="security_api-codes" pgwide="0"><title>Alphabetical
+list of security API command and subcommand codes returned by STATDIAG</title>
+<desc> <p outputclass="summary">This table contains an alphabetical
+list of security API command and subcommand codes returned by STATDIAG
+in columns Security API command code, Subcommand code, and Description.</p> </desc>
+<tgroup cols="3" colsep="1"><colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="6*"/><colspec colname="col3"
+colwidth="25*"/>
+<thead>
+<row rowsep="1">
+<entry>Security API command code</entry>
+<entry>Subcommand code</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>T2</entry>
+<entry>AD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>AE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>AI</entry>
+<entry>Access Control Initialization (CSUAACI)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>AK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>AM</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>AP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"/>)</entry>
+</row>
+
+<row rev="sh21i1">
+<entry>T2</entry>
+<entry>BE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe"/>)</entry>
+</row>
+<row rev="sh21i1">
+<entry>T2</entry>
+<entry>BD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>)</entry>
+</row>
+<row rev="sh21i1">
+<entry>T2</entry>
+<entry>BT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/>)</entry>
+</row>
+
+<row>
+<entry>T2</entry>
+<entry>CA</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CH</entry>
+<entry>Chim verb</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CM</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/>)</entry>
+</row>
+
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>CU</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/>)</entry>
+</row>
+
+<row>
+<entry>T2</entry>
+<entry>CV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>CX</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</entry>
+</row>
+
+<row>
+<entry>T2</entry>
+<entry>CY</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DA</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DB</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpt"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</entry>
+</row>
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>DG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DH</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ecdh"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdhJ"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkm"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DM</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DN</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DQ</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DR</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdrpg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrpg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DS</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpmt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpmt"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DU</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>DW</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdrp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrp"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>EC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>EP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>EX</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>EY</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>FQ</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GH</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>) - SHA-1, SHA-224, SHA-256</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GL</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>) - SHA-384, SHA-512</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GM</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>GS</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>IP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KN</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KR</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KX</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>KY</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>LK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>LQ</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>MG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>MP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>MV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>OH</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PA</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PO</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpfo"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/>)</entry>
+</row>
+
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>PR</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</entry>
+</row>
+
+<row>
+<entry>T2</entry>
+<entry>PT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PU</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>PX</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</entry>
+</row>
+
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>RB</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>)</entry>
+</row>
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>RC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/>)</entry>
+</row>
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>RD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)</entry>
+</row>
+
+<row>
+<entry>T2</entry>
+<entry>RE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>RG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>RI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>RK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkxj"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>RL</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</entry>
+</row>
+
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>RP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)</entry>
+</row>
+<row rev="sh20i2">
+<entry>T2</entry>
+<entry>RR</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>)</entry>
+</row>
+
+
+<row>
+<entry>T2</entry>
+<entry>RT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsbc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsbc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsbd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsbd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SI</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SJ</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SP</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SX</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>SY</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsky"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>TB</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>TC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>TK</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>TT</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>TV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>UD</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VC</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VE</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VG</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VH</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>) - SHA-1, SHA-224, SHA-256</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VL</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/> - SHA-384, SHA-512</entry>
+</row>
+<row>
+<entry>T2</entry>
+<entry>VV</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>)</entry>
+</row>
+</tbody>
+</tgroup>
+</table> </section>
+</refbody>
+</reference>
+<?Pub *0000011702?>

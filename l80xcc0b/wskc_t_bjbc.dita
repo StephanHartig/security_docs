@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_bjbc" xml:lang="en-us">
+<title>Building the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> byte
+code</title>
+<titlealts>
+<navtitle>Building the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> byte
+code</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Building the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> byte code for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Perform these steps to compile a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> source file.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> Native Interface
+(JNI)<indexterm>byte code</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>Ensure that your LD_LIBRARY_PATH variable points to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> libraries. This example points to the
+default location:</cmd>
+<info>
+<codeblock>export LD_LIBRARY_PATH=/usr/lib64</codeblock>
+</info>
+</step>
+<step><cmd>Change to the directory that contains the source code file
+of the program you want to compile.</cmd></step>
+<step>
+<cmd>Issue this command to compile a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> source code file
+<filepath><varname>&lt;program&gt;</varname>.java</filepath>: </cmd>
+<info>
+<codeblock>javac -classpath <synph><var>&lt;fullpath&gt;</var></synph>/CNM.jar <synph><var>&lt;program&gt;</var></synph>.java</codeblock>
+<p>where <filepath><varname>&lt;fullpath&gt;</varname></filepath> is the location of
+<filepath>CNM.jar</filepath>.</p>
+<p>The following example uses the default path and the sample program of <xref
+href="wskc_c_codesamp_java.dita#l0wskc02_codesamp_java"/>:
+<codeblock>javac -classpath /opt/IBM/CCA/cnm/CNM.jar RNGpk.java</codeblock><?Pub Caret 0?></p>
+<p>If the program uses the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb, you must also include
+<filepath>CNMMK.jar</filepath> in the class path (see <xref
+href="wskc_c_ccajni_over_mk.dita#ccajni_over_mk"/>). Issue this command to compile such programs:
+<codeblock>javac -classpath <synph><var>&lt;fullpath&gt;</var></synph>/CNM.jar:<synph><var>&lt;fullpath&gt;</var></synph>/CNMMK.jar <synph><var>&lt;program&gt;</var></synph>.java</codeblock></p>
+<note othertype="Tip" type="other">Instead of using the <cmdname>-classpath</cmdname> option, you
+can set the CLASSPATH variable to point to <filepath>CNM.jar</filepath> and, if required,
+<filepath>CNMMK.jar</filepath>.</note>
+</info>
+</step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000002462?>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cpe">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/></searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> <ph>verb</ph> formats a PIN into one of the following
+PIN block formats and encrypts the results. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>You can use this verb to create an encrypted PIN block for transmission. With the
+<synph><kwd>RANDOM</kwd></synph> keyword, you can have the verb generate random PIN numbers. <ph
+rev="sh20i1">The following PIN-block formats are supported:</ph><ul>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3621 format</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 format</li>
+<li>ISO-0 format (same as the ANSI X9.8, VISA-1, and ECI formats)</li>
+<li>ISO-1 format (same as the ECI-4 format)</li>
+<li>ISO-2 format</li>
+<li>ISO-3 format</li>
+<li>ISO-4 format</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 4704 encrypting PINPAD (4704-EPP) format</li>
+<li>VISA 2 format</li>
+<li>VISA 3 format</li>
+<li>VISA 4 format</li>
+<li>ECI2 format</li>
+<li>ECI3 format</li>
+</ul></p>
+<note>A clear PIN is a sensitive piece of information. Ensure your application program and system
+design provide adequate protection for any clear PIN value. </note>
+<p rev="sh20i1">To use this verb, specify the following data: </p>
+<ul rev="sh20i1">
+<li>A key that is used to encrypt the PIN block.</li>
+<li>A clear PIN. When you generate random PINs, the <parmname>clear_PIN</parmname> variable
+specifies the length of the generated-PIN value by the number of left-aligned numeral zero
+characters. The remainder of the variable must be padded on the right with space characters.</li>
+<li>A PIN profile that specifies the format of the PIN block to be created, and any pad digit; see
+<xref href="wskc_c_pinppp.dita"/>.</li>
+<li>When using the ISO-0, ISO-3 or, beginning with Release 5.4, ISO-4 PIN-block format, the
+<parmname>PAN_data</parmname> variable provides the account number that is X-OR-ed with the PIN
+information.</li>
+<li>The sequence number. Specify a value of 99999 in the integer variable.</li>
+</ul>
+<p rev="sh20i1">The verb performs the following tasks: </p>
+<ul rev="sh20i1">
+<li> Formats the PIN into the specified PIN-block format.</li>
+<li>For a PIN-block format other than ISO-4, checks the control vector of the DES OPINENC key by
+verifying that CV bit 18 = B'1' (CPINENC). For a PIN-block format of ISO-4, checks the key usage of
+the AES PINPROT key by verifying that the key can be used for encryption but not decryption. The
+encryption mode is CBC, the key can be used to encrypt a clear key (CPINENC), and the key can allow
+ISO-4 PIN-block formatting. </li>
+<li>For a PIN-block format other than ISO-4, encrypts the PIN block in ECB mode. For a PIN-block
+format of ISO-4, encrypts the PIN block in CBC mode.</li>
+<li>Returns the encrypted PIN-block in the <parmname>encrypted_PIN_block</parmname> variable.</li>
+</ul>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

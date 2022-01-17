@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_x98_rest" xml:lang="en-us">
+<title>ANSI X9.8 PIN restrictions</title>
+<titlealts>
+<navtitle>ANSI X9.8 PIN restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.8 PIN restrictions</searchtitle>
+</titlealts>
+<shortdesc>These access control points implement the PIN-block processing
+restrictions of the ANSI X9.8 standard. They are disabled in the default role. A TKE Workstation is required to enable them.
+</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ANSI X9.8 PIN restriction</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>These are the access control points:</p>
+<ul>
+<li><cmdname>ANSI X9.8 PIN - Enforce PIN block restrictions</cmdname> (offset <ph>X'0350'</ph>). See
+<xref href="wskc_c_x98_enf.dita#l0wskc02_x98_enf"/>.</li>
+<li><cmdname rev="shr2">ANSI X9.8 PIN - Allow modification of PAN</cmdname> (offset
+<ph>X'0351'</ph>) See <xref href="wskc_c_x98_allow.dita#l0wskc02_x98_allow"/>.</li>
+<li><cmdname>ANSI X9.8 PIN - Allow only ANSI PIN blocks</cmdname> (offset <ph>X'0352'</ph>) See
+<xref href="wskc_c_x98_allow_only.dita#l0wskc02_x98_allow_only"/>.</li>
+<li><cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname> (offset
+<ph>X'0356'</ph>) See <xref href="wskc_c_x98_usdto.dita#l0wskc02_x98_usdto"/>.</li>
+</ul>
+<p>These verbs are affected by these access control points:</p>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"></keyword>)</li>
+</ul>
+<p>PIN decimalization tables can be stored in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> for use by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs. Only tables that have been activated
+can be used. A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> is required to
+manage the tables in the coprocessors.</p><?Pub Caret 48?>
+</conbody>
+</concept>
+<?Pub *0000002754?>

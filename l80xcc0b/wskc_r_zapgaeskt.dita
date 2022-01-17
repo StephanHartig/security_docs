@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_zapgaeskt">
+<title>AES internal fixed-length key token</title>
+ <titlealts>
+    <navtitle>AES internal fixed-length key token</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): AES internal fixed-length key
+token</searchtitle>
+  </titlealts>
+<shortdesc>The format for an AES internal <ph rev="sh18i1">fixed-length</ph> key token.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key token<indexterm>AES</indexterm></indexterm>
+<indexterm>internal key token<indexterm>AES, fixed-length </indexterm></indexterm>
+<indexterm>fixed-length key token<indexterm>AES, internal token </indexterm></indexterm>
+<indexterm>TVV<indexterm>Token validation value</indexterm></indexterm>
+<indexterm>Token validation value<indexterm>TVV</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_zapgaeskt/l0wskc02_aes_intky"/> shows the format for an AES internal <ph
+rev="sh18i1">fixed-length</ph> key token.</p></section>
+<section><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> AES <ph rev="sh18i1"
+>fixed-length</ph>  key-token data structures are 64 bytes in length, and are made up of an internal
+key-token identifier and a token version number, reserved fields, a flag byte containing various
+flag bits, and a token-validation value.</p></section>
+<section><p>Depending on the flag byte, the key token either contains an encrypted
+key, a clear key, or the key is absent. An encrypted key is encrypted
+under an AES master key identified by a master-key verification pattern
+(MKVP) in the key token. The key token contains a two-byte integer
+that specifies the length of the clear-key value in bits, valued to
+0, 128, 192, or 256, and a two-byte integer that specifies the length
+of the encrypted-key value in bytes, valued to 0 or 32. An LRC checksum
+byte of the clear-key value is also in the key token.</p></section>
+<section><p>All AES keys <ph rev="sh18i1">contained in fixed-length key tokens</ph> are DATA keys. If the
+flag byte indicates a control vector (CV) is present, it must be all binary zeros. An all-zero CV
+represents the CV value of an AES DATA key. If a key is present without a control vector in a key
+token, that is accepted and the key is interpreted as an AES DATA key. The AES internal <ph
+rev="sh18i1">fixed-length</ph> key-token, <ph rev="sh18i1">version X'04'</ph>, is the structure used
+to hold AES keys that are either encrypted with the AES master-key, or in cleartext format.</p>
+<p>For an AES symmetric variable-length key token, see <xref
+href="wskc_aes_cipher_vlskt.dita#l0wskc02_aes_cipher"/>.</p>
+<table id="l0wskc02_aes_intky" pgwide="1" frame="all">
+<title>AES Internal <ph rev="sh18i1">fixed-length</ph> key token format, version X'04'</title>
+<desc>
+<p outputclass="summary">AES Internal fixed-length key token format</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="18*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry><ph>X'01'</ph> (flag indicating this is an internal key token)</entry>
+</row>
+<row>
+<entry>1 - 3</entry>
+<entry>Implementation-dependent bytes, must be <ph>X'000000'</ph>.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>Key token version number, <ph>X'04'</ph>
+</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>Reserved (<ph>X'00'</ph>)</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>Flag byte. See <xref href="wskc_r_aktfb.dita#l0wskc02_aktfb"/>.</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>Longitudinal redundancy check (LRC) checksum of clear-key value (LRC is the XOR of each byte
+in the clear-key value).</entry>
+</row>
+<row>
+<entry>8 - 15</entry>
+<entry>Master key verification pattern (MKVP) <p>Contains the master-key verification pattern of the
+AES master-key used to encrypt the key contained in the token, or binary zeros if the token does not
+contain a key or the key is in the clear. The MKVP is calculated as the leftmost eight bytes of the
+SHA-256 hash of the string formed by pre-pending the byte <ph>X'01'</ph> to the cleartext master-key
+value.</p></entry>
+</row>
+<row>
+<entry>16 - 47</entry>
+<entry>Key value, if present. Contains either: <ul compact="yes">
+<li>A 256-bit encrypted-key value. The clear key value is padded on the right with binary zeros, and
+the entire 256-bit value is encrypted under the AES master-key using AES CBC mode with an
+initialization vector of binary zeros.</li>
+<li>A 128-bit, 192-bit, or 256-bit clear-key value left-aligned and padded on the right with binary
+zeros for the entire 256-bit field.</li>
+</ul></entry>
+</row>
+<row>
+<entry>48 - 55</entry>
+<entry>Control Vector (CV) <p>This value must be binary zeros for all AES key tokens that have a
+control vector present.</p></entry>
+</row>
+<row>
+<entry>56 - 57</entry>
+<entry>Clear-key bit length <p>An integer specifying the length in bits of the clear-key value. If
+no key is present in a completed token, this length is zero. In a skeleton token, this is the length
+of the key to be created in the token when used as input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb.</p></entry>
+</row>
+<row>
+<entry>58 - 59</entry>
+<entry>Encrypted-key byte length <p>An integer specifying the length in bytes of the encrypted-key
+value. This value is zero if the token does not contain a key or the key is in the
+clear.</p></entry>
+</row>
+<row>
+<entry>60 - 63</entry>
+<entry>Token validation value (TVV).</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

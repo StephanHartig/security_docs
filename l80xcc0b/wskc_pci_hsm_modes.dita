@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pci_modes" xml:lang="en-us" rev="sh20i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM modes</title>
+<titlealts>
+<navtitle>HSM modes</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM modes</searchtitle>
+</titlealts>
+<shortdesc> When working in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>, three modes are provided in an
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>  (HSM). Learn how to switch an HSM
+from Normal mode to Imprint Mode and finally to Compliance Mode.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM modes<indexterm>HSM
+modes</indexterm></indexterm>
+<indexterm>HSM modes</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<fig id="fig_pci_modes" expanse="column"><title>Operational modes of the IBM HSM</title><image
+placement="break" href="wskc_pci_modes.jpg" width="400">
+<alt>Operational modes of the IBM HSM</alt>
+</image></fig>
+<p>The subsequent sections describe each of these modes in more detail. Refer to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> documentation for information about how to
+use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> to change modes.</p>
+</section>
+<section>
+<title>Normal Mode</title>
+<p>All domains of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM are in
+Normal Mode when the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM is first
+manufactured, or when it is reinitialized. Normal Mode is the legacy mode in which PCI-HSM
+requirements are not enforced. All modes have a sub-mode called Warn Mode, but it is particularly
+useful when in Normal Mode. Warn Mode is a feature provided to make it easier for customers to
+transition from their current non-compliant systems to systems that comply with PCI-HSM
+requirements. In Warn Mode, all applications run normally, but the IBM HSM provides warnings when
+non-compliant keys or operations are used. In this way, the customer can see what needs to be
+changed in the way their application uses the IBM HSM in order to achieve PCI-HSM compliance.</p>
+</section>
+<section>
+<title>Imprint Mode</title>
+<p>Imprint Mode is a transitional state between the non-compliant Normal Mode and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. The Imprint Mode initializes a
+chain of trust that protects all cryptographic keys that are PCI-HSM compliant. It creates a special
+administrative environment that enforces controls to ensure that administrators are configured to
+match the requirements of PCI-HSM compliance. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> is used to change from Normal Mode to
+Imprint Mode using a dual-control process.  It is possible to return directly from Imprint Mode to
+Normal Mode using a single-control command to the IBM HSM. </p>
+<p>The administrators used in the Normal Mode are IBM HSM-scope administrators. They can perform
+administrative functions on any of the domains (virtual <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSMs) in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM. In Imprint mode, in preparation for
+PCI-HSM compliant operation, domain-scope administrators must be defined by the security officers
+from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>. </p>
+<p>Domain-scope administrators only have the authority to perform administrative operations on a
+single domain. It is possible to install identical domain-scope administrators for multiple domains,
+if desired. This can simplify administration of related domains as a group. </p>
+<p>While there is a single default domain-scope administrator defined when Imprint Mode is entered,
+the default domain-scope administrator is  locked: </p>
+<ul>
+<li>The default public key associated with the default user profile is not allowed to be loaded for
+any other users.</li>
+<li>The capabilities of the role assigned to the default user cannot be changed.</li>
+<li>The default user cannot be used to load Master Key parts or as part of a dual control operation
+to enter Compliance Mode.</li>
+</ul>
+<p>Non-default domain-scope administrators with the appropriate capabilities can be used to load
+Master Key parts and to set the Master Key while in imprint mode. </p>
+<p>While in Imprint Mode, application programs can continue to operate as if the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM were in Normal Mode. All keys and API
+functions that worked in Normal Mode will work in Imprint Mode. </p>
+<p>The secure audit log is enabled as part of the transition to Imprint Mode, and is forced to the
+non-wrapping mode of operation. See Section 11 for details on the secure log.</p>
+</section>
+<section>
+<title>Compliance Mode</title>
+<p>Compliance Mode, also called <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>, provides a fully PCI-HSM
+compliant environment. The transition from Imprint Mode to Compliance Mode is performed with a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> using a dual-control process. </p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM does not permit the use
+of any default (initial) administrative keys while in compliance mode, even if such keys have not
+been replaced or deleted. </p>
+<p>The final state transition shown in <xref href="#wskc_pci_modes/fig_pci_modes" format="dita"/> is
+a transition from Compliance Mode to Normal Mode. This is done using a dual-control operation
+performed using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>, and the
+transition takes the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM domain
+out of PCI-HSM compliant operation. Once in Normal Mode, the derived master key that was used to
+wrap the compliance-tagged <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys is
+unavailable, and thus none of the compliance-tagged keys for that domain can be used in Normal Mode.
+The operations that completely reinitialize a domain (<cmdname>Zeroize domain</cmdname>) or the
+entire <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM (<cmdname>Zeroize
+crypto module</cmdname>) also return it to Normal Mode after clearing all sensitive data. The
+<cmdname>Zeroize</cmdname> - operations can be performed either with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> or using the support element (SE) on the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> server. </p>
+<p>The scope of an instance of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> is one domain of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM. Domains are logically separate, and
+one domain can be in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>,
+while another domain is not. The two domains cannot share any keys or sensitive data, and cannot
+influence each other in any way. </p>
+<p>While in Compliance Mode, PIN operations are restricted to those allowed under ISO 9564,
+including restrictions on translations between different PIN block formats.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002516?>

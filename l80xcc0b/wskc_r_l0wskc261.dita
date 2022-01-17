@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc261">
+<title>Format</title>
+ <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="468*"/>
+<tbody>
+<row>
+<entry valign="top" align="left">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>seed_length</var></synph>,
+             <synph><var>seed</var></synph>,
+             <synph><var>random_number_length</var></synph>,
+             <synph><var>random_number</var></synph>) </codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc02_pinbf" xml:lang="en-us">
+<title>PIN block formats</title>
+<titlealts>
+<navtitle>PIN block formats</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PIN block formats</searchtitle>
+</titlealts>
+<shortdesc>All PIN block formats have a code assigned to
+them.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>PIN block format<indexterm>detail</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody></refbody>
+</reference>
+<?Pub *0000000626?>

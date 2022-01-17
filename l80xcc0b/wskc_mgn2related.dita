@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="mgn2related" rev="sh15">
+  <title>Related information</title>
+  <titlealts>
+    <navtitle>Related information</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Related information for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/></searchtitle>
+  </titlealts>
+<shortdesc>Additional information about <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/>)<indexterm>related
+            information</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb is
+described in  <xref href="wskc_mvr2.dita#wskc_mvr2"/>.</p>
+    </section>
+  </refbody>
+</reference>

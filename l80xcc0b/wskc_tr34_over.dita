@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference rev="hw20i1" id="tr34_over" xml:lang="en-us">
+<title>Callable services for the TR-34</title>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>callable service<indexterm>TR-34</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>The ANSI TR-34 protocol provides a method to securely distribute symmetric keys using asymmetric
+techniques.</p>
+<?Pub Caret 214?>
+<section>
+<title>TR-34 Bind-Begin (CSNDT34B and CSNFT34B)</title>
+<p>The TR-34 Bind-Begin service performs the key distribution host side of the bind operations to
+bind a host to a key receiving device.</p>
+</section>
+<section>
+<title>TR-34 Bind-Complete (CSNDT34C and CSNFT34C)</title>
+<p>The TR-34 Bind-Complete service performs the key receiving device side of the bind operations to
+complete the bind of the key receiving device to the key distribution host.</p>
+</section>
+<section>
+<title>TR-34 Key Distribution (CSNDT34D and CSNFT34D)</title>
+<p>The TR-34 Key Distribution service performs the key distribution host side of the key transport
+operations to prepare and send the distributed operational key.</p>
+</section>
+<section>
+<title>TR-34 Key Receive (CSNDT34R and CSNFT34R)</title>
+<p>The TR-34 Key Receive service performs the key receiving device side of the key transport
+operations to receive the distributed operational key.</p>
+</section>
+</section></refbody>
+</reference>
+<?Pub *0000000737?>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ckmformat" xml:lang="en-us">
+<title>Format</title>
+<titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<table frame="all" pgwide="0">
+<tgroup cols="1" colsep="0" rowsep="1"><colspec colname="col1"
+colwidth="1*"/>
+<tbody>
+<row>
+<entry valign="top"> <codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>clear_key_length</var></synph>,
+             <synph><var>clear_key</var></synph>,
+             <synph><var>target_key_identifier</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>
+<?Pub *0000001528?>

@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="des_key_usage_restrictions" xml:lang="en-us" rev="sh20i1">
+<title>DES key usage restrictions</title>
+<titlealts>
+<navtitle>DES key restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): DES key usage restrictions</searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>DES key <indexterm>usage restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In addition to a key type and subtype, a DES control vector contains key usage values that
+further restrict the use of a key. Most key types define a default set of key usage restrictions in
+a control vector. <xref href="wskc_c_cvtable.dita#l0wskc02_cvtable/l0wskc02_contab"/> and <xref
+href="wskc_c_cvtable.dita#l0wskc02_cvtable/cvdflt3l"/> list  the key types that have a default
+control vector, and show the default values of the control vector bits. DES key usage restrictions
+can be varied by using keywords when constructing control-vector values using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb, or by manually setting key-usage
+bits in the control vector.</p>
+<p><xref href="#des_key_usage_restrictions/des_cv_keywords" format="dita"/> describes the usage
+keywords related to generating a control vector, building a control vector in a key token, or
+parsing the control vector of a key token. For information about the meaning of the bits of a DES
+control vector, see <xref href="wskc_c_cvtable.dita#l0wskc02_cvtable/l0wskc02_contab"/>. </p>
+<p>Part of the control vector of a DES key-token identifies the key type. The key type controls how
+a key in the key token can be used. Each DES key type falls under one of the following key classes:<ul>
+<li>Cipher (data operation)</li>
+<li>PIN processing</li>
+<li>Cryptographic variable encrypting key</li>
+<li>Key encrypting key</li>
+<li>Key generating key</li>
+</ul></p>
+<!--***************** Following is the big Reference table and all referenced figures (JPGs only) is input from BSM_5.6_march2020 **************-->
+<p>
+<xref href="#des_key_usage_restrictions/DES_key_combo" format="dita"/> lists all of the DES key
+types, grouped by key class, along with a reference to a figure to determine the valid rule-array
+keyword combinations for a particular DES key type. These keywords are used when generating a
+control vector ( <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>), constructing a key token (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>), or parsing a key token ( <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>).</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="DES_key_combo"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations by DES key
+type</title><desc>
+<p outputclass="summary">CSNBCVG, CSNBKTB, and CSNBKTP keyword combinations by DES key type</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="3.0*"/>
+<colspec colname="c2" colnum="2" colwidth="1.0*"/>
+<colspec colname="c3" colnum="3" colwidth="3.0*"/>
+<thead>
+<row>
+<entry>Key class</entry>
+<entry>DES key type</entry>
+<entry>Keyword combinations flowchart</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="6"><b>Cipher (data operation)</b></entry>
+<entry>CIPHER</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_cipher" format="dita"/></entry>
+</row>
+<row>
+<entry>DECIPHER, ENCIPHER</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_decipher_encipher"/></entry>
+</row>
+<row>
+<entry>CIPHERXI, CIPHERXL, CIPHERXO</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_cipher_xi_xl_xo" format="dita"/></entry>
+</row>
+<row>
+<entry>DATA</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_data" format="dita"/></entry>
+</row>
+<row>
+<entry>DATAC, DATAM, DATAMV </entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_data_c_m_mv" format="dita"/></entry>
+</row>
+<row>
+<entry>MAC, MACVER </entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_mac_macver" format="dita"/></entry>
+</row>
+<row>
+<entry>SECMSG</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_secmsg" format="dita"/></entry>
+</row>
+<row>
+<entry morerows="3">
+<lines><b>PIN processing</b></lines>
+</entry>
+<entry>IPINENC</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_ipinenc" format="dita"/></entry>
+</row>
+<row>
+<entry>OPINENC</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_opinenc" format="dita"/></entry>
+</row>
+<row>
+<entry>PINGEN</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_pingen" format="dita"/></entry>
+</row>
+<row>
+<entry>PINVER</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_pinver" format="dita"/></entry>
+</row>
+<row>
+<entry><b>Cryptographic variable encrypting key</b></entry>
+<entry>CVARDEC, CVARENC, CVARPINE, CVARXCVL, CVARXCVR</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_cvardes_cvarenc_and_so_on" format="dita"
+/></entry>
+</row>
+<row>
+<entry morerows="2"><b>Key encrypting key</b></entry>
+<entry>EXPORTER</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_exporter" format="dita"/></entry>
+</row>
+<row>
+<entry>IMPORTER</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_importer" format="dita"/></entry>
+</row>
+<row>
+<entry>IKEYXLAT, OKEYXLAT </entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_ikeyxlat_okeyxlat" format="dita"/></entry>
+</row>
+<row>
+<entry morerows="1"><b>Key generating key</b></entry>
+<entry>DKYGENKY</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_dkygenky" format="dita"/></entry>
+</row>
+<row>
+<entry>KEYGENKY</entry>
+<entry><xref href="#des_key_usage_restrictions/ktb_des_keygenky" format="dita"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<!--***********   START of new graphics from from BSM (16) or ICSF APG (17)    ******************
+**********************   followed by Table 8 from CCA book  *******************************************-->
+<p><xref href="#des_key_usage_restrictions/ktb_des_cipher" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+CIPHER, DECIPHER, and ENCIPHER. Beginning with Release 5.4 and Release 6.2, these key types support
+three-key Triple-DES (keywords <b>TRIPLE</b> and <b>TRIPLE-O</b>).</p>
+<fig id="ktb_des_cipher" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CIPHER
+keys</title>
+<image placement="break" href="ktb_des_cipher.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CIPHER
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li><b>KEYLN8</b> is synonymous with <b>SINGLE</b>. <b>KEYLN16</b> and <b>MIXED</b> are synonymous
+with <b>DOUBLE</b>. <b>SINGLE</b> and <b>KEYLN8</b> are not valid when <b>COMP-TAG</b> is specified.
+<b>TRIPLE</b> and <b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>.
+<b>DOUBLE</b> is the default when <b>COMP-TAG</b> is specified. Otherwise, the default is
+<b>SINGLE</b>. </li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_decipher_encipher" format="dita"/> shows the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+DECIPHER and ENCIPHER.</p>
+<fig id="ktb_des_decipher_encipher" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DECIPHER
+and ENCIPHER keys</title>
+<image placement="break" href="ktb_des_decipher_encipher.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DECIPHER
+and ENCIPHER keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li><b>KEYLN8</b> is synonymous with <b>SINGLE</b>. <b>KEYLN16</b> and <b>MIXED</b> are synonymous
+with <b>DOUBLE</b>. <b>SINGLE</b> and <b>KEYLN8</b> are not valid when <b>COMP-TAG</b> is specified.
+<b>TRIPLE</b> and <b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>.
+<b>DOUBLE</b> is the default when <b>COMP-TAG</b> is specified. Otherwise, the default is
+<b>SINGLE</b>. </li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_cipher_xi_xl_xo" format="dita"/> shows the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+CIPHERXI, CIPHERXL, and CIPHERXO .</p>
+<fig id="ktb_des_cipher_xi_xl_xo">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CIPHERXI,
+CIPHERXL, and CIPHERXO keys</title>
+<image placement="break" href="ktb_des_cipher_xi_xl_xo.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CIPHERXI,
+CIPHERXL, and CIPHERXO keys</alt>
+</image></fig>
+<!--No notes for DES CIPHERXI, CIPHERXL, and CIPHERXO keys-->
+<p><xref href="#des_key_usage_restrictions/ktb_des_data" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+DATA.</p>
+<fig id="ktb_des_data" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DATA
+keys</title>
+<image placement="break" href="ktb_des_data.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DATA
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li><b>KEYLN8</b> is synonymous with <b>SINGLE</b>. <b>KEYLN16</b> and <b>MIXED</b> are synonymous
+with <b>DOUBLE</b>. <b>TRIPLE</b> and <b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or
+<b>WRAP-ENH</b>. <b>SINGLE</b> is the default. </li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_data_c_m_mv" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+DATAC, DATAM, and DATAMV.</p>
+<fig id="ktb_des_data_c_m_mv">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DATAC,
+DATAM, and DATAMV keys</title>
+<image placement="break" href="ktb_des_data_c_m_mv.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DATAC,
+DATAM, and DATAMV keys</alt>
+</image></fig>
+<note><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>DOUBLE</b> is the
+default.</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_mac_macver" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+MAC and MACVER.</p>
+<fig id="ktb_des_mac_macver" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES MAC and
+MACVER keys</title>
+<image placement="break" href="ktb_des_mac_macver.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES MAC and
+MACVER keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li><b>KEYLN8</b> is synonymous with <b>SINGLE</b>. <b>KEYLN16</b> and <b>MIXED</b> are synonymous
+with <b>DOUBLE</b>. <b>TRIPLE</b> and <b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or
+<b>WRAP-ENH</b>. <b>SINGLE</b> is the default. </li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_secmsg" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+SECMSG.</p>
+<fig id="ktb_des_secmsg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES SECMSG
+keys</title>
+<image placement="break" href="ktb_des_secmsg.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES SECMSG
+keys</alt>
+</image></fig>
+<note><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>DOUBLE</b> is the
+default.</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_ipinenc" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+IPINENC.</p>
+<fig id="ktb_des_ipinenc" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IPINENC
+keys</title>
+<image placement="break" href="ktb_des_ipinenc.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IPINENC
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li>All keywords in this group are defaults unless one or more of these keywords are specified.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_opinenc" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+OPINENC.</p>
+<fig id="ktb_des_opinenc" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES OPINENC
+keys</title>
+<image placement="break" href="ktb_des_opinenc.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES OPINENC
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li>All keywords in this group are defaults unless one or more of these keywords are specified.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_pingen" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+PINGEN.</p>
+<fig id="ktb_des_pingen" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES PINGEN
+keys</title>
+<image placement="break" href="ktb_des_pingen.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES PINGEN
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li>All keywords in this group are defaults unless one or more of these keywords are specified.</li>
+<li><b>NOOFFSET</b> has no effect with <b>NO-SPEC</b>, but is supported for backward compatibility.
+There is no default.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_pinver" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+PINVER.</p>
+<fig id="ktb_des_pinver" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES PINVER
+keys</title>
+<image placement="break" href="ktb_des_pinver.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES PINVER
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li><b>NOOFFSET</b> has no effect with <b>NO-SPEC</b>, but is supported for backward compatibility.
+There is no default.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_exporter" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+EXPORTER.</p>
+<fig id="ktb_des_exporter" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES EXPORTER
+keys</title>
+<image placement="break" href="ktb_des_exporter.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES EXPORTER
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li>All keywords in this group are defaults unless one or more of these keywords are specified.</li>
+<li>Keyword <b>ANY</b> has been deprecated. Using <b>ANY</b> has no effect, but is allowed for
+backward compatibility.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_importer" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+IMPORTER.</p>
+<fig id="ktb_des_importer" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IMPORTER
+keys</title>
+<image placement="break" href="ktb_des_importer.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IMPORTER
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li><b>WRAPENH2</b> is only valid for <b>TRIPLE</b> or <b>TRIPLE-O</b>. If <b>TRIPLE</b> or
+<b>TRIPLE-O</b> is specified, <b>WRAPENH2</b> is the default. Otherwise, <b>WRAP-ECB</b> is the
+default.</li>
+<li><b>ENH-ONLY</b> is only valid with <b>WRAP-ENH</b>, <b>WRAPENH2</b>, <ph rev="sh21i2">or
+<b>WRAPENH3</b>. It is the default for <b>WRAPENH3</b>.</ph>
+<b>ENH-ONLY</b> is <ph rev="sh21i2">also</ph> the default for <b>TRIPLE</b> or <b>TRIPLE-O</b>.
+Otherwise there is no default.</li>
+<li>All keywords in this group are defaults unless one or more of these keywords are specified.</li>
+<li>Keyword <b>ANY</b> has been deprecated. Using <b>ANY</b> has no effect, but is allowed for
+backward compatibility.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>TRIPLE</b> and
+<b>TRIPLE-O</b> are not valid with <b>WRAP-ECB</b> or <b>WRAP-ENH</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_ikeyxlat_okeyxlat" format="dita"/> shows the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+IKEYXLAT and OKEYXLAT.</p>
+<fig id="ktb_des_ikeyxlat_okeyxlat">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IKEYXLAT
+and OKEYXLAT keys</title>
+<image placement="break" href="ktb_des_ikeyxlat_okeyxlat.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES IKEYXLAT
+and OKEYXLAT keys</alt>
+</image></fig>
+<note>
+<ol>
+<li>Keyword <b>ANY</b> has been deprecated. Using <b>ANY</b> has no effect, but is allowed for
+backward compatibility.</li>
+<li><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>DOUBLE</b> is the default.
+</li>
+</ol>
+</note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_dkygenky" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+DKYGENKY.</p>
+<fig id="ktb_des_dkygenky">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DKYGENKY
+keys</title>
+<image placement="break" href="ktb_des_dkygenky.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES DKYGENKY
+keys</alt>
+</image></fig>
+<note><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>DOUBLE</b> is the
+default. </note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_keygenky" format="dita"/> shows the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key type
+KEYGENKY.</p>
+<fig id="ktb_des_keygenky">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES KEYGENKY
+keys</title>
+<image placement="break" href="ktb_des_keygenky.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES KEYGENKY
+keys</alt>
+</image></fig>
+<note><b>KEYLN16</b> and <b>MIXED</b> are synonymous with <b>DOUBLE</b>. <b>DOUBLE</b> is the
+default. </note>
+<p><xref href="#des_key_usage_restrictions/ktb_des_cvardes_cvarenc_and_so_on" format="dita"/> shows
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> keyword combinations for DES key types
+CVARDEC, CVARENC, CVARPINE, CVARXCVL, and CVARXCVR.</p>
+<fig id="ktb_des_cvardes_cvarenc_and_so_on">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CVARDEC,
+CVARENC, CVARPINE, CVARXCVL, and CVARXCVR keys</title>
+<image placement="break" href="ktb_des_cvardes_cvarenc_and_so_on.jpg">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> keyword combinations for DES CVARDEC,
+CVARENC, CVARPINE, CVARXCVL, and CVARXCVR keys</alt>
+</image></fig>
+<note><b>KEYLN8</b> is synonymous with <b>SINGLE</b>. <b>KEYLN16</b> and <b>MIXED</b> are synonymous
+with <b>DOUBLE</b>. <b>SINGLE</b> is the default. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> service only supports single length
+keys, so do not specify <b>DOUBLE</b>, <b>DOUBLE-O</b>, <b>KEYLN16</b>, or <b>MIXED</b> if the key
+is to be used by this service.</note>
+<!--***********   END of new graphics from from BSM (16) or ICSF APG (17)    ******************
+************ Continue with: Table 8 "DES control vector key-subtype and key-usage keywords" from CCA book   **************************************************-->
+<p>
+<table frame="all" id="des_cv_keywords" pgwide="1"><title>DES control vector key-subtype and
+key-usage keywords</title><desc>
+<p outputclass="summary">DES control vector key-subtype and key-usage keywords. A table with two
+columns, describing the keywords and their meaning</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><term>Key-encrypting keys</term></entry>
+</row>
+<row>
+<entry>OPIM</entry>
+<entry>IMPORTER keys that have a control vector with this attribute can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb when the key form is OPIM.</entry>
+</row>
+<row>
+<entry>IMEX</entry>
+<entry>IMPORTER and EXPORTER keys that have a control vector with this attribute can be used in the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb when the key form is
+IMEX.</entry>
+</row>
+<row>
+<entry>IMIM</entry>
+<entry>IMPORTER keys that have a control vector with this attribute can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb when the key form is IMIM.</entry>
+</row>
+<row>
+<entry>IMPORT </entry>
+<entry>IMPORTER keys that have a control vector with this attribute can be used to import a key in
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb.</entry>
+</row>
+<row>
+<entry>OPEX </entry>
+<entry>EXPORTER keys that have a control vector with this attribute can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb when the key form is OPEX.</entry>
+</row>
+<row>
+<entry>EXEX</entry>
+<entry> EXPORTER keys that have a control vector with this attribute can be used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb when the key form is EXEX.</entry>
+</row>
+<row>
+<entry>EXPORT </entry>
+<entry> EXPORTER keys that have a control vector with this attribute can be used to export a key in
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb.</entry>
+</row>
+<row>
+<entry>XLATE</entry>
+<entry> IMPORTER and EXPORTER keys that have a control vector with this attribute can be used in the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verbs.</entry>
+</row>
+<row>
+<entry>ANY</entry>
+<entry>Key-encrypting keys that have a control vector with this attribute can be used to transport
+any type of key. The meaning of this keyword has been discontinued, and its usage is allowed for
+backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry>NOT-KEK</entry>
+<entry>Key-encrypting keys that have a control vector with this attribute formerly could not be used
+to transport key-encrypting keys. The meaning of this keyword has been discontinued and its usage is
+allowed for backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry>DATA</entry>
+<entry> Key-encrypting keys that have a control vector with this attribute formerly could only be
+used to transport keys with a key type of DATA, CIPHER, ENCIPHER, DECIPHER, MAC, and MACVER. The
+meaning of this keyword has been discontinued and its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry>PIN</entry>
+<entry>Key-encrypting keys that have a control vector with this attribute formerly could only be
+used to transport keys with a key type of PINVER, IPINENC, and OPINENC. The meaning of this keyword
+has been discontinued and its usage is allowed for backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry>LMTD-KEK</entry>
+<entry>Key-encrypting keys that have a control vector with this attribute formerly could only be
+used to exchange keys with key-encrypting keys that carry NOT-KEK, PIN, or DATA key-type ciphering
+restrictions. The meaning of this keyword has been discontinued and its usage is allowed for
+backward compatibility reasons only.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>MAC keys</term></entry>
+</row>
+<row>
+<entry>ANY-MAC</entry>
+<entry>Any MAC verb can use this key.</entry>
+</row>
+<row>
+<entry>ANSIX9.9</entry>
+<entry>The meaning of this keyword has been discontinued and its usage is allowed for backward
+compatibility reasons only.</entry>
+</row>
+<row>
+<entry>CVVKEY-A</entry>
+<entry>Restricts the usage to single-length key-A key or double-length key-A and key-B keys for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs.</entry>
+</row>
+<row>
+<entry>CVVKEY-B</entry>
+<entry>Restricts the usage to single-length key-B key for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>Data operation keys</term></entry>
+</row>
+<row>
+<entry>SMKEY</entry>
+<entry>Enable the encryption of keys in an EMV secure message.</entry>
+</row>
+<row>
+<entry>SMPIN</entry>
+<entry>Enable the encryption of PINs in an EMV secure message.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>PIN keys</term></entry>
+</row>
+<row>
+<entry>NO-SPEC</entry>
+<entry>The control vector does not require a specific PIN-calculation method.</entry>
+</row>
+<row>
+<entry>IBM-PIN</entry>
+<entry> Select the IBM 3624 PIN-calculation method.</entry>
+</row>
+<row>
+<entry>IBM-PINO</entry>
+<entry>Select the IBM 3624 PIN-calculation method with offset processing.</entry>
+</row>
+<row>
+<entry>GBP-PIN</entry>
+<entry> Select the IBM German Bank Pool PIN-calculation method.</entry>
+</row>
+<row>
+<entry>GBP-PINO</entry>
+<entry>Select the IBM German Bank Pool PIN-calculation method with institution-PIN input or
+output.</entry>
+</row>
+<row>
+<entry>VISA-PVV</entry>
+<entry>Select the Visa PVV PIN-calculation method.</entry>
+</row>
+<row>
+<entry>INBK-PIN</entry>
+<entry>Select the InterBank PIN-calculation method.</entry>
+</row>
+<row>
+<entry>NOOFFSET</entry>
+<entry>Indicates that a PINGEN or PINVER key cannot participate in the generation or verification of
+a PIN when an offset process is requested.</entry>
+</row>
+<row>
+<entry>CPINGEN</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb.</entry>
+</row>
+<row>
+<entry>CPINGENA</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb.</entry>
+</row>
+<row>
+<entry>EPINGEN</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> verb.</entry>
+</row>
+<row>
+<entry>EPINVER</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb.</entry>
+</row>
+<row>
+<entry>CPINENC</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb.</entry>
+</row>
+<row>
+<entry>REFORMAT</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb in the <term>Reformat</term>
+mode.</entry>
+</row>
+<row>
+<entry>TRANSLAT</entry>
+<entry>The key can participate in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb in the <term>Translate</term>
+mode.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>Key-generating keys</term></entry>
+</row>
+<row>
+<entry>CLR8-ENC</entry>
+<entry>The key can be used to multiply encrypt eight bytes of clear data with a generating
+key.</entry>
+</row>
+<row>
+<entry>DALL</entry>
+<entry>The key can be used to generate keys with the following key types: DATA, DATAC, DATAM,
+DATAMV, DMKEY, DMPIN, EXPORTER, IKEYXLAT, IMPORTER, MAC, MACVER, OKEYXLAT, and PINVER.</entry>
+</row>
+<row>
+<entry>DDATA</entry>
+<entry>The key can be used to generate a single-length or double-length DATA or DATAC key.</entry>
+</row>
+<row>
+<entry>DEXP</entry>
+<entry>The key can be used to generate an EXPORTER or an OKEYXLAT key.</entry>
+</row>
+<row>
+<entry>DIMP</entry>
+<entry>The key can be used to generate an IMPORTER or an IKEYXLAT key.</entry>
+</row>
+<row>
+<entry>DMAC</entry>
+<entry>The key can be used to generate a MAC or DATAM key.</entry>
+</row>
+<row>
+<entry>DMKEY</entry>
+<entry>The key can be used to generate a SECMSG with SMKEY secure messaging key for encrypting
+keys.</entry>
+</row>
+<row>
+<entry>DMPIN</entry>
+<entry>The key can be used to generate a SECMSG with SMPIN secure messaging key for encrypting
+PINs.</entry>
+</row>
+<row>
+<entry>DMV</entry>
+<entry>The key can be used to generate a MACVER or DATAMV key.</entry>
+</row>
+<row>
+<entry>DPVR</entry>
+<entry>The key can be used to generate a PINVER key.</entry>
+</row>
+<row>
+<entry>DKYL0</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a key based on the key-usage
+bits.</entry>
+</row>
+<row>
+<entry>DKYL1</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL0.</entry>
+</row>
+<row>
+<entry>DKYL2</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL1.</entry>
+</row>
+<row>
+<entry>DKYL3</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL2.</entry>
+</row>
+<row>
+<entry>DKYL4</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL3.</entry>
+</row>
+<row>
+<entry>DKYL5</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL4.</entry>
+</row>
+<row>
+<entry>DKYL6</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL5.</entry>
+</row>
+<row>
+<entry>DKYL7</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL6.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>Key lengths</term></entry>
+</row>
+<row>
+<entry>MIXED</entry>
+<entry>Indicates that the key can be either a replicated single-length key or a double-length key
+with two different, random 8-byte values.</entry>
+</row>
+<row>
+<entry>SINGLE, KEYLN8</entry>
+<entry>Specifies the key as a single-length key.</entry>
+</row>
+<row>
+<entry>DOUBLE, KEYLN16</entry>
+<entry>Specifies the key as a double-length key.</entry>
+</row>
+<row>
+<entry><ph rev="hw20i1">TRIPLE</ph></entry>
+<entry><ph rev="hw20i1">Specifies the key as a triple-length key.</ph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><term>Miscellaneous attributes</term></entry>
+</row>
+<row>
+<entry>XPORT-OK</entry>
+<entry>Permits the key to be exported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>. Also permits the key to be exported by
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb, unless
+<synph><var>NOT31XPT</var></synph> is set (CV bit 27 = B'1').</entry>
+</row>
+<row>
+<entry>NO-XPORT</entry>
+<entry>Prohibits the key from being exported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>.</entry>
+</row>
+<row>
+<entry>KEY-PART</entry>
+<entry>Specifies the control vector is for a key part.</entry>
+</row>
+<row>
+<entry>ENH-ONLY</entry>
+<entry>Prohibits the key from being wrapped with the legacy method once it has been wrapped with the
+enhanced method.</entry>
+</row>
+<row>
+<entry>T31XPTOK</entry>
+<entry>Permits the key to be exported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb.</entry>
+</row>
+<row>
+<entry>NOT31XPT</entry>
+<entry>Prohibits the key from being exported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+</conbody>
+</concept>
+<?Pub *0000043308?>

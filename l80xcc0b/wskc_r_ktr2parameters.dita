@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktr2parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>REFORMAT</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>ANSI X9.24</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>input_key_token_length <indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>input_key_token<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>input_KEK_key_identifier_length<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>input_KEK_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>output_KEK_key_identifier_length<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>output_KEK_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>output_key_token_length<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+<indexterm>output_key_token<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+This value must be 0, 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the verb. The keywords must be 8 bytes of
+contiguous storage with the keyword left-aligned in its 8-byte location and padded on the right with
+blanks. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_ktr2parameters/l0wskc02_ktr2_tab1"/>.<table id="l0wskc02_ktr2_tab1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Encipherment</i></b> (Optional)</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><kwd>COMP-CHK</kwd></synph></entry>
+<entry>Check if the key token to be translated or reformatted can have the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliance  tag.</entry>
+</row>
+<row rev="sh18i2">
+<entry><synph><kwd>COMP-TAG</kwd></synph></entry>
+<entry>Convert the input key token into a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged token. This
+requires that the domain at first is in full <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> and from there enters into the
+<term>migration mode</term>,  which is a temporary reduced mode of an active   <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> mode (see also <xref
+href="wskc_pci_hsm_migrate.dita#wskc_pci_hsm_migrate/pci_hsm_migration_mode"/>).</entry>
+</row>
+<row>
+<entry><synph><kwd>REFORMAT</kwd></synph></entry>
+<entry>Reformat the <parmname>input_key_token</parmname>.<ul>
+<li>When the <parmname>input_key_token</parmname> is a DES key token, reformat with the Key Wrapping
+Method specified.</li>
+<li>When the <parmname>input_key_token</parmname> is an operational AES key token, either reformat
+an AES DATA key (version X‘04’) to an AES CIPHER key (version X‘05’) or the reverse (version X’05’
+to version X’04’). </li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>TRANSLAT</kwd></synph></entry>
+<entry>Translate the <parmname>input_key_token</parmname> from encipherment under the
+<parmname>input_KEK_identifier</parmname> to encipherment under the
+<parmname>output_KEK_identifier</parmname>. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>V1PYLD</kwd></synph></entry>
+<entry>Reencipher an input variable-length AES key token (version X‘05’) to a payload version1
+(fixed-length) key token. This keyword is only valid for the CIPHER, EXPORTER and IMPORTER key
+types.</entry>
+</row>
+<row>
+<entry><synph><kwd>V0PYLD</kwd></synph></entry>
+<entry>Reencipher an input variable-length AES key token (version X‘05’) to a payload version 0
+(variable-length) key token. This keyword is only valid for the CIPHER, EXPORTER and IMPORTER key
+types.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key-wrapping method</i></b> (optional, valid only if
+input_key_token is an external DES key token)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for the
+default wrapping method. The default wrapping method configuration setting may be changed using the
+TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Use enhanced key wrapping method, which is compliant with the ANSI X9.24 standard.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Use original key wrapping method, which uses ECB wrapping for DES key
+tokens.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Translation control</i></b>
+(Optional, valid only with WRAP-ENH)</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Restrict the re-wrapping of the <synph><var>output_key_token</var></synph>. Once the token
+has been wrapped with the enhanced method, it cannot be re-wrapped using the original method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Algorithm</i></b> (One required,
+if the V0PYLD or V1PYLD keyword is specified)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies that the input key is an AES key. Where used, the key-encrypting keys will be AES
+transport keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>Specifies that the input key is a DES key. Where used, the key-encrypting keys will be DES
+transport keys. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>Specifies that the input key is an HMAC key. Where used, the key-encrypting keys will be AES
+transport keys.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>input_key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>input_key_token</var></synph> in bytes. The maximum value
+allowed is 725.</pd></plentry>
+<plentry><pt>input_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A variable length string variable containing the external key token. The external key token
+contains the key to be re-enciphered (or re-wrapped).</pd></plentry>
+<plentry><pt>input_KEK_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>input_KEK_key_identifier</var></synph> in bytes. The maximum
+value allowed is 725.</pd></plentry>
+<plentry><pt>input_KEK_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A variable length string variable containing the internal key token or the key label of an
+internal key token record in the key storage file. The internal key token contains the
+key-encrypting key used to decipher the key. The internal key token must contain a control vector
+that specifies an IMPORTER or IKEYXLAT key type. The control vector for an IMPORTER key must have
+the XLATE bit set to <ph>B'1'</ph>.</pd></plentry>
+<plentry><pt>output_KEK_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>output_KEK_key_identifier</var></synph> in bytes. The maximum
+value is 725.<p> If the <synph><kwd>REFORMAT</kwd></synph> keyword is specified, this value must be
+0.</p></pd></plentry>
+<plentry><pt>output_KEK_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A variable length string variable containing the internal key token or the key label of an
+internal key token record in the key storage file. The internal key token contains the
+key-encrypting key used to encipher the key. The internal key token must contain a control vector
+that specifies an EXPORTER or OKEYXLAT key type. The control vector for an exporter key must have
+the XLATE bit set to <ph>B'1'</ph>.<p> If the <synph><kwd>REFORMAT</kwd></synph> keyword is
+specified, this parameter is ignored.</p></pd></plentry>
+<plentry><pt>output_key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length of the output area provided for the
+<synph><var>output_key_token</var></synph>. This must be at least 64 bytes. On output, the parameter
+is updated with the length of the token copied to the
+<synph><var>output_key_token</var></synph>.</pd></plentry>
+<plentry><pt>output_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A variable length string variable containing an external key token. The external key token
+contains the re-enciphered key. <p>If the REFORMAT keyword is specified and the
+<parmname>input_key_token</parmname> is an AES DATA key (version X‘04’),
+<parmname>output_key_token</parmname> must contain an AES CIPHER key (version X‘05’) on input. The
+algorithm rule array keyword must specify AES and the token must have the following characteristics:<ul>
+<li>Algorithm is AES</li>
+<li>Key type CIPHER</li>
+<li>Key-usage field 2 either allows the key to be used for Cipher Block Chaining (CBC) mode or
+allows the key to be used for Electronic Code Book (ECB) mode.</li>
+<li rev="sh21i3">(optional) The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+export key management bit may be enabled. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> export status is copied to the output key
+token. </li>
+</ul>Otherwise, this field is ignored on input. </p><p>On output, a variable length string variable
+containing the key token that was translated or reformatted. </p><p>If the REFORMAT keyword is
+specified, and the <parmname>input_key_token</parmname> is an AES DATA key (version X‘04’), on
+output, the <parmname>output_key_token</parmname> is updated with the following characteristics: <ul>
+<li>Key-usage field 1 allows the key to be used for encryption and decryption.</li>
+<li>Key-management field 1 allows export using symmetric, unauthenticated asymmetric, and
+authenticated asymmetric transport keys, and allows export using DES, AES, and RSA transport keys.
+If the <parmname>output_key_token</parmname> was an AES CIPHER key token with CPACF export enabled
+in key-management field 1 then this is enabled in the returned
+<parmname>output_key_token</parmname>.</li>
+<li>Key-management field 2 indicates that the key is complete.</li>
+</ul></p>
+</pd></plentry>
+</parml></section>
+</refbody></reference>

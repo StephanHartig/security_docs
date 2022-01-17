@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn2usage">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></searchtitle>
+</titlealts><shortdesc rev="sh16">Read the contained usage notes and related information for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb, especially about the key type
+and key form specifications.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)<indexterm>usage notes</indexterm></indexterm>
+<indexterm>key forms<indexterm>Operational (OP)</indexterm><indexterm>Importable
+(IM)</indexterm><indexterm>Exportable (EX)</indexterm></indexterm>
+<indexterm>Operational (OP) key form</indexterm>
+<indexterm>Importable (IM) key form</indexterm>
+<indexterm>Exportable (EX) key form</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/><indexterm>key
+forms</indexterm><indexterm>key types</indexterm></indexterm>
+<indexterm>HMAC key length</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The key forms are defined as follows:
+<dl>
+<dlentry><dt>Operational (OP)</dt>
+<dd>The key value is enciphered under a master key. The result is
+placed into an internal key token. The key is then operational at
+the local system.</dd></dlentry>
+<dlentry><dt>Importable (IM)</dt>
+<dd>The key value is enciphered under an importer key-encrypting
+key. The result is placed into an external key token. The corresponding <synph><var>key_encrypting_key_identifier_n</var></synph> parameter
+must contain an AES IMPORTER key token or label.</dd></dlentry>
+<dlentry><dt>Exportable (EX)</dt>
+<dd>The key value is enciphered under an exporter key-encrypting
+key. The result is placed into an external key token. The corresponding <synph><var>key_encrypting_key_identifier_n</var></synph> parameter
+must contain an AES EXPORTER key token or label.</dd></dlentry>
+</dl></p></section>
+<section rev="sh16">
+<p><b>Key type specifications:</b> Generated AES and HMAC keys returned in an internal key token are
+enciphered with the AES master key, while generated keys returned in an external key token are
+enciphered under an AES key-encrypting key.</p>
+<p>There are two methods for specifying the type of keys to be generated: <ul>
+<li>One or two key type keywords are examined depending on the value of the key form rule-array
+keyword. <xref href="#l0wskc02_kgn2usage/kgn2usage_tab1" format="dita"/> shows the permissible key
+type and key form keyword combinations to generate a single copy of a key. <xref
+href="#l0wskc02_kgn2usage/kgn2usage_tab2" format="dita"/> shows the permissible key type and key
+form keyword combinations to generate two copies of a key.</li>
+<li>Use the TOKEN keyword and provide a key token to be updated or a skeleton key-token to be
+completed.</li>
+</ul></p>
+</section>
+<section rev="sh16">
+<table id="kgn2usage_tab1" pgwide="0">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> key_type and key_form
+keywords for one AES or HMAC key</title>
+<desc>
+<p outputclass="summary">Table with four columns, describing key_type_1, Required key usage,
+key_form OP, Key form IM or EX</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="8*"/>
+<colspec colname="col3" colwidth="2*"/>
+<colspec colname="col4" colwidth="2*"/>
+<thead>
+<row>
+<entry>key_type_1</entry>
+<entry>Required key usage</entry>
+<entry>Key form OP</entry>
+<entry>Key form IM or EX</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CIPHER</entry>
+<entry>DECRYPT and ENCRYPT</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>DKYGENKY<sup>*</sup></entry>
+<entry>D-ALL </entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>DKYGENKY<sup>*</sup></entry>
+<entry>D-CIPHER</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>DKYGENKY<sup>*</sup></entry>
+<entry>D-MAC</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup></entry>
+<entry>GENERATE and VERIFY</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>PINCALC<sup>*</sup></entry>
+<entry>GENONLY</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<note>
+<ol>
+<li>An X indicates a permissible key type and key usage combination for a given key form. </li>
+<li>The key types marked with an asterisk must be requested through the specification of a proper
+key usage in a key token and the use of the <synph><var>TOKEN</var></synph> keyword. These key types
+are not recognized by the verb as key type keywords.</li>
+<li rev="sh20i1">A DKYGENKY is used by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb to ultimately derive a key with a
+different key type. The rules for generating a single DKYGENKY depend on the type of key to
+diversify: <ul>
+<li>For D-ALL and D-SECMSG, there are no restrictions.</li>
+<li>For D-CIPHER and D-MAC, the
+related key usage fields (KUFs) defined in the DKYGENKY key must match the required key usage for
+the type of key to derive (that is, D-CIPHER requires DECRYPT and ENCRYPT, and D-MAC requires
+GENERATE and VERIFY).</li>
+<li>For D-KDKGKY, the related KUFs include one KDKGENKY related KUF which must match the required
+key usage for a KDKGENKY key, followed by one to four groups of active and passive related KUFs. The
+group related KUFs defined in the DKYGENKY key must match the required key usage for each pair of
+keys to derive, as defined in <xref href="#l0wskc02_kgn2usage/kgn2usage_tab2" format="dita"/>.</li>
+</ul></li>
+<li rev="sh20i1">A KDKGENKY is used by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb (Release 5.4 or later) to derive
+up to four different key types (MAC, CIPHER, PINPROT, or EXPORTER/IMPORTER). Each type of key to
+derive has related KUFs in an active/passive related KUF block. The group related KUFs defined in
+the KDKGENKY key must match the required key usage for each pair of keys to derive, as defined in
+<xref href="#l0wskc02_kgn2usage/kgn2usage_tab2" format="dita"/>.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table id="kgn2usage_tab2" pgwide="0" frame="all"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> key_type and key_form keywords for a
+pair of AES or HMAC keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>
+Valid key type and key forms for a pair of AES or HMAC keys</p>
+</desc><tgroup cols="6">
+<colspec colname="col1" colwidth="54*"/>
+<colspec colname="col2" colwidth="54*"/>
+<colspec colname="col3" colwidth="18*"/>
+<colspec colname="col4" colwidth="18*"/>
+<colspec colname="col5" colwidth="18*"/>
+<colspec colname="col6" colwidth="18*"/>
+<thead>
+<row valign="bottom">
+<entry align="left" colname="col1" morerows="1">key_type_1 (usage)</entry>
+<entry align="left" colname="col2" morerows="1">key_type_2 (usage)</entry>
+<entry align="center" nameend="col6" namest="col3">key_form</entry>
+</row>
+<row valign="bottom">
+<entry align="center" colname="col3">OPOP, OPIM, IMIM</entry>
+<entry align="center" colname="col4">OPEX</entry>
+<entry align="center" colname="col5">EXEX</entry>
+<entry align="center" colname="col6">IMEX</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT)</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER (ENCRPYT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRYPT)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (ENCRPYT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+<entry align="center"/>
+</row>
+<row>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry>CIPHER (DECRYPT ENCRYPT C-XLATE)</entry>
+<entry align="center"/>
+<entry align="center">E</entry>
+<entry align="center">X</entry>
+<entry align="center">E</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry>MAC<sup>*</sup> (VERIFY)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (VERIFY)</entry>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (GENONLY)</entry>
+<entry>MAC<sup>*</sup> (VERIFY)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (VERIFY)</entry>
+<entry>MAC<sup>*</sup> (GENONLY)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry>MAC<sup>*</sup> (GENONLY)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>MAC<sup>*</sup> (GENONLY)</entry>
+<entry>MAC<sup>*</sup> (GENERATE)</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>IMPORTER</entry>
+<entry>EXPORTER</entry>
+<entry align="center"/>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>EXPORTER</entry>
+<entry>IMPORTER</entry>
+<entry align="center"/>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>DKYGENKY<sup>*</sup></entry>
+<entry>DKYGENKY<sup>*</sup></entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+
+<row>
+<entry>PINPROT (ENCRYPT, REFORMAT, NOFLDFMT, ISO-4)</entry>
+<entry>PINPROT (DECRYPT, EPINVER, NOFLDFMT, ISO-4)</entry>
+<entry align="center">F</entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+</row>
+<row>
+<entry>PINPROT (DECRYPT EPINVER NOFLDFMT ISO-4)</entry>
+<entry>PINPROT (ENCRYPT REFORMAT NOFLDFMT ISO-4)</entry>
+<entry align="center">F</entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col6">
+<note>
+<ol>
+<li>An <codeph>'X'</codeph> indicates a permissible key type and key usage combination for a given
+key form. An <codeph>'E'</codeph> indicates that a special (Extended) command is required as those
+keys require special handling. An <codeph>'F'</codeph> indicates that a special
+OPOP command is required as those keys require special handling. See
+<xref href="wskc_r_kgn2required.dita"/> for the commands required to enable these permissible
+combinations.</li>
+<li>The key types marked with an asterisk (*) must be requested through the specification of a
+proper key usage in a key token and the use of the TOKEN keyword. These key types are not recognized
+by the verb as key type keywords.</li>
+<li>A pair of DKYGENKY keys can be used to diversify a pair of keys with different key types and key
+usage attributes. The combination of key types and key usage attributes that can be diversified must
+meet the requirements of using the Key_Generate2 verb to generate those same keys. A DKYGENKY key
+with D-ALL usage can only be paired with a DKYGENKY key with D-ALL usage.</li>
+<li>Refer to <xref href="#l0wskc02_kgn2usage/key_gen_proc" format="dita"/>.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+<section>
+<p>For AES keys, the AES KEK must be at least as strong as the key being generated to be considered
+sufficient strength.</p><p>For HMAC keys, the AES KEK must be sufficient strength as described in the following table: </p>
+<table>
+<title>AES KEK strength required for generating an HMAC key under an AES KEK</title>
+<desc>
+<p outputclass="summary">AES KEK strength required for generating an HMAC key under an AES KEK</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<thead>
+<row>
+<entry>Key-usage field 2 in the HMAC key contains</entry>
+<entry>Minimum strength of AES KEK to adequately protect the HMAC key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>SHA-256, SHA-384, or
+SHA-512</entry>
+<entry>256 bits</entry>
+</row>
+<row>
+<entry>SHA-224</entry>
+<entry>192 bits</entry>
+</row>
+<row>
+<entry>SHA-1</entry>
+<entry>128 bits</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p><xref href="#l0wskc02_kgn2usage/key_gen_proc" format="dita"/> describes the key generation
+processing for DK keys (DK enabled AES key types MAC, PINCALC, PINPROT, and PINPRW). They have
+special rules related to which keys can exist on which system.</p>
+<table id="key_gen_proc" pgwide="1" rev="sh16" scale="90">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> access control requirements for DK enabled keys</title><desc><p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> valid key
+type and key form for one key</p></desc>
+<tgroup cols="12">
+<colspec colname="col1" colwidth="69*"/>
+<colspec colname="col2" colwidth="68*"/>
+<colspec colname="col3" colwidth="40*"/>
+<colspec colname="col4" colwidth="73*"/>
+<colspec colname="col5" colwidth="69*"/>
+<colspec colname="col6" colwidth="68*"/>
+<colspec colname="col7" colwidth="42*"/>
+<colspec colname="col8" colwidth="74*"/>
+<colspec colname="col9" colwidth="38*"/>
+<colspec colname="col10" colwidth="36*"/>
+<colspec colname="col11" colwidth="35*"/>
+<colspec colname="col12" colwidth="21*"/>
+<thead>
+<row>
+<entry namest="col1" nameend="col4"><parmname>generated_key_identifier_1</parmname></entry>
+<entry namest="col5" nameend="col8"><parmname>generated_key_identifier_2</parmname></entry>
+<entry namest="col9" nameend="col12"><parmname>key_form</parmname></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>key_type_1</entry>
+<entry>KUF 1 high-order byte</entry>
+<entry>KUF 2 high-order byte</entry>
+<entry>KUF 3 high-order byte</entry>
+<entry>key_type_2</entry>
+<entry>KUF 1 high-order byte</entry>
+<entry>KUF 2 high-order byte</entry>
+<entry>KUF 3 high-order byte</entry>
+<entry>OPOP OPIM IMIM</entry>
+<entry>OPEX IMEX</entry>
+<entry>EXEX</entry>
+<entry>OP EX IM</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col12">When using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> to generate one or two DK keys that
+have DKPINOP, DKPINOPP, DKPINAD1, or DKPINAD2 on in key-usage field 3 of at least one skeleton
+key-token, the following table rows show the valid key usage for each DK key and the required access
+control command required for each <parmname>key_form</parmname> keyword.</entry>
+</row>
+<row><!-- 1. row -->
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>%</entry>
+<entry>x</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 2. row -->
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>%</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 3. row -->
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>CIPHER</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>No DK user</entry>
+<entry>%</entry>
+<entry>*</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 4. row -->
+<entry>CIPHER</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>No DK user</entry>
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>%</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 5. row -->
+<entry>PINPROT</entry>
+<entry>ENCRYPT </entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>%</entry>
+<entry>&amp;</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 6. row -->
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>%</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 7. row -->
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>%</entry>
+<entry>x</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 8. row -->
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>%</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+
+<row><!-- 9. row -->
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>~</entry>
+<entry>~</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 10. row -->
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD1</entry>
+<entry>~</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 11. row -->
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD2</entry>
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD2</entry>
+<entry>%</entry>
+<entry>$</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 12. row -->
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD2</entry>
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINAD2</entry>
+<entry>%</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 13. row -->
+<entry>PINPRW</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>PINPRW</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>x</entry>
+<entry>x</entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 14. row -->
+<entry>PINPRW</entry>
+<entry>VERIFY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>PINPRW</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry>x</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+<row><!-- 15. row -->
+<entry>PINCALC</entry>
+<entry>GENONLY</entry>
+<entry>Any usage</entry>
+<entry>DKPINOP</entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+<entry>#</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col12">The symbols in the key_form columns are as follows:
+<dl compact="yes">
+<dlentry>
+<dt>%</dt>
+<dd>Generate DK Set Locally (OPOP, OPIM, IMIM), offset X'02BB'</dd>
+</dlentry>
+<dlentry>
+<dt>*</dt>
+<dd>Generate DK PIN Print Pair, offset X'02BC'</dd>
+</dlentry>
+<dlentry>
+<dt>&amp;</dt>
+<dd>Generate DK PIN Admin 1 PINPROT Pair, offset X'02BD'</dd>
+</dlentry>
+<dlentry>
+<dt>~</dt>
+<dd>Generate DK PIN Admin 1 MAC Pair, offset X'02BE'</dd>
+</dlentry>
+<dlentry>
+<dt>$</dt>
+<dd>Generate DK PIN Admin 2 MAC Pair, offset X'02BF'</dd>
+</dlentry>
+<dlentry>
+<dt>#</dt>
+<dd>Generate2 Key, offset X'00EA'</dd>
+</dlentry>
+<dlentry>
+<dt>x</dt>
+<dd>Generate2 Key Set, offset X'00EB'</dd>
+</dlentry>
+<dlentry>
+<dt>none</dt>
+<dd>Error 8/155</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh16">The DKPINAD1 MAC keys are special. They are the only keys listed as needing no special permission to
+be generated as OPOP, OPIM, or IMIM pairs. Those keys are needed for generating and verifying the
+value EPB_M_FUS in some DK functions. Those functions run on the same system (Generating Unit) and
+are the only functions that use the DKPINAD1 keys. Since the entire key pair is required on the same
+system, special permission should not be needed in order to generate a complete key pair on the same
+system.</p>
+<p rev="sh16">DKPINAD2 MAC key pairs can be generated with GENONLY and VERIFY key usage in key form OPOP,
+OPIM, and IMIM (those formats that render possible the existence of the entire key pair on one system)
+only with an appropriate access control point (%) set.</p>
+</section>
+<section rev="sh6??">
+<note>The HMAC key bit length must be equal or greater than half of the size of the hash function
+output. For example, SHA-256 output requires a 128-bit HMAC key.</note>
+</section>
+</refbody></reference>

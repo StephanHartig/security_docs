@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="rsapkt_crt_intext" xml:lang="en-us" rev="sh16i1">
+<title>RSA private key, 4096-bit Chinese Remainder Theorem with OPK</title>
+<titlealts>
+<navtitle>RSA private key, 4096-bit Chinese Remainder Theorem with OPK</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key, 4096-bit Chinese
+Remainder Theorem with OPK</searchtitle>
+</titlealts>
+<shortdesc>This RSA private key token with up to 4096-bit modulus is supported on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z9"/>,<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z10"/>, or later machines with the Nov. 2007 or
+later version of the licensed internal code installed on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Crypto Express coprocessor. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>RSA private key<indexterm>4096-bit Chinese Remainder Theorem</indexterm></indexterm>
+<indexterm>4096-bit Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<table frame="all" id="rpkai3" pgwide="1">
+<title>RSA private key token, 4096-bit Chinese Remainder Theorem with OPK section (X'08')</title>
+<desc>
+<p outputclass="summary">RSA Private Internal Key Token, 4096-bit Chinese Remainder Theorem with OPK
+section (X'08')</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="16*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Number of bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>X'08', section identifier, RSA private key, CRT format (RSA-CRT) with OPK</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry><ph>X'00'</ph>, version.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the RSA private-key section, 132 + ppp + qqq + rrr + sss + uuu + xxx + nnn.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the private-key subsection cleartext, offset 28 to the end of the
+modulus.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>004</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security flag: <p>External key token:</p><dl compact="yes">
+<dlentry>
+<dt><ph>X'40'</ph></dt>
+<dd>Unencrypted RSA private-key subsection identifier</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'42'</ph></dt>
+<dd>Encrypted RSA private-key subsection identifier</dd>
+</dlentry>
+</dl><p>Internal key token:</p><dl compact="yes">
+<dlentry>
+<dt><ph>X'08'</ph></dt>
+<dd>Encrypted RSA private-key subsection identifier, Chinese Remainder form.</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry>Key source flag byte: 
+<p>External key tokens: Reserved, binary zero.</p>
+<p>Internal key tokens:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>External private key was specified in the clear.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>External private key was encrypted.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'23'</ph></dt>
+<dd>Private key was generated using regeneration data.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'24'</ph></dt>
+<dd>Private key was randomly generated.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of the optional key-name section and any following sections. If there are no
+optional sections, then 20 bytes of <ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key use and translation control flag byte.<p>Key usage:</p><dl compact="yes">
+<dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt>B'00x xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+</dl>
+<p>Translation control:</p><dl compact="yes">
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry>
+</dl><p>All other bits reserved, set to binary zero.</p></entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>003</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>054</entry>
+<entry>002</entry>
+<entry>Length of prime number p in bytes: ppp.</entry>
+</row>
+<row>
+<entry>056</entry>
+<entry>002</entry>
+<entry>Length of prime number q in bytes: qqq.</entry>
+</row>
+<row>
+<entry>058</entry>
+<entry>002</entry>
+<entry>Length of d<sub>p</sub> in bytes: rrr.</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>002</entry>
+<entry>Length of d<sub>q</sub> in bytes: sss. </entry>
+</row>
+<row>
+<entry>062</entry>
+<entry>002</entry>
+<entry>Length of U in bytes: uuu. </entry>
+</row>
+<row>
+<entry>064</entry>
+<entry>002</entry>
+<entry>Length of modulus n in bytes: nnn.</entry>
+</row>
+<row>
+<entry>066</entry>
+<entry>002</entry>
+<entry rev="sh18i1">Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>068</entry>
+<entry>002</entry>
+<entry rev="sh18i1">Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>070</entry>
+<entry>002</entry>
+<entry>Length of padding field in bytes: xxx.</entry>
+</row>
+<row>
+<entry>072</entry>
+<entry>004</entry>
+<entry>Reserved, set to binary zero. </entry>
+</row>
+<row rev="sh18i1">
+<entry>076</entry>
+<entry>016</entry>
+<entry>External key token: Reserved, binary zero.
+<p>Internal key token:</p> Asymmetric master-key verification pattern.</entry>
+</row>
+<row>
+<entry>092</entry>
+<entry>032</entry>
+<entry>External key token: Reserved, binary zero.
+<p>Internal key token:</p>
+<p>Object Protection Key (OPK) data, 8-byte confounder and three
+8-byte DES keys used in the Triple-DES CBC process to encrypt the private key
+and blinding information. These 32 bytes are Triple-DES CBC encrypted by the
+asymmetric master key.</p> </entry>
+</row>
+<row>
+<entry>124</entry>
+<entry nameend="col3" namest="col2" rev="sh18i1">Start of the (optionally) encrypted subsection.
+<p>External key token:</p> 
+<ul compact="yes">
+<li>When offset 028 is X'40', the subsection is not encrypted.</li>
+<li>When offset 028 is X'42', the subsection is encrypted by the double-length 
+transport key using the Triple-DES CBC process.</li>
+</ul>
+<p>Internal key token:</p>
+<ul compact="yes">
+<li>When offset 028 is X'08', the subsection is encrypted by the triple-length OPK 
+using the Triple-DES CBC process.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>124</entry>
+<entry>008</entry>
+<entry>Random number confounder.</entry>
+</row>
+<row>
+<entry>132</entry>
+<entry>ppp</entry>
+<entry>Prime number p.</entry>
+</row>
+<row>
+<entry>132 + ppp</entry>
+<entry>qqq</entry>
+<entry>Prime number q</entry>
+</row>
+<row>
+<entry>132 + ppp + qqq</entry>
+<entry>rrr</entry>
+<entry>d<sub>p</sub> = d mod(p - 1)</entry>
+</row>
+<row>
+<entry>132 + ppp + qqq + rrr</entry>
+<entry>sss</entry>
+<entry>d<sub>q</sub> = d mod(q - 1)</entry>
+</row>
+<row>
+<entry>132 + ppp + qqq + rrr + sss</entry>
+<entry>uuu</entry>
+<entry>U = q**-1 mod(p).</entry>
+</row>
+<row>
+<entry rev="sh18i1">132 + ppp + qqq + rrr + sss + uuu</entry>
+<entry>xxx</entry>
+<entry><ph>X'00'</ph> padding of length xxx bytes such that the length from the start of the
+confounder at offset 124 to the end of the padding field is a multiple of eight bytes.</entry>
+</row>
+<row>
+<entry/>
+<entry nameend="col3" namest="col2">End of the encrypted secure subsection; all of the fields
+starting with the confounder field and ending with the variable length pad field are encrypted under
+the OPK using TDES (CBC outer chaining) for key confidentiality.</entry>
+</row>
+<row>
+<entry rev="sh18i1">132 + ppp + qqq + rrr + sss + uuu + xxx</entry>
+<entry>nnn</entry>
+<entry>Modulus n. n = pq where p and q are prime and 2<sup>512</sup> &le; n &lt; 2<sup>4096</sup>.</entry>
+<?Pub Caret 47?>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>
+<?Pub *0000009493?>

@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference id="ffxt_parameters" xml:lang="en-us" rev="sh21i1">
+<title>Parameters</title>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"
+/>)<indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>. </p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_ak1_xfb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The number of keywords you supplied in the <parmname>rule_array</parmname> parameter. The value
+must be 5.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>rule_array </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_jdt_q3b_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <parmname>rule_array</parmname> contains keywords that provide control information to the
+callable service. The keywords must be in contiguous storage with each of the keywords
+left-justified in its own 8-byte location and padded on the right with blanks.</p>
+<table frame="all" pgwide="0" id="table_kdt_q3b_x4b"><title>Rule array keywords for Format
+Preserving Algorithms Translate control information</title><desc>
+<p outputclass="summary">Rule array keywords for Format Preserving Algorithms Translate control
+information. This table contains two columns: Keyword and Meaning, and it contains rows for Input
+ciphertext format (one, required), Output ciphertext format (one, required), Encryption Algorithm
+process (one, required), Input alphabet (one, required), and Output alphabet (one, required).</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="166*"/>
+<colspec colname="col2" colwidth="302*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Input ciphertext format (one, required)</i></b></entry>
+</row>
+<row>
+<entry>ICFF1</entry>
+<entry>Specifies the input ciphertext was encrypted using FPE FF1 algorithm (original FFX).</entry>
+</row>
+<row>
+<entry>ICFF2</entry>
+<entry>Specifies the input ciphertext was encrypted using FPE FF2 algorithm (original VAES).</entry>
+</row>
+<row>
+<entry>ICFF2.1</entry>
+<entry>Specifies the input ciphertext was encrypted using FPE FF2.1 algorithm (new version of
+VAES).</entry>
+</row>
+<row>
+<entry align="left" valign="top" namest="col1" nameend="col2"><b><i>Output ciphertext format (one,
+required)</i></b></entry>
+</row>
+<row>
+<entry>OCFF1</entry>
+<entry>Specifies the data is to be encrypted using FPE FF1 algorithm (original FFX).</entry>
+</row>
+<row>
+<entry>OCFF2</entry>
+<entry>Specifies the data is to be encrypted using FPE FF2 algorithm (original VAES).</entry>
+</row>
+<row>
+<entry>OCFF2.1</entry>
+<entry>Specifies the data is to be encrypted using FPE FF2.1 algorithm (new version of
+VAES).</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Encryption Algorithm process (one,
+required)</i></b></entry>
+</row>
+<row>
+<entry>AES</entry>
+<entry>Speciﬁes use of the AES ciphering algorithm.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Input alphabet (one, required)</i></b></entry>
+</row>
+<row>
+<entry>I-BASE10</entry>
+<entry>Specifies that the input data will be only BASE-10 ASCII represented in binary form. Valid
+ASCII values are '0' through '9' (X'30' through X'39'). This applies to the tweak as well as the
+alphabet.</entry>
+</row>
+<row>
+<entry>I-CUSTOM</entry>
+<entry>Specifies that the caller can provide the alphabet for the input data as well as the tweak.
+The tweak alphabet is optional. The input data, tweak, and alphabets are ASCII character
+sets.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Output alphabet (one, required)</i></b></entry>
+</row>
+<row>
+<entry>O-BASE10</entry>
+<entry>Specifies that the output data will be only BASE-10 ASCII represented in binary form. Valid
+ASCII values are '0' through '9' (X'30' through X'39'). This applies to the tweak as well as the
+alphabet.</entry>
+</row>
+<row>
+<entry>O-CUSTOM</entry>
+<entry>Specifies that the caller can provide the alphabet for the output data as well as the tweak.
+The tweak alphabet is optional. The output data, tweak, and alphabets are ASCII character
+sets.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</pd>
+</plentry>
+<plentry>
+<pt>input_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_xng_dnb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>input_key_identifier</parmname> parameter. If the
+<parmname>input_key_identifier</parmname> contains a label, the length must be 64. Otherwise, the
+value must be between the actual length of the token and 725.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_yng_dnb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The identifier of the key to decrypt the input cipher text. The key identifier is an operational
+token or the key label of an operational token in key storage. The key must be an AES CIPHER key
+with key attributes DECRYPT and the desired enciphering mode of FF1, FF2, or FF2.1. </p>
+<p>When the ICFF1 keyword is specified, this key can be either a 128-bit or a 256-bit key. When the
+ICFF2 or ICFF2.1 keyword is specified, this key must be a 128-bit key.</p>
+<p>If the token supplied was encrypted under the old master key, the token is returned encrypted
+under the current master key. </p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_zng_dnb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>output_key_identifier</parmname> parameter. If the
+<parmname>output_key_identifier</parmname> contains a label, the length must be 64. Otherwise, the
+value must be between the actual length of the token and 725.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_a4g_dnb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The identifier of the key to encrypt the plain text. The key identifier is an operational token
+or the key label of an operational token in key storage. The key must be an AES CIPHER key with key
+attributes ENCRYPT and the desired enciphering mode of FF1, FF2, or FF2.1. </p>
+<p>When the OCFF1 keyword is specified, this key can be either a 128-bit or a 256-bit key. When the
+OCFF2 or OCFF2.1 keyword is specified, this key must be a 128-bit key.</p>
+<p>If the token supplied was encrypted under the old master key, the token is returned encrypted
+under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_tweak_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_o1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>input_tweak</parmname> parameter.<dl>
+<dlentry>
+<dt>For the ICFF1 keyword</dt>
+<dd>The value can be between 0 and 512 inclusive.</dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>For the ICFF2 or ICFF2.1 keyword</dt>
+<dd>Minimum can be 0 and the maximum must satisfy this formula depending on the
+<parmname>input_tweak_alphabet_length</parmname>
+value:<codeblock>(input_tweak _length x lg2(<i>input_tweak_alphabet_length</i>)) &lt;= (15 – 2) x 8</codeblock>
+</dd>
+</dlentry>
+</dl></p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_tweak</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_p1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The data to be used as the tweak value in the input decryption calculations. When the
+<parmname>input_tweak_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_tweak_alphabet_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_q1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>input_tweak_alphabet</parmname> parameter. The
+value must be zero when the I-BASE10 keyword is specified.</p>
+<p>When the I-CUSTOM keyword is specified:<dl>
+<dlentry>
+<dt>For the ICFF1 keyword</dt>
+<dd>The value must be 256. </dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>For the ICFF2 or ICFF2.1 keyword</dt>
+<dd>The value must be between 8 and 256 inclusive.</dd>
+</dlentry>
+</dl></p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_tweak_alphabet</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_r1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The tweak alphabet data to be used in the input decryption calculations. When the
+<parmname>input_tweak_alphabet_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_alphabet_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_s1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>input_alphabet</parmname> parameter. The value
+must be zero when the I-BASE10 keyword is specified. Otherwise, the value may be zero or between 8
+and 256 inclusive.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_alphabet</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_t1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The alphabet data to be used in the input decryption calculations. When the
+<parmname>input_alphabet_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_tweak_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_u1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>output_tweak</parmname> parameter.<dl>
+<dlentry>
+<dt>For the OCFF1 keyword</dt>
+<dd>The value can be between 0 and 512 inclusive.</dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>For the OCFF2 or OCFF2.1 keyword</dt>
+<dd>Minimum can be 0 and the maximum must satisfy this formula depending on the
+<parmname>output_tweak_alphabet_length</parmname>
+value:<codeblock>(output_tweak _length x lg2(<i>output_tweak_alphabet_length</i>)) &lt;= (15 – 2) x 8</codeblock>
+</dd>
+</dlentry>
+</dl></p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_tweak</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_v1k_vpb_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The data to be used as the tweak value in the output encryption calculations. When the
+<parmname>output_tweak_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_tweak_alphabet_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_wpt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>output_tweak_alphabet</parmname> parameter. The
+value must be zero when the O-BASE10 keyword is specified.</p>
+<p>When the O-CUSTOM keyword is specified:<dl>
+<dlentry>
+<dt>For the OCFF1 keyword</dt>
+<dd>The value must be 256. </dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>For the OCFF2 or OCFF2.1 keyword</dt>
+<dd>The value must be between 8 and 256 inclusive.</dd>
+</dlentry>
+</dl></p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_tweak_alphabet</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_xpt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The tweak alphabet data to be used in the output encryption calculations. When the
+<parmname>output_tweak_alphabet_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_alphabet_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_ypt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>output_alphabet</parmname> parameter. The value
+must be zero when the O-BASE10 keyword is specified. Otherwise, the value may be zero or between 8
+and 256 inclusive.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_alphabet</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_zpt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The alphabet data to be used in the output encryption calculations. When the
+<parmname>output_alphabet_length</parmname> is zero, this parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_aqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Length in bytes of the <parmname>reserved1</parmname> parameter. The value must be 0.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_bqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>This parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_cqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Length in bytes of the <parmname>reserved2</parmname> parameter. The value must be 0.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_dqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>This parameter is ignored.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>ciphertext_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_eqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Specifies the length in bytes of the <parmname>ciphertext</parmname> parameter. On input, the
+value is the length the input ciphertext. On output, the value is the length of the data returned in
+the ciphertext parameter.<dl>
+<dlentry>
+<dt>For the OCFF1 keyword</dt>
+<dd>The value must be between 2 and 504 inclusive.</dd>
+</dlentry>
+<dlentry>
+<dt>For the OCFF2 or OCFF2.1 keyword</dt>
+<dd>The minimum is 2 and the maximum must satisfy this formula depending on the
+<parmname>output_alphabet_length</parmname>
+value:<codeblock>(<i>ciphertext_length</i> x lg2(<i>output_alphabet_length</i>))/2 &lt;= (15-1) x 8</codeblock>For
+example, when the <parmname>output_alphabet_length</parmname> is 10, the maximum
+<parmname>ciphertext_length</parmname> is 31.<codeblock>104/log2(10) = 31</codeblock></dd>
+</dlentry>
+</dl></p>
+</pd>
+</plentry>
+<plentry>
+<pt>ciphertext</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_fqt_lfc_x4b">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The enciphered text to be processed.</p>
+</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000034406?>

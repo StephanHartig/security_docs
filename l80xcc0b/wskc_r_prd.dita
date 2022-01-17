@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_prd">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/></searchtitle>
+  </titlealts>
+<shortdesc>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> to delete a record from the <ph>PKA key storage file</ph>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUPKADS</indexterm></indexterm>
+<indexterm>CSUPKADS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>PKA key records are stored in the external key-storage file defined
+by the CSUPKADS environment variable.</p></section>
+</refbody></reference>

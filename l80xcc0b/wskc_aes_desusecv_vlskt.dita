@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc02_aes_desusecv" rev="shr2" xml:lang="en-us">
+<title>AES DESUSECV variable-length symmetric key token</title>
+<titlealts>
+<navtitle>AES DESUSECV</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): AES DESUSECV variable-length symmetric
+key token</searchtitle>
+</titlealts>
+<shortdesc>View a table showing the format of the DESUSECV variable-length
+symmetric key-token.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key token<indexterm>AES DESUSECV variable-length
+symmetric</indexterm></indexterm><indexterm>DESUSECV variable-length
+symmetric</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<table id="aes_desusecv_vlskt" pgwide="1">
+<title>AES DESUSECV variable-length symmetric key-token, version X'05'</title>
+<desc>
+<p outputclass="summary">AES DESUSECV variable-length symmetric key-token, version X'05'</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="25*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col3" namest="col1">Header</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>01</entry>
+<entry>Token identifier: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>External key-token (encrypted payload is wrapped with a transport key or there is no payload). A
+transport key can be a key-encrypting key or an RSA public-key.</dd>
+</dlentry>
+</dl><p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>01</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>02</entry>
+<entry>Length in bytes of the overall token structure:<p>46 + (2 * <i>kuf</i>) + (2 * <i>kmf</i>) +
+<i>kl</i> + <i>iead</i> + <i>uad</i> + ((<i>pl</i> + 7) / 8)</p><p><keyword>Key token Minimum and
+maximum token length</keyword></p><p>External 46 + (2 * 1) + (2 * 1) + 0 + 11 + 0 + ((576 + 7) / 8)
+= 133</p></entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>01</entry>
+<entry>
+<p>Token version number (identifies the format of this key token):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'05'</dt>
+<dd>Version 5 format of the key token (variable-length symmetric key-token)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>005</entry>
+<entry>03</entry>
+<entry>
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">End of header</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">Wrapping information section (all data related to wrapping the
+key)</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>01</entry>
+<entry>Key material state:<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>Key is wrapped with a transport key. The transport key is an AES key-encrypting key. The key
+token is external.</dd>
+</dlentry>
+</dl><p>All unused values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>009</entry>
+<entry>01</entry>
+<entry>Key verification pattern (KVP) type:<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>KEK (8 leftmost bytes of SHA-256 hash: X'01 &parallel; clear KEK). The key token is
+external.</dd>
+</dlentry>
+</dl><p>All unused values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>16</entry>
+<entry>KVP:
+<p>The field contains the KVP of the key-encrypting key used to wrap the key. The 8-byte KEK KVP is
+left-aligned in the field and padded on the right low-order bytes with binary zeros. The key token
+is external.</p>
+</entry>
+</row>
+<row>
+<entry>026</entry>
+<entry>01</entry>
+<entry>
+Encrypted section key-wrapping method (how data in the encrypted section is protected):
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>AESKW (ANS X9.102). The key token is external with a key wrapped by an AES key-encrypting
+key.</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>027</entry>
+<entry>01</entry>
+<entry>Hash algorithm used for wrapping key. The value indicates the algorithm used to calculate
+the message digest of the associated data. The message digest is included in the wrapped payload and
+is calculated starting at offset 30 for the length in bytes of all the associated data for the key
+token (length value at offset 32). <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256</dd>
+</dlentry>
+</dl><p>All unused values are reserved and undefined. The key token is external.</p></entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>01</entry>
+<entry>Payload format version (identifies format of the payload): 
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>V1 payload (V1PYLD). The payload is fixed length based on the maximum possible key size of the
+algorithm for the key. The key is padded with random data to the size of the largest key for that
+algorithm. This helps to deter attacks on keys known to be weaker. The key length cannot be inferred
+by the size of the payload. The key token is external or internal.</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>01</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">End of wrapping information section</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">
+AESKW components: (1) associated data section and (2) optional wrapped AESKW payload
+</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">Associated data section</entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>01</entry>
+<entry>Associated data section version:
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Version 1 format of associated data</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>031</entry>
+<entry>01</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>032</entry>
+<entry>02</entry>
+<entry>Length in bytes of all the associated data for thekey token: 31.</entry>
+</row>
+<row>
+<entry>034</entry>
+<entry>01</entry>
+<entry>Length in bytes of the optional key label (<i>kl</i>): 0.</entry>
+</row>
+<row>
+<entry>035</entry>
+<entry>01</entry>
+<entry>Length in bytes of the optional IBM extended associated data (<i>iead</i>): 11.</entry>
+</row>
+<row>
+<entry>036</entry>
+<entry>01</entry>
+<entry>Length in bytes of the optional user-definable associated data (<i>uad</i>): 0.</entry>
+</row>
+<row>
+<entry>037</entry>
+<entry>01</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>038</entry>
+<entry>02</entry>
+<entry>Length in bits of the wrapped payload (<i>pl</i>): 576.
+<p>For an AESKW formatted payload, <i>pl</i> is based on the key size of the algorithm type and the
+payload format version:</p>
+<p><keyword>DES algorithm (value at offset 41 is X'01')</keyword></p>
+<p>A DES key can have a length of 8, 16, or 24 bytes (64, 128, 192 bits). A DES key in an AESKW
+formatted payload is always wrapped with a V1 payload and has a fixed length payload of 576
+bits.</p>
+</entry>
+</row>
+<row>
+<entry>040</entry>
+<entry>01</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>041</entry>
+<entry>01</entry>
+<entry>Algorithm type (algorithm for which the key can be used):
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>DES</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>042</entry>
+<entry>02</entry>
+<entry>Key type (general class of the key):
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'0008'</dt>
+<dd>DESUSECV</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>044</entry>
+<entry>01</entry>
+<entry>Key usage fields count (<i>kuf</i>): 1. Key-usage field information defines restrictions 
+on the use of the key. 
+<p>Each key-usage field is 2 bytes in length. The value in this field indicates how many 2-byte key
+usage fields follow.</p>
+</entry>
+</row>
+<row>
+<entry>045</entry>
+<entry>01</entry>
+<entry>Key-usage field 1, high-order byte (reserved).
+<p>All bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>046</entry>
+<entry>01</entry>
+<entry>Key-usage field 1, low-order byte (reserved).
+<p>All bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>047</entry>
+<entry>01</entry>
+<entry>Key management fields count (<i>kmf</i>): 1. Key-management field information describes 
+how the data is to be managed or helps with management of the key material.
+<p>Each key-management field is 2 bytes in length. The value in this field indicates how many 2-byte
+key management fields follow.</p>
+</entry>
+</row>
+<row>
+<entry>048</entry>
+<entry>01</entry>
+<entry>Key-management field 1, high-order byte (reserved).
+<p>All bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>049</entry>
+<entry>01</entry>
+<entry>Key-management field 1, low-order byte (reserved).
+<p>All bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry><i>iead</i></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> extended associated data:
+<codeblock><b>Offset  Length 	
+(bytes) (bytes) Item 	             Contents</b>
+0 	     1 	     Structure version  X'00'
+                identifier 	
+1 	     1 	     Flag byte 1 	      Copy of flag byte 1 taken from
+                                   offset 6 of the internal fixed-length
+                                   DES source key token exported by the
+                                   CSNDSYX verb into this external
+                                   enciphered key.
+2 	     1 	     Flag byte 2 	      Copy of flag byte 2 taken from offset 7
+                                   of the internal fixed-length DES source
+                                   key token exported by the CSNDSYX verb
+                                   into this external enciphered key.
+3 	     0 	     Masked control 	   Copy of 8 bytes of control vector taken
+                vector             from offset 32 of the internal
+                                   fixed-length DES source key token
+                                   exported by the CSNDSYX verb into this
+                                   external enciphered key. The key form
+                                   bits (CV bits 40 - 42) are copied into
+                                   the wrapped payload before being masked
+                                   here to zero to conceal the length of the
+                                   DES key.</codeblock>
+</entry>
+</row>
+<row><entry nameend="col3" namest="col1">End of associated data section</entry></row>
+<row><entry nameend="col3" namest="col1">Optional wrapped AESKW formatted payload</entry></row>
+<row>
+<entry>061</entry>
+<entry>72</entry>
+<entry>Contents of payload: An encrypted payload which the Segment 2 code creates by wrapping the
+unencrypted AESKW formatted payload. The payload is made up of the integrity check value, pad
+length, length of hash options and hash, hash options, hash of the associated data, key material,
+and padding. The key token is internal. <p>A DES DESUSECV payload contains key material that is
+formatted. The key material is formatted as follows:</p>
+<codeblock><b>Offset  Length 	
+bytes)  (bytes) Item 	             Contents</b>
+0 	     1 	     Key length (kl)    Value  Meaning
+                                   X'08'  Single-length key
+                                   X'10'  Double-length key
+                                   X'18'  Triple-length key (IBM Z only)
+1 	     1 	     Flag byte 1 	      Reserved, binary zero.
+2 	     1 	     Flag byte 2 	      Value  Meaning
+                                   B'xxxx xxx1'
+                                          The key has guaranteed unique halves
+                                   B'xxxx xxx0'
+                                          The key does not have guaranteed
+                                          unique halves.
+                                   All unused bits are reserved and must be zero.
+3        8      Left part of key   Left part of single-length, double-length,
+                                   or (System z only) triple-length DES key.
+11       8      Middle part of     Middle part of double-length or (IBM Z)
+                key, or random     triple-length DES key, otherwise random data.
+                data
+19       8      Right part of      Right part of triple-length key (IBM Z only),
+                key.               otherwise random data.</codeblock>
+</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">End of optional wrapped AESKW formatted payload</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">End of AESKW components</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">
+<note>All numbers are in big endian format.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>

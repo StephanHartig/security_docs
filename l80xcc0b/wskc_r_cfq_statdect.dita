@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_statdect">
+<title>STATDECT</title>
+<titlealts>
+<navtitle>STATDECT</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATDECT</searchtitle>
+</titlealts>
+<shortdesc>This <i>rule_array</i> keyword causes a table
+of up to 100 PIN decimalization tables to be returned. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>STATDECT</indexterm>
+<indexterm>PIN decimalization table identifier</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_cfq_statdect/l0wskc02_cfq_statdect_tab"/> shows the data format
+for a decimalization table.</p></section>
+<table id="l0wskc02_cfq_statdect_tab" pgwide="1">
+<title>Output data
+format for the STATDECT keyword</title><desc><p outputclass="summary">This table has a header
+and three rows that describe data fields. The last table row has a
+different format and specifies the total byte count of the output
+data.</p></desc>
+<tgroup cols="3">
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="colspec5" colwidth="6*"/>
+<colspec colname="col3" colwidth="24*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col2">Field</entry>
+<entry colname="colspec5">Length in bytes</entry>
+<entry colname="col3">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col2">number</entry>
+<entry colname="colspec5">3</entry>
+<entry colname="col3">PIN decimalization table identifier in ASCII
+digits 001 - 100 (<ph>X'303031'</ph> - <ph>X'313030'</ph> ).</entry></row>
+<row>
+<entry colname="col2">state</entry>
+<entry colname="colspec5">1</entry>
+<entry colname="col3">Table state in ASCII:
+<dl compact="yes"><dlhead><dthd>Code</dthd><ddhd>Description</ddhd></dlhead>
+<dlentry><dt>A (<ph>X'41'</ph>)</dt>
+<dd>Active</dd></dlentry>
+<dlentry><dt>L (<ph>X'4C'</ph>)</dt>
+<dd>Loaded</dd></dlentry>
+</dl></entry></row>
+<row>
+<entry colname="col2">table</entry>
+<entry colname="colspec5">16</entry>
+<entry colname="col3">PIN decimalization table. Contains ASCII digits
+0 - 9 (<ph>X'30'</ph> - <ph>X'39'</ph>), in the clear.</entry></row>
+<row>
+<entry colname="col2" valign="bottom" colsep="1">Total byte count</entry>
+<entry namest="colspec5" nameend="col3" colsep="1">Depends on the
+number of returned decimalization tables. There are 20 byte for each
+decimalization table. The total byte count is returned for the NUM-DECT
+keyword.</entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

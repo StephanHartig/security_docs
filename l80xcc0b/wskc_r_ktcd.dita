@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ktcd" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb changes
+PKA key tokens <ph rev="sh20i1">(RSA, ECC, and CRYSTALS-Dilithium)</ph> or trusted block key tokens,
+from encipherment under old ASYM-MK or APKA-MK, to encipherment under the current ASYM-MK or APKA-MK
+master key.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p> <ul>
+<li>For RSA key tokens - Key tokens must be private internal PKA key
+tokens in order to be changed by this verb. PKA private keys encrypted
+under the Key Management Master Key (KMMK) cannot be reenciphered
+using this services unless the KMMK has the same value as the Signature
+Master Key (SMK).</li>
+<li>For trusted block key tokens - Trusted block key tokens must be
+internal.</li>
+<li>For ECC key tokens - Key tokens must be private internal ECC key
+tokens encrypted under the <ph>APKA-MK</ph>.</li>
+<li rev="sh20i1">For CRYSTALS-Dilithium key tokens - Key tokens must be private internal CRYSTALS-Dilithium key
+tokens encrypted under the ECC master key.</li>
+</ul></p></section>
+</refbody><?Pub Caret -2?>
+</reference>
+<?Pub *0000003067?>

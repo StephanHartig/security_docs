@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ktn">
+<title>Key token</title>
+<titlealts>
+<navtitle>Key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key token</searchtitle>
+</titlealts><shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports two types of
+symmetric key tokens, fixed-length and variable-length. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key token<indexterm>definition</indexterm></indexterm>
+<indexterm>internal key token<indexterm>definition</indexterm></indexterm>
+<indexterm>key token<indexterm>internal</indexterm></indexterm>
+<indexterm>key token<indexterm>verbs</indexterm></indexterm>
+<indexterm>master key<indexterm>changing<indexterm>possible effect on internal key tokens</indexterm></indexterm></indexterm>
+<indexterm>external key token</indexterm>
+<indexterm>key token<indexterm>external</indexterm></indexterm>
+<indexterm>external key token<indexterm>verbs</indexterm></indexterm>
+<indexterm>null key token<indexterm>definition</indexterm></indexterm>
+<indexterm>key token<indexterm>null</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>An AES or DES fixed-length token is a 64-byte field composed of a key value and control
+information in the control vector. An HMAC key token is a variable-length token composed of a key
+value and control information. The control information is assigned to the key when the coprocessor
+creates the key. The key token can be either an internal key token, an external key token, or a null
+key token. Through the use of key tokens, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> can do the following: <ul>
+<li>Support continuous operation across a master key change</li>
+<li>Control use of keys in cryptographic services</li>
+</ul></p>
+<p>If the first byte of the key identifier is X'01', the key identifier is interpreted as an
+<b>internal key token</b>. An internal key token is a token that can be used only on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system that created it or another <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system with the same host master key. It
+contains a key that is encrypted under the master key.</p>
+<p>An application obtains an internal key token by using one of the <ph>verbs</ph> such
+as those listed below. The <ph>verbs</ph> are described in detail
+in <xref href="wskc_r_apmky.dita#l0wskc02_apmky"/>.
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrr"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/></li>
+</ul></p>
+<p>The master key could be dynamically changed between the time that you invoke a verb, such as the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb, to obtain a key token,
+and the time that you pass the key token to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb. When a change to the master key
+occurs, the coprocessor will still successfully use the key, because it stores a copy of the old
+master key as well as the new one.</p>
+<note type="attention">If an internal key token held in user storage is not used
+while the master key is changed twice, the internal key token is no
+longer usable. A return code of 0 with a reason code of 10001 notifies
+you that the master key used to decrypt the key used in your operation
+was an old master key, as a reminder that you should use one of the
+Key Token Change verbs to re-encipher your key under the current or
+new master key (as desired, see verbs for description).</note>
+<p>If the first byte of the key identifier is X'02', the key identifier is interpreted as an
+<b>external key token</b>. By using the external key token, you can exchange keys between systems.
+It contains a key that is encrypted under a key-encrypting key.</p>
+<p>An external key token contains an encrypted key and control information
+to allow compatible cryptographic systems to:
+<ul>
+<li>Have a standard method of exchanging keys</li>
+<li>Control the use of keys through the control vector</li>
+<li>Merge the key with other information needed to use the key</li>
+</ul></p>
+<p>An application obtains the external key token by using one of the verbs such as those listed
+below. They are described in detail in <xref href="wskc_r_apmky.dita#l0wskc02_apmky"/>. <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/></li>
+</ul></p>
+<p>If the first byte of the key identifier is X'00', the key identifier is interpreted as a <b>null
+key token</b>. Use the null key token to import a key from a system that cannot produce external key
+tokens. That is, if you have an 8 or 16-byte key that has been encrypted under an importer key, but
+is not imbedded within a token, place the encrypted key in a null key token and then invoke the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb to get the key in
+operational form.</p>
+<p>For debugging information, see <xref href="wskc_r_aptkn.dita#l0wskc02_aptkn"/> for the format of
+internal, external, or null key tokens.</p>
+</conbody></concept>

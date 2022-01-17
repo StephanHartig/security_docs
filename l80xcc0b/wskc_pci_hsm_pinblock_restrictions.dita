@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--arameArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_pinblock_restrictions" xml:lang="en-us" rev="sh18i2">
+<title>Restrictions on PIN block translation operations for compliant-tagged key tokens</title>
+<titlealts>
+<navtitle>Restrictions on PIN block translation operations</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions on PIN block translation
+operations for compliant-tagged key tokens for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz_searchtitle"/></searchtitle>
+</titlealts>
+<shortdesc>In general, the described restrictions are concerned with binding/unbinding of the PAN to
+the PIN data, or changes to the PAN.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PIN block translation<indexterm>compliant-tagged key tokens</indexterm></indexterm>
+<indexterm>compliant-tagged key tokens<indexterm>PIN block translation</indexterm></indexterm>
+<indexterm>binding PAN to the PIN</indexterm>
+<indexterm>unbinding PAN to the PIN</indexterm>
+<indexterm>binding<indexterm>PAN to the PIN</indexterm></indexterm>
+<indexterm>unbinding<indexterm>PAN to the PIN</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>See <xref href="#wskc_pci_hsm_pinblock_restrictions/t_pci_hsm_impact_translate" format="dita"/>
+for a summary of PIN block translation restrictions that apply to compliant-tagged key tokens. </p>
+<table id="t_pci_hsm_impact_translate" pgwide="1">
+<title>Using compliant-tagged key tokens to translate between PIN block formats</title>
+<tgroup cols="12">
+<colspec colname="col1" colwidth="12*"/>
+<colspec colname="col2" colwidth="11*"/>
+<colspec colname="col3" colwidth="11*"/>
+<colspec colname="col4" colwidth="11*"/>
+<colspec colname="col5" colwidth="9*"/>
+<colspec colname="col6" colwidth="9*"/>
+<colspec colname="col7" colwidth="9*"/>
+<colspec colname="col8" colwidth="11*"/>
+<colspec colname="col9" colwidth="10*"/>
+<colspec colname="col10" colwidth="9*"/>
+<colspec colname="col11" colwidth="9*"/>
+<colspec colname="col12" colwidth="9*"/>
+<thead>
+<row>
+<entry>Translate from:</entry>
+<entry>ECI-2 (4 digit PIN)</entry>
+<entry>ECI-3 (4-6 digit PIN)</entry>
+<entry>ISO-0, ANSI X9.8, VISA-1, VISA-4, and ECI-1</entry>
+<entry>ISO-1 and ECI-4</entry>
+<entry>ISO-2</entry>
+<entry>ISO-3</entry>
+<entry>VISA-2 (4-6 digit PIN)</entry>
+<entry>VISA-3 (4-12 digit PIN)</entry>
+<entry>3621 (4-12 digit PIN)</entry>
+<entry>3624 (4-12 digit PIN)</entry>
+<entry>4704- EPP (4-12 digit PIN)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ECI-2</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>ECI-3</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>ISO-0, ANSI X9.8, VISA-1, VISA-4, and ECI-1</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If not changing PAN</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+</row>
+<row>
+<entry>ISO-1 and ECI-4</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+</row>
+<row>
+<entry>ISO-2</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+</row>
+<row>
+<entry>ISO-3</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If not changing PAN</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+</row>
+<row>
+<entry>VISA-2</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>Y</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>VISA-3</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>3621</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>3624</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+<row>
+<entry>4704-EPP</entry>
+<entry>If PIN is 4 digits</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>N</entry>
+<entry>If PIN is 4-6 digits</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+<entry>Y</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>
+<?Pub *0000002516?>

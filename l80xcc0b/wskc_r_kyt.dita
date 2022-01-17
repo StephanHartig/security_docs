@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kyt">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> <ph>verb</ph> to generate or verify the value
+of either a master key, an internal AES key or key-part, or an internal
+DES key or key-part. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</indexterm></indexterm>
+<indexterm>key verification pattern</indexterm>
+<indexterm>ENC-ZERO</indexterm>
+<indexterm>verification pattern</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>A key to test can be in the clear or encrypted under the master key. Keywords in the
+<synph><var>rule_array</var></synph> parameter specify whether the <ph>verb</ph> generates or
+verifies a verification pattern.</p>
+</section>
+<section>
+<p>This algorithm is supported for clear and encrypted single and double length keys. Single, double
+and triple length keys are also supported with the <synph><kwd>ENC-ZERO</kwd></synph> algorithm.
+Clear triple length keys are not supported. See <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"
+/>.</p>
+</section>
+<section>
+<p><ph>With the default method,</ph> the verb generates a verification pattern and it creates and
+cryptographically processes a random number. This verb returns the random number with the
+verification pattern.</p>
+</section>
+<section>
+<p>For historical reasons, the verification information is passed in two 8-byte variables pointed to
+by the <synph><var>value_1</var></synph> and <synph><var>value_2</var></synph> parameters. The
+<synph><kwd>GENERATE</kwd></synph> option uses these variables for output, and the
+<synph><kwd>VERIFY</kwd></synph> option uses these variables as input. For
+<synph><kwd>VERIFY</kwd></synph>, the verb returns a warning of return code 4, reason code 1 if the
+information provided in these variables does not match the calculated values.</p>
+</section>
+<section>
+<p><xref href="#l0wskc02_kyt/l0wskc02_kyt_tab1"/> describes the use of the
+<synph><var>value_1</var></synph> and <synph><var>value_2</var></synph> variables for each of the
+available verification-process rule keywords.</p>
+</section>
+<section>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</section>
+<section>
+<p>This document uses new names for two of the parameters. The former names were misleading because
+they no longer reflected the use of these parameters. The header file,
+<filepath>csulincl.h</filepath>, continues to use the former names. See <xref
+href="#l0wskc02_kyt/kyt_parm_change"/>. <table id="kyt_parm_change" pgwide="0"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> parameter changes</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/>
+parameter changes</p>
+</desc><tgroup cols="2">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Current name (used in this document)</entry>
+<entry colname="col2">Former name (used in header file)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><var>value_1</var></synph></entry>
+<entry colname="col2"><synph><var>random_number</var></synph></entry>
+</row>
+<row>
+<entry colname="col1"><synph><var>value_2</var></synph></entry>
+<entry colname="col2"><synph><var>verification_pattern</var></synph></entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</section>
+<section>
+<p>
+<table id="l0wskc02_kyt_tab1" pgwide="1"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> GENERATE outputs and VERIFY
+inputs</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/>
+GENERATE outputs and VERIFY inputs</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="7*"/>
+<colspec colname="col3" colwidth="7*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1" morerows="1" valign="middle" align="center">Verification-process rule</entry>
+<entry namest="col2" nameend="col3" align="center">GENERATE outputs and VERIFY inputs</entry>
+</row>
+<row>
+<entry colname="col2" align="center"><synph><var>value_1</var></synph> variable</entry>
+<entry colname="col3" align="center"><synph><var>value_2</var></synph> variable</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>ENC-ZERO</kwd></synph></entry>
+<entry colname="col2">Unused</entry>
+<entry colname="col3">Contains the 4-byte KVP in the high-order 4 bytes of the variable, taken from
+the high-order 4 bytes of the encrypted result. The low-order 4 bytes of the variable are
+unspecified.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>MDC-4</kwd></synph></entry>
+<entry colname="col2">Contains the 8-byte KVP taken from the high-order 8 bytes of the MDC-4 hash
+value.</entry>
+<entry colname="col3">Contains the low-order 8 bytes of the MDC-4 hash value.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>SHA-1</kwd></synph></entry>
+<entry colname="col2">Contains the 8-byte KVP taken from the high-order 8 bytes of the SHA-1 hash
+value.</entry>
+<entry colname="col3">Contains the low-order 8 bytes of the SHA-1 hash value.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>SHA-256</kwd></synph></entry>
+<entry colname="col2">Unused</entry>
+<entry colname="col3">Contains the 8-byte KVP taken from the high-order 8 bytes of the SHA-256 hash
+value.</entry>
+</row>
+<row>
+<entry colname="col1">No keyword, and first and third parts of the master key have different
+values</entry>
+<entry colname="col2">Same as <synph><kwd>SHA-1</kwd></synph></entry>
+<entry colname="col3">Same as <synph><kwd>SHA-1</kwd></synph></entry>
+</row>
+<row>
+<entry colname="col1">No keyword, and first and third parts of the master key have the same
+value</entry>
+<entry colname="col2">Contains the 8-byte KVP taken from the result of the z/OS-based master-key
+verification method.</entry>
+<entry colname="col3">Unused</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+</section>
+</refbody></reference>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ap2me" xml:lang="en-us">
+<title> PIN formats and algorithms</title>
+<titlealts>
+<navtitle>PIN formats and algorithms</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+PIN formats and       algorithms</searchtitle>
+</titlealts>
+<shortdesc>Personal identification number (PIN) notation,
+PIN block     formats, PIN extraction rules, and PIN algorithms.</shortdesc><?Pub
+Caret 0?>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For PIN calculation procedures, see <cite><tm tmtype="reg"
+trademark="IBM">IBM</tm> Common Cryptographic Architecture: Cryptographic
+Application Programming Interface Reference</cite>.</p></section>
+</refbody>
+</reference>
+<?Pub *0000001121?>

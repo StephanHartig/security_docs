@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="rcsfb4-gen392_parameters" xml:lang="en-us" rev="hw20i1">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"
+/><indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The number of keywords you supplied in the <parmname>rule_array</parmname> parameter. The value
+must be 1 - 5.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Character</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <i>rule_array</i> contains keywords that provide control information to the callable service.
+The keywords must be in contiguous storage with each of the keywords left-justified in its own
+8-byte location and padded on the right with blanks.</p>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><title>Keywords for TR-34
+Key Receive</title><desc>
+<p outputclass="summary">Keywords for TR-34 Key Receive. This table contains two columns: Keyword
+and Meaning, and it contains rows for Requested action (one, required), Public Key Infrastructure
+Usage (one, optional), Freshness Indicator Usage (one, required with 1PASSRCV), Key Wrapping Method
+(One Optional), and Translation Control (One Optional).</p>
+</desc><tgroup cols="2">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1.9*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Requested action</i></b> (one, required).</entry>
+</row>
+<row>
+<entry>2PASSRCV</entry>
+<entry>TR34 Key Transport (2-pass) KTKDH RECEIVE service.</entry>
+</row>
+<row>
+<entry>1PASSRCV</entry>
+<entry>TR34 Key Transport (1-pass) KTKDH RECEIVE service.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Public key infrastructure usage</i></b> (one,
+optional).</entry>
+</row>
+<row>
+<entry>PKI-CHK</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is to be validated against the
+trust chain of the PKI hosted in the adapter. This requires that the CA credentials have been
+installed using the Trusted Key Entry (TKE) workstation. This is required for compliance-tagged key
+token export with TR-34 services.<p>This is the default.</p></entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is not to be validated against
+the trust chain of the PKI hosted in the adapter. This is suitable if the certificate has been
+validated using host-based PKI services.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Freshness Indicator Usage</i></b> (one, required with
+1PASSRCV). Only valid with keyword 1PASSRCV.</entry>
+</row>
+<row>
+<entry>TIME-CHK</entry>
+<entry>Specifies to check the timestamp in the <i>input_freshness_indicator</i> parameter against
+the timestamp in the KTKDH received in the <i>input_token</i> parameter. The verification step will
+only check that the timestamp in the KTKDH is newer than timestamp in the
+<i>input_freshness_indicator</i> parameter. The timestamp from the KTKDH will still be returned in
+the <i>output_freshness_indicator</i> parameter.</entry>
+</row>
+<row>
+<entry>TIMENONE</entry>
+<entry>Specifies to not check the timestamp in the <i>input_freshness_indicator</i> parameter
+against the timestamp in the KTKDH received in the <i>input_token</i> parameter. The timestamp from
+the KTKDH will be returned in the <i>output_freshness_indicator</i> parameter so that the
+application can verify the value.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Key Wrapping Method</i></b> (one optional). Applicable only to
+DES algorithm imported keys.</entry>
+</row>
+<row>
+<entry>USECONFG</entry>
+<entry>Specifies that the configuration setting for the default wrapping method is to be used to
+wrap the key. This is the default.</entry>
+</row>
+<row>
+<entry>WRAP-ENH</entry>
+<entry>Specifies that the new enhanced wrapping method is to be used to wrap the key.</entry>
+</row>
+<row>
+<entry>WRAP-ECB</entry>
+<entry>Specifies that the original wrapping method is to be used.</entry>
+</row>
+<row rev="sh21i1">
+<entry>WRAPENH2</entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for
+TRIPLE or TRIPLE-O. This method requires CV bit 56 = B’1’ (ENH-ONLY). This is the default
+for TRIPLE and TRIPLE-O.</entry>
+</row>
+<row rev="sh21i1">
+<entry>WRAPENH3</entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the
+SHA-256 hashing algorithm. This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is
+required for the WRAPENH3 wrapping method.</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c2"><b><i>Translation Control</i></b>  (one optional). Applicable only
+to DES algorithm imported keys.</entry>
+</row>
+<row>
+<entry>ENH-ONLY</entry>
+<entry>Specify this keyword to indicate that the key once wrapped with the enhanced method cannot be
+wrapped with the CCA legacy method. This restricts translation to the CCA legacy method. If the
+keyword is not specified, translation to the CCA legacy method will be allowed. This turns on bit 56
+in the control vector.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" pgwide="1" id="importDEStr34"><title>Input translation
+table for DES key usage</title><desc>
+<p outputclass="summary">Input translation table for DES key usage.</p>
+</desc><tgroup cols="7">
+<colspec colname="newCol1" colnum="1" colwidth="1*"/>
+<colspec colname="c1" colnum="2" colwidth="1*"/>
+<colspec colname="c2" colnum="3" colwidth="1*"/>
+<colspec colname="c3" colnum="4" colwidth="1*"/>
+<colspec colname="c4" colnum="5" colwidth="1*"/>
+<colspec colname="c5" colnum="6" colwidth="1*"/>
+<colspec colname="c6" colnum="7" colwidth="1*"/>
+<thead>
+<row>
+<entry>TR-31 mode of key use</entry>
+<entry>Key block version ID </entry>
+<entry>TR-31 mode of key use</entry>
+<entry>Rule-array keywords</entry>
+<entry>CCA key type and key-usage attributes of output key</entry>
+<entry>Offset (hex)</entry>
+<entry>Access control name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>K0, K1</entry>
+<entry>"A", "B", "C", "D"</entry>
+<entry>"E"</entry>
+<entry>N/A</entry>
+<entry>EXPORTER</entry>
+<entry>0248</entry>
+<entry>TR-34 Key Receive – Permit DES EXPORTER</entry>
+</row>
+<row>
+<entry>K0, K1</entry>
+<entry>"A", "B", "C", "D"</entry>
+<entry>"D"</entry>
+<entry>N/A</entry>
+<entry>IMPORTER</entry>
+<entry>0249</entry>
+<entry>TR-34 Key Receive – Permit DES IMPORTER</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" pgwide="1" id="table_lcg_4fp_xhb"><title>Input translation
+table for AES key usage</title><desc>
+<p outputclass="summary">Input translation table for AES key usage.</p>
+</desc><tgroup cols="7">
+<colspec colname="newCol1" colnum="1" colwidth="1*"/>
+<colspec colname="c1" colnum="2" colwidth="1*"/>
+<colspec colname="c2" colnum="3" colwidth="1*"/>
+<colspec colname="c3" colnum="4" colwidth="1*"/>
+<colspec colname="c4" colnum="5" colwidth="1*"/>
+<colspec colname="c5" colnum="6" colwidth="1*"/>
+<colspec colname="c6" colnum="7" colwidth="1*"/>
+<thead>
+<row>
+<entry>TR-31 mode of key use</entry>
+<entry>Key block version ID </entry>
+<entry>TR-31 mode of key use</entry>
+<entry>Rule-array keywords</entry>
+<entry>CCA key type and key-usage attributes of output key</entry>
+<entry>Offset (hex)</entry>
+<entry>Access control name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="1">K0</entry>
+<entry morerows="1"> "D"</entry>
+<entry>"E"</entry>
+<entry>N/A</entry>
+<entry>EXPORTER</entry>
+<entry>024A</entry>
+<entry>TR-34 Key Receive – Permit AES EXPORTER</entry>
+</row>
+<row>
+<entry>"D"</entry>
+<entry>N/A</entry>
+<entry>IMPORTER</entry>
+<entry>024B</entry>
+<entry>TR-34 Key Receive – Permit AES IMPORTER</entry>
+</row>
+<row>
+<entry morerows="1">K1</entry>
+<entry morerows="1">"D"</entry>
+<entry>"E"</entry>
+<entry>N/A</entry>
+<entry>EXPORTER + EXPTT31D</entry>
+<entry>024C</entry>
+<entry>TR-34 Key Receive – Permit AES EXPORTER with EXPTT31D</entry>
+</row>
+<row>
+<entry>"D"</entry>
+<entry>N/A</entry>
+<entry>IMPORTER + IMPTT31D</entry>
+<entry>024D</entry>
+<entry>TR-34 Key Receive – Permit AES IMPORTER with IMPTT31D</entry>
+</row>
+</tbody>
+</tgroup></table>
+</pd>
+</plentry>
+<plentry>
+<pt>input_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>input_token</i> parameter in bytes. The maximum length is 3500 bytes.
+</pd>
+</plentry>
+<plentry>
+<pt>input_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The DER encoded TR-34 token object. The requested action keyword defines the object.<dl>
+<dlentry>
+<dt>2PASSRCV</dt>
+<dd>This parameter must contain the 2 pass key transport token received from the KDH (KTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSRCV</dt>
+<dd>This parameter must contain the 1 pass key transport token received from the KDH (KTKDH)</dd>
+</dlentry>
+</dl></pd>
+</plentry>
+<plentry>
+<pt>cred_kdh_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_kdh</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>cred_kdh</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KDH for the requested service. The
+certificate may be in DER or PEM format.<note>This service is acting as the KDH so the
+<i>cred_kdh</i> is not expected to validate against the internal PKI of the adapter.</note></pd>
+</plentry>
+<plentry>
+<pt>input_freshness_indicator_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>input_freshness_indicator</i> parameter in bytes. The maximum length is
+200 bytes. <p>The value is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>2PASSRCV</dt>
+<dd>This parameter contains the length of the random number token received from the KRD
+(RTKRD).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSRCV</dt>
+<dd>This parameter contains the length of the ASCII timestamp for use in the key transport token.
+The value must be 13 or 15. When TIMENONE is passed, the value must be 0.</dd>
+</dlentry>
+</dl></p></pd>
+</plentry>
+<plentry>
+<pt>input_freshness_indicator</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The freshness indicator. When the value of <i>input_freshness_indicator_length</i> is 0,
+this parameter is ignored.<p>The meaning is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>2PASSRCV</dt>
+<dd>This parameter contains the DER encoded random number token received from the KRD (RT-KRD).</dd>
+</dlentry>
+<dlentry>
+<dt>1PASSRCV</dt>
+<dd>This parameter contains an ASCII timestamp for use in the key transport token. The timestamp is
+encoded as a SigningTime object in the token (OID of iso(1) member-body(2) us(840) rsadsi(113549)
+pkcs(1) pkcs-9(9) signing-time(5)}, defined in IETF RFC 2985). Two input encodings are accepted for
+this parameter, UTCTime encoded as YYMMDDHHMMSSZ (13 bytes) and GeneralizedTime encoded as
+YYYYMMDDHHMMSSZ (15 bytes). Date ranges allowed for each format are:<dl>
+<dlentry>
+<dt>GeneralizedTime</dt>
+<dd>Dates between 1 January 2050 and 31 December 2105 (inclusive).</dd>
+</dlentry>
+<dlentry>
+<dt>UTCTime</dt>
+<dd>Dates between 1 January 1950 and 31 December 2049 (inclusive).</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl></p><p>There must be an ASCII ‘Z’ character at the end. CCA will verify that timestamps passed
+with either encoding are valid timestamps, but will make no attempt to validate the timestamp
+against the clock inside the coprocessor.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>private_key_identifier</var></synph> parameter. If the
+<i>private_key_identifier</i> contains a label, the value must be 64. Otherwise, the value must be
+between the actual length of the token and 3500.</pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the private key used to decrypt the key block in the input token. The key
+identifier is an operational RSA secure token or the label of such a token in key storage.<p>The key
+usage of the token must allow digital signature. Retained private keys are not supported in this
+service.</p></pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>output_key_identifier</i> parameter, in bytes. On input, it specifies
+the length of the buffer for <i>output_key_identifier</i> and must be 64 bytes for DES keys and up
+to 725 bytes for AES keys. On output, it will contain the length of the token returned.</pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The received key token from the TR-34 key block. The output token will be a CCA internal key
+token containing the key received in the TR-34 key block.</pd>
+</plentry>
+<plentry>
+<pt>output_freshness_indicator_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>output_freshness_indicator</i> parameter, in bytes. On input, it
+specifies the length of the buffer for <i>output_freshness_indicator</i> and must be at least 15
+bytes long. On output, it will contain the length of the indicator returned. When the requested
+action keyword is 2PASSRCV, the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>output_freshness_indicator</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The output freshness indicator. When the value of <i>output_freshness_indicator_length</i>
+is 0, this parameter is ignored.<p>When the requested action keyword is 1PASSRCV, this parameter
+contains the ASCII timestamp received in the key transport token received from the KDH. Two
+encodings are used for this parameter: UTCTime encoded as YYMMDDHHMMSSZ (13 bytes) and
+GeneralizedTime encoded as YYYYMMDDHHMMSSZ (15 bytes). Date ranges allowed for each format are:<dl>
+<dlentry>
+<dt>UTCTime</dt>
+<dd>Dates between 1 January 1970 and 31 December 2049 (inclusive).</dd>
+</dlentry>
+<dlentry>
+<dt>GeneralizedTime</dt>
+<dd>Dates between 1 January 2050 and 31 December 2105 (inclusive).</dd>
+</dlentry>
+</dl>There will be an ASCII 'Z' character at the end. ICSF will verify that the timestamp returned
+is a valid timestamp from the key transport token received from the KDH (KT-KDH), but makes no
+attempt to validate the timestamp against the clock inside the coprocessor.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is reserved. The value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000077566?>

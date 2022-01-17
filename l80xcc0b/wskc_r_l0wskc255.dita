@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc255">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>)<indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry rev="sh15"><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of keywords in the
+<parmname>rule_array</parmname> variable. This number must be 0, 1 or 2.</pd></plentry>
+<plentry rev="sh15"><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>rule_array</parmname> is an array of keywords. The keywords must be 8 bytes of
+contiguous storage with the keyword left-justified in its 8-byte location and padded on the right
+with blanks. The <parmname>rule_array</parmname> keywords are described in <xref
+href="#l0wskc255/rkx_keyword_table" format="dita"/>. <table frame="all" id="rkx_keyword_table"
+pgwide="1">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="3*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key wrapping method</i></b> (Optional)</entry>
+</row>
+<row>
+<entry>USECONFG</entry>
+<entry rev="shd3">This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry>WRAP-ENH</entry>
+<entry>Specifies that the new enhanced wrapping method is to be used to wrap the key.</entry>
+</row>
+<row>
+<entry>WRAP-ECB</entry>
+<entry>Specifies that the original wrapping method is to be used.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Translation control</i></b> (Optional, valid only for
+enhanced wrapping)</entry>
+</row>
+<row>
+<entry>ENH-ONLY</entry>
+<entry>Specify this keyword to indicate that the key once wrapped with the enhanced method cannot be
+wrapped with the original method. This restricts translation to the original method.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>trusted_block_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>trusted_block_identifier</var></synph> variable. The maximum length is 3500 bytes.</pd></plentry>
+<plentry><pt>trusted_block_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a trusted block key-token of an internal trusted
+block, or the key label of a trusted block key-token record of an internal trusted block. It is used
+to validate the public-key certificate and to define the rules for key generation and key
+export.</pd></plentry>
+<plentry><pt>certificate_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>certificate</var></synph> variable. The maximum length is 5000 bytes.<p>It is an error
+if the <synph><var>certificate_length</var></synph> variable is 0 and the trusted block’s asymmetric
+encrypted output key format in the rule section selected by the <synph><var>rule_id</var></synph>
+variable indicates PKCS-1.2 output format or RSA-OAEP output format.</p><p>If the
+<synph><var>certificate_length</var></synph> variable is 0 or the trusted block’s asymmetric
+encrypted output key format in the rule section selected by the <synph><var>rule_id</var></synph>
+variable indicates no asymmetric key output, the certificate is ignored.</p></pd></plentry>
+<plentry><pt>certificate</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a public-key certificate. The certificate must
+contain the public-key modulus and exponent in binary form, as well as a digital certificate. The
+certificate must verify using the root public key that is in the trusted block pointed to by the
+<synph><var>trusted_block_identifier</var></synph> parameter. <note>After the hash is computed over
+the certificate data specified by offsets 28 and 32, the hash is BER encoded by pre-pending these
+bytes: <lines>X'30213009 06052B0E 03021A05 000 414'</lines></note>See <xref
+href="wskc_c_appdpkcs1form.dita#l0wskc02_appdpkcs1form"/>.</pd></plentry>
+<plentry><pt>certificate_parms_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>certificate_parms</var></synph> variable. The length must be 36 bytes if the
+<synph><var>certificate_length</var></synph> variable is 0, else the length must be 0.</pd></plentry>
+<plentry><pt>certificate_parms</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a structure for identifying the location and
+length of values within the public-key certificate pointed to by the
+<synph><var>certificate</var></synph> parameter. If the value of the
+<synph><var>certificate_length</var></synph> variable is 0, then the information in this variable is
+ignored but the variable must be declared. The format of the
+<synph><var>certificate_parms</var></synph> variable is defined in <xref
+href="#l0wskc255/l0wskc02_rkx_tab1"/>.<table id="l0wskc02_rkx_tab1" pgwide="0">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/>
+certificate_parms parameter</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/>
+<i>certificate_parms</i> parameter</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="36*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Offset (bytes)</entry>
+<entry colname="col2">Length (bytes)</entry>
+<entry colname="col3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">0</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Offset of modulus</entry>
+</row>
+<row>
+<entry colname="col1">4</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Length of modulus</entry>
+</row>
+<row>
+<entry colname="col1">8</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Offset of public exponent</entry>
+</row>
+<row>
+<entry colname="col1">12</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Length of public exponent</entry>
+</row>
+<row>
+<entry colname="col1">16</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Offset of digital signature</entry>
+</row>
+<row>
+<entry colname="col1">20</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Length of digital signature</entry>
+</row>
+<row>
+<entry colname="col1">24</entry>
+<entry colname="col2">1</entry>
+<entry colname="col3">Identifier for hash algorithm. The following values are defined: <dl
+compact="yes">
+<dlhead>
+<dthd>Identifier</dthd>
+<ddhd>Hash algorithm</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>SHA-1</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>MD5 (Currently not supported)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'03'</ph></dt>
+<dd>RIPEMD-160 (Currently not supported)</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col1">25</entry>
+<entry colname="col2">1</entry>
+<entry colname="col3">Identifier for digital signature hash formatting method used. The following
+values are defined: <dl compact="yes">
+<dlhead>
+<dthd>Identifier</dthd>
+<ddhd>Hash formatting method</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>PKCS-1.0</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>PKCS-1.1</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'03'</ph></dt>
+<dd>X9.31 (Currently not supported)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'04'</ph></dt>
+<dd>ISO-9796 (Currently not supported)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'05'</ph></dt>
+<dd>ZERO-PAD (Currently not supported)</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col1">26</entry>
+<entry colname="col2">2</entry>
+<entry colname="col3">Reserved, must be binary zeros</entry>
+</row>
+<row>
+<entry colname="col1">28</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Offset of first byte of certificate data hashed to compute the digital
+signature</entry>
+</row>
+<row>
+<entry colname="col1">32</entry>
+<entry colname="col2">4</entry>
+<entry colname="col3">Length of certificate data hashed to compute the digital signature</entry>
+</row>
+</tbody>
+</tgroup>
+</table><note>The modulus, exponent, and signature values can have bit lengths that are not
+multiples of 8; each of these values is right-aligned and padded on the left with binary zeroes to
+make it an even number of bytes in length.</note></pd></plentry>
+<plentry><pt>transport_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>transport_key_identifier</var></synph> variable. The length must be 0 or 64 bytes.</pd></plentry>
+<plentry><pt>transport_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a KEK key-token, or a key label of a KEK key-token
+record. The KEK is either an internal <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES key-token (key type IMPORTER or
+EXPORTER), or an external version <ph>X'10'</ph> (RKX) DES key-token. It is used to encrypt a key
+exported by the verb.<p>When the symmetric encrypted output key format flag of the selected rule
+indicates return an RKX key-token, this parameter is ignored but must be declared.</p><ul>
+<li>If this parameter points to a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/>DES key-token, the token must be of key type IMPORTER or EXPORTER.</li>
+<li>If the <synph><var>source_key_identifier</var></synph> parameter identifies an internal CCA DES
+key-token, the token must be of key type EXPORTER.</li>
+</ul><p>For more information on RKX key tokens, see <xref
+href="wskc_r_l0wskc03_xrkx_des.dita#l0wskc03_xrkx_des"/>.</p></pd></plentry>
+<plentry><pt>rule_id_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>rule_id</var></synph> variable. The length must be eight bytes.</pd></plentry>
+<plentry><pt>rule_id</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that identifies the rule in the trusted block to be used to
+control key generation or export. The trusted block can contain multiple rules, each of which is
+identified by a unique rule ID value.</pd></plentry>
+<plentry><pt>importer_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>importer_key_identifier</var></synph> variable. The length must be 0 or 64 bytes.</pd></plentry>
+<plentry><pt>importer_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an <synph><kwd>IMPORTER</kwd></synph> KEK
+key-token or a label of an <synph><kwd>IMPORTER</kwd></synph> KEK key-token record. This KEK is used
+to decipher the key pointed to by the <synph><var>source_key_identifier</var></synph>
+parameter.<p>This variable is ignored if the verb is used to generate a new key, or the
+<synph><var>source_key_identifier</var></synph> variable contains either an RKX key token or an
+internal CCA DES key-token. For more information on RKX key tokens, see <xref
+href="wskc_r_l0wskc03_xrkx_des.dita#l0wskc03_xrkx_des"/>.</p></pd></plentry>
+<plentry><pt>source_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>source_key_identifier</var></synph> variable. The length must be 0 or 64 bytes.</pd></plentry>
+<plentry><pt>source_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a DES key-token or a label of a DES key-token
+record. The key token contains the key to be exported, and must meet one of these criteria: <ul>
+<li>It is a single-length or double-length external CCA DES key-token.</li>
+<li>It is a single-length or double-length internal CCA DES key-token.</li>
+<li>It is a single-length, double-length, or triple-length RKX key-token.</li>
+</ul><note>
+<ol>
+<li>If the key token is a CCA DES key-token, its XPORT-OK control vector bit (bit 17) must be
+<ph>B'1'</ph>, or else the export will not be allowed.</li>
+<li>If a DES key-token has three 8-byte key parts, the parts are considered unique if any two of the
+three key parts differ.</li>
+</ol>
+</note></pd></plentry>
+<plentry><pt>asym_encrypted_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>asym_encrypted_key</var></synph> variable. On output, the variable is updated with the
+actual length of the <synph><var>asym_encrypted_key</var></synph> variable. The input length must be
+at least the length of the modulus in bytes of the public-key in the certificate variable.</pd></plentry>
+<plentry><pt>asym_encrypted_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a generated or exported clear key returned by the
+verb. The clear key is encrypted by the public (asymmetric) key provided by the certificate
+variable.</pd></plentry>
+<plentry><pt>sym_encrypted_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>sym_encrypted_key_identifier</var></synph> variable. On output, the variable is updated
+with the actual length of the <synph><var>sym_encrypted_key_identifier</var></synph> variable. The
+input length must be a minimum of 64 bytes.</pd></plentry>
+<plentry><pt>sym_encrypted_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. On input, the
+<synph><var>sym_encrypted_key_identifier</var></synph> variable must contain either a key label of a
+CCA DES key-token record or an RKX key-token record, or be filled with binary zeros.<p>On output,
+the verb produces a CCA DES key-token or an RKX key-token, depending on the value of the symmetric
+encrypted output key format value of the rule section within the
+<synph><var>trusted_block_identifier</var></synph> variable. The key token produced contains either
+a generated or exported key encrypted using the key-encrypting key provided by the
+<synph><var>transport_key_identifier</var></synph> variable.</p><ul>
+<li>If the output is an external CCA DES key-token: <ol>
+<li>If a common export key parameters subsection (<ph>X'0003'</ph>) is present in the selected rule,
+the control vector (CV) is copied from the subsection into the output CCA DES key-token. Otherwise,
+the CV is copied from source key-token.</li>
+<li>If a transport key variant subsection (<ph>X'0001'</ph>) is present in the selected rule, the
+key is multiply enciphered under the transport key XORed with the transport key variant from the
+subsection. Otherwise, the key is multiply enciphered under the transport key XORed with binary
+zero</li>
+<li>XORs the CV in the token with the encrypted result from the previous step.</li>
+<li>Stores the previous result in the token and updates the TVV.</li>
+</ol></li>
+<li>If the output is an (external) RKX key-token: <ol>
+<li>Encrypts the key using a variant of the trusted block MAC key.</li>
+<li>Builds the token with the encrypted key and the <synph><var>rule_id</var></synph> variable.</li>
+<li>Calculates the MAC of the token contents and stores the result in the token.</li>
+</ol></li>
+</ul><p>If the <synph><var>sym_encrypted_key_identifier</var></synph> variable is a key label on
+input, on output the key token produced by the verb is stored in DES key-storage and the variable
+remains the same. Otherwise, on output the variable is updated with the key token produced by the
+verb, provided the field is of sufficient length.</p></pd></plentry>
+<plentry><pt>extra_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>extra_data</var></synph> variable. The length must be less than or equal to the byte
+length of the certificate public key modulus minus the generated/exported key length minus 42
+(<ph>X'2A'</ph>), which is the OAEP overhead. For example, if the public key in the certificate has
+a modulus length of 1024 bits (128 bytes), and the exported key is single length, then the extra
+data length must be less than or equal to 128 minus 8 minus 42, which equals 78.</pd></plentry>
+<plentry><pt>extra_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing extra data to be used as part of the OAEP
+key-wrapping process. The <synph><var>extra_data</var></synph> variable is used when the output
+format for the RSA-encrypted key that is returned in the
+<synph><var>asym_encrypted_key</var></synph> variable is RSA-OAEP; otherwise, it is
+ignored.<note>The RSA-OAEP format is specified as part of the rule in the trusted block.</note></pd></plentry>
+<plentry><pt>key_check_parameters_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>key_check_parameters</var></synph> variable. The length must be 0.</pd></plentry>
+<plentry><pt>key_check_parameters</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Reserved for future use.</pd></plentry>
+<plentry><pt>key_check_value_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the number of bytes of data in the
+<synph><var>key_check_value</var></synph> variable. On output, and if the field is of sufficient
+length, the variable is updated with the actual length of the
+<synph><var>key_check_value</var></synph> variable.</pd></plentry>
+<plentry><pt>key_check_value</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the result of the key-check algorithm chosen in
+the rule section of the selected trusted block. See <xref href="wskc_c_enzero.dita#l0wskc02_enzero"
+/> and <xref href="wskc_c_algomdc.dita#l0wskc02_algomdc"/>. When the selected key-check algorithm is
+to encrypt an 8-byte block of binary zeros with the key, and the generated or exported key is: <ul>
+<li>Single length <ol>
+<li>A value of 0, 1, or 2 is considered insufficient space to hold the output encrypted result, and
+the verb returns an error.</li>
+<li>A value of 3 returns the leftmost three bytes of the encrypted result if the
+<synph><var>key_check_value_length</var></synph> variable is 3 or greater. Otherwise, an error is
+returned.</li>
+<li>A value of 4 - 8 returns the leftmost four bytes of the encrypted result if the
+<synph><var>key_check_value_length</var></synph> variable is 4 or greater. Otherwise, an error is
+returned.</li>
+</ol></li>
+<li>Double length or triple length <p>The verb returns the entire 8-byte result of the encryption in
+the <synph><var>key_check_value</var></synph> variable if the
+<synph><var>key_check_value_length</var></synph> variable is 8 or more. Otherwise, an error is
+returned.</p></li>
+</ul><p>When the selected key-check algorithm is to compute the MDC-2 hash of the key, and the
+generated or exported key is single length, the 8-byte key is made into a double-length key by
+replicating the key halves. This is because the MDC-2 calculation method does no padding, and
+requires that the data be a minimum of 16 bytes and a multiple of eight bytes. If the generated or
+exported key is double length or triple length, the key is processed as is. The verb returns the
+16-byte hash result of the key in the <synph><var>key_check_value</var></synph> variable if the
+<synph><var>key_check_value_length</var></synph> variable is large enough, else an error is
+returned.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

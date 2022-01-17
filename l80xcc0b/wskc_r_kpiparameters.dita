@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpiparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for CSNBKPI.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/></indexterm></indexterm>
+<indexterm>FIRST</indexterm>
+<indexterm>ADD-PART</indexterm>
+<indexterm>COMPLETE</indexterm>
+<indexterm>MIDDLE</indexterm>
+<indexterm>LAST</indexterm>
+<indexterm>RETRKPR</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>key_part parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb</indexterm></indexterm>
+<indexterm>COMPLET</indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keyword that provides control information to the <ph>verb</ph>. The keywords must be
+eight bytes of contiguous storage with the keyword left-aligned in its 8-byte location and padded on
+the right with blanks. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_kpiparameters/l0wskc02_kpiary_tab1"/> .<table id="l0wskc02_kpiary_tab1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Key part</i></b> (One,
+required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>FIRST</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies that an initial key part is being entered.
+This <ph>verb</ph> returns this key-part encrypted by the master key in the key token that you
+supplied.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ADD-PART</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies that additional key-part information is
+provided. </entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>COMPLETE</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies that the key-part bit shall be turned off in
+the control vector of the key rendering the key fully operational. Note that no key-part information
+is added to the key with this keyword.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MIDDLE</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies that an intermediate key part, which is
+neither the first key part nor the last key part, is being entered. Note that the command control
+point for this keyword is the same as that for the <synph><kwd>LAST</kwd></synph> keyword and
+different from that for the <synph><kwd>ADD-PART</kwd></synph> keyword.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>LAST</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies that the last key part is being entered. The
+key-part bit is turned off in the control vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>RETRKPR</kwd></synph></entry>
+<entry>A key label must be passed as the
+<synph><var>key_identifier</var></synph>. This key label corresponds to a key stored in a KPIT
+register inside the crypto-card (not in host key storage). The key in that register has been loaded
+by label and key part using the KPIT verb by the TKE. This keyword for KPI allows the user to tell
+the card to wrap that key (it must be in the complete state) using the master key, place it in an
+internal token, and return that token to the user. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> .</p></entry>
+</row>
+<row rev="sh20i2">
+<entry namest="col1" nameend="col2"><b><i>RETRKPR token return</i></b> (Optional)</entry>
+</row>
+<row rev="sh20i2">
+<entry><synph><kwd>RT-TOKEN</kwd></synph></entry>
+<entry>The token returned by the <synph><kwd>RETRKPR</kwd></synph> service is returned directly to
+the caller and not stored in key storage. This optional keyword is usable only with the
+<synph><kwd>RETRKPR</kwd></synph> service. <p>If this keyword is not used, the
+<synph><kwd>RETRKPR</kwd></synph> service functions normally by storing the token according to the
+designated key storage label.</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2"><b><i>Key part buffer length (One, optional). 
+</i></b> A key part with a length that is less than the buffer size must be left-aligned in the buffer, 
+that is, place the key part in the high-order bytes of
+the key-part field. Any trailing characters are not used.</entry>
+</row>
+<row  rev="sh20i1">
+<entry><synph><kwd>KEYBUF16</kwd></synph></entry>
+<entry>Specifies a length of 16 bytes for the buffer identified by the <parmname>key_part</parmname> parameter. This
+is the default.</entry>
+</row>
+<row  rev="sh20i1">
+<entry><synph><kwd>KEYBUF24</kwd></synph></entry>
+<entry>Specifies a length of 24 bytes for the buffer identified by the <parmname>key_part</parmname> parameter. This
+is required for a triple-length key when key part keyword COMPLETE is not specified.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key-wrapping method</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method. This keyword is ignored for AES
+keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method. Valid only for DES
+keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_part</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 16-byte field containing the clear key part to be entered. If the key is a single-length
+key, the key part must be left-aligned and padded on the right with zeros. This field is ignored if
+<synph><kwd>COMPLETE</kwd></synph> is specified.</pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte field containing an internal token or a label of an existing <ph>key in the key
+storage file</ph>. If <synph><var>rule_array</var></synph> is <synph><kwd>FIRST</kwd></synph>, this
+field is the skeleton of an internal token of a single- or double-length key with the
+<synph><kwd>KEY-PART</kwd></synph> marking. If <synph><var>rule_array</var></synph> is
+<synph><kwd>MIDDLE</kwd></synph> or <synph><kwd>LAST</kwd></synph>, this is an internal token or
+<ph>key</ph> label of a partially combined key. Depending on the input format, the accumulated
+partial or complete key is returned as an internal token or as an updated <ph>key storage file</ph>
+record. The returned <synph><var>key_identifier</var></synph> will be encrypted under the current
+master key.</pd></plentry>
+</parml></section>
+</refbody></reference>

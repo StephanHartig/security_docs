@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="pkatok_numrep" rev="sh16">
+<title>Number representation in PKA key tokens</title>
+<titlealts>
+<navtitle>Number representation in PKA key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Number representation in PKA key
+tokens</searchtitle>
+</titlealts>
+<shortdesc>View tables that present information about number representations in the available
+formats of PKA key tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PKA key tokens<indexterm>number representation</indexterm></indexterm>
+<indexterm>number representation<indexterm>PKA key tokens</indexterm></indexterm>
+<indexterm>key tokens<indexterm>PKA<indexterm>number
+representation</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<ul>
+<li>All length fields are in binary.</li>
+<li>All binary fields (exponents, lengths, and so forth) are stored with the high-order byte first.
+Thus the least significant bits are to the right and preceded with zero-bits to the width of a
+field.</li>
+<li>In variable-length binary fields that have an associated field-length value, leading bytes that
+would otherwise contain X'00' can be dropped and the field shortened to contain only the significant
+bits.</li>
+</ul>
+<!--Table 130 in BSM-->
+<table frame="all" id="bsm_rsahdr" pgwide="1">
+<title>PKA key token header</title>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="38*"/>
+<colspec colname="col2" colwidth="40*"/>
+<colspec colname="col3" colwidth="216*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Token identifier (a flag that indicates token type) <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>PKA null key-token</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'1E'</ph></dt>
+<dd>PKA external key-token; the optional private-key is either in cleartext or enciphered by a
+transport key-encrypting key</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'1F'</ph></dt>
+<dd>PKA internal key-token; the private key is enciphered by a master key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Token version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length in bytes of the token structure (big endian).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>

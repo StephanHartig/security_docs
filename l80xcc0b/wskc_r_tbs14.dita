@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbs14">
+<title>Trusted block section <ph>X'14'</ph></title>
+ <titlealts>
+    <navtitle>Trusted block section <ph><ph>X'14'</ph></ph></navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section
+<ph>X'14'</ph></searchtitle>
+  </titlealts>
+<shortdesc>Trusted block section <ph>X'14'</ph> contains control and security
+information related to the trusted block. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This information section is separate from the public key and other
+sections because this section is required while the others are optional.
+This section contains the cryptographic information that guarantees
+its integrity and binds it to the local system.</p></section>
+<section><p>Section <ph>X'14'</ph> is required. No multiple sections are allowed. Two subsections are
+defined. </p>
+<table id="l0wskc02_srsas10" pgwide="1" frame="all">
+<title>Trusted block information section <ph>(<ph>X'14'</ph>)</ph></title>
+<desc>
+<p outputclass="summary">Trusted block information section </p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'14'</ph></dt>
+<dd>Trusted block information</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Section length in bytes (10+<i>xxx</i>).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Reserved, binary zero.</entry>
+</row>
+<row>
+<entry colname="col1">006</entry>
+<entry colname="col2">004</entry>
+<entry colname="col3">Flags: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'00000000'</ph></dt>
+<dd>Trusted block is in the inactive state </dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00000001'</ph></dt>
+<dd>Trusted block is in the active state </dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry colname="col1">010</entry>
+<entry colname="col2"><i>xxx</i></entry>
+<entry colname="col3">Information section subsections (tag-length-value objects). <p> One or two
+objects in TLV format.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

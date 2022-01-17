@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="apgparameters" rev="sh15" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>ENCRYPT</indexterm><indexterm>BCD</indexterm><indexterm>CLEAR</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 0, 1, or 2.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keywords that provide control information to the <ph>verb</ph>. The
+<parmname>rule_array</parmname> keywords are described in <xref format="dita"
+href="#apgparameters/apg_table"/>.<table frame="all" id="apg_table" pgwide="1">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry align="left" valign="bottom">Keyword</entry>
+<entry align="left" valign="bottom">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" nameend="col2" namest="col1" valign="top"><b><i>AP Protection Method</i></b>
+(One, optional)</entry>
+</row>
+<row>
+<entry align="left" valign="top"><synph><kwd>ENCRYPT</kwd></synph></entry>
+<entry align="left" valign="top">Specifies that the AP value should be returned encrypted under the
+<parmname>AP_encrypting_key_identifier</parmname> parameter. This is the default.</entry>
+</row>
+<row>
+<entry align="left" valign="top"><synph><kwd>CLEAR</kwd></synph></entry>
+<entry align="left" valign="top">Specifies that the AP value should be returned in the
+clear.</entry>
+</row>
+<row>
+<entry align="left" nameend="col2" namest="col1" valign="top"><b><i>AP Value Format</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry align="left" valign="top"><synph><kwd>BCD</kwd></synph></entry>
+<entry>Specifies the output format of the AP as packed binary coded decimal. This is the
+default.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry><plentry>
+<pt>inbound_PIN_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>inbound_PIN_encrypting_key_identifier</parmname> parameter
+in bytes. This value must be 64.</pd>
+</plentry><plentry>
+<pt>inbound_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An operational key token or the label of the AES
+or DES key storage record containing a double length IPINENC
+key that decrypts the PIN block. <p>If the token supplied was encrypted
+under the old master key, the token is returned encrypted under the
+current master key.</p></pd>
+</plentry><plentry>
+<pt>encrypted_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The ISO-0 PIN block encrypted with the <parmname>inbound_PIN_encrypting_key_identifier</parmname>.
+The PIN within the PIN block must be a 5-digit value.</pd>
+</plentry><plentry>
+<pt>issuer_domestic_code</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 5 byte alphanumeric character string.</pd>
+</plentry><plentry>
+<pt>card_secure_code</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 8 byte string of digits grouped into two 4 byte sections.
+The 4 digits in a section cannot all be zero, for example, the value <userinput>0000</userinput> is
+invalid.</pd>
+</plentry><plentry>
+<pt>PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The personal account number (PAN). Must be 12 characters long.</pd>
+</plentry><plentry>
+<pt>AP_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>AP_encrypting_key_identifier</parmname> parameter
+in bytes. This value is 64 when a label is supplied. When the key
+identifier is a key token, the value is the length of the token. The
+maximum value is 725. The value may be 0 when the CLEAR <parmname>rule_array</parmname> keyword
+is specified.</pd>
+</plentry><plentry>
+<pt>AP_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal key token or the label of the AES
+or DES key storage record containing a double length DATA key
+used to encrypt the <parmname>AP_value</parmname>. If the AP Protection
+Method was specified as CLEAR keyword in the <parmname>rule_array</parmname> parameter,
+this parameter is ignored. <p>If the token supplied was encrypted
+under the old master key, the token is returned encrypted under the
+current master key.</p></pd>
+</plentry><plentry>
+<pt>AP_value</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 8 byte character string containing the generated authentication
+parameter.</pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000009953?>

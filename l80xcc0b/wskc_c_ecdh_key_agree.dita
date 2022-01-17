@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ecdh_key_agree" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"></keyword> key
+agreement models</title>
+<titlealts>
+<navtitle>Key agreement  models</navtitle><?Pub Caret 15?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"></keyword> key
+agreement       models</searchtitle>
+</titlealts>
+<shortdesc>You can specify an EC Diffie-Hellman agreement
+model, or obtain the shared secret value without deriving a key.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"></keyword><indexterm>key
+agreement models</indexterm></indexterm><indexterm>key agreement models<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"></keyword></indexterm></indexterm>
+<indexterm>token agreement scheme</indexterm>
+<indexterm>raw Z value</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<section>
+<title>Token agreement scheme</title>
+<p>The caller must have both the required key tokens and both party's identifiers, including a
+randomly generated nonce.</p>
+<p>Combine the exchanged nonce and Party Info into the party identifier. (Both parties must combine
+this information in the same format.) Then call the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb, where <q>EC</q> means Elliptic
+Curve. Specify a skeleton token or the label of a skeleton token as the output key identifier to be
+used as a container for the computed symmetric key material. Note, both parties must specify the
+same key type in their skeleton key tokens.</p>
+<ul>
+<li>Specify rule-array keyword <synph><kwd>DERIV01</kwd></synph> to denote the Static Unified Model
+key agreement scheme.</li>
+<li>Specify an ECC token as the private key identifier containing this party's ECC public-private
+key pair.</li>
+<li>Optionally specify a private KEK key identifier, if the key pair is in an external key
+token.</li>
+<li>Specify an ECC token as the public key identifier containing the other party's ECC public key
+part.</li>
+<li>Specify a skeleton token as the output key identifier to be used as a container for the computed
+symmetric key material.</li>
+<li>Optionally specify an output KEK key identifier, if the output key is to be in an external key
+token.</li>
+<li>Specify the combined party info (including nonce) as the party identifier.</li>
+<li>Specify the desired size of the key to be derived (in bits) as the key bit length.</li>
+</ul>
+</section>
+<section>
+<title>Obtaining the raw "Z" value</title>
+<p>The caller must then derive the final key material using a method of their choice. Do not specify
+any party info.</p>
+<ul>
+<li>Specify rule array keyword <synph><kwd>PASSTHRU</kwd></synph> to denote no key agreement
+scheme.</li>
+<li>Specify an ECC token as the private key identifier containing this party's ECC public-private
+key pair.</li>
+<li>Optionally specify a private KEK key identifier, if the key pair is in an external key
+token.</li>
+<li>Specify an ECC token as the public key identifier containing the other party's ECC public key
+part.</li>
+<li>The output key identifier will be populated with the resulting shared secret material.</li>
+</ul>
+</section>
+</conbody>
+</concept>
+<?Pub *0000001278?>

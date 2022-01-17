@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_keysrule_other">
+<title>Key Storage for traditional <tm trademark="IBM" tmtype="reg">IBM</tm> systems other than
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> (RTCMK-focused: <tm
+trademark="Linux" tmtype="tm">Linux</tm>, <tm trademark="AIX" tmtype="reg">AIX</tm>, <tm
+trademark="Windows" tmtype="tm">Windows</tm>)</title>
+<titlealts>
+<navtitle>Key Storage for traditional IBM systems other than
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> (RTCMK-focused: Linux, AIX, Windows)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key Storage for traditional IBM systems
+other than IBM z Systems (RTCMK-focused: Linux, AIX, Windows)</searchtitle>
+</titlealts><shortdesc><synph><var>Design point</var></synph> - Keys should be re-enciphered to a master
+key in the CMK register. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RTCMK</indexterm>
+<indexterm>RTNMK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This forces the following process to be followed when changing
+the master key:
+<ul>
+<li>Load all the master key parts for a NMK, such that the LAST key
+part has been loaded, then issue the SET command. Now the previous
+OMK is gone, the previous CMK is now the OMK, and the CMK contains
+the newly-loaded value. See <xref href="wskc_c_keysrule_set.dita#l0wskc02_keysrule_set"/>.</li>
+<li>Re-encipher all of an existing CCA host key storage data file's
+key tokens, which are enciphered under the OMK, to be enciphered under
+the CMK. This is done using the RTCMK <synph><var>rule_arry</var></synph> keyword of <xref href="wskc_r_bktc.dita#l0wskc02_bktc"/> or <xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"/>.
+<ul>
+<li>This <synph><kwd>immediately replaces operational keys</kwd></synph> with the re-enciphered
+version.</li>
+<li>The CCA key storage file has a data structure with the verification
+pattern of the most recently SET master key. The key storage implementation
+also allows writing external tokens into the key storage. This means
+that external key tokens, and the internal key tokens encrypted under
+current master key, will be allowed into the key storage. 
+<p>It is
+impossible with current implementation to use RTNMK together with
+CCA key storage.</p></li>
+</ul></li>
+<li>During the re-encipherment: 
+<ul>
+<li>Some of the keys in the CCA key storage files are enciphered under
+the OMK (because of the shift) and are usable</li>
+<li>Some of the keys in the CCA key storage files are enciphered under
+the CMK, either because they are new or because they have been re-enciphered.</li>
+<li>No new key tokens can be created with the key wrapped using the
+OMK.</li>
+</ul>
+<p>Both types are usable for cryptographic operations.</p></li>
+</ul></p>
+</conbody></concept>

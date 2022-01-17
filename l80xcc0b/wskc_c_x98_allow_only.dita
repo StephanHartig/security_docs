@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_x98_allow_only">
+<title>ANSI X9.8 PIN - Allow only ANSI PIN blocks</title>
+<titlealts>
+<navtitle>ANSI X9.8 PIN - Allow only ANSI PIN blocks</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.8 PIN - Allow only ANSI PIN
+blocks</searchtitle>
+</titlealts><shortdesc>In order to enable the ANSI X9.8 PIN - Allow only ANSI PIN blocks
+access control point, the ANSI X9.8 PIN - Enforce PIN block restrictions
+must also be enabled. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>ISO format 0</indexterm>
+<indexterm>ISO format 1</indexterm>
+<indexterm>ISO format3</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The <cmdname>ANSI X9.8 PIN - Allow only ANSI PIN blocks</cmdname> access control point cannot be
+enabled by itself.</p>
+<p>When this access control point is enabled, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb allows reformatting of the PIN
+block as shown in <xref href="#l0wskc02_x98_allow_only/l0wskc02_x98_tab1"/>. <table
+id="l0wskc02_x98_tab1" pgwide="1" rowheader="firstcol">
+<title>ANSI X9.8 PIN - Allow only ANSI PIN blocks</title>
+<desc>
+<p outputclass="summary">ANS X9.8 PIN - Allow only ANSI PIN blocks</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="8*"/>
+<colspec colname="col3" colwidth="4*"/>
+<colspec colname="col4" colwidth="8*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1" valign="top" align="right">Reformat to:</entry>
+<entry colname="col2" morerows="1" valign="top">ISO Format 0</entry>
+<entry colname="col3" morerows="1" valign="top">ISO Format 1</entry>
+<entry colname="col4" morerows="1" valign="top">ISO Format 3</entry>
+</row>
+<row>
+<entry>Reformat from:</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>ISO Format 0</kwd></synph></entry>
+<entry colname="col2">Reformat permitted. Change of PAN not permitted</entry>
+<entry colname="col3">Not permitted</entry>
+<entry colname="col4">Reformat permitted. Change of PAN not permitted.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ISO Format 1</kwd></synph></entry>
+<entry colname="col2">Reformat permitted</entry>
+<entry colname="col3">Reformat permitted</entry>
+<entry colname="col4">Reformat permitted</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ISO Format 3</kwd></synph></entry>
+<entry colname="col2">Reformat permitted. Change of PAN not permitted.</entry>
+<entry colname="col3">Not permitted</entry>
+<entry colname="col4">Reformat permitted. Change of PAN not permitted.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+</conbody></concept>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpvrequired" rev="sh15">
+<title>Required commands</title><titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/>)<indexterm>required
+            commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> verb requires the
+<cmdname>DK PIN Verify</cmdname> command (offset X'02C1') to be enabled in the active role.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is enabled in the domain role, the PIN block
+format rule array keyword ISO-1 is not allowed.</p>
+</section>
+</refbody></reference>

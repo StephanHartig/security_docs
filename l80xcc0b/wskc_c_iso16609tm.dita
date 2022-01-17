@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_iso16609tm">
+<title>ISO 16609 TDES MAC</title>
+  <titlealts>
+    <navtitle>ISO 16609 TDES MAC</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ISO 16609 TDES MAC</searchtitle>
+  </titlealts><shortdesc>ISO 16609 defines a process for protecting the integrity of transmitted
+banking messages and for verifying that a message has originated from
+an authorized source and this process is called the ISO 16609 TDES
+MAC method. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>ISO 16609 TDES MAC</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The ISO 16609 TDES MAC method corresponds to ISO/IEC 9797-1, algorithm
+1 using T-DEA (ANSI X9.52:1998). ISO/FDIS 16609 identifies this method
+as one of the recommended ways to generate a MAC using symmetric techniques. </p>
+<p>The ISO 16609 TDES MAC method uses a double-length DES key and
+operates on data blocks that are a multiple of eight bytes. If the
+last input data block is not a multiple of eight bytes, binary zeros
+are appended to the right of the block. A CBC mode triple-DES (TDES)
+encryption operation is performed on the data, with all output discarded
+except for the final output block. </p>
+<p>The resulting MAC value is processed according to other specifications
+supplied to the verb call.</p>
+</conbody></concept>

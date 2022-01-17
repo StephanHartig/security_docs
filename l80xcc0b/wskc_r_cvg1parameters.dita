@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cvg1parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)<indexterm>key type</indexterm></indexterm>
+<indexterm>key type</indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>CVARDEC</indexterm>
+<indexterm>CVARENC</indexterm>
+<indexterm>CVARPINE</indexterm>
+<indexterm>CVARXCVL</indexterm>
+<indexterm>CVARXCVR</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>DECIPHER</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>SECMSG</indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/></indexterm></indexterm>
+<indexterm>AMEX-CSC</indexterm>
+<indexterm>ANSI X9.9</indexterm>
+<indexterm>ANY</indexterm>
+<indexterm>ANY-MAC</indexterm>
+<indexterm>CLR8-ENC</indexterm>
+<indexterm>CPINENC</indexterm>
+<indexterm>CPINGEN</indexterm>
+<indexterm>CPINGENA</indexterm>
+<indexterm>CVVKEY-A</indexterm>
+<indexterm>CVVKEY-B</indexterm>
+<indexterm>DALL</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DDATA</indexterm>
+<indexterm>DEXP</indexterm>
+<indexterm>DIMP</indexterm>
+<indexterm>DKYL0</indexterm>
+<indexterm>DKYL1</indexterm>
+<indexterm>DKYL2</indexterm>
+<indexterm>DKYL3</indexterm>
+<indexterm>DKYL4</indexterm>
+<indexterm>DKYL5</indexterm>
+<indexterm>DKYL6</indexterm>
+<indexterm>DKYL7</indexterm>
+<indexterm>DMAC</indexterm>
+<indexterm>DMKEY</indexterm>
+<indexterm>DMPIN</indexterm>
+<indexterm>DMV</indexterm>
+<indexterm>DOUBLE</indexterm>
+<indexterm>DPVR</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>EPINGEN</indexterm>
+<indexterm>EPINGENA</indexterm>
+<indexterm>EPINVER</indexterm>
+<indexterm>EXEX</indexterm>
+<indexterm>EXPORT</indexterm>
+<indexterm>GBP-PIN</indexterm>
+<indexterm>GBP-PINO</indexterm>
+<indexterm>IBM-PIN</indexterm>
+<indexterm>IBM-PINO</indexterm>
+<indexterm>IMEX</indexterm>
+<indexterm>IMIM</indexterm>
+<indexterm>IMPORT</indexterm>
+<indexterm>INBK-PIN</indexterm>
+<indexterm>KEY-PART</indexterm>
+<indexterm>KEYLN8</indexterm>
+<indexterm>KEYLN16</indexterm>
+<indexterm>LMTD-KEK</indexterm>
+<indexterm>MIXED</indexterm>
+<indexterm>NO-SPEC</indexterm>
+<indexterm>NO-XPORT</indexterm>
+<indexterm>NOOFFSET</indexterm>
+<indexterm>NOT31XPT</indexterm>
+<indexterm>NOT-KEK</indexterm>
+<indexterm>OPEX</indexterm>
+<indexterm>OPIM</indexterm>
+<indexterm>PIN</indexterm>
+<indexterm>REFORMAT</indexterm>
+<indexterm>SINGLE</indexterm>
+<indexterm>SMKEY</indexterm>
+<indexterm>SMPIN</indexterm>
+<indexterm>T31XPTOK</indexterm>
+<indexterm>TRANSLAT</indexterm>
+<indexterm>UKPT</indexterm>
+<indexterm>VISA-PVV</indexterm>
+<indexterm>XLATE</indexterm>
+<indexterm>XPORT-OK</indexterm>
+<indexterm>CLR8-ENC</indexterm>
+<indexterm>UKPT</indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>SECMSG</indexterm>
+<indexterm>SMKEY</indexterm>
+<indexterm>SMPIN</indexterm>
+<indexterm>reserved parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb</indexterm></indexterm>
+<indexterm>control_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_type</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A string variable containing a keyword for the key type. The keyword is eight bytes in
+length, left-aligned, and padded on the right with space characters. It is taken from the following
+list: <codeblock rev="sh15">
+ CIPHER        CVARXCVL           DKYGENKY         MAC
+ CIPHERXI      CVARXCVR           ENCIPHER         MACVER
+ CIPHERXL      DATA               EXPORTER         OKEYXLAT
+ CIPHERXO      DATAC              IKEYXLAT         OPINENC
+ CVARDEC       DATAM              IMPORTER         PINGEN
+ CVARENC       DATAMV             IPINENC          PINVER
+ CVARPINE      DECIPHER           KEYGENKY         SECMSG
+</codeblock>
+<ph rev="sh15">For information on the meaning of the key types, see <xref
+href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</ph></pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. Each keyword is left-aligned
+in 8-byte fields, and padded on the right with blanks. All keywords must be in contiguous storage.
+<xref href="wskc_r_ktb.dita#l0wskc02_ktb"/> illustrates the key type and key usage keywords that can
+be combined in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>
+<ph>verbs</ph> to create a control vector. <p>See <xref href="wskc_des_key_usage_restrictions.dita"
+/> for the key usage keywords that can be specified for a given key type. The
+<parmname>rule_array</parmname> keywords are described in <xref
+href="#l0wskc02_cvg1parameters/cvg1_keywords" format="dita"/>. </p>
+<table id="cvg1_keywords" pgwide="1" frame="all"><title>Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> control information</title><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> control information</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b>Key usage keywords:</b> These keywords allow the key to be
+use with a callable service, restrict the key to a single algorithm, or allow the key to be used for
+a specific function (One, required)</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Key encrypting keys</i></entry>
+</row>
+<row>
+<entry>OPIM</entry>
+<entry>IMPORTER keys that have this attribute can be used in the CSNBKGN service when the key form
+is OPIM.</entry>
+</row>
+<row>
+<entry>IMEX</entry>
+<entry>IMPORTER and EXPORTER keys that have this attribute can be used in the CSNBKGN service when
+the key form is IMEX.</entry>
+</row>
+<row>
+<entry>IMIM</entry>
+<entry>IMPORTER keys that have this attribute can be used in the CSNBKGN service when the key form
+is IMIM.</entry>
+</row>
+<row>
+<entry>IMPORT</entry>
+<entry>IMPORTER keys that have this attribute can be used to import a key in the CSNBKIM
+service.</entry>
+</row>
+<row>
+<entry>OPEX</entry>
+<entry>EXPORTER keys that have this attribute can be used in the CSNBKGN service when the key form
+is OPEX.</entry>
+</row>
+<row>
+<entry>EXEX</entry>
+<entry>EXPORTER keys that have this attribute can be used in the CSNBKGN service when the key form
+is EXEX.</entry>
+</row>
+<row>
+<entry>EXPORT</entry>
+<entry>EXPORTER keys that have this attribute can be used to export a key in the CSNBKEX service.
+</entry>
+</row>
+<row>
+<entry>XLATE</entry>
+<entry>IMPORTER and EXPORTER keys that have this attribute can be used in the CSNBKTR and CSNBKTR2
+services.</entry>
+</row>
+<row>
+<entry>ANY</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry>NOT-KEK</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry>DATA</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry>LMTD-KEK</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>MAC keys</i>
+</entry>
+</row>
+<row>
+<entry>ANY-MAC</entry>
+<entry>A key with this attribute can be used with any service that uses MAC keys.</entry>
+</row>
+<row>
+<entry>CVVKEY-A</entry>
+<entry>Restricts the usage of the key to single-length key-A key or double-length key-A and key-B
+keys for the CSNBCSG and CSNBCSV services.</entry>
+</row>
+<row>
+<entry>CVVKEY-B</entry>
+<entry>Restricts the usage of the key to single-length key-B key for the CSNBCSG and CSNBCSV
+services.</entry>
+</row>
+<row>
+<entry>AMEX-CSC</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry>ANSIX9.9</entry>
+<entry>This key attribute has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Data operation keys</i><p>When the key type is SECMSG, either
+SMKEY or SMPIN must be specified in the rule_array.</p></entry>
+</row>
+<row>
+<entry>SMKEY</entry>
+<entry>A key with this attribute can be used to encrypt keys in an EMV secure message.</entry>
+</row>
+<row>
+<entry>SMPIN</entry>
+<entry>A key with this attribute can be used to encrypt PINs in an EMV secure message.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>PIN keys</i></entry>
+</row>
+<row>
+<entry>NO-SPEC</entry>
+<entry>The key is not restricted to a specific PIN-calculation method.</entry>
+</row>
+<row>
+<entry>IBM-PIN</entry>
+<entry>The key can be used with the IBM 3624 PIN-calculation method.</entry>
+</row>
+<row>
+<entry>IBM-PINO</entry>
+<entry>The key can be used with the IBM 3624 PIN-calculation method with offset processing.</entry>
+</row>
+<row>
+<entry>GBP-PIN</entry>
+<entry>The key can be used with the IBM German Bank Pool PIN-calculation method.</entry>
+</row>
+<row>
+<entry>GBP-PINO</entry>
+<entry>The key can be used with the IBM German Bank Pool PIN-calculation method with institution-PIN
+input or output.</entry>
+</row>
+<row>
+<entry>VISA-PVV</entry>
+<entry>The key can be used with the Visa PVV PIN-calculation method.</entry>
+</row>
+<row>
+<entry>INBK-PIN</entry>
+<entry>The key can be used with the InterBank PIN-calculation method.</entry>
+</row>
+<row>
+<entry>NOOFFSET</entry>
+<entry>Indicates that a PINGEN or PINVER key cannot be used to generate or verify of a PIN when an
+offset process is requested.</entry>
+</row>
+<row>
+<entry>CPINGEN</entry>
+<entry>The key can be used with the CSNBPGN service.</entry>
+</row>
+<row>
+<entry>CPINGENA</entry>
+<entry>The key can be used with the CSNBCPA service.</entry>
+</row>
+<row>
+<entry>EPINGEN</entry>
+<entry>The key can be used with the CSNBEPG service.</entry>
+</row>
+<row>
+<entry>EPINVER</entry>
+<entry>The key can be used with the CSNBPVR service.</entry>
+</row>
+<row>
+<entry>CPINENC</entry>
+<entry>The key can be used with the CSNBCPE service.</entry>
+</row>
+<row>
+<entry>REFORMAT</entry>
+<entry>The key can be used with the CSNBPTR service in the REFORMAT mode.</entry>
+</row>
+<row>
+<entry>TRANSLAT</entry>
+<entry>The key can be used with the CSNBPTR service in the TRANSLATE mode.</entry>
+</row>
+<row>
+<entry>EPINGENA</entry>
+<entry>This key attribut has been discontinued. Its usage is allowed for backward compatibility
+reasons only.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Key-generating keys</i><p>When the key type is KEYGENKY,
+either CLR8-ENC or UKPT must be specified in the rule array.</p></entry>
+</row>
+<row>
+<entry>CLR8-ENC</entry>
+<entry>The key can be used to multiply-encrypt 8 bytes of clear data with a generating key.</entry>
+</row>
+<row>
+<entry>DALL</entry>
+<entry>The key can be used to generate keys with the following key types: DATA, DATAC, DATAM,
+DATAMV, DMKEY, DMPIN, EXPORTER, IKEYXLAT, IMPORTER, MAC, MACVER, OKEYXLAT, and PINVER.</entry>
+</row>
+<row>
+<entry>DDATA</entry>
+<entry>The key can be used to generate a single-length or double-length DATA or DATAC key.</entry>
+</row>
+<row>
+<entry>DEXP</entry>
+<entry>The key can be used to generate an EXPORTER or an OKEYXLAT key.</entry>
+</row>
+<row>
+<entry>DIMP</entry>
+<entry>The key can be used to generate an IMPORTER or an IKEYXLAT key.</entry>
+</row>
+<row>
+<entry>DMAC</entry>
+<entry>The key can be used to generate a MAC or DATAM key.</entry>
+</row>
+<row>
+<entry>DMKEY</entry>
+<entry>The key can be used to generate a SECMSG with a SMKEY secure messaging key for encrypting
+keys.</entry>
+</row>
+<row>
+<entry>DMPIN</entry>
+<entry>The key can be used to generate a SECMSG with a SMPIN secure messaging key for encrypting
+PINs.</entry>
+</row>
+<row>
+<entry>DMV</entry>
+<entry>The key can be used to generate a MACVER or DATAMV key.</entry>
+</row>
+<row>
+<entry>DPVR</entry>
+<entry>The key can be used to generate a PINVER key.</entry>
+</row>
+<row>
+<entry>DKYL0</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a key based on the key-usage
+bits.</entry>
+</row>
+<row>
+<entry>DKYL1</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL0.</entry>
+</row>
+<row>
+<entry>DKYL2</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL1.</entry>
+</row>
+<row>
+<entry>DKYL3</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL2.</entry>
+</row>
+<row>
+<entry>DKYL4</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL3.</entry>
+</row>
+<row>
+<entry>DKYL5</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL4. </entry>
+</row>
+<row>
+<entry>DKYL6</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL5. </entry>
+</row>
+<row>
+<entry>DKYL7</entry>
+<entry>A DKYGENKY key with this subtype can be used to generate a DKYGENKY key with a subtype of
+DKYL6.</entry>
+</row>
+<row>
+<entry>UKPT</entry>
+<entry>The key can be used to derive operational keys.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Key management keywords</i><p>These keywords are valid with
+all key types. The keywords are used to allow or disallow key management functions.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Key lengths</i></entry>
+</row>
+<row>
+<entry>MIXED</entry>
+<entry>Indicates that the key can be either a replicated single-length key or a double-length key
+with two different, random 8-byte values.</entry>
+</row>
+<row>
+<entry>SINGLE, KEYLN8</entry>
+<entry>Specifies the key as a single-length key.</entry>
+</row>
+<row>
+<entry>DOUBLE, KEYLN16</entry>
+<entry>Specifies the key as a double-length key.</entry>
+</row>
+<row>
+<entry>DOUBLE-O</entry>
+<entry>Specifies the key as a double-length key with guaranteed different key values.</entry>
+</row>
+<row rev="sh20i1">
+<entry>TRIPLE</entry>
+<entry>Specifies the key as a triple-length Triple-DES key; (see Note <xref
+href="#l0wskc02_cvg1parameters/note_dkt" format="dita"/>).</entry>
+</row>
+<row rev="sh20i1">
+<entry>TRIPLE-O</entry>
+<entry>Specifies the key as a triple-length Triple-DES key that has key parts guaranteed unique;
+(see Note <xref href="#l0wskc02_cvg1parameters/note_dkt" format="dita"/>).</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Miscellaneous attributes</i></entry>
+</row>
+<row>
+<entry>COMP-TAG</entry>
+<entry>The key can be used with PCI-HSM compliant applications.</entry>
+</row>
+<row>
+<entry>ENH-ONLY</entry>
+<entry>Prohibits the key from being wrapped with the legacy method after it has been wrapped with
+the enhanced method.</entry>
+</row>
+<row>
+<entry>KEY-PART</entry>
+<entry>Specifies the control vector is for a key part.</entry>
+</row>
+<row>
+<entry>NO-XPORT</entry>
+<entry>Prohibits the key from being exported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>.</entry>
+</row>
+<row rev="sh21i1">
+<entry>NOEXCPAC</entry>
+<entry>Prohibits export to CPACF protected key format.</entry>
+</row>
+<row>
+<entry>NOCMPTAG</entry>
+<entry>The key cannot be used with PCI-HSM compliant applications.</entry>
+</row>
+<row>
+<entry>NOT31XPT</entry>
+<entry>Prohibits the key from being exported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb.</entry>
+</row>
+<row>
+<entry>T31XPTOK</entry>
+<entry>Permits the key to be exported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb.</entry>
+</row>
+<row>
+<entry>XPORT-OK</entry>
+<entry>Permits the key to be exported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>. Also permits the key to be exported by
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb, unless NOT31XPT
+is enabled.</entry>
+</row>
+<row rev="sh21i1">
+<entry>XPRTCPAC</entry>
+<entry>Allows export to CPACF protected key format.</entry>
+</row>
+</tbody>
+</tgroup></table><note>
+<ol>
+<li>When the <synph><kwd>KEYGENKY</kwd></synph> key type is coded, either
+<synph><kwd>CLR8-ENC</kwd></synph> or <synph><kwd>UKPT</kwd></synph> must be specified in
+<synph><var>rule_array</var></synph>.</li>
+<li>When the <synph><kwd>SECMSG</kwd></synph>
+<synph><var>key_type</var></synph> is coded, either <synph><kwd>SMKEY</kwd></synph> or
+<synph><kwd>SMPIN</kwd></synph> must be specified in the <synph><var>rule_array</var></synph>.</li>
+<li>Keyword <synph><kwd>ENH-ONLY</kwd></synph> was introduced with CCA 4.1.0.</li>
+<li rev="hw20i1">The <b>DOUBLE-O</b> keyword and, beginning with Release 5.4 and Release 6.2, the
+<b>TRIPLE-O</b> keyword sets the control vector bit 40 of the key form bits to B'1'. When CV bit 40
+is set to B'1', the key halves of a double-length key and the key parts of a triple-length key
+(ignoring parity bits) are guaranteed to be unique. A double-length key with replicated key halves
+has an effective key length of single. A triple-length key with replicated key parts can have an
+effective key length of double (that is, the left and right 56-bit key parts are equal, and the
+middle 56-bit key part is unique) or single (that is, the left key part and middle key part are
+equal, or the middle key part and right key part are equal, or the left, middle, and right key parts
+are equal).</li>
+<li rev="hw20i1" id="note_dkt">The DATA key type has more than one default based on the key length.
+The following describes how to build each default DATA control vector (as shown in <xref
+href="wskc_c_cvtable.dita"/>): <ul>
+<li>For internal single-length, specify no rule-array keywords, or specify <b>SINGLE</b> or
+<b>KEYLN8</b>.</li>
+<li>For internal double-length, specify <b>DOUBLE</b>, <b>KEYLN16</b>, or <b>MIXED</b>.</li>
+<li>For external single-length, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb and specify rule-array keywords of
+<b>EXTERNAL</b>, <b>DES</b>, and either <b>SINGLE</b>, or <b>KEYLN8</b>.</li>
+<li>For external double-length, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb, specify rule-array keywords of
+<b>EXTERNAL</b>, <b>DES</b>, and either <b>DOUBLE</b>, <b>KEYLN16</b>, or <b>MIXED</b>.</li>
+<li>For internal triple-length (Release 5.4 or later and Release 6.2 or later), specify
+<b>TRIPLE</b>.</li>
+<li>For external triple-length (Release 5.4 or later and Release 6.2 or later), use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb, specify rule-array keywords of
+<b>EXTERNAL</b>, <b>DES</b>, and <b>TRIPLE</b>. </li>
+</ul></li>
+</ol>
+</note></pd></plentry>
+<plentry><pt>reserved</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <synph><var>reserved</var></synph> parameter must be a variable of eight
+bytes of <ph>X'00'</ph>.</p></pd></plentry>
+<plentry><pt>control_vector</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A 16-byte string variable in application storage where the
+verb returns the generated control vector.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

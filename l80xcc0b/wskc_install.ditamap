@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_j">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> installation
+instructions</title>
+<topicref href="wskc_c_install.dita">
+<topicref href="wskc_t_l0wskc115.dita"/>
+<topicref href="wskc_install_ubuntu.dita"/>
+<topicref format="dita" href="wskc_r_defaultinst.dita" scope="local" type="reference"/>
+<topicref href="wskc_t_install_rpm.dita">
+<topicref href="wskc_c_inst_rpm_files.dita"/>
+<topicref href="wskc_c_l0wskc116.dita"/>
+<topicref href="wskc_c_l0wskc117.dita"/>
+<topicref href="wskc_t_insconrpm.dita"/>
+</topicref>
+<topicref href="wskc_t_l0wskc118.dita"/>
+</topicref>
+</map>
+<?Pub *0000001136?>

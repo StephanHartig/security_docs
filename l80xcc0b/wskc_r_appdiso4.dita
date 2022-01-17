@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdiso4" rev="sh20i1">
+<title>ISO Format 4</title>
+<titlealts>
+<navtitle>ISO Format 4</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ISO Format 4</searchtitle>
+</titlealts>
+<shortdesc>Example code for ISO Format 2.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PIN block format<indexterm>ISO-4</indexterm></indexterm>
+<indexterm>ISO-4 PIN block format</indexterm>
+<indexterm>ISO format 4</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>This block is 16 bytes long.</p>
+</section>
+<example>
+<codeblock>   PIN Block = CLPPPPaaaaaaaaAARRRRRRRRRRRRRRRR
+
+where C = X'4'
+      L = X'4' to X'C'</codeblock>
+</example>
+</refbody>
+</reference>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbtr31kr">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb to either obtain information about all
+of the optional blocks in the header of an external TR-31 key block,
+or obtain the length and data of the specified optional block. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>To disassemble the part of the header that is not optional, use
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb. Neither verb performs any cryptographic services,
+and both disassemble a key block in application storage. The validity
+of the key block is verified as much as can be done without performing
+any cryptographic services.</p></section>
+<section><p>A TR-31 key block contains an unencrypted header that can include
+one or more optional blocks. All parts of the header are securely
+bound to the key block using the integrated MAC.</p></section>
+<section><p>Optional blocks in a key block must each be identified by a unique
+2-byte ID. The value of an ID must either be defined by TR-31 or be
+a numeric value, otherwise the key block is invalid. Numeric IDs are
+reserved for proprietary use. For more information, see X9 TR-31 2010: <synph><var>Interoperable
+Secure Key Exchange Block Specification for Symmetric Algorithms</var></synph>.</p></section>
+<section><p>In order to obtain the data of a particular optional block from
+the header of an external TR-31 key block, perform the following steps:
+<ol>
+<li>Use the <synph><var>tr31_key</var></synph> parameter to identify the TR-31 key
+block that this verb is to process.</li>
+<li>Call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb to parse the TR-31 key block. See <xref href="wskc_r_vbtr31kp.dita#vbtr31kp"/>. Upon successful completion:
+<ul>
+<li>Set the value of the <synph><var>tr31_key_length</var></synph> variable to the
+value returned in the <synph><var>tr31_key_length</var></synph> variable.</li>
+<li>Set the value of the <synph><var>num_opt_blocks</var></synph> variable to the value
+returned in the <synph><var>num_opt_blocks</var></synph> variable.</li>
+<li>Allocate a string buffer in bytes for the <synph><var>opt_blocks_id</var></synph> and
+an integer buffer in bytes for the <synph><var>opt_blocks_length</var></synph> variables.
+These buffers must be at least two times the value of the <synph><var>num_opt_blocks</var></synph> variable.</li>
+</ul></li>
+<li>Specify a rule-array keyword of <synph><kwd>INFO</kwd></synph> to obtain information
+about the optional blocks in the key block. The <synph><var>opt_block_id</var></synph>, <synph><var>opt_block_data_length</var></synph>,
+and <synph><var>opt_block_data</var></synph> parameters are ignored.</li>
+<li>Call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb to read data from the TR-31 key block.
+Upon successful completion, the verb returns an array of optional
+block IDs in the <synph><var>opt_blocks_id</var></synph> variable, and an array of
+lengths for the optional block IDs in the <synph><var>opt_blocks_length</var></synph> variable.
+The IDs and lengths are returned in same order as the optional blocks
+appear in the header of the TR-31 key block.</li>
+<li>Determine which ID of the unique IDs contained in the <synph><var>opt_blocks_id</var></synph> variable
+is to be obtained from the TR-31 key block. Set the <synph><var>opt_block_id</var></synph> variable
+to this 2-byte value. Set the value of the <synph><var>opt_block_data_length</var></synph> variable
+to the corresponding length from the <synph><var>opt_blocks_length</var></synph> variable.
+<note>The offset used to locate the ID in the <synph><var>opt_blocks_id</var></synph> variable
+has the same value as the offset for the corresponding length in the <synph><var>opt_blocks_length</var></synph> variable.</note></li>
+<li>Allocate a buffer in bytes for the <synph><var>opt_block_data</var></synph> variable
+that is at least the value of the <synph><var>opt_block_data_length</var></synph> variable.</li>
+<li>Specify a rule-array keyword of <synph><kwd>DATA</kwd></synph> to obtain the length
+and data of the specified optional block. The <synph><var>num_opt_blocks</var></synph> and
+the <synph><var>opt_blocks_id</var></synph> parameters are ignored.</li>
+<li>Call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb. Upon successful completion, the verb
+returns the data of the specified optional block in the <synph><var>opt_block_data</var></synph> variable.
+The verb updates the <synph><var>opt_block_data_length</var></synph> variable to the
+number of bytes returned in the <synph><var>opt_block_data</var></synph> variable.</li>
+</ol></p></section>
+<section><p>This verb does not perform cryptographic services on any key value.
+You cannot use this verb to change a key or to change the control
+vector related to a key.</p></section>
+</refbody></reference>

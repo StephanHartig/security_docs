@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//IBM//DTD DITA IBM Composite//EN"
+ "ibm-ditabase.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<dita xml:lang="en-us">
+<topic id="phrases" xml:lang="en-us">
+<title>Phrases</title>
+<body>
+<ul>
+<li><ph id="lib_title">Linux on Z and LinuxONE</ph></li>
+<li><ph id="ph_zarch"><tm trademark="z/Architecture" tmtype="reg">z/Architecture</tm></ph></li>
+<li><ph id="ph_loz_and_lone"><tm trademark="Linux" tmtype="reg">Linux</tm> on Z and LinuxONE</ph>
+<!--Use in running text, if applicable, in case lib title changes--></li>
+<li><ph id="ph_loz"><tm trademark="Linux" tmtype="reg">Linux</tm> on Z</ph></li>
+<li><ph id="ph_loznotm">Linux on Z</ph></li>
+<li><ph id="ph_loz_inst">instance of <tm trademark="Linux" tmtype="reg">Linux</tm> on Z</ph></li>
+<li><ph id="ph_systemz_searchtitle">IBM Z (z Systems,
+mainframe)</ph><!--Use in searchtitles to catch searches with the old brand name - omit trademarks in search titles --></li>
+<li><ph id="ph_linuxz_searchtitle">Linux on IBM Z (z Systems,
+mainframe)</ph><!--Use in searchtitles to catch searches with the old brand name - omit trademarks in search titles --></li>
+<li><ph id="ph_kvmz_searchtitle">Linux as a KVM guest on IBM Z (z Systems,
+mainframe)</ph><!--Use in searchtitles to catch searches with the old brand name - omit trademarks in search titles --></li>
+<li><ph id="ph_ibmtm"><tm tmtype="reg" trademark="IBM">IBM</tm></ph></li>
+<li><ph id="ph_linuxs"><tm trademark="Linux" tmtype="reg">Linux</tm></ph></li>
+<li><ph id="ph_linuxsnotm">Linux</ph></li>
+<li><ph id="ph_linuxone">LinuxONE</ph></li>
+<li><ph id="ph_ibmlinuxone"><tm tmtype="tm" trademark="IBM LinuxONE">IBM LinuxONE</tm></ph></li>
+<li><ph id="ph_ibmz"><tm trademark="IBM Z" tmtype="reg">IBM Z</tm></ph></li>
+<li><ph id="ph_notmibmz">IBM Z</ph></li>
+<li><ph id="ph_z">Z</ph></li>
+<li><ph id="ph_linuxz"><tm trademark="Linux" tmtype="reg">Linux</tm> on <tm tmtype="tm"
+trademark="z Systems">z Systems</tm></ph></li>
+<li><ph id="ph_linuxzvm"><tm trademark="Linux" tmtype="reg">Linux</tm> on <tm tmtype="reg"
+trademark="z/VM">z/VM</tm></ph></li>
+<li><ph id="ph_linuxzvmnotm">Linux on z/VM</ph></li>
+<li><ph id="ph_linuxlpar"><tm trademark="Linux" tmtype="reg">Linux</tm> in LPAR mode</ph></li>
+<li><ph id="ph_linuxlparnotm">Linux in LPAR mode</ph></li>
+<li><ph id="ph_rhel"><tm trademark="Red Hat" tmtype="reg">Red Hat</tm> Enterprise <tm
+trademark="Linux" tmtype="reg">Linux</tm></ph></li>
+<li><ph id="ph_rhelnotm">Red Hat Enterprise Linux</ph></li>
+<li><ph id="ph_SLES">SUSE <tm trademark="Linux" tmtype="reg">Linux</tm> Enterprise Server</ph></li>
+<li><ph id="ph_SLESnotm">SUSE Linux Enterprise Server</ph></li>
+<li><ph id="ph_ubuntu">Ubuntu Server</ph></li>
+<li><ph id="ph_yast">YaST</ph></li>
+<li><ph id="ph_libica">2.1</ph></li>
+<li><ph id="ph_stream">Development</ph></li>
+<li><ph id="ph_vm"><tm tmtype="reg" trademark="z/VM">z/VM</tm></ph></li>
+<li><ph id="ph_notmvm">z/VM</ph></li>
+<li><ph id="ph_mainframe"><tm tmtype="reg" trademark="IBM">IBM</tm> mainframe</ph></li>
+<li><ph id="ph_systemz"><tm tmtype="tm" trademark="z Systems">z Systems</tm></ph></li>
+<li><ph id="ph_ibmzsystems"><tm tmtype="tm" trademark="IBM z Systems">IBM z Systems</tm></ph></li>
+<li><ph id="ph_systemz9"><tm tmtype="reg" trademark="System z9">System z9</tm></ph></li>
+<li><ph id="ph_systemz10"><tm tmtype="reg" trademark="System z10">System z10</tm></ph></li>
+<li><ph id="ph_zEnterprise"><tm tmtype="reg" trademark="zEnterprise">zEnterprise</tm></ph></li>
+<li><ph id="ph_zOS"><tm tmtype="reg" trademark="z/OS">z/OS</tm></ph></li>
+<li><ph id="ph_z196">z196</ph></li>
+<li><ph id="ph_z114">z114</ph></li>
+<li><ph id="ph_zec12">zEC12</ph></li>
+<li><ph id="ph_zbc12">zBC12</ph></li>
+<li><ph id="ph_z10"><tm tmtype="tm" trademark="z10">z10</tm></ph></li>
+<li><ph id="ph_z13"><tm trademark="z13" tmtype="reg"
+>z13</tm></ph><!--Code name zSphinx became z13 on Jan 14, 2015--></li>
+<li><ph id="ph_ibmz13"><tm trademark="IBM z13" tmtype="reg">IBM z13</tm></ph></li>
+<li><ph id="ph_z13s"><tm trademark="z13s" tmtype="reg">z13s</tm></ph></li>
+<li><ph id="ph_ibmz13s"><tm trademark="IBM z13s" tmtype="reg">IBM z13s</tm></ph></li>
+<li><ph id="ph_z14">z14</ph><!-- zMidas, needs trademark when available --></li>
+<li><ph id="ph_ibmz14"><tm trademark="IBM z14" tmtype="reg">IBM z14</tm></ph></li>
+<li><ph id="ph_z14zr1">z14 ZR1</ph></li>
+<li><ph id="ph_ibmz14zr1"><tm trademark="IBM z14" tmtype="reg">IBM z14</tm> Model ZR1</ph></li>
+<li><ph id="ph_z15"><tm trademark="z15" tmtype="tm">z15</tm></ph></li>
+<li><ph id="ph_ibmz15"><tm trademark="IBM z15" tmtype="tm">IBM z15</tm></ph></li>
+<li><ph id="ph_z15t02"><tm trademark="z15" tmtype="tm">z15</tm> T02</ph></li>
+<li><ph id="ph_ibmz15t02"><tm trademark="IBM z15" tmtype="tm">IBM z15</tm> Model T02</ph></li>
+<li><ph id="ph_ikcl"><tm tmtype="reg" trademark="IBM">IBM</tm>
+Documentation</ph><!--Rename from obsolete KC--></li>
+<li><ph id="ph_ibmdocs"><tm tmtype="reg" trademark="IBM">IBM</tm> Documentation</ph></li>
+<li><ph id="ph_busid_xpl">Device bus-IDs are of the form
+0.<varname>&lt;n></varname>.<varname>&lt;devno></varname>, where <varname>&lt;n></varname> is a
+subchannel set ID and <varname>&lt;devno></varname> is a device number.</ph></li>
+<li><ph id="ph_HipSock"><tm tmtype="tm" trademark="HiperSockets">HiperSockets</tm></ph></li>
+<li><ph id="ph_HipSocknotm">HiperSockets</ph></li>
+<li><ph id="ph_OSAE">OSA-Express CHPID in QDIO mode</ph></li>
+<li><ph id="ph_zvmiucvhvcdd"><tm tmtype="reg" trademark="z/VM">z/VM</tm> IUCV HVC device
+driver</ph></li>
+<li><ph id="ph_hmcdrvdd">HMC media device driver</ph></li>
+<li><ph id="ph_scm_l">storage-class memory</ph></li>
+<li><ph id="ph_scm_u">Storage-class memory</ph></li>
+<li><ph id="ph_genwqe">GenWQE</ph></li>
+<!--KVM phrases-->
+<li><ph id="ph_kvm">KVM</ph></li>
+<li><ph id="ph_kvmhyp">KVM hypervisor</ph></li>
+<li><ph id="ph_linuxonkvm"><tm trademark="Linux" tmtype="reg">Linux</tm> on KVM</ph></li>
+<li><ph id="ph_linuxonkvmnotm">Linux on KVM</ph></li>
+<li><ph id="ph_lnx_kvmguest"><tm trademark="Linux" tmtype="reg">Linux</tm> on Z as a KVM
+guest</ph></li>
+<li><ph id="ph_lnx_kvmguestnotm">Linux on Z as a KVM guest</ph></li>
+<li><ph id="ph_lnx_kvmguest_onz"><tm trademark="Linux" tmtype="reg">Linux</tm> as a KVM guest on
+Z</ph></li>
+<li><ph id="ph_lnx_kvmguest_onznotm">Linux as a KVM guest on Z</ph></li>
+<li><ph id="ph_kvmhost">KVM host</ph></li>
+<li><ph id="ph_kvmhosts">KVM hosts</ph></li>
+<li><ph id="ph_kvmguest">KVM guest</ph></li>
+<li><ph id="ph_kvmguests">KVM guests</ph></li>
+<li><ph id="ph_kvmvs">KVM virtual server</ph></li>
+<li><ph id="ph_kvmvss">KVM virtual servers</ph></li>
+<li><ph id="ph_virtserv">virtual server</ph></li>
+<li><ph id="virtservs">virtual servers</ph></li>
+<li><ph id="ph_virtio_dd">virtio CCW transport device driver</ph></li>
+<li><ph id="ph_secexe_l">IBM Secure Execution for Linux</ph></li>
+<li><ph id="ph_secexe_ltm"><ph conref="lxcommon.dita#phrases/ph_ibmtm"/> Secure Execution for <ph
+conref="lxcommon.dita#phrases/ph_linuxs"/></ph></li>
+<li><ph id="ph_secexe_mode"><ph conref="lxcommon.dita#phrases/ph_ibmtm"/> Secure Execution
+mode</ph></li>
+</ul>
+<section><title>Words to be protected from the TM tool</title><!--Omit trademark signs from the following phrases, their purpose is to hide them from the tm tool--><ul>
+<li><ph id="ph_cur">Current</ph></li>
+<li><ph id="ph_express">Express</ph></li>
+<li><ph id="ph_osaexpress">OSA-Express</ph></li>
+<li><ph id="ph_init">Initiate</ph></li>
+<li><ph id="ph_power">Power</ph></li>
+<li><ph id="ph_solid">Solid</ph></li>
+</ul></section>
+</body>
+</topic>
+<topic id="pubs" xml:lang="en-us">
+<title>Citations</title>
+<!--This list is not meant to be directly included in a publication but to serve as a target for conrefs.-->
+<!--Generated 2010-2-24 by bibdef2dita.pl based on template.dita.-->
+<body>
+<section><title>Linux on Z and LinuxONE library</title><ul>
+<li><ph id="cit-zl-dd"><cite conref="#pubs/cit-zl-dd-title"/>, SC33-8411</ph><cite
+id="cit-zl-dd-title">Device Drivers, Features, and
+Commands</cite><!--Tagging: Direct nesting of cite with and ID within a ph with an ID causes accessibility violation 377 in topics where the same book is referenced twice--></li>
+<li><ph id="cit-zl-dump-tools"><cite conref="#pubs/cit-zl-dt-title"/>, SC33-8412</ph><cite
+id="cit-zl-dt-title">Using the Dump Tools</cite></li>
+<li><ph id="cit-zl-kmsg"><cite>Kernel Messages</cite>, SC34-2599</ph></li>
+<li><ph id="cit-zfcp-howto"><cite>How to use FC-attached SCSI devices with <tm trademark="Linux"
+tmtype="reg">Linux</tm> on <tm tmtype="tm" trademark="z Systems">z Systems</tm></cite>,
+SC33-8413</ph></li>
+<li><ph id="cit-zl-pav-howto"><cite>How to Improve Performance with
+PAV</cite>, SC33-8414</ph></li>
+<li><ph id="cit-zl-eip-howto"><cite>How to use Execute-in-Place Technology with <tm
+trademark="Linux" tmtype="reg">Linux</tm> on <tm tmtype="reg" trademark="z/VM">z/VM</tm></cite>,
+SC34-2594</ph></li>
+<li><ph id="cit-zl-ts-howto"><cite>How to Set up a Terminal Server
+Environment on <tm tmtype="reg" trademark="z/VM">z/VM</tm></cite>,
+SC34-2596</ph></li>
+<li><ph id="cit-zl-libica-ref"><cite>libica Programmer's Reference</cite>,
+SC34-2602</ph></li>
+<li><ph id="cit-zl-ep11-ref"><cite>Exploiting Enterprise PKCS #11 using openCryptoki</cite>, SC34-2713</ph></li>
+<li><ph id="cit-z-sec-key"><cite>Secure Key Solution with the Common Cryptographic Architecture Application Programmer's Guide</cite>,
+SC33-8294</ph></li>
+<li><ph id="cit-zl-ock-ref"><cite>openCryptoki - An Open Source Implementation of PKCS #11</cite>,
+SC34-7730</ph></li>
+<li><ph id="cit-zl-dl"><cite>Integrating Applications with <tm trademark="Linux" tmtype="reg"
+>Linux</tm> on <tm tmtype="reg" trademark="zEnterprise">zEnterprise</tm></cite>, SC34-2608</ph></li>
+<li><ph id="cit-zl-lhc-ug"><cite><tm trademark="Linux" tmtype="reg">Linux</tm> Health Checker User's
+Guide</cite>, SC34-2609</ph></li>
+<li><ph id="cit-zl-srv"><cite>Troubleshooting</cite>, SC34-2612</ph></li>
+<li><ph id="cit-zl-docker"><cite><ph id="cit-zl-docker-title">Running Docker Containers on IBM Z</ph></cite>, SC34-2781</ph></li>
+<li><ph id="cit-zl-dmcrypt_quick"><cite>Getting started with pervasive disk encryption</cite>,
+SC34-2783</ph></li>
+<li><ph id="cit-zl-dmcrypt"><cite>Pervasive Encryption for Data Volumes</cite>, SC34-2782</ph></li>
+<li><ph id="cit-zl-ekm"><cite>Enterprise Key Management for Pervasive Encryption of Data
+Volumes</cite>, SC34-7740</ph></li>
+<li><ph id="cit-zl-tke"><cite>How to set an AES master key</cite>, SC34-7712</ph></li>
+<li><ph id="cit-zl-vsm"><cite>KVM Virtual Server Management</cite>, SC34-2752</ph></li>
+<li><ph id="cit-zl-apq-howto"><cite>Configuring Crypto Express Adapters for KVM Guests</cite>,
+SC34-7717</ph></li>
+<li><ph id="cit-zl-kvmqs"><cite>KVM Virtual Server Quick Start</cite>, SC34-2753</ph></li>
+<li><ph id="cit-zl-ise"><cite>Introducing <tm tmtype="reg" trademark="IBM">IBM</tm> Secure Execution
+for <tm trademark="Linux" tmtype="reg">Linux</tm></cite>, SC34-7721</ph><ph
+id="cit-zl-ise-titlenotm"><cite>Introducing IBM Secure Execution for Linux</cite></ph></li>
+</ul></section>
+<section><title>z/VM books</title><ul>
+<li><ph id="cit-vm-cms-dablk"><cite>CMS and CP Data Areas and Control
+Blocks</cite></ph></li>
+<li><ph id="cit-vm-connectivity"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>:
+Connectivity</cite>, SC24-6267</ph></li>
+<li><ph id="cit-vm-cmd-util-ref"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: CP Commands and
+Utilities Reference</cite>, SC24-6268</ph></li>
+<li><ph id="cit-vm-pln-adm"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: CP Planning and
+Administration</cite>, SC24-6271</ph></li>
+<li><ph id="cit-vm-prog-serv"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: CP Programming
+Services</cite>, SC24-6272</ph></li>
+<li><ph id="cit-vm-getstart-zl"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Getting Started
+with <tm trademark="Linux" tmtype="reg">Linux</tm> on <tm tmtype="reg" trademark="System z"
+>System z</tm></cite>, SC24-6287</ph></li>
+<li><ph id="cit-vm-perf"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Performance</cite>,
+SC24-6301</ph></li>
+<li><ph id="cit-vm-dcss-pln-adm"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Saved Segments
+Planning and Administration</cite>, SC24-6322</ph></li>
+<li><ph id="cit-vm-sysman-applprog"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Systems
+Management Application Programming</cite>, SC24-6327</ph></li>
+<li><ph id="cit-vm-tcpip-pln-cust"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: TCP/IP
+Planning and Customization</cite>, SC24-6331</ph></li>
+<li><ph id="cit-vm-vmop"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Virtual Machine
+Operation</cite>, SC24-6334</ph></li>
+<li><ph id="cit-vm-secur"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: Secure Configuration
+Guide</cite>, SG24-6323</ph></li>
+<li><ph id="cit-vm-rexx-ref"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: REXX/VM
+Reference</cite>, SC24-6314</ph></li>
+<li><ph id="cit-vm-rexx-ug"><cite><tm tmtype="reg" trademark="z/VM">z/VM</tm>: REXX/VM User's
+Guide</cite>, SC24-6315</ph></li>
+</ul></section>
+<section><title>z/OS books</title><ul>
+<li><ph id="cit-zos-dfsms-ds"><cite><tm tmtype="reg" trademark="z/OS">z/OS</tm> DFSMS
+Using Data Sets</cite>, SC26-7410</ph></li>
+<li><ph id="cit-zos-hcd"><cite><tm tmtype="reg" trademark="z/OS">z/OS</tm> HCD User's Guide</cite>,
+SC34-2669</ph></li>
+</ul></section>
+<section><title>System z hardware</title><ul>
+<li><ph id="cit-z-pop"><cite><tm tmtype="reg" trademark="z/Architecture">z/Architecture</tm> Principles
+of Operation</cite>, SA22-7832</ph></li>
+<li><ph id="cit-z-esa390-pop"><cite>Enterprise Systems Architecture/390
+Principles of Operation</cite>, SA22-7201</ph></li>
+<li><ph id="cit-z-appl-prog-int"><cite><tm tmtype="reg" trademark="S/390">S/390</tm> Application
+Programming Interfaces</cite>, SC28-8141</ph></li>
+<li><ph id="cit-z-app-prog-int"><cite><tm tmtype="reg"
+trademark="System z">System z</tm> Application Programming Interfaces</cite>,
+SB10-7030</ph></li>
+<li><ph id="cit-z-990-overview"><cite><tm tmtype="reg"
+trademark="zSeries">zSeries</tm> z990 System Overview</cite>, SA22-1032</ph></li>
+<li><ph id="cit-z-iocp-ug"><cite><tm tmtype="reg" trademark="zSeries">zSeries</tm> Input/Output
+Configuration Program User's Guide for ICP IOCP</cite>, SB10-7037</ph></li>
+<li><ph id="cit-osa-cust-gde-ref"><cite>Open Systems Adapter-Express Customer's Guide and
+Reference</cite>, SA22-7935</ph></li>
+<li><ph id="cit-osa-implgde"><cite>OSA-Express Implementation Guide</cite>, SG24-5948</ph></li>
+<li><ph id="cit-z-hysock"><cite><tm tmtype="tm" trademark="HiperSockets">HiperSockets</tm> Implementation
+Guide</cite>, SG24-6816</ph></li>
+<li><ph id="cit-prsm-mnpl"><cite><tm tmtype="tm"
+trademark="Processor Resource/Systems Manager">Processor Resource/Systems
+Manager</tm> Planning Guide</cite>, SB10-7041</ph></li>
+<li><ph id="cit-z-crypt-gde"><cite><tm tmtype="reg" trademark="zSeries">zSeries</tm> Crypto
+Guide Update</cite>, SG24-6870</ph></li>
+<li><ph id="cit-stor-ess"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> <tm trademark="TotalStorage" tmtype="tm">TotalStorage</tm> <tm
+tmtype="reg" trademark="Enterprise Storage Server">Enterprise Storage Server</tm>
+<tm tmtype="reg" trademark="System/390">System/390</tm> Command Reference 2105 Models E10, E20, F10,
+and F20</cite>, SC26-7295</ph></li>
+<li><ph id="cit-stor-ds8000"><!--DS8000 replaces TotalStorage ESS--><cite><tm tmtype="reg"
+trademark="IBM">IBM</tm> DS8000 Series Command-Line Interface User's Guide</cite>,
+GC27-4212</ph></li>
+<li><ph id="cit-stor-totess-web"><cite><tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm trademark="TotalStorage" tmtype="tm">TotalStorage</tm>
+<tm tmtype="reg" trademark="Enterprise Storage Server">Enterprise Storage Server</tm> Web Interface
+User's Guide</cite>, SC26-7448</ph></li>
+<li><ph id="cit-sec-crypt-key-man"><cite>Encryption Key Manager Component
+for the Java(TM) Platform Introduction, Planning, and User's Guide</cite>,
+GA76-0418</ph></li>
+<li><ph id="cit-red-urm"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> <tm
+tmtype="reg" trademark="zEnterprise">zEnterprise</tm> Unified Resource
+Manager</cite>, SG24-7921</ph></li>
+<li><ph id="cit-urm-intro-ens"><cite><tm tmtype="reg"
+trademark="zEnterprise">zEnterprise</tm> System Introduction to Ensembles</cite>,
+GC27-2609</ph></li>
+<li><ph id="cit-urm-ens-pln-cfg"><cite><tm tmtype="reg"
+trademark="zEnterprise">zEnterprise</tm> System Ensemble Planning
+and Configuring Guide</cite>, GC27-2608</ph></li>
+<li><ph id="cit-z-cpucnt"><cite><tm tmtype="reg"
+trademark="z/Architecture">z/Architecture</tm> The Load-Program-Parameter
+and the CPU-Measurement Facilities</cite>, SA23-2260</ph></li>
+<li><ph id="cit-z-cpucnt-ext"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> The
+CPU-Measurement Facility Extended Counters Definition for <tm tmtype="tm"
+trademark="z10">z10</tm>, z196, z114 and zEC12</cite>, SA23-2261</ph></li>
+<li><ph id="cit-z-cpucnt-ext-03"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> The CPU-Measurement
+Facility Extended Counters Definition for z10, z196/z114, zEC12/zBC12, and z13</cite>,
+SA23-2261</ph></li>
+<li><ph id="cit-z-cpucnt-ext-04"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> The CPU-Measurement
+Facility Extended Counters Definition for z10, z196/z114, zEC12/zBC12, z13/z13s, and z14</cite>,
+SA23-2261</ph></li>
+<li><ph id="cit-z-cpucnt-ext-05"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> The CPU-Measurement
+Facility Extended Counters Definition for z10, z196/z114, zEC12/zBC12, <tm trademark="z13"
+tmtype="reg">z13</tm>/<tm trademark="z13s" tmtype="reg">z13s</tm>, z14, and <tm trademark="z15"
+tmtype="tm">z15</tm></cite>, SA23-2261</ph></li>
+<li><ph id="cit-z-os-ad-xpr"><cite>Open Systems Adapter-Express Customer's Guide and
+Reference</cite>, SA22-7935</ph></li>
+<li><ph id="cit-z-ep11-spec"><cite>Enterprise PKCS#11 (EP11) Library
+structure</cite></ph><!--no form number available--></li>
+</ul></section>
+<section>Other IBM pubs<ul>
+<li><ph id="cit-ibmtape_dd"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> Tape
+Device Drivers Installation and User's Guide</cite>, GC27-2130</ph></li>
+</ul></section>
+<section><title>Redbooks pubs</title><ul>
+<li><ph id="cit-red-lnx4z"><cite><tm trademark="Linux" tmtype="reg">Linux</tm> for <tm tmtype="reg"
+trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="System z9">System z9</tm> and <tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="zSeries">zSeries</tm></cite>, SG24-6694</ph></li>
+<li><ph id="cit-red-prblz"><cite>Problem Determination for <tm trademark="Linux" tmtype="reg"
+>Linux</tm> on <tm tmtype="reg" trademark="System z">System z</tm></cite>, SG24-7599</ph></li>
+<li><ph id="cit-red-bld-vmlnx"><cite>Building <tm trademark="Linux" tmtype="reg">Linux</tm> Systems
+under <tm tmtype="reg" trademark="IBM">IBM</tm> VM</cite>, REDP-0120</ph></li>
+<li><ph id="cit-red-ficon-ctc"><cite><tm tmtype="reg" trademark="FICON">FICON</tm> CTC
+Implementation</cite>, REDP-0158</ph></li>
+<li><ph id="cit-red-broad-guestlan"><cite><tm trademark="Linux" tmtype="reg">Linux</tm> on <tm
+tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="tm" trademark="eServer">eServer</tm>
+<tm tmtype="reg" trademark="zSeries">zSeries</tm> and <tm tmtype="reg" trademark="S/390">S/390</tm>:
+TCP/IP Broadcast on <tm tmtype="reg" trademark="z/VM">z/VM</tm> Guest LAN</cite>,
+REDP-3596</ph></li>
+<li><ph id="cit-red-switch-vlan"><cite><tm trademark="Linux" tmtype="reg">Linux</tm> on <tm
+tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="tm" trademark="eServer">eServer</tm>
+<tm tmtype="reg" trademark="zSeries">zSeries</tm> and <tm tmtype="reg" trademark="S/390">S/390</tm>:
+VSWITCH and VLAN Features of <tm tmtype="reg" trademark="z/VM">z/VM</tm> 4.4</cite>,
+REDP-3719</ph></li>
+<li><ph id="cit-red-net-lz"><cite>Networking Overview for <tm trademark="Linux" tmtype="reg"
+>Linux</tm> on <tm tmtype="reg" trademark="zSeries">zSeries</tm></cite>, REDP-3901</ph></li>
+<li><ph id="cit-red-net-nport"><cite>Introducing N_Port Identifier
+Virtualization for <tm tmtype="reg" trademark="IBM">IBM</tm> <tm
+tmtype="reg" trademark="System z9">System z9</tm></cite>, REDP-4125</ph></li>
+<li><ph id="cit-red-run-linux-onz"><cite>Running <tm trademark="Linux" tmtype="reg">Linux</tm> on
+<tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="System z9">System z9</tm> and <tm tmtype="reg" trademark="zSeries"
+>zSeries</tm> under <tm tmtype="reg" trademark="z/VM">z/VM</tm></cite>, SG24-6311</ph></li>
+<li><ph id="cit-red-comm-ctrl-mgr"><cite><tm tmtype="reg" trademark="IBM">IBM</tm> Communication
+Controller Migration Guide</cite>, SG24-6298</ph></li>
+<li><ph id="red-fcp-impl-gde"><cite><tm trademark="Linux" tmtype="reg">Linux</tm> for <tm
+tmtype="reg" trademark="zSeries">zSeries</tm>: Fibre Channel Protocol Implementation Guide</cite>,
+SG24-6344</ph></li>
+<li><ph id="cit-red-fcp"><cite>Fibre Channel Protocol for <tm trademark="Linux" tmtype="reg"
+>Linux</tm> and <tm tmtype="reg" trademark="z/VM">z/VM</tm> on <tm tmtype="reg" trademark="IBM"
+>IBM</tm>
+<tm tmtype="reg" trademark="System z">System z</tm></cite>, SG24-7266</ph></li>
+<li><ph id="cit-red-security"><cite>Security for <tm trademark="Linux" tmtype="reg">Linux</tm> on
+<tm tmtype="reg" trademark="System z">System z</tm></cite>, SG24-7728</ph></li>
+<li><ph id="cit-red-oracle"><cite>Experiences with Oracle 11gR2 on <tm trademark="Linux"
+tmtype="reg">Linux</tm> on <tm tmtype="reg" trademark="System z">System z</tm></cite>,
+SG24-8104</ph></li>
+<li><ph id="cit-red-capacity"><cite><tm trademark="z Systems" tmtype="reg">z Systems</tm> Capacity
+on Demand User's Guide</cite>, SC28-6943</ph></li>
+<li><ph id="cit-red-zedc"><cite>Reduce Storage Occupancy and Increase Operations Efficiency with <tm
+trademark="IBM" tmtype="reg">IBM</tm>
+<tm trademark="zEnterprise" tmtype="reg">zEnterprise</tm> Data Compression</cite>,
+SG24-8259</ph></li>
+<li><ph id="cit-red-secz13"><cite>Ultimate Security with the <tm trademark="IBM z13" tmtype="reg"
+>IBM z13</tm></cite></ph></li>
+<li><ph id="cit-red-fcendpoit-sec"><cite><tm trademark="IBM" tmtype="reg">IBM</tm> Fibre Channel
+Endpoint Security for <tm trademark="IBM" tmtype="reg">IBM</tm> DS8900F and <tm trademark="IBM Z"
+tmtype="reg">IBM Z</tm></cite>, SG24-8455</ph></li>
+</ul></section>
+</body>
+</topic>
+<reference id="links" xml:lang="en-us">
+<title>Links</title>
+<refbody>
+<section><title><tm tmtype="reg" trademark="developerWorks">developerWorks</tm></title><ul>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/documentation_dev.html"
+id="dev_doc_url" scope="external">www.ibm.com/developerworks/linux/linux390/documentation_dev.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/documentation_suse.html"
+id="sles_doc_url" scope="external">www.ibm.com/developerworks/linux/linux390/documentation_suse.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/documentation_red_hat.html"
+id="rhel_doc_url" scope="external">www.ibm.com/developerworks/linux/linux390/documentation_red_hat.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/documentation_ubuntu.html" scope="external"
+id="ubuntu_doc_url">www.ibm.com/developerworks/linux/linux390/documentation_ubuntu.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/zfcp-hbaapi.html"
+id="dw_zfcphbaapi_url" scope="external">www.ibm.com/developerworks/linux/linux390/zfcp-hbaapi.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/java/jdk/security/index.html"
+id="dw_jdk_sec_url" scope="external">www.ibm.com/developerworks/java/jdk/security/index.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/snipl.html"
+id="dw_snipl_url" scope="external">www.ibm.com/developerworks/linux/linux390/snipl.html</xref></li>
+<li><xref format="html" href="http://www.ibm.com/developerworks/linux/linux390/s390-tools.html"
+id="dw_tools_url" scope="external"
+>www.ibm.com/developerworks/linux/linux390/s390-tools.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/kernel.html"
+id="dw_kernel_url" scope="external">www.ibm.com/developerworks/linux/linux390/kernel.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/development_technical.html"
+id="dev_tech_url" scope="external">www.ibm.com/developerworks/linux/linux390/development_technical.html</xref></li>
+<li> <xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/development_restrictions.html"
+id="dev_rest_url" scope="external">www.ibm.com/developerworks/linux/linux390/development_restrictions.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/development_recommended.html"
+id="dev_rec_url" scope="external">www.ibm.com/developerworks/linux/linux390/development_recommended.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/perf/tuning_how_dasd_multipath.html"
+id="dw_perf_howmpath" scope="external">www.ibm.com/developerworks/linux/linux390/perf/tuning_how_dasd_multipath.html</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/perf/tuning_rec_networking.shtml"
+id="dw_perf_netrestmpath" scope="external">www.ibm.com/developerworks/linux/linux390/perf/tuning_rec_networking.shtml</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/developerworks/linux/linux390/useful_add-ons_vipa.html"
+id="Useful_add-ons_vipaHtml" scope="external">www.ibm.com/developerworks/linux/linux390/useful_add-ons_vipa.html</xref></li>
+<li><xref format="html" href="https://www.ibm.com/developerworks/linux/linux390/qclib.html"
+id="xref_dw_qclib" scope="external">www.ibm.com/developerworks/linux/linux390/qclib.html</xref></li>
+</ul></section>
+<section>
+<title><tm tmtype="reg" trademark="IBM">IBM</tm> Documentation *new in 2021*</title>
+<ul>
+<!--################ General pages ##################-->
+<li><!--IBM Docs entry page--><xref format="html" href="https://www.ibm.com/docs" scope="external"
+id="ibmdocs_welcome_url">ibm.com/docs</xref></li>
+<li><!--IBM Docs landing page for Linux collection--><xref format="html"
+href="https://www.ibm.com/docs/en/linux-on-systems" scope="external" id="ibmdocs_linux_welcome_url"
+>ibm.com/docs/en/linux-on-systems</xref></li>
+</ul>
+</section>
+<section>     <title><tm tmtype="reg" trademark="IBM">IBM</tm> Knowledge Center, most link targets kept to
+point to KC URLs but text goes to Docs</title><ul>
+<!--################ General pages ##################-->
+<li><!--Docs entry page--><xref format="html" href="https://www.ibm.com/docs"
+id="kc_welcome_url" scope="external">ibm.com/docs</xref></li>
+<li><!--Linux on IBM Systems landing page--><xref format="html"
+href="https://www.ibm.com/docs/en/linux-on-systems"
+id="kc_linux_welcome_url" scope="external"
+>ibm.com/docs/en/linux-on-systems</xref></li>
+</ul><ul>
+<!--################ Linux on IBM Z and LinuxONE pages ################-->
+<li><!--Main page--><xref format="html"
+href="https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone"
+id="kc_systemz_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone</xref></li>
+<li><!--Distributions section--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_distlibs.html"
+id="kc_systemz_dist_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=linuxone-distributions</xref></li>
+<li><!--Red Hat distributions section--><xref format="html"
+href="https://www.ibm.com/docs/en/linux-on-systems?topic=distributions-red-hat-enterprise-linux"
+id="kc_systemz_rh_dist_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=distributions-red-hat-enterprise-linux</xref></li>
+<li><!--SUSE distributions section--><xref format="html"
+href="https://www.ibm.com/docs/en/linux-on-systems?topic=distributions-suse-linux-enterprise-server"
+scope="external" id="kc_systemz_suse_dist_url"
+>ibm.com/docs/en/linux-on-systems?topic=distributions-suse-linux-enterprise-server</xref></li>
+<li><!--KC System z Ubuntu distributions section--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ubuntu.html"
+id="kc_systemz_ubuntu_dist_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=distributions-ubuntu-server</xref></li>
+<li><!--Library section--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_lib.html"
+id="kc_systemz_lib_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=linuxone-library-overview</xref></li>
+<li><!--Dump tools section--><xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_dt.html" format="html"
+scope="external" id="kc_z_lib_dt"
+>ibm.com/docs/en/linux-on-systems?topic=overview-using-dump-tools</xref></li>
+<li><!--Upstream DD page--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_devdd.html"
+id="kc_systemz_upstream_dd_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=commands-upstream-kernel</xref></li>
+<li><!--Upstream DT page--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_devdt.html"
+id="kc_systemz_upstream_dt_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=tools-upstream-kernel</xref></li>
+<li><!--Performance section--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_perf.html"
+id="kc_systemz_perf_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=linuxone-performance</xref></li>
+<li><!--Security section, HW support--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/sec_hw_supp.html"
+id="kc_systemz_security_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=security-cryptographic-hardware-support</xref></li>
+<li><!--Troubleshooting and support section--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/serviceandsupport.html"
+id="kc_systemz_support_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=linuxone-service-support-troubleshooting</xref></li>
+<li><!--Kernel messages--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.l0kmsg.doc/l0km_plugin_top.html"
+id="kc_kmsg_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=sst-kernel-messages</xref></li>
+<li><!--Device Drivers--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_dd.html" id="kc_dd_url"
+scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=overview-device-drivers-features-commands</xref></li>
+<li><!-- How to Improve Performance with PAV --><xref
+href="https://www.ibm.com/docs/en/linux-on-systems?topic=overview-how-improve-performance-pav"
+format="html" scope="external" id="kc-hp-url"
+>ibm.com/docs/en/linux-on-systems?topic=overview-how-improve-performance-pav</xref></li>
+<li><!--Exploiting Enterprise PKCS #11 using openCryptoki--><xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html"
+scope="external" id="kc-ep-url"
+>ibm.com/docs/en/linux-on-systems?topic=overview-exploiting-enterprise-pkcs-11-using-opencryptoki</xref></li>
+<li><!--libica Programmer's Reference--><xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ci.html" format="html"
+scope="external" id="kc-ci-url"
+>ibm.com/docs/en/linux-on-systems?topic=overview-libica-programmers-reference</xref></li>
+<li><!--CCA--><xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_cca.html"
+id="sec_pciecc_lib_url" scope="external"
+>ibm.com/docs/en/linux-on-systems?topic=overview-secure-key-solution-cca-application-programmers-guide</xref></li>
+</ul>
+<ul>
+<!--################ SLES Linux on Z pubs ################-->
+<li><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_s150.html"
+format="html" scope="external" id="kc-sl-15-url"
+>ibm.com/docs/en/linux-on-systems?topic=15-</xref></li>
+</ul><ul>
+<!--################ Content for other products ################-->
+<li><!--Docs z/VM content--><xref format="html"
+href="https://www.ibm.com/docs/en/zvm" id="kc_zvm_url" scope="external"
+>ibm.com/docs/en/zvm</xref></li>
+<!-- <li>KC DS6000 content; seems obsolete <xref format="html"
+href="https://www.ibm.com/support/knowledgecenter/HW212/com.ibm.storage.smric.help.doc/f2c_ichome_23bc5o.html"
+id="kc_ds6000_url" scope="external">www.ibm.com/support/knowledgecenter/HW212/com.ibm.storage.smric.help.doc/f2c_ichome_23bc5o.html</xref></li> -->
+<li><!--KC DS8000 content--><xref format="html"
+href="https://www.ibm.com/docs/en/ds8800?topic=overview-introduction-system-storage-ds8000-series"
+id="kc_ds8000_url" scope="external"
+>ibm.com/docs/en/ds8800?topic=overview-introduction-system-storage-ds8000-series</xref></li>
+</ul></section>
+<section> <title>Information centers and libraries</title> <ul>
+<li><!--z/VM library--><xref format="html" href="https://www.ibm.com/systems/z/os/zos/bkserv/zvmpdf"
+id="zvm_lib_url" scope="external">www.ibm.com/systems/z/os/zos/bkserv/zvmpdf</xref></li>
+<li><xref format="html" href="https://www.ibm.com/resources/publications" id="pubs_top_url"
+scope="external">www.ibm.com/resources/publications</xref></li>
+</ul> </section>
+<section>
+<title>Redbooks links</title>
+<ul>
+<li><xref format="html" href="https://www.ibm.com/redbooks" id="red_top_url" scope="external"
+>www.ibm.com/redbooks</xref></li>
+<li><xref href="https://www.redbooks.ibm.com/abstracts/sg248259.html" format="html" scope="external"
+id="red_sg248259_url">www.redbooks.ibm.com/abstracts/sg248259.html</xref><!--zEDC--></li>
+</ul>
+</section>
+<section><title>Other IBM</title><ul>
+<li><xref format="html" href="https://www.ibm.com/support/fixcentral" id="fixcentral_url"
+scope="external">www.ibm.com/support/fixcentral</xref></li>
+<li><xref href="https://www.ibm.com/common/ssi" format="html" scope="external"
+id="offering_info_url">www.ibm.com/common/ssi</xref></li>
+</ul></section>
+<section><title>Linux, Open Source, and standards</title><ul>
+<li><xref format="html" href="https://www.kernel.org" id="os_kern_url" scope="external"
+>www.kernel.org</xref></li>
+<li><xref format="html" href="https://www.kernel.org/doc/html/latest/search.html" id="os_kern_docsearch_url" scope="external"
+>www.kernel.org/doc/html/latest/search.html</xref></li>
+<li><xref format="html" href="http://www.linuxdocs.org" id="os_lndoc_url" scope="external"
+>www.linuxdocs.org</xref><!--https results in a browser warning April 8, 2021--></li>
+<li><xref format="html" href="https://www.kernel.org/pub/linux/utils/util-linux"
+id="os_kern_utillnx_url" scope="external">www.kernel.org/pub/linux/utils/util-linux</xref></li>
+<li><xref format="html" href="http://linux-ha.org" id="os_lha_url" scope="external"
+>linux-ha.org</xref><!--https not available April 8, 2021--></li>
+<li><xref format="html" href="http://procps.sf.net" id="os_sf_procps_url"
+scope="external">procps.sf.net</xref></li>
+<li><xref format="html"
+href="http://sourceforge.net/projects/opencryptoki"
+id="os_sf_ocrptoki_url" scope="external">sourceforge.net/projects/opencryptoki</xref></li>
+<li><xref format="html" href="http://net-snmp.sourceforge.net"
+id="os_sf_netsnmp_url" scope="external">net-snmp.sourceforge.net</xref></li>
+<li><xref format="html"
+href="http://www.cisco.com/c/en/us/support/docs/ip/dynamic-address-allocation-resolution/13718-5.html"
+id="os_proxyarp_url" scope="external"
+>http://www.cisco.com/c/en/us/support/docs/ip/dynamic-address-allocation-resolution/13718-5.html</xref></li>
+<li><xref format="html" href="http://hbaapi.sourceforge.net"
+id="os_sf_hbaapi_url" scope="external">hbaapi.sourceforge.net</xref></li>
+<li><xref format="html" href="http://oprofile.sourceforge.net/docs"
+id="os_sf_oprofile_docs_url" scope="external">oprofile.sourceforge.net/docs</xref></li>
+<li><xref format="html" href="http://sourceforge.net/projects/oprofile"
+id="os_sf_oprofile_url" scope="external">sourceforge.net/projects/oprofile</xref></li>
+<li><xref format="html" href="http://sourceforge.net/projects/fuse"
+id="os_sf_fuse_url" scope="external">sourceforge.net/projects/fuse</xref></li>
+<li><xref format="html" href="http://net-snmp.sourceforge.net/FAQ.html"
+id="os_sf_netsnmp_faq_url" scope="external">net-snmp.sourceforge.net/FAQ.html</xref></li>
+<li><xref format="html"
+href="http://www.ibiblio.org/pub/linux/system/daemons/watchdog/!INDEX.html"
+id="os_dog_url" scope="external">www.ibiblio.org/pub/linux/system/daemons/watchdog/!INDEX.html</xref></li>
+<li><xref format="html" href="http://www.ietf.org" id="org_ietf_url"
+scope="external">www.ietf.org</xref></li>
+<li><xref format="html" href="http://www.t10.org" id="org_t10_url"
+scope="external">www.t10.org</xref></li>
+<li><xref format="html" href="http://www.t11.org" id="org_t11_url"
+scope="external">www.t11.org</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/redbooks/abstracts/tips0217.html"
+id="red_tip0217_url" scope="external">www.ibm.com/redbooks/abstracts/tips0217.html</xref></li>
+<li><xref format="html" href="http://www.perl.org" id="org_perl_url"
+scope="external">www.perl.org</xref></li>
+<li><xref format="html" href="http://www.cpan.org" id="org_perl_cpan_url"
+scope="external">www.cpan.org</xref></li>
+<li><xref href="http://www.zlib.net" format="html" scope="external" id="xref_zlib_net"
+>www.zlib.net</xref></li>
+<li><xref href="https://csrc.nist.gov/publications/detail/fips/140/2/final" format="html"
+scope="external" id="xref_fips">csrc.nist.gov/publications/detail/fips/140/2/final</xref></li>
+</ul></section>
+<section id="section_vwr_2z1_jhb">
+<title>Github</title>
+<ul>
+<li><xref href="http://github.com/ibm-genwqe/genwqe-user" format="html" scope="external"
+id="xref_github_genwqe">github.com/ibm-genwqe/genwqe-user</xref></li>
+<li><xref href="http://github.com/ibm-genwqe/genwqe-user/wiki/Environment%20Variables" format="html"
+scope="external" id="xref_github_genwqe_env">github.com/ibm-genwqe/genwqe-user/wiki/Environment
+Variables</xref></li>
+<li><xref href="https://github.com/ibm-s390-linux/s390-tools/releases" format="html" scope="external"
+id="xref_github_s390tools"
+>github.com/ibm-s390-linux/s390-tools/releases</xref><!--changed from github.com/ibm-s390-tools/s390-tools/releases, as of Feb 5, 2021--></li>
+<li><xref href="https://github.com/ibm-s390-linux/smc-tools/releases" format="html" scope="external"
+id="xref_github_smctools"
+>github.com/ibm-s390-linux/smc-tools/releases</xref></li>
+</ul>
+</section>
+<section><?Pub Dtl?><title>z/VM</title><ul>
+<li><xref format="html" href="http://www.ibm.com/vm/library"
+id="zvm_library_url" scope="external">www.ibm.com/vm/library</xref></li>
+<li><xref format="html" href="http://www.ibm.com/vm/pubs/ctlblk.html"
+id="zvm_pubs_ctlblk_url" scope="external">www.ibm.com/vm/pubs/ctlblk.html</xref></li>
+<li><xref format="html" href="http://www.ibm.com/vm/perf"
+id="zvm_perf_url" scope="external">www.ibm.com/vm/perf</xref></li>
+<li><!--end_of_service dates for z/VM versions--><xref format="html"
+href="http://www.vm.ibm.com/techinfo/lpmigr/vmleos.html" id="zvm_tech" scope="external"
+>www.vm.ibm.com/techinfo/lpmigr/vmleos.html</xref></li>
+<li><xref href="http://www.ibm.com/vm/newfunction/index.html" format="html" scope="external"
+id="zvm_continuous_url">ibm.com/vm/newfunction/index.html</xref></li>
+</ul></section>
+<section><title>IBM Z including Connectivity and Security</title><ul>
+<li><xref format="html" href="http://www.ibm.com/security/cryptocards"
+id="sec_cards_url" scope="external">www.ibm.com/security/cryptocards</xref></li>
+<li><xref href="https://www.ibm.com/it-infrastructure/z/capabilities/networking" format="html"
+scope="external" id="z_networking_url"
+>www.ibm.com/it-infrastructure/z/capabilities/networking</xref></li>
+<li><xref href="https://www.ibm.com/systems/support/storage/ssic/interoperability.wss" format="wss"
+scope="external" id="z_interoperability_url">www.ibm.com/systems/support/storage/ssic/interoperability.wss</xref></li>
+<li><xref format="html"
+href="http://www.ibm.com/systems/z/advantages/pso/stp.html"
+id="z_sysplex_url" scope="external">www.ibm.com/systems/z/advantages/pso/stp.html</xref></li>
+<li><xref format="html" href="http://www.ibm.com/servers/resourcelink"
+id="rl_top_url" scope="external">www.ibm.com/servers/resourcelink</xref></li>
+<li><xref format="html" href="https://www.ibm.com/software/network/commserver/linux"
+id="ibm_commserver_url" scope="external">www.ibm.com/software/network/commserver/linux</xref></li>
+<li><xref format="html" href="https://www.ibm.com/systems/z/os/linux/resources/testedplatforms.html"
+scope="external" id="ibm_supported_url"
+>www.ibm.com/systems/z/os/linux/resources/testedplatforms.html</xref><!--Redirect to: https://www.ibm.com/support/pages/node/6191619--></li>
+<li><xref href="https://www.ibm.com/support/z-content-solutions/compression" format="html"
+scope="external" id="ibm_zedc_solution_url"/></li>
+</ul></section>
+<section><?Pub Dtl?><title>Other</title><ul>
+<li><xref format="html" href="https://www.ibm.com/legal/copytrade.shtml" id="ibm_tm"
+scope="external">www.ibm.com/legal/copytrade.shtml</xref></li>
+<li><xref format="html" href="https://get.adobe.com/reader" id="getadobe" scope="external"
+>get.adobe.com/reader</xref></li>
+</ul></section>
+</refbody>
+</reference>
+<reference id="legaltemplates" xml:lang="en-us">
+<title>Legal templates</title>
+<topic id="trademarks" xml:lang="en-us">
+<title>Trademarks</title>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<body>
+<p id="ibmtm"><tm tmclass="IGNORE" tmtype="reg" trademark="IBM">IBM</tm>,
+the <tm tmclass="IGNORE" tmtype="reg" trademark="IBM">IBM</tm> logo,
+and <tm tmclass="IGNORE" tmtype="reg" trademark="ibm.com">ibm.com</tm> are
+trademarks or registered trademarks of International Business Machines
+Corp., registered in many jurisdictions worldwide. Other product and
+service names might be trademarks of <tm tmtype="reg" trademark="IBM">IBM</tm> or
+other companies. A current list of <tm tmtype="reg" trademark="IBM">IBM</tm> trademarks
+is available on the Web at "Copyright and trademark information" at <?linebreak?><xref
+conref="lxcommon.dita#links/ibm_tm"></xref></p>
+<!--Add non-IBM trademark statements as appropriate. -->
+<p id="adobetm">Adobe is either a registered trademark or trademark of Adobe Systems Incorporated in
+the United States, and/or other countries.</p>
+<p id="javatm">Java and all Java-based trademarks and logos are trademarks or registered trademarks
+of Oracle and/or its affiliates.</p>
+<p id="linuxtm">The registered trademark <tm trademark="Linux" tmtype="reg">Linux</tm> is used
+pursuant to a sublicense from the Linux Foundation, the exclusive licensee of Linus Torvalds, owner
+of the mark on a world­wide basis.</p>
+<p id="unixtm">UNIX is a registered trademark of The Open Group in the United States and other
+countries.</p>
+<p id="windowstm">Windows is a trademark of Microsoft Corporation in the United States, other
+countries, or both.</p>
+<p id="redhattm_l">Red Hat®, JBoss®, OpenShift®, Fedora®, Hibernate®, Ansible®, CloudForms®, RHCA®,
+RHCE®, RHCSA®, Ceph®, and Gluster® are trademarks or registered trademarks of Red Hat, Inc. or its
+subsidiaries in the United States and other countries.</p>
+<p id="redhattm_m">are trademarks or registered trademarks of Red Hat, Inc. or its
+subsidiaries in the United States and other countries.</p>
+<p id="redhattm_s">Red Hat® is a trademark or registered trademark of Red Hat, Inc. or its
+subsidiaries in the United States and other countries.</p>
+</body>
+</topic>
+<topic id="copyright" xml:lang="en-us">
+<title>Copyright</title>
+<body>
+<ul>
+<li><ph id="ph_cr_phrase">© Copyright IBM Corp.</ph></li>
+</ul>
+</body>
+</topic>
+<topic id="support" xml:lang="en-us">
+<title>Support statements</title>
+<body>
+<!--Supported mainframes - to be clarified if we support zSeries?-->
+<p id="p_sprt_hw">As of July 2017, <tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="tm" trademark="z Systems">z Systems</tm> is re-branded to <tm tmtype="reg"
+trademark="IBM">IBM</tm> Z. In this document, <term><tm trademark="Linux" tmtype="reg">Linux</tm> on
+<tm tmtype="tm" trademark="z Systems">z Systems</tm></term> refer to Linux running on LinuxONE or an
+IBM mainframe, including <tm tmtype="reg" trademark="IBM">IBM</tm> Z and <tm tmtype="reg"
+trademark="zSeries">zSeries</tm> in 64- and 31-bit mode.</p>
+<p id="p_hw_sprt_64">As of July 2017, <tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="tm" trademark="z Systems">z Systems</tm> is re-branded to <tm tmtype="reg"
+trademark="IBM">IBM</tm> Z. In this document, <term><tm trademark="Linux" tmtype="reg">Linux</tm> on
+<tm tmtype="tm" trademark="z Systems">z Systems</tm></term> refer to <tm trademark="Linux"
+tmtype="reg">Linux</tm> running on LinuxONE or an IBM mainframe, including <tm tmtype="reg"
+trademark="IBM">IBM</tm> Z.</p>
+<!--Supported z/VM version-->
+<p id="p_sprt_vm">Unless stated otherwise, all <tm tmtype="reg" trademark="IBM">IBM</tm> <tm tmtype="reg" trademark="z/VM">z/VM</tm>
+related information in this document assumes a current <tm tmtype="reg" trademark="z/VM">z/VM</tm>
+version, see <xref conref="lxcommon.dita#links/zvm_tech"/>.</p>
+<p id="p_sprt_env">For details about <tm tmtype="reg" trademark="IBM">IBM</tm> tested <tm
+trademark="Linux" tmtype="reg">Linux</tm> environments, see <xref
+conref="lxcommon.dita#links/ibm_supported_url"/>.
+<!--Do not say "supported". Linux development does not make support contract with customers. Mike Storzer, April 4, 2019. --></p>
+<p id="p_sprt_vm_continuous">Depending on your <tm trademark="z/VM" tmtype="reg">z/VM</tm> virtual
+machine definition and on your <tm trademark="z/VM" tmtype="reg">z/VM</tm> version and service
+level, a particular <tm trademark="z/VM" tmtype="reg">z/VM</tm> guest might not provide all of the
+described features. See <xref conref="#links/zvm_continuous_url"/> about upcoming and available new
+function for <tm trademark="z/VM" tmtype="reg">z/VM</tm>.</p>
+<p id="p_sprt_kvm">Depending on your KVM host and on your virtual server configuration, a particular
+KVM guest might not provide all of the described features.</p>
+</body>
+</topic>
+<topic id="notes"><?Pub Dtl?>
+<title>Notes and disclaimers</title>
+<body>
+<p id="kern_build"><note othertype="Kernel builders" type="other">This
+information is intended for those who want to build their own kernel.
+Be aware that both compiling your own kernel or recompiling an existing
+distribution usually means that you have to maintain your kernel yourself.</note></p>
+<ul>
+<!--Adapt to the current release-->
+<li>
+<note otherprops="pdf" type="other" othertype="LPAR and z/VM" id="ch_note_lz" rev="r1kvm">This
+chapter applies to <ph conref="lxcommon.dita#phrases/ph_linuxlpar"/> and to <ph
+conref="lxcommon.dita#phrases/ph_linuxzvm"/>.</note>
+<note otherprops="pdf" type="other" othertype="LPAR and z/VM" id="pt_note_lz" rev="r1kvm">This part
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxlpar"/> and to <ph
+conref="lxcommon.dita#phrases/ph_linuxzvm"/>.</note>
+</li>
+<li>
+<note otherprops="pdf" type="other" othertype="LPAR only" id="ch_note_l" rev="r1kvm">This chapter
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxlpar"/> only.</note>
+</li>
+<li>
+<note otherprops="pdf" type="other" othertype="z/VM only" id="ch_note_z" rev="r1kvm">This chapter
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxzvm"/> only.</note>
+<note otherprops="pdf" type="other" othertype="z/VM only" id="pt_note_z" rev="r1kvm">This part
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxzvm"/> only.</note>
+</li>
+<li>
+<note otherprops="pdf" type="other" othertype="KVM only" id="ch_note_k" rev="r1kvm">This chapter
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxonkvm"/> only.</note>
+<note otherprops="pdf" type="other" othertype="KVM only" id="pt_note_k" rev="r1kvm">This part
+applies to <ph conref="lxcommon.dita#phrases/ph_linuxonkvm"/> only.</note>
+</li>
+</ul>
+</body>
+</topic>
+<task id="pdfversion" xml:lang="en-us"><?Pub Dtl?>
+<title>PDF topic for information center</title>
+<shortdesc id="shortdesc">You can view and print this information
+in PDF format.</shortdesc>
+<taskbody>
+<steps id="steps">
+<stepsection><p>To save a PDF on your workstation for viewing or printing:</p></stepsection>
+<step><cmd>Right-click the PDF link in your browser.</cmd></step>
+<step><cmd>Click the option that saves the PDF locally.</cmd></step>
+<step><cmd>Navigate to the directory in which you want to save the
+PDF.</cmd></step>
+<step><cmd>Click <uicontrol>Save</uicontrol>.</cmd></step>
+</steps>
+<postreq id="next">You need <tm tmtype="tm" trademark="Adobe">Adobe</tm> Reader
+installed on your system to view or print the PDF. You can download
+a free copy from the <tm tmtype="tm" trademark="Adobe">Adobe</tm> Web
+site at <?linebreak?><xref conref="lxcommon.dita#links/getadobe"></xref></postreq>
+</taskbody>
+</task>
+<task id="task_docbuddy">
+<title>Dummy</title>
+<titlealts id="titlealts_docbuddy">
+<navtitle>IBM Doc Buddy app</navtitle>
+<searchtitle>Viewing <ph conref="lxcommon.dita#phrases/ph_ibmz"/> specific <ph
+conref="lxcommon.dita#phrases/ph_linuxs"/> kernel messages through IBM Doc Buddy, an app for mobile
+devices</searchtitle>
+</titlealts>
+<abstract>
+<p id="p_abstract_docbuddy">You can view documentation for <ph
+conref="lxcommon.dita#phrases/ph_ibmz"/> specific <ph conref="lxcommon.dita#phrases/ph_linuxs"/>
+kernel messages through <tm trademark="IBM" tmtype="reg">IBM</tm> Doc Buddy, an app for mobile
+devices.</p>
+<shortdesc id="shortdesc_docbuddy"><tm trademark="IBM" tmtype="reg">IBM</tm> Doc Buddy is helpful in
+environments from where the message documentation on the internet is not directly
+accessible.</shortdesc>
+</abstract>
+<prolog id="prolog_docbuddy">
+<metadata>
+<keywords>
+<indexterm>Doc Buddy</indexterm>
+<indexterm>IBM Doc Buddy</indexterm>
+<indexterm>messages app</indexterm>
+<indexterm>app, messages</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody id="taskbody_docbuddy">
+<prereq id="prereq_docbuddy">Obtain <tm trademark="IBM" tmtype="reg">IBM</tm> Doc Buddy from <xref
+href="https://geo.itunes.apple.com/us/app/ibm-doc-buddy/id1121244571?mt=8" format="html"
+scope="external">Apple App Store</xref> or from <xref
+href="https://play.google.com/store/apps/details?id=com.ibm.systems.supportassistant&amp;utm_source=global_co&amp;utm_medium=prtnr&amp;utm_content=Mar2515&amp;utm_campaign=PartBadge&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+format="html" scope="external">Google Play</xref>. While your device is online, you can display
+message documentation by entering the IDs for messages of interest in the main search field of the
+app.</prereq>
+<steps id="steps_docbuddy">
+<stepsection>Perform the following steps to enable <tm trademark="IBM" tmtype="reg">IBM</tm> Doc
+Buddy in offline mode:</stepsection>
+<step>
+<cmd>While your mobile device is online, start <tm trademark="IBM" tmtype="reg">IBM</tm> Doc Buddy
+and tap <uicontrol>My Account</uicontrol> in the lower right corner of the main pane.</cmd>
+</step>
+<step>
+<cmd>Under <uicontrol>Messages and codes</uicontrol>, tap <uicontrol>Components</uicontrol> to list
+the available components in alphabetical order.</cmd>
+</step>
+<step>
+<cmd>Scroll down to <q><ph conref="lxcommon.dita#phrases/lib_title"/></q> and download the
+component.</cmd>
+</step>
+<step>
+<cmd>Return to the main pane.</cmd>
+</step>
+</steps>
+<result id="result_docbuddy">You can now display message documentation for <ph
+conref="lxcommon.dita#phrases/lib_title"/> while your mobile device is offline. <ph otherprops="pdf"
+>For more information about <tm trademark="IBM" tmtype="reg">IBM</tm> Doc Buddy, see <xref
+href="http://ibmdocbuddy.mybluemix.net" format="html" scope="external"
+>ibmdocbuddy.mybluemix.net</xref></ph>.</result>
+</taskbody>
+<related-links id="related_links_docbuddy" otherprops="NOTpdf">
+<link href="http://ibmdocbuddy.mybluemix.net" format="html" scope="external"
+><linktext>ibmdocbuddy.mybluemix.net</linktext></link>
+</related-links>
+</task>
+</reference>
+<?tm 1344264666 148?>
+</dita>
+<?Pub *0000032506?>

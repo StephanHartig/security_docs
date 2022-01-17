@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbspkextr31">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb to
+convert a proprietary <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> external or
+internal symmetric key-token and its attributes into a non-proprietary key block that is formatted
+under the rules of TR-31. <ph rev="sh20i1">Also, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb to convert  an AES or HMAC
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token to a TR-31 key
+block.</ph></shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<note rev="sh20i1">The ANSI X9 TR-31-2018 optional block, which limits the hash algorithm of the
+HMAC key, is also supported.</note><p>After being exported into a TR-31 key block, the key and its attributes
+are ready to be interchanged with any outside third party who uses
+TR-31. The verb takes as input either an external or internal fixed-length
+DES key-token that contains a DES or Triple-DES (TDES) key, along
+with an internal DES EXPORTER or OKEYXLAT key-encrypting key used
+to wrap the external TR-31 key block.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb is analogous to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb, except
+that <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> accepts an external or internal fixed-length DES
+key-token as input, instead of only an internal fixed-length DES key-token,
+and it translates the key to an external non-CCA format instead of
+an external fixed-length DES key-token. The purpose of both verbs
+is to export a DES key to another party.</p></section>
+<section><p>An external-to-external translation would not normally be called
+an <synph><var>export</var></synph> or <synph><var>import operation</var></synph>. Instead, it would
+be called a <synph><var>key translation</var></synph>, and would be handled by a verb
+such as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/>. For practical reasons, the export of an external
+CCA DES key-token to external TR-31 format is supported by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb,
+and the import of an external TR-31 key block to an external CCA DES
+key-token is supported by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb.</p></section>
+<section><p>Note that the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb does not support the translation
+of an external key from encipherment under one key-encrypting key
+to encipherment under a different key-encrypting key. When converting
+an external DES key to an external TR-31 format, the key-encrypting
+key used to wrap the external source key must be the same as the one
+used to wrap the TR-31 key block. If a translation of an external
+DES key from encipherment under one key-encrypting to a different
+key-encrypting key is desired, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verbs.</p></section>
+<section><p>Both <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> and TR-31 define key
+attributes that control key usage. In both cases, the usage information is securely bound to the key
+so that the attributes cannot be changed in unintended or uncontrolled ways. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> maintains its DES key attributes in a
+control vector (CV), while a TR-31 key block uses fields: <synph><var>key usage</var></synph>,
+<synph><var>algorithm</var></synph>, <synph><var>mode of use</var></synph>, and
+<synph><var>exportability</var></synph>.</p></section>
+<section><p>Each attribute in a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> control
+vector falls under one of these categories: <ol>
+<li>There is a one-to-one correspondence between the CV attribute and the TR-31 attribute. For these
+attributes, conversion is straightforward.</li>
+<li>There is not a one-to-one correspondence between the CV attribute and the TR-31 attribute, but
+the attribute can be automatically translated when performing this export operation.</li>
+<li>There is not a one-to-one correspondence between the CV attribute and the TR-31 attribute, in
+which case a rule-array keyword is defined to specify which attribute is used in the TR-31 key
+block.</li>
+<li>Category (1), (2), or (3) applies, but there are some attributes that are lost completely on
+translation (for example, key-generating bits in key-encrypting keys).</li>
+<li>None of the above categories applies, because the key type, its attributes, or both simply
+cannot be reasonably translated into a TR-31 key block.</li>
+</ol></p></section>
+<section><p>The control vector is always checked for compatibility with the
+TR-31 attributes. It is an error if the specified TR-31 attributes
+are in any way incompatible with the control vector of the input key.
+In addition, access control points are defined that can be used to
+restrict the permitted attribute conversions.</p></section>
+<section><p>The TR-31 key block has a header that can contain optional blocks.
+Optional blocks become securely bound to the key by virtue of the
+MAC on the TR-31 key block. The <synph><var>opt_blocks</var></synph> parameter is provided
+to allow a complete and properly formatted optional block structure
+to be included as part of the TR-31 key block that is returned by
+the verb. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>) verb can be used to construct
+an optional block structure, one optional block at a time.</p></section>
+<section><p>An optional block has a 2-byte ASCII block ID value that determines
+the use of the block. The use of a particular optional block is either
+defined by TR-31, or it has a proprietary use. An optional block that
+has a block ID with a numeric value is a proprietary block. <tm trademark="IBM" tmtype="reg">IBM</tm> has its own proprietary optional
+block to contain a CCA control vector. See <xref href="wskc_tr31_optional_block_data.dita#tr31_optional_block_data"/> for a description of the IBM-defined
+data.</p></section>
+<section><p>To include a copy of the control vector from the DES source key in an optional block of the TR-31
+key block, specify the <synph><kwd>ATTR-CV</kwd></synph> or <synph><kwd>INCL-CV</kwd></synph>
+control vector transport control keyword in the rule array. If either optional keyword is specified,
+the verb copies the single-length or double-length control vector field from the source key into the
+optional data field of the TR-31 header. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb can later extract this data and
+use it as the control vector for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> key that it creates when importing the TR-31 key block. This method provides a way to use TR-31
+for transport of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys and to make
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key have identical control
+vectors on the sending and receiving nodes.</p>
+<p rev="sh20i1">Prior to Release 5.4, the verb can only be used to package DES cryptographic keys for transport in an
+external TR-31 key block wrapped under a DES key-encrypting key using key block version IDs (also called methods) 
+"A", "B", or "C" based on ASC X9 TR 31-2018. The mechanism is designed to use AES as
+the wrapping cipher. Beginning with Release 5.4, DES and TDES keys can be wrapped with an AES key
+block protection key using ISO 20038 method "D":</p>
+<ul rev="sh20i1">
+<li>Method "D" is applicable to all prior exportable DES key types and translations to the "D" key block
+version ID (protection method). Some DES translation options are restricted according to the method. In
+all cases, method "D" follows the same restrictions in place for method "B".</li>
+<li>An AES EXPORTER key-encrypting key with usage EXPTT31D (Release 5.4 or later) allowed is required
+for wrapping the output TR-31 key block that contains a DES key. In addition, usage WR-DES must be
+allowed.</li>
+</ul>
+<p rev="sh20i1">Beginning with Release 5.4 and Release 6.2, support is added to package AES cryptographic keys for transport in an
+external TR-31 key block wrapped under an AES key-encrypting key using a method based on ISO 20038:
+</p>
+<ul rev="sh20i1">
+<li>AES keys can be wrapped with an AES key block protection key using method "D". Method "D" is limited
+to the following AES key types:
+<codeblock>
+CIPHER    DKYGENKY    EXPORTER    IMPORTER    MAC    PINPROT
+</codeblock>
+</li>
+<li>An AES EXPORTER key encrypting key with usage EXPTT31D (Release 5.4 or later) allowed is required
+for wrapping the output TR-31 key block that contains an AES key. In addition, usage WR-AES must be allowed.
+</li>
+</ul>
+<p rev="sh20i1">Beginning with Release 5.6, support is added to package HMAC cryptographic keys for transport in an
+external TR-31 key block wrapped under an AES key-encrypting key using a method based on ISO 20038
+or ASC X9 TR 31-2018 as determined by the HMAC hash algorithm limit keyword specified in the rule
+array. HMAC keys can be wrapped with an AES key block protection key using method "D". The only
+supported HMAC key type is MAC.
+</p>
+<note  rev="sh20i1">ISO 20038 and ASC X9 TR 31-2018 represent the HMAC hash algorithm limit in different ways:
+<ul>
+<li>ISO 20038 represents hash limit in the algorithm value at offset 7. An HMAC key limited to SHA-1 uses
+ASCII "H" for the algorithm and SHA-2 uses ASCII "I".
+</li>
+<li>ASC X9 TR 31-2018 uses "H" for the algorithm value at offset 7 and represents the hash algorithm
+limit in an optional block with block ID "HM".
+</li>
+</ul>
+</note>
+<p rev="sh20i1">Both <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> and TR-31
+define key attributes that control key usage. In both cases, the usage information is securely bound
+to the key so that the attributes cannot be changed in unintended or uncontrolled ways. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> maintains its DES key attributes in a
+control vector (CV). <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> maintains its
+AES and HMAC key attributes in key usage and key management fields, while a TR-31 key block uses
+fields <i>key usage</i>, <i>algorithm</i>, <i>mode of use</i>, and <i>exportability</i>.</p></section>
+<section><p>The <synph><kwd>ATTR-CV</kwd></synph> and <synph><kwd>INCL-CV</kwd></synph> keywords both cause the
+control vector to be included in a TR-31 optional block, but each
+has a different purpose:
+<dl>
+<dlentry><dt>ATTR-CV</dt>
+<dd>Causes a copy of the control vector to be included, but both
+the TR-31 usage and mode of use fields in the non-optional part of
+the TR-31 key block header are set to <tm trademark="IBM" tmtype="reg">IBM</tm> proprietary
+values. These values, described in <xref href="wskc_tr31_optional_block_data.dita#tr31_optional_block_data"/>,
+indicate that the usage and mode information are specified in the
+control vector of the optional block and not in the TR-31 header.
+The restrictions imposed by the setting of the relevant access control
+points are bypassed, and any CCA key can be exported as long as the
+export control fields in the control vector allow it.</dd></dlentry>
+<dlentry><dt>INCL-CV</dt>
+<dd>Causes a copy of the control vector to be included as additional
+detail. The resulting attributes set in the non-optional part of the
+TR-31 key block header are identical to not using either keyword,
+except that the value for the number of optional blocks is increased
+by one. The export operation is still subject to the restrictions
+imposed by the settings of the relevant access control points.</dd></dlentry>
+</dl></p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens. <p>With <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> introduces compliance-tagged key support
+for domains that enter compliance mode. Compliance-tagged TDES keys may be converted to or from
+TR-31 key blocks. The wrapping key encrypting key (KEK) must be compliance-tagged as well as the key
+to be exported or imported. A compliance-tagged KEK cannot be used to import or export a key that is
+not compliance-tagged.</p></note></section>
+</refbody></reference>

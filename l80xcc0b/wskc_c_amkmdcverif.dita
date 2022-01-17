@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_amkmdcverif" xml:lang="en-us">
+<title>Asymmetric master key MDC-based verification method</title>
+<titlealts>
+<navtitle>Asymmetric master key MDC-based method</navtitle><?Pub Caret 32?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Asymmetric master key MDC-based
+verification method</searchtitle>
+</titlealts>
+<shortdesc>The verification pattern for the asymmetric master keys
+is based on hashing the value of the master-key using the MDC-4 hashing
+algorithm. </shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The master key is not parity adjusted.</p>
+<p>The RSA private key sections <ph>X'06'</ph> and <ph>X'08'</ph> use
+this 16-byte master-key version number. </p>
+</conbody>
+</concept>
+<?Pub *0000000885?>

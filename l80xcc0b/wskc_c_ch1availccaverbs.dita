@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ch1availccaverbs" xml:lang="en-us">
+<title>Available <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>)
+verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs</navtitle><?Pub Caret 3?>
+<searchtitle>Available <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> products provide a
+variety of cryptographic processes and data-security techniques.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> verb</indexterm>
+<indexterm>data confidentiality</indexterm><indexterm>data integrity</indexterm>
+<indexterm>digital signature</indexterm><indexterm>nonrepudiation</indexterm>
+<indexterm>authentication</indexterm><indexterm>key management</indexterm>
+<indexterm>Java interaction</indexterm>
+<indexterm>Java Native Interface</indexterm>
+<indexterm>JNI</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> management</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>Your application program can call verbs (sometimes called services)
+to perform the following functions:  <dl><dlentry>
+<dt>Data confidentiality</dt>
+<dd>Encrypt and decrypt information, typically using the AES or DES
+algorithms in Cipher Block Chaining (CBC) mode to enable data confidentiality.</dd>
+</dlentry><dlentry>
+<dt>Data integrity</dt>
+<dd>Hash data to obtain a digest, or process the data to obtain a
+Message Authentication Code (MAC) or keyed hash MAC (HMAC), that is
+useful in demonstrating data integrity.</dd>
+</dlentry><dlentry>
+<dt>Nonrepudiation</dt>
+<dd>Generate and verify digital signatures using either the RSA algorithm
+or the ECDSA algorithm, to demonstrate data integrity and form the
+basis for nonrepudiation.</dd>
+</dlentry><dlentry>
+<dt>Authentication</dt>
+<dd>Generate, encrypt, translate, and verify finance industry personal
+identification numbers (PINs) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"></keyword>,
+MasterCard, and Visa card security codes with a comprehensive set
+of finance-industry-specific services.</dd>
+</dlentry><dlentry>
+<dt>Key management</dt>
+<dd>Manage the various AES, DES, ECC, and RSA keys necessary to perform
+the mentioned cryptographic operations.</dd>
+</dlentry><dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> interaction</dt>
+<dd>Interact with the Java Native Interface (JNI). The  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs have a specific version that can be
+used for JNI work.<note rev="sh16">In this JNI, a new data type <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> is replacing the old type
+<b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> since <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> version 5.2. Both types inherit from an
+abstract class <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></i></b>.
+Thus, type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> is
+still supported, so you can run existing applications with this deprecated data type. However, start
+using type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> for new
+applications instead, because <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> may be removed in the future.
+</note></dd>
+</dlentry><dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> management</dt>
+<dd>Control the initialization and operation of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>.</dd>
+</dlentry></dl></p>
+</conbody>
+</concept>
+<?Pub *0000003329?>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc157">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>You can generate the verification pattern for a key when you generate
+the key. You can distribute the pattern with the key and it can be
+verified at the receiving node. In this way, users can ensure using
+the same key at the sending and receiving locations. You can generate
+and verify keys of any combination of key forms: clear, operational,
+or external.</p>
+<p>The parity of the key is not tested.</p>
+<p>For triple-length keys, use <synph><kwd>KEY-ENC</kwd></synph> or
+<synph><kwd>KEY-ENCD</kwd></synph> with <synph><kwd>ENC-ZERO</kwd></synph>. Clear triple-length keys
+are not supported.</p>
+<p>In the Transaction Security System, <synph><kwd>KEY-ENC</kwd></synph> and
+<synph><kwd>KEY-ENCD</kwd></synph> both support enciphered single-length and double-length keys.
+They use the key-form bits in byte 5 of the control vector (CV) to determine the length of the key.
+To be consistent, in this implementation of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, both <synph><kwd>KEY-ENC</kwd></synph> and
+<synph><kwd>KEY-ENCD</kwd></synph> handle single- and double-length keys. Both products effectively
+ignore the keywords, which are supplied only for compatibility reasons.</p></section>
+</refbody></reference>

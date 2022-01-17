@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cvg1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> verb builds a control vector from keywords specified
+by the <synph><var>key_type</var></synph> and <synph><var>rule_array</var></synph> parameters.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>)</indexterm></indexterm>
+<indexterm>control vector</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+</refbody></reference>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc90">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/></searchtitle>
+  </titlealts>
+<shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Consider that <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> represents the capability to translate,
+by definition, the limitations on the operations that a key can be
+used for, into a different set of limitations. The control vector
+is the heart of security against the misuse of keys that were defined
+for a specific purpose. The masks that control what the key can be
+translated into being able to do (the right and left masks) are themselves
+single-length (8-byte), and are encrypted with DES. Therefore, the
+protection against translating the key to have more power (or less
+power) than it did before are protected with single-DES. This reduces
+the security (somewhat) of a double-length DES key. You cannot decrypt
+the double-length key with this approach, or gain access to a key
+that you did not otherwise have the rights to use.  But you can make
+a key which you already have access to, on a system you already have
+access to, more powerful than it was before if you can break single-DES.</p></section>
+</refbody></reference>

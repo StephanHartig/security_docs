@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc73">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb requires the
+<cmdname>CVV Key Combine</cmdname> command (offset <ph>X'0155'</ph>) to be enabled in the active
+role.</p></section>
+<section><p>In addition, these commands are required to be enabled in the active role, depending on the
+key-wrapping method keyword: </p>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="10*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry><ph>X'0156'</ph></entry>
+<entry><cmdname>CVV Key Combine - Allow wrapping override keywords</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry><ph>X'0156'</ph></entry>
+<entry><cmdname>CVV Key Combine - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>One additional restriction is related to combining the key-A and key-B pair of keys when there
+are mixed types. To permit the combination of mixed key types into a single set of types
+(<synph><kwd>ANY-MAC</kwd></synph>, <synph><kwd>CVVKEY-A</kwd></synph>,
+<synph><kwd>CVVKEY-B</kwd></synph>, and <synph><kwd>DATA</kwd></synph>), enable the <cmdname>CVV Key
+Combine - Permit mixed key types</cmdname> command (offset <ph>X'0157'</ph>) in the active role. See
+<xref href="#l0wskc73/off0157_table" format="dita"/> for when this command is required: <table
+id="off0157_table" pgwide="1">
+<title>Required commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"
+/> verb, mixed key types</title>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb, mixed key types</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="3*"/>
+<colspec colname="col4" colwidth="3*"/>
+<colspec colname="col5" colwidth="3*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1" morerows="1" valign="bottom">Input key-A</entry>
+<entry namest="col2" nameend="col5" align="center">Input key-B</entry>
+</row>
+<row>
+<entry>ANY-MAC</entry>
+<entry>CVVKEY-A</entry>
+<entry>CVVKEY-B</entry>
+<entry>DATA</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>ANY-MAC</kwd></synph></entry>
+<entry>Always returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key</entry>
+<entry>Invalid combination, control vector conflict</entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled</entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled</entry>
+</row>
+<row>
+<entry><synph><kwd>CVVKEY-A</kwd></synph></entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled, else access error</entry>
+<entry>Invalid combination, control vector conflict</entry>
+<entry>Always returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key</entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled</entry>
+</row>
+<row>
+<entry><synph><kwd>CVVKEY-B</kwd></synph></entry>
+<entry>Invalid combination</entry>
+<entry>Invalid combination</entry>
+<entry>Invalid combination</entry>
+<entry>Invalid combination</entry>
+</row>
+<row>
+<entry><synph><kwd>DATA</kwd></synph></entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled, else access error</entry>
+<entry>Invalid combination, control vector conflict</entry>
+<entry>Only returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key if
+<ph>X'0157'</ph> enabled, else access error</entry>
+<entry>Always returns double-length <synph><kwd>CVVKEY-A</kwd></synph> key</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

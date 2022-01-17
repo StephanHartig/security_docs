@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="cfq_statoahl" rev="sh18i1">
+<title>STATOAHL</title>
+<titlealts>
+<navtitle>STATOAHL</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATOAHL</searchtitle>
+</titlealts>
+<shortdesc>This <parmname>rule_array</parmname> keyword causes all data to be returned in one VUD
+block . The described structure also comprises extra data fields that contains output if the
+SIGNSTAT keyword is specified. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>STATOAHL<indexterm>output data</indexterm></indexterm>
+<indexterm>CSUACFQ<indexterm>STATOAHL, output data</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The VUD block header and data has a layout as described in <xref
+href="#cfq_statoahl/tab_getdcomp" format="dita"/>:</p>
+<table id="tab_getdcomp" pgwide="1" frame="all"><title>Output data format for the STATOAHL keyword</title>
+<desc>
+<p outputclass="summary">A table with five columns describing the layout of the VUD block 
+header and data.</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="18*"/>
+<colspec colname="col4" colwidth="26*"/>
+<colspec colname="col5" colwidth="48*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Size</entry>
+<entry>Field</entry>
+<entry>Subordinate data type</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin outer templating</b></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>1</entry>
+<entry>Struct name</entry>
+<entry>Signed_data_t</entry>
+<entry>Name of structure
+<lines>
+Type: binary integer
+Value: 
+<codeph>mbif_types.h:118:#define SIGNED_DATA_T 0x82</codeph>
+</lines>
+</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>1</entry>
+<entry>Struct version</entry>
+<entry>Signed_data_t</entry>
+<entry>Version of structure
+<lines>
+Type:  binary integer
+Value: 0x00
+</lines>
+</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>4</entry>
+<entry>Signed data len</entry>
+<entry>Signed_data_t</entry>
+<entry>Length of the entire <parmname>signed_data_t structure</parmname>, including appended data 
+and signature
+<lines>
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>4</entry>
+<entry>Data offset</entry>
+<entry>Signed_data_t</entry>
+<entry>Offset from start of the data sub-struct (here) to the start of the actual data payload.
+<lines>
+Type:  binary integer, big-endian
+Value: 0x14
+</lines>
+</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>4</entry>
+<entry>Data len</entry>
+<entry>Signed_data_t</entry>
+<entry>Length of the data payload
+<lines>
+Type:  binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>18</entry>
+<entry>4</entry>
+<entry>Sig offset</entry>
+<entry>Signed_data_t</entry>
+<entry>Offset from start of the sig sub-structure (here) to the start of the actual signature.
+<lines>
+Type:  binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>22</entry>
+<entry>4</entry>
+<entry>Sig len</entry>
+<entry>Signed_data_t</entry>
+<entry>Length of the signature
+<lines>
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>4</entry>
+<entry>Sig type</entry>
+<entry>Signed_data_t</entry>
+<entry>Type of signature
+<lines>
+Type: binary integer, big-endian
+Value: 0x04 (ECDSA over SHA-512 hash with 
+            ECC P521, raw format)
+       0x00 (no signature)     
+</lines>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">Signed_data_t: <b>26 bytes (+ VUD fields = 30 bytes)</b></entry>
+<entry></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin payload</b>
+<p><i>Data format:</i> This data matches the output from the secure bootloader of the adapter. 
+Assuming the same nonce is provided and given correct ordering of operations 
+(query the bootloader first) the payload data hashes to the same value as that data provided by 
+the secure bootloader.</p>
+<p>The overall structure is called <parmname>health_t</parmname>, as indicated by the enumerated 
+value in the first <parmname>struct_id_t</parmname> name field. This contains multiple sub-structures, 
+each reproduced here.</p></entry>
+</row>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>struct_id_t</entry>
+<entry>Sub-structure that defines the name and version of the data structure
+<lines>Enum value: <codeph>HEALTH_T (0x90)</codeph></lines>
+</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry>version</entry>
+<entry>struct_id_t</entry>
+<entry><codeph>HEALTH_T (0x00)</codeph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin:</b> Rom_status_t</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>Rom_status_t:struct_id_t</entry>
+<entry>Rom status name
+<lines>Enum value: <codeph>ROM_STATUS_T (0x00)</codeph></lines>
+</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>1</entry>
+<entry>version</entry>
+<entry>Rom_status_t:struct_id_t</entry>
+<entry>Rom status version <codeph>(0x00)</codeph>
+</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>2</entry>
+<entry>Rsvd1</entry>
+<entry>Rom_status_t</entry>
+<entry><codeph>(0x00)</codeph>
+</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>2</entry>
+<entry>Rom_version</entry>
+<entry>Rom_status_t</entry>
+<entry>Rom_version is a packed representation of the POST0 and MB0 version numbers.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1</entry>
+<entry>Page1_certified</entry>
+<entry>Rom_status_t</entry>
+<entry>Has the value 1 if MB1 has successfully performed an <cmdname>IBM_INIT</cmdname> command to the 
+point of installing the page1 certificate and has value 0 otherwise.</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>2</entry>
+<entry>Rsvd2</entry>
+<entry>Rom_status_t</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>4</entry>
+<entry>Boot_count_right</entry>
+<entry>Rom_status_t</entry>
+<entry>The number of times the card has been booted and SSP is reset. 
+MB0 has run far enough to enforce the state rules.</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>8</entry>
+<entry>adapterID</entry>
+<entry>Rom_status_t</entry>
+<entry>Byte array of adapter unique numeric serial number, taken from the 
+DS3645 Silicon Serial Number register.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>Begin:</b> Rom_status_t:xcVpd_t</entry>
+<entry>Byte array of Vital Product Data (VPD), 0x100 total bytes.</entry>
+</row>
+<row>
+<entry>23</entry>
+<entry>1</entry>
+<entry>Ds_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x82</codeph>, tag for description field</entry>
+</row>
+<row>
+<entry>24</entry>
+<entry>2</entry>
+<entry>Ds_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x2C</codeph>, description length</entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>44</entry>
+<entry>Ds</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII description</entry>
+</row>
+<row>
+<entry>70</entry>
+<entry>1</entry>
+<entry>Vpdr_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x90</codeph>, tag for VPDR field</entry>
+</row>
+<row>
+<entry>71</entry>
+<entry>2</entry>
+<entry>Vpdr_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x00CD</codeph>, length of VPDR</entry>
+</row>
+<row>
+<entry>73</entry>
+<entry>2</entry>
+<entry>Ec_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>EC</codeph>, ASCII tag for EC field</entry>
+</row>
+<row>
+<entry>75</entry>
+<entry>1</entry>
+<entry>Ec_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x07</codeph>, length of EC field</entry>
+</row>
+<row>
+<entry>76</entry>
+<entry>7</entry>
+<entry>Ec</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII field</entry>
+</row>
+<row>
+<entry>83</entry>
+<entry>2</entry>
+<entry>Pn_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>PN</codeph>, ASCII tag for part number field</entry>
+</row>
+<row>
+<entry>85</entry>
+<entry>1</entry>
+<entry>Pn_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x07</codeph>, length of PN field</entry>
+</row>
+<row>
+<entry>86</entry>
+<entry>7</entry>
+<entry>Pn</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII field</entry>
+</row>
+<row>
+<entry>93</entry>
+<entry>2</entry>
+<entry>Fn_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>FN</codeph>, ASCII tag for FRU number field</entry>
+</row>
+<row>
+<entry>95</entry>
+<entry>1</entry>
+<entry>Fn_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x07</codeph>, length of FN field</entry>
+</row>
+<row>
+<entry>96</entry>
+<entry>7</entry>
+<entry>Fn</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII field</entry>
+</row>
+<row>
+<entry>103</entry>
+<entry>2</entry>
+<entry>Ve_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>VE</codeph>, ASCII tag for Secure part number field</entry>
+</row>
+<row>
+<entry>105</entry>
+<entry>1</entry>
+<entry>Ve_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x07</codeph>, length of VE field</entry>
+</row>
+<row>
+<entry>106</entry>
+<entry>7</entry>
+<entry>Ve</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII field</entry>
+</row>
+<row>
+<entry>113</entry>
+<entry>2</entry>
+<entry>Mf_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>MF</codeph>, ASCII tag for manufacturing location field</entry>
+</row>
+<row>
+<entry>115</entry>
+<entry>1</entry>
+<entry>Mf_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x02</codeph>, length of MF field</entry>
+</row>
+<row>
+<entry>116</entry>
+<entry>2</entry>
+<entry>Mf</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>ASCII field</entry>
+</row>
+<row>
+<entry>118</entry>
+<entry>2</entry>
+<entry>Sn_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>SN</codeph>, ASCII tag for serial number field</entry>
+</row>
+<row>
+<entry>120</entry>
+<entry>1</entry>
+<entry>Sn_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x0C</codeph>, length of SN field</entry>
+</row>
+<row>
+<entry>121</entry>
+<entry>4</entry>
+<entry>Sn_hdr</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>first part of serial number</entry>
+</row>
+
+<row>
+<entry>125</entry>
+<entry>8</entry>
+<entry>Sn</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>Rest of serial number</entry>
+</row>
+<row>
+<entry>133</entry>
+<entry>2</entry>
+<entry>Rv_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>RV, ASCII tag for checksum field</entry>
+</row>
+<row>
+<entry>135</entry>
+<entry>1</entry>
+<entry>Rv_length</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>Length of reserved field</entry>
+</row>
+<row>
+<entry>136</entry>
+<entry>1</entry>
+<entry>Checksum</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>1 byte checksum field</entry>
+</row>
+<row>
+<entry>137</entry>
+<entry>141</entry>
+<entry>Reserved</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry>Reserved field, all <codeph>0x00</codeph> bytes</entry>
+</row>
+<row>
+<entry>278</entry>
+<entry>1</entry>
+<entry>End_tag</entry>
+<entry>Rom_status_t:xcVpd_t</entry>
+<entry><codeph>0x78</codeph>, end tag</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>End:</b> Rom_status_t:xcVpd_t</entry>
+</row>
+<row>
+<entry>279</entry>
+<entry>1</entry>
+<entry>Init_state</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>280</entry>
+<entry>1</entry>
+<entry>Seg2_state</entry>
+<entry>Rom_status_t</entry>
+<entry>State of segment 2:
+<lines>
+UNOWNED 0x00
+OWNED_BUT_UNRELIABLE 0x01
+RUNNABLE 0x02
+RELIABLE_BUT_UNRUNNABLE 0x03
+</lines>
+</entry>
+</row>
+<row>
+<entry>281</entry>
+<entry>1</entry>
+<entry>Seg3_state</entry>
+<entry>Rom_status_t</entry>
+<entry>State of segment 3 
+(same possible values as <parmname>Seg2_state</parmname>)</entry>
+</row>
+<row>
+<entry>282</entry>
+<entry>2</entry>
+<entry>Owner2</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>284</entry>
+<entry>2</entry>
+<entry>Owner3</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>286</entry>
+<entry>1</entry>
+<entry>Active_seg1</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>287</entry>
+<entry>2</entry>
+<entry>Rsvd3</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>289</entry>
+<entry>4</entry>
+<entry>usr</entry>
+<entry>Rom_status_t</entry>
+<entry></entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col5">
+<b>End:</b> Rom_status_t + struct_id_t (291 + 2 = <b>293 bytes</b>)
+</entry>
+</row>
+<row>
+<entry></entry>
+<entry><b>32 bytes</b></entry>
+<entry>nonce</entry>
+<entry>Raw nonce</entry>
+<entry>Value passed by user to be signed as part of the returned payload. This indicates the signature 
+is live, not a replayed value that was calculated earlier.
+</entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col3"><b>Begin:</b> var_t array for segment identifiers</entry>
+<entry namest="col4" nameend="col5">A <parmname>var_t</parmname> is a simple structure with 2 fields, specifying an offset 
+and a length. These help you find the item the <parmname>var_t</parmname> describes.
+<p>In this section are three <parmname>var_t</parmname> structures, followed in the next section 
+by three segment identifiers 
+that are pointed to by the <parmname>var_t</parmname> structures.</p>
+</entry>
+</row>
+
+<row>
+<entry>0</entry>
+<entry>4</entry>
+<entry>Offset</entry>
+<entry>Var_t : for segment 1</entry>
+<entry>Offset to the segment identifier from byte 0 of this field</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>4</entry>
+<entry>length</entry>
+<entry>Var_t : for segment 1</entry>
+<entry>Length of the segment identifier</entry>
+</row>
+
+<row>
+<entry>8</entry>
+<entry>4</entry>
+<entry>Offset</entry>
+<entry>Var_t : for segment 2</entry>
+<entry>Offset to the segment identifier from byte 0 of this field</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>4</entry>
+<entry>length</entry>
+<entry>Var_t : for segment 2</entry>
+<entry>Length of the segment identifier</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>4</entry>
+<entry>Offset</entry>
+<entry>Var_t : for segment 3</entry>
+<entry>Offset to the segment identifier from byte 0 of this field</entry>
+</row>
+<row>
+<entry>20</entry>
+<entry>4</entry>
+<entry>length</entry>
+<entry>Var_t : for segment 3</entry>
+<entry>Length of the segment identifier</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>End:</b> <parmname>var_t</parmname> array (<b>24 bytes</b>)</entry>
+<entry></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>Begin:</b> segment identifiers array, struct is 
+<parmname>mbid_t</parmname></entry>
+<entry><parmname>mbid_t</parmname> indicates: <term>Miniboot identifier</term>. 
+<term>Miniboo</term>’ is the name for the secure boot loader that manages the firmware loaded 
+to the adapter.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>Begin:</b> <parmname>mbid_t</parmname> for segment 1</entry>
+<entry></entry>
+</row>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>mbid_t:struct_id_t</entry>
+<entry><codeph>0x81</codeph>, name for <parmname>mbid_t</parmname>,</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>2</entry>
+<entry>version</entry>
+<entry>mbid_t:struct_id_t</entry>
+<entry><codeph>0x02</codeph>, ECC version of mbid_t.: indicates secure bootloader uses ECDSA to 
+verify image for this loaded segment of firmware.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>1</entry>
+<entry>type</entry>
+<entry>mbid_t</entry>
+<entry>Type field:
+<lines>Value is: <codeph>FAM_OWNER 0x03</codeph></lines>
+<p>If type is <codeph>FAM_OWNER</codeph>, the adapterID is a bit vector that specifies onto which 
+device families the image identified by the <parmname>mbid_t</parmname> parameter may be loaded. 
+An attempt to load an image onto a device belonging to a family whose bit in adapterID is not set,
+ will fail.</p>
+</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>mbid_t:ownerID_t: struct_id_t</entry>
+<entry><ph>0x80</ph>, name for <parmname>ownerID_t</parmname> structure</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>1</entry>
+<entry>version</entry>
+<entry>mbid_t:ownerID_t: struct_id_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>1</entry>
+<entry>seg</entry>
+<entry>mbid_t:ownerID_t</entry>
+<entry>Indicates the segment to which this <parmname>ownerID_t</parmname> applies, may be <codeph>0x01</codeph>, 
+<codeph>0x02</codeph> or <codeph>0x03</codeph>.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>2</entry>
+<entry>Owner2</entry>
+<entry>mbid_t:ownerID_t</entry>
+<entry>If the <parmname>seg</parmname> field holds <codeph>0x01</codeph>, then this field holds 
+<codeph>0x0000</codeph>. Otherwise, this field holds the two-byte owner ID for the applicable segment 2.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2</entry>
+<entry>Owner3</entry>
+<entry>mbid_t:ownerID_t</entry>
+<entry>If the <parmname>seg</parmname> field holds <codeph>0x01</codeph> or <codeph>0x02</codeph>, 
+then this field holds <codeph>0x0000</codeph>. 
+Otherwise, this field holds the two-byte owner ID for the applicable segment 2.
+</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>1</entry>
+<entry>trust1</entry>
+<entry>mbid_t</entry>
+<entry>Owner specified value of what to do if a lower level segment is updated. 
+This <parmname>trust1</parmname> field value refers to segment 1, and is <codeph>0x00</codeph> 
+if the <parmname>seg</parmname> value is <codeph>0x01</codeph>. For other cases, the meaning 
+implies to trust or not trust, and is of interest to holders of signing keys.
+</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>1</entry>
+<entry>Trust2</entry>
+<entry>mbid_t</entry>
+<entry>Owner specified value of what to do if a lower level segment is updated. 
+This <parmname>trust2</parmname> field value refers to segment 2, and is <codeph>0x00</codeph> 
+if the <parmname>seg</parmname> value is <codeph>0x01</codeph> or <codeph>0x02</codeph>. 
+For other cases, the meaning implies to trust or not trust, and is of interest to holders 
+of signing keys.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>80</entry>
+<entry>name</entry>
+<entry>mbid_t</entry>
+<entry>Byte array for image name</entry>
+</row>
+<row>
+<entry>92</entry>
+<entry>2</entry>
+<entry>rev</entry>
+<entry>mbid_t</entry>
+<entry>Revision assigned to the segment by the owner of the segment that this 
+<parmname>mbid_t</parmname> structure is describing</entry>
+</row>
+<row>
+<entry>94</entry>
+<entry>64</entry>
+<entry></entry>
+<entry>mbid_t</entry>
+<entry></entry>
+</row>
+<row>
+<entry>158</entry>
+<entry>8</entry>
+<entry>hash</entry>
+<entry>mbid_t</entry>
+<entry>SHA512 hash of the image identified by the <parmname>name</parmname> field</entry>
+</row>
+<row>
+<entry>166</entry>
+<entry>4</entry>
+<entry>reserved</entry>
+<entry>mbid_t:Etc (var_t)</entry>
+<entry>Reserved field. The data has validity only inside the card.</entry>
+</row>
+<row>
+<entry>170</entry>
+<entry>4</entry>
+<entry>reserved</entry>
+<entry>mbid_t:Etc (var_t)</entry>
+<entry>Reserved field. The data has validity only inside the card.</entry>
+</row>
+<row>
+<entry>174</entry>
+<entry>4</entry>
+<entry>offset</entry>
+<entry>mbid_t:Token (var_t)</entry>
+<entry>Segment key pointer field.
+<p>This <parmname>var_t</parmname> parameter indicates the offset from byte 0 of this field to the 
+beginning of the public key which describes the segment that this <parmname>mbid_t</parmname> represents.
+</p></entry>
+</row>
+<row>
+<entry>178</entry>
+<entry>4</entry>
+<entry>len</entry>
+<entry>mbid_t:Token (var_t)</entry>
+<entry>Length of the public key token for the segment</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b>Begin:</b> <parmname>mbid_t:token</parmname> for segment 1</entry>
+<entry namest="col4" nameend="col5"><b>Explanation of the public key here</b><p>A firmware load
+operation is actually a pre-packaged and signed *command*, as recognized by the secure bootloader in
+the adapter. While it is commonly said that <term>the firmware is signed</term>, it is more accurate
+to say that the firmware load command is signed, and includes the new firmware. Each firmware load
+command has been signed by the owner of a signing key, and this owner becomes the <term>owner of the
+segment</term> after the owner’s firmware has been loaded. Thus we refer to the ‘segment owner’ as
+the person who held the private key that signed the command to load the firmware for that segment.
+Each firmware load command package also includes a signed version of the public key of the ‘segment
+owner’ for the segment to be loaded. The segment owner public key signature has been computed with
+the private key of the owner of the lower segment that is expected to have been installed. For
+example, consider load of a new segment 2:</p><ol>
+<li>The segment 2 load command is a binary software image, with: <ol>
+<li>firmware image for new segment 2</li>
+<li>command of how to load the segment 2</li>
+<li>signature over the firmware image and command, calculated with segment 2 owner private key</li>
+<li>segment 2 owner public key</li>
+<li> signature over segment 2 owner public key calculated with segment 1 owner private key</li>
+</ol></li>
+<li>The secure boot loader <ol>
+<li>uses segment 1 owner public key to verify signature over segment 2 owner public key</li>
+<li>uses segment 2 owner public key to verify signature over firmware and command</li>
+<li>executes the command.</li>
+</ol>
+</li>
+</ol><p>Given the above explanation, it is now possible to say that the public key included in the
+<parmname>mbid_t</parmname> is the segment owner public key for the segment that the
+<parmname>mbid_t</parmname> describes. If the <parmname>mbid_t</parmname> describes segment 1, then
+the segment 1 owner public key is included at the end of the <parmname>mbid_t</parmname> when
+returned from the adapter.</p></entry>
+</row>
+
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>mbid_t:token:struct_id_t</entry>
+<entry><parmname>struct_id_t</parmname>, sub-structure that defines the name and version of the 
+data structure
+<lines>Enum value: <codeph>ECC_TOKEN_T (0x97)</codeph></lines></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry>version</entry>
+<entry>mbid_t:token:struct_id_t</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>Rsvd1</entry>
+<entry>mbid_t:token</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>4</entry>
+<entry>tokenLength</entry>
+<entry>mbid_t:token</entry>
+<entry>Length of token including header.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>4</entry>
+<entry>Rsvd2</entry>
+<entry>mbid_t:token</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>1</entry>
+<entry>name</entry>
+<entry>mbid_t:token:struct_id_t</entry>
+<entry><parmname>struct_id_t</parmname> defines the name and version of the data structure
+<lines>Enum value: <codeph>ECC_PUBLIC_TOKEN_T (0x99)</codeph></lines>
+</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>1</entry>
+<entry>version</entry>
+<entry>mbid_t:token:struct_id_t</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>2</entry>
+<entry>sectionLength</entry>
+<entry>mbid_t:token</entry>
+<entry>Length of this section</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>4</entry>
+<entry>Rsvd1</entry>
+<entry>mbid_t:token</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>20</entry>
+<entry>1</entry>
+<entry>curveType</entry>
+<entry>mbid_t:token</entry>
+<entry>Type of curve
+<lines>Value: <codeph>0x00</codeph> (Prime/NIST)</lines>
+</entry>
+</row>
+<row>
+<entry>21</entry>
+<entry>1</entry>
+<entry>Rsvd2</entry>
+<entry>mbid_t:token</entry>
+<entry><codeph>0x00</codeph></entry>
+</row>
+<row>
+<entry>22</entry>
+<entry>2</entry>
+<entry>pLength</entry>
+<entry>mbid_t:token</entry>
+<entry>Length of curve<lines>Value: <codeph>0x0209 (P521)</codeph></lines></entry>
+</row>
+<row>
+<entry>24</entry>
+<entry>2</entry>
+<entry>qLen</entry>
+<entry>mbid_t:token</entry>
+<entry><codeph>0x91</codeph></entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>1</entry>
+<entry>Pubkey_preface</entry>
+<entry>mbid_t:token</entry>
+<entry>Value: <codeph>0x04</codeph></entry>
+</row>
+<row>
+<entry>27</entry>
+<entry>72</entry>
+<entry>Ecc_public_x</entry>
+<entry>mbid_t:token</entry>
+<entry></entry>
+</row>
+<row>
+<entry>99</entry>
+<entry>72</entry>
+<entry>Ecc_public_y</entry>
+<entry>mbid_t:token</entry>
+<entry>Y value for the public key
+<p>Length is 66 bytes for ECC P521 key + padding bytes for hardware use of the value.
+</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>End:</b> <parmname>mbid_t:token</parmname> for segment 1 
+(171 bytes)</entry>
+<entry></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>End:</b> <parmname>mbid_t</parmname> for segment 1 
+(182 + 171 = 353 bytes)</entry>
+<entry></entry>
+</row>
+<row>
+<entry></entry>
+<entry>353</entry>
+<entry><b>mbid_t</b></entry>
+<entry>mbid_t for <b>segment 2</b></entry>
+<entry>The <parmname>mbid_t</parmname> for each segment is the same size and has the same fields as 
+the <parmname>mbid_t</parmname> for segment 1</entry>
+</row>
+<row>
+<entry></entry>
+<entry>353</entry>
+<entry><b>mbid_t</b></entry>
+<entry>mbid_t for <b>segment 3</b></entry>
+<entry>The <parmname>mbid_t</parmname> for each segment is the same size and has the same fields as 
+the <parmname>mbid_t</parmname> for segment 1</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>End:</b> 
+segment identifiers array, struct is <parmname>mbid_t</parmname> (3 * 353 bytes = 1059 bytes)</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>End payload</b>
+<p>Begin signature section <uicontrol>sig-section</uicontrol> (if SIGNSTAT passed)</p></entry>
+</row>
+<row>
+<entry></entry>
+<entry>132</entry>
+<entry>signature</entry>
+<entry>Raw <codeph>r</codeph> and <codeph>s</codeph> values for signature over SHA-512 hash of the 
+payload</entry>
+<entry>Length <parmname>X</parmname> is given in the <parmname>signed_data_t:sig len</parmname> field 
+at the beginning of returned data
+<lines><parmname>X</parmname> is always be 132 bytes
+<codeph>r</codeph> and <codeph>s</codeph> are 66 bytes each, <codeph>r</codeph> is first.
+</lines></entry>
+</row>
+<row>
+<entry></entry>
+<entry>64</entry>
+<entry>Payload hash</entry>
+<entry>Raw hash value</entry>
+<entry>Raw SHA-512 hash over the payload. This is the value used for calculating the signature.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>Total structure size:</b>
+<codeblock>
+VUD fields + signed_data_t:          30 bytes
+Rom_status_t:                       294 bytes
+Nonce:                               32 bytes
+<parmname>var_t</parmname> array (describing <parmname>mbid_t</parmname>):     24 bytes
+<parmname>mbid_t</parmname> array:                      1059 bytes
+Signature section and hash:         196 bytes
+<b>Total:                             1634 bytes</b>
+</codeblock>
+</entry>
+</row>
+
+
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkrlformat">
+<title>Format</title>
+	<titlealts>
+		<navtitle>Format</navtitle>
+		<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/></searchtitle>
+	</titlealts><shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<table pgwide="0">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry colname="col1">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>(
+				<synph><var>return_code</var></synph>,
+				<synph><var>reason_code</var></synph>,
+				<synph><var>exit_data_length</var></synph>,
+				<synph><var>edit_data</var></synph>,
+				<synph><var>rule_array_count</var></synph>,
+				<synph><var>rule_array</var></synph>,
+				<synph><var>key_label</var></synph>,
+				<synph><var>dataset_name_length</var></synph>,
+				<synph><var>dataset_name</var></synph>,
+				<synph><var>security_server_name</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

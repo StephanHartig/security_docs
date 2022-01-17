@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsvusage">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></searchtitle>
+  </titlealts><shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh20i1">
+<title>Notes on formatting the message</title>
+<dl>
+<dlentry>
+<dt>ISO-9796</dt>
+<dd>The length of the hash must be less than or equal to one-half of the number of bytes required to
+contain the modulus of the RSA key.</dd>
+</dlentry>
+<dlentry>
+<dt>PKCS-1.0 and PKCS-1.1</dt>
+<dd>The length of the hash must be 11 bytes shorter than the number of bytes required to contain the
+modulus of the RSA key. <p>When the HASH keyword is specified, the hash must be BER encoded. See
+<xref href="wskc_c_fhk.dita"/> for a description of the formatting methods.</p>
+</dd>
+</dlentry>
+<dlentry>
+<dt>PKCS-PSS</dt>
+<dd> The first four bytes of the data parameter will contain the salt length. For more information
+on salt lenght, see <xref href="wskc_r_l0wskc105.dita"/>. The remaining bytes of the parameter
+contains the hash or message. <p>The hash algorithm and salt length should be provided to you with
+the signature. If not, the recommended salt length is 0 or the byte length of the hash
+algorithm.</p><p> When the signature verification is done on an accelerator, there is no domain role
+and no access control points. The check of the salt length will be performed based on the signature
+check rule keywords.</p></dd>
+</dlentry>
+<dlentry>
+<dt>X9.31</dt>
+<dd>There are no restrictions for the hash length or message.</dd>
+</dlentry>
+<dlentry>
+<dt> ZERO-PAD</dt>
+<dd> The length of the hash must be less than or equal to the number of bytes required to contain
+the modulus of the RSA key.</dd>
+</dlentry>
+<dlentry>
+<dt>ECDSA</dt>
+<dd>There are no restrictions for the hash length or message.</dd>
+</dlentry>
+<dlentry>
+<dt>EdDSA</dt>
+<dd>The length of the message must be less than or equal to 8192 bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>CRDL-DSA</dt>
+<dd>The length of the message must be less than or equal to 5000 bytes.</dd>
+</dlentry>
+</dl>
+</section>
+</refbody></reference>

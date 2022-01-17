@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mkpparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb</indexterm></indexterm>
+<indexterm>ASYM-MK</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>AES-MK</indexterm>
+<indexterm>APKA-MK</indexterm>
+<indexterm>key part</indexterm>
+<indexterm>key_part parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> parameter is a pointer to a string variable
+containing an array of keywords. The keywords are eight bytes in length and must be left-aligned and
+padded on the right with space characters. The <parmname>rule_array</parmname> keywords are
+described in <xref href="#l0wskc02_mkpparameters/l0wskc02_mkp_tab1"/>. <table id="l0wskc02_mkp_tab1"
+pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Cryptographic component</i></b>
+(Optional)</entry>
+</row>
+<row>
+<entry><b>ADAPTER</b></entry>
+<entry>Specifies the coprocessor. This is the default. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Master key register class</i></b> (One,
+required) <p>See Note at the end of this table.</p></entry>
+</row>
+<row>
+<entry><b>AES-MK</b></entry>
+<entry>Specifies operation with the AES master-key registers.</entry>
+</row>
+<row>
+<entry><b>APKA-MK</b></entry>
+<entry>Specifies operation with the APKA master-key registers.</entry>
+</row>
+<row>
+<entry><b>ASYM-MK</b></entry>
+<entry>Specifies operation with the asymmetric master-key registers.</entry>
+</row>
+<row>
+<entry><b>SYM-MK</b></entry>
+<entry>Specifies operation with the symmetric master-key registers.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Master-key process</i></b> (One,
+required)</entry>
+</row>
+<row>
+<entry><b>CLEAR</b></entry>
+<entry>Specifies to clear the NMK register.</entry>
+</row>
+<row>
+<entry><b>FIRST</b></entry>
+<entry>Specifies to load the first <synph><var>key_part</var></synph>.</entry>
+</row>
+<row>
+<entry><b>MIDDLE</b></entry>
+<entry>Specifies to XOR the second, third, or other intermediate
+<synph><var>key_part</var></synph> into the NMK register.</entry>
+</row>
+<row>
+<entry><b>LAST</b></entry>
+<entry>Specifies to XOR the last <synph><var>key_part</var></synph> into the NMK register.</entry>
+</row>
+<row>
+<entry><b>SET</b></entry>
+<entry>Specifies to advance the CMK to the OMK register, to advance the NMK to the CMK
+register, and to clear the NMK register.</entry>
+</row>
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2">
+<b><i>Master Key Verification Pattern Algorithm</i></b> (One, optional). <p>The <b>SET</b> keyword
+operation takes action inside the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+host library to obtain a verification pattern over the master key in the New Master Key (NMK)
+register. The NMK verification pattern is then passed to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/> service with the <b>SET</b> keyword.
+The algorithm used for the verification pattern may be chosen with the keywords below. The use of
+the other <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/> parameters is not
+changed by the choice of a  keyword from this group and no extra data is returned. Some
+implementations may choose different methods based on compliance considerations. Valid only with
+<b>SET</b>.</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>CMACZERO</b></entry>
+<entry>Specifies to use the CMACZERO algorithm, as described for the <xref href="wskc_r_kyt2.dita"/>
+service, for the NMK verification pattern. </entry>
+</row>
+<row rev="sh20i1">
+<entry><b>ENC-ZERO</b></entry>
+<entry>Specifies to use the ENC-ZERO algorithm, as described for the <xref href="wskc_r_kyt2.dita"/>
+service, for the NMK verification pattern. Only valid with <b>SYM-MK</b> and <b>ASYM-MK</b>.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>LEGACY</b></entry>
+<entry>Specifies to use the legacy algorithm for the NMK verification pattern. The algorithm used is
+the default for the <xref href="wskc_r_kyt.dita"/> service with the <b>GENERATE</b> keyword for the
+chosen master key. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">
+<note>The <synph><var>master-key register class</var></synph> is not optional for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>. There is no default for this
+environment. If a suitable keyword is not specified, return code 8 with reason code 33 will be
+returned.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_part</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a 168-bit or 192-bit clear key-part used when you
+specify one of the keywords <synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>, or
+<synph><kwd>LAST</kwd></synph>. If you use the <synph><kwd>CLEAR</kwd></synph> or
+<synph><kwd>SET</kwd></synph> keywords, the information in the variable is ignored, but you must
+declare the variable.</pd></plentry>
+</parml></section>
+</refbody></reference>

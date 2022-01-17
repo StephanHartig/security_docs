@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_staticsc" rev="sh20i1">
+<title>STATICSC</title>
+<titlealts>
+<navtitle>STATICSC</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATICSC</searchtitle>
+</titlealts>
+<shortdesc>This <synph><var>rule_array</var></synph> keyword returns the indicated master key
+verification patterns for the master keys loaded in the current domain. The returned status
+variables for the various master key registers indicate which of these verification pattern
+structures contain useful data. An empty master key register cannot have a meaningful verification
+pattern. However, the data structures are returned for all registers indicated so that
+interpretation is reliable.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>STATICSB</indexterm>
+<indexterm>STATICSB operational key parts<indexterm>output data format</indexterm></indexterm>
+<indexterm>hash pattern</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The master key verification patterns returned for STATICSC are consistent with current standards
+in terms of length and algorithm.</p>
+</section>
+<section><note othertype="Notes" type="other">
+<ul>
+<li>The fields will be returned in the order given, however the *_ID fields should be used for
+verification.</li>
+<li>The <parmname>verb_data_length</parmname> parameter indicates the total size at the bottom of
+the table describing the <parmname>verb_data</parmname>.</li>
+<li>Multi-byte fields are stored in Big-Endian format as is typical for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> communication.</li>
+</ul>
+</note></section>
+<section>
+<table id="staticsc_table" pgwide="1"><title>Output data format for STATICSC operational key
+parts</title><desc>
+<p outputclass="summary">Output data format for STATICSC operational key parts</p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="10*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<colspec colname="col4" colwidth="24*"/>
+<thead>
+<row>
+<entry>Field name</entry>
+<entry>Length in bytes</entry>
+<entry>Field value</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+
+<row>
+<entry>SYM_OMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>SYM_OMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F10</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>SYM_OMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Symmetric Key OLD Master Key register calculated using the ENCZERO algorithm. Three bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>SYM_CMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>SYM_CMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F11</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>SYM_CMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Symmetric Key CURRENT Master Key register calculated using the ENCZERO algorithm. Three bytes of the field will have the 
+verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>SYM_NMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>SYM_NMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F12</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>SYM_NMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Symmetric Key NEW Master Key register calculated using the ENCZERO algorithm. Three bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_OMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>ASYM_OMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F13</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>ASYM_OMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Asymmetric Key OLD Master Ke register calculated using the ENCZERO algorithm. Three bytesof the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_CMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>ASYM_CMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F14</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>ASYM_CMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Asymmetric Key CURRENT Master Key register calculated using the ENCZERO algorithm. Three bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_NMK_ENCZERO_LEN</entry>
+<entry>2</entry>
+<entry>8</entry>
+<entry>Length in bytes of this ENCZERO block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for the ENCZERO)</entry>
+</row>
+<row>
+<entry>ASYM_NMK_ ENCZERO_ID</entry>
+<entry>2</entry>
+<entry>0x0F15</entry>
+<entry>Hexadecimal identifier indicating the contents of the following ENCZERO field</entry>
+</row>
+<row>
+<entry>ASYM_NMK_ ENCZERO_HP</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>ENCZERO over the Asymmetric Key NEW Master Key register calculated using the ENCZERO algorithm. Three bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>SYM_OMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>SYM_OMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F16</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>SYM_OMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the Symmetric Key OLD Master Key register calculated using the default algorithm. Five bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>SYM_CMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>SYM_CMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F17</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>SYM_CMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the Symmetric KeyCURRENT Master Key register calculated using the default algorithm. Five bytes of the field 
+will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>SYM_NMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>SYM_NMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F18</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>SYM_NMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the Symmetric Key NEW Master Key register calculated using the default algorithm. Five bytes of 
+the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_OMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>ASYM_OMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F19</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>ASYM_OMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the Asymmetric Key OLD Master Key register calculated using the default algorithm. 
+Five bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_CMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>ASYM_CMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1A</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>ASYM_CMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO Verification pattern over the Asymmetric Key CURRENT Master Key register calculated using the default algorithm. 
+Five bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>ASYM_NMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>ASYM_NMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1B</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>ASYM_NMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the Asymmetric Key NEW Master Key register calculated using the default algorithm. Five bytes of the field will have 
+the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>AES_OMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for 
+the verification pattern)</entry>
+</row>
+<row>
+<entry>AES_OMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1C</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>AES_OMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the AES Key OLD Master Key register. 
+Five bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>AES_CMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the Verification pattern)</entry>
+</row>
+<row>
+<entry>AES_CMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1D</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>AES_CMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the AES Key CURRENT Master Key register. Five bytes of the field will have the verification pattern, the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>AES_NMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>AES_NMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1E</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>AES_NMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO Verification pattern over the AES Key NEW Master Key register. Five bytes of the field will have the verification pattern, 
+the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>APKA_OMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>APKA_OMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F1F</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>APKA_OMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the APKA Key OLD Master Key register. Five bytes of the field will have the verification pattern, 
+the rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>APKA_CMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, and the field for 
+the verification pattern)</entry>
+</row>
+<row>
+<entry>APKA_CMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F20</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>APKA_CMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO Verification pattern over the APKA Key CURRENT Master Key register. Five bytes of the field will have the verification pattern, the rest of 
+the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry>APKA_NMK_CMAC_LEN</entry>
+<entry>2</entry>
+<entry>12</entry>
+<entry>Length in bytes of this verification pattern block in <parmname>verb_data</parmname> (comprising this length field, the following ID field, 
+and the field for the verification pattern)</entry>
+</row>
+<row>
+<entry>APKA_NMK_CMAC_ID</entry>
+<entry>2</entry>
+<entry>0x0F21</entry>
+<entry>Hexadecimal identifier indicating the contents of the following verification pattern field</entry>
+</row>
+<row>
+<entry>APKA_NMK_CMAC</entry>
+<entry>8</entry>
+<entry>variable</entry>
+<entry>CMACZERO verification pattern over the APKA Key NEW Master Key register. Five bytes of the field will have the verification pattern, the 
+rest of the field is 0x00 bytes.</entry>
+</row>
+<row>
+<entry colname="col1" colsep="1">Total byte count</entry>
+<entry namest="col2" nameend="col4" colsep="1">192</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

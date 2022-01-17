@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_trv">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/>
+    <ph>verb</ph> supports the generation and validation of <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> card security codes (CSC). </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb generates and verifies transaction values based on information
+from the transaction and a cryptographic key. You select the validation
+method, and either the generate or verify mode, through <i>rule_array</i> keywords.</p></section>
+<section><p>For the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> process, the control
+        vector supplied with the cryptographic key must indicate a MAC or MACVER class key. The key
+        can be single or double length. <synph><kwd>DATAM</kwd></synph> and
+          <synph><kwd>DATAMV</kwd></synph> keys are not supported. The MAC generate control vector
+        bit must be on (bit 20) if you request CSC generation and MAC verify bit (bit 21) must be on
+        if you request verification.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

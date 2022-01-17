@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kformbfff" rev="sh20i1">
+<title>Key form bits, 'fff' and 'FFF'</title>
+<titlealts>
+<navtitle>Key form bits, <term>fff</term> and <term>FFF</term></navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key form bits, <term>fff</term> and
+<term>FFF</term></searchtitle>
+</titlealts>
+<shortdesc>The key form bits of a DES control vector define the length of the key, either single
+(‘fff’), double (‘FFF’) or triple (also ‘FFF’). Bits 40 – 42 in the base (first 64 bits) of a
+control vector are for a key length of single, double, or triple, while bits 104 – 106 in the
+extension (second 64 bits) of a control vector are for a key length of double or triple. Note that
+the bits in the extension of a single-length control vector should all be zeros.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key form bits</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The key form bits of a DES control vector (‘fff’ and ‘FFF’) are shown in the figures provided in
+<xref href="wskc_r_cvbbmap.dita"/>.</p>
+<p><xref href="#l0wskc02_kformbfff/keyfbits" format="dita"/> defines the meaning of the key form
+bits, along with the rule array keywords associated with these values when using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> services.</p>
+<table frame="all" rowsep="1" colsep="1" id="keyfbits"><title>Key form bits, 'fff' and
+'FFF'</title><desc><p outputclass="summary">Key form bits, 'fff' and
+'FFF'</p></desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="1.3*"/>
+<colspec colname="c2" colnum="2" colwidth="1.7*"/>
+<colspec colname="c3" colnum="3" colwidth="4.0*"/>
+<thead>
+<row>
+<entry>CV bits 40 – 42 (key form bits)</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/> keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">B'000'</entry>
+<entry><b>SINGLE</b>, <b>KEYLN8</b>
+</entry>
+<entry>Single-length key (only ‘fff’, not ‘FFF’)</entry>
+</row>
+<row>
+<entry><b>DOUBLE</b><b>, KEYLN16, MIXED</b> (DATA key only)</entry>
+<entry>Double-length DATA key. Left and right key halves not guaranteed unique, ignoring parity
+bits. <p>Requires a Version X’01’ fixed-length DES key-token format which contains a CV valued to
+binary zeros, with key length flag (token marks) at offset 59 = X’10’. </p></entry>
+</row>
+<row>
+<entry><b>ZEROCV24</b> (DATA key only).<note><b>ZEROCV24</b> is equivalent to IBM Z
+<b>KEYLN24</b>.</note></entry>
+<entry>Triple-length DATA key. Left, middle, and right key parts not guaranteed unique, ignoring
+parity bits.<p>Requires a Version X’01’ fixed-length DES key-token format which contains a CV valued
+to binary zeros, with key length flag (token marks) at offset 59 = B’xx20 xxxx’. </p></entry>
+</row>
+<row>
+<entry>B'001'</entry>
+<entry><b>DOUBLE</b>, <b>KEYLN16, MIXED</b></entry>
+<entry>Double-length key, right half of CV. Left and right key halves not guaranteed unique,
+ignoring parity bits.</entry>
+</row>
+<row>
+<entry>B'010'</entry>
+<entry><b>DOUBLE, KEYLN16, MIXED</b></entry>
+<entry>Double-length key, left half of CV. Left and right key halves not guaranteed unique, ignoring
+parity bits.</entry>
+</row>
+<row>
+<entry>B'011'</entry>
+<entry><b>TRIPLE</b> (Release 5.4 or later)</entry>
+<entry>Triple-length key, left and right halves of CV must be equal. Left, middle, and right key
+parts not guaranteed unique, ignoring parity bits.</entry>
+</row>
+<row>
+<entry>B'100'</entry>
+<entry>N/A</entry>
+<entry>Undefined. This is a control vector violation.</entry>
+</row>
+<row>
+<entry>B'101'</entry>
+<entry><b>DOUBLE-O</b></entry>
+<entry>Double-length key, right half of CV. Left and right key halves guaranteed unique, ignoring
+parity bits.</entry>
+</row>
+<row>
+<entry>B'110'</entry>
+<entry><b>DOUBLE-O</b></entry>
+<entry>Double-length key, left half of CV. Left and right key halves guaranteed unique, ignoring
+parity bits.</entry>
+</row>
+<row>
+<entry>B'111'</entry>
+<entry><b>TRIPLE-O</b> (Release 5.4 or later)</entry>
+<entry>Triple-length key, left and right halves of CV must be equal. Left, middle, and right key
+parts guaranteed unique, ignoring parity bits.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

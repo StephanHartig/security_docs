@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pgnrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Clear PIN Generate - 3624</cmdname> command (offset
+<ph>X'00A0'</ph>) to be enabled in the active role.</p></section>
+<section><p>Whenever the <cmdname>ANSI X9.8 PIN - Use stored decimalization table only</cmdname> command
+(offset <ph>X'0356'</ph>) is enabled in the active role, the Decimalization_table element of the
+<synph><var>data_array</var></synph> value must match one of the PIN decimalization tables that are
+in the active state on the coprocessor. Use of this command provides improved security and control
+for PIN decimalization tables. </p></section>
+</refbody></reference>

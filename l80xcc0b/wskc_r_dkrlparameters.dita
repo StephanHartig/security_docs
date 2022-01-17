@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkrlparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+<indexterm>key_label parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+<indexterm>dataset_name_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+<indexterm>dataset_name parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+<indexterm>security_server_name parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements
+in the <i>rule_array</i> variable. This value must
+be 0.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry><pt>key_label</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_label</var></synph> parameter is a pointer to a string variable
+containing a key record in PKA key-storage. You can use a wild card
+(*) to identify multiple records in key storage.</pd></plentry>
+<plentry><pt>dataset_name_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>dataset_name_length</var></synph> parameter is a pointer to an
+integer variable containing the number of bytes of data returned in
+the <i>dataset_name</i> variable. The maximum returned
+length is 64 bytes.</pd></plentry>
+<plentry><pt>dataset_name</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>dataset_name</var></synph> parameter is a pointer to a 64-byte
+string variable containing the name of the file returned by the verb.
+The file contains the key-record information. 
+<p>The verb returns
+the file name as a fully qualified file specification.</p>
+<note>When the verb stores a key-record-list file, it overlays
+any older file with the same name.</note></pd></plentry>
+<plentry><pt>security_server_name</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>security_server_name</var></synph> parameter is a pointer to a
+string variable. The information in this variable is not currently
+used, but the variable must be declared.</pd></plentry>
+</parml></section>
+</refbody></reference>

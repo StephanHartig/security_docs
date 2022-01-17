@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_xpkgrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<ul>
+<li>This verb requires the <cmdname>PKA Key Generate</cmdname> command (offset X'0103') to be
+enabled in the active role.</li>
+<li>With the <synph><kwd>CLONE</kwd></synph> rule-array keyword, enable the <cmdname>PKA Key
+Generate - Clone</cmdname> command (offset X'0204').</li>
+<li>With the <synph><kwd>CLEAR</kwd></synph> rule-array keyword, enable the <cmdname>PKA Key
+Generate - Clear RSA Key</cmdname> command (offset X'0205') in the hardware.</li>
+<li>To generate ECC keys with the <synph><kwd>CLEAR</kwd></synph> rule-array keyword, this verb
+requires the <cmdname>PKA Key Generate - Clear ECC keys</cmdname> command (offset <ph>X'0326'</ph>)
+to be enabled in the active role.</li>
+<li rev="sh20i1">To generate CRYSTALS-Dilithium keys with the <synph><kwd>CLEAR</kwd></synph>
+rule-array keyword, this verb requires the <cmdname>PKA Key Generate - Clear CRYSTALS Dilithium
+keys</cmdname> command (offset <ph>X'027F'</ph>) to be enabled in the active role.</li>
+<li>To generate keys based on the value supplied in the <synph><var>regeneration_data</var></synph> variable,
+you must enable one of these commands:
+<ul>
+<li>When not using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> keyword,
+enable the <cmdname>PKA Key Generate - Permit Regeneration Data</cmdname> command (offset
+<ph>X'027D'</ph>).</li>
+<li>When using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> keyword,
+enable the <cmdname>PKA Key Generate - Permit Regeneration Data Retain</cmdname> command (offset
+<ph>X'027E'</ph>).</li>
+</ul></li>
+<li>To disallow the wrapping of a key with a weaker key-encrypting key, enable the <cmdname
+rev="shr2">Prohibit weak wrapping - Transport keys</cmdname> command (offset <ph>X'0328'</ph>) in
+the active role. This command affects multiple verbs. See <xref href="wskc_r_apn.dita#l0wskc02_apn"
+/>.</li>
+<li>To receive a warning when wrapping a key with a weaker key-encrypting key, enable the <cmdname
+rev="shr2">Warn when weak wrap - Transport keys</cmdname> command (offset <ph>X'032C'</ph>) in the
+active role. The <cmdname rev="shr2">Prohibit weak wrapping - Transport keys</cmdname> command
+(offset <ph>X'0328'</ph>) overrides this command.</li>
+</ul></section>
+</refbody></reference>

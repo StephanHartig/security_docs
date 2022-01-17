@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_cpacf_conopt_envar" xml:lang="en-us">
+<title>Environment variables that affect <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> usage</title>
+<titlealts>
+<navtitle>Environment variables</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Environment variables that affect CPACF
+usage for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>The CSU_HCPUACLR and CSU_HCPUAPRT environment variables control whether the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> is used for certain <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> functions. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/><indexterm>environment
+variable</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSU_HCPUACLR</indexterm><indexterm>CSU_HCPUAPRT</indexterm></indexterm>
+<indexterm>CSU_HCPUACLR</indexterm><indexterm>CSU_HCPUAPRT</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"></keyword>)</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>These variables are overridden by the explicit use of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"></keyword>)
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"></keyword>)
+verbs to enable or disable these access patterns. To avoid confusion,
+the environment variables are given similar names to the keywords
+used by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"></keyword>)
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"></keyword>). <note>The
+default values listed here are valid even if these environment variables
+are not defined. Their settings represent default policy decisions
+made in the library code.</note></p>
+</conbody>
+</concept>
+<?Pub *0000002558?>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_install_rpm_ksreen" xml:lang="en-us">
+<title>Using panel.exe for key storage re-encipher when changing the master key</title>
+<titlealts>
+<navtitle>Using panel.exe for key storage re-encipher when changing the master key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using panel.exe for key storage
+re-encipher when changing the master key</searchtitle>
+</titlealts>
+<shortdesc>Because all the key tokens are protected by the master key for the domain, a preexisting
+key storage must be re-enciphered when the master key is changed.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>changing the master key</indexterm><indexterm>key storage
+re-encipher</indexterm></indexterm>
+<indexterm>changing the master key<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>key storage re-encipher<indexterm>panel.exe</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>If the example group scheme is used, this is simple because the key storage files are owned by
+the group <codeph>cca_admin</codeph> and the user making the re-encipher call is also in group
+<codeph>cca_admin</codeph>. If this is not the case then, after changing the master key, the owner
+of key storage must log in and perform the re-enciphering. This can be done with the help of a
+program (using several verbs) or with <filepath>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/<cmdname>panel.exe</cmdname></filepath>. Of course, as noted, the user of
+<cmdname>panel.exe</cmdname> must also be a member of  <codeph>cca_admin</codeph> because of
+ownership of <filepath>/usr/lib64/libcsulccamk.so</filepath>.</p>
+<p>Perform these steps for key storage re-encipher when changing the master key. </p>
+<ol>
+<li>To re-encipher default key storage with <cmdname>panel.exe</cmdname> use: <p rev="sh18i2"
+><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen>
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=AES --ks-reenc
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=DES --ks-reenc
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=PKA --ks-reenc
+</screen></p>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy syntax</b></p>
+<screen>
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t AES -r
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t DES -r
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t PKA -r
+</screen>
+</li>
+<li>To reencipher non-default key storage with <cmdname>panel.exe</cmdname>: <ul>
+<li>Export new versions of the environment variables specifying your key storage file
+locations.</li>
+<li> Run the previously shown commands as you would for the default key storage, but ensure to do so
+in the session with the new environment variables. </li>
+</ul><?Pub Caret 121?></li>
+</ol>
+</conbody>
+</concept>
+<?Pub *0000002489?>

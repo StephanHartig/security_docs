@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc149" xml:lang="en-us">
+<title>Key labels and key-storage management</title>
+<titlealts>
+<navtitle>Manage key storage</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key labels and key-storage
+management</searchtitle>
+</titlealts>
+<shortdesc>Use these verbs to manage AES, DES, and PKA key
+storage. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>AES key storage</indexterm><indexterm>DES key
+storage</indexterm><indexterm>PKA key storage</indexterm><indexterm>key
+label</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software manages key
+storage as an indexed repository of key records. Access key storage using a key label with verbs
+that have a key-label or key-identifier parameter.</p>
+<p>An independent key-storage system can be used to manage records
+for AES key records, DES key records, and PKA key records: <dl><dlentry>
+<dt>AES key storage</dt>
+<dd rev="sh18i2">Holds external, internal, and null AES or HMAC key tokens</dd>
+</dlentry><dlentry>
+<dt>DES key storage</dt>
+<dd>Holds external, internal, and null DES key tokens</dd>
+</dlentry><dlentry>
+<dt>PKA key storage</dt>
+<dd>Holds external, internal, and null PKA (ECC and RSA) key tokens, and both internal and external
+public and private PKA key tokens</dd>
+</dlentry></dl></p>
+<p>Private RSA keys are generated and optionally retained within the
+coprocessor using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> verb.
+Depending on the other uses for coprocessor storage, between 75 and
+150 keys can normally be retained within the coprocessor.</p>
+<p>Key storage must be initialized before any records are created.
+Before a key token can be stored in key storage, a key-storage record
+must be created using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"></keyword>,
+or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprc"></keyword> verb.</p>
+<p>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"></keyword>,
+or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"></keyword> verb
+to delete a key token from a key record, or to entirely delete the
+key record from key storage.</p>
+<p>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrl"></keyword>,
+or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> verb
+to determine the existence of key records in key storage. These list
+verbs create a key-record-list file with information about select
+key records. The wildcard character, represented by an asterisk (*),
+is used to obtain information about multiple key records. The file
+can be read using conventional workstation-data-management services.</p>
+<p>Individual key tokens can be read using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrr"></keyword>,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprr"></keyword> verbs
+or written using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"></keyword>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"></keyword>,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"></keyword> verbs.</p>
+</conbody>
+</concept>
+<?Pub *0000003682?>

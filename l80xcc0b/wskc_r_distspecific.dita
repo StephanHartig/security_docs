@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_distspecific" xml:lang="en-us">
+<title>Distribution-specific information</title>
+<titlealts>
+<navtitle>Distribution-specific information</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Distribution-specific
+information</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux_on_ibm_z"/> provides support for the CEX7S
+feature since Release 7.1. <ph rev="sh21i1">In order to use the full set of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 7.3, a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distribution with support for the CEX7S
+feature is required.</ph></shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"
+/><indexterm>distributions</indexterm></indexterm>
+<indexterm>distributions<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"
+/>, distribution-specific information </indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p rev="sh21i3">For the most current distribution-specific information about <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release <ph rev="sh21i1">7.3</ph>, refer to
+the <b>Release Notes</b> from the <xref
+href="https://mrs-ux.mrs-prod-7d4bdc08e7ddc90fa89b373d95c240eb-0000.us-south.containers.appdomain.cloud/marketing/iwm/platform/mrs/assets/DownloadList?source=4769ecdl&amp;lang=en_US"
+format="html" scope="external">4769 Embedded Code Download</xref> pages. The contained information
+may be more up-to-date than this publication.  To access these sites, you must obtain and log in
+with an IBMid.</p>
+<p rev="sh21i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.3 is supported
+on the following distributions:</p>
+<ul rev="sh21i3">
+<li>Red Hat Enterprise Linux 7.9, 8.3 and later: CEX7C exploitation</li>
+<li>SUSE Linux Enterprise Server 12 SP5, 15 SP2 and later: CEX7C exploitation</li>
+<li>Ubuntu 20.04: CEX7C exploitation</li>
+</ul>
+<note rev="sh21i1"/>
+<p rev="sh21i1">To exploit the full functionality of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>7.3 on a CEX7S, you need an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibmz15"/> with a CEX7S installed. Thus, in
+addition to the listed distributions with CEX7C exploitation, you can also use distributions
+providing CEX7C toleration as documented in the previous <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 7.1 edition of this publication
+(<xref href="http://public.dhe.ibm.com/software/dw/linux390/docu/l71xcc09.pdf" format="pdf"
+scope="external">SC33-8294-09</xref>).</p>
+<note>Only 64-bit versions of this software are provided. 31-bit support is not provided.</note></section>
+</refbody>
+</reference>
+<?Pub *0000004736?>

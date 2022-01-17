@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_domain_selection" xml:lang="en-us">
+<title>Domain selection capabilities</title>
+<titlealts>
+<navtitle>Domain selection capabilities</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Domain selection capabilities for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Beginning with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> kernel version 4.10, the user
+can exploit multiple domains. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>domain selection capabilities<indexterm>single domain
+configuration</indexterm><indexterm>any domain configuration</indexterm></indexterm>
+<indexterm>CSU_DEFAULT_DOMAIN</indexterm>
+<indexterm>environment variable<indexterm>CSU_DEFAULT_DOMAIN</indexterm></indexterm>
+<indexterm>single domain configuration</indexterm>
+<indexterm>any domain configuration</indexterm>
+<indexterm>multi-domain load-balancing</indexterm>
+<indexterm>load-balancing <indexterm>multi-domain</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>To find out the available domains on your partition use the <cmdname>lszcrypt</cmdname> command: </p>
+<screen>
+# lszcrypt
+
+CARD.DOMAIN  TYPE   MODE        STATUS  REQUEST_CNT
+-----------------------------------------------------
+00           CEX5C  CCA-Coproc  online           36
+00.0005      CEX5C  CCA-Coproc  online           10
+00.001f      CEX5C  CCA-Coproc  online            7
+</screen>
+<p>In the example, there is a single card, designated ID 0. For card 0 there are two domains
+available, X'05' and X'1f' (31 decimal). </p>
+<p>There is a default domain for the system, which can be retrieved using the following command:</p>
+<screen># cat /sys/bus/ap/ap_domain</screen>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses this default domain if no
+other choice is made using the CSU_DEFAULT_DOMAIN environment variable.</p>
+<p>You can configure a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application
+to use the multi-domain capabilities with the environment variable CSU_DEFAULT_DOMAIN, <ph
+rev="sh20i1">or dynamically with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> verbs <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library scans the environment variable one
+time when the application starts, but not for every request. To achieve more dynamic allocations,
+use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>.</ph>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> does not try to fix bad values for
+the variable. An error is returned for each request sent to an unconfigured domain, and information
+is placed into the system log.</p>
+<section>
+<title>Using CSU_DEFAULT_DOMAIN</title>
+<ul>
+<li><b>Selecting a single domain</b>
+<p>To set a single domain for use by the current application, whether that is a configuration
+utility (such as panel.exe) or a production business application, set the CSU_DEFAULT_DOMAIN
+variable to the decimal number for that domain. Continuing with the previous example, if domain 31
+is desired, use this command:<screen># export CSU_DEFAULT_DOMAIN=31</screen>
+</p><p><b>Use cases for a single-domain configuration in a multi-domain system image</b></p><ul>
+<li>When setting master keys for multiple domains on the same card using the
+<cmdname>panel.exe</cmdname> utility, set the default domain to the desired value in between
+configuration actions to target the correct domain.</li>
+<li>If there are two applications that run on the same system but require unique master keys and
+unique key storage locations:<ul>
+<li>Configure domain X on all cards with the master key for <varname>application_1</varname>, and
+configure domain Y on all cards with the master key for <varname>application_2</varname>.</li>
+<li>Create unique key storage for each application.</li>
+<li>Set the CSU_DEFAULT_DOMAIN environment variable for each application.</li>
+</ul></li>
+</ul></li>
+<li><b>Selecting any domain</b>
+<p> Similar to the multi-card load-balancing approach, there is a way to request that the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> device driver load-balances your requests
+across all domains. It is best used in concert with the multi-card load-balancing approach since
+there is no extra performance capacity available by using a second domain from the same card. <b>It
+is very important that all used domains are configured with the same master key.</b> Also, further
+required configuration (such as decimalization tables) must be the same for all domains, if they are
+made available to a system that exploits multi-domain load-balancing.</p><p>To configure
+multi-domain load-balancing, use this command: <screen># export CSU_DEFAULT_DOMAIN=DOM-ANY</screen>
+</p></li>
+</ul>
+</section>
+</conbody>
+</concept>
+<?Pub *0000002305?>

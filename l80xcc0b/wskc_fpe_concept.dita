@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="fpe_concept" rev="sh15" xml:lang="en-us">
+<title>Format preserving encryption</title>
+<titlealts>
+<navtitle>Format preserving encryption</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format preserving
+encryption</searchtitle>
+</titlealts>
+<shortdesc>Format preserving encryption (FPE) is a method of encryption where the resulting
+ciphertext has the same form as the input cleartext. The form of the text can vary according to the
+usage and the application. The contained information provides background information which is
+helpful for using the Visa format preserving encryption (VFPE) services provided by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>.  </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>format preserving encryption<indexterm>FPE</indexterm></indexterm>
+<indexterm>Visa format preserving encryption</indexterm><indexterm>VFPE</indexterm>
+<indexterm>standard encryption option</indexterm><indexterm>standard
+decryption option</indexterm><indexterm>FPE<indexterm>Format preserving
+encryption</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>One example for format preserving encryption is a 16 digit credit
+card number. After using       FPE to encrypt a credit card number,
+the resulting ciphertext is another 16 digit number. In       this
+example of the credit card number, the output ciphertext is limited
+to numeric digits       only.</p>
+<p>The FPE services require some knowledge of the input cleartext character set in order to create
+the appropriate output ciphertext. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/> callable services use the tables in
+the following subsections to determine valid character sets for the cleartext input parameters.</p>
+<section>       <title>Base-10 alphabet</title>       <p>The original
+data type of the source field may be of any type. This alphabet requires
+the         following values to be used in the VFPE         algorithm:<codeblock>Number of characters in alphabet(&rsquo;n&rsquo;): 10</codeblock></p>
+     <table frame="all" id="Base_10_alphabet"><title>Base-10 alphabet</title>
+<desc>           <p outputclass="summary">Table describing the Base-10
+alphabet in seven columns</p>         </desc>
+<tgroup cols="7"><colspec align="center" colname="col1" colwidth="*"/>
+<colspec align="center" colname="col2" colwidth="*"/><colspec
+align="center" colname="col3" colwidth="*"/><colspec align="center"
+colname="col4" colwidth="*"/><colspec align="center" colname="col5"
+colwidth="*"/><colspec align="center" colname="col6" colwidth="*"/>
+<colspec align="center" colname="col7" colwidth="*"/>
+<thead>
+<row>
+<entry morerows="1">VFPE alphabet number</entry>
+<entry morerows="1">Character</entry>
+<entry morerows="1">ISO 7811 modified 5-bit ASCII</entry>
+<entry morerows="1">ISO 7811 modified 7-bit ASCII</entry>
+<entry nameend="col7" namest="col5">Normal data type encoding</entry>
+</row>
+<row>
+<entry>4-bit binary coded decimal</entry>
+<entry>7-bit ASCII</entry>
+<entry>8-bit EBCDIC</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>0</entry>
+<entry>10000</entry>
+<entry>0010000</entry>
+<entry>0000</entry>
+<entry>0110000</entry>
+<entry>11110000</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry>00001</entry>
+<entry>1010001</entry>
+<entry>0001</entry>
+<entry>0110001</entry>
+<entry>11110001</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>00010</entry>
+<entry>1010010</entry>
+<entry>0010</entry>
+<entry>0110010</entry>
+<entry>11110010</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>3</entry>
+<entry>10011</entry>
+<entry>0010011</entry>
+<entry>0011</entry>
+<entry>0110011</entry>
+<entry>11110011</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>4</entry>
+<entry>00100</entry>
+<entry>1010100</entry>
+<entry>0100</entry>
+<entry>0110100</entry>
+<entry>11110100</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>5</entry>
+<entry>10101</entry>
+<entry>0010101</entry>
+<entry>0101</entry>
+<entry>0110101</entry>
+<entry>11110101</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>6</entry>
+<entry>10110</entry>
+<entry>0010110</entry>
+<entry>0110</entry>
+<entry>0110110</entry>
+<entry>11110110</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>7</entry>
+<entry>00111</entry>
+<entry>1010111</entry>
+<entry>0111</entry>
+<entry>0110111</entry>
+<entry>11110111</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>8</entry>
+<entry>01000</entry>
+<entry>1011000</entry>
+<entry>1000</entry>
+<entry>0111000</entry>
+<entry>11111000</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>9</entry>
+<entry>11001</entry>
+<entry>0011001</entry>
+<entry>1001</entry>
+<entry>0111001</entry>
+<entry>11111001</entry>
+</row>
+</tbody>
+</tgroup>
+</table>     </section>
+<section>       <title>Base-16 alphabet</title>       <p>Cards are
+encoded with the special ISO 7811 modified 5-bit ASCII encoding for
+track 2. This         data type allows parity checking of the digits.
+Many systems require this encoding to be         converted into standard
+data types for processing. Other data fields may use base-16
+   encoding and would use this same alphabet when performing VFPE.
+These data types support         values in the ranges 0 - 9 and A
+- F.</p>       <p>VFPE requires translation of the characters of the
+VFPE alphabet number prior to         encryption. Therefore, any of
+the data types shown in Table 190 are supported. Decryption
+  may use the same or a different data type than the original encoding.
+This alphabet requires         the following values to be used in
+the VFPE         algorithm:<codeblock>Number of characters in alphabet(&rsquo;n&rsquo;): 16</codeblock></p>
+     <table frame="all" id="base_16_alphabet"><title>Base-16 alphabet</title>
+<desc>           <p outputclass="summary">Table describing the Base-16
+alphabet in seven columns</p>         </desc>
+<tgroup cols="7"><colspec align="center" colname="col1" colwidth="*"/>
+<colspec align="center" colname="col2" colwidth="*"/><colspec
+align="center" colname="col3" colwidth="*"/><colspec align="center"
+colname="col4" colwidth="*"/><colspec align="center" colname="col5"
+colwidth="*"/><colspec align="center" colname="col6" colwidth="*"/>
+<colspec align="center" colname="col7" colwidth="*"/>
+<thead>
+<row>
+<entry morerows="1">VFPE alphabet number</entry>
+<entry nameend="col3" namest="col2">ISO 7811 modified 5-bit ASCII
+encoding</entry>
+<entry nameend="col7" namest="col4">Normal data type encoding</entry>
+</row>
+<row>
+<entry>Character</entry>
+<entry>Binary</entry>
+<entry>Character</entry>
+<entry>4-bit binary coded decimal</entry>
+<entry>7-bit ASCII</entry>
+<entry>8-bit EBCDIC</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>0</entry>
+<entry rev="shd3">10000</entry>
+<entry>0</entry>
+<entry>0000</entry>
+<entry>0110000</entry>
+<entry>11110000</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry>00001</entry>
+<entry>1</entry>
+<entry>0001</entry>
+<entry>0110001</entry>
+<entry>11110001</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>00010</entry>
+<entry>2</entry>
+<entry>0010</entry>
+<entry>0110010</entry>
+<entry>11110010</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>3</entry>
+<entry>10011</entry>
+<entry>3</entry>
+<entry>0011</entry>
+<entry>0110011</entry>
+<entry>11110011</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>4</entry>
+<entry>00100</entry>
+<entry>4</entry>
+<entry>0100</entry>
+<entry>0110100</entry>
+<entry>11110100</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>5</entry>
+<entry>10101</entry>
+<entry>5</entry>
+<entry>0101</entry>
+<entry>0110101</entry>
+<entry>11110101</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>6</entry>
+<entry>10110</entry>
+<entry>6</entry>
+<entry>0110</entry>
+<entry>0110110</entry>
+<entry>11110110</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>7</entry>
+<entry>00111</entry>
+<entry>7</entry>
+<entry>0111</entry>
+<entry>0110111</entry>
+<entry>11110111</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>8</entry>
+<entry>01000</entry>
+<entry>8</entry>
+<entry>1000</entry>
+<entry>0111000</entry>
+<entry>11111000</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>9</entry>
+<entry>11001</entry>
+<entry>9</entry>
+<entry>1001</entry>
+<entry>0111001</entry>
+<entry>11111001</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>:</entry>
+<entry>11010</entry>
+<entry>A</entry>
+<entry>1010</entry>
+<entry>1000001</entry>
+<entry>11000001</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>;</entry>
+<entry>01011</entry>
+<entry>B</entry>
+<entry>1011</entry>
+<entry>1000010</entry>
+<entry>11000010</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>&lt;</entry>
+<entry>11100</entry>
+<entry>C</entry>
+<entry>1100</entry>
+<entry>1000011</entry>
+<entry>11000011</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>=</entry>
+<entry>01101</entry>
+<entry>D</entry>
+<entry>1101</entry>
+<entry>1000100</entry>
+<entry>11000100</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>&gt;</entry>
+<entry>01110</entry>
+<entry>E</entry>
+<entry>1110</entry>
+<entry>1000101</entry>
+<entry>11000101</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>?</entry>
+<entry>11111</entry>
+<entry>F</entry>
+<entry>1111</entry>
+<entry>1000110</entry>
+<entry>11000110</entry>
+</row>
+</tbody>
+</tgroup>
+</table>     </section>
+<section>       <title>Track 1 alphabet</title>       <p>This alphabet
+requires the following values to be used in the VFPE         algorithm:<codeblock>Number of characters in alphabet(&rsquo;n&rsquo;): 41</codeblock></p>
+     <table frame="all" id="track_1_alphabet"><title>Track 1 alphabet</title>
+<desc>           <p outputclass="summary">Table describing the Track
+1 alphabet in five columns</p>         </desc>
+<tgroup cols="5"><colspec align="center" colname="col1" colwidth="*"/>
+<colspec align="center" colname="col2" colwidth="*"/><colspec
+align="center" colname="col3" colwidth="*"/><colspec align="center"
+colname="col4" colwidth="*"/><colspec align="center" colname="col5"
+colwidth="*"/>
+<thead>
+<row>
+<entry>FPE alphabet number</entry>
+<entry>Character</entry>
+<entry>ISO 7811 modified 7-bit ASCII encoding</entry>
+<entry>Standard data types 7-bit ASCII</entry>
+<entry>Standard data types 8-bit ASCII</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>space</entry>
+<entry>1000000</entry>
+<entry>0100000</entry>
+<entry>01000000</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>$</entry>
+<entry>0000100</entry>
+<entry>0100100</entry>
+<entry>01011011</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>(</entry>
+<entry>0001000</entry>
+<entry>0101000</entry>
+<entry>01001101</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>)</entry>
+<entry>1001001</entry>
+<entry>0101001</entry>
+<entry>01011101</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>-</entry>
+<entry>0001101</entry>
+<entry>0101101</entry>
+<entry>01100000</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>0</entry>
+<entry>0010000</entry>
+<entry>0110000</entry>
+<entry>11110000</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>1</entry>
+<entry>1010001</entry>
+<entry>0110001</entry>
+<entry>11110001</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>2</entry>
+<entry>1010010</entry>
+<entry>0110010</entry>
+<entry>11110010</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>3</entry>
+<entry>0010011</entry>
+<entry>0110011</entry>
+<entry>11110011</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>4</entry>
+<entry>1010100</entry>
+<entry>0110100</entry>
+<entry>11110100</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>5</entry>
+<entry>0010101</entry>
+<entry>0110101</entry>
+<entry>11110101</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>6</entry>
+<entry>0010110</entry>
+<entry>0110110</entry>
+<entry>11110110</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>7</entry>
+<entry>1010111</entry>
+<entry>0110111</entry>
+<entry>11110111</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>8</entry>
+<entry>1011000</entry>
+<entry>0111000</entry>
+<entry>11111000</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>9</entry>
+<entry>0011001</entry>
+<entry>0111001</entry>
+<entry>11111001</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>A</entry>
+<entry>1100001</entry>
+<entry>1000001</entry>
+<entry>11000001</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>B</entry>
+<entry>1100010</entry>
+<entry>1000010</entry>
+<entry>11000010</entry>
+</row>
+<row>
+<entry>17</entry>
+<entry>C</entry>
+<entry>0100011</entry>
+<entry>1000011</entry>
+<entry>11000011</entry>
+</row>
+<row>
+<entry>18</entry>
+<entry>D</entry>
+<entry>1100100</entry>
+<entry>1000100</entry>
+<entry>11000100</entry>
+</row>
+<row>
+<entry>19</entry>
+<entry>E</entry>
+<entry>0100101</entry>
+<entry>1000101</entry>
+<entry>11000101</entry>
+</row>
+<row>
+<entry>20</entry>
+<entry>F</entry>
+<entry>0100110</entry>
+<entry>1000110</entry>
+<entry>11000110</entry>
+</row>
+<row>
+<entry>21</entry>
+<entry>G</entry>
+<entry>1100111</entry>
+<entry>1000111</entry>
+<entry>11000111</entry>
+</row>
+<row>
+<entry>22</entry>
+<entry>H</entry>
+<entry>1101000</entry>
+<entry>1001000</entry>
+<entry>11001000</entry>
+</row>
+<row>
+<entry>23</entry>
+<entry>I</entry>
+<entry>0101001</entry>
+<entry>1001001</entry>
+<entry>11001001</entry>
+</row>
+<row>
+<entry>24</entry>
+<entry>J</entry>
+<entry>0101010</entry>
+<entry>1001010</entry>
+<entry>11010001</entry>
+</row>
+<row>
+<entry>25</entry>
+<entry>K</entry>
+<entry>1101011</entry>
+<entry>1001011</entry>
+<entry>11010010</entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>L</entry>
+<entry>0101100</entry>
+<entry>1001100</entry>
+<entry>11010011</entry>
+</row>
+<row>
+<entry>27</entry>
+<entry>M</entry>
+<entry>1101101</entry>
+<entry>1001101</entry>
+<entry>11010100</entry>
+</row>
+<row>
+<entry>28</entry>
+<entry>N</entry>
+<entry>1101110</entry>
+<entry>1001110</entry>
+<entry>11010101</entry>
+</row>
+<row>
+<entry>29</entry>
+<entry>O</entry>
+<entry>0101111</entry>
+<entry>1001111</entry>
+<entry>11010110</entry>
+</row>
+<row>
+<entry>30</entry>
+<entry>P</entry>
+<entry>1110000</entry>
+<entry>1010000</entry>
+<entry>11010111</entry>
+</row>
+<row>
+<entry>31</entry>
+<entry>Q</entry>
+<entry>0110001</entry>
+<entry>1010001</entry>
+<entry>11011000</entry>
+</row>
+<row>
+<entry>32</entry>
+<entry>R</entry>
+<entry>0110010</entry>
+<entry>1010010</entry>
+<entry>11011001</entry>
+</row>
+<row>
+<entry>33</entry>
+<entry>S</entry>
+<entry>1110011</entry>
+<entry>1010011</entry>
+<entry>11100010</entry>
+</row>
+<row>
+<entry>34</entry>
+<entry>T</entry>
+<entry>0110100</entry>
+<entry>1010100</entry>
+<entry>11100011</entry>
+</row>
+<row>
+<entry>35</entry>
+<entry>U</entry>
+<entry>1110101</entry>
+<entry>1010101</entry>
+<entry>11100100</entry>
+</row>
+<row>
+<entry>36</entry>
+<entry>V</entry>
+<entry>1110110</entry>
+<entry>1010110</entry>
+<entry>11100101</entry>
+</row>
+<row>
+<entry>37</entry>
+<entry>W</entry>
+<entry>0110111</entry>
+<entry>1010111</entry>
+<entry>11100110</entry>
+</row>
+<row>
+<entry>38</entry>
+<entry>X</entry>
+<entry>0111000</entry>
+<entry>1011000</entry>
+<entry>11100111</entry>
+</row>
+<row>
+<entry>39</entry>
+<entry>Y</entry>
+<entry>1111001</entry>
+<entry>1011001</entry>
+<entry>11101000</entry>
+</row>
+<row>
+<entry>40</entry>
+<entry>Z</entry>
+<entry>1111010</entry>
+<entry>1011010</entry>
+<entry>11101001</entry>
+</row>
+</tbody>
+</tgroup>
+</table>     </section>
+<section id="usage_csnbfpee_csnbfped">       <title>Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"></keyword>
+         (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"></keyword>)
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"></keyword>)
+services</title>       <p>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"></keyword> services
+support two         options: </p> <ol>
+<li rev="shd3">the standard encryption or decryption option which
+uses the DES CBC mode of operation </li>
+<li>the Visa Format Preserving Encryption (VFPE) option. </li>
+</ol>       <p>If the standard encryption or decryption option was
+selected, the plaintext data was formatted into blocks and then encrypted
+or decrypted with triple-DES with a static TDES key or a DUKPT double
+length data encryption or decryption key. For the decryption operation,
+the data blocks must be decrypted and unblocked to produce the plaintext.
+If the data was encrypted or decrypted with the VFPE option,
+it was processed in place without changing the data type or length
+of the field. Also, DUKPT key management is used. </p>       <p>These
+services can be used to encrypt or decrypt one or all of the following
+fields: </p> <ul compact="yes">
+<li>the primary account number (PAN),</li>
+<li>the cardholder name,</li>
+<li>the track 1 discretionary data, or</li>
+<li>the track 2 discretionary data.</li>
+</ul>  <p>There are three encryption or decryption options: </p>
+     <ol>
+<li>the standard option with CBC mode TDES and DUKPT keys</li>
+<li>the VFPE option with DUKPT keys</li>
+<li>the standard option with CBC mode TDES and double-length TDES
+keys.</li>
+</ol>       <p>To use these services, you must specify the following:</p>
+     <ul>
+<li>the processing method, which is limited to Visa Data Secure Platform
+(VDSP)</li>
+<li>the key management method, either STATIC or DUKPT</li>
+<li>the algorithm, which is limited to TDES</li>
+<li>the mode, either CBC or Visa Format Preserving Encryption (VFPE)</li>
+<li>the plaintext to be encrypted or decrypted</li>
+<li>the character set of each field to be encrypted or decrypted using
+rule-array keywords</li>
+<li>the base derivation key and key serial number if DUKPT key management
+is used, or a           double-length TDES key if STATIC key management
+is used</li>
+<li>a compliance or non-compliance indicator for the check digit of
+the PAN to be processed           if VFPE is specified.</li>
+</ul>       <p>The services return the encrypted or decrypted fields
+and optionally, the DUKPT PIN key, if         the DUKPT key management
+is selected and the PINKEY rule is specified.</p>     </section>
+</conbody>
+</concept>
+<?Pub *0000018696?>

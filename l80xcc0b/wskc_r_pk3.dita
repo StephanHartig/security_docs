@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_pk3" xml:lang="en-us">
+<title>Using digital signatures</title>
+ <titlealts>
+    <navtitle>Using digital signatures</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using digital signatures</searchtitle>
+  </titlealts>
+
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs described
+in this topic to support digital signatures to authenticate messages. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>digital signatures</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p> <ul otherprops="pdf">
+<li><xref href="wskc_r_dsg.dita#l0wskc02_dsg"></xref></li><?Pub Caret -2?>
+<li><xref href="wskc_r_dsv.dita#l0wskc02_dsv"></xref></li>
+</ul></p></section>
+</refbody>
+</reference>
+<?Pub *0000001451?>

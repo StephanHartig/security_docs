@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_vdras390">
+<title>Verb data returned for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>
+keywords</title>
+  <titlealts>
+    <navtitle>Data returned for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"
+/>  keywords </navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verb data returned for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> keywords</searchtitle>
+  </titlealts><shortdesc>Some keywords return specific data in the <parmname>verb_data</parmname> parameter, and
+update the <parmname>verb_data_length</parmname> field with the count of bytes returned. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm>
+<indexterm>verb_data parameter<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <parmname>verb_data</parmname> buffer must be large enough to receive the data (see
+keyword-specific sizes below) and the <parmname>verb_data_length</parmname> parameter as passed in
+to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>) must indicate that size (or a larger
+value). If either the <parmname>verb_data</parmname> or <parmname>verb_data_length</parmname> fields
+are not valid, no data is returned at all. In this case, a return code of 8 and a reason code of 72
+is returned.</p></section>
+</refbody></reference>

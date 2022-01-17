@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ch1ovlp" xml:lang="en-us">
+<title>Overlapped processing and load balancing</title>
+<titlealts>
+<navtitle>Overlapped processing and load balancing</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Overlapped processing and load balancing
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You can maximize throughput by organizing your application or applications to make
+multiple, overlapping calls to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+API. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>overlapped processing restrictions</indexterm>
+<indexterm>processing overlap</indexterm><indexterm>security API</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API</indexterm><indexterm>multiprocessing</indexterm>
+<indexterm>modular-exponentiation engine</indexterm><indexterm>SHA-1
+engine</indexterm><indexterm>DES engine</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Calls to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API are
+synchronous, that is, your program loses control until the verb completes. Multiple
+processing-threads can make concurrent calls to the API.</p>
+<p>You can maximize throughput by organizing your application or applications to make multiple,
+overlapping calls to the CCA API. You can also increase throughput by employing multiple
+coprocessors, each with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. You can
+maximize throughput by organizing your application (or applications) to make multiple, overlapping
+calls to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API. You can also
+increase throughput by employing multiple coprocessors, each with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. Another way to maximize throughput is to
+make use of the AUTOSELECT option for automatic load-balancing. See <xref format="dita"
+href="wskc_c_multico.dita" scope="local" type="concept"/>.</p>
+<p>Within the coprocessor, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+software is organized into multiple threads of processing. This multiprocessing design is intended
+to enable concurrent use of the coprocessor's main engine, PCIe communications, DES and Secure Hash
+Algorithm-1 (SHA-1) engine, and modular-exponentiation engine.</p><?Pub Caret -2?>
+<section id="l0wskc02_hostkyc"><title>Host-side key caching</title><indexterm>key cache, host
+side</indexterm><indexterm>key record<indexterm>caching</indexterm></indexterm><indexterm>key
+storage</indexterm><indexterm>key
+cache</indexterm><indexterm>CSUCACHE</indexterm><indexterm>environment
+variable<indexterm>CSUCACHE</indexterm></indexterm><p>Calls to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API are synchronous, that is, your
+program loses control until the verb completes. Multiple processing-threads can make concurrent
+calls to the API.</p><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides
+caching of key records obtained from key storage within the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host code. However, the host cache is
+unique for each host process. If different host processes access the same key record, an update to a
+key record caused in one process does not affect the contents of the key cache held for other
+processes. Caching of key records within the key-storage system can be suppressed so all processes
+access the most current key-records. To suppress caching of key records, use the SET command to set
+the environment variable CSUCACHE to NO. If this environment variable is not set, or is set to
+anything other than NO, caching of key records will not be suppressed. The CSUCACHE environment
+variable does not impact CPACF translated key caching.</p></section>
+</conbody>
+</concept>
+<?Pub *0000002054?>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_bktc2parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/></indexterm></indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>AES</indexterm>
+<indexterm>RTCMK</indexterm>
+<indexterm>RTNMK</indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> parameter is a pointer to a string variable
+containing an array of keywords. The keywords are eight bytes in length and must be left-aligned and
+padded on the right with space characters. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#l0wskc02_bktc2parameters/l0wskc02_bktc2_tab1"/>.<table
+id="l0wskc02_bktc2_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="20*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Keyword</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" colsep="1"><b><i>Algorithm</i></b> (One, required)</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>HMAC</kwd></synph></entry>
+<entry colname="col2">Specifies that the key token is for an HMAC key.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>AES</kwd></synph></entry>
+<entry colname="col2">Specifies that the key token is for an AES key in a variable-length symmetric
+key token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" colsep="1"><b><i>Re-encipherment method</i></b>
+(Required)</entry>
+</row>
+<row>
+<entry valign="top"><synph><kwd>RTCMK</kwd></synph></entry>
+<entry valign="top">Re-enciphers the <ph rev="shd3">internal key provided by the
+<parmname>key_identifier</parmname></ph> to the current master-key in an internal key-token in
+application storage or in key storage. If the supplied key is already enciphered under the current
+master-key the verb returns a positive response (return code 0, reason code 0). If the supplied key
+is enciphered under the old master-key, the key is updated to encipherment by the current master-key
+and the verb returns a positive response (return code 0, reason code 0). Other cases return some
+form of abnormal response.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>RTNMK</kwd></synph></entry>
+<entry colname="col2">Re-enciphers the <ph rev="shd3">internal key provided by the
+<parmname>key_identifier</parmname></ph> to the new master-key. <p>A key enciphered under the new
+master key is not usable. It is expected that the user will use this keyword
+(<synph><kwd>RTNMK</kwd></synph>) to take a preparatory step in re-enciphering an external key store
+that they manage themselves to a new master-key, before the SET operation has occurred. Note also
+that the new master-key register must be full. It must have had the last key part loaded and
+therefore not be empty or partially full (partially full means that one or more key parts have been
+loaded, but not the last key part). </p>
+<p>The SET operation makes the new master-key operational, moving it to the current master-key
+register, and the current master-key is displaced into the old master-key register. When this
+happens, all the keys that were re-enciphered to the new master-key are now usable, because the new
+master-key is not new anymore, it is current.</p>
+<p>Because the <synph><kwd>RTNMK</kwd></synph> keyword is added primarily for support of externally
+managed key storage (see <xref href="wskc_c_keysrule_zos.dita#l0wskc02_keysrule_zos"/>), it is not
+valid to pass a <synph><var>key_identifer</var></synph> when the <synph><kwd>RTNMK</kwd></synph>
+keyword is used. Only a full internal key token (encrypted under the current master-key) can be
+passed for re-encipherment with the <synph><kwd>RTNMK</kwd></synph> keyword. When a key label is
+passed along with the <synph><kwd>RTNMK</kwd></synph> keyword, the error return code 8 with reason
+code 181 will be returned.</p>
+<p>For more information, see <xref href="wskc_c_keysrule.dita#l0wskc02_keysrule"/>.</p></entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>VALIDATE</kwd></synph></entry>
+<entry>Validate an internal key token as described in the <parmname>key_identifier</parmname> which
+is enciphered under the current master key. That is, the same processing as RTNMK is applied.
+However, after a successful checking of the token, no re-enciphering of the token to the new master
+key takes place. There is just a return code for a successful validation.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>key_identifier_length</parmname> parameter is a pointer to a string variable
+containing the length in bytes of the <parmname>key_identifier</parmname> parameter. On input, this
+variable contains the number of bytes for the <synph><var>key_identifier</var></synph> buffer, and
+must be large enough to hold the key token or key label. On output, this variable contains the
+number of bytes of data returned in the <synph><var>key_identifier</var></synph> variable.</pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an internal variable-length symmetric key-token,
+or a key label of such a key in AES key-storage. <ph rev="shd3">The key token referred to is
+processed according to the rule-array keywords.</ph>.</pd></plentry>
+</parml></section>
+</refbody></reference>

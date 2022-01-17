@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_hvlsktok">
+<title>HMAC MAC variable-length symmetric key token</title>
+<titlealts>
+<navtitle>HMAC MAC variable-length symmetric key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): HMAC MAC variable-length symmetric key
+token</searchtitle>
+</titlealts><shortdesc>View a table showing the format of the HMAC variable-length symmetric key-token. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>key token<indexterm>HMAC MAC variable-length symmetric</indexterm></indexterm>
+<indexterm>HMAC MAC variable-length symmetric</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_hvlsktok/l0wskc01_hmvlskt_tab1"/> shows the format of the HMAC MAC
+variable-length symmetric key-token. An HMAC token is used by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/>(<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/>(<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>) verbs to generate and verify keyed
+hash Message Authentication Codes. </p>
+<table id="l0wskc01_hmvlskt_tab1" pgwide="1">
+<title>HMAC MAC variable-length symmetric key-token, version <ph><ph>X'05'</ph></ph> (CCA 4.1.0 or
+later)</title>
+<desc>
+<p outputclass="summary">HMAC MAC variable-length symmetric key-token (CCA 4.1.0 or later)</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="25*"/>
+<colspec colname="col2" colwidth="15*"/>
+<colspec colname="col3" colwidth="20*"/>
+<colspec colname="col4" colwidth="45*"/>
+<colspec colname="col5" colwidth="80*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Offset (bytes)</entry>
+<entry colname="col2">Length (bytes)</entry>
+<entry nameend="col5" namest="col3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>Header</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>000</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Token identifier:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Internal key-token (encrypted key is wrapped with the master key, the key is clear, or there is
+no payload).</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>External key-token (encrypted payload is wrapped with a transport key, the payload is clear, or
+there is no payload). A transport key can be a key-encrypting key or an RSA public-key.</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>001</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>002</p>
+</entry>
+<entry>
+<p>02</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in bytes of the overall token structure:</p>
+<p>46 + (2 * <i>kuf</i>) + (2 * <i>kmf</i>) + <i>kl</i> + <i>iead</i> + <i>uad</i> + ((<i>pl</i> +
+7) / 8)</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Key token</dthd>
+<ddhd>Minimum token length (Release 4.1)</ddhd>
+</dlhead>
+<dlentry>
+<dt>Skeleton</dt>
+<dd>46 + (2 * 2) + (2 * 2) + 0 + 0 + 0 + 0 = 54</dd>
+</dlentry>
+<dlentry>
+<dt>Clear V0 payload</dt>
+<dd>46 + (2 * 2) + (2 * 2) + 0 + 0 + 0 + ((80 + 7) / 8) = 64</dd>
+</dlentry>
+<dlentry>
+<dt>Encrypted V0 payload</dt>
+<dd>46 + (2 * 2) + (2 * 2) + 0 + 0 + 0 + ((448 + 7) / 8) = 110</dd>
+</dlentry>
+</dl>
+<dl compact="yes">
+<dlhead>
+<dthd>Key token</dthd>
+<ddhd>Minimum token length (Release 4.2 or later)</ddhd>
+</dlhead>
+<dlentry>
+<dt>Skeleton</dt>
+<dd>46 + (2 * 2) + (2 * 3) + 0 + 0 + 0 + 0 = 56</dd>
+</dlentry>
+<dlentry>
+<dt>Clear V0 payload</dt>
+<dd>46 + (2 * 2) + (2 * 3) + 0 + 0 + 0 + ((80 + 7) / 8) = 66</dd>
+</dlentry>
+<dlentry>
+<dt>Encrypted V0 payload</dt>
+<dd>46 + (2 * 2) + (2 * 3) + 0 + 0 + 0 + ((448 + 7) / 8) = 112</dd>
+</dlentry>
+</dl>
+<dl compact="yes">
+<dlhead>
+<dthd>Key token</dthd>
+<ddhd>Maximum token length (Release 4.1)</ddhd>
+</dlhead>
+<dlentry>
+<dt>External*</dt>
+<dd>46 + (2 * 2) + (2 * 2) + 64 + 0 + 255 + ((4096 + 7) / 8) = 885</dd>
+</dlentry>
+<dlentry>
+<dt>Input</dt>
+<dd>46 + (2 * 2) + (2 * 2) + 64 + 0 + 255 + ((2432 + 7) / 8) = 677</dd>
+</dlentry>
+</dl>
+<dl compact="yes">
+<dlhead>
+<dthd>Key token</dthd>
+<ddhd>Maximum token length (Release 4.2 or later)</ddhd>
+</dlhead>
+<dlentry>
+<dt>External*</dt>
+<dd>46 + (2 * 2) + (2 * 3) + 64 + 0 + 255 + ((4096 + 7) / 8) = 887</dd>
+</dlentry>
+<dlentry>
+<dt>Internal</dt>
+<dd>46 + (2 * 2) + (2 * 3) + 64 + 0 + 255 + ((2432 + 7) / 8) = 679</dd>
+</dlentry>
+</dl>
+<p>*This assumes a PKOAEP2 key-wrapping method using a 4096-bit RSA transport key.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>004</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Token version number (identifies the format of this key token):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'05'</dt>
+<dd>Version 5 format of the key token (variable-length symmetric key-token)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>
+<p>005</p>
+</entry>
+<entry>
+<p>03</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>End of header</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>Wrapping information section (all data related to wrapping the key)</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>008</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key material state:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No key is present. This is called a skeleton key-token. The key token is external or
+internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Key is clear. The key token is external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>Key is wrapped with a transport key. When the encrypted section key-wrapping method is AESKW
+(value at offset 26 is X'02'), the transport key is an AES key-encrypting key. When it is PKOAEP2
+(value at offset 26 is X'03'), the transport key is an RSA public-key. The key token is
+external.</dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>Key is wrapped with the AES master-key. The encrypted section key-wrapping method is AESKW. The
+key token is internal.</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>009</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key verification pattern (KVP) type:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No KVP (no key present, key is clear, or key is wrapped with an RSA public-key). The key token
+is external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>AESMK (8 leftmost bytes of SHA-256 hash: X'01 ∥ clear AES MK). The key token is internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>KEK (8 leftmost bytes of SHA-256 hash: X'01 ∥ clear KEK). The key token is external.</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>010</p>
+</entry>
+<entry>
+<p>16</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>KVP (value depends on value of key material state, that is, the value at offset 8):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value at offset 8</dthd>
+<ddhd>Value of KVP</ddhd>
+</dlhead>
+<dlentry>
+<dt>X' 00 ' </dt>
+<dd>The key-material state is no key present. The field should be filled with binary zeros. The key
+token is external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>The key-material state is key is clear. The field should be filled with binary zeros. The key
+token is external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>The key material state is the key is wrapped with a transport key. The value of the KVP depends
+on the value of the encrypted section key-wrapping method:<ul>
+<li>When the key-wrapping method is AESKW (value at offset 26 is X'02'), the field contains the KVP
+of the key-encrypting key used to wrap the key. The 8-byte KEK KVP is left-aligned in the field and
+padded on the right low-order bytes with binary zeros.</li>
+<li>When the key-wrapping method is PKOAEP2 (value at offset 26 is X'03'), the value should be
+filled with binary zeros. The encoded message, which contains the key, is wrapped with an RSA
+public-key.</li>
+<li> The key token is external.</li>
+</ul></dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>The key-material state is the key is wrapped with the AES master-key. The field contains the
+MKVP of the AES master-key used to wrap the key. The 8-byte MKVP is left-aligned in the field and
+padded on the right low-order bytes with binary zeros. The key token is internal.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>
+<p>026</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Encrypted section key-wrapping method (how data in the encrypted section is protected):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No key-wrapping method (no key present or key is clear). The key token is external or
+internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>AESKW (ANS X9.102). The key token is external with a key wrapped by an AES
+key-encrypting key, or the key token is internal with a key wrapped by the AES master-key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>PKOAEP2. Message <i>M</i>, which contains the key, is encoded using the RSAES-OAEP scheme of the
+RSA PKCS #1 v2.1 standard. The encoded message (<i>EM</i>) is produced using the given hash
+algorithm by encoding message <i>M</i> using the Bellare and Rogaway Optimal Asymmetric Encryption
+Padding (OAEP) method for encoding messages. For PKAOEP2, <i>M</i> is defined as follows:<p><i>M</i>
+= [32 bytes: <i>hAD</i>] ∥ [2 bytes: bit length of the clear key] ∥ [clear key]</p>
+<p>where <i>hAD</i> is the message digest of the associated data, and is
+calculated using the SHA-256 algorithm on the data starting at offset 30 for the length in bytes of
+all the associated data for the key token (length value at offset 32).</p>
+<p><i>EM</i> is wrapped with an RSA public-key. The key token is external.</p></dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>027</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Hash algorithm used for wrapping key or encoding message. Meaning depends on whether the
+encrypted section key-wrapping method (value at offset 26) is no key-wrapping method, AESKW, or
+PKOAEP2:</p>
+<p><keyword>No key-wrapping method (value at offset 26 is X'00')</keyword></p>
+<p>Hash algorithm used for wrapping key when encrypted section key-wrapping method is no
+key-wrapping method:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No hash (no key present or key is clear).</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined. The key token is external or internal.</p>
+<p><keyword>AESKW key-wrapping method (value at offset 26 is X'02')</keyword></p>
+<p>Hash algorithm used for wrapping key when encrypted section key-wrapping method is AESKW. The
+value indicates the algorithm used to calculate the message digest of the
+associated data. The message digest is included in the wrapped payload and is
+calculated starting at offset 30 for the length in bytes of all the associated data for the key
+token (length value at offset 32).</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined. The key token is external or internal.</p>
+<p><keyword>PKOAEP2 key-wrapping method (value at offset 26 is X'03')</keyword></p>
+<p>Hash algorithm used for encoding message when encrypted section key-wrapping method is PKOAEP2.
+The value indicates the given hash algorithm used for encoding message <i>M</i> using the RSAES-OAEP
+scheme of the RSA PKCS #1 v2.1 standard.</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>SHA-1</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256</dd>
+</dlentry>
+<dlentry>
+<dt>X'04'</dt>
+<dd>SHA-384</dd>
+</dlentry>
+<dlentry>
+<dt>X'08'</dt>
+<dd>SHA-512</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined. The key token is external.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>028</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Payload format version (identifies format of the payload). Release 4.4 or later, otherwise
+undefined.</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>V0 payload (V0PYLD). The payload format depends on the encrypted section key-wrapping method
+(value at offset 26):<dl compact="yes">
+<dlhead>
+<dthd>Value at offset 26</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>There is no key-wrapping method. When no key is present, there is no payload. When the key is
+clear, the payload is unformatted. The key token is external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>The key-wrapping method is AESKW and the payload is variable length. The payload is formatted
+with the minimum size possible to contain the key material. The payload length varies for a given
+algorithm and key type. The key length can be inferred by the size of the payload. The key token is
+external or internal.</dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>The key-wrapping method is PKOAEP2 and the payload length is equal to the modulus size in bits
+of the RSA transport key used to wrap the encoded message. The key token is external. When the
+external key is exported, the internal target key will have the same V0 payload format.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>029</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>End of wrapping information section</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>Clear key, AESKW, or PKOAEP2 components: (1) associated data section and (2) optional clear key
+payload, wrapped AESKW formatted payload, or wrapped PKOAEP2 encoded payload (no payload if no key
+present)</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>Associated data section</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>030</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Associated data section version:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Version 1 format of associated data</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>
+<p>031</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>032</p>
+</entry>
+<entry>
+<p>02</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in bytes of all the associated data for the key token: 24 - 343 (Release 4.1); 26 - 345
+(Release 4.2 or later).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>034</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in bytes of the optional key label (<i>kl</i>): 0 or 64.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>035</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in bytes of the optional IBM extended associated data (<i>iead</i>): 0.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>036</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in bytes of the optional user-definable associated data (<i>uad</i>): 0 - 255.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>037</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>038</p>
+</entry>
+<entry>
+<p>02</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Length in <i>bits</i> of the clear or wrapped payload (<i>pl</i>): 0, 80 - 4096.</p>
+<ul>
+<li>For no key-wrapping method (no key present or key is clear), <i>pl</i> is the length in bits of
+the key. For no key present, <i>pl</i> is 0. For key is clear, <i>pl</i> can be 128, 192, or
+256.</li>
+<li>For PKOAEP2 encoded payloads, <i>pl</i> is the length in bits of the modulus size of the RSA key
+used to wrap the payload. This can be 512 - 4096.</li>
+<li>For an AESKW formatted payload, <i>pl</i> is based on the key size of the algorithm type and the
+payload format version:<p><keyword>HMAC algorithm (value at offset 41 is X'03')</keyword></p><p>An
+HMAC key can have a length of 80 - 2048 bits. An HMAC key in an AESKW formatted payload is always
+wrapped with a V0 payload.</p></li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>
+<p>040</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Reserved, binary zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>041</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Algorithm type (algorithm for which the key can be used):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'03'</dt>
+<dd>HMAC</dd>
+</dlentry>
+</dl>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>042</p>
+</entry>
+<entry>
+<p>02</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key type (general class of the key):</p>
+<p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>MAC</dd>
+</dlentry>
+</dl>
+</p>
+<p>All unused values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p><synph id="hmac_mac_kuf_layout"><kwd/></synph>044</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key usage fields count (<i>kuf</i>): 2. Key-usage field information defines restrictions on the
+use of the key. Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_hmac_mac_fig"/>.</p>
+<p>Each key-usage field is 2 bytes in length. The value in this field indicates how many 2-byte key
+usage fields follow.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>045</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p><synph id="hmac_mac_kuf1_hob"><kwd>Key-usage field 1, high-order byte</kwd></synph> (MAC
+operation):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Key can be used for generate; key can be used for verify (GENERATE).</dd>
+</dlentry>
+<dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Undefined or not used.</dd>
+</dlentry>
+<dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Key cannot be used for generate; key can be used for verify (VERIFY).</dd>
+</dlentry>
+<dlentry>
+<dt>B'00xx xxxx'</dt>
+<dd>Undefined or not used.</dd>
+</dlentry>
+</dl>
+<p>All unused bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>046</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p><synph id="hmac_mac_kuf1_lob"><kwd>Key-usage field 1, low-order byte</kwd></synph> (user-defined
+extension control)</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>047</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p><synph id="hmac_mac_kuf2_hob"><kwd>Key-usage field 2, high-order byte</kwd></synph> (hash
+method):</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>SHA-1 hash method is allowed for the key (SHA-1).</dd>
+</dlentry>
+<dlentry>
+<dt>B'0xxx xxxx'</dt>
+<dd>SHA-1 hash method is not allowed for the key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'x1xx xxxx'</dt>
+<dd>SHA-224 hash method is allowed for the key (SHA-224).</dd>
+</dlentry>
+<dlentry>
+<dt>B'x0xx xxxx'</dt>
+<dd>SHA-224 hash method is not allowed for the key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xx1x xxxx'</dt>
+<dd>SHA-256 hash method is allowed for the key (SHA-256).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xx0x xxxx'</dt>
+<dd>SHA-256 hash method is not allowed for the key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxx1 xxxx'</dt>
+<dd>SHA-384 hash method is allowed for the key (SHA-384).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxx0 xxxx'</dt>
+<dd>SHA-384 hash method is not allowed for the key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx 1xxx'</dt>
+<dd>SHA-512 hash method is allowed for the key (SHA-512).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx 0xxx'</dt>
+<dd>SHA-512 hash method is not allowed for the key.</dd>
+</dlentry>
+</dl>
+<p>All unused bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>048</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p><synph id="hmac_mac_kuf2_lob"><kwd>Key-usage field 2, low-order byte</kwd></synph>
+(reserved).</p>
+<p>All bits are reserved and must be zero.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>049</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key management fields count (<i>kmf</i>): 3.
+Key-management field information describes how the data is to be managed or helps with management of
+the key material.</p>
+<p>Each key-management field is 2 bytes in length. The value in this field indicates how many 2-byte
+key management fields follow.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>050</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 1, high-order byte (symmetric-key export control).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>051</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 1, low-order byte (export control by algorithm).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>052</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 2, high-order byte (key completeness).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>053</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 2, low-order byte (security history).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>054, for <i>kuf</i> > 2</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 3, high-order byte (pedigree original). Release 4.2 or later.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>055, for <i>kuf</i> > 2</p>
+</entry>
+<entry>
+<p>01</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Key-management field 3, low-order byte (pedigree current). Release 4.2 or later.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>050 + (2 * <i>kmf</i>)</p>
+</entry>
+<entry>
+<p><i>kl</i></p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Optional key label.</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>050 + (2 * <i>kmf</i>) + <i>kl</i></p>
+</entry>
+<entry>
+<p><i>iead</i></p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Optional IBM extended associated data (unused).</p>
+</entry>
+</row>
+<row>
+<entry>
+<p><i>050 + (2 * kmf</i>) <i> + kl</i> + <i>iead</i></p>
+</entry>
+<entry>
+<p><i>uad</i></p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Optional user-defined associated data.</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>End of associated data section</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>Optional clear key payload, wrapped AESKW formatted payload, or wrapped PKOAEP2 encoded payload
+(no payload if no key present)</p>
+</entry>
+</row>
+<row>
+<entry morerows="4">
+<p>050<i>+ (2 * kmf</i>) <i/> + <i>kl</i> + <i>iead</i> + <i>uad</i></p>
+</entry>
+<entry morerows="4">
+<p>(<i>pl</i> + 7) / 8</p>
+</entry>
+<entry nameend="col5" namest="col3">
+<p>Contents of payload (<i>pl</i> is in <i>bits</i>) depending on the encrypted section key-wrapping
+method (value at offset 26):</p>
+</entry>
+</row>
+<row>
+<entry valign="bottom"><b>Value at offset 26</b></entry>
+<entry valign="bottom"><b>Encrypted section key-wrapping method</b></entry>
+<entry valign="bottom"><b>Meaning</b></entry>
+</row>
+<row>
+<entry><b>X'00'</b></entry>
+<entry>
+<p>No key-wrapping method. Only applies when key is clear, that is, when key material state (value
+at offset 8) is X'01'.</p>
+</entry>
+<entry>
+<p>Only the key material will be in the payload. The key token is external or internal.</p>
+</entry>
+</row>
+<row>
+<entry><b>X'02'</b></entry>
+<entry>
+<p>AESKW</p>
+</entry>
+<entry>
+<p>An encrypted payload which the Segment 2 code creates by wrapping the unencrypted AESKW formatted
+payload. The payload is made up of the integrity check value, pad length, length of hash options and
+hash, hash options, hash of the associated data, key material, and padding. The key token is
+internal.</p>
+</entry>
+</row>
+<row>
+<entry><b>X'03'</b></entry>
+<entry>
+<p>PKOAEP2</p>
+</entry>
+<entry>
+<p>An encrypted PKOAEP2 encoded payload created using the RSAES-OAEP scheme of the PKCS #1 v2.1
+standard. The message <i>M</i> is encoded for a given hash algorithm using the Bellare and Rogaway
+Optimal Asymmetric Encryption Padding (OAEP) method for encoding messages. For PKAOEP2, <i>M</i> is
+defined as follows:</p>
+<p><i>M</i> = [32 bytes: <i>hAD</i>] ∥ [2 bytes: bit length of the clear key] ∥ [clear key]</p>
+<p>where <i>hAD</i> is the message digest of the associated data, and is
+calculated using the SHA-256 algorithm starting at offset 30 for the length in bytes of all the
+associated data for the key token (length value at offset 32). The encoded message is wrapped with
+an RSA public-key according to the standard. The key token is external.</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>End of optional clear key payload, wrapped AESKW formatted payload, or wrapped PKOAEP2 encoded
+payload</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<p>End of clear key, AESKW, or PKOAEP2 components</p>
+</entry>
+</row>
+<row>
+<entry nameend="col5" namest="col1" valign="top">
+<note>All numbers are in big endian format.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsgrestrictions">
+<title>Restrictions</title>
+<titlealts>
+<navtitle>Restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/></searchtitle>
+</titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Although <synph><kwd>ISO-9796</kwd></synph> does not require the input data to be an integral
+number of bytes in length, this verb requires you to specify the
+<synph><var>data_length</var></synph> in bytes.</p></section>
+<section><p><synph><kwd>X9.31</kwd></synph> requires the RSA token to have a minimum modulus
+bit length of 1024 bits, and the length must also be a multiple of
+256 bits (or 32 bytes).</p></section>
+<section><p>The length of the <parmname>data</parmname> parameter in bytes must be the exact length of the
+text to sign. The maximum size is 256 bytes. If you specify <synph><kwd>ZERO-PAD</kwd></synph> in
+the <parmname>rule_array</parmname> parameter, the length is restricted to 36 bytes unless the RSA
+key is a signature only key, then the maximum length is 256 bytes.</p></section>
+<section><p>The data length limit is controlled by an access control point. If OFF (disabled), the maximum
+data length limit for <synph><kwd>ZERO-PAD</kwd></synph> is the modulus length of the PKA private
+key. If ON (enabled), the maximum data length limit for <synph><kwd>ZERO-PAD</kwd></synph> is 36
+bytes. Only RSA key management keys are affected by this access control point. The limit for RSA
+signature use only keys is 256 bytes. This new access control point is always disabled in the
+default role. You must have a TKE workstation to enable it.</p>
+<p rev="sh21i1">The keyword CRDL-DSA is only supported with quantum safe algorithm (QSA) public keys
+whose token section type is 0x’51’ and whose algorithm is <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>.</p>
+<p rev="sh21i1">The keyword CRDL-DSA is only supported with the MESSAGE input type and <parmname>data_length</parmname> 
+at or below 6000 bytes.</p></section>
+</refbody></reference>

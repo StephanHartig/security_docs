@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbs12_sss">
+<title>Trusted block section <ph>X'12'</ph> subsections</title>
+ <titlealts>
+    <navtitle>Trusted block section <ph><ph>X'12'</ph></ph> subsections</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section <ph>X'12'</ph>
+subsections</searchtitle>
+  </titlealts>
+<shortdesc>Section <ph>X'12'</ph> has five rule subsections (tag-length-value
+objects) defined. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>trusted block section X'12'<indexterm>subsections</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These subsections are summarized in <xref href="#l0wskc02_tbs12_sss/l0wskc02_tbs12subs"/>.
+<table id="l0wskc02_tbs12subs" pgwide="1" frame="all">
+<title>Summary of trusted
+block <ph><ph>X'12'</ph> </ph>subsections</title><desc><p outputclass="summary">Summary of
+trusted block subsections</p></desc>
+<tgroup cols="4" colsep="1" rowsep="1" align="left">
+<colspec colname="col1" colwidth="40*"/>
+<colspec colname="colspec0" colwidth="39*"/>
+<colspec colname="col2" colwidth="69*"/>
+<colspec colname="col3" colwidth="180*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Rule subsection tag</entry>
+<entry colname="colspec0" valign="top">TLV object</entry>
+<entry valign="top">Optional or required</entry>
+<entry valign="top">Comments</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top"><ph>X'0001'</ph></entry>
+<entry colname="colspec0">Transport key variant</entry>
+<entry valign="top">Optional</entry>
+<entry valign="top">Contains variant to be XORed into the cleartext
+transport key.</entry></row>
+<row>
+<entry valign="top"><ph>X'0002'</ph></entry>
+<entry colname="colspec0">Transport key rule reference</entry>
+<entry valign="top">Optional; required to use an RKX key-token as
+a transport key </entry>
+<entry valign="top">Contains the rule ID for the rule that must have
+been used to create the transport key. </entry></row>
+<row>
+<entry valign="top"><ph>X'0003'</ph></entry>
+<entry colname="colspec0">Common export key parameters</entry>
+<entry valign="top">Optional for key generation; required for key
+export of an existing key </entry>
+<entry valign="top">Contains the export key and source key minimum
+and maximum lengths, an output key variant length and variant, a CV
+length, and a CV to be XORed with the cleartext transport key to control
+usage of the key.</entry></row>
+<row>
+<entry valign="top"><ph>X'0004'</ph></entry>
+<entry colname="colspec0">Source key reference</entry>
+<entry valign="top">Optional; required if the source key is an RKX
+key-token</entry>
+<entry>Contains the rule ID for the rule used to create the source
+key.
+<note>Include all rules that will ever be needed when
+a trusted block is created.  A rule cannot be added to a trusted block
+after it has been created.</note></entry></row>
+<row>
+<entry valign="top"><ph>X'0005'</ph></entry>
+<entry colname="colspec0">Export key CCA token parameters</entry>
+<entry valign="top">Optional; used for export of CCA DES key tokens
+only </entry>
+<entry valign="top">Contains mask length, mask, and CV template to
+limit the usage of the exported key.  Also contains the template length
+and template that defines which source key labels are allowed.
+<p>The
+key type of a source key input parameter can be "filtered" by using
+the export key CV limit mask (offset 005) and limit template (offset
+005 + <i>yyy</i>) in this subsection.</p></entry></row>
+</tbody>
+</tgroup>
+</table>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></p></section>
+<section><p><b>Trusted block section <ph>X'12'</ph> subsection <ph>X'0001'</ph></b></p></section>
+<section><p>Subsection <ph>X'0001'</ph> of the trusted block rule section (<ph>X'12'</ph>)
+is the transport key variant TLV object.  This subsection is optional.
+ It contains a variant to be XORed into the cleartext transport key. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs12_sss/l0wskc02_tbs12_ss001"/>.
+<table id="l0wskc02_tbs12_ss001" pgwide="1" frame="all">
+<title>Transport key
+variant subsection <ph>(<ph>X'0001'</ph>)</ph> of trusted block rule
+section (<ph><ph>X'12'</ph></ph>)</title><desc><p outputclass="summary">Transport key variant
+subsection of trusted block rule section </p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag:
+<dl compact="yes">
+<dlentry><dt><ph>X'0001'</ph></dt>
+<dd>Transport key variant TLV object</dd></dlentry>
+</dl> </entry></row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (8 + <i>nnn</i>).</entry></row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Reserved, must be binary zero.</entry></row>
+<row>
+<entry valign="top">007</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Length of variant field in bytes (<i>nnn</i>).
+<p>This
+length must be greater than or equal to the length of the transport
+key that is identified by the <i>transport_key_identifier</i> parameter.
+If the variant is longer than the key, truncate it on the right to
+the length of the key prior to use.</p></entry></row>
+<row>
+<entry valign="top">008</entry>
+<entry valign="top"><i>nnn</i></entry>
+<entry valign="top">Transport key variant.
+<p>XOR this variant into
+the cleartext transport key, provided:  (1) the length of the variant
+field value (offset 007) is not zero, and (2) the symmetric encrypted
+output key format flag (offset 018 in section <ph>X'12'</ph>) is <ph>X'01'</ph>.
+<note>A transport key is not used when the symmetric encrypted
+output key is in RKX key-token format. </note></p></entry></row>
+</tbody>
+</tgroup>
+</table></p></section><section>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></section>
+<section><p><b>Trusted block section <ph>X'12'</ph> subsection <ph>X'0002'</ph></b></p></section>
+<section><p>Subsection <ph>X'0002'</ph> of the trusted block rule section (<ph>X'12'</ph>)
+is the transport key rule reference TLV object.  This subsection is
+optional.  It contains the rule ID for the rule that must have been
+used to create the transport key. This subsection must be present
+to use an RKX key-token as a transport key. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs12_sss/l0wskc02_tbs12_ss002"/>.
+<table id="l0wskc02_tbs12_ss002" pgwide="1" frame="all">
+<title><ph>Transport
+key rule reference subsection (<ph>X'0002'</ph>) of trusted block rule
+section (<ph>X'12'</ph>)</ph></title><desc><p outputclass="summary">Transport key rule reference
+subsection of trusted block rule section </p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag:
+<dl compact="yes">
+<dlentry><dt><ph>X'0002'</ph></dt>
+<dd>Transport key rule reference TLV object</dd></dlentry>
+</dl> </entry></row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (14).</entry></row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Reserved, must be binary zero.</entry></row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top">008</entry>
+<entry valign="top">Rule ID.
+<p>Contains the rule identifier for the
+rule that must have been used to create the RKX key-token used as
+the transport key. </p>
+<p>The Rule ID is an 8-byte string of ASCII
+characters, left-aligned and padded on the right with space characters.
+Acceptable characters are A - Z, a - z, 0 - 9, - (<ph>X'2D'</ph>),
+and _ (<ph>X'5F'</ph>). All other characters are reserved for future
+use.</p></entry></row>
+</tbody>
+</tgroup>
+</table></p></section><section>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></section>
+<section><p><b>Trusted block section <ph>X'12'</ph> subsection <ph>X'0003'</ph></b></p></section>
+<section><p>Subsection <ph>X'0003'</ph> of the trusted block rule section <ph>X'12'</ph>) is the common
+export key parameters TLV object. This subsection is optional, but is required for the key export of
+an existing source key (identified by the <i>source_key_identifier</i> parameter) in either RKX
+key-token format or CCA DES key-token format. For new key generation, this subsection applies the
+output key variant to the cleartext generated key, if such an option is desired. It contains the
+input source key and output export key minimum and maximum lengths, an output key variant length and
+variant, a CV length, and a CV to be XORed with the cleartext transport key. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs12_sss/common12"/>.
+<table id="common12" pgwide="1" frame="all">
+<title><ph>Common export key parameters
+subsection (<ph>X'0003'</ph>) of trusted block rule section (<ph>X'12'</ph>)</ph></title><desc><p outputclass="summary">Common export key parameters subsection of trusted block
+rule section </p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag:
+<dl compact="yes">
+<dlentry><dt><ph>X'0003'</ph></dt>
+<dd>Common export key parameters TLV object</dd></dlentry>
+</dl> </entry></row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (12 + <i>xxx</i> + <i>yyy</i>).</entry></row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Reserved, must be binary zero.</entry></row>
+<row>
+<entry valign="top">007</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Flags (must be set to binary zero).</entry></row>
+<row>
+<entry colname="col1">008</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Export key minimum length in bytes. Length must
+be 0, 8, 16, or 24.
+<p>Also applies to the source key. Not applicable
+for key generation.</p></entry></row>
+<row>
+<entry colname="col1">009</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Export key maximum length in bytes (<i>yyy</i>). Length must be 0, 8, 16, or 24.
+<p>Also applies
+to the source key. Not applicable for key generation.</p></entry></row>
+<row>
+<entry colname="col1">010</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Output key variant length in bytes (<i>xxx</i>).
+<p>Valid values are 0 or 8 - 255. If greater
+than 0, the length must be at least as long as the longest key ever
+to be exported using this rule. If the variant is longer than the
+key, truncate it on the right to the length of the key prior to use.
+<note>The output key variant (offset 011) is not used if this
+length is zero.</note></p></entry></row>
+<row>
+<entry valign="top">011</entry>
+<entry valign="top"><i>xxx</i></entry>
+<entry valign="top">Output key variant.
+<p>The variant can be any
+value. XOR this variant into the cleartext value of the output key.</p></entry></row>
+<row>
+<entry colname="col1">011 + <i>xxx</i></entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">CV length in bytes (<i>yyy</i>).
+<ul compact="yes">
+<li>If the length is not 0, 8, or 16, return an error.</li>
+<li>If the length is 0, and if the source key is a CCA DES key-token,
+preserve the CV in the symmetric encrypted output if the output is
+to be in the form of a CCA DES key-token. </li>
+<li>If a nonzero length  is less than the length of the key identified
+by the <i>source_key_identifier</i> parameter, return
+an error.</li>
+<li>If the length is 16, and if the CV (offset 012 + <i>xxx</i>)
+is valued to 16 bytes of <ph>X'00'</ph> (ignoring the key-part bit),
+ then:
+<ol compact="yes">
+<li>Ignore all CV bit definitions</li>
+<li>If CCA DES key-token format, set the flag byte of the symmetric
+encrypted output key to indicate a CV value is present.</li>
+<li>If the source key is eight bytes in length, do not replicate the
+key to 16 bytes</li>
+</ol></li>
+</ul> </entry></row>
+<row>
+<entry colname="col1">012 + <i>xxx</i></entry>
+<entry colname="col2"><i>yyy</i></entry>
+<entry colname="col3">CV. (See <xref href="wskc_c_cvtable.dita#l0wskc02_cvtable"/>.)
+<p>Place
+this CV into the output exported key-token, provided that the symmetric
+encrypted output key format selected (offset 018 in rule section)
+is CCA DES key-token.
+<ul compact="yes">
+<li>If the symmetric encrypted output key format flag (offset 018
+in section <ph>X'12'</ph>) indicates return an RKX key-token (<ph>X'00'</ph>),
+then ignore this CV. Otherwise, XOR this CV into the cleartext transport
+key.</li>
+<li>XOR the CV of the source key into the cleartext transport key
+if the CV length (offset 011 + <i>xxx</i>) is set
+to 0. If a transport key to encrypt a source key has equal left and
+right key halves, return an error. Replicate the key halves of the
+key identified by the <i>source_key_identifier</i> parameter
+whenever all of these conditions are met:
+<ol compact="yes">
+<li>The Key Generate - SINGLE-R command (offset <ph>X'00DB'</ph>) is
+enabled in the active role</li>
+<li>The CV length (offset 011 + <i>xxx</i>) is 16,
+and both CV halves are nonzero </li>
+<li>The <i>source_key_identifier</i> parameter (contained
+in either a CCA DES key-token or RKX key-token) identifies an 8-byte
+key </li>
+<li>The key-form bits (40 - 42) of this CV do not indicate a single-length
+key (are not set to zero)</li>
+<li>Key-form bit 40 of this CV does not indicate the key is to have
+guaranteed unique halves (is not set to <ph>B'1'</ph>). See <xref href="wskc_r_kformbfff.dita#l0wskc02_kformbfff"/>.</li>
+</ol></li>
+</ul>
+<note>A transport key is not used when the symmetric
+encrypted output key is in RKX key-token format.</note></p></entry></row>
+</tbody>
+</tgroup>
+</table>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></p></section>
+<section><p><b>Trusted block section <ph>X'12'</ph> subsection <ph>X'0004'</ph></b></p></section>
+<section><p>Subsection <ph>X'0004'</ph> of the trusted block rule section (<ph>X'12'</ph>)
+is the source key rule reference TLV object. This subsection is optional,
+but is required if using an RKX key-token as a source key (identified
+by <i>source_key_identifier</i> parameter). It contains
+the rule ID for the rule used to create the export key.  If this subsection
+is not present, an RKX key-token format source key will not be accepted
+for use. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs12_sss/l0wskc02_tbs12_ss004"/>.
+<table id="l0wskc02_tbs12_ss004" pgwide="1" frame="all">
+<title><ph>Source key
+rule reference subsection (<ph>X'0004'</ph>)</ph> of trusted block
+rule section (<ph><ph>X'12'</ph></ph>)</title><desc><p outputclass="summary">Source key rule
+reference subsection of trusted block rule section </p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag:
+<dl compact="yes">
+<dlentry><dt><ph>X'0004'</ph></dt>
+<dd>Source key rule reference TLV object</dd></dlentry>
+</dl></entry></row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (14).</entry></row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Reserved, must be binary zero.</entry></row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top">008</entry>
+<entry valign="top">Rule ID.
+<p>Rule identifier for the rule that
+must have been used to create the source key. </p>
+<p>The Rule ID is
+an 8-byte string of ASCII characters, left-aligned and padded on the
+right with space characters. Acceptable characters are A - Z, a -
+z, 0 - 9, - (<ph>X'2D'</ph>), and _ (<ph>X'5F'</ph>). All other characters
+are reserved for future use.</p></entry></row>
+</tbody>
+</tgroup>
+</table>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></p></section>
+<section><p><b>Trusted block section <ph>X'12'</ph> subsection <ph>X'0005'</ph></b></p></section>
+<section><p>Subsection <ph>X'0005'</ph> of the trusted block rule section (<ph>X'12'</ph>)
+is the export key CCA token parameters TLV object. This subsection
+is optional. It contains a mask length, mask, and template for the
+export key CV limit. It also contains the template length and template
+for the source key label.  When using a CCA DES key-token as a source
+key input parameter, its key type can be "filtered" by using the export
+key CV limit mask (offset 005) and limit template (offset 005+<i>yyy</i>) in this subsection. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs12_sss/l0wskc02_tbs12_ss005"/>.
+<table id="l0wskc02_tbs12_ss005" pgwide="1" frame="all">
+<title><ph>Export key
+CCA token parameters subsection (<ph>X'0005'</ph>)</ph> of trusted
+block rule section (<ph><ph>X'12'</ph></ph>)</title><desc><p outputclass="summary">Export key
+CCA token parameters subsection of trusted block rule section </p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag:
+<dl compact="yes">
+<dlentry><dt><ph>X'0005'</ph></dt>
+<dd>Export key CCA token parameters TLV object</dd></dlentry>
+</dl></entry></row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (8 + <i>yyy</i> + <i>yyy</i> + <i>zzz</i>).</entry></row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Reserved, must be binary zero.</entry></row>
+<row>
+<entry valign="top">007</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Flags (must be set to binary zero).</entry></row>
+<row>
+<entry valign="top">008</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Export key CV limit mask length in bytes (<i>yyy</i>).
+<p>Do not use CV limits if this CV limit
+mask length (<i>yyy</i>) is zero. Use CV limits if <i>yyy</i> is nonzero, in which case <i>yyy</i>:
+<ul compact="yes">
+<li>Must be 8 or 16</li>
+<li>Must not be less than the export key minimum length (offset 008
+in subsection <ph>X'0003'</ph>) </li>
+<li>Must be equal in length to the actual source key length of the
+key</li>
+</ul></p>
+<p><b>Example</b>: An export key minimum length
+of 16 and an export key CV limit mask length of 8 returns an error.</p></entry></row>
+<row>
+<entry colname="col1">009</entry>
+<entry colname="col2"><i>yyy</i></entry>
+<entry colname="col3">Export key CV limit mask (does not exist if <i>yyy</i>=0).
+<p>See <xref href="wskc_r_cvbbmap.dita#l0wskc02_cvbbmap"/></p>
+<p>Indicates which CV bits to check against the source
+key CV limit template (offset 009 + <i>yyy</i>).</p>
+<p><b>Examples</b>: A mask of <ph>X'FF'</ph> means check all
+bits in a byte.  A mask of <ph>X'FE'</ph> ignores the parity bit in
+a byte.</p></entry></row>
+<row>
+<entry colname="col1">009 + <i>yyy</i></entry>
+<entry colname="col2"><i>yyy</i></entry>
+<entry colname="col3">Export key CV limit template (does not exist
+if <i>yyy</i> = 0).
+<p>Specifies the required values
+for those CV bits that are checked based on the export key CV limit
+mask (offset 009). (See <xref href="wskc_r_cvbbmap.dita#l0wskc02_cvbbmap"/>.) </p>
+<p>The
+export key CV limit mask and template have the same length, <i>yyy</i>.  This is because these two variables work
+together to restrict the acceptable CVs for CCA DES key tokens to
+be exported. The checks work as follows:
+<ol compact="yes">
+<li>If the length of the key to be exported is less than <i>yyy</i>, return an error </li>
+<li>Logical AND the CV for the key to be exported with the export
+key CV limit mask</li>
+<li>Compare the result to the export key CV limit template</li>
+<li>Return an error if the comparison is not equal</li>
+</ol></p>
+<p><b>Examples</b>:  An export key CV limit
+mask of <ph>X'FF'</ph> for CV byte 1 (key type) along with an export
+key CV limit template of <ph>X'3F'</ph> (key type CVARENC) for byte
+1 filters out all key types except CVARENC keys.
+<note>Using
+the mask and template to permit multiple key types is possible, but
+cannot consistently be achieved with one rule section.  For example,
+setting bit 10 to <ph>B'1'</ph> in the mask and the template permits
+PIN processing keys and cryptographic variable encrypting keys, and
+only those keys. However, a mask to permit PIN-processing keys and
+key-encrypting keys, and only those keys, is not possible. In this
+case, multiple rule sections are required, one to permit PIN-processing
+keys and the other to permit key-encrypting keys.</note></p></entry></row>
+<row>
+<entry colname="col1">009 + <i>yyy</i> + <i>yyy</i></entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Source key label template length in bytes (<i>zzz</i>).
+<p>Valid values are 0 and 64. Return an error
+if the length is 64 and a source key label is not provided.</p></entry></row>
+<row>
+<entry colname="col1">010 + <i>yyy</i> + <i>yyy</i></entry>
+<entry colname="col2"><i>zzz</i></entry>
+<entry colname="col3">Source key label template (does not exist if <i>zzz</i> = 0).
+<p>If a key label is identified by the <i>source_key_identifier</i> parameter, verify that the
+key label name matches this template.  If the comparison fails, return
+an error. The source key label template must conform to the following
+rules:
+<ul compact="yes">
+<li>The key label template must be 64 bytes in length </li>
+<li>The first character cannot be in the range <ph>X'00'</ph> - <ph>X'1F'</ph>,
+nor can it be <ph>X'FF'</ph></li>
+<li>The first character cannot be numeric (<ph>X'30'</ph> - <ph>X'39'</ph>) </li>
+<li>A key label name is terminated by a space character (<ph>X'20'</ph>)
+on the right and must be padded on the right with space characters </li>
+<li>The only special characters permitted are #, $, @, and * (<ph>X'23'</ph>, <ph>X'24'</ph>, <ph>X'40'</ph>,
+and <ph>X'2A'</ph>) </li>
+<li>The wildcard <ph>X'2A'</ph> (*) is permitted only as the first
+character, the last character, or the only character in the template</li>
+<li>Only alphanumeric characters (a - z, A - Z, 0 - 9), the four special
+characters (<ph>X'23'</ph>, <ph>X'24'</ph>, <ph>X'40'</ph>, and <ph>X'2A'</ph>),
+and the space character (<ph>X'20'</ph>) are allowed</li>
+</ul></p></entry></row>
+</tbody>
+</tgroup>
+</table>
+<note>See <xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>.</note></p></section>
+</refbody></reference>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc84">
+<title>JNI version</title>
+ <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvej"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)<indexterm>JNI version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvej"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section><title>Format</title>
+<codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvej"/>(
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>c_variable_encrypting_key_identifier</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>text_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>plain_text</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>initialization_vector</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>cipher_text</var></synph>);</codeblock></section>
+</refbody></reference>

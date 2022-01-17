@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cpaparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>PIN_encryption_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>PIN_generation_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>PIN_profile<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"
+/> verb</indexterm></indexterm>
+<indexterm>PAN_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>encrypted_PIN_block<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>rule_array_count<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>algorithm
+value</indexterm></indexterm>
+<indexterm>VISA-PVV algorithm</indexterm>
+<indexterm>algorithm<indexterm>VISA-PVV</indexterm></indexterm>
+<indexterm>IBM-PINO</indexterm>
+<indexterm>VISA-PVV</indexterm>
+<indexterm>PINBLOCK</indexterm>
+<indexterm>PADDIGIT</indexterm>
+<indexterm>HEXDIGIT</indexterm>
+<indexterm>PINLENnn</indexterm>
+<indexterm>PADEXIST</indexterm>
+<indexterm>PIN_check_length<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+<indexterm>returned_PVV parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>PIN_encryption_key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">The identifier of the key to encrypt the PIN block. The key identifier is an operational token or 
+the key label of an operational token in key storage. The key may be a DES key (all PIN block formats except
+ISO-4) or an AES key (PIN block format ISO-4).</p>
+<p rev="sh21i1">For DES keys, the control vector in the fixed-length token must specify an 
+<synph><kwd>IPINENC</kwd></synph> or <synph><kwd>OPINENC</kwd></synph> key type.</p>
+<p rev="sh21i1">For AES keys, the variable-length symmetric key token must have a token algorithm of
+AES and a key type of PINPROT. In addition, the key usage fields may indicate that the key can be
+used for encryption (ENCRYPT) with PIN function usage PIN generate (EPINGEN) or decryption (DECRYPT)
+with PIN function usage CPINGENA. The encryption mode must be Cipher Block Chaining (CBC), common
+usage control must be NOFLDFMT, and PIN block format usage must be ISO-4.</p>
+</pd></plentry>
+<plentry><pt>PIN_generation_key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string that consists of an internal token that contains a PIN generation
+(<synph><kwd>PINGEN</kwd></synph>) key or the label of a PINGEN key.</pd></plentry>
+<plentry><pt>PIN_profile </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to extract a PIN from
+a formatted PIN block. The pad digit is needed to extract the PIN from a 3624 or 3621 PIN block in
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb. See <xref
+href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information. </pd></plentry>
+<plentry><pt>PAN_data </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">A primary account number (PAN) in character format. The service uses this
+parameter if the PIN profile specifies the <synph><kwd>ISO-0</kwd></synph>,
+<synph><kwd>ISO-3</kwd></synph>, <synph><kwd>ISO-4</kwd></synph>, or
+<synph><kwd>VISA-4</kwd></synph> keyword for the PIN block format. Otherwise, ensure that this
+parameter is a 12-byte value in application storage. The information in this parameter is 
+ignored, but the parameter must be specified.</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, 
+or <synph><kwd>VISA-4</kwd></synph> keyword, the value is 12 bytes long. Use the 12 rightmost
+digits of the PAN data, excluding the check digit.</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-4</kwd></synph> keyword, the value is 21 bytes long.
+The PAN data is 10 – 19 bytes long. The length of the PAN data and the PAN data are contained in the
+structure below padded to 21 bytes with characters that are ignored.</p>
+<table rev="sh21i1" pgwide="0">
+<tgroup cols="3">
+<colspec colname="col1" colwidth="1*"></colspec>
+<colspec colname="col2" colwidth="3*"></colspec>
+<colspec colname="col3" colwidth="3*"></colspec>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of the PAN data field, p.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>p</entry>
+<entry>10 to 19 bytes of PAN data.</entry>
+</row>
+<row>
+<entry>2+p</entry>
+<entry>0-9</entry>
+<entry>Padding.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd></plentry>
+<plentry><pt>encrypted_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The field that receives the 8-byte or 16-byte encrypted PIN block. When the PIN block format is
+<synph><kwd>ISO-4</kwd></synph>, the PIN block is 16 bytes long. For all other formats, the PIN block is 8 bytes long.
+The service uses the key that is specified in the <parmname>PIN_encryption_key_identifier</parmname> parameter to encrypt
+the block.</pd></plentry>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2. If the default extraction method for a PIN block format is
+desired, specify the <i>rule_array_count</i> value as 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule for the PIN generation algorithm. Specify
+<synph><kwd>IBM-PINO</kwd></synph> or <synph><kwd>VISA-PVV</kwd></synph> (the VISA PIN verification
+value) in an 8-byte field, left-aligned, and padded with blanks. The
+<synph><var>rule_array</var></synph> points to an array of one or two 8-byte elements. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_cpaparameters/l0wskc02_cpgaael"/>.<table id="l0wskc02_cpgaael" pgwide="0"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="140*"/>
+<colspec colname="col2" colwidth="328*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>PIN calculation method</i></b>
+(One required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IBM-PINO</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies use of the <tm trademark="IBM" tmtype="reg"
+>IBM</tm> 3624 PIN Offset calculation method.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>VISA-PVV</kwd></synph></entry>
+<entry valign="top" align="left">This keyword specifies use of the VISA PVV calculation
+method.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>PIN extraction method</i></b>
+(One optional) See the text following this table.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>If the <synph><var>PIN extraction method</var></synph> is provided, one of the PIN
+extraction method keywords shown in <xref href="wskc_c_pbf.dita#l0wskc02_pbf/l0wskc02_newtb2"/> can
+be specified for the given PIN block format. See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/pbfandpem"
+/> for additional information. If the default extraction method for a PIN block format is desired,
+specify the <i>rule_array_count</i> value as 1.</p><p>The PIN extraction methods operate as follows: <dl>
+<dlentry>
+<dt>PINBLOCK</dt>
+<dd>Specifies that the verb use one of the following: <ul>
+<li>The PIN length, if the PIN block contains a PIN length field</li>
+<li>The PIN delimiter character, if the PIN block contains a PIN delimiter character.</li>
+</ul></dd>
+</dlentry>
+<dlentry>
+<dt>PADDIGIT</dt>
+<dd>Specifies that the verb use the pad value in the PIN profile to identify the end of the
+PIN.</dd>
+</dlentry>
+<dlentry>
+<dt>HEXDIGIT</dt>
+<dd>Specifies that the verb use the first occurrence of a digit in the range from <ph>X'A'</ph> to
+<ph>X'F'</ph> as the pad value to determine the PIN length.</dd>
+</dlentry>
+<dlentry>
+<dt>PINLEN<synph><var>nn</var></synph></dt>
+<dd>Specifies that the verb use the length specified in the keyword, where
+<synph><var>nn</var></synph> can range from 04 - 16, to identify the PIN. <p>The
+PINLEN<synph><var>nn</var></synph> keywords are disabled for this verb by default. If these keywords
+are used, return code 8 with reason code 33 is returned. To enable them, the <cmdname>Enhanced PIN
+Security</cmdname> command (bit <ph>X'0313'</ph>) must be enabled using a TKE.</p></dd>
+</dlentry>
+<dlentry>
+<dt>PADEXIST</dt>
+<dd>Specifies that the verb use the character in the 16th position of the PIN block as the value of
+the pad value.</dd>
+</dlentry>
+</dl></p></pd></plentry>
+<plentry><pt>PIN_check_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the PIN offset used only for the <synph><kwd>IBM-PINO</kwd></synph> process
+rule. Otherwise, this parameter is ignored. Specify an integer from 4 - 16. <note>The PIN check
+length must be less than or equal to the integer specified in the
+<synph><var>PIN_length</var></synph> parameter.</note></pd></plentry>
+<plentry><pt>data_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Three 16-byte elements. <xref href="#l0wskc02_cpaparameters/l0wskc02_cpael3"/> describes the
+format when <synph><kwd>IBM-PINO</kwd></synph> is specified. <xref
+href="#l0wskc02_cpaparameters/l0wskc02_cpael4"/> describes the format when
+<synph><kwd>VISA-PVV</kwd></synph> is specified.<table id="l0wskc02_cpael3" pgwide="1" frame="all">
+<title>Array elements for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>,
+data_array (IBM-PINO)</title>
+<desc>
+<p outputclass="summary">Array elements for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>, data_array (IBM-PINO)</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="7*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Array element</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Decimalization_table</entry>
+<entry>This element contains the decimalization table of 16 characters (0 - 9) that are used to
+convert hexadecimal digits (<ph>X'0'</ph> - <ph>X'F'</ph>) of the enciphered validation data to the
+decimal digits (<ph>X'0'</ph> - <ph>X'9'</ph>). <p>If the ANSI X9.8 PIN - Use stored decimmalization
+table only access control point (<ph>X'0356'</ph>) is enabled in the active role, this table must
+match one of the active decimalization tables in the coprocessors.</p></entry>
+</row>
+<row>
+<entry valign="top" align="left">validation_data</entry>
+<entry valign="top" align="left">This element contains 1 - 16 characters of account data. The data
+must be left-aligned and padded on the right with space characters.</entry>
+</row>
+<row>
+<entry valign="top" align="left">Reserved-3</entry>
+<entry valign="top" align="left">This field is ignored, but you must specify it.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><table id="l0wskc02_cpael4" pgwide="1" frame="all">
+<title>Array elements for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>,
+data_array (VISA-PVV)</title>
+<desc>
+<p outputclass="summary">Array elements for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>, data_array (VISA-PVV)</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="7*"/>
+<thead>
+<row>
+<entry>Array element</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Trans_sec_parm</entry>
+<entry>For <synph><kwd>VISA-PVV</kwd></synph> only, the leftmost twelve
+digits. Eleven digits of the personal account number (PAN). One digit key index. The rest of the
+field is ignored.</entry>
+</row>
+<row>
+<entry>Reserved-2</entry>
+<entry>This field is ignored, but you must specify it.</entry>
+</row>
+<row>
+<entry>Reserved-3</entry>
+<entry>This field is ignored, but you must specify it.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>returned_PVV </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">A 16-byte area that contains the result left-aligned and padded with blanks. 
+When <synph><kwd>VISA-PVV</kwd></synph> is specified, this is a 4 byte value. When <synph><kwd>IBM-PINO</kwd></synph> 
+is specified, the value is the same length as the clear PIN.</ph></pd></plentry>
+</parml></section>
+</refbody></reference>

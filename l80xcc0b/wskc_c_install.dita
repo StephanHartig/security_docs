@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_install" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> installation
+    instructions</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> installation
+      instructions</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> installation
+      instructions</searchtitle>
+</titlealts>
+<shortdesc rev="sh18i1">Use these instructions when you install, configure, or uninstall <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> release 6.0.0 and later.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>
+         installation</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>You can install the new release either on a new system or over an earlier release, such as
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.* or 5.*</p>
+</conbody>
+</concept>
+<?Pub *0000001262?>

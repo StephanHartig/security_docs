@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appbdesextkeytok">
+<title>DES external key token</title>
+<titlealts>
+<navtitle>DES external key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): DES external key token</searchtitle>
+</titlealts><shortdesc>The format for a DES external key token. DES key tokens are almost always in a 
+fixed-length token, except for a DESUSECV key type in a variable-length symmetric key token.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>external key token<indexterm>DES</indexterm></indexterm>
+<indexterm>DES external key token format</indexterm>
+<indexterm>key token<indexterm>DES<indexterm>external</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_appbdesextkeytok/l0wskc02_extky"/> shows the format for a DES external
+key token.
+<table id="l0wskc02_extky" pgwide="1" frame="all">
+<title>DES
+external key token format</title><desc><p outputclass="summary">DES external key token format</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="8*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry><ph>X'02'</ph> (flag indicating an
+external key token)</entry></row>
+<row>
+<entry>1</entry>
+<entry>Reserved (<ph>X'00'</ph>)</entry></row>
+<row>
+<entry>2 - 3</entry>
+<entry>Implementation-dependent bytes (<ph>X'0000'</ph> for
+CCA)</entry></row>
+<row>
+<entry>4</entry>
+<entry>Key token version number (<ph>X'00'</ph> or <ph>X'01'</ph>)</entry></row>
+<row>
+<entry>5</entry>
+<entry>Reserved (<ph>X'00'</ph>)</entry></row>
+<row>
+<entry>6</entry>
+<entry>Flag byte
+<dl compact="yes"><dlhead><dthd>Bit</dthd><ddhd>Meaning When Set On</ddhd></dlhead>
+<dlentry><dt>0</dt>
+<dd>Encrypted key is present.</dd></dlentry>
+<dlentry><dt>1</dt>
+<dd>Control vector (CV) value has been applied to the key.</dd></dlentry>
+</dl>
+<p>Other bits are reserved and are binary zeros.</p></entry></row>
+<row>
+<entry>7</entry>
+<entry>Flag byte
+<dl compact="yes"><dlhead><dthd>Bit</dthd><ddhd>Meaning When Set On</ddhd></dlhead>
+<dlentry><dt>0-2</dt>
+<dd>Key value encryption method.
+<ul  compact="yes">
+<li>000 - The key is encrypted by using the original <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> method (ECB).</li>
+<li>001 - The encrypted key is wrapped using the enhanced method and SHA-1 (WRAP-ENH).</li>
+<li>010 - The encrypted key is wrapped using the enhanced method and SHA-256 (WRAPENH2). 
+Requires CV bit ENH-ONLY to be enabled. Only valid with version X’00’ tokens.</li>
+<li rev="sh21i2">011 - The encrypted key is wrapped using the enhanced method 3 and SHA-256
+(WRAPENH3). Requires CV bit ENH-ONLY to be enabled. Only valid with version X’00’ tokens.</li>
+</ul>
+<p rev="sh21i2">All other bit combinations are reserved and undefined and must be zero.</p>
+<p>These bits are ignored if the token contains no key or a clear key.</p></dd>
+</dlentry>
+<dlentry><dt>3-7</dt>
+<dd>Reserved.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>8 - 15</entry>
+<entry>Reserved (X'0000000000000000')</entry></row>
+<row>
+<entry>16 - 23</entry>
+<entry>Single-length key or left half of
+a double-length key, or Part A of a triple-length key. The value is
+encrypted under a transport key.</entry></row>
+<row>
+<entry>24 - 31</entry>
+<entry>X'0000000000000000' if a
+single-length key or right half of a double-length key, or Part B
+of a triple-length key. The right half of a double-length key or Part
+B of a triple-length key is encrypted under a transport (key-encrypting
+key) for export or import. <ph rev="sh21i2">For WRAPENH3, this field always holds ciphertext in order to obfuscate the length of a single
+or double-length key. The CCA coprocessor uses the effective length (determined by the number
+of repeated 56-bit sections, if any) of the key to determine key strength for wrapping of other keys
+or other key strength comparisons.</ph></entry></row>
+<row>
+<entry>32 - 39</entry>
+<entry>The control vector (CV) for single-length key or the left half of CV for double-length key.
+<ph rev="sh21i2">For WRAPENH3, this field has an update to the key form bits (bits 41-42). These
+bits always have the value '11', which indicates a triple-length key.</ph></entry></row>
+<row>
+<entry>40 - 47</entry>
+<entry>X'0000000000000000' if a single-length key or the right half of the control vector for a
+double-length operational key. <ph rev="sh21i2">For WRAPENH3, this field holds an 8 byte TDES-CMAC
+over the entire key block, with this field set to 0x00 bytes before calculation of the
+TDES-CMAC.</ph></entry></row>
+
+<row>
+<entry>48 - 55</entry>
+<entry>X'0000000000000000' if a single-length key, double-length key, or Part C of a triple-length
+key. This key part is encrypted under a transport key-encrypting key when flag bit 0 is on.
+Otherwise, it is in the clear. <ph rev="sh21i2">For WRAPENH3, this field always holds ciphertext in
+order to obfuscate the length of a single or double-length key. </ph></entry>
+</row>
+<row>
+<entry>56 - 58</entry>
+<entry>Reserved (<ph>X'000000'</ph>)</entry>
+</row>
+<row>
+<entry>59</entry>
+<entry>Key length for zero CV DATA keys.
+<dl compact="yes"><dlhead><dthd>Value</dthd><ddhd>Description</ddhd></dlhead>
+<dlentry><dt>B'00000000'</dt>
+<dd>Single-length key (version 0 only).</dd></dlentry>
+<dlentry><dt>B'00010000'</dt>
+<dd>Double-length key (version 1 only).</dd></dlentry>
+<dlentry><dt>B'00100000'</dt>
+<dd>Triple-length key (version 1 only).</dd></dlentry>
+</dl>All other values are reserved and undefined.</entry>
+</row>
+<row>
+<entry>60 - 63</entry>
+<entry>Token validation value (see <xref href="wskc_r_tvv.dita#l0wskc02_tvv"/> for a description).</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

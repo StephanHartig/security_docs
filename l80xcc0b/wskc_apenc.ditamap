@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Protecting data</title><topicref href="wskc_c_apenc.dita">
+
+<topicref href="wskc_c_l0wskc237.dita">
+<topicref href="wskc_c_cbc_mode.dita"></topicref>
+<topicref href="wskc_c_ecb_mode.dita"></topicref>
+<topicref href="wskc_c_gcm_mode.dita"/>
+<topicref href="wskc_c_chp6procrul.dita"></topicref>
+<topicref href="wskc_c_tdes1.dita"></topicref>
+</topicref>
+<topicref href="wskc_r_dec.dita">
+<topicmeta>
+<retrievalKeys><retkey>Decipher (CSNBDEC)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc92.dita" toc="no"></topicref>
+<topicref href="wskc_r_decformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_decparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_decrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_decrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_decusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc93.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_enc.dita">
+<topicmeta>
+<retrievalKeys><retkey>Encipher (CSNBENC)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc107.dita" toc="no"></topicref>
+<topicref href="wskc_r_encformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_encparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_encrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_encrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_encusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc108.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_syma_dec.dita">
+<topicmeta>
+<retrievalKeys><retkey>Symmetric Algorithm Decipher (CSNBSAD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc278.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc279.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc280.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc281.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc282.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc283.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_syma_enc.dita">
+<topicmeta>
+<retrievalKeys><retkey>Symmetric Algorithm Encipher (CSNBSAE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc284.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc285.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc286.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc287.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc288.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc289.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_protdata_ciphertt2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Cipher Text Translate 2 (CSNBCTT2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ctt2format.dita" toc="no"/>
+<topicref href="wskc_ctt2parameters.dita" toc="no"/>
+<topicref href="wskc_ctt2restrictions.dita" toc="no"/>
+<topicref href="wskc_ctt2required.dita" toc="no" />
+<topicref href="wskc_ctt2usage.dita" toc="no"/>
+<topicref href="wskc_ctt2jniv.dita" toc="no"/>
+</topicref>
+</topicref>
+</map>

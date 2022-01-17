@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pkatok">
+<title>PKA key tokens</title>
+<titlealts>
+<navtitle>PKA key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA key tokens</searchtitle>
+</titlealts><shortdesc rev="sh21i1">PKA key tokens contain RSA, ECC, or QSA private or public keys.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>PKA key token</indexterm>
+<indexterm>key token<indexterm>PKA</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>PKA key token sections</indexterm>
+<indexterm>PKA key token identifier</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>PKA tokens are variable length because they contain either RSA, ECC, <ph rev="sh21i1">or QSA</ph>
+key values, which are variable in length. Consequently, length parameters precede all PKA token
+parameters. The maximum allowed size is <ph rev="sh21i1">6500</ph> bytes. PKA key tokens consist of
+a token header, any required sections, and any optional sections. Optional sections depend on the
+token type. PKA key tokens can be public or private, and private key tokens can be internal or
+external. Therefore, there are three basic types of tokens, each of which can contain either RSA,
+ECC, <ph rev="sh21i1">or QSA</ph> information: <ul>
+<li>A public key token</li>
+<li>A private external key token</li>
+<li>A private internal key token</li>
+</ul></p>
+<p>Public key tokens contain only the public key. Private key tokens contain the public and private
+key pair. <xref href="#l0wskc02_pkatok/l0wskc02_pkasum"/> summarizes the sections in each type of
+token. </p>
+<table id="l0wskc02_pkasum">
+<title>Summary of PKA key token sections</title>
+<desc>
+<p outputclass="summary">Summary of PKA key token sections</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="193*"/>
+<colspec colname="col2" colwidth="115*"/>
+<colspec colname="col3" colwidth="115*"/>
+<colspec colname="col4" colwidth="117*"/>
+<thead>
+<row>
+<entry>Section</entry>
+<entry>Public external key token</entry>
+<entry>Private external key token</entry>
+<entry>Private internal key token</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Header</entry>
+<entry>X</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>RSA, ECC, <ph rev="sh21i1">or QSA</ph> private key information</entry>
+<entry/>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>RSA, ECC, <ph rev="sh21i1">or QSA</ph> public key information</entry>
+<entry>X</entry>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>Key name (optional, <ph rev="sh21i1">RSA or QSA only</ph>)</entry>
+<entry/>
+<entry>X</entry>
+<entry>X</entry>
+</row>
+<row>
+<entry>Internal information</entry>
+<entry/>
+<entry/>
+<entry>X</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>As with DES key tokens, the first byte of a PKA key token contains
+the token identifier which indicates the type of token.</p>
+<p>A first byte of X'1E' indicates an external token with a cleartext public key and optionally a
+private key that is either in cleartext or enciphered by a transport key-encrypting key. An external
+key token is in importable key form. It can be sent on the link.</p>
+<p>A first byte of X'1F' indicates an internal token with a cleartext public key and a private key
+that is enciphered by the PKA master key and ready for internal use. An internal key token is in
+operational key form. A PKA private key token must be in operational form for the coprocessor to use
+it. (PKA public key tokens are used directly in the external form.)</p>
+</conbody></concept>

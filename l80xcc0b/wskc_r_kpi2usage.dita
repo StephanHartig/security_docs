@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpi2usage">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/></searchtitle>
+</titlealts><shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>On each call to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/>, also specify a rule-array keyword to
+define the service action: <synph><kwd>FIRST</kwd></synph>, <synph><kwd>ADD-PART</kwd></synph>, or <synph><kwd>COMPLETE</kwd></synph>. 
+<ul>
+<li>With the <synph><kwd>FIRST</kwd></synph> keyword, the input key-token must be a
+skeleton token (no key material). Use of the <synph><kwd>FIRST</kwd></synph> keyword
+requires that the Load First Key Part2 access control point be enabled
+in the default role.</li>
+<li>With the <synph><kwd>ADD-PART</kwd></synph> keyword, the service XORs the clear
+key-part with the key value in the input key-token. Use of the <synph><kwd>ADD-PART</kwd></synph> keyword
+requires that an Add Key Part2 access control point be enabled in
+the default role. The key remains incomplete in the updated key token
+returned from the service.</li>
+<li>With the <synph><kwd>COMPLETE</kwd></synph> keyword, the KEY-PART bit is set off
+in the updated key token that is returned from the service. Use of
+the <synph><kwd>COMPLETE</kwd></synph> keyword requires that the Complete Key Part2
+access control point be enabled in the default role. The <synph><var>key_part_bit_length</var></synph> parameter
+must be set to zero.</li>
+</ul></p></section>
+</refbody></reference>

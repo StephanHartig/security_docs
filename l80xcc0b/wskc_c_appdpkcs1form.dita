@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_appdpkcs1form">
+<title>PKCS #1 hash formats</title>
+<titlealts>
+<navtitle>PKCS #1 hash formats</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>): PKCS #1 hash formats</searchtitle>
+</titlealts><shortdesc>Version 2.0 <ph rev="sh16">and 2.1</ph> of the PKCS #1 standard defines methods for
+formatting keys and hashes prior to RSA encryption of the resulting data structures. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>PKCS #1 hash formats</indexterm>
+<indexterm>hash formats<indexterm>PKCS #1</indexterm></indexterm>
+<indexterm>OAEP</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p> The earlier versions of the PKCS #1 standard <fn id="l0wskc02_pkcs1" rev="sh16">PKCS standards
+can be retrieved from <xref
+href="http://www.emc.com/emc-plus/rsa-labs/standards-initiatives/public-key-cryptography-standards.htm"
+format="html" scope="external"/>.</fn> defined block types 0, 1, and 2, but in the current standard
+that terminology is dropped.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> implemented these processes
+using the terminology of the Version 2.0 standard: <ul>
+<li>For formatting keys for secured transport (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/>): <ul>
+<li>RSAES-OAEP, the preferred method for key-encipherment when exchanging <fn id="l0wskc02_oaep">The
+PKA 92 method and the method incorporated into the SET standard are other examples of the Optimal
+Asymmetric Encryption Padding (OAEP) technique. The OAEP technique is attributed to Bellare and
+Rogaway.</fn> DATA keys between systems. Keyword <synph><kwd>PKCSOAEP</kwd></synph> (Version 2.0)
+and <synph><kwd>PKOAEP2</kwd></synph> (Version 2.1) is used to invoke this formatting technique. The
+<codeph>P</codeph> parameter described in the standard is not used and its length is set to zero. </li>
+<li>RSAES-PKCS1-v1_5, is an older method for formatting keys. It is included for compatibility with
+existing applications. Keyword <synph><kwd>PKCS-1.2</kwd></synph> is used to invoke this formatting
+technique.</li>
+</ul></li>
+<li> For formatting hashes for digital signatures (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/>): <ul>
+<li>RSASSA-PKCS1-v1_5, the newer name for the block-type 1 format. Keyword
+<synph><kwd>PKCS-1.1</kwd></synph> is used to invoke this formatting technique. </li>
+<li>The PKCS #1 specification no longer describes the use of block-type 0. Keyword
+<synph><kwd>PKCS-1.0</kwd></synph> is used to invoke this formatting technique. Use of block-type 0
+is discouraged. </li>
+</ul></li>
+</ul></p>
+<p>Using the terminology from older versions of the PKCS #1 standard, block types 0 and 1 are used
+to format a hash and block type 2 is used to format a DES key. The blocks consist of the following
+(<q>||</q> means concatenation): </p>
+<ul>
+<li><ph>X'00'</ph> || BT || PS || <ph>X'00'</ph> || D <p>where:</p>
+<dl compact="yes">
+<dlentry>
+<dt>BT</dt>
+<dd>Is the block type, <ph>X'00'</ph>, <ph>X'01'</ph>, or <ph>X'02'</ph>.</dd>
+</dlentry>
+<dlentry>
+<dt>PS</dt>
+<dd>Is the padding of as many bytes as required to make the block the same length as the modulus of
+the RSA key. Padding of <ph>X'00'</ph> is used for block type 0, <ph>X'FF'</ph> for block type 1,
+and random and non-<ph>X'00'</ph> for block type 2. The length of PS must be a minimum of eight
+bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>D</dt>
+<dd>Is the key, or the concatenation of the BER-encoded hash identifier and the hash value.</dd>
+</dlentry>
+</dl></li>
+</ul>
+<p>You can create the ASN.1 BER encoding of an MD5, SHA-1, or SHA-256 value by attaching these
+strings at the beginning of the 16-byte or 20-byte hash values, respectively: </p>
+<dl>
+<dlentry>
+<dt>MD5</dt>
+<dd><codeph>X'3020300C 06082A86 4886F70D 02050500 0410'</codeph></dd>
+</dlentry>
+<dlentry>
+<dt>SHA-1</dt>
+<dd><codeph>X'30213009 06052B0E 03021A05 000414'</codeph></dd>
+</dlentry>
+<dlentry>
+<dt>SHA-256</dt>
+<dd><codeph>X'3031300D 06096086 48016503 04020105 000420'</codeph></dd>
+</dlentry>
+</dl>
+</conbody></concept>

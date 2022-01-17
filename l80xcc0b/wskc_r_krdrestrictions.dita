@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_krdrestrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/></searchtitle>
+  </titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The record defined by the <synph><var>key_label</var></synph> must be unique.</p></section>
+</refbody></reference>

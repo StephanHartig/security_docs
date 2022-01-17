@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ksi" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>
+</searchtitle>
+</titlealts>
+<shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword> verb
+initializes a key-storage file using the current symmetric or asymmetric
+master-key. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"></keyword>)</indexterm>
+<indexterm>initializing key storage</indexterm><indexterm>key-storage
+initialization</indexterm><indexterm>key record</indexterm><indexterm>DES
+key-storage initialization</indexterm><indexterm>master-key loading</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>The initialized key storage file does not contain any preexisting key records. The key storage
+data and index files are in the <codeph>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/keys</codeph> directory.</p><?Pub
+Caret 139?>
+<p>The key storage functions do not work with HMAC keys.</p></section>
+</refbody>
+</reference>
+<?Pub *0000001925?>

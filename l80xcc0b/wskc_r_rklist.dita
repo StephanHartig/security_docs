@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_rklist" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"></keyword>)</title>
+ <titlealts>
+    <navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"></keyword>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to list the key labels of selected PKA key
+records that have been retained within the cryptographic engine.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Specify the keys to be listed using the <synph><var>key_label_mask</var></synph> variable. To
+identify multiple keys, use a wild card (*) in the mask. Only labels with matching characters to
+those in the mask up to the first * is returned. To list all retained key labels, specify a mask of
+an *, followed by 63 space characters. For example, if the cryptographic engine has retained key
+labels a.a, a.a1, a.b.c.d, and z.a, and you specify the mask a.*, the verb returns a.a, a.a1 and
+a.b.c.d. If you specify a mask of a.a*, the verb returns a.a and a.a1.</p></section>
+<section>
+<p>To retain PKA keys within the coprocessor, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. To delete retained keys from the
+coprocessor, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"/> verb.</p>
+<note type="other" othertype="Important">Before using this verb, see the information about retained
+keys in <xref href="wskc_r_rkdel_rk.dita#l0wskc02_rkdel_rk"/>.</note>
+</section>
+</refbody><?Pub Caret -1?>
+</reference>
+<?Pub *0000002389?>

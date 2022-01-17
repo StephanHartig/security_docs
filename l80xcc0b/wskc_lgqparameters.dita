@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_lgqparameters">
+<title>Parameters</title><titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>
+</searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"
+/>)<indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section>
+    <section>
+      <parml>
+        <plentry>
+          <pt>rule_array_count</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable containing the number of elements in the
+              <parmname>rule_array</parmname> variable. The value must be 1.</pd>
+        </plentry>
+        <plentry>
+          <pt>rule_array</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">String array</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to a string variable containing an array of keywords. The keywords are
+            eight bytes in length and must be left-aligned and padded on the right with space
+            characters. The <parmname>rule_array</parmname> keywords are described in <xref
+              href="#l0wskc02_lgqparameters/csualgq_table" format="dita"/>. <table
+              id="csualgq_table" pgwide="1" frame="all">
+              <title>Keywords for <keyword
+                  conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> control
+                information</title>
+              <desc>
+                <p outputclass="summary">Keywords for <keyword
+                    conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> control
+                  information</p>
+              </desc>
+              <tgroup cols="2" colsep="1" rowsep="1">
+                <colspec colname="col1" colwidth="2*"/>
+                <colspec colname="col2" colwidth="12*"/>
+                <thead>
+                  <row rowsep="1">
+                    <entry valign="top">Keyword</entry>
+                    <entry valign="top">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry namest="col1" nameend="col2" valign="top"><b><i>Service requested</i></b>
+                      (One required)</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>CCALGLEN</kwd></synph></entry>
+                    <entry>Specifies to return the length of the <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data buffer in
+                      the <parmname>log_data_length</parmname> variable (the
+                        <parmname>log_number_or_level</parmname> parameter is ignored). No data is
+                      returned in the <parmname>log_data</parmname> variable.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETCCALG</kwd></synph></entry>
+                    <entry>Specifies to get up to <parmname>log_data_length</parmname> bytes of data
+                      from the current <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data buffer
+                      (the <parmname>log_number_or_level</parmname> parameter is ignored). This data
+                      is returned in the <parmname>log_data</parmname> variable. The returned log
+                      only contains all available <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> messages that had a
+                      return code of 4 or 8. All other messages are filtered out. <note>If the log
+                        level (see <synph><kwd>SETLGLVL</kwd></synph> keyword) has never been set to
+                        4 or 8 in the current boot cycle for the coprocessor, then the <keyword
+                          conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log is empty and
+                        no data is available to return.</note></entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETLGLVL</kwd></synph></entry>
+                    <entry>Specifies to return the current log level in the
+                        <parmname>log_number_or_level</parmname> variable. The log level is used to
+                      determine which return codes the coprocessor uses to generate a log message. A
+                      return code greater than or equal to this level causes a log message to be
+                      generated. No data is returned in the <parmname>log_data</parmname>
+                      variable.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETSYSLG</kwd></synph></entry>
+                    <entry>Specifies to get up to <parmname>log_data_length</parmname> bytes of data
+from the SYSLOG (for the given log number as specified by the
+<parmname>log_number_or_level</parmname> parameter). This data is returned in the
+<parmname>log_data</parmname> variable. The returned log contains all available SYSLOG messages,
+including boot, major error, and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+messages.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SETLGLVL</kwd></synph></entry>
+                    <entry>Specifies to set the current log level inside the coprocessor to the
+                      value specified by the <parmname>log_number_or_level</parmname> parameter (4,
+                      8, or 12). A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+                      return code greater than or equal to the log level causes a log message to be
+                      generated. No data is returned in the <parmname>log_data</parmname> variable.
+                      If the log level for the coprocessor has never been set in the current boot
+                      cycle, it defaults to 12. Where the coprocessor stores a message, depends on
+                      the message return code: <ul>
+                        <li>Return code 4 and return code 8 messages are stored in the <keyword
+                            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log. The
+                            <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log is
+                          stored in a volatile message data buffer and is only available for the
+                          current boot cycle.</li>
+                        <li>Return code 12 and return code 16 messages are stored in the current
+boot cycle SYSLOG along with non-<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+messages. In addition to the current boot cycle SYSLOG, there are up to four SYSLOGs maintained from
+previous boot cycles.</li>
+                      </ul></entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SYSLGLEN</kwd></synph></entry>
+                    <entry>Specifies to return the length of the SYSLOG data buffer in the
+<parmname>log_data_length</parmname> variable (for the given log number specified by the
+<parmname>log_number_or_level</parmname> parameter). No data is returned in the
+<parmname>log_data</parmname> variable.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table></pd>
+        </plentry>
+        <plentry>
+          <pt>log_number_or_level</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable containing the log number or level for the
+            service requested. This parameter may be unused, but must always be declared. <xref
+              href="#l0wskc02_lgqparameters/csualgq_table2" format="dita"/> describes the meaning of
+            this parameter for the different requested services.<table id="csualgq_table2"
+              pgwide="1" frame="all">
+              <title>Meaning of <parmname>log_number_or_level</parmname> for the requested service
+                (keyword)</title>
+              <desc>
+                <p outputclass="summary">Meaning of <parmname>log_number_or_level</parmname> for the
+                  requested service (keyword). Table with three columns: Service requested,
+                  Direction, Meaning</p>
+              </desc>
+              <tgroup cols="3" colsep="1" rowsep="1">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="1*"/>
+                <colspec colname="col3" colwidth="4*"/>
+                <thead>
+                  <row>
+                    <entry>Service requested</entry>
+                    <entry>Direction</entry>
+                    <entry>Meaning</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry><synph><kwd>CCALGLEN</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>The value is ignored.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETCCALG</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>The value is ignored.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETLGLVL</kwd></synph></entry>
+                    <entry>Output</entry>
+                    <entry>This is the current minimum level of <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> return code for
+                      which a coprocessor generates a log message. Valid values are 4, 8, or
+                      12.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETSYSLG</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>Specifies which of five possible groups of system log message data to
+                      retrieve from the coprocessor. See the note at end of the table.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SETLGLVL</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>Specifies the minimum level of the <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> return code for
+                      which a coprocessor is to generate a log message. Valid values are 4, 8, or
+                      12. If the log level is not set, the default is 12. <dl>
+                        <dlhead>
+                          <dthd>Value</dthd>
+                          <ddhd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+return code that generates a log message</ddhd>
+                        </dlhead>
+                        <dlentry>
+                          <dt>4</dt>
+                          <dd>4, 8, 12, or 16</dd>
+                        </dlentry>
+                        <dlentry>
+                          <dt>8</dt>
+                          <dd>8, 12, or 16</dd>
+                        </dlentry>
+                        <dlentry>
+                          <dt>12</dt>
+                          <dd>12 or 16 (default if log level not set)</dd>
+                        </dlentry>
+                      </dl></entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SYSLGLEN</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>Specifies which length of five possible groups of SYSLOG message data to
+retrieve from the coprocessor. See the note at end of the table.</entry>
+                  </row>
+                  <row>
+                    <entry namest="col1" nameend="col3">
+                      <note>To process the system log message data from the current boot cycle,
+                        specify 0 in the <parmname>log_number_or_level</parmname> parameter. To
+                        process the data from the oldest available boot cycle possible, use a log
+                        number of 4. If the log number specifies an empty slot (that is, the
+                        coprocessor has not been power-cycled enough times for the given log number
+                        to have data yet), no data is returned.</note>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table></pd>
+        </plentry>
+        <plentry>
+          <pt>reserved0</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable. This parameter is reserved for future use. It
+            must be a null pointer or point to a value of 0.</pd>
+        </plentry>
+        <plentry>
+          <pt>log_data_length</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable containing the number of bytes in the
+              <parmname>log_data</parmname> variable, or the maximum number of data bytes available
+            to retrieve for a particular log inside the coprocessor. This parameter may be unused,
+            but must always be declared. <xref
+              href="#l0wskc02_lgqparameters/csualgq_table3" format="dita"/> describes the meaning of
+            this parameter for the different requested services.<table id="csualgq_table3"
+              pgwide="1" frame="all">
+              <title>Meaning of <parmname>log_data_length</parmname> for the requested service
+                (keyword)</title>
+              <desc>
+                <p outputclass="summary">Meaning of <parmname>log_data_length</parmname> for the
+                  requested service (keyword). Table with three columns: Service requested,
+                  Direction, Meaning</p>
+              </desc>
+              <tgroup cols="3" colsep="1" rowsep="1">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="1*"/>
+                <colspec colname="col3" colwidth="4*"/>
+                <thead>
+                  <row>
+                    <entry>Service requested</entry>
+                    <entry>Direction</entry>
+                    <entry>Meaning</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry><synph><kwd>CCALGLEN</kwd></synph></entry>
+                    <entry>Output</entry>
+                    <entry>Specifies the maximum number of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data bytes available to retrieve inside
+the Coprocessor (the <parmname>log_number_or_level</parmname> parameter is ignored). No data is
+returned in the log_data variable.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETCCALG</kwd></synph></entry>
+                    <entry>Input/Output</entry>
+                    <entry>On input, this variable specifies the number of bytes available in the
+<parmname>log_data</parmname> variable. On output, the variable is updated to the number of bytes of
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data returned in the
+<parmname>log_data</parmname> variable.<note>
+<ol>
+<li>To determine the maximum number of bytes that the current <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data buffer contains, use the CCALGLEN
+keyword. The maximum is less than or equal to 1024.</li>
+<li>The actual amount of data returned is variable and can be less than the maximum, depending on
+the amount of log messages issued so far.</li>
+<li>On input, it is acceptable to specify a value less than the total size of the available <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data buffer. On output, the end of the
+data buffer is truncated as needed.</li>
+<li>On input, it is acceptable to specify a value greater than the total size of the available
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log data buffer. On output, the
+length is adjusted to the total size.</li>
+<li>Interpretation of the data is defined internally by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>. The data may or may not be human-readable.
+The data may contain truncated messages or partial messages that in some way conflict with a given
+editor.</li>
+</ol>
+</note>
+</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETLGLVL</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>The value is ignored.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>GETSYSLG</kwd></synph></entry>
+                    <entry>Input/Output</entry>
+                    <entry>On input, this variable specifies the number of bytes available in the
+<parmname>log_data</parmname> variable. On output, the variable is updated to the number of bytes of
+SYSLOG data returned in the <parmname>log_data</parmname> variable (for the given log number as
+specified by the <parmname>log_number_or_level</parmname> parameter).<note>
+<ol>
+<li>To determine the maximum number of bytes that the specified SYSLOG data buffer contains, use the
+SYSLGLEN keyword. The maximum that can be returned is 16384.</li>
+<li>The actual amount of data returned is variable and can be less than the maximum, depending on
+the amount of log messages issued so far.</li>
+<li>On input, it is acceptable to specify a value less than the total size of the available SYSLOG
+data buffer. On output, the end of the data buffer is truncated as needed.</li>
+<li>On input, it is acceptable to specify a value greater than the total size of the available
+SYSLOG data buffer. On output, the length is adjusted to the total size.</li>
+<li>Interpretation of the data is defined internally by IBM. The data may or may not be
+human-readable. The data may contain truncated messages or partial messages that in some way
+conflict with a given editor.</li>
+</ol>
+</note>
+</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SETLGLVL</kwd></synph></entry>
+                    <entry>Input</entry>
+                    <entry>The value is ignored.</entry>
+                  </row>
+                  <row>
+                    <entry><synph><kwd>SYSLGLEN</kwd></synph></entry>
+                    <entry>Output</entry>
+                    <entry>Specifies the maximum number of SYSLOG data bytes available to retrieve
+inside the coprocessor (for the given log number as specified by the
+<parmname>log_number_or_level</parmname> parameter). No data is returned in the
+<parmname>log_data</parmname> variable.</entry>
+                  </row>
+                 </tbody>
+              </tgroup>
+            </table></pd>
+         </plentry>
+        <plentry>
+          <pt>log_data</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">String</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to a string variable containing the returned log data when keyword
+                <synph><kwd>GETCCALG</kwd></synph> or <synph><kwd>GETSYSLG</kwd>
+            </synph> is specified in the rule array. This parameter may be unused, but must always
+            be declared.</pd>
+        </plentry>
+        <plentry>
+          <pt>reserved1_length</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable containing the number of bytes of data in the
+              <parmname>reserved1</parmname> variable. This parameter must be a null pointer or
+            point to a value of 0.</pd>
+        </plentry>
+        <plentry>
+          <pt>reserved1</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">String</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>This parameter is a pointer to a string variable. It is reserved for future
+            use.</pd>
+        </plentry>
+        <plentry>
+          <pt>reserved2_length</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">Integer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>A pointer to an integer variable containing the number of bytes of data in the
+              <parmname>reserved2</parmname> variable. This parameter must be a null pointer or
+            point to a value of 0.</pd>
+        </plentry>
+        <plentry>
+          <pt>reserved2</pt>
+          <pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+              <tgroup cols="2">
+                <colspec colname="col1" colwidth="1*"/>
+                <colspec colname="col2" colwidth="5*"/>
+                <tbody>
+                  <row>
+                    <entry colname="col1"><b>Direction:</b></entry>
+                    <entry colname="col2">Input/Output</entry>
+                  </row>
+                  <row>
+                    <entry colname="col1"><b>Type:</b></entry>
+                    <entry colname="col2">String</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>This parameter is a pointer to a string variable. It is reserved for future
+            use.</pd>
+        </plentry>
+      </parml>
+    </section>
+</refbody></reference>

@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kyt2parameters">
+<title>Parameters</title>
+  <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+<indexterm>AES</indexterm>
+<indexterm>DES</indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>GENERATE</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>ENC-ZERO</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>SHA2VP1</indexterm>
+<indexterm>SHA-256</indexterm>
+<indexterm>TR-31</indexterm>
+<indexterm>IKEK-AES</indexterm>
+<indexterm>IKEK-DES</indexterm>
+<indexterm>IKEK-PKA</indexterm>
+<indexterm>AESKWCV</indexterm>
+<indexterm>key verification pattern<indexterm>KVP</indexterm></indexterm>
+<indexterm>KVP<indexterm>key verification pattern</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+<indexterm>key_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+<indexterm>reserved parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+<indexterm>verification_pattern parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+This value must be 2, 3, 4, or 5.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> contains keywords that provide control information
+to the verb. The keywords must be in contiguous storage with each of the keywords left-aligned in
+its own 8-byte location and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_kyt2parameters/l0wskc02_ktest2"/>.
+<table id="l0wskc02_ktest2" pgwide="0" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="3*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token algorithm</i></b> (Required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies that the key token is an AES key token.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>Specifies that the key token is a DES token. CCA internal, CCA external, and
+TR-31 token types are supported. Clear keys are not supported for this rule.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>Specifies that the key supplied in the <parmname>key_identifier</parmname> parameter is an HMAC key or key part 
+in a CCA key token or an HMAC key in an external TR-31 key block.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Master-key register class</i></b> (not allowed with 
+<synph><kwd>AES</kwd></synph>, <synph><kwd>DES</kwd></synph>, 
+or <synph><kwd>HMAC</kwd></synph>, otherwise one required).</entry>
+</row>
+<row>
+<entry><synph><kwd>AES-MK</kwd></synph></entry>
+<entry>Specifies to process a master key in one of the AES master-key registers. Only valid
+with <synph><kwd>CMACZERO</kwd></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>APKA-MK</kwd></synph></entry>
+<entry>Specifies to process a master key in one of the AES PKA (APKA) master-key registers. Only valid
+with <synph><kwd>CMACZERO</kwd></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>ASYM-MK</kwd></synph></entry>
+<entry>Specifies to process a master key in one of the PKA (asymmetric) master-key registers. Only valid
+with <synph><kwd>CMACZERO</kwd></synph> or <synph><kwd>ENC-ZERO</kwd></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>SYM-MK</kwd></synph></entry>
+<entry>Specifies to process a master key in one of the DES (symmetric) master-key registers. Only valid
+with <synph><kwd>CMACZERO</kwd></synph> or <synph><kwd>ENC-ZERO</kwd></synph>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key or key-part rule</i></b> (One
+required with <synph><kwd>AES-MK</kwd></synph>, <synph><kwd>APKA-MK</kwd></synph>, 
+<synph><kwd>ASYM-MK</kwd></synph>, or <synph><kwd>SYM-MK</kwd></synph>, otherwise not
+allowed).)</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-KM</kwd></synph></entry>
+<entry>Specifies to process the master key in the current-master-key register.</entry>
+</row>
+<row>
+<entry><synph>KEY-NKM<kwd></kwd></synph></entry>
+<entry>Specifies to process the master key in the new-master-key register, which can be an
+incomplete key if all key parts have not been loaded.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-OKM</kwd></synph></entry>
+<entry>Specifies to process the master key in the old-master-key register.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Process rule</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>GENERATE</kwd></synph></entry>
+<entry>Generate a verification pattern and an associated random number for
+the input key or key part for the specified key.</entry>
+</row>
+<row>
+<entry><synph><kwd>VERIFY</kwd></synph></entry>
+<entry>Verify that a verification pattern matches the specified key.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>KEY-LEN</kwd></synph></entry>
+<entry>Return the length of the specified key in the <parmname>verification_pattern</parmname> parameter. 
+Valid for token algorithms <synph><kwd>AES</kwd></synph> and <synph><kwd>DES</kwd></synph>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key verification pattern (KVP) calculation algorithm</i></b>
+(One optional). See <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"/>. 
+<ph rev="sh21i1">Not valid with the <synph><kwd>KEY-LEN</kwd></synph> process rule.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>CMACZERO</kwd></synph></entry>
+<entry>Specifies to use the CMAC-ZERO method for the key verification pattern (KVP) calculation for
+AES and DES keys. This method calculates the KVP by using the key to perform the NIST SP 800-38B block cipher-based MAC (CMAC)
+algorithm on a data block of the size of the algorithm block, filled with bytes valued to X'00' 
+and an initialization vector valued to binary zeros. 
+Only valid with AES, DES, AES-MK, APKA-MK, ASYM-MK, or SYM-MK. 
+The <synph><kwd>CMACZERO</kwd></synph> method does not support single-length DES keys. 
+</entry> 
+</row>
+<row>
+<entry><synph><kwd>ENC-ZERO</kwd></synph></entry>
+<entry>KVP calculation using the ENC-ZERO method for AES and DES keys: the KVP is  calculated by
+encrypting a data block filled with <ph>X'00'</ph> bytes. <p>This is the default for DES keys. Not
+valid with HMAC. This method is only available for AES if the <cmdname>Key Test2 - AES,
+ENC-ZERO</cmdname> access control point (offset X'0021)' is enabled.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-256</kwd></synph></entry>
+<entry>Verification pattern is calculated for an AES token using the same method as the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb, with the SHA-256 rule.
+<p>This rule can be used to verify that the same key value is present in a version X'04'
+DATA token and version X'05' AES CIPHER token or to verify that the same key value is present in a
+version X'05' AES IMPORTER/EXPORTER pair.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>SHA2VP1</kwd></synph></entry>
+<entry>Specifies to use the SHA-256 based verification pattern calculation algorithm.
+Valid only with <synph><kwd>HMAC</kwd></synph>. This is the default for
+<synph><kwd>HMAC</kwd></synph>. For more information, see <xref
+href="wskc_c_shavp1_alg.dita#shavp1_alg"/>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token type rule</i></b> (Required if TR-31 token passed
+and token algorithm DES is specified. Not valid otherwise.)</entry>
+</row>
+<row>
+<entry><synph><kwd>TR-31</kwd></synph></entry>
+<entry>Specifies that <synph><var>key_identifier</var></synph> contains a TR-31 key
+block.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>KEY-CLR</kwd></synph></entry>
+<entry>Process a clear key or clear key-part that is not in a token. 
+The algorithm is given by the <b><i>Token algorithm</i></b> keyword group, only valid with AES or DES. 
+The length is given in the <parmname>key_identifier_length</parmname> parameter.</entry>
+</row>
+<row>
+<entry><synph><kwd>AESKWCV</kwd></synph></entry>
+<entry>Specifies that the <parmname>key_identifier</parmname> contains an external
+variable length symmetric key token whose type is DESUSECV. The IKEK-AES keyword must be specified
+for the KEK identifier rule.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh18i1"><b><i>KEK identifier rules</i></b> (Optional - see
+defaults. One required if the AESKWCV token type is specified.)</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEK-AES</kwd></synph></entry>
+<entry>The wrapping KEK for the key to test is an AES KEK. This is the default for
+<synph><kwd>AES</kwd></synph> and <synph><kwd>HMAC</kwd></synph> token algorithms, and is not
+allowed with <synph><kwd>DES</kwd></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEK-DES</kwd></synph></entry>
+<entry>The wrapping KEK for the key to test is a DES KEK. This is the default for
+<synph><kwd>DES</kwd></synph> token algorithm, and is only allowed with
+<synph><kwd>DES</kwd></synph> token algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEK-PKA</kwd></synph></entry>
+<entry>The wrapping KEK for the key to test is an RSA or (other key stored in PKA key
+storage.) This is not the default for any token algorithm, and must be specified if an RSA KEK is
+used. This rule is not allowed with <synph><kwd>DES</kwd></synph> token algorithm.</entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col2" rev="sh18i1"><b><i>Verification pattern length rule</i></b>
+(Optional - May only be used with both rules DES and CMACZERO specified, otherwise not
+allowed.)</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><kwd>VPLEN3</kwd></synph></entry>
+<entry>Specifies that a 3-byte verification pattern is calculated.
+This is the default.</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><kwd>VPLEN5</kwd></synph></entry>
+<entry>Specifies that a 5-byte verification pattern is calculated.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>key_identifier</parmname> in bytes. The maximum value is
+9992.</pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to the key for which to generate or verify the verification pattern. The parameter
+is a variable length string of an internal token or the 64-byte label of a key in key storage. This
+token may be a DES internal or external token, AES internal version <ph>X'04'</ph> token, internal
+or external variable-length symmetric token, or a TR-31 key block. Clear DES tokens are not
+supported. If an internal token was supplied and was encrypted under the old master key, the token
+will be returned encrypted under the current master key.</pd></plentry>
+<plentry><pt>key_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The byte length of the <synph><var>key_encrypting_key_identifier</var></synph> parameter.
+When <synph><var>key_identifier</var></synph> is an internal token, the value must be zero.<p>If
+<synph><var>key_encrypting_key_identifier</var></synph> is a label for a record in key storage, the
+value must be 64. If the <synph><var>key_encrypting_key_identifier</var></synph> is an AES KEK, the
+value must be between the actual length of the token and 725. If the
+<synph><var>key_encrypting_key_identifier</var></synph> is a DES KEK, the value must be 64. If
+<synph><var>key_encrypting_key_identifier</var></synph> is an RSA KEK, the maximum length is
+3500.</p></pd></plentry>
+<plentry><pt>key_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>When <synph><var>key_encrypting_key_identifier_length</var></synph> is non-zero, the
+<synph><var>key_encrypting_key_identifier</var></synph> contains an internal key token containing
+the key-encrypting key, or a key label. If the key identifier supplied was an AES or DES token
+encrypted under the old master key, the token will be returned encrypted under the current master
+key.</pd></plentry>
+<plentry><pt>reserved_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The byte length of the <synph><var>reserved</var></synph> parameter. This value must be
+0.</pd></plentry>
+<plentry><pt>reserved</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry><pt>verification_pattern_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length in bytes of the <synph><var>verification_pattern</var></synph> parameter. 
+<table id="keytest2_vpl"  pgwide="0" frame="all">
+<title>Length of the verification pattern for each algorithm supported</title>
+<desc>
+<p outputclass="summary">Length of the verification pattern for each algorithm supported</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="2*"/>
+<thead>
+<row>
+<entry rev="sh21i1">Calculation algorithm or Process rule</entry>
+<entry>Length of the verification pattern in bytes</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CMACZERO</entry>
+<entry>
+<lines>AES: 5
+DES: 3 or 5
+</lines>
+</entry>
+</row>
+<row>
+<entry>ENC-ZERO</entry>
+<entry>
+<lines>Non-compliant-tagged tokens: 4
+Compliant-tagged tokens: 3
+</lines>
+The verification pattern is left-justified in an 8-byte field and padded on the right with zeros.
+</entry>
+</row>
+<row>
+<entry>SHA-256</entry>
+<entry>8
+</entry>
+</row>
+<row>
+<entry>SHA2VP1</entry>
+<entry>9
+</entry>
+</row>
+<row rev="sh21i1">
+<entry>KEY-LEN (process rule)</entry>
+<entry>
+<lines>AES: 2
+DES: 4
+</lines></entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>On input: for <synph><kwd>GENERATE</kwd></synph> the length must be at least 8 bytes; for
+<synph><kwd>VERIFY</kwd></synph> the length must be 8 bytes. </p><p>On output for
+<synph><kwd>GENERATE</kwd></synph> the length of the verification pattern returned.</p></pd></plentry>
+<plentry><pt>verification_pattern</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the binary verification pattern. <p>For
+<synph><kwd>GENERATE</kwd></synph>, the verb generates and returns the left-most, high-order bytes
+of the generated verification pattern in this variable. </p>
+<p>For <synph><kwd>VERIFY</kwd></synph>, the verb verifies the verification pattern supplied in this
+variable. </p>
+<p rev="sh21i1">For <keyword>KEY-LEN</keyword>, the length of the key in the supplied
+<parmname>key_identifier</parmname> is as shown in <xref
+href="#l0wskc02_kyt2parameters/key_len_proc_rule" format="dita"/>.</p>
+<table id="key_len_proc_rule" pgwide="0" frame="all" rev="sh21i1"><title>Returned data for the
+KEY-LEN process rule</title><desc>
+<p outputclass="summary">Returned data for the KEY-LEN process rule with two columns listing the
+token algorithm and the related returned data format</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="4*"/>
+<thead>
+<row>
+<entry>Token algorithm</entry>
+<entry>Data format</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>DES</entry>
+<entry>4 bytes:
+<ul>
+<li>Stored key bit length: 2 bytes, Big-Endian binary integer</li>
+<li>Effective key bit length: 2 bytes, Big-Endian binary integer</li>
+</ul>
+Possible values: 56 (X'0038'), 112 (X'0070'), 168 (X'00A8')
+</entry>
+</row>
+<row>
+<entry>AES</entry>
+<entry>2 bytes:
+<ul>
+<li>Stored key bit length: 2 bytes, Big-Endian binary integer</li>
+</ul>
+Possible values: 128 (X'0080'), 192 (X'00C0'), 256 (X'0100')
+</entry>
+</row>
+</tbody>
+</tgroup></table></pd></plentry>
+</parml></section>
+</refbody></reference>

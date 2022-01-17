@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktcdparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb</indexterm></indexterm>
+<indexterm>RTCMK</indexterm>
+<indexterm>RTNMK</indexterm>
+<indexterm>ECC</indexterm>
+<indexterm>RSA</indexterm>
+<indexterm>VALIDATE</indexterm>
+<indexterm>key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb</indexterm></indexterm>
+<indexterm>APKA-MK</indexterm>
+<indexterm>ASYM-MK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule for the verb. The keyword must be in eight bytes of contiguous storage,
+left-aligned, and padded on the right with blanks. The <synph><var>rule_array</var></synph> keywords
+are described in <xref href="#l0wskc02_ktcdparameters/l0wskc02_ktcd_tab1"/>. <table
+id="l0wskc02_ktcd_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Token type</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left">ECC</entry>
+<entry valign="top" align="left">Specifies that the key being changed is an ECC key. This keyword
+was introduced with CCA 4.1.0.</entry>
+</row>
+<row>
+<entry>RSA</entry>
+<entry>Specifies that the key being changed is an RSA key or a trusted
+block. This is the default.</entry>
+</row>
+<row rev="sh20i1">
+<entry>QSA</entry>
+<entry>Specifies that the key being changed is in a QSA key token such as CRYSTALS-Dilithium keys.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Reencipherment method</i></b>
+(One, required)</entry>
+</row>
+<row>
+<entry>RTCMK</entry>
+<entry>If the <synph><var>key_identifier</var></synph> is an RSA key token, the verb
+will change an RSA private key from encipherment with the old <ph>ASYM-MK</ph> to encipherment with
+the current <ph>ASYM-MK</ph>. <p>If the <synph><var>key_identifier</var></synph> is a trusted block
+token, the verb will change the trusted block's embedded MAC key from encipherment with the old
+<ph>ASYM-MK </ph> to encipherment with the current <ph>ASYM-MK</ph>.</p>
+<p>If the <synph><var>key_identifier</var></synph> is an ECC key token, the verb will change an ECC
+private key from encipherment with the old <ph>APKA-MK</ph> to encipherment with the current
+<ph>APKA-MK</ph>.</p><p rev="sh20i1">If the key_identifier is a CRYSTALS-Dilithium key token, the service will
+change a CRYSTALS-Dilithium private key from encipherment with the
+old ECC master key to encipherment with the current ECC master key.</p></entry>
+</row>
+<row>
+<entry>RTNMK</entry>
+<entry><ph>Re-enciphers a private (internal) RSA or ECC key to the new
+master key.</ph>
+<p>A key enciphered under the new master key is not usable. It is expected that the user will use
+this keyword (RTNMK) to take a preparatory step in re-enciphering an external key store that they
+manage themselves to a new master-key, before the set operation has occurred. Note also that the new
+master-key register must be full; it must have had the last key part loaded and therefore not be
+empty or partially full (partially full means that one or more key parts have been loaded but not
+the last key part).</p>
+<p>The 'SET' operation makes the new master-key operational, moving it to the current master-key
+register, and the current master-key is displaced into the old master-key register. When this
+happens, all the keys that were re-enciphered to the new master-key are now usable, because the new
+master-key is not 'new' any more, it is 'current'.</p>
+<p>Because the RTNMK keyword is added primarily for support of externally managed key storage (see
+<xref href="wskc_c_keysrule_zos.dita#l0wskc02_keysrule_zos"/>), it is not valid to pass a
+<synph><var>key_identifer</var></synph> when the RTNMK keyword is used. Only a full internal key
+token (encrypted under the current master-key) can be passed for re-encipherment with the RTNMK
+keyword. When a key LABEL is passed along with the RTNMK keyword, the error return code 8 with
+reason code 63 will be returned.</p><p>For more information, see <xref
+href="wskc_c_keysrule.dita#l0wskc02_keysrule"/>.</p></entry>
+</row>
+<row>
+<entry>VALIDATE</entry>
+<entry>Validate an internal PKA key token which is under the current master key (same processing as
+RTNMK without checking the new master key or actually re-enciphering the token).</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>key_identifier</parmname> parameter. The maximum size is <ph rev="sh20i1">6500</ph> 
+bytes.</pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Contains an internal RSA key-token, ECC key-token, <ph rev="sh20i1">CRYSTALS-Dilithium
+token,</ph> or an active trusted block, or a key label identifying such a key-record in PKA
+key-storage. The master-key enciphered data within the RSA key-token or trusted block is securely
+reenciphered under the current PKA master key, and any such key token records are stored in PKA
+key-storage. The master-key enciphered OPK contained in an RSA private-key section with section
+identifier of X'30' or X'31' is securely reenciphered under the current APKA master key, and any
+such key token records are stored in AES key-storage. The enciphered OPK of an ECC private key-token
+is securely reenciphered under the current APKA master key. ECC key token records are stored in PKA
+key-storage.
+<p rev="sh20i1">If the key token is a CRYSTALS-Dilithium key token, the private key within the token is securely
+reenciphered under the current ECC master key.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc72">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Input key-A and input key-B cannot have different export control
+bits (CV bit 17 and 57); these bits must match. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> verb
+to change XPORT-OK to NO-XPORT (CV bit 17), or the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> verb
+to  change T31XPTOK to NOT31XPT (CV bit 57). These two bits are propagated
+to the output key-token.</p></section>
+</refbody></reference>

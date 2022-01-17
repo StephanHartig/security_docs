@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ex" xml:lang="en-us" rev="sh16i1">
+<title>RSA private external key token</title>
+<titlealts>
+<navtitle>RSA private external key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private external key
+token</searchtitle>
+</titlealts>
+<shortdesc>Read the contained information about the basic structure of  RSA private external key
+tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+<indexterm>RSA private token</indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA
+private</indexterm></indexterm></indexterm>
+<indexterm>private key token<indexterm>RSA</indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>RSA private
+external</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA private
+external</indexterm></indexterm></indexterm>
+<indexterm>RSA private external key token</indexterm>
+<indexterm>private external key token<indexterm>RSA</indexterm></indexterm>
+<indexterm>external key token<indexterm>PKA<indexterm>RSA
+private</indexterm></indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>An RSA private external key token contains the following sections: </p>
+<ul>
+<li>a required PKA token header starting with the token identifier <ph>X'1E'</ph></li>
+<li>a required RSA private key section, one of those shown in  <xref format="dita"
+href="wskc_r_ex.dita#l0wskc02_ex/l0wskc02_rsapka" scope="local" type="table"/>, each starting with a
+certain section identifiers</li>
+<li>a required RSA public key section, starting with the section identifier X'04'</li>
+<li>an optional private key name section, starting with the section identifier X'10'.</li>
+</ul>
+</section>
+<section>
+<p><xref href="#l0wskc02_ex/l0wskc02_rsapka"/> presents the basic record format of an RSA private
+external key token. All length fields are in binary. All binary fields (exponents, lengths, and so
+on) are stored with the high-order byte first (big-endian format). All binary fields (exponents,
+modulus, and so on) in the private sections of tokens are right-aligned and padded with zeros to the
+left.</p>
+</section>
+<table frame="all" id="l0wskc02_rsapka" pgwide="1">
+<title>RSA private external key token basic record format</title>
+<desc>
+<p outputclass="summary">RSA private external key token basic record format</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="15*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col3" namest="col1"><b><i>Token Header</i></b> (Required)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Token identifier. <ph>X'1E'</ph> indicates an external token. The private key is either in
+cleartext or enciphered with a transport key-encrypting key.</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Version, <ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the key token structure.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>004</entry>
+<entry>Ignored. Should be zero.</entry>
+</row>
+<row>
+<entry align="left" nameend="col3" namest="col1" valign="top"><b><i>RSA Private Key Section</i></b>
+(Required) <p>See the following sections:</p><ul>
+<li><xref href="wskc_r_rsamee_intext.dita#rsamee_intext"/></li>
+<li><xref href="wskc_r_rsamee_opk.dita#l0wskc02_rsamee_opk"/></li>
+<li><xref href="wskc_rsamef_intext.dita#rsamef_intext"/></li>
+<li><xref href="wskc_rsopk1_intext.dita#rsopk1_intext"/></li>
+<li><xref href="wskc_rsapkt_crt_intext.dita#rsapkt_crt_intext"/></li>
+<li><xref href="wskc_rropk1_intext.dita#rropk1"/></li>
+<?Pub Caret 1?>
+</ul></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1"><b><i>RSA Public Key Section</i></b> (Required)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry><ph>X'04'</ph>, section identifier, RSA public key.</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry><ph>X'00'</ph>, version.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length, 12 + xxx.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Reserved field.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>RSA public key exponent field length in bytes, <q>xxx</q>.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>002</entry>
+<entry>Public key modulus length in bits.</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>RSA public key modulus field length in bytes, which is zero for a private token. <note>In an
+RSA private key token, this field should be zero. The RSA private key section contains the
+modulus.</note></entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>xxx</entry>
+<entry>Public key exponent, e (this is generally a 1, 3, or 64 - 256-byte quantity). e must be odd
+and 1 &lt; e &lt; n. (Frequently, the value of e is 2<sup>16</sup> + 1 (= 65,537). <note>You can
+import an RSA public key having an exponent valued to two (2). Such a public key can correctly
+validate an ISO 9796-1 digital signature. However, the current product implementation does not
+generate an RSA key with a public exponent valued to two (a Rabin key).</note></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1"><b><i>Private Key Name</i></b> (Optional)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry><ph>X'10'</ph>, section identifier, private key name.</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry><ph>X'00'</ph>, version.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length, <ph>X'0044'</ph> (68 decimal).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>064</entry>
+<entry>Private key name (in ASCII), left-aligned, padded with space characters (<ph>X'20'</ph>). An
+access control system can use the private key name to verify the calling application is entitled to
+use the key. <ph rev="sh18i1">When generating an RSA <term>retained private key</term>, the name
+supplied in this part of the skeleton key-token is subsequently used in the coprocessor to locate
+the retained key.</ph></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>
+<?Pub *0000007860?>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cpeparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>PIN_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/></indexterm></indexterm>
+<indexterm>clear_PIN parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>PAN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>sequence_number parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+<indexterm>encrypted_PIN_block parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry rev="sh20i1">
+<pt>PIN_encrypting_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>A pointer to a string variable containing an operational fixed-length DES key-token, beginning
+with Release 5.4 an operational variable-length AES key-token, or a key label of such a record in
+AES or DES key storage. The key token contains the key that encrypts the PIN block.</p>
+<p>When the PIN-block format of the PIN_profile variable does not specify ISO-4, identify a fixed-length DES 
+key-token with a key type of OPINENC. In addition, the control vector of the key token must have 
+CV bit 18 = B’1’ (CPINENC).
+</p>
+<p>When the PIN-block format of the <parmname>PIN_profile</parmname> variable specifies ISO-4,
+identify a variable-length symmetric key-token with a token algorithm of AES and a key type of
+PINPROT. In addition, the key usage fields must have the encryption operation set so that the key
+can be used for encryption but not decryption (ENCRYPT), the encryption mode set to Cipher Block
+Chaining (CBC), the function usage set so that the key can be used to encrypt a clear key (CPINENC),
+the common control usage set to NOFLDFMT, and the PIN-block format usage set to allow ISO-4.</p>
+</pd>
+</plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. Valid values are 0 and 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. The keyword is left-aligned
+in an 8-byte field and padded on the right with blanks. All keywords must be in contiguous storage.
+The <i>rule_array</i> keywords are described in <xref
+href="#l0wskc02_cpeparameters/l0wskc02_cpe_tab1"/>
+<table id="l0wskc02_cpe_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><i>Process Rule</i> (Optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>ENCRYPT</kwd></synph></entry>
+<entry>This is the default. Use of this keyword is optional.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>RANDOM</kwd></synph></entry>
+<entry valign="top" align="left">Causes the verb to generate a random PIN value. The length of the
+PIN is based on the value in the <synph><var>clear_PIN</var></synph> variable. Set the value of the
+clear PIN to zero and use as many digits as the desired random PIN. Pad the remainder of the clear
+PIN variable with space characters.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>clear_PIN</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 16-character string with the clear PIN. The value in this variable must be left-aligned
+and padded on the right with space characters.</pd></plentry>
+<plentry><pt>PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 24-byte string containing three 8-byte elements with a PIN block format keyword, the
+format control keyword, NONE, and a pad digit as required by certain formats. See <xref
+href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information.</pd></plentry>
+<plentry>
+<pt>PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 12-byte PAN in character format. The verb uses this parameter if the
+<parmname>PIN_profile</parmname> parameter specifies the <synph><kwd>ISO-0</kwd></synph>,
+<synph><kwd>ISO-3</kwd></synph>, <synph rev="sh20i1"><kwd>ISO-4</kwd></synph>, or
+<synph><kwd>VISA-4</kwd></synph> keyword for the PIN block format. Otherwise, ensure this parameter
+is a 12-byte variable in application storage. The information in this variable will be ignored, but
+the variable must be specified. <note>When using the <synph><kwd>ISO-0</kwd></synph> or
+<synph><kwd>ISO-3</kwd></synph> keyword, use the 12 rightmost digits of the PAN data, excluding the
+check digit. When using the <synph><kwd>VISA-4</kwd></synph> keyword, use the 12 leftmost digits of
+the PAN data, excluding the check digit.</note>
+<p rev="sh20i1"><xref href="#l0wskc02_cpeparameters/pan_data_table" format="dita"/> shows the length
+and the format of the <parmname>PAN_data</parmname> variable based on the PIN-block format specified
+in the <parmname>PIN_profile</parmname> variable:</p><table frame="all" rowsep="1" colsep="1"
+id="pan_data_table" rev="sh20i1"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/> PAN_data length and
+format</title><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="3*"/>
+<colspec colname="c2" colnum="2" colwidth="2*"/>
+<colspec colname="c3" colnum="3" colwidth="9*"/>
+<thead>
+<row>
+<entry>PIN-block format</entry>
+<entry>Length of PAN_data variable</entry>
+<entry>Format of PAN_data variable</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ISO-0 or ISO-3</entry>
+<entry>12</entry>
+<entry>Contains the 12 rightmost digits of the PAN, ranging from 0 – 9 in ASCII character
+format.</entry>
+</row>
+<row>
+<entry>ISO-4 (Release 5.4 or later)</entry>
+<entry>21</entry>
+<entry>See <xref href="#l0wskc02_cpeparameters/iso4_pan_data_tab" format="dita"/> for the definition
+of the 21-byte structure for the <parmname>PAN_data</parmname> variable when the PIN-block format
+specifies ISO-4.</entry>
+</row>
+<row>
+<entry>Not ISO-0, ISO-3, or ISO-4</entry>
+<entry>12</entry>
+<entry>Specify a 12-byte variable that must be declared but is otherwise ignored.</entry>
+</row>
+</tbody>
+</tgroup></table><p rev="sh20i1"><xref href="#l0wskc02_cpeparameters/iso4_pan_data_tab"
+format="dita"/> shows the ISO-4 PAN data structure for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>.</p><table frame="all" rowsep="1"
+colsep="1" id="iso4_pan_data_tab" rev="sh20i1"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/> ISO-4 PAN data structure</title><tgroup
+cols="3">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="5.6*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Big-endian length of ISO-4 PAN data, <i>p</i>, ranging from 10 – 19 (X’000A’ –
+X’0013’).</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry><i>p</i></entry>
+<entry>ISO-4 PAN data (10 – 19 ASCII bytes ranging from '0' – '9').</entry>
+</row>
+<row>
+<entry>2 + <i>p</i></entry>
+<entry>19 – <i>p</i></entry>
+<entry>
+<p>Buffer pad characters that must be declared but are otherwise ignored.</p>
+<p>For example, for 10-byte PAN data of "1234567890", <i>p</i> = 10 and length of buffer pad
+characters = 19 – <i>p</i> = 19 – 10 = 9. Assuming pad characters of X'00', the data structure in
+this example is:<codeblock>X'000A 31323334353637383930000000000000000000'</codeblock></p>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</pd>
+</plentry>
+<plentry><pt>sequence_number</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 4-byte character integer. The verb currently ignores the value in this variable. For
+future compatibility, the suggested value is 99999.</pd></plentry>
+<plentry><pt>encrypted_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The field that receives the 8-byte encrypted PIN block.</pd></plentry>
+</parml></section>
+</refbody></reference>

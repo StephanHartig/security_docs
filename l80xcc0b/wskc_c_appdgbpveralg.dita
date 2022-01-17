@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdgbpveralg" xml:lang="en-us">
+<title>German Banking Pool PIN Verification algorithm</title>
+<titlealts>
+<navtitle>German Banking Pool PIN verification</navtitle><?Pub Caret 25?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): German Banking Pool PIN Verification
+algorithm</searchtitle>
+</titlealts>
+<shortdesc>This algorithm generates an intermediate PIN based on the
+specified validation data. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>algorithm<indexterm>GBP PIN verification</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>GBP PIN
+verification algorithm</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>A part of the intermediate PIN is adjusted by adding an offset
+data. A part of the result is extracted. The extracted value might
+or might not be modified before it compares with the customer-entered
+PIN.</p>
+<p>The algorithm requires the following input parameters:  <ul>
+<li>A 64-bit validation data</li>
+<li>A 64-bit decimalization table</li>
+<li>A 128-bit PIN verification key</li>
+<li>An offset data</li>
+<li>A customer-entered PIN</li>
+</ul></p>
+<p>The rightmost 4 digits of the offset data form the PIN offset.
+ <ol>
+<li>The validation data is enciphered using the PIN verification key.
+Each digit of the enciphered validation data is replaced by the digit
+in the decimalization table whose displacement from the leftmost digit
+of the table is the same as the value of the digit of enciphered validation
+data.</li>
+<li>The leftmost 6 digits of the result is added (modulo 10) to the
+offset data. The modulo 10 addition ignores carries.</li>
+<li>The rightmost 4 digits of the result of the addition (modulo 10)
+are extracted.</li>
+<li>The leftmost digit of the extracted value is checked for zero.
+If the digit is zero, the digit is set to one; otherwise, the digit
+remains unchanged. The resulting four digits are compared with the
+customer-entered PIN. If they match, PIN verification is successful;
+otherwise, verification is unsuccessful.</li>
+</ol></p>
+<p><xref href="#l0wskc02_appdgbpveralg/l0wskc02_pvag"></xref> illustrates
+the GBP PIN verification algorithm.</p>
+<fig expanse="column" id="l0wskc02_pvag"><title>GBP PIN verification
+algorithm</title>
+<image href="l0wskc02_fig5.jpg" placement="break" width="250">
+<alt>GBP PIN verification algorithm</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000002540?>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_xmp_acp" xml:lang="en-us" rev="sh16">
+<title>Access control point list - data structure example</title>
+<titlealts>
+<navtitle>ACP list - data structure sample</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control point list - data
+structure example</searchtitle>
+</titlealts>
+<shortdesc>View an example of an access control point list together with explanations of the
+contents.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control point list<indexterm>data structure example</indexterm></indexterm>
+<indexterm>data structure example of an ACP list</indexterm>
+<indexterm>ACP list<indexterm>data structure example</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><xref href="#acodas_xmp_acp/acp_list_sample" format="dita"/> shows the contents of a sample
+access control point list.</p>
+<fig id="acp_list_sample">
+<title>Access-control-point list example</title>
+<codeblock>
+00 02 00 00 00 00 01 17 00 23 00 00 f0 ff ff ff   .........#......
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff   ................
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 02   ................
+00 02 17 00 03 00 00 8f 99 fe                     ..........
+</codeblock>
+</fig>
+<p> The access-control-point list contains the following data fields: </p>
+<dl>
+<dlentry>
+<dt>00 02</dt>
+<dd>The number of segments of data in the access control point list. In this list, there are two
+discontiguous segments of access control points. One starts at access-control point 0, and the other
+starts at access control point X'200'.</dd>
+</dlentry>
+<dlentry>
+<dt>00 00</dt>
+<dd>A reserved field, which must be filled with zeros.</dd>
+</dlentry>
+<dlentry>
+<dt>00 00</dt>
+<dd>The number of the first access-control point in this segment.</dd>
+</dlentry>
+<dlentry>
+<dt>01 17</dt>
+<dd>The number of the last access control point in this segment. The segment starts at access
+control point 0, and ends with access control point X'0117', which is decimal 279.</dd>
+</dlentry>
+<dlentry>
+<dt>00 23</dt>
+<dd>The number of bytes of data in the access control points for this segment. There are X'23'
+bytes, which is 35 decimal.</dd>
+</dlentry>
+<dlentry>
+<dt>00 00</dt>
+<dd>A reserved field, which must be filled with zeros.</dd>
+</dlentry>
+<dlentry>
+<dt>F0 FF FF FF ... FF FF (35 bytes)</dt>
+<dd>The first set of access control points, with one bit corresponding to each point. Thus, the
+first byte contains bits 0-7, the next byte contains 8-15, and so on.</dd>
+</dlentry>
+<dlentry>
+<dt>02 00</dt>
+<dd>The number of the first access control point in the second segment.</dd>
+</dlentry>
+<dlentry>
+<dt>02 17</dt>
+<dd>The number of the last access control point in this segment. The segment starts at access
+control point X'200' (decimal 512), and ends with access control point X'217' (decimal 535).</dd>
+</dlentry>
+<dlentry>
+<dt>00 03</dt>
+<dd>The number of bytes of data in the access control points for this segment. There are 3 bytes for
+the access control points from 512 through 535.</dd>
+</dlentry>
+<dlentry>
+<dt>00 00</dt>
+<dd>A reserved field, which must be filled with zeros.</dd>
+</dlentry>
+<dlentry>
+<dt>8F 99 FE</dt>
+<dd>The second set of access control points, with one bit corresponding to each point. Thus, the
+first byte contains the bits 512-519, the second byte contains bits 520-527, and the third byte
+contains bits 528-535.</dd>
+</dlentry>
+</dl>
+<p rev="sh18i2">For a specific role, you can display the ACP segments using the
+<cmdname>panel.exe</cmdname>, as shown in <xref href="wskc_acodas_role_acp.dita#acodas_role_acp"/>
+.</p>
+</conbody>
+</concept>
+<?Pub *0000003873?>

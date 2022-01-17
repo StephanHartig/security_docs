@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="inst_rpm_files" xml:lang="en-us">
+<title>Files in the RPM or DEB</title>
+<titlealts>
+<navtitle>Files in the RPM or DEB</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Files in the RPM or DEB</searchtitle>
+</titlealts>
+<shortdesc>These files are included in the RPM or DEB.</shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>CCA RPM<indexterm>contained files</indexterm></indexterm>
+<indexterm>CCA DEB<indexterm>contained files</indexterm></indexterm>
+<indexterm>environment variable</indexterm>
+<indexterm>RPM<indexterm>contained files</indexterm></indexterm>
+<indexterm>DEB<indexterm>contained files</indexterm></indexterm><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p> <dl><dlentry>
+<dt>/etc/profile.d/csulcca.sh</dt>
+<dd>Environment variables are created in this file. Customers should read this file for up-to-date
+information. The key storage environment variables are added here. See <xref
+href="wskc_c_kenvar.dita#l0wskc02_kenvar"/>.</dd>
+</dlentry><dlentry>
+<dt>/etc/profile.d/csulcca.csh</dt>
+<dd>Environment variables are created in this file. Customers should read this file for up-to-date
+information. The key storage environment variables are added here. See <xref
+href="wskc_c_kenvar.dita#l0wskc02_kenvar"/>.
+<note><synph><kwd>/etc/profile.d/csulcca.sh</kwd></synph> and
+<synph><kwd>/etc/profile.d/csulcca.csh</kwd></synph> are exactly the same in what they do, but have
+syntax differences. Only one of these two files is used, depending on the configuration of the
+particular user running an application.</note></dd>
+</dlentry><dlentry>
+<dt>/etc/init.d/CSUTKEcat</dt>
+<dd rev="sh20i2">System initialization script that automatically starts the
+<cmdname>catcher.exe</cmdname> daemon when Linux starts. There may be situations when You need to
+explicitly start or stop the <cmdname>catcher.exe</cmdname> daemon. Select from one of the following
+methods: <p>Start or stop the daemon from the command
+line:</p><screen>/etc/init.d/CSUTKEcat start
+/etc/init.d/CSUTKEcat stop</screen><p>The preferred way
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions providing
+<apiname>systemd</apiname> is to use the following commands:
+<screen># systemctl start CSUTKEcat
+# systemctl stop CSUTKEcat</screen></p><p>In older distributions
+without <apiname>systemd</apiname>, you may be able to start or stop the
+<cmdname>catcher.exe</cmdname> using <apiname>system
+services</apiname>:<screen># service CSUTKEcat start
+# service CSUTKEcat stop</screen></p></dd>
+</dlentry><dlentry>
+<dt>/etc/rc.d/rc2.d/S14CSUTKEcat</dt>
+<dd>Link to: <synph><kwd>/etc/init.d/CSUTKEcat</kwd></synph></dd>
+</dlentry><dlentry>
+<dt>/etc/rc.d/rc3.d/S14CSUTKEcat</dt>
+<dd>Link to: <synph><kwd>/etc/init.d/CSUTKEcat</kwd></synph></dd>
+</dlentry><dlentry>
+<dt>/etc/rc.d/rc5.d/S14CSUTKEcat</dt>
+<dd>Link to: <synph><kwd>/etc/init.d/CSUTKEcat</kwd></synph></dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/bin/TKECM.dat</dt>
+<dd> </dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/bin/acpoints.dat</dt>
+<dd> </dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/bin/catcher.exe</dt>
+<dd>Daemon executable that is controlled by the <filepath>/etc/init.d/CSUTKEcat</filepath> script.
+This daemon listens on TCP port 50003 for requests from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) for secure commands to administer any
+adapters configured as available to the system. See the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> documentation for usage and capabilities.
+<ph rev="sh20i2">You may need to adapt firewall or networking rules on your system to allow incoming
+connections on port 50003.</ph><p>The daemon depends on libcsulcca.so and on the
+<cmdname>z90crypt</cmdname> or <cmdname>ap</cmdname> device driver. While the daemon is running, it
+has an open file handle to the <filepath>/dev/z90crypt</filepath> device node maintained by the
+cryptographic module. Therefore, <cmdname>catcher.exe</cmdname> as a running process affects whether
+you can load or unload <cmdname>z90crypt</cmdname> or <cmdname>ap</cmdname> respectively. Use
+<filepath>/etc/init.d/CSUTKEcat</filepath> to start <cmdname>catcher.exe</cmdname> or to stop it if
+you want to unload <cmdname>z90crypt</cmdname> or <cmdname>ap</cmdname> respectively. Remember that
+TKE secure administration requires a running catcher.exe process.</p></dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/bin/panel.exe</dt>
+<dd>Utility: run with no arguments for help. See also <xref
+href="wskc_c_utilities.dita#l0wskc02_utilities"/></dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/bin/ivp.e</dt>
+<dd>Utility: run with no arguments for install verification. See also <xref
+href="wskc_c_utilities.dita#l0wskc02_utilities"/></dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/CCA/cnm/CNM.jar</dt>
+<dd>jar archive of the  Java packaged version of the JNI interface, implementing the Java versions
+of most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> calls.</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/cnm/CNMMK.jar</dt>
+<dd>jar archive of the  Java packaged version of the JNI interface, implementing the Java versions
+of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> calls for changing the Master
+Key in the CEX*C</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc/README.txt</dt>
+<dd> contains release-specific information, if applicable and pointers to helpful tools</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc/license.txt</dt>
+<dd> entry point to license documentation identifying release and product specific terms</dd>
+</dlentry>
+<dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc/</dt>
+<dd>contains files that describe classes added by the JNI support for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>: <ul compact="yes">
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>.html</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/>.html</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/>.html</li>
+</ul>
+</dd>
+</dlentry>
+<dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/>/include/csulincl.h</dt>
+<dd rev="sh18i2">
+C header file that is listing the names of the verbs and their parameters.
+</dd>
+</dlentry><dlentry>
+<dt>/usr/lib64/libcsulcca.so (RPM) and /usr/lib/libcsulcca.so (DEB)</dt>
+<dd>This file is a link to the most recent library file, with name
+<cmdname>libcsulcca.so.V.R.M</cmdname> where: V = version, R = release, and M = maintenance
+level.</dd>
+</dlentry><dlentry>
+<dt>/usr/lib64/libcsulccamk.so (RPM) and /usr/lib/libcsulccamk.so (DEB)</dt>
+<dd>This file is a link to the most recent library file, with name
+<cmdname>libcsulccamk.so.V.R.M</cmdname> where: V = version, R = release, and M = maintenance
+level.</dd>
+</dlentry><dlentry>
+<dt>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/keys/README.keys</dt>
+<dd> </dd>
+</dlentry></dl><?Pub Caret 2027?></p>
+</conbody>
+</concept>
+<?Pub *0000006214?>

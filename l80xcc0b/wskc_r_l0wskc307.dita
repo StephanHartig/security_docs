@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc307">
+<title>Special notes</title>
+ <titlealts>
+    <navtitle>Special notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Special notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></searchtitle>
+  </titlealts>
+<shortdesc>Additional information about CSNBT31I.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>)<indexterm>special
+notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<ol>
+<li>Several import situations might require keywords. Keywords are
+ignored for <synph><kwd>INCL-CV</kwd></synph> scenarios unless they directly conflict
+with the included CV. For example, the verb returns an error if the
+control vector indicates that a DKYGENKY key has a subtype of DKYL0
+and the user specifies the DKYL1 keyword.</li>
+<li>Be aware of the interaction of ACP <ph>X'0158'</ph> (TR31 Export
+- Permit Any CCA Key if INCL-CV Is Specified) with the <synph><kwd>INCL-CV</kwd></synph> keyword
+for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb. Without the <synph><kwd>INCL-CV</kwd></synph> keyword specified,
+most export translations are guarded by key-type specific ACPs. These
+ACPs are used to guard the source CCA system against attacks involving
+reimport of the exported key under ambiguous circumstances. When the
+control vector is exported in an optional block along with the key,
+it is securely bound to the encrypted key. This somewhat protects
+the source system because the key on import is allowed to have only
+the form of the included control vector. Expansion of capability is
+blocked. If ACP <ph>X'0158'</ph> is not enabled in the active role,
+the type-specific ACPs are still required. However, if ACP <ph>X'0158'</ph> is
+enabled, the key-type specific ACPs are not checked when <synph><kwd>INCL-CV</kwd></synph> is
+specified. </li>
+<li>Be aware of ACP <ph>X'017C'</ph> (TR31 Import - Permit V0/V1/V2:N
+to PINGEN/PINVER) for import of PINGEN or PINVER keys to wrapping
+mode A, usage V0, V1, V2, and mode N.</li>
+</ol></section>
+<section><p>The extra translation-specific ACPs are intended to enable control
+of situations where the CCA imported key type is ambiguous based on
+the TR-31 key attributes. This ambiguity is never the case when <synph><kwd>INCL-CV</kwd></synph> has
+been specified with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb, which ensures that the
+imported TR-31 key block has a valid CV to precisely control the resultant
+CCA key. Therefore, there are no translation-specific ACPs governing <synph><kwd>INCL-CV</kwd></synph> import
+translations.</p></section>
+</refbody></reference>

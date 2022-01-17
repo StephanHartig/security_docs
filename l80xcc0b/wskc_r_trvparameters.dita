@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_trvparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/></indexterm></indexterm>
+<indexterm>CSC-3</indexterm>
+<indexterm>CSC-4</indexterm>
+<indexterm>CSC-5</indexterm>
+<indexterm>CSC-345</indexterm>
+<indexterm>CSC-V1</indexterm><indexterm>CSC-V2</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>GENERATE</indexterm>
+<indexterm>transaction_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</indexterm></indexterm>
+<indexterm>transaction_info parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</indexterm></indexterm>
+<indexterm>validation_values parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. The keywords are
+left-aligned in an 8-byte field and padded on the right with blanks. The keywords must be in
+contiguous storage. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_trvparameters/l0wskc02_ratrv"/>.<table id="l0wskc02_ratrv" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row rev="sh15">
+<entry namest="col1" nameend="col2"><b><i>Card security code algorithm</i></b> (One,
+optional)</entry>
+</row>
+<row rev="sh15">
+<entry><synph><kwd>CSC-V1</kwd></synph></entry>
+<entry>Specifies use of CSC version 1.0 algorithm for generating or verifying the validation
+values.</entry>
+</row>
+<row rev="sh15">
+<entry><synph><kwd>CSC-V2</kwd></synph></entry>
+<entry>Specifies use of CSC version 2.0 algorithm for generating or verifying the validation
+values.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> card security codes</i></b> (One,
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-3</kwd></synph></entry>
+<entry>3-digit card security code (CSC) located on the signature panel. <b>VERIFY</b> implied. This
+is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-4</kwd></synph></entry>
+<entry>4-digit card security code (CSC) located on the signature panel. <b>VERIFY</b>
+implied.</entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-5</kwd></synph></entry>
+<entry>5-digit card security code (CSC) located on the signature panel. <b>VERIFY</b>
+implied.</entry>
+</row>
+<row>
+<entry><synph><kwd>CSC-345</kwd></synph></entry>
+<entry>Generate 5-byte, 4-byte, or 3-byte values when given an account number and an expiration
+date. <b>GENERATE</b> implied. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Operation</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>VERIFY</kwd></synph></entry>
+<entry>Specifies verification of the value presented in the validation values variable.</entry>
+</row>
+<row>
+<entry><synph><kwd>GENERATE</kwd></synph></entry>
+<entry>Specifies generation of the value presented in the validation values variable.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>transaction_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>transaction_key</parmname> parameter.</pd></plentry>
+<plentry><pt>transaction_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label name or internal token of a <synph><kwd>MAC</kwd></synph> or
+<synph><kwd>MACVER</kwd></synph> class key. The key can be single or double length.</pd></plentry>
+<plentry><pt>transaction_info_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>transaction_info</var></synph> parameter. For the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> CSC codes, the length must be 19.</pd></plentry>
+<plentry><pt>transaction_info</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>For <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/>, this is a 19-byte
+field containing the concatenation of the 4-byte expiration data (in the format YYMM) and the
+15-byte <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> account number. Provide
+the information in character format.</pd></plentry>
+<plentry><pt>validation_values_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>validation_values</var></synph> parameter. Maximum value for
+this field is 64.</pd></plentry>
+<plentry><pt>validation_values</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This variable contains <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/>
+CSC values. The data is output for <b>GENERATE</b> and input for <b>VERIFY</b>. See <xref
+href="#l0wskc02_trvparameters/l0wskc02_ratrv1"/>.<table id="l0wskc02_ratrv1" pgwide="0" frame="all">
+<title> Values for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/>
+validation_values parameter</title>
+<desc>
+<p outputclass="summary">Values for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/>
+<i>validation_values</i> parameter</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="129*"/>
+<colspec colname="col2" colwidth="339*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Operation</entry>
+<entry valign="bottom" align="left">Element description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>GENERATE</b> and <b>CSC-345</b></entry>
+<entry>5555544444333 where:
+<lines>55555 = CSC 5 value
+4444  = CSC 4 value
+333   = CSC 3 value </lines></entry>
+</row>
+<row>
+<entry><b>VERIFY</b> and <b>CSC-3</b></entry>
+<entry>333 = CSC 3 value </entry>
+</row>
+<row>
+<entry><b>VERIFY</b> and <b>CSC-4</b></entry>
+<entry>4444 = CSC 4 value </entry>
+</row>
+<row>
+<entry><b>VERIFY</b> and <b>CSC-5</b></entry>
+<entry>55555 = CSC 5 value </entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+</parml></section>
+</refbody></reference>

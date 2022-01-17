@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cvxl">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> <ph>verb</ph> changes the control vector used to
+encipher an external DES key.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</indexterm></indexterm>
+<indexterm>control vector</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Detailed information about control vectors and how to use this
+verb can be found in <xref href="wskc_c_ap1me.dita#l0wskc02_ap1me"/>.</p></section>
+</refbody></reference>

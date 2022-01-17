@@ -1,0 +1,2731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appareascod8">
+<title>Reason codes that accompany return code 8</title>
+<titlealts>
+<navtitle>Reason codes that accompany return code 8</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes that accompany return code
+8</searchtitle>
+</titlealts><shortdesc>Reason codes that accompany return code 8.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>reason codes<indexterm>with return code 8</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The codes are listed in <xref href="#l0wskc02_appareascod8/l0wskc02_rcrc8"/>.
+<table id="l0wskc02_rcrc8" pgwide="1">
+<title>Reason codes for return code 8</title><desc><p outputclass="summary">Reason codes for return code 8</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="33*"/>
+<thead>
+<row>
+<entry>Return code, decimal</entry>
+<entry>Reason code, decimal (hex)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>8 </entry>
+<entry>012 (00C)</entry>
+<entry>The token-validation value in an external key
+token is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>022 (016) </entry>
+<entry>The ID number in the request field is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>023 (017) </entry>
+<entry>An access to the data area is outside the data-area
+boundary.</entry></row>
+<row>
+<entry>8</entry>
+<entry>024 (018) </entry>
+<entry>The master key verification pattern is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>025 (019) </entry>
+<entry>The value that the <synph><var>text_length</var></synph> parameter
+specifies is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>026 (01A)</entry>
+<entry>The value of the PIN is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>029 (01D)</entry>
+<entry>The token-validation value in an internal key
+token is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>030 (01E)</entry>
+<entry>No record with a matching key label is in key
+storage. </entry></row>
+<row>
+<entry>8</entry>
+<entry>031 (01F)</entry>
+<entry> The control vector does not specify a DATA key. 
+<ph rev="sh21i1">The key may be a CIPHER key which does not have the XPRTCPAC bit set in the control vector.</ph>
+</entry></row>
+<row>
+<entry>8</entry>
+<entry>032 (020)</entry>
+<entry>A key label format is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>033 (021)</entry>
+<entry>A <i>rule_array</i> or other
+parameter specifies a keyword that is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>034 (022)</entry>
+<entry>A <i>rule_array</i> keyword
+combination is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>035 (023)</entry>
+<entry>A <i>rule_array_count</i> is
+not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>036 (024)</entry>
+<entry>The action command must be specified in the <i>rule_array</i>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>037 (025)</entry>
+<entry>The object type must be specified in the <i>rule_array</i>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>039 (027)</entry>
+<entry>A control vector violation occurred. Check all
+control vectors employed with the verb. For security reasons, no detail
+is provided.</entry></row>
+<row>
+<entry>8</entry>
+<entry>040 (028)</entry>
+<entry>The service code does not contain numerical
+character data.</entry></row>
+<row>
+<entry>8</entry>
+<entry>041 (029)</entry>
+<entry>The keyword supplied with the <synph><var>key_form</var></synph> parameter
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>042 (02A) </entry>
+<entry>The expiration date is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>043 (02B) </entry>
+<entry>The keyword supplied with the <synph><var>key_length</var></synph> or
+the <synph><var>key_token_length</var></synph> parameter is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>044 (02C) </entry>
+<entry>A record with a matching key label already exists
+in key storage. </entry></row>
+<row>
+<entry>8</entry>
+<entry>045 (02D) </entry>
+<entry>The input character string cannot be found in
+the code table. </entry></row>
+<row>
+<entry>8</entry>
+<entry>046 (02E) </entry>
+<entry>The card-validation value (CVV) is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>047 (02F) </entry>
+<entry>A source key token is unusable because it contains
+data that is not valid or is undefined. </entry></row>
+<row>
+<entry>8</entry>
+<entry>048 (030) </entry>
+<entry>One or more keys has a master key verification
+pattern that is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>049 (031) </entry>
+<entry>A key-token-version-number found in a key token
+is not supported. </entry></row>
+<row>
+<entry>8</entry>
+<entry>050 (032) </entry>
+<entry>The key-serial-number specified in the <i>rule_array</i> is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>051 (033) </entry>
+<entry>The value that the <synph><var>text_length</var></synph> parameter
+specifies is not a multiple of eight bytes. </entry></row>
+<row>
+<entry>8</entry>
+<entry>054 (036) </entry>
+<entry>The value that the <synph><var>pad_character</var></synph> parameter
+specifies is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>055 (037) </entry>
+<entry>The initialization vector in the key token is
+enciphered. </entry></row>
+<row>
+<entry>8</entry>
+<entry>056 (038) </entry>
+<entry>The master key verification pattern in the OCV
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>058 (03A)</entry>
+<entry>The parity of the operating key is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>059 (03B)</entry>
+<entry>Control information (for example, the processing
+method or the pad character) in the key token conflicts with that
+in the <i>rule_array</i>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>060 (03C)</entry>
+<entry>A cryptographic request with the FIRST or MIDDLE
+keywords and a text length less than eight bytes is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>061 (03D)</entry>
+<entry> The keyword supplied with the <synph><var>key_type</var></synph> parameter
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>062 (03E)</entry>
+<entry>The source key is not present. </entry></row>
+<row>
+<entry>8</entry>
+<entry>063 (03F)</entry>
+<entry>A key token has an invalid token header (for
+example, not an internal token).</entry></row>
+<row>
+<entry>8</entry>
+<entry>064 (040)</entry>
+<entry>The RSA key is not permitted to perform the
+requested operation. Likely cause is key distribution usage is not
+enabled for the key.</entry></row>
+<row>
+<entry>8</entry>
+<entry>065 (041)</entry>
+<entry> The key token failed consistency checking.</entry></row>
+<row>
+<entry>8</entry>
+<entry>066 (042)</entry>
+<entry> The recovered encryption block failed validation
+checking.</entry></row>
+<row>
+<entry>8</entry>
+<entry>067 (043)</entry>
+<entry> RSA encryption failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>068 (044)</entry>
+<entry> RSA decryption failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>070 (046)</entry>
+<entry>An invalid block identifier (identifier tag)
+was found. Either a block ID (identifier tag) that was proprietary
+was found, a reserved block ID was used, a duplicate block ID was
+found, or the specified optional block in the TR-31 key block could
+not be found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>072 (048)</entry>
+<entry> The value that the size parameter specifies
+is not valid (too small, too large, negative, or zero).</entry></row>
+<row>
+<entry>8</entry>
+<entry>085 (055)</entry>
+<entry>The date or the time value is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>090 (05A)</entry>
+<entry>Access control checking failed. See the Required
+Commands descriptions for the failing verb.</entry></row>
+<row>
+<entry>8</entry>
+<entry>091 (05B)</entry>
+<entry>The time that was sent in your logon request
+was more than five minutes different from the clock in the secure
+module.</entry></row>
+<row>
+<entry>8</entry>
+<entry>092 (05C)</entry>
+<entry>The user profile is expired.</entry></row>
+<row>
+<entry>8</entry>
+<entry>093 (05D)</entry>
+<entry>The user profile has not yet reached its activation
+date.</entry></row>
+<row>
+<entry>8</entry>
+<entry>094 (05E)</entry>
+<entry>The authentication data (for example, passphrase)
+is expired.</entry></row>
+<row>
+<entry>8</entry>
+<entry>095 (05F)</entry>
+<entry>Access to the data is not authorized.</entry></row>
+<row>
+<entry>8</entry>
+<entry>096 (060)</entry>
+<entry>An error occurred reading or writing the secure
+clock.</entry></row>
+<row>
+<entry>8</entry>
+<entry>100 (064)</entry>
+<entry>The PIN length is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>101 (065)</entry>
+<entry>The PIN check length is not valid. It must be
+in the range from 4 to the PIN length inclusive.</entry></row>
+<row>
+<entry>8</entry>
+<entry>102 (066)</entry>
+<entry>The value of the decimalization table is not
+valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>103 (067)</entry>
+<entry>The value of the validation data is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>104 (068)</entry>
+<entry>The value of the customer-selected PIN is not
+valid or the PIN length does not match the value supplied with the <synph><var>PIN_length</var></synph> parameter
+or defined by the PIN-block format specified in the PIN profile.</entry></row>
+<row>
+<entry>8</entry>
+<entry>105 (069)</entry>
+<entry>The value of the <synph><var>transaction_security</var></synph> parameter
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>106 (06A) </entry>
+<entry>The PIN-block format keyword is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>107 (06B) </entry>
+<entry>The format control keyword is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>108 (06C) </entry>
+<entry>The value or the placement of the padding data
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>109 (06D) </entry>
+<entry>The extraction method keyword is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>110 (06E) </entry>
+<entry>The value of the PAN data is not numeric character
+data.</entry></row>
+<row>
+<entry>8</entry>
+<entry>111 (06F) </entry>
+<entry>The sequence number is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>112 (070) </entry>
+<entry>The PIN offset is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>114 (072) </entry>
+<entry>The PVV value is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>116 (074) </entry>
+<entry>The clear PIN value is not valid. For example,
+digits other than 0 - 9 were found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>118 (76)</entry>
+<entry>The issuer domestic code is invalid. This value must be five
+alphanumeric characters.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>120 (078) </entry>
+<entry>An origin or destination identifier is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>121 (079) </entry>
+<entry>The value of the <synph><var>inbound_key</var></synph>, <synph rev="sh21i1"><var>key_value_structure</var></synph>, 
+or <synph><var>source_key</var></synph> parameter is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>125 (07D)</entry>
+<entry>A PKA92-encrypted key having the same Environment
+Identifier (EID) as the local node cannot be imported.</entry></row>
+<row>
+<entry>8</entry>
+<entry>129 (081)</entry>
+<entry>Required rule-array keyword not found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>153 (099) </entry>
+<entry>The text length exceeds the system limits.</entry></row>
+<row>
+<entry>8</entry>
+<entry>154 (09A)</entry>
+<entry>The key token the <synph><var>key_identifier</var></synph> parameter
+specifies is not an internal key-token or a key label.</entry></row>
+<row>
+<entry>8</entry>
+<entry>155 (09B)</entry>
+<entry>The value that the <synph><var>generated_key_identifier</var></synph> parameter
+specifies is not valid or it is not consistent with the value that
+the <synph><var>key_form</var></synph> parameter specifies.</entry></row>
+<row>
+<entry>8</entry>
+<entry>156 (09C)</entry>
+<entry> A keyword is not valid with the specified parameters.</entry></row>
+<row>
+<entry>8</entry>
+<entry>157 (09D)</entry>
+<entry>The key-token type is not specified in the <i>rule_array</i>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>159 (09F) </entry>
+<entry>The keyword supplied with the option parameter
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>160 (0A0)</entry>
+<entry>The key type and the key length are not consistent.</entry></row>
+<row>
+<entry>8</entry>
+<entry>161 (0A1)</entry>
+<entry>The value that the <synph><var>dataset_name_length</var></synph> parameter
+specifies is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>162 (0A2)</entry>
+<entry> The offset value is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>163 (0A3)</entry>
+<entry> The value that the <synph><var>dataset_name</var></synph> parameter
+specifies is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>164 (0A4)</entry>
+<entry>The starting address of the output area falls
+inside the input area. </entry></row>
+<row>
+<entry>8</entry>
+<entry>165 (0A5)</entry>
+<entry>The carry_over_character_count specified in
+the chaining vector is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>168 (0A8)</entry>
+<entry>A hexadecimal MAC value contains characters
+that are not valid or the MAC, on a request or reply failed, because
+the user session key in the host and the adapter card do not match.</entry></row>
+<row>
+<entry>8</entry>
+<entry>169 (0A9)</entry>
+<entry>Specific to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/>, indicates that the length
+of the text supplied is not correct, either not long enough for the
+algorithm parameters used or not the correct multiple (must be multiple
+of eight bytes).</entry></row>
+<row>
+<entry>8</entry>
+<entry>170 (0AA)</entry>
+<entry>Special authorization through the operating
+system is required to use this verb.</entry></row>
+<row>
+<entry>8</entry>
+<entry>171 (0AB)</entry>
+<entry>The control_array_count value is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>175 (0AF)</entry>
+<entry>The key token cannot be parsed because no control
+vector is present.</entry></row>
+<row>
+<entry>8</entry>
+<entry>180 (0B4)</entry>
+<entry>A key token presented for parsing is null. </entry></row>
+<row>
+<entry>8</entry>
+<entry>181 (0B5)</entry>
+<entry>The key token is not valid. The first byte is
+not valid or an incorrect token type was presented.</entry></row>
+<row>
+<entry>8</entry>
+<entry>183 (0B7)</entry>
+<entry>The key type is not consistent with the key
+type of the control vector. </entry></row>
+<row>
+<entry>8</entry>
+<entry>184 (0B8)</entry>
+<entry>An input pointer is null.</entry></row>
+<row>
+<entry>8</entry>
+<entry>185 (0B9)</entry>
+<entry>A disk I/O error occurred: perhaps the file
+is in-use, does not exist, and so forth.</entry></row>
+<row>
+<entry>8</entry>
+<entry>186 (0BA)</entry>
+<entry>The key-type field in the control vector is
+not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>187 (0BB)</entry>
+<entry>The requested MAC length (MACLEN4, MACLEN6,
+MACLEN8) is not consistent with the control vector (key-A, key-B).</entry></row>
+<row>
+<entry>8</entry>
+<entry>191 (0BF)</entry>
+<entry>The requested MAC length (MACLEN6, MACLEN8)
+is not consistent with the control vector (MAC-LN-4).</entry></row>
+<row>
+<entry>8</entry>
+<entry>192 (0C0)</entry>
+<entry>A key-storage record contains a record validation
+value that is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>194 (0C2)</entry>
+<entry>A private-key section length is invalid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>199 (0C7)</entry>
+<entry>A public exponent is invalid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>204 (0CC) </entry>
+<entry>A memory allocation failed. This can occur in
+the host and in the coprocessor. Try closing other host tasks. If
+the problem persists, contact the <tm trademark="IBM" tmtype="reg">IBM</tm> support
+center. </entry></row>
+<row>
+<entry>8</entry>
+<entry>205 (0CD) </entry>
+<entry>The X9.23 ciphering method is not consistent
+with the use of the CONTINUE keyword. </entry></row>
+<row>
+<entry>8</entry>
+<entry>323 (143) </entry>
+<entry>The ciphering method the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verb used
+does not match the ciphering method the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb used. </entry></row>
+<row>
+<entry>8</entry>
+<entry>335 (14F)</entry>
+<entry>Either the specified cryptographic hardware
+component or the environment cannot implement this function. </entry></row>
+<row>
+<entry>8</entry>
+<entry>340 (154)</entry>
+<entry>One of the input control vectors has odd parity. </entry></row>
+<row>
+<entry>8</entry>
+<entry>343 (157)</entry>
+<entry>Either the data block or the buffer for the
+block is too small or a variable has caused an attempt to create an
+internal data structure that is too large.</entry></row>
+<row>
+<entry>8</entry>
+<entry>345 (159)</entry>
+<entry>Insufficient storage space exists for the data
+in the data block buffer.</entry></row>
+<row>
+<entry>8</entry>
+<entry>374 (176)</entry>
+<entry> Less data was supplied than expected or less
+data exists than was requested. </entry></row>
+<row>
+<entry>8</entry>
+<entry>377 (179)</entry>
+<entry>A key-storage error occurred. </entry></row>
+<row>
+<entry>8</entry>
+<entry>382 (17E) </entry>
+<entry>A time-limit violation occurred. </entry></row>
+<row>
+<entry>8</entry>
+<entry>385 (181) </entry>
+<entry>The cryptographic hardware component reported
+that the data passed as part of a command is not valid for that command. </entry></row>
+<row>
+<entry>8</entry>
+<entry>387 (183) </entry>
+<entry>The cryptographic hardware component reported
+that the user ID or role ID is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>393 (189) </entry>
+<entry>The command was not processed because the profile
+cannot be used. </entry></row>
+<row>
+<entry>8</entry>
+<entry>394 (18A)</entry>
+<entry>The command was not processed because the expiration
+date was exceeded. </entry></row>
+<row>
+<entry>8</entry>
+<entry>397 (18D)</entry>
+<entry>The command was not processed because the active
+profile requires the user to be verified first. </entry></row>
+<row>
+<entry>8</entry>
+<entry>398 (18E)</entry>
+<entry>The command was not processed because the maximum
+PIN or password failure limit is exceeded. </entry></row>
+<row>
+<entry>8</entry>
+<entry>407 (197)</entry>
+<entry>There is a PIN-block consistency-check-error. </entry></row>
+<row>
+<entry>8</entry>
+<entry>439 (1B7)</entry>
+<entry>Key cannot be completed because all required
+key parts have not yet been accumulated, or key is already complete.</entry></row>
+<row>
+<entry>8</entry>
+<entry>441 (1B9)</entry>
+<entry>Key part cannot be added because key is complete.
+The key to be processed should be partial, but the key is not partial
+according to the control vector or other control bits of the key.</entry></row>
+<row>
+<entry>8</entry>
+<entry>442 (1BA) </entry>
+<entry rev="sh21i1">DES keys with replicated halves are not allowed or a DES key
+with CV bit 40 = B'1' (DOUBLE-O or TRIPLE-O) has replicated key parts.</entry></row>
+<row>
+<entry>8</entry>
+<entry>605 (25D) </entry>
+<entry>The number of output bytes is greater than the
+number that is permitted. </entry></row>
+<row>
+<entry>8</entry>
+<entry>703 (2BF)</entry>
+<entry>A new master-key value is one of the weak DES
+keys.</entry></row>
+<row>
+<entry>8</entry>
+<entry>704 (2C0)</entry>
+<entry>A new master key cannot have the same master
+key version number as the current master-key. </entry></row>
+<row>
+<entry>8</entry>
+<entry>705 (2C1) </entry>
+<entry>Both exporter keys specify the same key-encrypting
+key.</entry></row>
+<row>
+<entry>8</entry>
+<entry>706 (2C2) </entry>
+<entry>Pad count in deciphered data is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>707 (2C3) </entry>
+<entry>The master-key registers are not in the state
+required for the requested function. </entry></row>
+<row>
+<entry>8</entry>
+<entry>714 (2CA) </entry>
+<entry>A reserved parameter must be a null pointer
+or an expected value. </entry></row>
+<row>
+<entry>8</entry>
+<entry>715 (2CB) </entry>
+<entry>A parameter that must have a value of zero is
+not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>718 (2CE) </entry>
+<entry>The hash value of the data block in the decrypted
+RSA-OAEP block does not match the hash of the decrypted data block. </entry></row>
+<row>
+<entry>8</entry>
+<entry>719 (2CF)</entry>
+<entry>The block format (BT) field in the decrypted
+RSA-OAEP block does not have the correct value. </entry></row>
+<row>
+<entry>8</entry>
+<entry>720 (2D0)</entry>
+<entry>The initial byte (I) in the decrypted RSA-OAEP
+block does not have a valid value. </entry></row>
+<row>
+<entry>8</entry>
+<entry>721 (2D1)</entry>
+<entry>The V field in the decrypted RSA-OAEP does not
+have the correct value.</entry></row>
+<row>
+<entry>8</entry>
+<entry>752 (2F0) </entry>
+<entry>The key-storage file path is not usable. </entry></row>
+<row>
+<entry>8</entry>
+<entry>753 (2F1) </entry>
+<entry>Opening the key-storage file failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>754 (2F2) </entry>
+<entry>An internal call to the key_test command failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>756 (2F4) </entry>
+<entry>Creation of the key-storage file failed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>760 (2F8) </entry>
+<entry>An RSA-key modulus length in bits or in bytes
+is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>761 (2F9) </entry>
+<entry>An RSA-key exponent length is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>762 (2FA)</entry>
+<entry>The key values structure for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/> has a field in error. A length or
+format is not correct.</entry></row>
+<row>
+<entry>8</entry>
+<entry>763 (2FB)</entry>
+<entry>The section identification number within a key
+token is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>770 (302) </entry>
+<entry>The PKA key token has a field that is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>771 (303) </entry>
+<entry>The user is not logged on.</entry></row>
+<row>
+<entry>8</entry>
+<entry>772 (304) </entry>
+<entry>The requested role does not exist. </entry></row>
+<row>
+<entry>8</entry>
+<entry>773 (305) </entry>
+<entry>The requested profile does not exist. </entry></row>
+<row>
+<entry>8</entry>
+<entry>774 (306) </entry>
+<entry>The profile already exists. </entry></row>
+<row>
+<entry>8</entry>
+<entry>775 (307) </entry>
+<entry>The supplied data is not replaceable.</entry></row>
+<row>
+<entry>8</entry>
+<entry>776 (308)</entry>
+<entry>The requested ID is already logged on. </entry></row>
+<row>
+<entry>8</entry>
+<entry>777 (309) </entry>
+<entry>The authentication data is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>778 (30A)</entry>
+<entry>The checksum for the role is in error. </entry></row>
+<row>
+<entry>8</entry>
+<entry>779 (30B)</entry>
+<entry>The checksum for the profile is in error.</entry></row>
+<row>
+<entry>8</entry>
+<entry>780 (30C)</entry>
+<entry>There is an error in the profile data. </entry></row>
+<row>
+<entry>8</entry>
+<entry>781 (30D)</entry>
+<entry>There is an error in the role data.</entry></row>
+<row>
+<entry>8</entry>
+<entry>782 (30E)</entry>
+<entry>The function-control-vector header is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>783 (30F) </entry>
+<entry>The command is not permitted by the 	function-control-vector
+value. </entry></row>
+<row>
+<entry>8</entry>
+<entry>784 (310) </entry>
+<entry>The operation you requested cannot be performed
+because the user profile is in use. </entry></row>
+<row>
+<entry>8</entry>
+<entry>785 (311) </entry>
+<entry>The operation you requested cannot be performed
+because the role is in use. </entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>786 (312)</entry>
+<entry>A profile load is being attempted for a profile that has the same authentication key as
+another profile in the domain that already exists.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>787 (313)</entry>
+<entry>A profile load is being attempted for a profile that has a key that is 
+too weak for the compliance level of the domain where the profile is being loaded.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>816 (330)</entry>
+<entry>The public-key certificate length is invalid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>817 (331)</entry>
+<entry>The public key does not match.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>818 (332)</entry>
+<entry>The signature of the input public-key certificate does not verify.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>819 (333)</entry>
+<entry>The public-key certificate type is invalid or not allowed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>821 (335)</entry>
+<entry>The subject name provided is either missing, malformed, or of invalid length.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>822 (336)</entry>
+<entry>The issuer name provided is either missing, malformed, or of invalid length.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>823 (337)</entry>
+<entry>The serial number provided is either unexpected, missing, malformed, 
+or of invalid length.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>825 (339)</entry>
+<entry>The extension data provided is either unexpected, missing, malformed, 
+or of invalid length.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>826 (33A)</entry>
+<entry>The expiration days value provided is either unexpected, missing, or out of range.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>827 (33B)</entry>
+<entry>The <codeph>pathLenConstraint</codeph> provided is either unexpected, missing, 
+or out of range.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>829 (33D)</entry>
+<entry>Error in GSK/SSL/ASN.1 processing.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>830 (33E)</entry>
+<entry>Error in ASN.1 processing. No more data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>831 (33F)</entry>
+<entry>Error in ASN.1 processing. Length value is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>833 (341)</entry>
+<entry>Error in ASN.1 processing. Attribute value separator is missing.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>834 (342)</entry>
+<entry>Error in ASN.1 processing. Unknown attribute identifier.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>835 (343)</entry>
+<entry>Error in ASN.1 processing. Object identifier syntax error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>837 (345)</entry>
+<entry>Error in ASN.1 processing. Interval is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>838 (346)</entry>
+<entry>Error in ASN.1 processing. X.500 name syntax error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>839 (347)</entry>
+<entry>Error in ASN.1 processing. Data type is not correct.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>841 (349)</entry>
+<entry>Error in ASN.1 processing. Character string cannot be converted.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>842 (34A)</entry>
+<entry>Error in ASN.1 processing. Indefinite-length encoding is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>843 (34B)</entry>
+<entry>Error in ASN.1 processing. Data element must be constructed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>845 (34D)</entry>
+<entry>Error in ASN.1 processing. Data element must be an ASN.1 primitive.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>846 (34E)</entry>
+<entry>Error in ASN.1 processing. Indefinite-length encoding is not allowed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>847 (34F)</entry>
+<entry>Error in ASN.1 processing. Data encoding is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>849 (351)</entry>
+<entry>Error in ASN.1 processing. Data value overflow.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>850 (352)</entry>
+<entry>Error in ASN.1 processing. Unused bit count is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>851 (353)</entry>
+<entry>Error in ASN.1 processing. Unused bit count is not valid for a 
+segmented bit string.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>853 (355)</entry>
+<entry>Error in ASN.1 processing. Required data element is missing.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>854 (356)</entry>
+<entry>Error in ASN.1 processing. Excess data found at end of data element.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>855 (357)</entry>
+<entry>Error in ASN.1 processing. Parameter is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>857 (359)</entry>
+<entry>Error in ASN.1 processing. Data value is not present.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>858 (35A)</entry>
+<entry>Error in ASN.1 processing. Selection is not within the valid range.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>859 (35B)</entry>
+<entry>Error in ASN.1 processing. No selection found.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>861 (35D)</entry>
+<entry>Error in ASN.1 processing. Syntax already set.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>862 (35E)</entry>
+<entry>Error in ASN.1 processing. Codeset is not allowed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>863 (35F)</entry>
+<entry>Error in ASN.1 processing. Attribute value is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>865 (361)</entry>
+<entry>Error in ASN.1 processing. Attribute value is missing.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>866 (362)</entry>
+<entry>Error in ASN.1 processing. Object identifier element count is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>867 (363)</entry>
+<entry>Error in ASN.1 processing. Incorrect value for the first object identifier element.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>869 (365)</entry>
+<entry>Error in ASN.1 processing. Incorrect value for the second object 
+identifier element.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>870 (366)</entry>
+<entry>Error in ASN.1 processing. Version is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>871 (367)</entry>
+<entry>Error in certificate processing. Certificate contains a duplicate extension.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>873 (369)</entry>
+<entry>The extension data provided conflicts with the rule array data provided.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>874 (36A)</entry>
+<entry>Error in certificate processing. Elliptic Curve is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>875 (36B)</entry>
+<entry>Error in certificate processing. Signature not supplied.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>878 (36E)</entry>
+<entry>Error in certificate processing. Cryptographic algorithm is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>879 (36F)</entry>
+<entry>Error in certificate processing. Incorrect Base64 encoding.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>881 (371)</entry>
+<entry>Error in certificate processing. Unrecognized file or message encoding.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>882 (372)</entry>
+<entry>The HSM internal clock has not been set.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>883 (373)</entry>
+<entry>Error in certificate processing. Key not supported by encryption or signature algorithm. </entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>885 (375)</entry>
+<entry>The X.509 certificate presented has an invalid, or missing KeyUsage extension.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>886 (376)</entry>
+<entry>Error in certificate processing. Certificate extension is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>887 (377)</entry>
+<entry rev="sh21i1">Error in certificate processing. The input certificate does not have a valid
+signature.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>889 (379)</entry>
+<entry>Error in certificate processing. Input/Output request failed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>890 (37A)</entry>
+<entry>Error in certificate processing. Database is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>891 (37B)</entry>
+<entry rev="sh21i1">Error in certificate processing. Signature not supplied.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>893 (37D)</entry>
+<entry>Error in certificate processing. Certificate extension data has an incorrect critical
+indicator.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>894 (37E)</entry>
+<entry>Error in certificate processing. Required certificate extension is missing.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>895 (37F)</entry>
+<entry>Error in certificate processing. Certificate not valid for host.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>897 (381)</entry>
+<entry>Error in certificate processing. Subject name is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>898 (382)</entry>
+<entry>Error in certificate processing. Certificate extension data is incorrect.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>899 (383)</entry>
+<entry>Error in certificate processing. Validation option is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>901 (385)</entry>
+<entry>Error in certificate processing. Name constraints violated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>902 (386)</entry>
+<entry>Error in certificate processing. Record not found.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>903 (387)</entry>
+<entry>Error in certificate processing. Certificate chain is not trusted.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>905 (389)</entry>
+<entry>Error in certificate processing. Required basic constraints certificate extension is
+missing.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>906 (38A)</entry>
+<entry>Error in certificate processing. An internal error has occurred.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>907 (38B)</entry>
+<entry>Error in certificate processing. Issuer certificate not found.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>909 (38D)</entry>
+<entry>Error in certificate processing. Name format is not supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>910 (38E)</entry>
+<entry>Error in certificate processing. Self-signed certificate not in database.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>911 (38F)</entry>
+<entry>Error in certificate processing. Certificate is expired.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>913 (391)</entry>
+<entry>Error in certificate processing. Certificate is not yet valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>914 (392)</entry>
+<entry>Error in certificate processing. Issuer name is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>915 (393)</entry>
+<entry>Error in certificate processing. Certificate is revoked.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>917 (395)</entry>
+<entry>Error in certificate processing. Numeric value is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>918 (396)</entry>
+<entry>Error in certificate processing. Variable argument security level is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>919 (397)</entry>
+<entry>Error in certificate processing. Variable argument validate root is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>921 (399)</entry>
+<entry>Error in certificate processing. Variable argument count is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>922 (39A)</entry>
+<entry>Error in certificate processing. Extended key usage comparison failed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>923 (39B)</entry>
+<entry>Error in certificate processing. Certificate does not have an extended key usage
+extension.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>925 (39D)</entry>
+<entry>Error in certificate processing. Extended key usage type is not supported for this
+operation.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>926 (39E)</entry>
+<entry>Error in certificate processing. Extended key usage input is not supplied.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>927 (39F)</entry>
+<entry>Error in certificate processing. Extended key usage input count is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>929 (3A1)</entry>
+<entry>Error in certificate processing. Input certificate not supplied.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>930 (3A2)</entry>
+<entry>Error in certificate processing. Incorrect key usage.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>931 (3A3)</entry>
+<entry>Error in certificate processing. Cannot match CRL distribution points.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>933 (3A5)</entry>
+<entry>Error in certificate processing. Acceptable policy intersection cannot be found.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>934 (3A6)</entry>
+<entry>Error in certificate processing. Certification path is too long.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>935 (3A7)</entry>
+<entry>Error in certificate processing. Issuer is not a certification authority.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>939 (3AB)</entry>
+<entry>Certificate presented to load as a certification authority does not have a true value for CA
+in basic constraints certificate extension.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>941 (3AD)</entry>
+<entry>Certificate presented to use as an end entity has a true value for cA in basic 
+constraints certificate extension.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>942 (3AE)</entry>
+<entry>Error in certificate processing. Label is not unique.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>943 (3AF)</entry>
+<entry>Error in certificate processing. Certificate is not unique.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>946 (3B2)</entry>
+<entry>The requested hash method differes from the hash method used when 
+the certificate was loaded.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>947 (3B3)</entry>
+<entry>Error in certificate processing. Record label is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>949 (3B5)</entry>
+<entry>Error in certificate processing. Multiple certificates exist for label.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>950 (3B6)</entry>
+<entry>Error in certificate processing. Record deleted.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>954 (3BA)</entry>
+<entry>Error in certificate processing. Subject name cannot be changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>955 (3BB)</entry>
+<entry>Error in certificate processing. Public key cannot be changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>957 (3BD)</entry>
+<entry>The Certificate presented is not in the proper state for the requested 
+operation.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>958 (3BE)</entry>
+<entry>The Certificate hash presented does not match the stored hash.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>959 (3BF)</entry>
+<entry>Error in certificate processing. Database contains certificates signed by the
+certificate.</entry>
+</row>
+
+<row rev="sh20i1">
+<entry>8</entry>
+<entry>997 (3E5)</entry>
+<entry>The algorithm identifier provided is either missing, malformed, or invalid.</entry>
+</row>
+<row rev="sh20i1">
+<entry>8</entry>
+<entry>998 (3E6)</entry>
+<entry>The algorithm parameters provided are either missing, malformed, or invalid.</entry>
+</row>
+
+<row>
+<entry>8</entry>
+<entry>1025 (401)</entry>
+<entry>The registered public key or retained private
+key name already exists. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1026 (402) </entry>
+<entry>The key name (registered public key or retained
+private key) does not exist. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1027 (403) </entry>
+<entry>Environment identifier data is already set. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1028 (404) </entry>
+<entry>Master key share data is already set. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1029 (405) </entry>
+<entry>There is an error in the Environment Identifier
+(EID) data. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1030 (406)</entry>
+<entry>There is an error in using the master key share
+data. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1031 (407) </entry>
+<entry>There is an error in using registered public
+key or retained private key data. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1032 (408) </entry>
+<entry>There is an error in using registered public
+key hash data.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1033 (409) </entry>
+<entry>The public key hash was not registered. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1034 (40A) </entry>
+<entry>The public key was not registered. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1035 (40B) </entry>
+<entry>The public key certificate signature was not
+verified. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1037 (40D) </entry>
+<entry>There is a master key shares distribution error.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1038 (40E) </entry>
+<entry>The public key hash is not marked for cloning.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1039 (40F) </entry>
+<entry>The registered public key hash does not match
+the registered hash.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1040 (410)  </entry>
+<entry>The master key share enciphering key failed
+encipher. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1041 (411) </entry>
+<entry>The master key share enciphering key failed
+decipher. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1042 (412) </entry>
+<entry>The master key share digital signature generate
+failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1043 (413) </entry>
+<entry>The master key share digital signature verify
+failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1044 (414) </entry>
+<entry>There is an error in reading VPD data from the
+adapter. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1045 (415) </entry>
+<entry>Encrypting the cloning information failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1046 (416) </entry>
+<entry>Decrypting the cloning information failed. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1047 (417) </entry>
+<entry>There is an error loading the new master key
+from the master key shares. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1048 (418) </entry>
+<entry>The clone information has one or more sections
+that are not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1049 (419) </entry>
+<entry>The master key share index is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1050 (41A)</entry>
+<entry>The public-key encrypted-key is rejected because
+the Environment Identifier (EID) with the key is the same as the EID
+for this node. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1051 (41B)</entry>
+<entry>The private key is rejected because the key
+is not flagged for use in master-key cloning. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1052 (41C)</entry>
+<entry>The token identifier of the trusted block's
+header section is in the range <ph>X'20'</ph> - <ph>X'FF'</ph>. Check
+the token identifier of the trusted block.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1053 (41D)</entry>
+<entry>The active flag in the trusted block’s
+trusted block section <ph>X'14'</ph> is not disabled. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb
+to create an inactive/external trusted block.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1054 (41E)</entry>
+<entry>The token identifier of the trusted block’s
+header section is not <ph>X'1E'</ph> (external). Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb
+to create an inactive/external trusted block.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1055 (41F)</entry>
+<entry>The active flag of the trusted block’s
+trusted block section <ph>X'14'</ph> is not enabled. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb
+to create an active/external trusted block.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1056 (420)</entry>
+<entry>The token identifier of the trusted block’s
+header section is not <ph>X'1F'</ph> (internal). Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb
+to import the trusted block.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1057 (421)</entry>
+<entry>The trusted block rule section <ph>X'12'</ph> rule
+ID does not match input parameter rule ID. Verify that the trusted
+block used has the rule section specified.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1058 (422)</entry>
+<entry>The trusted block contains a value that is too
+small or too large.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1059 (423)</entry>
+<entry>A trusted block parameter that must have a value
+of zero (or a grouping of bits set to zero) is invalid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1060 (424)</entry>
+<entry>The trusted block public key section failed
+consistency checking.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1061 (425)</entry>
+<entry>The trusted block contains extraneous sections
+or subsections (TLVs). Check the trusted block for undefined sections
+or subsections.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1062 (426)</entry>
+<entry>The trusted block contains missing sections
+or subsections (TLVs).  Check the trusted block for required sections
+and subsections applicable to the verb invoked.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1063 (427)</entry>
+<entry>The trusted block contains duplicate sections
+or subsections (TLVs). Check the trusted block’s sections and
+subsections for duplicates. Multiple rule sections are allowed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1064 (428)</entry>
+<entry>The trusted block expiration date has expired
+(as compared to the <tm trademark="IBM" tmtype="reg">IBM</tm> 4764
+clock).  Validate the expiration date in the trusted block’s
+trusted information section’s Activation and Expiration Date
+TLV object</entry></row>
+<row>
+<entry>8</entry>
+<entry>1065 (429)</entry>
+<entry>The trusted block expiration date is at a date
+prior to the activation date. Validate the expiration date in the
+trusted block’s trusted information section’s Activation
+and Expiration Date TLV object.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1066 (42A)</entry>
+<entry>The trusted block public key modulus length
+in bits is not consistent with the byte length. The bit length must
+be less than or equal to byte length * 8 and greater than (byte length
+- 1) * 8.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1067 (42B)</entry>
+<entry>The trusted block public key modulus length
+in bits exceeds the maximum allowed bit length, as defined by the
+Function Control Vector.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1068 (42C)</entry>
+<entry>One or more trusted block sections or TLV objects
+contained data that is invalid (an example would be invalid label
+data in label section <ph>X'13'</ph>).</entry></row>
+<row>
+<entry>8</entry>
+<entry>1069 (42D)</entry>
+<entry>Trusted block verification was attempted by
+a verb other than <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>, or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1070 (42E)</entry>
+<entry>The trusted block rule ID contained within a
+rule section has invalid characters.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1071 (42F)</entry>
+<entry>The source key's length or CV does not match
+what is expected by the rule section in the trusted block that was
+selected by the rule ID input parameter.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1072 (430)</entry>
+<entry>The activation data is not valid. Validate the
+activation data in the trusted block’s trusted information section’s
+Activation and Expiration Date TLV object.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1073 (431)</entry>
+<entry>The source-key label does not match the template
+in the export key DES token parameters TLV object of the selected
+trusted block rule section.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1074 (432)</entry>
+<entry>The control-vector value specified in the common
+export key parameters TLV object in the selected rule section of the
+trusted block contains a control vector that is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1075 (433)</entry>
+<entry>The source-key label template in the export
+key DES token parameters TLV object in the selected rule section of
+the trusted block contains a label template that is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1077 (435)</entry>
+<entry>Key wrapping option input error.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1078 (436)</entry>
+<entry>Key wrapping Security Relevant Data Item (SRDI)
+error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1079 (437)</entry>
+<entry>The format of the decrypted PIN block is not supported in this function.</entry>
+</row>
+
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>1081 (439)</entry>
+<entry>The ISO-1 format PIN block is not allowed by your configuration. The <cmdname>Disallow PIN block format ISO-1</cmdname> access
+control is enabled.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>1082 (43A)</entry>
+<entry>The key strength of the input or output key is not allowed by your access control point settings. For DES/TDES
+keys, consider also the effective strength of the key, whether there are repeated 56-bit sections among K1,K2
+or K1,K2,K3. For example, if effective single-length TDES keys are disabled by access control point settings, 
+consider if K1=K2, K2=K3, or K1=K2=K3.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>1083 (43B)</entry>
+<entry>When the wrap type in the token indicates <keyword>WRAPENH3</keyword>, this verb requires a skeleton token. 
+The verb cannot reuse a token containing a key. There may be multiple reasons for this. The most common is that the 
+length of the key is hidden when the <keyword>WRAPENH3</keyword> method is used. 
+Therefore, a skeleton token with the true requested key length is needed.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>1085 (43D)</entry>
+<entry>When the wrap type in the token indicates <keyword>WRAPENH3</keyword>, or <keyword>WRAPENH3</keyword> is requested 
+for a token and the right-most clear key material in K2 or K3, or both, is all 0, then the token can not be wrapped with 
+<keyword>WRAPENH3</keyword>.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1100 (44C)</entry>
+<entry>There is a general hardware device driver execution
+error.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1101 (44D)</entry>
+<entry>There is a hardware device driver parameter
+that is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1102 (44E)</entry>
+<entry>There is a hardware device driver non-valid
+buffer length. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1103 (44F) </entry>
+<entry>The hardware device driver has too many opens.
+The device cannot open now. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1104 (450) </entry>
+<entry>The hardware device driver is denied access. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1105 (451) </entry>
+<entry>The hardware device driver device is busy and
+cannot perform the request now. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1106 (452) </entry>
+<entry>The hardware device driver buffer is too small
+and the received data is truncated. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1107 (453) </entry>
+<entry>The hardware device driver request is interrupted
+and the request is aborted. </entry></row>
+<row>
+<entry>8</entry>
+<entry>1108 (454) </entry>
+<entry>The hardware device driver detected a security
+tamper event.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1114 (45A)</entry>
+<entry>The communications manager detected that the
+host-supplied buffer for the reply control block is too small.</entry></row>
+<row>
+<entry>8</entry>
+<entry>1115 (45B)</entry>
+<entry>The communications manager detected that the
+host-supplied buffer for the reply data block is too small.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1117 (45D)</entry>
+<entry>Hardware device driver operation not permitted.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1118 (45E)</entry>
+<entry>Hardware device driver received bad address.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1119 (45F)</entry>
+<entry>Hardware device driver hardware error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1121 (461)</entry>
+<entry>Hardware device driver firmware error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1122 (462)</entry>
+<entry>Hardware device driver temperature of out range.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1123 (463)</entry>
+<entry>Hardware device driver received bad request.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1125 (465)</entry>
+<entry>Hardware device driver host timeout.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2034 (7F2)</entry>
+<entry>The environment variable that was used to set
+the default coprocessor is not valid, or does not exist for a coprocessor
+in the system.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2036 (7F4)</entry>
+<entry>The contents of a chaining vector are not valid.
+Ensure the chaining vector was not modified by your application program. </entry></row>
+<row>
+<entry>8</entry>
+<entry>2038 (7F6)</entry>
+<entry>No RSA private key information is provided.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2041 (7F9)</entry>
+<entry>A default card environment variable is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>2050 (802)</entry>
+<entry>The current key serial number field in the PIN
+profile variable is not valid (not hexadecimal or too many one bits).</entry></row>
+<row>
+<entry>8</entry>
+<entry>2051 (803)</entry>
+<entry>There is a non-valid message length in the OAEP-decoded
+information.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2053 (805)</entry>
+<entry>No message found in the OAEP-decoded data.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2054 (806)   </entry>
+<entry>There is a non-valid RSA Enciphered Key cryptogram:
+OAEP optional encoding parameters failed validation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2055 (807)    </entry>
+<entry>Based on the hash method and size of the symmetric
+key specified, the RSA public key size is too small to format the
+symmetric key into a PKOAEP2 message.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2062 (80E)    </entry>
+<entry>The active role does not permit you to change
+the characteristic of a double-length key in the <synph><var>key_Part_Import</var></synph> parameter.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2065 (811)   </entry>
+<entry>The specified key token is not null. </entry></row>
+<row>
+<entry>8</entry>
+<entry>2080 (820)</entry>
+<entry>The group profile was not found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2081 (821)</entry>
+<entry>The group has duplicate elements.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2082 (822)</entry>
+<entry>The group profile is not in the group.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2083 (823)</entry>
+<entry>The group has the wrong user ID count.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2084 (824)</entry>
+<entry>The group user ID failed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2085 (825)</entry>
+<entry>The profile is not in the specified group.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2086 (826)</entry>
+<entry>The group role was not found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2087 (827)</entry>
+<entry>The group profile has not been activated.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2088 (828)</entry>
+<entry>The expiration date of the group profile has
+been reached or exceeded.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2089 (829)</entry>
+<entry>The verb contains multiple keywords or parameters
+that indicate the algorithm to be used, and at least one of these
+specifies a different algorithm from the others.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2090 (82A)</entry>
+<entry>A required SRDI was not found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2091 (82B)</entry>
+<entry>A required CA SRDI was not found.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2093 (82D)</entry>
+<entry>Specific to<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - an AES key is encrypted under a
+DES master key, which is not acceptable for the requested operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2095 (82F)</entry>
+<entry>The <synph><var>key_form</var></synph> is incompatible with the <synph><var>key_type</var></synph>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2097 (831)</entry>
+<entry>The <synph><var>key_length</var></synph> is incompatible with
+the <synph><var>key_type</var></synph>.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2098 (832)</entry>
+<entry>Either a key bit length that was not valid was
+found in an AES key token (length not 128, 192, or 256 bits) or a
+version <ph>X'01'</ph> DES token had a token-marks field that was not
+valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2099 (833)</entry>
+<entry>Invalid encrypted key length in the AES token,
+when an encrypted key is present.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2106 (83A)</entry>
+<entry>An input/output error occurred while accessing
+the logged on users table.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2110 (83E)</entry>
+<entry>Invalid wrapping type.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2111 (83F)</entry>
+<entry>Control vector enhanced bit (bit 56) conflicts
+with key wrapping keyword.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2113 (841)</entry>
+<entry>A key token contains invalid payload.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2114 (842)</entry>
+<entry>Clear-key bit length is out of range.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2115 (843)</entry>
+<entry>Input key token cannot have a key present when
+importing the first key part; skeleton key token is required.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2118 (846)</entry>
+<entry>One or more invalid values in the TR-31 key
+block header.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2119 (847)</entry>
+<entry>The "mode" value in the TR-31 header is invalid
+or is not acceptable in the chosen operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2121 (849)</entry>
+<entry>The "algorithm" value in the TR-31 header is
+invalid or is not acceptable in the chosen operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2122 (84A)</entry>
+<entry>For import, the exportability byte in the TR-31
+header contains a value that does not support import of the key into
+CCA. For export, the requested exportability does not match circumstances
+(for example, a 'B' Key Block Version ID key can be wrapped
+only by a KEK that is wrapped in CBC mode, the ECB mode KEK violates
+ANSI X9.24).</entry></row>
+<row>
+<entry>8</entry>
+<entry>2123 (84B)</entry>
+<entry>The length of the cleartext key in the TR-31
+block is invalid (for example, the algorithm is 'D' for
+single-length DES, but the key length is not 64 bits).</entry></row>
+<row>
+<entry>8</entry>
+<entry>2125 (84D)</entry>
+<entry>The Key Block Version ID in the TR-31 header
+contains an invalid value.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2126 (84E)</entry>
+<entry>The key-usage field in the TR-31 header contains
+a value that is not supported for import of the key into CCA.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2127 (84F)</entry>
+<entry>The key-usage field in the TR-31 header contains
+a value that is not valid with the other parameters in the header.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2129 (851)</entry>
+<entry>Either a parameter for building a TR-31 key
+block (a TR-31 key block or a component, such as a tag for an optional
+block) contains one or more ASCII characters that are not printable
+as described in TR-31, or a field contains ASCII characters that are
+not allowed for that field.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2130 (852)</entry>
+<entry>The control vector carried in the optional blocks
+of the TR-31 key block is inconsistent with other attributes of the
+key.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2131 (853)</entry>
+<entry>The key-token failed the MAC validate
+step of the Key Block unwrap and verify steps (for either Key Block
+Version ID method). MAC validation failed for a parameter in a key
+block, such as a trusted block or a TR-31 key block. This might be
+the result of tampering, corruption, or using a validation key that
+is different from the one use to generate the MAC.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2134 (856)</entry>
+<entry>No valid PIN decimalization tables are present.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2135 (857)</entry>
+<entry>The PIN decimalization table provided as input
+is not allowed to be used because it does not match any of the active
+tables stored on the coprocessor.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2137 (859)</entry>
+<entry>There is an error involving the PIN decimalization
+table input data. No PIN tables have been changed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2138 (85A)</entry>
+<entry>At least one of the PIN decimalization tables
+requested to be activated is empty or already in the active state
+(not in the loaded state). No PIN tables have been activated.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2139 (85B)</entry>
+<entry>At least one PIN decimalization table provided
+as input to be activated does not match the corresponding table that
+is loaded on the coprocessor. No PIN tables have been changed from
+the loaded state to the active state.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2141 (84D)</entry>
+<entry>The key verification pattern for the key-encrypting
+key is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2142 (85E)</entry>
+<entry>A key-usage field setting prevents operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2143 (85F)</entry>
+<entry>A key-management field setting prevents operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2145 (861)</entry>
+<entry>An attempt to wrap a stronger key with a weaker
+key was disallowed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2147 (863)</entry>
+<entry>The key type to be generated is not valid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2149 (865)</entry>
+<entry>The key to be generated is stronger than the
+input material.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2151 (867)</entry>
+<entry>At least one PIN decimalization table identifier
+provided as input is out of range or is a duplicate. No PIN tables
+have been changed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2153 (869)</entry>
+<entry>The input token is incompatible with the service
+(that is, clear key when encrypted key was expected).</entry></row>
+<row>
+<entry>8</entry>
+<entry>2154 (86A)</entry>
+<entry>At least one key token does not have the required
+key type for the specified function.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2158 (86E)</entry>
+<entry>There is a mismatch between ECC key tokens of
+curve types, key lengths, or both. Curve types and key lengths must
+match.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2159 (86F)</entry>
+<entry>A key-encrypting key is invalid.</entry></row>
+<row>
+<entry>8</entry>
+<entry>2161 (871)</entry>
+<entry>A wrap type, either requested or default, is
+in conflict with one or more input tokens.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2163 (873)</entry>
+<entry>At least two of the key parts of a new operational or master key have
+identical parts and an error has been requested by the setting of an
+appropriate access control point.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2165 (875)</entry>
+<entry>An RSA key token contains a private section that is not valid with this
+command.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2167 (877)</entry>
+<entry>Invalid hash type in certificate.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2169 (879)</entry>
+<entry>Invalid signature type in certificate.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2170 (87A)</entry>
+<entry>Translation of text using an outbound key that has an effective key
+strength weaker than the effective strength of the inbound key is not
+allowed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2174 (87E)</entry>
+<entry>The provided data was not hexadecimal digits.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2175 (87F)</entry>
+<entry>A weak PIN was presented. The PIN change has been rejected.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2177 (881)</entry>
+<entry>The PAN presented to the PAN change verb was the same as the PAN
+in the encrypted PIN block. The change has been rejected.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2178 (882)</entry>
+<entry>The PAN provided is inconsistent with a PAN incorporated in another
+piece of data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2181 (885)</entry>
+<entry></entry>
+</row>
+<row rev="sh20i1">
+<entry>8</entry>
+<entry>2182 (886)</entry>
+<entry>A rule array keyword was passed to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> 
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>) callable service or a TR-31 Key
+Block header field indicated that a particular TR-31 optional block was required. This optional block was not found 
+in the TR-31 key block or the optional block has data that is invalid for the service call.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2183 (887)</entry>
+<entry>There is an error in the weak PIN entry structure input header length.
+No entries have been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2185 (889)</entry>
+<entry>For at least one of the inputs, the weak PIN entry requested to be
+activated is not in the loaded state. No weak PIN entries have been
+activated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2186 (88A)</entry>
+<entry>For at least one of the inputs, the weak PIN entry requested to be
+activated did not match the weak PIN entry structure to be activated.
+No weak PIN entries have been activated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2187 (88B)</entry>
+<entry>One or more of the weak PIN entry ID numbers in the input verb data
+was invalid, out or range, or a duplicate. No weak PIN entries have
+been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2189 (88D)</entry>
+<entry>There is an error in the weak PIN entry structure input type. No entries
+have been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2190 (88E)</entry>
+<entry>There is an error in the weak PIN entry structure input header version.
+No entries have been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2191 (88F)</entry>
+<entry>There is an error in the weak PIN entry structure input header count.
+No entries have been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2193 (891)</entry>
+<entry>The presented PIN is a duplicate of one already in the table. No entries
+have been changed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2194 (892)</entry>
+<entry>Invalid or out of range passphrase length.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2197 (895)</entry>
+<entry>The presented PIN failed verification. No processing has been done.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2198 (896)</entry>
+<entry>The presented CMAC failed verification. No processing has been done.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2199 (897)</entry>
+<entry>A variable-length symmetric key-token (version X'05') contains invalid
+key-usage field data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2201 (899)</entry>
+<entry>A variable-length symmetric key-token (version X'05') contains invalid
+key-management field data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2203 (89B)</entry>
+<entry>RSA engine check-sum error.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2227 (8B3)</entry>
+<entry>The triple-length key cannot be imported because the TR-31 key block does not 
+include a CCA control vector.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2229 (8B5)</entry>
+<entry>The type of the specified key is not valid because a diversified key-generating
+key must be used to derive this symmetric key type.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2231 (8B7)</entry>
+<entry>There was a problem converting or formatting the PAN.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2232 (8B8)</entry>
+<entry>There was a problem converting or formatting the cardholder name.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2233 (8B9)</entry>
+<entry>There was a problem converting or formatting the track 1 data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2235 (8BB)</entry>
+<entry>There was a problem converting or formatting the track 2 data.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2237 (8BD)</entry>
+<entry>Data presented for VFPE processing is not in VFPE enciphered.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2238 (8BE)</entry>
+<entry>An incorrect PIN profile is specified.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2239 (8BF)</entry>
+<entry>The check digit compliance indicator/keyword denotes compliant check digit 
+but the input PAN does not have a compliant check digit.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2243 (8C3)</entry>
+<entry>The key-derivation section is missing or the attributes in the
+key-derivation section do not match those in the output skeleton token.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2245 (8C5)</entry>
+<entry>A randomly generated source key is required, but the pedigree of the
+source key indicates that the key is not randomly generated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2246 (8C6)</entry>
+<entry>A required tag-length-value (TLV) object is not present in the IBM
+Extended Associated Data (IEAD) section.</entry>
+</row>
+
+<row>
+<entry>8</entry>
+<entry>2247 (8C7)</entry>
+<entry>Error in PSS signature salt length.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2254 (8CE)</entry>
+<entry>The SECURE LOG SRDI that is stored on the coprocessor is full, no auditable 
+actions are allowed.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2261 (8D5)</entry>
+<entry>Cannot adjust time twice within a 24 hour period.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2262 (8D6)</entry>
+<entry>Last adjustment time was > 24 hours; however, the amount of time to be 
+adjusted is > 1 second.</entry>
+</row>
+ 
+<row>
+<entry>8</entry>
+<entry>2401 (961)</entry>
+<entry>Tried to enter compliance mode or change compliance state but not in correct starting mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2402 (962)</entry>
+<entry>Tried to use a compliance-tagged key but domain is not in active compliance mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2403 (963)</entry>
+<entry>This verb is not allowed to use compliance-tagged key tokens.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2405 (965)</entry>
+<entry>This service of this verb is not allowed to use with compliance-tagged tokens.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>2406 (966)</entry>
+<entry>An attempt was made to use compliant-tagged tokens with non-compliant-tagged tokens or with 
+legacy compliant-tagged tokens. All compliant-tagged tokens must be the same level. 
+<p>Either use all compliant-tagged tokens or all non-compliant-tagged tokens to the latest level.</p>
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2407 (967)</entry>
+<entry>This service has been asked to generate or derive a comp-tagged key, or to check a key token 
+for compliance but the requested/given strength is too weak for the configured compliance mode.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2409 (969)</entry>
+<entry>This service has been asked to generate or derive a comp-tagged key, or to check a key token 
+for compliance, but the requested/given key type or usage is non-compliant.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2410 (96A)</entry>
+<entry>This service has been asked to use or create a Key-Encrypting-Key (KEK) that has had the 
+NOCV flag set in token flags. Since the flags are not part of the CV it is possible the flag 
+was added on the host side. These types of KEKs are non-compliant.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2411 (96B)</entry>
+<entry>The requested service is only available when the domain is configured in migration mode, 
+and the domain is not in this mode now.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2413 (96D)</entry>
+<entry>The service has been asked to use a comp-tagged KEK to wrap or unwrap an external token 
+but the external token key type is non-compliant.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2414 (96E)</entry>
+<entry>The service for comp-tag migration checking or migration tagging has been given a token 
+type that is not currently supported.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2415 (96F)</entry>
+<entry>The service to enter imprint or compliance mode cannot complete because card cannot support 
+compliance mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2417 (971)</entry>
+<entry>A token passed in identifies a KDF for a compliance mode that is not the current compliance 
+mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2418 (972)</entry>
+<entry>A token passed into KTR2 already has a comp-tag in CV.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2419 (973)</entry>
+<entry>Failed to retrieve the compliance mode flags.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2421 (975)</entry>
+<entry>A CCA service was requested without the COMPMODE keyword for a domain that is in imprint 
+mode or a compliance mode that requires the COMPMODE keyword.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2422 (976)</entry>
+<entry>A CCA service was passed the COMPMODE keyword but the domain is not in imprint mode or a 
+compliance mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2423 (977)</entry>
+<entry>Cannot change default imprint mode role (INITADDM) while in imprint mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2425 (979)</entry>
+<entry>INIT-AC inactive and activate COMPMODE keywords were different</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2426 (97A)</entry>
+<entry>Action is restricted because domain is in imprint mode. 
+For example the default domain-scope profile cannot update DFLTxxxx or its own role. 
+Also, the CSNBMKP and CSNDPIM verbs cannot be used in imprint mode.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2427 (97B)</entry>
+<entry>A compliance-tagged token was passed to the HSM while the HSM was in Migration Mode. 
+Compliance-tag token services are not available in migration mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2429 (97D)</entry>
+<entry>A CCA service was requested that, because of the compliance state of the domain, 
+requires a signed command from a TKE. However, the request was not received in this format.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2430 (97E)</entry>
+<entry>A CCA service has been passed a key part to be ether the first key part or to be combined 
+with previously passed key parts for either the Master Key or an operational key that is being 
+built from parts. The key part passed may be long enough but is not valid because it matches 
+(bit for bit) one of the known weak key patterns (such as all 0x00 bytes) for that key algorithm.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2431 (97F)</entry>
+<entry>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service has been passed
+an external token with the COMP-TAG marker or bit set. This is bit 58 in the Control Vector (CV) for
+DES tokens.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2433 (981)</entry>
+<entry>The attempted operation must be performed as a dual-control operation when the target domain
+is in compliance or imprint mode. <ph rev="sh21i1">The command was single control.</ph>
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2434 (982)</entry>
+<entry>The ACP list associated with the role-to-load violates the PCI-HSM complimentary ACP 
+restrictions.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2435 (983)</entry>
+<entry>The ACP quorum rules are not satisfied.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2437 (985)</entry>
+<entry>Provided PIN block formats do not match in compliance mode.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2438 (986)</entry>
+<entry>An attempt was made to update DFLTxxxx role with one or more ACPs from the complimentary 
+ACP list while in imprint- or compliance-mode.
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2439 (987)</entry>
+<entry>An attempt to load DFLTxxxx from a card-scope domain when 'xxxx' is a domain-scope domain.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>2510 (9CE)</entry>
+<entry>The input tweak length for format FF2 or FF2.1 exceeds the maximum allowed, as calculated by (length *
+log2(tweak_alphabet_length)) ≤ (15 - 2) * 8.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>2511 (9CF)</entry>
+<entry>The input plaintext or ciphertext length for format FF2 or FF2.1 exceeds the maximum allowed, as calculated
+by (length * log2(alphabet_length)) / 2 ≤ (15 - 1) * 8.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>2513 (9D1)</entry>
+<entry>Invalid duplicate data provided to an API, such as when the alphabet provided to an FF2 service has duplicate characters.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>2514 (9D2)</entry>
+<entry>General ISO format for different issues with PIN once. 
+This error will only be returned if ACP X'039F' is enabled.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2849 (B21)</entry>
+<entry>A verb data keyword specifies a keyword that is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2850 (B22)</entry>
+<entry>A verb data keyword combination is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2851 (B23)</entry>
+<entry>The verb data length value is not valid.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2945 (B81)</entry>
+<entry>A required verb data keyword is not found.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2946 (B82)</entry>
+<entry>Initialization vector length is too small, or text length exceeds
+maximum.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2947 (B83)</entry>
+<entry>The computed authentication tag does not match the data identified by
+the key_parms parameter.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>3001 (BB9)</entry>
+<entry>The RSA-OAEP block contains a PIN block and
+the verb did not request PINBLOCK processing.</entry></row>
+<!--  *****
+<row>
+<entry>8</entry>
+<entry>3002 (BBA)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - UDX already authorized.</entry></row>
+<row>
+<entry>8</entry>
+<entry>3005 (BBD)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - UDX not in UDX Authorization
+Table (UAT).</entry></row>
+***** --> 
+<row>
+<entry>8</entry>
+<entry>3006 (BBE)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - UDX not authorized.</entry>
+</row>
+<!--  *********
+<row>
+<entry>8</entry>
+<entry>3007 (BBF)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - Failed to obtain semaphore that
+guards the UAT.</entry></row>
+***** --> 
+<row>
+<entry>8</entry>
+<entry>3009 (BC1)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - UDX Password hash
+mismatch.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>3011 (BC3)</entry>
+<entry>CRT component is too long.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>3013 (BC5)</entry>
+<entry>The longitudinal redundancy check (LRC) checksum in the AES
+key-token does not match the LRC checksum of the clear key.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>3047 (BE7)</entry>
+<entry>Use of clear key provided is not allowed. A
+secure key is required.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>3055 (BEF)</entry>
+<entry>The CPRB domain does not match the PCB domain.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>3057 (BEF)</entry>
+<entry>Missing parameter in TLV.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>3059 (BF1)</entry>
+<entry>Session failure.</entry>
+</row>
+<!--<row rev="sh21i1">
+<entry>8</entry>
+<entry>3084 (C0C)</entry>
+<entry>The key token associated with the specified key label is a variable-length token, which is not compatible with
+this callable service.</entry>
+</row>
+<row rev="sh21i1">
+<entry>8</entry>
+<entry>3324 (CFC)</entry>
+<entry>The key type bit specified in the structure for the unsupported or weak <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys search criterion for the 
+KDS list service is not valid.</entry>
+</row>-->
+<row>
+<entry>8</entry>
+<entry>6000 (1770)</entry>
+<entry>The specified device is already allocated. </entry></row>
+<row>
+<entry>8</entry>
+<entry>6001 (1771)</entry>
+<entry> No device is allocated.  </entry></row>
+<row>
+<entry>8</entry>
+<entry>6002 (1772)</entry>
+<entry>The specified device does not exist.  </entry></row>
+<row>
+<entry>8</entry>
+<entry>6003 (1773)</entry>
+<entry>The specified device is an improper type.</entry></row>
+<row>
+<entry>8</entry>
+<entry>6013 (177D) </entry>
+<entry>The length of the cryptographic resource name
+is not valid. </entry></row>
+<row>
+<entry>8</entry>
+<entry>6014 (177E) </entry>
+<entry>The cryptographic resource name is not valid
+or does not refer to a coprocessor that is available in the system.</entry></row>
+<row>
+<entry>8</entry>
+<entry>6015 (177F)</entry>
+<entry rev="sh21i1">An ECC curve type is invalid, its usage is inconsistent, 
+or the required hardware level is not available.</entry></row>
+<row>
+<entry>8</entry>
+<entry>6017 (1781)</entry>
+<entry>Curve size <synph><var>p</var></synph> is invalid or its usage
+is inconsistent.</entry></row>
+<row>
+<entry>8</entry>
+<entry>6018 (1782)</entry>
+<entry>Error returned from CLiC module.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>6019 (1783)</entry>
+<entry>Domain already allocated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>6021 (1785)</entry>
+<entry>No domain has been allocated.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>6022 (1786)</entry>
+<entry>A group does not exist.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>6023 (1787)</entry>
+<entry>User does not belong to required group.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>10028 (272C)</entry>
+<entry rev="sh21i1">One of the following occurred: 
+<ul>
+<li>Either the left half of the control vector in a key identifier (internal or external) equates to a key type that is
+not valid for the service you are using or the value is not that of any control vector. For example, an
+exporter key-encrypting key is not valid in the key import callable service.</li>
+<li> An attempt was made to export a non-DATA key to CPACF protected key format. The key may be a CIPHER
+key which does not have the XPRTCPAC bit set in the control vector.</li>
+</ul>
+<p>User action:</p>
+<p>Determine which key identifier is in error and use the key identifier that is required by the service.
+If this is an attempt to export a key to CPACF protected key format, either use a DATA key or a CIPHER key with
+the XPRTCPAC bit set in the control vector.</p>
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>10036 (2734)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - Invalid control vectors (L-R)
+in key token supplied.</entry></row>
+<row>
+<entry>8</entry>
+<entry>10044 (273C)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - The
+<synph><var>key_type</var></synph> parameter and the CV key type for the supplied key token do not
+match.</entry></row>
+<row>
+<entry>8</entry>
+<entry>10056 (2748)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - The
+<synph><var>key_type</var></synph> parameter contains TOKEN, which is invalid for the requested
+operation.</entry></row>
+<row>
+<entry>8</entry>
+<entry>10124 (278C)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - The key id cannot be exported
+because of prohibit export restriction in the token supplied.</entry></row>
+<row>
+<entry>8</entry>
+<entry>10128 (2790)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - The NOCV-KEK or CV-KEK 
+<synph><var>rule_array</var></synph> keyword does not apply in this case. Check other keywords passed.</entry></row>
+<row>
+<entry>8</entry>
+<entry>10129 (2791)</entry>
+<entry>Specific to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> - The NOCV-KEK importer key or
+transport key is not allowed in the Remote Key Export operation requested.</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

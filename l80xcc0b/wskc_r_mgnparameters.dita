@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mgnparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>text_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/></indexterm></indexterm>
+<indexterm>X9.9-1 keyword</indexterm>
+<indexterm>segmenting<indexterm>control keywords</indexterm></indexterm>
+<indexterm>MAC<indexterm>length keywords</indexterm></indexterm>
+<indexterm>EMVMAC</indexterm>
+<indexterm>EMVMACD</indexterm>
+<indexterm>TDES-MAC</indexterm>
+<indexterm>X9.19OPT</indexterm>
+<indexterm>X9.9-1</indexterm>
+<indexterm>FIRST</indexterm>
+<indexterm>LAST</indexterm>
+<indexterm>MIDDLE</indexterm>
+<indexterm>ONLY</indexterm>
+<indexterm>HEX-8</indexterm>
+<indexterm>HEX-9</indexterm>
+<indexterm>MACLEN4</indexterm>
+<indexterm>MACLEN6</indexterm>
+<indexterm>MACLEN8</indexterm>
+<indexterm>chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+<indexterm>mac parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 64-byte key label or internal key token that identifies a single-length or double-length
+MAC generate key or a single-length <synph><kwd>DATA</kwd></synph> or
+<synph><kwd>DATAM</kwd></synph> key. The type of key depends on the MAC process rule in the
+<synph><var>rule_array</var></synph> parameter.</pd></plentry>
+<plentry><pt>text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the text you supply in the <synph><var>text</var></synph> parameter. If the
+<synph><var>text_length</var></synph> is not a multiple of eight bytes and if the
+<synph><kwd>ONLY</kwd></synph> or <synph><kwd>LAST</kwd></synph> keyword of the
+<synph><var>rule_array</var></synph> parameter is called, the text is padded in accordance with the
+processing rule specified.</pd></plentry>
+<plentry><pt>text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The application-supplied text for which the MAC is generated.</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Zero to three keywords that provide control information to the <ph>verb</ph>. The keywords
+are described in <xref href="#l0wskc02_mgnparameters/l0wskc02_fmlkey"/>. The keywords must be in 24
+bytes of contiguous storage with each of the keywords left-aligned in its own 8-byte location and
+padded on the right with blanks. For example, <codeblock>'X9.9-1  MIDDLE  MACLEN4 '</codeblock>The
+order of the <synph><var>rule_array</var></synph> keywords is not fixed.<p>You can specify one of
+the MAC processing rules and then choose one of the segmenting control keywords and one of the MAC
+length keywords. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_mgnparameters/l0wskc02_fmlkey"/>. </p><table id="l0wskc02_fmlkey" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="32*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>MAC process rules</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>EMVMAC</kwd></synph></entry>
+<entry>EMV padding rule with a single-length MAC key. The
+<synph><var>key_identifier</var></synph> parameter must identify a single-length MAC or a
+single-length <synph><kwd>DATA</kwd></synph> key. The text is always padded with 1 - 8 bytes so the
+resulting text length is a multiple of eight bytes. The first pad character is <ph>X'80'</ph>. The
+remaining pad characters are <ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>EMVMACD</kwd></synph></entry>
+<entry>EMV padding rule with a double-length MAC key. The <synph><var>key_identifier</var></synph>
+parameter must identify a double-length MAC key. The padding rules are the same as for keyword
+<synph><kwd>EMVMAC</kwd></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>X9.19OPT</kwd></synph></entry>
+<entry>ANSI X9.19 optional double key MAC procedure. The <synph><var>key_identifier</var></synph>
+parameter must identify a double-length MAC key. The padding rules are the same as for keyword
+X9.9-1.</entry>
+</row>
+<row>
+<entry><synph><kwd>X9.9-1</kwd></synph></entry>
+<entry>ANSI X9.9-1 and X9.19 basic procedure. The
+<synph><var>key_identifier</var></synph> parameter must identify a single-length MAC or a
+single-length <synph><kwd>DATA</kwd></synph> key. X9.9-1 causes the MAC to be computed from all of
+the data. The text is padded only if the text length is not a multiple of eight bytes. If padding is
+required, the pad character <ph>X'00'</ph> is used. This is the default value.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>TDESCMAC</kwd></synph></entry>
+<entry>NIST SP800-38B (2005) procedure. The <parmname>key_identifier</parmname> parameter must
+identify a double-length or triple-length MAC or a double-length DATA key.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-MAC</kwd></synph></entry>
+<entry>ANSI X9.9-1 procedure using ISO 16609 CBC mode triple-DES (TDES) encryption of
+the data. Uses a double-length key. See <xref href="wskc_c_algtdes.dita"/>.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Segmenting control</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph></entry>
+<entry>First call; this is the first segment of data from the application
+program.</entry>
+</row>
+<row>
+<entry><synph><kwd>LAST</kwd></synph></entry>
+<entry>Last call; this is the last data segment.</entry>
+</row>
+<row>
+<entry><synph><kwd>MIDDLE</kwd></synph></entry>
+<entry>Middle call; this is an intermediate data segment.</entry>
+</row>
+<row>
+<entry><synph><kwd>ONLY</kwd></synph></entry>
+<entry>Only call; segmenting is not employed by the application program.
+This is the default value.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>MAC length and
+presentation</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>HEX-8</kwd></synph></entry>
+<entry>Generates a 4-byte MAC value and presents it as 8 hexadecimal
+characters.</entry>
+</row>
+<row>
+<entry><synph><kwd>HEX-9</kwd></synph></entry>
+<entry>Generates a 4-byte MAC value and presents it as two groups of 4
+hexadecimal characters with a space between the groups.</entry>
+</row>
+<row>
+<entry><synph><kwd>MACLEN4</kwd></synph></entry>
+<entry>Generates a 4-byte MAC value. This is the default value.</entry>
+</row>
+<row>
+<entry><synph><kwd>MACLEN6</kwd></synph></entry>
+<entry>Generates a 6-byte MAC value.</entry>
+</row>
+<row>
+<entry><synph><kwd>MACLEN8</kwd></synph></entry>
+<entry>Generates an 8-byte MAC value.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 18-byte string that <ph>CCA</ph> uses as a system work area. Your application program
+must not change the data in this string. The chaining vector permits data to be chained from one
+invocation call to another.<p>On the first call, initialize this parameter as binary zeros.</p></pd></plentry>
+<plentry><pt>mac</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 8-byte or 9-byte field in which the <ph>verb</ph> returns the MAC value if the
+segmenting rule is <synph><kwd>ONLY</kwd></synph> or <synph><kwd>LAST</kwd></synph>. Allocate an
+8-byte field for MAC values of four bytes, six bytes, eight bytes, or
+<synph><kwd>HEX-8</kwd></synph>. Allocate a 9-byte MAC field if you specify
+<synph><kwd>HEX-9</kwd></synph> in the <synph><var>rule_array</var></synph> parameter.</pd></plentry>
+</parml></section>
+</refbody></reference>

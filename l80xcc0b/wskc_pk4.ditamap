@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Managing PKA cryptographic keys</title>
+<topicref href="wskc_r_pk4.dita">
+<topicref href="wskc_r_xpkg.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Generate (CSNDPKG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_xpkgformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_xpkgparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_xpkgrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_xpkgrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_xpkgusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc212.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_pki.dita"><topicmeta>
+<retrievalKeys><retkey>PKA Key Import (CSNDPKI)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pkiformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkiparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkirestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkirequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkiusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc216.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_pkb.dita"><topicmeta>
+<retrievalKeys><retkey>PKA Key Token Build (CSNDPKB)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pkbformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkbparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkbrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkbrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkbusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc301.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_ktcd.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Token Change (CSNDKTC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktcdformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktcdparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktcdrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktcdrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktcdusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc139.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_zapgkxlate.dita"><topicmeta>
+<retrievalKeys><retkey>PKA Key Translate (CSNDPKT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktxlformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktxlparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktxlrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktxlrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_ktxlusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc148.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_pkx.dita"><topicmeta>
+<retrievalKeys><retkey>PKA Public Key Extract (CSNDPKX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pkxformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkxparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkxrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkxrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pkxusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc217.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_tbc.dita">
+<topicmeta>
+<retrievalKeys><retkey>Trusted Block Create (CSNDTBC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc268.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc269.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc270.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc271.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc272.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc273.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_pka_pic.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Public Infrastructure Certificate (CSNDPIC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_pka_pic_format.dita" toc="no"/>
+<topicref href="wskc_pka_pic_parameters.dita" toc="no"/>
+<topicref href="wskc_pka_pic_restrictions.dita" toc="no"/>
+<topicref href="wskc_pka_pic_required.dita" toc="no"/>
+<topicref href="wskc_pka_pic_usage.dita" toc="no"/>
+<topicref href="wskc_pka_pic_jniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_pka_pim.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Public Infrastructure Manage (CSNDPIM)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_pka_pim_format.dita" toc="no"/>
+<topicref href="wskc_pka_pim_parameters.dita" toc="no"/>
+<topicref href="wskc_pka_pim_restrictions.dita" toc="no"/>
+<topicref href="wskc_pka_pim_required.dita" toc="no"/>
+<topicref href="wskc_pka_pim_usage.dita" toc="no"/>
+<topicref href="wskc_pka_pim_jniv.dita" toc="no"/>
+</topicref>
+</topicref>
+
+</map>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="lxcommon_library" xml:lang="en-us">
+<title>Other publications for <ph conref="lxcommon.dita#phrases/lib_title"/></title>
+<shortdesc>You can find publications for <ph conref="lxcommon.dita#phrases/lib_title"/> on <ph
+conref="lxcommon.dita#phrases/ph_ikcl"/>.</shortdesc>
+<refbody>
+<section id="ic"><p>These publications are available on <ph conref="lxcommon.dita#phrases/ph_ikcl"/>
+at<?linebreak?><xref conref="lxcommon.dita#links/kc_systemz_lib_url"/></p>
+<p>
+<ul>
+<li><cite conref="lxcommon.dita#pubs/cit-zl-dd-title"/></li>
+<li><cite conref="lxcommon.dita#pubs/cit-zl-dt-title"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-kvmqs"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-vsm"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-apq-howto"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zfcp-howto"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-ise"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-ock-ref"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-libica-ref"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-ep11-ref"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-z-sec-key"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-dmcrypt"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-ekm"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-tke"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-srv"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-kmsg"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-pav-howto"/></li>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-ts-howto"/></li>
+</ul>
+</p></section>
+</refbody><?Pub Caret -1?>
+</reference>
+<?Pub *0000001964?>

@@ -1,0 +1,3957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ktb2keywords">
+<title>Keywords reference</title>
+<titlealts>
+<navtitle>Keywords reference</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Keywords reference for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></searchtitle>
+</titlealts>
+<shortdesc>Here you find a keywords reference for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>
+<parmname>rule_array</parmname> parameter.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"
+/>)<indexterm>keywords</indexterm></indexterm>
+<indexterm>AES DUKPT<indexterm>key derivation</indexterm><indexterm>A-DUKPT</indexterm></indexterm>
+<indexterm>key derivation<indexterm>AES DUKPT</indexterm><indexterm>A-DUKPT</indexterm></indexterm>
+<indexterm>A-DUKPT</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<!--*****         CIPHER figure below (fig 8 from BSM 5.6  2020)                        *****-->
+<p><xref href="#ktb2keywords/ktb2_cipher_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type CIPHER. For a description of these keywords, refer
+to <xref href="#ktb2keywords/cipher_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_cipher_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES CIPHER
+keys</title>
+<image href="wskc_ktb2_1.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES CIPHER
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li><keyword>V0PYLD</keyword> is the default. <keyword>V1PYLD</keyword> is recommended because it
+provides improved security.<note rev="sh21i2"><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b>
+keyword for compliant-tagged key tokens.</note></li>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li><keyword>DECRYPT</keyword> and <keyword>ENCRYPT</keyword> are defaults if neither of these
+keywords is specified, regardless of whether <keyword>C-XLATE</keyword> is specified or not. </li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+<li><keyword>NOEX-RAW</keyword> and <keyword>XPRT-RAW</keyword> are defined for future use and their
+meanings are currently undefined. To avoid this export restriction in the future when the meaning is
+defined, specify XPRT-RAW. </li>
+<li rev="sh21i1"><keyword>XPRTCPAC</keyword> requires a CEX6C to generate the key token using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>) callable service. </li>
+</ol>
+</note>
+<table pgwide="1" frame="all" id="cipher_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES CIPHER
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+CIPHER keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required) </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry morerows="1">008</entry>
+<entry><b>KEY-CLR</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that contains a clear key.</entry>
+</row>
+<row>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload. </entry>
+</row>
+<row>
+<entry morerows="1" rev="sh21i2">028</entry>
+<entry><b>V0PYLD</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token with a version 0 payload format. This format has a variable length and the
+key length can be inferred from the size of the payload. This format is compatible with all
+releases. This is the default. <note><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b> keyword
+for compliant-tagged key tokens.</note></entry>
+</row>
+<row>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>CIPHER</b></entry>
+<entry>X'0001'</entry>
+<entry>Key can be used for encryption, decryption, and translation of data.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Encryption and translation control</i> (one or more,
+optional). Key-usage field 1, high-order byte. Keywords <b>DECRYPT</b> and <b>ENCRYPT</b> are
+defaults unless one or more keywords in the group are specified. </entry>
+</row>
+<row>
+<entry morerows="2">045</entry>
+<entry><b>C-XLATE</b> (Release 4.3 or later) </entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can only be used for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"
+/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>) operations. This is only
+valid with AES CIPHER keys. </entry>
+</row>
+<row>
+<entry><b>DECRYPT</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can be used for decryption. Symmetric_Algorithm_Decipher.</entry>
+</row>
+<row>
+<entry><b>ENCRYPT</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can be used for encryption. Symmetric_Algorithm_Encipher.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xx1x'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Encryption mode</i> (one, optional). Key-usage field 2,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="9">047</entry>
+<entry><b>ANY-MODE</b></entry>
+<entry>X'FF'</entry>
+<entry>Key can be used for any encryption mode.</entry>
+</row>
+<row>
+<entry><b>CBC</b></entry>
+<entry>X'00'</entry>
+<entry>Key can be used for Cipher Block Chaining. This is the default.</entry>
+</row>
+<row>
+<entry><b>CFB</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for Cipher Feedback.</entry>
+</row>
+<row>
+<entry><b>ECB</b></entry>
+<entry>X'01'</entry>
+<entry>Key can be used for Electronic Code Book.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>FF1</b></entry>
+<entry>X'06'</entry>
+<entry>Key can be used for Format Preserving method FF1.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>FF2</b></entry>
+<entry>X'07'</entry>
+<entry>Key can be used for Format Preserving method FF2.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>FF2.1</b></entry>
+<entry>X'08'</entry>
+<entry>Key can be used for Format Preserving method FF2.1.</entry>
+</row>
+<row>
+<entry><b>GCM</b></entry>
+<entry>X'04'</entry>
+<entry>Key can be used for Galois/Counter Mode.</entry>
+</row>
+<row>
+<entry><b>OFB</b></entry>
+<entry>X'03'</entry>
+<entry>Key can be used for Output Feedback.</entry>
+</row>
+<row>
+<entry><b>XTS</b></entry>
+<entry>X'05'</entry>
+<entry>Key can be used for Xor-Encrypt-Xor-based Tweaked Stealing.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Raw-key export control</i> (one, optional). Key-management
+field 1, high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>CPACF export control</i> (one, optional). Key-management
+field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>XPRTCPAC</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Allow export of key to CPACF.</entry>
+</row>
+<row>
+<entry><b>NOEXCPAC</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Prohibit export of key to CPACF. This is the default.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--DKYGENKY figure below (fig 17 from BSM 5.6 2020)-->
+<p><xref href="#ktb2keywords/ktb2_dkygenky_fig" format="dita"/> shows all the valid
+keyword combinations and their defaults for AES key type DKYGENKY. For a description of these
+keywords, refer to <xref href="#ktb2keywords/dkygenky_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_dkygenky_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES DKYGENKY
+keys</title>
+<image href="wskc_ktb2_2.jpg" width="650"><alt>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES DKYGENKY
+keys</alt>
+</image></fig>
+<note>
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li><keyword>NOEX-RAW</keyword> and <keyword>XPRT-RAW</keyword> are defined for future use and their
+meanings are currently undefined. To avoid this export restriction in the future when the meaning is
+defined, specify <keyword>XPRT-RAW</keyword>.</li>
+<li><keyword>DKYUSAGE</keyword> specifies that the <parmname>verb_data</parmname> variable contains
+all of the keywords necessary to define the key usage attributes related to the type of key to
+diversify. Based on the <parmname>verb_data</parmname> keywords, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> appends the key usage attributes of
+the type of key to diversify to the key usage fields of the <keyword>DKYGENKY</keyword> key. The
+related key usage fields control which key usage attributes are permissible for the final generated
+diversified key. <keyword>DKYUSAGE</keyword> is not valid with <keyword>D-ALL</keyword> because the
+type of key to diversify is unspecified. <keyword>DKYUSAGE</keyword> is optional with
+<keyword>D-CIPHER</keyword>, <keyword>D-EXP</keyword>, and <keyword>D-IMP</keyword> because key
+types <keyword>CIPHER</keyword>, <keyword>EXPORTER</keyword> and <keyword>IMPORTER</keyword> have
+default key usage attributes. For these key types, if <keyword>DKYUSAGE</keyword> is not specified,
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> assigns default key usage
+attributes to the related <keyword>KUF</keyword> fields. <keyword>DKYUSAGE</keyword> is required for
+the remaining values of type of key to diversify because those key types do not have default key
+usage attributes. <ph rev="sh21i1">DKYUSAGE is not valid with A-DUKPT.</ph></li>
+<li><keyword>KUF-MBP</keyword> is not valid if <keyword>DKADMIN1</keyword>,
+<keyword>DKADMIN2</keyword>, <keyword>DKPINOP</keyword>, or <keyword>DKPINOPP</keyword> is specified
+in the <parmname>verb_data</parmname>variable (that is, the type of key to diversify is DK
+enabled).</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults. </li>
+<li rev="sh21i1">To create a base derivation key skeleton to be used in AES DUKPT key derivation,
+specify key-usage keywords <keyword>A-DUKPT</keyword>, <keyword>D-ALL</keyword>, and
+<keyword>DKYL0</keyword>. That is, the <keyword>A-DUKPT</keyword> keyword can only be specified with
+the <keyword>D-ALL</keyword> keyword. All other KUF1 HOB keywords are not valid with
+<keyword>A-DUKPT</keyword>. Also, the <keyword>A-DUKPT</keyword> keyword cannot be specified in
+combination with <keyword>DKYUSAGE</keyword>. When <keyword>A-DUKPT</keyword> is specified,
+<parmname>verb_data_length</parmname> is set to 0.</li>
+</ol>
+</note>
+<!--DKYGENKY table below-->
+<table pgwide="1" frame="all" id="dkygenky_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES DKYGENKY
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+DKYGENKY keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional). </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). </entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required). </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>DKYGENKY</b></entry>
+<entry>X'0009'</entry>
+<entry>Key can be used for generating a diversified key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Type of key to diversify</i> (one required). Key-usage field
+1, high-order byte. <ph rev="sh21i1">DKYUSAGE is required for DKDKGKY, D-MAC, D-PCALC, D-PPROT,
+D-PPRW, and D-SECMSG. A-DUKPT is only valid with D-ALL.</ph></entry>
+</row>
+<row>
+<entry morerows="9">045</entry>
+<entry><b>D-ALL</b></entry>
+<entry>X'00'</entry>
+<entry>Key can generate a diversified key for any key type listed herafter.</entry>
+</row>
+<row>
+<entry><b>D-CIPHER</b></entry>
+<entry>X'01'</entry>
+<entry>Key can generate a diversified CIPHER key.</entry>
+</row>
+<row>
+<entry><b>D-EXP</b></entry>
+<entry>X'03'</entry>
+<entry>Key can generate a diversified EXPORTER key.</entry>
+</row>
+<row>
+<entry><b>D-IMP</b></entry>
+<entry>X'04'</entry>
+<entry>Key can generate a diversified IMPORTER key.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>D-KDKGKY</b></entry>
+<entry>X'09'</entry>
+<entry>Key can generate a diversified KDKGENKY key.</entry>
+</row>
+<row>
+<entry><b>D-MAC</b></entry>
+<entry>X'02'</entry>
+<entry>Key can generate a diversified MAC key.</entry>
+</row>
+<row>
+<entry><b>D-PCALC</b></entry>
+<entry>X'06'</entry>
+<entry>Key can generate a diversified PINCALC key.</entry>
+</row>
+<row>
+<entry><b>D-PPROT</b></entry>
+<entry>X'05'</entry>
+<entry>Key can generate a diversified PINPROT key.</entry>
+</row>
+<row>
+<entry><b>D-PPRW</b></entry>
+<entry>X'07'</entry>
+<entry>Key can generate a diversified PINPRW key.</entry>
+</row>
+<row rev="sh16">
+<entry><b>D-SECMSG</b></entry>
+<entry>X'08'</entry>
+<entry>Key can generate a diversified SECMSG key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i rev="sh21i1">Special usage and user-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row rev="sh21i1">
+<entry morerows="4">046</entry>
+<entry><b>A-DUKPT</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>This key can be used as the base derivation key (BDK) in the AES DUKPT key derivation
+algorithm.</entry>
+</row>
+<row>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Related generated key-usage field level of control</i> (one
+required). Key-usage field 2, high-order byte. If <b>D-ALL</b> is specified, <b>KUF-MBE</b> and
+<b>KUF-MBP</b> are not valid and there is no default. Otherwise, the default is <b>KUF-MBE</b>.
+<b>KUF-MBP</b> is not valid if <b>DKYUSAGE</b> is specified and <b>DKPINOP</b>, <b>DKPINOPP</b>,
+<b>DKADMIN1</b>, or <b>DKADMIN2</b> is specified in the verb_data variable (that is, the type of key
+to diversify is DK enabled).</entry>
+</row>
+<row>
+<entry morerows="1">047</entry>
+<entry><b>KUF-MBE</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>The key usage fields of the key to be generated must be equal to the related generated
+key-usage fields that start with key usage field 3.</entry>
+</row>
+<row>
+<entry><b>KUF-MBP</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>The key usage fields of the key to be generated must be permissible based on the related
+generated key usage fields that start with key-usage field 3. A key to be diversified is not
+permitted to have a higher level of usage than any of the related key usage fields permit. The key
+to be diversified is only permitted to have key usage that is less than or equal to the related key
+usage fields. One exception is the UDX-ONLY setting in the generated key usage fields. The UDX-ONLY
+setting must always be equal to the UDX-ONLY setting in the related key usage fields.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key-derivation sequence level</i> (one required). Key-usage
+field 2, low-order byte. <ph rev="sh21i1">A-DUKPT is only valid with DKYL0.</ph></entry>
+</row>
+<row>
+<entry morerows="2">048</entry>
+<entry><b>DKYL0</b></entry>
+<entry>X'00'</entry>
+<entry>Use this diversifying key to generate a Level 0 diversified key. The type of key to diversify
+(value at offset 45) determines the key type of the generated key. Level 0 is a completed
+key.</entry>
+</row>
+<row>
+<entry><b>DKYL1</b></entry>
+<entry>X'01'</entry>
+<entry>Use this diversifying key to generate a Level 1 diversified key.</entry>
+</row>
+<row>
+<entry><b>DKYL2</b></entry>
+<entry>X'02'</entry>
+<entry>Use this diversifying key to generate a Level 2 diversified key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Related generated key usage fields</i> (not allowed for
+<b>D-ALL,</b> one, optional, for <b>D-CIPHER</b>, <!--span--><b>D-EXP</b>, and <b>D-IMP</b>,
+otherwise one required). Key-usage field 3, high-order byte. </entry>
+</row>
+<row>
+<entry>049</entry>
+<entry><b>DKYUSAGE</b></entry>
+<entry>Based on <parmname>verb_data</parmname> keywords.</entry>
+<entry>The <parmname>verb_data</parmname> variable contains key-usage field keywords related to the
+type of key to diversify. These related attributes become part of the key usage fields of the
+DKYGENKY diversifying key, beginning with key-usage field 3, high-order byte. They are related
+because they are used to control which key usage attributes are permissible in the generated
+diversified key. To generate a diversified key, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>) verb. <ph rev="sh21i1">This keyword
+is not valid with A-DUKPT.</ph></entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--EXPORTER figure below (fig 9 from BSM)-->
+<p><xref href="#ktb2keywords/ktb2_exporter_fig" format="dita"/> shows all the valid
+keyword combinations and their defaults for AES key type EXPORTER. For a description of these
+keywords, refer to <xref href="#ktb2keywords/exporter_keywords" format="dita"/>.</p>
+<p>As of CCA 5.4 and CCA 6.2, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/>
+rule-array keyword <b>EXPTT31D</b> has been added to KUF1 HOB, and keyword <b>VARDRV-D</b> has been
+added to KUF2 HOB.</p>
+<fig expanse="page" id="ktb2_exporter_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES EXPORTER
+keys</title>
+<image href="wskc_ktb2_3.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES EXPORTER
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li><b>V0PYLD</b> is the default for compatibility reasons. <b>V1PYLD</b> is recommended because it
+provides improved security.<note rev="sh21i2"><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b>
+keyword for compliant-tagged key tokens.</note></li>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li>Excluding <b>EXPTT31D</b>, all keywords in this group are defaults except unless
+one or more of these keywords are specified. <b>EXPTT31D</b> cannot be specified with any other
+keyword in this group.</li>
+<li><b>WR-TR31</b> is defined for future use and its meaning is currently undefined. 
+No keywords in this group are defaults.</li>
+<li><b>WR-AES, WR-DES</b>, and <b>WR-HMAC</b> are defaults unless one or more
+keywords in this group are specified, or if KUF2 HOB keyword <b>VARDRV-D</b> is specified. If
+<b>VARDRV-D</b> is specified, only keywords <b>WR-AES, WR-DES</b>, and <b>WR-HMAC</b> are allowed,
+and one or more keywords must be specified.</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+<li>KEK-RAW is defined for future use. To avoid this restriction in the future when the
+meaning is defined, specify this keyword. There is no default.</li>
+<li><b>WR-CARD</b>, <b>WR-DATA</b>, <b>WR-KEK</b>, <b>WR-PIN</b>, and <b>WRDERIVE</b> are defaults
+unless one or more keywords in this group are specified. </li>
+<li><b>NOEX-RAW</b> and <b>XPRT-RAW</b> are defined for future use and their meanings are currently
+undefined. To avoid this export restriction in the future when the meaning is defined, specify
+<b>XPRT-RAW</b>.</li>
+</ol>
+</note>
+<!--EXPORTER table below  -->
+<table pgwide="1" frame="all" id="exporter_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES EXPORTER
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> rule
+array keywords for AES EXPORTER keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload. </entry>
+</row>
+<row>
+<entry morerows="1">028</entry>
+<entry><b>V0PYLD</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token with a version 0 payload format. This format has a variable length and the
+key length can be inferred from the size of the payload. This format is compatible with all
+releases. This is the default. <note rev="sh21i2"><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b> keyword
+for compliant-tagged key tokens.</note></entry>
+</row>
+<row>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required) </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>EXPORTER</b></entry>
+<entry>X'0003'</entry>
+<entry>Key can be used to wrap an external key to be taken from this local node or to wrap an output
+key in the Key_Translate2 verb.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>KEK control</i> (one or more, optional). Key-usage field 1,
+high-order byte. All keywords in the group are defaults unless one or more keywords in the group are
+specified. </entry>
+</row>
+<row>
+<entry morerows="6">045</entry>
+<entry><b>EXPORT</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can be used to wrap a key taken from this local node.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>EXPTT31D</b> (Release 5.4 or later)</entry>
+<entry>B’0000 0001’</entry>
+<entry>Key can be used by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+to export an AES-wrapped TR-31 key block version "D" (EXPTT31D) as defined in ISO 20038 or ASC X9 TR
+31-2018.</entry>
+</row>
+<row>
+<entry><b>GEN-EXEX</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can be used to wrap the first or the second key that is generated by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb as part of an EXEX key
+pair.</entry>
+</row>
+<row>
+<entry><b>GEN-IMEX</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can be used to wrap the second key that is generated by the CSNBKGN2 verb as part of an
+IMEX key pair.</entry>
+</row>
+<row>
+<entry><b>GEN-OPEX</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can be used to wrap the second key that is generated by the CSNBKGN2 verb as part of an
+OPEX key pair.</entry>
+</row>
+<row>
+<entry><b>GEN-PUB</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can be used to wrap the private key (to be used at another node) generated by the CSNDPKG
+verb as part of an ECC public-private key pair.</entry>
+</row>
+<row>
+<entry><b>TRANSLAT</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can be used to wrap an output key in the Key_Translate2 verb. Key_Translate2.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>TR-31 wrap control</i> (one, optional). Key-usage field 2,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">047</entry>
+<entry><b>VARDRV-D</b></entry>
+<entry>B'0000 0001'</entry>
+<entry>Key can wrap an AES-based TR-31 key block version "D" (<b>VARDRV-D</b>) by using ECB mode.
+Only valid if value at offset 45 is B'0000 0001' (<b>EXPTT31D</b>).</entry>
+</row>
+<row>
+<entry><b>WR-TR31</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can wrap a TR-31 key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Raw key wrap control</i> (one, optional). Key-usage field 2,
+low-order byte. </entry>
+</row>
+<row>
+<entry>048</entry>
+<entry><b>KEK-RAW</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Key can wrap a raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm wrap control</i> (one or more, optional). Key-usage
+field 3, high-order byte. Keywords <b>WR-AES</b>, <b>WR-DES</b>, and <b>WR-HMAC</b> are defaults
+unless one or more keywords in the group are specified.</entry>
+</row>
+<row>
+<entry morerows="5">049</entry>
+<entry><b>WR-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can wrap AES keys.</entry>
+</row>
+<row>
+<entry><b>WR-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can wrap DES keys.</entry>
+</row>
+<row>
+<entry><b>WR-ECC</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can wrap ECC keys.</entry>
+</row>
+<row>
+<entry><b>WR-HMAC</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can wrap HMAC keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>WR-QSA</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can wrap QSA keys such as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> keys.
+<!--or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>.--></entry>
+</row>
+<row>
+<entry><b>WR-RSA</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can wrap RSA keys.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Class wrap control</i> (one or more, optional). Key-usage
+field 4, high-order byte. Keywords <b>WR-CARD</b>, <b>WR-DATA</b>, <b>WR-KEK</b>, <b>WR-PIN</b>, and
+<b>WRDERIVE</b> are defaults unless one or more keywords in the group are specified.</entry>
+</row>
+<row>
+<entry morerows="5">051</entry>
+<entry><b>WR-CARD</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can wrap card class keys.</entry>
+</row>
+<row>
+<entry><b>WR-CVAR</b>
+</entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can wrap cryptovariable class keys.</entry>
+</row>
+<row>
+<entry><b>WR-DATA</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can wrap data class keys.</entry>
+</row>
+<row>
+<entry><b>WR-KEK</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can wrap KEK class keys.</entry>
+</row>
+<row>
+<entry><b>WR-PIN</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can wrap PIN class keys.</entry>
+</row>
+<row>
+<entry><b>WRDERIVE</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can wrap derivation class keys.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--IMPORTER figure below -->
+<p><xref href="#ktb2keywords/ktb2_importer_fig" format="dita"/> shows all the valid
+keyword combinations and their defaults for AES key type IMPORTER. For a description of these
+keywords, refer to <xref href="#ktb2keywords/importer_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_importer_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES IMPORTER
+keys</title>
+<image href="wskc_ktb2_4.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES IMPORTER
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li>
+<b>V0PYLD</b> is the default for compatibility reasons. <b>V1PYLD</b> is recommended because it
+provides improved security.<note rev="sh21i2"><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b>
+keyword for compliant-tagged key tokens.</note></li>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li>All keywords in this group are defaults except for <b>IMPTT31D</b> unless one or more of these
+keywords are specified. <b>IMPTT31D</b> cannot be specified with any other keyword in this
+group.</li>
+<li><b>WR-TR31</b> is defined for future use and its meaning is currently undefined. To avoid this
+restriction in the future when the meaning is defined, specify this keyword. No keywords in this group are defaults.</li>
+<li>
+<b>WR-AES</b>, <b>WR-DES</b>, and <b>WR-HMAC</b> are defaults unless one or more keywords in this
+group are specified, or if KUF2 HOB keyword <b>VARDRV-D</b> is specified. If <b>VARDRV-D</b> is
+specified, only keywords <b>WR-AES</b>, <b>WR-DES</b> and <b>WR-HMAC</b> are allowed, and one or
+more keywords must be specified.</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+<li><b>KEK-RAW</b> is defined for future use. To avoid this restriction in the future when the
+meaning is defined, specify this keyword. There is no default.</li>
+<li>
+<b>WR-CARD</b>, <b>WR-DATA</b>, <b>WR-KEK</b>, <b>WR-PIN</b>, and <b>WRDERIVE</b> are defaults
+unless one or more keywords in this group are specified. </li>
+<li><b>NOEX-RAW</b> and <b>XPRT-RAW</b> are defined for future use and their meanings are currently
+undefined. To avoid this export restriction in the future when the meaning is defined, specify
+<b>XPRT-RAW</b>.</li>
+</ol>
+</note>
+<!--IMPORTER table below (30 from BSM)-->
+<table pgwide="1" frame="all" id="importer_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES IMPORTER
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+IMPORTER keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required) </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload.</entry>
+</row>
+<row>
+<entry morerows="1">028</entry>
+<entry><b>V0PYLD</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token with a version 0 payload format. This format has a variable length and the
+key length can be inferred from the size of the payload. <ph>This format is compatible with all
+releases.</ph> This is the default. <note rev="sh21i2"><b>V0PYLD</b> is not allowed with the <b>COMP-TAG</b> keyword
+for compliant-tagged key tokens.</note></entry>
+</row>
+<row>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required) </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>IMPORTER</b></entry>
+<entry>X'0004'</entry>
+<entry>Key can be used to unwrap an external key brought to this local node, wrap a generated key to
+be brought to this local node, or unwrap an input key in the Key_Translate2 verb.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>KEK control</i> (one or more, optional). Key-usage field 1,
+high-order byte. All keywords in the group are defaults unless one or more keywords in the group are
+specified. </entry>
+</row>
+<row>
+<entry morerows="6">045</entry>
+<entry><b>GEN-IMEX</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can be used to wrap the first key that is generated by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb as part of an IMEX key
+pair.</entry>
+</row>
+<row>
+<entry><b>GEN-IMIM</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can be used to wrap the first or second key that is generated by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb as part of an IMIM key
+pair.</entry>
+</row>
+<row>
+<entry><b>GEN-OPIM</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can be used to wrap the second key that is generated by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb as part of an OPIM key
+pair.</entry>
+</row>
+<row>
+<entry><b>GEN-PUB</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can be used to wrap the private key (to be used at the local node) generated by the
+CSNDPKG verb as part of an ECC public-private key pair.</entry>
+</row>
+<row>
+<entry><b>IMPORT</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can be used to unwrap a key brought to this local node by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/>. </entry>
+</row>
+<row rev="sh20i1">
+<entry><b>IMPTT31D</b> (Release 5.4 or later)</entry>
+<entry>B'0000 0001'</entry>
+<entry>Key can be used by verb <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> for importing an AES-wrapped TR-31
+key block version "D" to an AES KDKGENKY (usage KDKTYPEA or KDKTYPEB) or DES DKYGENKY (usage DKYL0
+and DMPIN) to an AES-wrapped TR-31 key block version "D" (IMPTT31D).</entry>
+</row>
+<row>
+<entry><b>TRANSLAT</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can be used to unwrap an input key in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>TR-31 wrap control</i> (one, optional). Key-usage field 2,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">047</entry>
+<entry><b>VARDRV-D</b></entry>
+<entry>B'0000 0001'</entry>
+<entry>Key can unwrap an AES-based TR-31 key block version "D" (<b>VARDRV-D</b>) by using ECB mode.
+Only valid if value at offset 45 is B'0000 0001' (<b>IMPTT31D</b>).</entry>
+</row>
+<row>
+<entry><b>WR-TR31</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can unwrap a TR-31 key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry>047</entry>
+<entry><b>WR-TR31</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can unwrap a TR-31 key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Raw key wrap control</i> (one, optional). Key-usage field 2,
+low-order byte. </entry>
+</row>
+<row>
+<entry>048</entry>
+<entry><b>KEK-RAW</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Key can unwrap a raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm wrap control</i> (one or more, optional). Key-usage
+field 3, high-order byte. Keywords <b>WR-AES</b>, <b>WR-DES</b>, and <b>WR-HMAC</b> are defaults
+unless one or more keywords in the group are specified.</entry>
+</row>
+<row>
+<entry morerows="5">049</entry>
+<entry><b>WR-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can unwrap AES keys.</entry>
+</row>
+<row>
+<entry><b>WR-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can unwrap DES keys.</entry>
+</row>
+<row>
+<entry><b>WR-ECC</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can unwrap ECC keys.</entry>
+</row>
+<row>
+<entry><b>WR-HMAC</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can unwrap HMAC keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>WR-QSA</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can unwrap QSA keys such as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> keys.
+<!--or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>.--></entry>
+</row>
+<row>
+<entry><b>WR-RSA</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can unwrap RSA keys.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Class wrap control</i> (one or more, optional). Key-usage
+field 4, high-order byte. Keywords <b>WR-CARD</b>, <b>WR-DATA</b>, <b>WR-KEK</b>, <b>WR-PIN</b>, and
+<b>WRDERIVE</b> are defaults unless one or more keywords in the group are specified.</entry>
+</row>
+<row>
+<entry morerows="5">051</entry>
+<entry><b>WR-CARD</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can unwrap card class keys.</entry>
+</row>
+<row>
+<entry><b>WR-CVAR</b></entry>
+<entry>B'xxxx x1xx'</entry>
+<entry>Key can unwrap cryptovariable class keys.</entry>
+</row>
+<row>
+<entry><b>WR-DATA</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can unwrap data class keys.</entry>
+</row>
+<row>
+<entry><b>WR-KEK</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Key can unwrap KEK class keys.</entry>
+</row>
+<row>
+<entry><b>WR-PIN</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Key can unwrap PIN class keys.</entry>
+</row>
+<row>
+<entry><b>WRDERIVE</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Key can wrap derivation class keys.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">054</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">055</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--MAC 1. figure  below:  AES MAC (fig 9 from BSM 5.6 2020)-->
+<p><xref href="#ktb2keywords/ktb2_aes_mac_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type MAC. For a description of these keywords, refer to
+<xref href="#ktb2keywords/aes_mac_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_aes_mac_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES MAC
+keys</title>
+<image href="wskc_ktb2_5.jpg" width="650" height="700"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES MAC
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li>NOEX-RAW and XPRT-RAW are defined for future use and their meanings are currently undefined. To
+avoid this export restriction in the future when the meaning is defined, specify XPRT-RAW.</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults. </li>
+</ol>
+</note>
+<!--Table for MAC keyword: 1. AES MAC table below (27 from BSM)-->
+<table pgwide="1" frame="all" id="aes_mac_keywords"><title rev="sh20i1"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES MAC
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+MAC keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required).</entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional). </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>MAC</b></entry>
+<entry>X'0002'</entry>
+<entry>Key can be used for generation and verification of message authentication codes.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC operation</i> (one required). Key-usage field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="2">045</entry>
+<entry><b>GENERATE</b></entry>
+<entry>B'11xx xxxx'</entry>
+<entry>Key can be used for generate; key can be used for verify. Not valid with keywords
+<b>DKPINOP</b>, <b>DKPINAD1</b>, and <b>DKPINAD2</b>. MAC_Generate2 and MAC_Verify2. </entry>
+</row>
+<row>
+<entry><b>GENONLY</b></entry>
+<entry>B'10xx xxxx'</entry>
+<entry>Key can be used for generate; key cannot be used for verify.</entry>
+</row>
+<row>
+<entry><b>VERIFY</b></entry>
+<entry>B'01xx xxxx'</entry>
+<entry>Key cannot be used for generate; key can be used for verify. MAC_Verify2.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC mode</i> (one required). Key-usage field 2, high-order
+byte. </entry>
+</row>
+<row>
+<entry>047</entry>
+<entry><b>CMAC</b></entry>
+<entry>X'01'</entry>
+<entry>Key can be used for block cipher-based MAC algorithm, called CMAC (NIST SP 800-38B). </entry>
+</row>
+<row rev="sh20i1">
+<entry morerows="1">048</entry>
+<entry><b>NOP2AUTH</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Key cannot be used by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+to verify authentication data using NIST SP 800-38B CMAC for ISO-4 to ISO-4 PAN change <ph>if the
+PTR2 PAN Change Authentication Requires PTR2AUTH Usage command (offset X'0395') is enabled in the
+active role</ph>. Only valid with key usage VERIFY. This is the default.</entry>
+</row>
+<row>
+<entry><b>PTR2AUTH</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can be used by CSNBPTR2 to verify authentication data using NIST SP 800-38B CMAC for
+ISO-4 to ISO-4 PAN change. Only valid with key usage VERIFY.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Common control</i> (one, optional). Key-usage field 3,
+high-order byte. Use of a common control keyword causes key-usage field 3, low-order byte (field
+format identifier at token offset 050) to be set to X'01' (DK enabled). </entry>
+</row>
+<row>
+<entry morerows="2">049</entry>
+<entry><b>DKPINOP</b></entry>
+<entry>X'01'</entry>
+<entry>PIN_OP</entry>
+</row>
+<row>
+<entry><b>DKPINAD1</b></entry>
+<entry>X'03'</entry>
+<entry>PIN_AD1</entry>
+</row>
+<row>
+<entry><b>DKPINAD2</b></entry>
+<entry>X'04'</entry>
+<entry>PIN_AD2</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052 if DK enabled, else 050</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052 if DK enabled, else 050</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052 if DK enabled, else 050</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">052 if DK enabled, else 050</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053 if DK enabled, else 051</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053 if DK enabled, else 051</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053 if DK enabled, else 051</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--HMAC MAC (fig 10 from BSM 5.6 2020)-->
+<p><xref href="#ktb2keywords/ktb2_hmac_mac_fig" format="dita"/> shows all the valid
+keyword combinations and their defaults for HMAC key type MAC. For a description of these keywords,
+refer to <xref href="#ktb2keywords/hmac_mac_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_hmac_mac_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for HMAC MAC
+keys</title>
+<image href="wskc_ktb2_6.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for HMAC MAC
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li>NOEX-RAW and XPRT-RAW are defined for future use and their meanings are currently undefined. To
+avoid this export restriction in the future when the meaning is defined, specify XPRT-RAW.</li>
+<li>All keywords in this group are defaults unless one or more keywords in this group are
+specified.</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+</ol>
+</note>
+<!--Two tables for MAC keyword: 2. HMAC MAC table below (28 from BSM)-->
+<table pgwide="1" frame="all" id="hmac_mac_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for HMAC MAC
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> rule
+array keywords for HMAC MAC keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry morerows="1">008</entry>
+<entry><b>KEY-CLR</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that contains a clear key.</entry>
+</row>
+<row>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload. </entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V0PYLD</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token with a version 0 payload format. This format has a variable length and the
+key length can be inferred from the size of the payload. This is the default. This format is
+compatible with all releases. </entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>HMAC</b></entry>
+<entry>X'03'</entry>
+<entry>Key can be used for HMAC algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>MAC</b></entry>
+<entry>X'0002'</entry>
+<entry>Key can be used for generation or verification of message authentication codes.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC operation</i> (one required). Key-usage field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">045</entry>
+<entry><b>GENERATE</b></entry>
+<entry>B'11xx xxxx'</entry>
+<entry>Key can be used for generate; key can be used for verify. HMAC_Generate and
+HMAC_Verify.</entry>
+</row>
+<row>
+<entry><b>VERIFY</b></entry>
+<entry>B'01xx xxxx'</entry>
+<entry>Key cannot be used for generate; key can be used for verify. HMAC_Verify.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Hash method</i> (one, optional). Key-usage field 2,
+high-order byte. All keywords in the group are defaults unless one or more keywords in the group are
+specified. </entry>
+</row>
+<row>
+<entry morerows="4">047</entry>
+<entry><b>SHA-1</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>SHA-1 hash method is allowed for the key.</entry>
+</row>
+<row>
+<entry><b>SHA-224</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>SHA-224 hash method is allowed for the key.</entry>
+</row>
+<row>
+<entry><b>SHA-256</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>SHA-256 hash method is allowed for the key.</entry>
+</row>
+<row>
+<entry><b>SHA-384</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>SHA-384 hash method is allowed for the key.</entry>
+</row>
+<row>
+<entry><b>SHA-512</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>SHA-512 hash method is allowed for the key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">050</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">051</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--PINCALC figure below (fig 12 from BSM)-->
+<p><xref href="#ktb2keywords/ktb2_pincalc_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type PINCALC. For a description of these keywords, refer
+to <xref href="#ktb2keywords/pincalc_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_pincalc_fig" rev="sh21i2"> 
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINCALC
+keys</title>
+<image href="wskc_ktb2_7.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINCALC
+keys</alt>
+</image>
+</fig>
+<note rev="shr2">
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li><keyword>NOEX-RAW</keyword> and <keyword>XPRT-RAW</keyword> are defined for future use and their
+meanings are currently undefined. To avoid this export restriction in the future when the meaning is
+defined, specify <keyword>XPRT-RAW</keyword>.</li>
+<li>Choose any number of keywords in this group. No keywords in the group are defaults.</li>
+</ol>
+</note>
+<!--PINCALC table below (32 from BSM)-->
+<table pgwide="1" frame="all" id="pincalc_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES PINCALC
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+PINCALC keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required) </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>PINCALC</b></entry>
+<entry>X'0006'</entry>
+<entry>Key can be used for generation and verification of message authentication codes.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC operation</i> (one required). Key-usage field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry>045</entry>
+<entry><b>GENONLY</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Key can only be used for generate.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Encryption mode</i> (one required). Key-usage field 2,
+high-order byte. </entry>
+</row>
+<row>
+<entry>047</entry>
+<entry><b>CBC</b></entry>
+<entry>X'00'</entry>
+<entry>Key can be used for Cipher Block Chaining.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Common control</i> (one required). Key-usage field 3,
+high-order byte. Use of a common control keyword causes key-usage field 3, low-order byte (field
+format identifier at token offset 050) to be set to X'01' (DK enabled). </entry>
+</row>
+<row>
+<entry>049</entry>
+<entry><b>DKPINOP</b></entry>
+<entry>X'01'</entry>
+<entry>PIN_OP</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--PINPROT figure below (fig 11 from BSM)-->
+<p><xref href="#ktb2keywords/ktb2_pinprot_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type PINPROT. For a description of these keywords, refer
+to <xref href="#ktb2keywords/pinprot_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_pinprot_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINPROT
+keys</title>
+<image href="wskc_ktb2_8.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINPROT
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li><keyword>NOEX-RAW</keyword> and <keyword>XPRT-RAW</keyword>are defined for future use and their
+meanings are currently undefined. To avoid this export restriction in the future when the meaning is
+defined, specify <keyword>XPRT-RAW</keyword>.</li>
+<li rev="sh20i1">If and only if KUF3 HOB keyword <b>NOFLDFMT</b> (Release 5.4 or later) is
+specified, one keyword must be selected from this group. If keyword <b>NOFLDFMT</b> is not
+specified, KUF4 is not created.</li>
+<li>Choose any number of keywords in this group. No keywords in the group are defaults.</li>
+<li>If and only if KUF3 HOB keyword <b>NOFLDFMT</b> is specified, at least one keyword
+must be selected from this group. No keywords in this group are defaults. Keyword <b>RFMT4TO1</b> is
+not supported in releases before Release 5.5.12. <p>When <b>NOFLDFMT</b> is specified, valid KUF2
+LOB keyword combinations depend on which KUF1 HOB keyword is specified (that is, <b>DECRYPT</b> or
+<b>ENCRYPT</b>), as shown in <xref href="#ktb2keywords/kuf_table" format="dita"/>:</p></li>
+</ol>
+</note>
+<table id="kuf_table" frame="all" rowsep="1" colsep="1" rev="sh20i1"><title>Valid KUF2 LOB keyword
+combinations for <b>NOFLDFMT</b></title><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.5*"/>
+<colspec colname="c2" colnum="2" colwidth="1.5*"/>
+<colspec colname="c3" colnum="3" colwidth="2.0*"/>
+<colspec colname="c4" colnum="4" colwidth="2.0*"/>
+<thead>
+<row>
+<entry>KUF1 HOB keyword</entry>
+<entry>KUF2 LOB keyword count</entry>
+<entry>Valid KUF2 LOB keywords</entry>
+<entry>Invalid KUF2 LOB keywords</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>DECRYPT</b></entry>
+<entry>1 – 5</entry>
+<entry>
+<lines><b>CPINGENA</b>, 
+<b>EPINVER</b>, 
+<b>PINXLATE</b>, 
+<b>REFORMAT</b>, 
+<b>RFMT4TO1</b></lines>
+</entry>
+<entry>
+<lines><b>CPINENC</b>, 
+<b>EPINGEN</b>, 
+<b>RFMT1TO4</b></lines>
+</entry>
+</row>
+<row>
+<entry>
+<b>ENCRYPT</b>
+</entry>
+<entry> 1 – 5 </entry>
+<entry>
+<lines><b>CPINENC</b>, 
+<b>EPINGEN</b>, 
+<b>PINXLATE</b>, 
+<b>REFORMAT</b>, 
+<b>RFMT1TO4</b></lines>
+</entry>
+<entry>
+<lines><b>CPINGENA</b>, 
+<b>EPINVER</b>, 
+<b>RFMT4TO1</b></lines>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--PINPROT table below (31 from BSM)-->
+<table pgwide="1" frame="all" id="pinprot_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES PINPROT
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+PINPROT keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required) </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional) </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload. </entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required) </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required). </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>PINPROT</b></entry>
+<entry>X'0005'</entry>
+<entry>Key can be used for encrypting PIN blocks.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Encryption operation</i> (one required). Key-usage field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">045</entry>
+<entry><b>DECRYPT</b></entry>
+<entry>B'01xx xxxx'</entry>
+<entry>Key cannot be used for encryption; key can be used for decryption.</entry>
+</row>
+<row>
+<entry><b>ENCRYPT</b></entry>
+<entry>B'10xx xxxx'</entry>
+<entry>Key can be used for encryption; key cannot be used for decryption.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Encryption mode</i> (one required). Key-usage field 2,
+high-order byte. </entry>
+</row>
+<row>
+<entry>047</entry>
+<entry><b>CBC</b></entry>
+<entry>X'00'</entry>
+<entry>Key can be used for Cipher Block Chaining.</entry>
+</row>
+<row rev="sh20i1">
+<entry namest="col1" nameend="col4" valign="top"><i>PIN services control</i> (one or more,
+required). Key-usage field 2, low-order byte. Release 5.4 or later. In releases before Release 5.4,
+this field is reserved and must be binary zero.</entry>
+</row>
+<row rev="sh20i1">
+<entry morerows="7">048</entry>
+<entry><b>CPINENC</b></entry>
+<entry>B’xx1x xxxx’</entry>
+<entry>For encryption operation <b>ENCRYPT</b> (value at offset 045 =
+B’10xx&NonBreakingSpace;xxxx’), key can be used with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> verb (<b>CPINENC</b>), otherwise
+invalid.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>CPINGENA</b></entry>
+<entry>B’xxxx 1xxx’</entry>
+<entry>For encryption operation <b>DECRYPT</b> (value at offset 045 =
+<ph>B’01xx&NonBreakingSpace;xxxx’</ph>), key can be used with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb (<b>CPINGENA</b>), otherwise
+invalid.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>EPINGEN</b>
+</entry>
+<entry>B’xxx1 xxxx’</entry>
+<entry>For encryption operation <b>ENCRYPT</b> (value at offset 045 =
+<ph>B’10xx&NonBreakingSpace;xxxx’</ph>), key can be used with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> verb (<b>EPINGEN</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>EPINVER</b></entry>
+<entry>B’xxx1 xxxx’</entry>
+<entry>For encryption operation <b>DECRYPT</b> (value at offset 045 =
+<ph>B’01xx&NonBreakingSpace;xxxx’</ph>), key can be used with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb (<b>EPINVER</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>REFORMAT</b></entry>
+<entry>B’xxxx xx1x’</entry>
+<entry>Key can be used with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"
+/> verb for a reformat operation (<b>REFORMAT</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>PINXLATE</b></entry>
+<entry>B’xxxx x1xx’</entry>
+<entry>Key can be used with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"
+/> verb for a PIN translation operation (<b>PINXLATE</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>RFMT1TO4</b></entry>
+<entry>B’xxxx xxx1’</entry>
+<entry>For encryption operation <b>ENCRYPT</b> (value at offset 045 = B’10xx xxxx’), key can be used
+to restrictively reformat an ISO-1 encrypted PIN to an ISO-4 encrypted PIN
+(<b>RFMT1TO4</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>RFMT4TO1</b>
+</entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>For encryption operation <b>DECRYPT</b> (value at offset 045 = B’01xx xxxx’), key can be used
+to restrictively reformat an ISO-4 encrypted PIN to an ISO-1 encrypted PIN
+(<b>RFMT4TO1</b>).</entry>
+</row>
+<row rev="sh20i1">
+<entry nameend="col4" namest="col1"><i>Common control</i> (one required). Key-usage field 3,
+high-order byte. Use of DK enabled common control keyword <b>DKPINOP</b>, <b>DKPINOPP</b>, or
+<b>DKPINAD1</b> causes key-usage field 3, low-order byte (field format identifier at token offset
+050) to be set to X'01' (DK enabled), while use of common control keyword <b>NOFLDFMT</b> causes
+offset 050 to be set to X’00’ (no field format specification). </entry>
+</row>
+<row>
+<entry morerows="3">049</entry>
+<entry><b>DKPINOP</b></entry>
+<entry>X'01'</entry>
+<entry>PIN_OP</entry>
+</row>
+<row>
+<entry><b>DKPINOPP</b></entry>
+<entry>X'02'</entry>
+<entry>PIN_OPP</entry>
+</row>
+<row>
+<entry><b>DKPINAD1</b></entry>
+<entry>X'03'</entry>
+<entry>PIN_AD1</entry>
+</row>
+<row>
+<entry><b>NOFLDFMT</b></entry>
+<entry>X'00'</entry>
+<entry>No field format specification.</entry>
+</row>
+<row>
+<entry morerows="3">050</entry>
+<entry><b>DKPINOP</b></entry>
+<entry>X'01'</entry>
+<entry>DK enabled.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>DKPINOPP</b></entry>
+<entry>X'01'</entry>
+<entry>DK enabled.</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>DKPINAD1</b></entry>
+<entry>X'01'</entry>
+<entry>DK enabled.</entry>
+</row>
+<row>
+<entry><b>NOFLDFMT</b></entry>
+<entry>X'00'</entry>
+<entry>No field format specification.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">PIN-block format usage (Release 5.4 or later). Key-usage field
+4, high-order byte. Only valid when offset 49 = X’00’ (NOFLDFMT).</entry>
+</row>
+<row>
+<entry>051</entry>
+<entry><b>ISO-4</b></entry>
+<entry>B’xxxx xxx1’</entry>
+<entry>Allow only ISO-4 PIN-block format.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--PINPRW figure below (fig 13 from BSM)-->
+<p><xref href="#ktb2keywords/ktb2_pinprw_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type PINPRW. For a description of these keywords, refer
+to <xref href="#ktb2keywords/pinprw_keywords" format="dita"/>.</p>
+<fig expanse="page" id="ktb2_pinprw_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINPRW
+keys</title>
+<image href="wskc_ktb2_9.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES PINPRW
+keys</alt>
+</image>
+</fig>
+<note rev="shr2">
+<ol>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li><keyword>NOEX-RAW</keyword> and <keyword>XPRT-RAW</keyword>are defined for future use and their
+meanings are currently undefined. To avoid this export restriction in the future when the meaning is
+defined, specify <keyword>XPRT-RAW</keyword>.</li>
+<li>Choose any number of keywords in this group. No keywords in the group are defaults.</li>
+</ol>
+</note>
+<!--PINPRW table below-->
+<table pgwide="1" frame="all" id="pinprw_keywords"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>   rule array keywords for AES PINPRW
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>   rule array keywords for AES
+PINPRW keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional). </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload. </entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required).</entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>PINPRW</b></entry>
+<entry>X'0007'</entry>
+<entry>Key can be used for generation and verification of message authentication codes.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC operation</i> (one required). Key-usage field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">045</entry>
+<entry><b>GENONLY</b></entry>
+<entry>B'10xx xxxx'</entry>
+<entry>Key can be used for generate; key cannot be used for verify.</entry>
+</row>
+<row>
+<entry><b>VERIFY</b></entry>
+<entry>B'01xx xxxx</entry>
+<entry>Key cannot be used for generate; key can be used for verify.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>MAC mode</i> (one required). Key-usage field 2, high-order
+byte. </entry>
+</row>
+<row>
+<entry>047</entry>
+<entry><b>CMAC</b></entry>
+<entry>X'01'</entry>
+<entry>Key can be used for block cipher-based MAC algorithm, called CMAC (NIST SP 800-38B).</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Common control</i> (one, required). Key-usage field 3,
+high-order byte. Use of a common control keyword causes key-usage field 3, low-order byte (field
+format identifier at token offset 050) to be set to X'01' (DK enabled). </entry>
+</row>
+<row>
+<entry>049</entry>
+<entry><b>DKPINOP</b></entry>
+<entry>X'01'</entry>
+<entry>PIN_OP</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Symmetric-key export control</i> (one, optional).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B'0xxx xxxx'</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Unauthenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control</i> (one,
+optional). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B'xx0x xxxx'</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B'xx1x xxxx'</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">RAW-key export control (one, optional). Key-management field 1,
+high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">052</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B'xxx0 xxxx'</entry>
+<entry>Prohibit export using raw key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B'xxx1 xxxx'</entry>
+<entry>Allow export using raw key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B'1xxx xxxx'</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B'0xxx xxxx</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B'x1xx xxxx'</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B'x0xx xxxx'</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control</i> (one, optional). Key-management
+field 1, low-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">053</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B'xxxx 0xxx'</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--************ CCA  7.1 - New KDKGENKEY figure   ********-->
+<p rev="sh20i1"><xref href="#ktb2keywords/ktb2_kdkgenky_fig" format="dita"/> shows all the valid
+keyword combinations and their defaults for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> when constructing an AES key token for
+a KDKGENKY key and for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> when
+deconstructing one.</p>
+<fig expanse="page" id="ktb2_kdkgenky_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES KDKGENKEY
+keys</title>
+<image href="wskc_ktb2_11.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES KDKGENKEY
+keys</alt>
+</image>
+</fig>
+<note rev="shr20i1">
+<ol rev="sh20i1">
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X’05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).
+</li>
+<li><b>NOEX-RAW</b> and <b>XPRT-RAW</b> are defined for future use and their meanings are currently undefined. To
+avoid this export restriction in the future when the meaning is defined, specify <b>XPRT-RAW</b>.</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+</ol>
+</note>
+<!--************ CCA  7.1 - New KDKGENKEY keywords table     ********-->
+<table pgwide="1" frame="all" rev="sh20i1" id="ktb2_kdkgenky_table"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES KDKGENKEY
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+KDKGENKEY keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">000</entry>
+<entry><b>EXTERNAL</b></entry>
+<entry>X'02'</entry>
+<entry>Build a key token that is not to be used locally.</entry>
+</row>
+<row>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional). </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry/>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry><b>V1PYLD</b></entry>
+<entry>X'01'</entry>
+<entry>Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. <ph>An obscured key length is considered
+more secure.</ph> This is the default.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Algorithm type</i> (one required). </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key type</i> (one required). </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry><b>KDKGENKY</b></entry>
+<entry>X'000B'</entry>
+<entry>Key can be used for generating a diversified key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key diversification type</i> (one required). </entry>
+</row>
+<row>
+<entry morerows="1">045</entry>
+<entry><b>KDKTYPEA</b></entry>
+<entry>X'00'</entry>
+<entry>Entity A of communications partners A and B. One partner has active use of the key (for
+example, encipher or generate), while the other partner has passive use of the key (for example,
+decipher or verify).</entry>
+</row>
+<row>
+<entry><b>KDKTYPEB</b></entry>
+<entry>X'01'</entry>
+<entry>Entity B of communications partners A and B.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>User-defined extension (UDX) control</i> (one or more,
+optional). Key-usage field 1, low-order byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3">046</entry>
+<entry><b>UDX-ONLY</b></entry>
+<entry>B'xxxx 1xxx'</entry>
+<entry>Key can only be used in UDXs.</entry>
+</row>
+<row>
+<entry><b>UDX-100</b></entry>
+<entry>B'xxxx x1uu'</entry>
+<entry>Leftmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-010</b></entry>
+<entry>B'xxxx xu1u'</entry>
+<entry>Middle user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry><b>UDX-001</b></entry>
+<entry>B'xxxx xuu1'</entry>
+<entry>Rightmost user-defined UDX bit is set on.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">
+<i>Symmetric-key export control </i> (one, optional). Key-management field 1, high-order byte.
+</entry>
+</row>
+<row>
+<entry morerows="1">048</entry>
+<entry><b>NOEX-SYM</b></entry>
+<entry>B’0xxx xxxx’</entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><b>XPRT-SYM</b></entry>
+<entry>B’1xxx xxxx’</entry>
+<entry>Allow export using symmetric key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1">
+<i>Unauthenticated asymmetric-key export control </i>(one, optional). Key-management field 1,
+high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">048</entry>
+<entry><b>NOEXUASY</b></entry>
+<entry>B’x0xx xxxx’</entry>
+<entry>Prohibit export using an unauthenticated asymmetric key (not a trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTUASY</b></entry>
+<entry>B’x1xx xxxx’</entry>
+<entry>Allow export using an unauthenticated asymmetric key (not a trusted block). This is the
+default. </entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Authenticated asymmetric-key export control </i>(one,
+optional). Key-management field 1, high-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">048</entry>
+<entry><b>NOEXAASY</b></entry>
+<entry>B’xx0x xxxx’</entry>
+<entry>Prohibit export using an authenticated asymmetric key (trusted block).</entry>
+</row>
+<row>
+<entry><b>XPRTAASY</b></entry>
+<entry>B’xx1x xxxx’</entry>
+<entry>Allow export using an authenticated asymmetric key (trusted block). This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Raw-key export control</i> (one, optional). Key-management
+field 1, high-order byte. </entry>
+</row>
+<row>
+<entry morerows="1">048</entry>
+<entry><b>NOEX-RAW</b></entry>
+<entry>B’xxx0 xxxx’</entry>
+<entry>Prohibit export using RAW key. Defined for future use. Currently ignored. This is the
+default.</entry>
+</row>
+<row>
+<entry><b>XPRT-RAW</b></entry>
+<entry>B’xxx1 xxxx’</entry>
+<entry>Allow export using RAW key. Defined for future use. Currently ignored.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>DES-key export control </i>(one, optional). Key-management
+field 1, low-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">049</entry>
+<entry><b>NOEX-DES</b></entry>
+<entry>B’1xxx xxxx’</entry>
+<entry>Prohibit export using a DES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-DES</b></entry>
+<entry>B’0xxx xxxx’</entry>
+<entry>Allow export using a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>AES-key export control </i>(one, optional). Key-management
+field 1, low-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">049</entry>
+<entry><b>NOEX-AES</b></entry>
+<entry>B’x1xx xxxx’</entry>
+<entry>Prohibit export using an AES key.</entry>
+</row>
+<row>
+<entry><b>XPRT-AES</b></entry>
+<entry>B’x0xx xxxx’</entry>
+<entry>Allow export using an AES key.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>RSA-key export control </i>(one, optional). Key-management
+field 1, low-order byte.</entry>
+</row>
+<row>
+<entry morerows="1">049</entry>
+<entry><b>NOEX-RSA</b></entry>
+<entry>B’xxxx 1xxx’</entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+<row>
+<entry><b>XPRT-RSA</b></entry>
+<entry>B’xxxx 0xxx’</entry>
+<entry>Allow export using an RSA key. This is the default.</entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<!--**   SECMSG figure below   **-->
+<p><xref href="#ktb2keywords/ktb2_secmsg_fig" format="dita"/> shows all the valid keyword
+combinations and their defaults for AES key type SECMSG. </p>
+<fig expanse="page" id="ktb2_secmsg_fig" rev="sh21i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES SECMSG
+keys</title>
+<image href="wskc_ktb2_10.jpg" width="650"><alt><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> keyword combinations for AES SECMSG
+keys</alt>
+</image>
+</fig>
+<note>
+<ol>
+<li>An AES SECMSG key is always derived. The derived key is the result of a key derivation function
+(KDF) applied to a fixed diversified key generating key (DKYGENKY) and derivation data. The final
+derived key is used as a session key and is typically used to encipher and decipher PIN information
+between devices. An AES SECMSG key can only be wrapped by an AES master key and cannot be stored in
+an external key-token.</li>
+<li>Each key-usage field (KUF) and key-management field (KMF) of a version X'05' variable-length
+symmetric key-token consists of two bytes: a high-order byte (HOB) and a low-order byte (LOB).</li>
+<li>Choose any number of keywords in this group. No keywords in this group are defaults.</li>
+<li><b>NOEX-RAW</b> is defined for future use.</li>
+<li>There is no default. Specifying <b>NOEXPORT</b> is equivalent to specifying all of the export
+control keywords (<b>NOEX-SYM</b>, <b>NOEXUASY</b>, <b>NOEXAASY</b>,
+<b>NOEX-RAW,</b><b>NOEX-DES</b>, <b>NOEX-AES</b>, and <b>NOEX-RSA</b>). Do not specify any export
+control keywords together with <b>NOEXPORT</b>. If <b>NOEXPORT</b> is not specified,
+<b>NOEX-SYM</b>, <b>NOEXUASY</b>, <b>NOEXAASY</b>, <b>NOEX-DES</b>, <b>NOEX-AES</b>, and
+<b>NOEX-RSA</b> all must be specified, and <b>NOEX-RAW</b> is optional.</li>
+</ol>
+</note>
+<table pgwide="1" frame="all" id="ktb2_secmsg_table"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES SECMSG
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> rule array keywords for AES
+SECMSG keys</p>
+</desc><tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="18*"/>
+<thead>
+<row>
+<entry>Token offset</entry>
+<entry>Rule-array keyword</entry>
+<entry>Offset value</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="center" nameend="col4" namest="col1"><b>Key-token header section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Token identifier</i> (one required). </entry>
+</row>
+<row>
+<entry>000</entry>
+<entry><b>INTERNAL</b></entry>
+<entry>X'01'</entry>
+<entry>Build a key token that is to be used locally.</entry>
+</row>
+<row>
+<entry align="center" nameend="col4" namest="col1">
+<b>Wrapping-information section</b></entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Key status</i> (one, optional). </entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><b>NO-KEY</b></entry>
+<entry>X'00'</entry>
+<entry>Build a key token that does not contain a key value. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col4" namest="col1"><i>Payload format version</i> (one, optional). Identifies format
+of the payload.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>
+<b>V1PYLD</b>
+</entry>
+<entry>X'01'</entry>
+<entry> Build the key token with a version 1 payload format. This format has a fixed length and the
+key length cannot be inferred by the size of the payload. An obscured key length is considered more
+secure. This is the default. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4" align="center">
+<b>Associated data section</b>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Algorithm type</i> (one required) </entry>
+</row>
+<row>
+<entry>041</entry>
+<entry><b>AES</b></entry>
+<entry>X'02'</entry>
+<entry>Key can be used for AES algorithm.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4" align="center">
+<b>Associated data section</b>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Key type</i> (one required) </entry>
+</row>
+<row>
+<entry>042</entry>
+<entry>
+<b>SECMSG</b>
+</entry>
+<entry> X'000A' </entry>
+<entry> Key can be used as an EMV secure messaging key for encrypting PINs or for encrypting keys.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Secure message encryption enablement</i> (one required). Key-usage field 1, high-order byte
+</entry>
+</row>
+<row>
+<entry> 045 </entry>
+<entry>
+<b>SMPIN</b>
+</entry>
+<entry> X'00' </entry>
+<entry> Enable the encryption of PINs in an EMV secure message. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>User-defined extension (UDX) control</i> (one or more, optional). Key-usage field 1, low-order
+byte. No keywords in the group are defaults. </entry>
+</row>
+<row>
+<entry morerows="3"> 046 </entry>
+<entry>
+<b>UDX-ONLY</b>
+</entry>
+<entry> B'xxxx 1xxx' </entry>
+<entry> Key can only be used in UDXs. </entry>
+</row>
+<row>
+<entry>
+<b>UDX-100</b>
+</entry>
+<entry> B'xxxx x1uu' </entry>
+<entry> Leftmost user-defined UDX bit is set on. </entry>
+</row>
+<row>
+<entry>
+<b>UDX-010</b>
+</entry>
+<entry> B'xxxx xu1u' </entry>
+<entry> Middle user-defined UDX bit is set on. </entry>
+</row>
+<row>
+<entry>
+<b>UDX-001</b>
+</entry>
+<entry> B'xxxx xuu1' </entry>
+<entry> Rightmost user-defined UDX bit is set on. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Verb restriction</i> (one, optional) </entry>
+</row>
+<row>
+<entry morerows="1"> 047 </entry>
+<entry>
+<b>ANY-USE</b>
+</entry>
+<entry> X'00' </entry>
+<entry> Any verb (service) can use this key. This is the default. </entry>
+</row>
+<row>
+<entry>
+<b>DPC-ONLY</b>
+</entry>
+<entry> X'01' </entry>
+<entry> Only CSNBDPC can use this key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>General export control</i> (one, optional). Equivalent to specifying all export control keywords
+(<b>NOEX-SYM</b>, <b>NOEXUASY</b>, <b>NOEXAASY</b>, <b>NOEX-RAW</b> , <b>NOEX-DES</b>,
+<b>NOEX-AES</b>, and <b>NOEX-RSA</b>). Not valid with any other export control keyword. There is no
+default. Key-management field 1, high-order byte and low-order byte. </entry>
+</row>
+<row>
+<entry> 050 </entry>
+<entry morerows="1">
+<b>NOEXPORT</b>
+</entry>
+<entry> B'0000 xxxx' </entry>
+<entry morerows="1"> Prohibits the export of this key in all cases. Equivalent to specifiying
+<b>NOEX-SYM</b>, <b>NOEXUASY</b>, <b>NOEXAASY</b>, <b>NOEX-RAW, NOEX-DES</b>, <b>NOEX-AES</b>, and
+<b>NOEX-RSA</b>. </entry>
+</row>
+<row>
+<entry> 051 </entry>
+<entry> B'11xx 1xxx' </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Symmetric-key export control</i> (one required if <b>NOEXPORT</b> not specified, otherwise not
+valid). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry> 050 </entry>
+<entry>
+<b>NOEX-SYM</b>
+</entry>
+<entry> B'0xxx xxxx' </entry>
+<entry> Prohibit export using symmetric key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Unauthenticated asymmetric-key export control</i> (one required if <b>NOEXPORT</b> not specified,
+otherwise not valid). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry> 050 </entry>
+<entry>
+<b>NOEXUASY</b>
+</entry>
+<entry> B'x0xx xxxx' </entry>
+<entry> Prohibit export using an unauthenticated asymmetric key (not a trusted block). </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>Authenticated asymmetric-key export control</i> (one required if <b>NOEXPORT</b> not specified,
+otherwise not valid ). Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry> 050 </entry>
+<entry>
+<b>NOEXAASY</b>
+</entry>
+<entry> B'xx0x xxxx' </entry>
+<entry> Prohibit export using an authenticated asymmetric key (trusted block). </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<i>RAW-key export control</i> (one optional if <b>NOEXPORT</b> not specified; otherwise not valid ).
+Key-management field 1, high-order byte. </entry>
+</row>
+<row>
+<entry> 050 </entry>
+<entry>
+<b>NOEX-RAW</b>
+</entry>
+<entry> B'xxx0 xxxx' </entry>
+<entry> Prohibit export using RAW key. Defined for future use. Currently ignored. This is the
+default. </entry>
+</row>
+<row rev="sh21i2">
+<entry nameend="col4" namest="col1"><i>Compliance</i> (Optional).</entry>
+</row>
+<row rev="sh21i2">
+<entry morerows="1">050</entry>
+<entry><b>COMP-TAG</b></entry>
+<entry>B'xxxx xxx1'</entry>
+<entry>Build a compliant-tagged key token.</entry>
+</row>
+<row rev="sh21i2">
+<entry><b>NOCMPTAG</b></entry>
+<entry>B'xxxx xxx0'</entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"> DES-key export control (one required if <b>NOEXPORT</b> not
+specified, otherwise not valid). Key-management field 1, low-order byte. </entry>
+</row>
+<row>
+<entry> 051 </entry>
+<entry>
+<b>NOEX-DES</b>
+</entry>
+<entry> B'1xxx xxxx' </entry>
+<entry> Prohibit export using a DES key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"> AES-key export control (one required if <b>NOEXPORT</b> not
+specified, otherwise not valid). Key-management field 1, low-order byte </entry>
+</row>
+<row>
+<entry> 051 </entry>
+<entry>
+<b>NOEX-AES</b>
+</entry>
+<entry> B'x1xx xxxx' </entry>
+<entry> Prohibit export using an AES key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"> RSA-key export control (one required if <b>NOEXPORT</b> not
+specified, otherwise not valid). Key-management field 1, low-order byte. </entry>
+</row>
+<row>
+<entry> 051 </entry>
+<entry>
+<b>NOEX-RSA</b>
+</entry>
+<entry> B'xxxx 1xxx' </entry>
+<entry>Prohibit export using an RSA key.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

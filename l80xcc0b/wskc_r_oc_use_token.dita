@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<!--SH: Acrolinx run on March 19, 2018-->
+<reference id="oc_use_token" xml:lang="en-us">
+<title>Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword></title>
+<titlealts>
+<navtitle>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/></navtitle><?Pub Caret 2?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You can use some
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccalib"/> functions through the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> standard interface (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> standard C API).</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccalib"
+/><indexterm>functions</indexterm>
+</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword><indexterm>using</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"></keyword> standard
+C API</indexterm><indexterm>C API</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section> <p>The <xref
+conref="wskc_conref-l0wskc04.dita#links/pkcs11_standard_url"></xref> describes
+the exact API.</p> <p>Applications that are designed to work with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> can use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> enablement.</p> </section>
+</refbody>
+</reference>
+<?Pub *0000001967?>

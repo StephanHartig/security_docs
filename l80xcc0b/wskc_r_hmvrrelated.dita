@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_hmvrrelated">
+<title>Related information</title>
+  <titlealts>
+    <navtitle>Related information</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Related information for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/></searchtitle>
+  </titlealts><shortdesc>Additional information about <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>,</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>)<indexterm>related
+information</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> <ph>verb</ph> is described in <xref href="wskc_r_zapghmacg.dita#l0wskc02_zapghmacg"/>.</p></section>
+</refbody></reference>

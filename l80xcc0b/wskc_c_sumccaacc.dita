@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_sumccaacc" xml:lang="en-us">
+<title>Summary of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and resource
+control verbs summary</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Summary of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and resource control
+verbs</searchtitle>
+</titlealts>
+<shortdesc>A table of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> nodes and resource control verbs, including references to the verb descriptions.</shortdesc><?Pub
+Caret 98?>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>CCA node</indexterm></indexterm>
+<indexterm>verb<indexterm>access control</indexterm></indexterm>
+<indexterm>CCA nodes and resource control verbs</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<table frame="all" id="l0wskc02_sumcca" pgwide="1">
+<title>Summary of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</title>
+<desc>
+<p outputclass="summary">Summary of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> nodes and resource control verbs</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="22*"/>
+<colspec colname="col3" colwidth="29*"/>
+<colspec colname="col4" colwidth="19*"/>
+<thead>
+<row>
+<entry>Entry point</entry>
+<entry>Verb name</entry>
+<entry>Description</entry>
+<entry>Topic/Page</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col4" namest="col1"><b><xref href="wskc_r_acc.dita#l0wskc02_acc"/></b></entry>
+</row>
+<row rev="sh16">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/></entry>
+<entry>Queries or controls installed roles.</entry>
+<entry><xref href="wskc_r_acm.dita#csuaacm"/></entry>
+</row>
+<row rev="sh16">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/></entry>
+<entry>Tracks the usage of ACPs for a defined span of time, and also queries that tracking
+information.</entry>
+<entry><xref href="wskc_r_act.dita#csuaact"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/></entry>
+<entry>Retrieves information about the coprocessor and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application program in that
+coprocessor.</entry>
+<entry><xref href="wskc_r_cfq.dita#l0wskc02_cfq"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/></entry>
+<entry>Retrieve the Security Application Program Interface (SAPI) version and build date.</entry>
+<entry><xref href="wskc_r_cfv.dita#l0wskc02_cfv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/></entry>
+<entry>Allocates specific <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor for use by the thread or process, depending on the scope of the verb.</entry>
+<entry><xref href="wskc_r_cra.dita#l0wskc02_cra"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/></entry>
+<entry>De-allocates a specific <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor that is allocated by the thread or process, depending on the scope of the verb.</entry>
+<entry><xref href="wskc_r_crd.dita#l0wskc02_crd"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/></entry>
+<entry>This verb initializes a key-storage file using the current symmetric or asymmetric
+master-key. The initialized key storage does not contain any preexisting key records. The name and
+path of the key storage data and index file are established differently in each operating
+environment. Note that HMAC keys are not supported for key storage.</entry>
+<entry><xref href="wskc_r_ksi.dita#l0wskc02_ksi"/></entry>
+</row>
+<row rev="shd3">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/></entry>
+<entry>This verb retrieves system log (SYSLOG) message data and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log message data from the coprocessor.
+SYSLOG data is available for one of the five latest boot cycles (current boot cycle and up to four
+previous boot cycles). <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log message
+data is optionally available during the current boot cycle. The verb supports service personnel and
+developers in testing and debugging issues.</entry>
+<entry><xref href="wskc_lgq.dita#l0wskc02_lgq"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/></entry>
+<entry>Operates on the three master-key registers: new, current, and old. <p>This verb is used to
+clear the new and the old master-key registers, generate a random master-key value in the new
+master-key register, XOR a clear value as a key part into the new master-key register, and set the
+master key, which transfers the current master-key to the old master-key register and the new
+master-key to the current master-key register.</p></entry>
+<entry><xref href="wskc_r_mkp.dita#l0wskc02_mkp"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/></entry>
+<entry>Invokes the USA NIST FIPS PUB 140-1 specified cryptographic operational tests. These tests,
+selected by a <synph><var>rule_array</var></synph> keyword, consist of known-answer tests of DES,
+RSA, and SHA-1 processes and, for random numbers, monobit test, poker test, runs test, and log-run
+test.</entry>
+<entry><xref href="wskc_r_rnt.dita#l0wskc02_rnt"/></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>
+<?Pub *0000005469?>

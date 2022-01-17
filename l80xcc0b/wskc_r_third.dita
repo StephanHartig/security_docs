@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_third">
+<title>Edition March 2011, CCA Support Program Release 4.1.0</title>
+ <titlealts>
+    <navtitle>Edition March 2011, CCA Support Program Release 4.1.0</navtitle>
+    <searchtitle/>
+  </titlealts>
+<shortdesc>This edition describes the <tm trademark="IBM" tmtype="reg">IBM</tm> CCA
+Basic Services API for Release 4.1.0. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>Web site</indexterm>
+<indexterm>ANSI X9.8</indexterm>
+<indexterm>Cipher-Block Chaining (CBC) mode</indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)</indexterm>
+<indexterm>Elliptic Curve Digital Signature Algorithm (ECDSA)</indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>Hashed Message Authentication code (HMAC)</indexterm>
+<indexterm>edition 2011</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For Release 4.1.0, changes to the CCA API include: <ul>
+<li>Enhanced PIN security with the addition of ANSI X9.8 restriction capabilities <p>Three new
+access control points are added to enhance PIN security by blocking PIN attacks. See the
+<synph><kwd>Required commands</kwd></synph> sections of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>), and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>) verbs.</p></li>
+<li>Wrap CCA keys in Cipher-Block Chaining (CBC) mode <p>A second key-wrapping method is added for
+DES that is a more secure version of Triple-DES ECB mode currently used by CCA. The enhanced version
+of key wrapping complies with current cryptographic standards that require key bundling. This new
+key-wrapping method can coexist with the CCA legacy ECB mode of wrapping Triple-DES keys. The two
+methods can coexist on the same or multiple systems.</p>
+</li>
+<li>Elliptic Curve Cryptography (ECC) support <p>New Elliptic Curve Cryptography (ECC) key
+generation, along with support for digital signature generation and verification using the Elliptic
+Curve Digital Signature Algorithm (ECDSA). This enhancement includes a new PKA key-token for housing
+ECC public-key cryptographic keys and a new asymmetric APKA master-key (32-byte AES key) for
+wrapping an ECC key-token, along with added support to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb.</p></li>
+<li>Hashed Message Authentication Code (HMAC) support for key generation and processing, but not for
+key storage.</li>
+<li>These new verbs: <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</li>
+</ul></li>
+</ul></p></section>
+</refbody></reference>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_statwpin" rev="shd3">
+<title>STATWPIN</title>
+<titlealts>
+<navtitle>STATWPIN</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATWPIN</searchtitle>
+</titlealts>
+<shortdesc>For the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> verb, the
+SIZEWPIN and STATWPIN keywords  are added to the rule array to query the size and to obtain the
+state information of the weak PIN table. The STATWPIN <synph><var>rule_array</var></synph> keyword
+obtains the state information of the weak PIN table.  </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>STATWPIN</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<table id="statwpin_table" pgwide="1">
+<title>Output data format for the STATWPIN keyword</title>
+<desc>
+<p outputclass="summary">Output data format for the STATWPIN keyword</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry>Field name</entry>
+<entry>Length in bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>weak_PIN_table_state</entry>
+<entry>11 - 460</entry>
+<entry> Returns the WPIN entry structure as described in <xref
+href="#l0wskc02_cfq_statwpin/statpwin_table2" format="dita"/>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table pgwide="1" id="statpwin_table2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> weak PIN entry
+structure (type X'30')</title>
+<desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> weak
+PIN entry structure (type X'30')</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="10*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length in bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>01</entry>
+<entry>Weak PIN structure type (in ASCII): X'30' - weak PIN entry structure</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>03</entry>
+<entry>Weak PIN entry identifier in ASCII digits 001 - 020 (X'303031' - X'303230')</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>01</entry>
+<entry>State of entry (in ASCII): <dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>A (X'41')</dt>
+<dd>Active</dd>
+</dlentry>
+<dlentry>
+<dt>L (X'4C') </dt>
+<dd>Loaded</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>02</entry>
+<entry>Clear PIN length (in ASCII digits). For DK verbs, valid values are 04 - 12 (X'3034' -
+X'3132'). Otherwise, valid values are 04 - 16 (X'3034' - X3136').</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>04 — 16</entry>
+<entry>Clear weak PIN (in ASCII digits). Valid values are 0 - 9 (X'30' - X'39').</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

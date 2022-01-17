@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csuaacm" rev="sh16">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> verb to
+query or control installed roles.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>You can use this verb to perform the following services:</p>
+<ul compact="yes">
+<li>Retrieve a list of the installed roles<!-- or user profiles-->.</li>
+<li>Retrieve the non-secret data for a selected role<!-- or user profile-->.</li>
+</ul>
+<p>You select which service to perform by specifying the corresponding keyword in the input
+rule-array. You can only perform one of these services per verb call.</p>
+<p rev="sh16"><xref href="wskc_acodas_intro.dita#acodas_intro"/> describes the roles and role
+structures and provides examples of access control data structures for the roles.</p>
+<note>You can also perform the services provided by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/> verb with the help of the
+<cmdname>panel.exe</cmdname> utility. Refer to <xref href="wskc_c_l0wskc43.dita#l0wskc43"/> and to
+<xref href="wskc_panexe_role_acps.dita#panexe_role_acps"/>.</note>
+</section>
+</refbody>
+</reference>

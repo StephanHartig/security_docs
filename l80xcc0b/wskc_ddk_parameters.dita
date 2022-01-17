@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ddk_parameters" rev="hw20i1">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>kdk_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>kdk_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>key_type_vector_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>key_type_vector parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>additional_derivation_data_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>additional_derivation_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>random_data_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>random_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of 8-byte elements in the rule_array
+variable. The value must be 2.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable containing an array of keywords. The keywords are eight bytes in
+length and must be left-aligned and padded on the right with space characters.</p>
+<p>
+<table frame="all" id="ddkey" pgwide="0"><title>Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/></title><desc>
+<p outputclass="summary">Keywords for Diversify Directed Key. This table contains two columns:
+Keyword and Meaning, and it contains rows for Diversification Process (One required) and Function
+(one required).</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="128*"/>
+<colspec colname="col2" colwidth="268*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Diversification Process (One
+required)</i></b></entry>
+</row>
+<row>
+<entry>KDFFM</entry>
+<entry>Specifies to use the Key Derivation Function (KDF) in Feedback Mode
+(NIST SP 800-108) to generate keys. The <varname>key_type_vector</varname> variable is used as the
+IV for this process.<p>This method uses AES CMAC to process 16 – 40 bytes of derivation data (V,
+with V =additional_derivation_data ∥ random_data) with the key diversification key (KDK) to produce
+a <varname>k</varname>-bit AES key, where <varname>k</varname> = 128, 192, or 256.</p></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Function (one
+required)</i></b></entry>
+</row>
+<row>
+<entry>DERIVE</entry>
+<entry>Specifies to derive the passive diversified key of a pair of
+directed keys.</entry>
+</row>
+<row>
+<entry>GENERATE</entry>
+<entry>Specifies to generate the active diversified key of a pair of
+directed keys.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+</pd>
+</plentry>
+<plentry>
+<pt>kdk_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>kdk_identifier</parmname> variable. The maximum length is 900. A key label must be at
+least 64 bytes.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>kdk_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable containing the operational variable-length symmetric key-token or
+the key label of such a record in AES key-storage. The key must have a token algorithm of AES and a
+key type of KDKGENKY. This is a key diversification key (KDK). In addition, the key usage fields
+must indicate if the key is to be derived for entity Type A (<b>KDKTYPEA</b>) or Type B
+(<b>KDKTYPEB</b>).</p>
+<note>When the <b>GENERATE</b> function is specified and the generating key has usage of KDKTYPEA,
+the associated <b>DERIVE</b> function must have usage of KDKTYPEB. Likewise, when the
+<b>GENERATE</b> function is specified and this key has usage of KDKTYPEB, the associated
+<b>DERIVE</b> function must have usage of KDKTYPEA.</note>
+</pd>
+</plentry>
+<plentry>
+<pt>key_type_vector_length </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of elements in the
+<parmname>key_type_vector</parmname> variable. The value must be 16.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>key_type_vector</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable that defines the rules for the key to be generated and also
+contains information needed to restrict the usage of the key to be generated. The format of the key
+type vector is defined in <xref href="wskc_keytvec.dita"/>. The <varname>key_type_vector</varname>
+is also used as the initialization vector (IV) for the key derivation process.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>additional_derivation_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>additional_derivation_data</parmname> variable. The value must be from 0 – 24. The
+additional derivation data together with the random data value cannot exceed 40 bytes.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>additional_derivation_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable containing optional custom diversification data. The derivation
+data that is input to the diversification method, V, must be 16 – 40 bytes and is created by
+concatenating the additional derivation data and the random data (that is, V =
+<parmname>additional_derivation_data</parmname> &DoubleVerticalBar;<parmname>
+random_data</parmname>). The random number must be at least 16 bytes.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>random_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable which specifies the number of bytes of random data in the
+<parmname>random_data</parmname> variable. The value must be from 16 – 40. The additional derivation
+data concatenated with the random data cannot exceed 40 bytes.<ul>
+<li>When keyword <b>GENERATE</b> is specified in the rule array, this is an input and an output
+parameter. On input, this value specifies the number of bytes of data to use as the random data
+portion of the diversification data used in diversifying the first key of a key pair. On output, the
+returned value indicates the number of bytes of data actually returned in the
+<parmname>random_data</parmname> variable.</li>
+<li>When keyword <b>DERIVE</b> is specified in the rule array, this is an input only parameter.
+Except on error, this value is set to 0. On input, this value specifies the number of bytes of data
+to use as the random data portion of the diversification data used in diversifying the second key of
+a key pair. To produce the desired results, this value must be the same length returned by a
+previous associated <b>GENERATE</b> function call.</li>
+</ul></p>
+</pd>
+</plentry>
+<plentry>
+<pt>random_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the random data used in the diversification
+process. When the <b>GENERATE</b> function is specified, on input this variable is ignored, and on
+output this variable contains the random data created and used to diversify the first output key of
+a key pair. When the <b>DERIVE</b> function is specified, on input this variable must contain the
+random data previously created during a previous <b>GENERATE</b> function and is used to diversify
+the second output key of a key pair. The derivation data, V, that is input to the diversification
+process for creating the key must be 16 – 40 bytes and is created by concatenating the
+<parmname>additional_derivation_data</parmname> with the <parmname>random_data</parmname>. 
+The random data must be at least 16 bytes.<note>For
+a given pair of output keys, the <b>DERIVE</b> function must provide the same random data and
+additional derivation data as the <b>GENERATE</b> function used.</note></pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_key_identifier</parmname> variable. On input, this is the size of the buffer. On output, the verb sets
+the variable to the length of the returned <parmname>output_key_identifier</parmname> variable. The maximum value is
+900.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>output_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a variable-length symmetric key-token, or the
+label of such a record in AES key-storage, for the key token that is to receive the output key. On
+input, this parameter must identify a null variable-length symmetric key-token. The key
+characteristics are identified by the <parmname>key_type_vector</parmname> parameter. The output key
+token will be:<ul>
+<li>Internal</li>
+<li>Payload format version X’01’</li>
+<li>No key label in the associated data</li>
+<li>No IBM extended associated data (IEAD)</li>
+<li>No user-defined associated data (UAD)</li>
+<li>General export control: NOEXPORT</li>
+<li>The key length defined in the key type vector determines the length of the output key. </li>
+</ul><p>When the <parmname>kdk_identifier</parmname> is compliant-tagged, a compliant-tagged key token
+is created.</p></pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

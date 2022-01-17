@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pvr">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> <ph>verb</ph> to verify that one of the customer
+selected trial PINs is valid.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>verifying</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>verification
+verb</indexterm></indexterm>
+<indexterm>IBM 3624</indexterm>
+<indexterm>Interbank PIN</indexterm>
+<indexterm>INBK-PIN</indexterm>
+<indexterm>IBM GBP</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p rev="sh21i1">Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb
+to extract a trial PIN (T-PIN) from an encrypted PIN-block and verify this value by comparing it to
+an account PIN (A-PIN) calculated by using the specified PIN-calculation method. Certain PIN
+calculation methods modify the value of the A-PIN with the clear offset (O-PIN) value prior to the
+comparison. The verb also supports derived unique key per transaction (DUKPT) PIN-block encryption
+(ANS X9.24) for decrypting the input PIN-block.</p>
+<p rev="sh21i1">The following PIN block formats are supported: </p>
+<ul compact="yes" rev="sh21i1">
+<li> IBM 3624</li>
+<li>ISO-0 (same as ANS X9.8, VISA-1, and ECI-1)</li>
+<li>ISO-1 (same as ECI-4) </li>
+<li>ISO-2</li>
+<li>ISO-3</li>
+<li>ISO-4</li>
+</ul>
+<p rev="sh21i1">To use this verb, specify:</p>
+<ul rev="sh21i1">
+<li>Processing choices using rule-array keywords:
+<ul>
+<li>A PIN-calculation method.</li>
+<li>Optionally, a PIN-extraction method.</li>
+<li>Optionally, derived unique key per transaction (DUKPT) processing with the UKPTIPIN keyword for the 
+single-DES method or DUKPT-IP keyword for the triple-DES method.</li>
+</ul></li>
+<li>An input PIN-block decrypting key, or the base key used to derive the PIN-block enciphering key.</li>
+<li>A PIN-verifying key to be used to calculate the PIN.</li>
+<li>A PIN profile for the input PIN-block, which for DUKPT processing must be extended from 24 bytes
+to 48 bytes with the current-key serial number (CKSN) extension. See <xref href="wskc_c_pinppp.dita"
+/>.</li>
+<li>When using the ISO-0, ISO-3, or ISO-4 PIN-block format, a PAN to be used in extracting the PIN.
+See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/pan_number"/>.</li>
+<li>The PIN block that contains the PIN to be verified.</li>
+<li>The length of the PIN to be checked if you specify the IBM-PIN or the IBM-PINO PIN calculation
+methods in the rule array.</li>
+<li>In the data array: a decimalization table, account validation data, and for certain PIN
+calculation methods, an offset value.</li>
+</ul>
+<p rev="sh21i1">The verb does the following:</p>
+<ul>
+<li><b>For a DES PIN encrypting key:</b> Decrypts the input PIN-block by using the supplied IPINENC
+key in ECB mode, or derives the decryption key using the specified KEYGENKY key and CKSN and uses
+ANS X9.24-specified special decryption or Triple-DES method. The EPINVER bit must be valued to B'1'
+in the IPINENC control vector, or the UKPT bit must be valued to B'1' in the KEYGENKY control
+vector.</li>
+<li><b>For an AES PIN encrypting key:</b> Decrypts the input ISO-4 PIN format block by using the
+supplied AES PIN_encrypting_key_identifier, or derives the decryption key using the specified
+AES-DUKPT derivation key and CKSN. The AES key must have key type of PINPROT. In addition, the key
+usage fields must indicate that the key can be used for decryption (DECRYPT), the encryption mode
+must be Cipher Block Chaining (CBC), common usage control must be NOFLDFMT, PIN block format usage
+must be ISO-4, and PIN function usage EPINVER must be enabled. </li>
+<li> Extracts the trial PIN (T-PIN) from the specified PIN-block format using the method specified
+by default or by a rule array keyword. If required by the PIN-block format, PAN data or the pad
+digit is used in the extraction process. For ISO-4, the extraction step is part of the decryption
+step. </li>
+<li>Verifies use of a PINVER or PINGEN key type having the EPINVER bit valued to B'1' in the control
+vector of the PIN-verifying key • Calculates the account-number-based PIN (A-PIN).For methods that
+employ an offset, modify the A-PIN value with the offset (O-PIN) value entered in the third element
+of the <parmname>data_array</parmname> variable. The NOOFFSET bit must be valued to zero in the
+control vector of the PIN-verifying key when employing the IBM 3624 PIN-offset calculation method. </li>
+<li>Compares the extracted trial (T-PIN) with the possibly modified account PIN (A-PIN) and reports
+the results in the return_code variable. Return code 4 indicates a verification failure, while
+return code 0 indicates success.</li>
+</ul>
+<p>Use this verb to verify that one of the following PINs is valid: <ul compact="yes">
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 (<synph><kwd>IBM-PIN</kwd></synph>) </li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN offset (<synph><kwd>IBM-PINO</kwd></synph>) </li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> German Bank Pool
+(<synph><kwd>GBP-PIN</kwd></synph>)</li>
+<li>VISA PIN validation value (<synph><kwd>VISA-PVV</kwd></synph>)</li>
+<li>VISA PIN validation value (<synph><kwd>VISAPVV4</kwd></synph>)</li>
+<li>Interbank PIN (<synph><kwd>INBK-PIN</kwd></synph>) </li>
+</ul></p>
+</section>
+<section>
+<p rev="sh21i1">The derived unique-key-per-transaction (DUKPT) algorithm is available. Both
+DES-DUKPT (ANSI x9.24-1 2007) and AES-DUKPT (ANSI x9.24-3 2017) are supported. This support is
+available for the <parmname>input_PIN_encrypting_key_identifier</parmname> parameter.</p>
+<p>The unique-key-par-transaction key derivation for single and double-length keys is available for
+the <parmname> input_PIN_encrypting_key_identifier</parmname> parameter. </p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

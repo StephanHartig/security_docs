@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbfped">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> verb is used
+to decrypt payment card data for the Visa Data Secure Platform (VDSP) processing. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p rev="sh21i1">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/> verb uses the TDES
+(Triple-DES) algorithm with cipher block chaining (CBC). It supports two options:</p>
+<ul>
+<li>The standard encryption option.</li>
+<li>The<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vfpe"/>  (VFPE) option.</li>
+</ul>
+<p rev="sh21i1">If the standard encryption option was selected, the plain text data was formatted into blocks and then
+encrypted with triple-DES encryption with a static TDES key or a DUKPT double length data encryption
+key. For the decryption operation, the data blocks must be decrypted and unblocked to produce the
+plaintext. If the data was encrypted with the VFPE option, the data was encrypted in place without
+changing the data type or length of the field and DUKPT key management is used.</p> 
+<p> The verb can be used to decipher one or all of the following fields: </p>
+<sl>
+<sli>the primary account number (PAN),</sli>
+<sli>the cardholder name,</sli>
+<sli>the Track 1 Discretionary Data,</sli>
+<sli>the Track 2 Discretionary Data.</sli>
+</sl>
+<p>Also refer to <xref href="wskc_vfpe_concept.dita#vfpe_concept"><cite>Visa Format-Preserving
+Encryption supporting information</cite></xref>. </p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/> verb returns the
+enciphered fields and optionally the DUKPT PIN key, if DUKPT key management is selected. </p>
+<note type="other" othertype="Terminology">The VDSP specification speaks of two key management
+methods: <term>DUKPT (derived unique key per transaction)</term> and <term>Zone Encryption
+Keys</term>. The process for deriving these keys is documented in ANS X9.24 Part 1. <term>Zone
+Encryption Keys</term> are called <term>static keys</term> in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. Static keys are presented for use and are
+not derived during verb processing. They are double length TDES keys for this service which are
+called <term>static TDES keys</term> in this document.</note>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptreusage" rev="sh15">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>
+</searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>)<indexterm>usage
+notes</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/><indexterm>usage
+notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>shows the valid  DUKPT keyword combinations for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/>.</p>
+<table frame="all" rowsep="1" colsep="1" id="ptre_usag1" pgwide="1"><title>Valid <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> DUKPT keyword combinations</title><desc>
+<p outputclass="summary">Valid <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"
+/> DUKPT keyword combinations.</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<thead>
+<row>
+<entry>DUKPT keyword combination</entry>
+<entry>Input PIN encrypting key</entry>
+<entry>Output PIN encrypting key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>DUKPT-IP ADUKPTOP</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>AES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTIP DUKPT-OP</entry>
+<entry>AES DUKPT</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>DUKPT-BH</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTBH</entry>
+<entry>AES DUKPT</entry>
+<entry>AES DUKPT</entry>
+</row>
+<row>
+<entry>DUKPT-IP</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>Static</entry>
+</row>
+<row>
+<entry>DUKPT-OP</entry>
+<entry>Static</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTIP</entry>
+<entry>AES DUKPT</entry>
+<entry>Static</entry>
+</row>
+<row>
+<entry>ADUKPTOP</entry>
+<entry>Static</entry>
+<entry>AES DUKPT</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

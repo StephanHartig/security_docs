@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdpinextrules" xml:lang="en-us">
+<title>PIN extraction rules</title>
+<titlealts>
+<navtitle>PIN extraction rules</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PIN extraction rules</searchtitle>
+</titlealts>
+<shortdesc>There are PIN extraction rules for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword> <ph>verbs</ph>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>personal identification number (PIN)<indexterm>extraction
+rules</indexterm></indexterm><indexterm>extraction rules, PIN</indexterm>
+<indexterm>Encrypted PIN Verify (CSNBPVR)<indexterm>extraction rules</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody></conbody>
+</concept>
+<?Pub *0000001001?>

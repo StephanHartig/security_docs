@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdvisa2">
+<title>Visa Format 2</title>
+  <titlealts>
+    <navtitle>Visa Format 2</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Visa Format 2</searchtitle>
+  </titlealts><shortdesc>Example code for Visa Format 2.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>Visa-2</indexterm></indexterm>
+<indexterm>Visa-2 PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><example>
+<codeblock>   PIN Block = LPPPPzzDDDDDDDDD
+
+where L = X'4' to X'6'
+ </codeblock></example>
+</refbody></reference>

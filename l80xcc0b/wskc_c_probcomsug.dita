@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_probcomsug">
+<title>Do you have problems, comments, or suggestions?</title><shortdesc>Your suggestions and ideas can contribute to the quality and the
+usability of this document.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>contact IBM</indexterm>
+<indexterm>IBM<indexterm>contacting</indexterm></indexterm>
+<indexterm>problems, reporting</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>If you have problems using this document, or if you have suggestions
+for improving it, complete and mail the Reader's Comment Form found
+at the back of the document.</p>
+</conbody></concept>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_ansix919opm" xml:lang="en-us">
+<title>ANSI X9.19 Optional Procedure 1 MAC</title>
+<titlealts>
+<navtitle>ANSI X9.19 Optional Procedure 1 MAC</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.19 Optional Procedure 1
+MAC</searchtitle>
+</titlealts>
+<shortdesc><ph>The Financial Institution (Retail) Message Authentication
+Standard, ANSI X9.19 Optional Procedure 1 (ISO/IEC 9797-1, Algorithm
+3) specifies additional processing of the 64-bit O</ph><sub>n</sub> MAC
+value. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ANSI X9.19 Optional Procedure 1 MAC</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p><ph>The CCA</ph> <q>X9.19OPT</q> process employs a double-length
+DES key. After calculating the 64-bit MAC as above with the left half
+of the double-length key, the result is decrypted using the right
+half of the double-length key. This result is then encrypted with
+the left half of the double-length key. The resulting MAC value is
+processed according to other specifications supplied to the verb call.</p><?Pub
+Caret -2?>
+</conbody>
+</concept>
+<?Pub *0000001210?>

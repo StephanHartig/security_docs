@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc87">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>kek_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>source_key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>array_key_left_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>CVARXCVL</indexterm>
+<indexterm>mask_array_left parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>array_key_right_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>CVARXCVR</indexterm>
+<indexterm>mask_array_right parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/></indexterm></indexterm>
+<indexterm>ADJUST</indexterm>
+<indexterm>NOADJUST</indexterm>
+<indexterm>target_key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>kek_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an operational key-token or the key label of an
+operational key-token record containing the key-encrypting key. The control vector in the key token
+must specify the key type <synph><kwd>IMPORTER</kwd></synph>, <synph><kwd>EXPORTER</kwd></synph>,
+<synph><kwd>IKEYXLAT</kwd></synph>, or <synph><kwd>OKEYXLAT</kwd></synph>.</pd></plentry>
+<plentry><pt>source_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the external DES key-token with the key and
+control vector to be processed.</pd></plentry>
+<plentry><pt>array_key_left_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an operational DES key-token or a key label of an
+operational DES key-token record that deciphers the left mask-array. The key token must contain a
+control vector specifying a <synph><kwd>CVARXCVL</kwd></synph> key-type. The
+<synph><kwd>CVARXCVL</kwd></synph> key must be single length.</pd></plentry>
+<plentry><pt>mask_array_left</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the mask array enciphered under the left-array
+key.</pd></plentry>
+<plentry><pt>array_key_right_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an operational DES key-token or the key label of
+an operational DES key-token record that deciphers the right mask-array. The key token must contain
+a control vector specifying a <synph><kwd>CVARXCVR</kwd></synph> key-type. The
+<synph><kwd>CVARXCVR</kwd></synph> key must be single length.</pd></plentry>
+<plentry><pt>mask_array_right</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the mask array enciphered under the right-array
+key.</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are eight bytes
+in length and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc87/l0wskc02_sygary"/>. <table id="l0wskc02_sygary" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="20*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Parity adjustment</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ADJUST</kwd></synph></entry>
+<entry valign="top" align="left">Ensures that all target-key bytes have odd parity. This is the
+default.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>NOADJUST</kwd></synph></entry>
+<entry valign="top" align="left">Prevents the parity of the target key from being altered.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Key half processing mode</i></b>
+(One, optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>LEFT</kwd></synph></entry>
+<entry valign="top" align="left">Causes an 8-byte source key, or the left half of a 16-byte source
+key, to be processed with the result placed into both halves of the target key. This is the
+default.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>RIGHT</kwd></synph></entry>
+<entry valign="top" align="left">Causes the right half of a 16-byte source key to be processed with
+the result placed into only the right half of the target key. The left half of the target key is
+unchanged.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>BOTH</kwd></synph></entry>
+<entry valign="top" align="left">Causes both halves of a 16-byte source key to be processed with the
+result placed into corresponding halves of the target key. When you use the
+<synph><kwd>BOTH</kwd></synph> keyword, the mask array must be able to validate the translation of
+both halves.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SINGLE</kwd></synph></entry>
+<entry valign="top" align="left">Causes the left half of the source key to be processed with the
+result placed into only the left half of the target. The right half of the target key is
+unchanged.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>target_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an external DES key-token with the new control
+vector. This key token contains the key halves with the new control vector.</pd></plentry>
+</parml></section>
+</refbody></reference>

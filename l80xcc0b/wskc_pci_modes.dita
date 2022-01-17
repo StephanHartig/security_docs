@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pci_modes" xml:lang="en-us" rev="sh20i2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></title>
+<titlealts>
+<navtitle>Compliance modes</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>
+</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM provides a mode
+that enforces compliance with PCI-HSM requirements when compliance-tagged symmetric keys or
+compliant X.509 certificates are used. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> administrative workstation is used to set
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM to the compliance mode by
+using a dual-control process. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>
+can also display whether the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> HSM
+is currently in compliant mode. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>HSM modes</indexterm></indexterm>
+<indexterm>HSM modes</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>normal mode</indexterm></indexterm>
+<indexterm>normal mode - HSM</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>imprint mode</indexterm></indexterm>
+<indexterm>imprint mode - HSM</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>compliance mode</indexterm></indexterm>
+<indexterm>compliance mode - HSM</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody/>
+</reference>
+<?Pub *0000002516?>

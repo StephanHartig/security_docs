@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="triple_tdes_keys" xml:lang="en-us" rev="sh20i1">
+<title>Triple-length TDES keys</title>
+<titlealts>
+<navtitle>Triple-length TDES keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Triple-length TDES keys</searchtitle>
+</titlealts>
+<shortdesc>The cryptographic keys are grouped into the following categories based on the functions
+that they perform.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key types <indexterm>triple-length TDES keys</indexterm></indexterm>
+<indexterm>triple-length TDES keys</indexterm>
+<indexterm>TDES keys <indexterm>triple-length </indexterm></indexterm>
+<indexterm>two-key TDES</indexterm>
+<indexterm>three-key TDES</indexterm>
+<indexterm>triple-length key <indexterm>Triple-DES</indexterm></indexterm>
+<indexterm>triple-length key <indexterm>TDES</indexterm></indexterm>
+<indexterm>double-length key <indexterm>Triple-DES</indexterm></indexterm>
+<indexterm>double-length key <indexterm>TDES</indexterm></indexterm>
+<indexterm>Triple-DES <indexterm>triple-length key</indexterm> <indexterm>double-length key</indexterm></indexterm>
+<indexterm>TDES <indexterm>triple-length key</indexterm> <indexterm>double-length key</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Depending on the key type, a DES key can be single, double, or triple in length (triple-length TDES keys
+are supported in Release 5.4 or later). A single-length DES key can be used for single DES operations,
+while a double-length or triple-length key can be used for Triple-DES (TDES) operations. Assuming unique
+key parts, a triple-length TDES key provides far greater protection against an adversary obtaining the clear
+value of the enciphered quantity than a double-length TDES or single-length DES key.
+</p><note>Three-key TDES keys with unique key parts are strongly recommended to be used whenever
+possible for any new applications.
+Each DES key type supports double-length keys for TDES (that is, two-key TDES). Beginning with Release
+5.4, some DES key types support triple-length keys for TDES (that is, three-key TDES). Table 33 on page
+200 defines which key types do and do not support triple-length TDES keys.
+</note><table frame="all" rowsep="1" colsep="1" id="bsm_three_key_tdes" rev="rel54"><title>List of
+supported and unsupported triple-length TDES key types (Release 5.4 or later)</title><tgroup
+cols="3">
+<colspec colname="c1" colwidth="5*"/>
+<colspec colname="c2" colwidth="8*"/>
+<colspec colname="c3" colwidth="8*"/>
+<thead>
+<row>
+<entry>DES key category</entry>
+<entry>Supported triple-length TDES key types</entry>
+<entry>Unsupported triple-length TDES key types</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Data operation keys</entry>
+<entry>DATA, CIPHER, DECIPHER, ENCIPHER, MAC, MACVER</entry>
+<entry>DATAC, DATAM, DATAMV, CIPHERXI, CIPHERXO, CIPHERXL, SECMSG</entry>
+</row>
+<row>
+<entry>PIN processing keys</entry>
+<entry>PINGEN, PINVER, IPINENC, OPINENC </entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>Cryptographic variable encrypting keys</entry>
+<entry>N/A</entry>
+<entry>CVARPINE, CVARDEC, CVARXCVL, CVARXCVR, CVARENC</entry>
+</row>
+<row>
+<entry>Key encrypting keys</entry>
+<entry>EXPORTER, IMPORTER, IMP-PKA</entry>
+<entry>OKEYXLAT, IKEYXLAT</entry>
+</row>
+<row>
+<entry>Key generating keys</entry>
+<entry>N/A</entry>
+<entry>KEYGENKY, DKYGENKY </entry>
+</row>
+</tbody>
+</tgroup></table>
+</conbody>
+</concept>
+<?Pub *0000043308?>

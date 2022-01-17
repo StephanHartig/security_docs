@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_dkrl" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> verb
+creates a key-record-list file containing information about specified
+key records in PKA key-storage. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"></keyword>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUPKADS</indexterm></indexterm>
+<indexterm>CSUPKADS</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Information includes whether record validation is correct,
+the type of key, and the dates and times when the record was created
+and last updated.</p></section>
+<section><p>Specify the key records to be listed using the <synph><var>key_label</var></synph> parameter.
+To identify multiple key records, use the wild card (*) in a key label.</p></section>
+<section> <note>To list all the labels in key storage, specify the <synph><var>key_label</var></synph>
+parameter with *, *.*, *.*.*, and so forth, up to a maximum of seven name tokens
+(*.*.*.*.*.*.*).</note></section>
+<section><p>This verb creates the list file and returns the name of the file and the length of the file name
+to the calling application. This verb also returns the name of the security server where the file is
+stored. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> file has a header
+record, followed by 0 - <synph><var>n</var></synph> detail records, where
+<synph><var>n</var></synph> is the number of key records with matching key labels. <ph>The file is
+kept in the <synph><kwd>/opt/IBM/CCA/keys/pkalist</kwd></synph> directory (assuming the
+directory name was not changed during installation). These list files are created under the
+ownership of the environment of the user that requests the list verb. Make sure the files created
+kept the same group ID as your installation requires. This can also be achieved by setting the
+<term>set-group-id-on-execution</term> bit on in this directory. See the <uicontrol>g+s</uicontrol>
+flags in the <synph><kwd>chmod</kwd></synph> command for full details. Not doing this might cause
+errors to be returned on key-record-list verbs.</ph></p><?Pub Caret 371?>
+<p>PKA key records are stored in the external key-storage file defined by the CSUPKADS environment
+variable.</p>
+<p>For information concerning the location of the key-record-list directory, refer to the <xref
+href="https://www.ibm.com/security/cryptocards/pciecc4/library" format="html" scope="external"
+><cite>IBM 4769 PCIe Cryptographic Coprocessor Installation Manual</cite></xref>.</p></section>
+</refbody>
+</reference>
+<?Pub *0000003529?>

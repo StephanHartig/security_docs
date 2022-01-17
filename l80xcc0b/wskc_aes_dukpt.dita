@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="aes_dukpt" xml:lang="en-us" rev="sh21i1">
+<title>AES-DUKPT reference</title>
+<titlealts>
+<navtitle>AES-DUKPT reference</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): AES-DUKPT reference</searchtitle>
+</titlealts>
+<shortdesc>Read the contained information about the use of AES keys with derived unique key per
+transaction (AES-DUKPT) processing.</shortdesc>
+<prolog>
+<metadata>
+<keywords><indexterm>derived unique key per transaction processing<indexterm>DUKPT</indexterm></indexterm>
+<indexterm>DUKPT<indexterm>derived unique key per transaction processing</indexterm></indexterm><indexterm>DUKPT</indexterm>
+<indexterm>AES-DUKPT</indexterm></keywords></metadata>
+</prolog>
+<refbody>
+<section>
+<title>Types of keys used in AES-DUKPT processing</title>
+<p>In AES-DUKPT processes, three kinds of keys are distinguished:</p>
+<dl>
+<dlentry>
+<dt>Base derivation key (BDK)</dt>
+<dd>This key is used in a derivation process to generate initial DUKPT keys using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/> verb. A BDK is generated using the
+verbs <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>. This key must be <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> type AES DKYGENKY key with KUF bits set
+indicating this key is allowed to be used as BDK.</dd>
+</dlentry>
+<dlentry>
+<dt>initial derivation key</dt>
+<dd>This is a unique key loaded into a secure device such as PIN entry device or POS terminal. It is
+derived from the DUKPT BDK and information in the Derived Data structure. Within X9.24
+documentation, this key is sometimes also called initial terminal key or just terminal key. The only
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb that can derive an initial
+derivation key is <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>. For the
+purpose of AES-DUKPT, the initial derivation key can only be an AES key, within <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> specifically an AES DKYGENKY key with KUF
+bits set indicating this key is allowed to be used as BDK.</dd>
+</dlentry>
+<dlentry>
+<dt>working key</dt>
+<dd>This is the output key from the AES-DUKPT algorithm and it is used in cryptographic operations
+to encrypt, decrypt, authenticate or validate the transaction data. A working key is sometimes also
+called the transaction key. Working keys are derived from the initial derivation key and information
+in the Derived Data structure. A user can derive working keys using verb <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/> and then use that key for the
+transaction and use that key as input parameter in other <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs for the given transaction. Working
+keys are discarded once transaction is completed. A user can also instruct several <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs to derive working keys inline.
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs that support this inline
+DUKPT key derivations are <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>,
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>. These verbs support AES-DUKPT
+derivation methods.</dd>
+</dlentry>
+</dl>
+
+</section>
+<section id="adukpt_deriv_data">
+<title>AES-DUKPT derivation data</title><indexterm>AES-DUKPT derivation data</indexterm>
+<p>The following data structure is used to specify input parameters for both initial derivation keys
+and working keys. The initial terminal DUKPT key or initial key is used together with the
+transaction counter to derive the transaction key, which is also called the working key. Once the
+transaction key has been derived, the terminal does not preserve any information that could be used
+to derive the transaction key after the transaction has been completed.</p><p><xref
+href="#aes_dukpt/dukpt_ddata" format="dita"/> specifies the derivation data. For the most part,
+initial terminal key value ranges are a subset of the overall value ranges. One exception to that
+rule is the value for the key usage indicator field, X'8001', which can only be used when deriving
+an initial terminal key.</p><table frame="all" rowsep="1" colsep="1" id="dukpt_ddata" pgwide="1"
+><title>AES-DUKPT derivation data</title><desc>
+<p outputclass="summary">AES-DUKPT derivation data.</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="5*"/>
+<colspec colname="c2" colnum="2" colwidth="7*"/>
+<colspec colname="c3" colnum="3" colwidth="10*"/>
+<colspec colname="c4" colnum="4" colwidth="46*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length of field (bytes)</entry>
+<entry>Field name</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry>Version</entry>
+<entry>Version ID of this table structure. <p>Allowed value: X'01'.</p></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry>Key block counter</entry>
+<entry>A counter that is incremented for each 16-byte block of keying material generated for a pair
+of encryption and MAC keys. Starts at 1 for each key being generated.<p>Allowed values: X'01' –
+X'02'.</p></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>Key usage indicator</entry>
+<entry>Indicates how the key to be derived is to be used. The initial terminal key is always a key
+derivation key.<p>Allowed values:<dl>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>Key Encryption Key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'1000'</dt>
+<dd>PIN Encryption.</dd>
+</dlentry>
+<dlentry>
+<dt>X'2000'</dt>
+<dd>Message Authentication, generation.</dd>
+</dlentry>
+<dlentry>
+<dt>X'2001'</dt>
+<dd>Message Authentication, verification.</dd>
+</dlentry>
+<dlentry>
+<dt>X'2002'</dt>
+<dd>Message Authentication, both generation and verification.</dd>
+</dlentry>
+<dlentry>
+<dt>X'3000'</dt>
+<dd>Data Encryption, encryption.</dd>
+</dlentry>
+<dlentry>
+<dt>X'3001'</dt>
+<dd>Data Encryption, decryption.</dd>
+</dlentry>
+<dlentry>
+<dt>X'3002'</dt>
+<dd>Data Encryption, both encryption and decryption.</dd>
+</dlentry>
+<dlentry>
+<dt>X'8000'</dt>
+<dd>Key Derivation.</dd>
+</dlentry>
+<dlentry>
+<dt>X'8001'</dt>
+<dd>Key Derivation Initial Key. This value cannot be used for working keys. This is the only
+value that is allowed for an initial terminal key.</dd>
+</dlentry>
+</dl></p><note>X'2000', X'2001', X'3000', and X'3001' do not represent complementary
+keys. A key derived using X'2000' will not be the same key as is derived for the X'2001' usage
+value. Instead, the values represent the viewpoint of the terminal operator (for example, whether
+the terminal will use the key for that purpose).</note></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>2</entry>
+<entry>Algorithm indicator</entry>
+<entry>Indicates the encipherment algorithm that is going to use the derived key.<p>Allowed values:<dl>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>2-key TDES.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0001'</dt>
+<dd>3-key TDES.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>AES 128 bit. This is the value range that is allowed for an initial terminal key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0003'</dt>
+<dd>AES 192 bit. This is the value range that is allowed for an initial terminal key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0004'</dt>
+<dd>AES 256 bit. This is the value range that is allowed for an initial terminal key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0005'</dt>
+<dd>HMAC.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>2</entry>
+<entry>Length</entry>
+<entry>Length, in bits, of the keying material being generated.<p>Allowed values:<dl>
+<dlentry>
+<dt>X'0080'</dt>
+<dd>If 128 bits is being generated (AES-128, 2TDES, or 128-bit HMAC key). 
+This is the only value that is allowed for an initial terminal key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'00C0'</dt>
+<dd>If 192 bits is being generated (AES-192, 3TDES, or 192-bit HMAC key). 
+This is the only value that is allowed for an initial terminal key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0100'</dt>
+<dd>If 256 bits is being generated (AES-256 or 256-bit HMAC key). 
+This is the only value that is allowed for an initial terminal key.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>8</entry>
+<entry>Initial key ID</entry>
+<entry>The terminal’s initial key ID, the leftmost 64 bits of the key serial number.<p>Allowed
+range: X'0000000000000000' to X'FFFFFFFFFFFFFFFF'.</p></entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>4</entry>
+<entry>Transaction counter</entry>
+<entry>The 32-bit transaction counter.<p>Allowed range: X'00000000' to X'FFFFFFFF'.</p></entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+<section>
+<title>Supported <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key types for
+AES-DUKPT derived working keys</title>
+<indexterm>AES-DUKPT supported <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key
+types</indexterm>
+<p>The following table lists the types of CCA keys that can be derived using the AES-DUKPT
+algorithm:</p> 
+<table frame="all" rowsep="1" colsep="1" id="dukpt_CCA_keytypes" pgwide="1">
+<title>Supported <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key types for AES-DUKPT derived working keys</title>
+<desc>
+<p outputclass="summary">Supported CCA key types for AES-DUKPT derived working keys.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<thead>
+<row>
+<entry>Derived working key</entry>
+<entry>AES key type</entry>
+<entry>2-Key TDES/3-Key TDES key type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>PIN Encryption</entry>
+<entry>PINPROT</entry>
+<entry>IPINENC/OPINENC</entry>
+</row>
+<row>
+<entry>MAC</entry>
+<entry>MAC</entry>
+<entry>MAC / MACVER</entry>
+</row>
+<row>
+<entry>Key encrypting key</entry>
+<entry>IMPORTER/EXPORTER</entry>
+<entry>IMPORTER/EXPORTER</entry>
+</row>
+<row>
+<entry>Key derivation key</entry>
+<entry>DKYGENKY</entry>
+<entry>KEYGENKY (2-Key TDES only)</entry>
+</row>
+<row>
+<entry>Data encryption</entry>
+<entry>CIPHER</entry>
+<entry>CIPHER/ENCIPHER/DECIPHER</entry>
+</row>
+<row>
+<entry>HMAC</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section>
+<title>AES-DUKPT allowed derived working key sizes</title>
+<indexterm>AES-DUKPT <indexterm>allowed derived working key sizes</indexterm></indexterm>
+<indexterm>allowed derived working key sizes <indexterm>AES-DUKPT</indexterm></indexterm>
+<p>ANSI X9.24 specifies that working keys shall be the same strength or weaker than the key from
+which they are derived. The following table shows allowed working key sizes per AES Base Derivation
+Key size: </p>
+<table frame="all" rowsep="1" colsep="1" id="dukpt_allowed_key_sizes" pgwide="1">
+<title>AES-DUKPT allowed derived working key sizes</title>
+<desc>
+<p outputclass="summary">AES-DUKPT allowed derived working key sizes.</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<colspec colname="c4" colnum="4" colwidth="1*"/>
+<thead>
+<row>
+<entry>Derived working key</entry>
+<entry>AES-128 base derivation key</entry>
+<entry>AES-192 base derivation key</entry>
+<entry>AES-256 base derivation key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>2TDES</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>3TDES</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>AES-128</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>AES-192</entry>
+<entry>not allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>AES-256</entry>
+<entry>not allowed</entry>
+<entry>not allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>HMAC-128</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>HMAC-192</entry>
+<entry>not allowed</entry>
+<entry>allowed</entry>
+<entry>allowed</entry>
+</row>
+<row>
+<entry>HMAC-256</entry>
+<entry>not allowed</entry>
+<entry>not allowed</entry>
+<entry>allowed</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>
+<?Pub *0000212848?>

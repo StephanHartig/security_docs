@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_zosmk">
+<title>z/OS-based master-key verification method</title>
+  <titlealts>
+    <navtitle>z/OS-based master-key verification method</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): z/OS-based master-key verification
+method</searchtitle>
+  </titlealts><shortdesc>When the first and third portions of the symmetric master key have
+the same value, the master key is effectively a double-length DES
+key. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In this case, the master-key verification pattern (MKVP) is based
+on this algorithm: 
+<ul>
+<li>C = <ph>X'4545454545454545'</ph></li>
+<li>IR = MK<sub>first-part</sub> XOR e<sub>C</sub>(MK<sub>first-part</sub>)</li>
+<li>MKVP = MK<sub>second-part</sub> XOR e<sub>IR</sub>(MK<sub>second-part</sub>)</li>
+</ul>where:
+<ul>
+<li>e<sub>x</sub>(Y) is the DES encoding of Y using
+x as a key</li>
+<li>XOR means bitwise exclusive OR</li>
+</ul></p>
+<p>Version <ph>X'00'</ph> internal CCA DES key tokens use this eight-byte
+master-key verification pattern. </p>
+</conbody></concept>

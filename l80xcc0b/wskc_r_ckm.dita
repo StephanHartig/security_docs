@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ckm">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> <ph>verb</ph> to import a clear single, double,
+or triple-length DATA key that is to be used to encipher or decipher
+data. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This <ph>verb</ph> can import only DATA keys. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> accepts
+a clear DATA key, enciphers it under the master key, and returns the
+encrypted DATA key in operational form in an internal key token.</p></section>
+</refbody></reference>

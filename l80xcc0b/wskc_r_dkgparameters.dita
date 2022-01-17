@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkgparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/></indexterm></indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>CLR8-ENC</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>TDES-DEC</indexterm>
+<indexterm>TDES-ENC</indexterm>
+<indexterm>TDES-XOR</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>SMPIN</indexterm>
+<indexterm>SMKEY</indexterm>
+<indexterm>TDESEMV2</indexterm>
+<indexterm>EMV 2000</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>SESS-XOR</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>generating_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb</indexterm></indexterm>
+<indexterm>data_length<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"
+/> verb</indexterm></indexterm>
+<indexterm>data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/></indexterm></indexterm>
+<indexterm>key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/></indexterm></indexterm>
+<indexterm>generated_key_identifier<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb</indexterm></indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>SESS-XOR</indexterm>
+<indexterm>null key token</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>control vector</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords that provide control
+information to the verb. The processing method is the algorithm used to create the generated key.
+The keyword is left-aligned and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_dkgparameters/l0wskc02_kytary1"/>.<table id="l0wskc02_kytary1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="13*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Processing Method for generating or updating diversified
+keys</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>CLR8-ENC</kwd></synph></entry>
+<entry>Specifies that eight bytes of clear data shall be Triple-DES encrypted with the generating
+key (<parmname>generating_key_identifier</parmname>) to create a key.<p>The key selected by the
+<parmname>generating_key_identifier</parmname> must specify a <synph><kwd>KEYGENKY</kwd></synph>
+key-type also with control vector bit 19 set to B'1'.</p><p>The key identified by the
+<parmname>data_decrypting_key_identifier</parmname> must identify a null DES key-token.</p><p>The
+key token identified by the <parmname>generated_key_identifier</parmname> variable must contain a
+control vector that specifies a single-length key of one of these types:
+<synph><kwd>DATA</kwd></synph>, <synph><kwd>CIPHER</kwd></synph>,
+<synph><kwd>DECIPHER</kwd></synph>, <synph><kwd>MAC</kwd></synph>, or
+<synph><kwd>MACVER</kwd></synph>.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-CBC</kwd></synph></entry>
+<entry>Specifies that 16 bytes of clear data shall be Triple-DES encrypted with the generating key
+to create the generated key. If the <parmname>generated_key_identifier</parmname> variable specifies
+a double-length key, then 16 bytes of clear data are Triple-DES encrypted in CBC mode with an
+initial value of binary zeros.<note>The EMV Card Personalization specification states that CBC
+encryption mode should be used in the diversification process.</note>
+<p>The key selected by the <parmname>generating_key_identifier</parmname> parameter must specify a
+DKYGENKY key-type that has the appropriate control vector usage bits (bits 19 – 22) set for the
+desired generated key.</p><p>Control vector bits 12 – 14 binary encode the key-derivation sequence
+level (<synph><kwd>DKYL7</kwd></synph> down to <synph><kwd>DKYL0</kwd></synph>). The final key is
+derived when bits 12 – 14 are B'000'. The verb verifies the incremental relationship between the
+value in the control vectors of the key tokens identified by the
+<parmname>generating_key_identifier</parmname> parameter and the generating_key_identifier parameter
+control vector. In the case when the generated_key_identifier is a null DES token, the appropriate
+counter value is placed into the output key-token.</p><p>The
+<parmname>data_decrypting_key_identifier</parmname> parameter must identify a null DES
+key-token.</p><p>A key token identified by the <parmname>generated_key_identifier</parmname>
+parameter that is not a null key-token must contain a control vector that specifies a double-length
+key having a key type that is consistent with the specification in bits 19 – 22 of the generating
+key.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-DEC</kwd></synph></entry>
+<entry>Specifies that 8 or 16 bytes of clear data shall be Triple-DES decrypted with the generating
+key to create the generated key. If the <parmname>generated_key_identifier</parmname> variable
+specifies a single-length key, then 8 bytes of clear data are Triple-DES decrypted. If the
+<parmname>generated_key_identifier</parmname> variable specifies a double-length key, then 16 bytes
+of clear data are Triple-DES decrypted in ECB mode. <p>The key selected by the
+generating_key_identifier must specify a <synph><kwd>DKYGENKY</kwd></synph> key-type that has the
+appropriate control vector usage bits (bits 19 – 22) set for the desired generated
+key.</p><p>Control vector bits 12 – 14 binary encode the key-derivation sequence level
+(<synph><kwd>DKYL7</kwd></synph> down to <synph><kwd>DKYL0</kwd></synph>). The final key is derived
+when bits 12 – 14 are B'000'. The verb verifies the incremental relationship between the value in
+the <parmname>generated_key_identifier</parmname> variable control-vector and the
+<parmname>generating_key_identifier</parmname> variable control-vector. Or in the case when the
+<parmname>generated_key_identifier</parmname> variable is a null DES key-token, the appropriate
+counter value is placed into the output key-token.</p> The
+<parmname>data_decrypting_key_identifier</parmname> parameter must identify a null DES key-token.
+<p>A key token identified by the <parmname>generated_key_identifier</parmname> variable that is not
+a null DES key-token must contain a control vector that specifies a single-length or double-length
+key having a key type consistent with the specification in bits 19 – 22 of the generating
+key.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-ENC</kwd></synph></entry>
+<entry>Specifies that 16 bytes of clear data shall be Triple-DES encrypted with the generating key
+to create the generated key. If the <parmname>generated_key_identifier</parmname> variable specifies
+a double-length key, then 16 bytes of clear data are Triple-DES encrypted in ECB mode with an
+initial value of binary zeros.<note>The EMV Card Personalization specification states that ECB
+encryption mode should be used in the diversification process.</note><p>The key selected by the
+<parmname>generated_key_identifier</parmname> must specify a <synph><kwd>DKYGENKY</kwd></synph>
+key-type that has the appropriate control vector usage bits (bits 19 – 22) set for the desired
+generated key.</p><p>Control vector bits 12 – 14 binary encode the key-derivation sequence level
+(<synph><kwd>DKYL7</kwd></synph> down to <synph><kwd>DKYL0</kwd></synph>). The final key is derived
+when bits 12 – 14 are B'000'. The verb verifies the incremental relationship between the value in
+the <parmname>generated_key_identifier</parmname> variable control-vector and the
+generating_key_identifier variable control-vector. Or in the case when the
+<parmname>generated_key_identifier</parmname> variable is a null DES key-token, the appropriate
+counter value is placed into the output key-token.</p> The
+<parmname>data_decrypting_key_identifier</parmname> parameter must identify a null DES key-token.
+<p>A key token identified by the <parmname>generated_key_identifier</parmname> variable that is not
+a null DES key-token must contain a control vector that specifies a single-length or double-length
+key having a key type consistent with the specification in bits 19 – 22 of the generating
+key.</p></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>TDES-XOR</kwd></synph></entry>
+<entry>Specifies that 10 bytes or 18 bytes of clear (not encrypted) data shall be processed as
+described in <xref href="wskc_c_wemcvsc.dita#l0wskc02_wemcvsc"/> to create the generated key. The
+data variable contains either 8 bytes or 16 bytes of data to be triple-encrypted to which you append
+a 2-byte Application Transaction Counter value (previously received from the smart card). Place the
+counter value in a string construct with the high-order counter bit first in the string.<p>The key
+selected by the generating_key_identifier parameter must specify a DKYGENKY key-type at level-0
+(bits 12 – 14 B'000') and indicate permission to create one of several key types in bits 19 –
+22:</p><dl>
+<dlentry>
+<dt>B'0001'</dt>
+<dd>DDATA, to generate a DATA key</dd>
+</dlentry>
+<dlentry>
+<dt>B'0010'</dt>
+<dd>DMAC, to generate a MAC key</dd>
+</dlentry>
+<dlentry>
+<dt>B'0011'</dt>
+<dd>DMV, to generate a MACVER key</dd>
+</dlentry>
+<dlentry>
+<dt>B'1000'</dt>
+<dd>DMKEY, to generate a SECMSG SMKEY (used in secure messaging, key encryption, see the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb) </dd>
+</dlentry>
+<dlentry>
+<dt>B'1001'</dt>
+<dd>DMPIN, to generate a SECMSG SMPIN (used in secure messaging, PIN encryption, see the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb). </dd>
+</dlentry>
+</dl><p>The <parmname>data_decrypting_key_identifier</parmname> parameter must identify a null DES
+key-token.</p><p>A key token or key-token record identified by the
+<parmname>generated_key_identifier</parmname> parameter that is not a null DES key-token. The token
+must contain a control vector that specifies a key type conforming to that specified in
+control-vector bits 19 – 22 for the key-generating key. The control vector must specify a
+double-length key.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TDESEMV2</kwd></synph></entry>
+<entry><ph>This option</ph> supports generation of a session key by the EMV 2000 algorithm (This
+EMV2000 algorithm uses a branch factor of 2). The generating key must be a level 0
+<synph><kwd>DKYGENKY</kwd></synph> and cannot have replicated halves. The session key generated must
+be double length and the allowed key types are <synph><kwd>DATA</kwd></synph>,
+<synph><kwd>DATAC</kwd></synph>, <synph><kwd>DATAM</kwd></synph>, <synph><kwd>DATAMV</kwd></synph>,
+<synph><kwd>MAC</kwd></synph>, <synph><kwd>MACVER</kwd></synph>, <synph><kwd>SMPIN</kwd></synph>,
+and <synph><kwd>SMKEY</kwd></synph>. Key type must be allowed by the generating key control vector.
+</entry>
+</row>
+<row>
+<entry><synph><kwd>TDESEMV4</kwd></synph></entry>
+<entry><ph>This option</ph> supports generation of a session key by the EMV 2000 algorithm (This
+EMV2000 algorithm uses a branch factor of 4). The generating key must be a level 0
+<synph><kwd>DKYGENKY</kwd></synph> and cannot have replicated halves. The session key generated must
+be double length and the allowed key types are <synph><kwd>DATA</kwd></synph>,
+<synph><kwd>DATAC</kwd></synph>, <synph><kwd>DATAM</kwd></synph>, <synph><kwd>DATAMV</kwd></synph>,
+<synph><kwd>MAC</kwd></synph>, <synph><kwd>MACVER</kwd></synph>, <synph><kwd>SMPIN</kwd></synph>,
+and <synph><kwd>SMKEY</kwd></synph>. Key type must be allowed by the generating key control
+vector.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Processing Method for updating a
+diversified key</i></b> (optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>SESS-XOR</kwd></synph></entry>
+<entry rev="shr2">Specifies the VISA method for session key generation, namely that 8 bytes or 16
+bytes of data shall be exclusive-ORed with the clear value of the session key contained in the key
+token identified by the <parmname>generating_key_identifier</parmname> parameter. If the
+<parmname>generating_key_identifier</parmname> parameter identifies a single-length key, then 8
+bytes of data are exclusive-ORed. If the <parmname>generating_key_identifier</parmname> parameter
+identifies a double-length key, then 16 bytes of data are exclusive-ORed. <p>The key token specified
+by the generating_key_identifier parameter must be of key type <synph><kwd>DATA</kwd></synph>,
+<synph><kwd>DATAC</kwd></synph>, <synph><kwd>DATAM</kwd></synph>, <synph><kwd>DATAMV</kwd></synph>,
+<synph><kwd>MAC</kwd></synph>, <synph><kwd>MACVER</kwd></synph>.</p><p>The
+<parmname>data_decrypting_key_identifier</parmname> parameter must identify a null DES
+key-token.</p><p>On input, the token identified by the <parmname>generated_key_identifier</parmname>
+parameter must identify a null DES key-token. The control vector contained in the output key token
+identified by the <parmname>generated_key_identifier</parmname> is the same as the control vector
+contained in the key token identified by the
+<parmname>generating_key_identifier</parmname>.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key-wrapping method</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry rev="shd3">This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Translation control</i></b> (Optional). This is valid only
+with key-wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with
+<synph><kwd>USECONFG</kwd></synph> when the default wrapping method is
+<synph><kwd>WRAP-ENH</kwd></synph>. This option cannot be used on a key with a control vector valued
+to binary zeros.</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy wrapping method once it has
+been wrapped with the enhanced wrapping method. Sets bit 56 (<synph><kwd>ENH-ONLY</kwd></synph>) of
+the control vector to <ph>B'1'</ph>. </entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>generating_key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label or internal token of a key generating key. The type of key-generating key depends
+on the processing method.</pd></plentry>
+<plentry><pt>data_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>data</var></synph> parameter that follows. Length depends on
+the processing method and the generated key.</pd></plentry>
+<plentry><pt>data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Data input to the diversified key or session key generation process. Data depends on the
+processing method and the <parmname>generated_key_identifier</parmname>.</pd></plentry>
+<plentry><pt>key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is currently not used. It must be a 64-byte null token.</pd></plentry>
+<plentry><pt>generated_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The internal token of an operational key, a skeleton token containing the control vector of
+the key to be generated, or a null token. A null token can be supplied if the
+<parmname>generated_key_identifier</parmname> is a <synph><kwd> DKYGENKY</kwd></synph> with a CV
+derived from the <parmname>generating_key_identifier</parmname>. A skeleton token or internal token
+is required when <parmname>generated_key_identifier</parmname> will not be a <synph><kwd>
+DKYGENKY</kwd></synph> key type or the processing method is not <synph><kwd>SESS-XOR</kwd></synph>.
+For <synph><kwd>SESS-XOR</kwd></synph>, this must be a null token. On output, this parameter
+contains the generated key.<p>To generate a compliant-tagged key token, a
+compliant-tagged skeleton token must be supplied.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

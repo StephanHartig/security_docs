@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="tr31_optional_block_data" xml:lang="en-us" rev="sh20i1">
+<title>TR-31 key block header and optional block data </title>
+<titlealts>
+<navtitle>TR-31 key header and optional data</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): TR-31 key block header and optional block
+data </searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-31<indexterm>key block header and optional block data</indexterm></indexterm>
+<indexterm>TR-31 key block header</indexterm>
+<indexterm>TR-31 optional block data </indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>Available <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services for
+TR-31 symmetric-key management and the use of TR-31 key blocks  are described in <xref
+href="wskc_c_l0wskc03_zapgtr31.dita"/>. This section describes the format of the TR-31 key block
+header and the header values supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. It also describes the TR-31 optional
+blocks that can be used by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. See
+<cite>ASC X9 TR 31-2018: Interoperable Secure Key Exchange Block Specification</cite> for the
+definition of a TR-31 key block.</section>
+</refbody>
+</reference>
+<?Pub *0000006107?>

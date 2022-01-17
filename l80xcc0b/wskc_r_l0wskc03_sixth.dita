@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l0wskc03_sixth" xml:lang="en-us" rev="sh15">
+<title>Edition July 2015, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Support
+Program Releases 4.4 and 5.0</title>
+<shortdesc>This edition describes the <tm tmtype="reg" trademark="IBM">IBM</tm>
+        <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Basic Services API for
+        Release 5.0, including those for Release 4.4. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>edition 2015</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For Releases 4.4 and 5.0, changes to the CCA API include the following new verbs:</p>
+    <table id="new_verbs" pgwide="1" frame="all">
+                <title>New verbs for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+                    /> Releases 4.4 and 5.0</title>
+                <desc>
+                    <p outputclass="summary">New verbs for <keyword
+                            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4 and 5.0 with entry-point name, category, and long name with link to the
+                        verb description.</p>
+                </desc>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="5*"/>
+                    <colspec colname="col2" colwidth="20*"/>
+                    <colspec colname="col3" colwidth="20*"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1">Verb entry-point name</entry>
+                            <entry colname="col2">Service name</entry>
+                            <entry colname="col3">Category</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/></entry>
+                            <entry><xref href="wskc_lgq.dita#l0wskc02_lgq"/></entry>
+                            <entry>Using the CCA nodes and resource control verbs</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/></entry>
+                            <entry><xref href="wskc_dkg2.dita#l0wskc02_dkg2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/></entry>
+                            <entry><xref href="wskc_pka.dita#wskc_pka"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></entry>
+                            <entry><xref href="wskc_csnbukd.dita#csnbukd"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></entry>
+                            <entry><xref href="wskc_protdata_ciphertt2.dita#wskc_ctt2"/></entry>
+                            <entry>Protecting data</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/></entry>
+                            <entry><xref href="wskc_mgn2.dita#wskc_mgn2"/></entry>
+                            <entry>Verifying data integrity and authenticating messages</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></entry>
+                            <entry><xref href="wskc_mvr2.dita#wskc_mvr2"/></entry>
+                            <entry>Verifying data integrity and authenticating messages</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"/></entry>
+                            <entry><xref href="wskc_apg.dita#csnbapg"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/></entry>
+                            <entry><xref href="wskc_ptre.dita#ptre"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/></entry>
+                            <entry><xref href="wskc_fped.dita#csnbfped"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/></entry>
+                            <entry><xref href="wskc_fpee.dita#csnbfpee"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/></entry>
+                            <entry><xref href="wskc_fpet.dita#csnbfpet"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/></entry>
+                            <entry><xref href="wskc_bpfo.dita#csnbpfo"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/></entry>
+                            <entry><xref href="wskc_dk_ddpgdeterm.dita#csnbddpgdeterm"/></entry>
+                            <entry>Financial services for DK PIN methods<sup>1)</sup></entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/></entry>
+                            <entry><xref href="wskc_dk_dmpmigpin.dita#csnbdpmmigpin"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpmt"/></entry>
+                            <entry><xref href="wskc_dk_dpmtpanmod.dita#csnbdpmtpanmod"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpt"/></entry>
+                            <entry><xref href="wskc_dk_dptpantrans.dita#csnbdptpantrans"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></entry>
+                            <entry><xref href="wskc_dk_dpcpinchange.dita#csnbdpcpinchange"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></entry>
+                            <entry><xref href="wskc_dk_dpvpinverify.dita#csnbdpvpinverify"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/></entry>
+                            <entry><xref href="wskc_dk_dpnuprwcard.dita#csnbdpnuprwcard"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/></entry>
+                            <entry><xref href="wskc_dk_dpcgprwcmac.dita#csnbdpcgprwcmac"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrpg"/></entry>
+                            <entry><xref href="wskc_dk_drpgranpin.dita#csnbdrpgranpin"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrp"/></entry>
+                            <entry><xref href="wskc_dk_drpregpin.dita#csnbdrpregpin"/></entry>
+                            <entry>Financial services for DK PIN methods</entry>
+                        </row>
+                        <row>
+                            <entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/></entry>
+                            <entry><xref href="wskc_utility_xea.dita#utiltiy_xea"/></entry>
+                            <entry>Utility verbs<sup>1)</sup></entry>
+                        </row>
+                       <row>
+                           <entry namest="col1" nameend="col3">1) new verb category</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <p>The following verbs provide new keywords:</p>
+    <table id="updated_verbs" pgwide="1" frame="all">
+                <title>Updated verbs for <keyword
+                        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4 and 5.0</title>
+                <desc>
+                    <p outputclass="summary">Updated verbs for <keyword
+                            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4 and 5.0 with entry-point name, category, and long name with link to the
+                        verb description.</p>
+                </desc>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="5*"/>
+                    <colspec colname="col2" colwidth="20*"/>
+                    <colspec colname="col3" colwidth="20*"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1">Entry-point</entry>
+                            <entry colname="col2">Service name</entry>
+                            <entry colname="col3">Category</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>CSUACFQ</entry>
+                            <entry><xref href="wskc_r_cfq.dita#l0wskc02_cfq"/></entry>
+                            <entry>Using the CCA nodes and resource control verbs</entry>
+                        </row>
+                        <row>
+                            <entry>CSNBCVG</entry>
+                            <entry><xref href="wskc_r_cvg1.dita#l0wskc02_cvg1"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNBDKG</entry>
+                            <entry><xref href="wskc_r_dkg.dita#l0wskc02_dkg"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNBKEX</entry>
+                            <entry><xref href="wskc_r_kex.dita#l0wskc02_kex"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKGN</entry>
+                            <entry><xref href="wskc_r_kgn.dita#l0wskc02_kgn"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKGN2</entry>
+                            <entry><xref href="wskc_r_kgn2.dita#l0wskc02_kgn2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKIM</entry>
+                            <entry><xref href="wskc_r_kim.dita#l0wskc02_kim"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKYT2</entry>
+                            <entry><xref href="wskc_r_kyt2.dita#l0wskc02_kyt2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTB</entry>
+                            <entry><xref href="wskc_r_ktb.dita#l0wskc02_ktb"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTB2</entry>
+                            <entry><xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTC</entry>
+                            <entry><xref href="wskc_r_bktc.dita#l0wskc02_bktc"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTC2</entry>
+                            <entry><xref href="wskc_r_bktc2.dita#l0wskc02_bktc2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTP</entry>
+                            <entry><xref href="wskc_r_ktp.dita#l0wskc02_ktp"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTP2</entry>
+                            <entry><xref href="wskc_r_ktp2.dita#l0wskc02_ktp2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBKTR2</entry>
+                            <entry><xref href="wskc_r_ktr2.dita#l0wskc02_ktr2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNBRKA</entry>
+                            <entry><xref href="wskc_r_rkat.dita#l0wskc02_rkat"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row><row>
+                            <entry>CSNDSYX</entry>
+                            <entry><xref href="wskc_r_syx.dita#l0wskc02_syx"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNDSYI2</entry>
+                            <entry><xref href="wskc_r_syi2.dita#l0wskc02_syi2"/></entry>
+                            <entry>Managing AES and DES cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNBPCU</entry>
+                            <entry><xref href="wskc_r_pcu.dita#l0wskc02_pcu"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry>CSNBTRV</entry>
+                            <entry><xref href="wskc_r_trv.dita#l0wskc02_trv"/></entry>
+                            <entry>Financial services</entry>
+                        </row>
+                        <row>
+                            <entry>CSNDPKI</entry>
+                            <entry><xref href="wskc_r_pki.dita#l0wskc02_pki"/></entry>
+                            <entry>Managing PKA cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNDKTC</entry>
+                            <entry><xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"/></entry>
+                            <entry>Managing PKA cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNDPKT</entry>
+                            <entry><xref href="wskc_r_zapgkxlate.dita#l0wskc02_zapgkxlate"/></entry>
+                            <entry>Managing PKA cryptographic keys</entry>
+                        </row>
+                        <row>
+                            <entry>CSNDRKX</entry>
+                            <entry><xref href="wskc_r_rkx.dita#l0wskc02_rkx"/></entry>
+                            <entry>Managing PKA cryptographic keys</entry>
+                        </row>
+
+                    </tbody>
+                </tgroup>
+            </table>
+<p rev="shd3">Beginning with Release 4.4, a new AES key type SECMSG is supported, which is added to
+variable-length symmetric key tokens. See <xref
+href="wskc_aes_secmsg_vlskt.dita#l0wskc02_aes_secmsg/aes_secmsg_vlskt"/>.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001500?>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<topic xml:lang="en-us" id="bsm_derived_unique_kpk_trans_key" rev="sh21i1">
+<title>Deriving an ANS X9.24 DUKPT key</title>
+<titlealts>
+<navtitle>Deriving an ANS X9.24 DUKPT key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Deriving an ANS X9.24 DUKPT
+key</searchtitle>
+</titlealts>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>UKPT</indexterm>
+<indexterm>CKSN</indexterm>
+<indexterm>current key serial number</indexterm>
+<indexterm>unique key per transaction</indexterm>
+<indexterm>ANS X9.24 DUKPT key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<p>To determine the current-transaction encrypting key used by a terminal which is encrypting
+PIN-blocks under the ANS X9.24 standard, the ANS X9.24 algorithm uses a derivation key and the
+current-key serial number (CKSN) as inputs. <ul>
+<li>The derivation key must be a double-length KEYGENKY key-type with the UKPT control vector bit
+set on. The right half of the derivation key cannot be the same as the left half of the derivation
+key.</li>
+<li>The <i>initial key serial number</i> is a 59-bit value that contains terminal identification
+information that is unique among the set of terminals initialized under a given derivation key.</li>
+<li>The <i>encryption counter</i> is a 21-bit counter value. The value in the counter is set to 0
+when the terminal is initialized. The counter increments each time the terminal performs a PIN-block
+encryption. The counter increments such that a maximum of 10 bits can be set on; the counter can
+record 1.000.000 encryptions.</li>
+<li>The CKSN is the concatenation of the initial key serial number and the encryption counter. This
+concatenation is an 80-bit (10-byte) value.</li>
+</ul></p>
+<p>The calculation method consists of the following steps: <ol>
+<li>Calculate the initial encrypting key. To calculate the initial encrypting key, do the following: <ol>
+<li>Move the leftmost 8 bytes of the CKSN to a work area (<i>C<sub>a</sub></i>).</li>
+<li>Perform an AND operation with the last byte of C<sub>a</sub> and <ph>X'EO'</ph>. This operation
+clears the high-order bits of the encryption counter. The value that C<sub>a</sub> now contains is
+the initial serial number that was loaded when the PIN keypad was initialized.</li>
+<li>Encrypt C<sub>a</sub>, using the left half of the derivation key; name the result
+C<sub>b</sub>.</li>
+<li>Decrypt C<sub>b</sub>, using the right half of the derivation key; name the result
+C<sub>c</sub>.</li>
+<li>Encrypt C<sub>c</sub>, using the left half of the derivation key; name the result C<sub>d</sub>.
+C<sub>d</sub> is the initial PIN encrypting key that was loaded when the terminal was
+initialized.</li>
+<li>Rename C<sub>d</sub> to be <i>K<sub>a</sub></i>, the initial PIN encrypting key.</li>
+</ol></li>
+<li>Calculate the current encrypting key. To calculate the current encrypting key, do the following: <ol>
+<li>Move the rightmost 8 bytes of the CKSN to a work area (<i>W<sub>a</sub></i>).</li>
+<li>Move the rightmost 3 bytes of W<sub>a</sub> to another work area (<i>C<sub>a</sub></i>).</li>
+<li>Perform an AND operation with the rightmost 3 bytes of W<sub>a</sub> with <ph>X'E00000'</ph>.
+This operation clears the encryption counter from W<sub>a</sub>.</li>
+<li>Perform an AND operation with C<sub>a</sub> and <ph>X'1FFFFF'</ph>. This operation clears the
+low-order bits of the initial serial number from the encryption counter.</li>
+<li>Initialize a 3-byte area to <ph>X'100000'</ph>; name the result S<sub>a</sub>.</li>
+<li>Initialize a 1-byte counter to <ph>X'00'</ph>; name the result B<sub>a</sub>.</li>
+<li>Test each bit of the encryption counter, looking for <ph>B'1'</ph> bits by doing the following
+loop: <ul>
+<li>When a <ph>B'1'</ph> bit is found, it ORs this bit into the initial serial number. It then
+special encrypts the result with K<sub>a</sub>.</li>
+<li>The result of this special encryption is the new K<sub>a</sub>.</li>
+<li>When all <ph>B'1'</ph> bits are processed, a <i>variant</i> of the value in K<sub>a</sub>
+becomes the current encrypting key.</li>
+</ul> Use the following procedure to do this loop: <codeblock>DO i=1 to 21
+ a. IF (C<sub>a</sub> AND S<sub>a</sub>) is not equal to 0 THEN DO
+    1) ADD 1 to B<sub>a</sub>
+    2) IF B<sub>a</sub> &gt; 10 THEN exit algorithm with an error
+       indicating too many <ph><ph>B'1'</ph></ph> bits were set in the encryption
+       counter
+    3) OR S<sub>a</sub> into the rightmost 3 bytes of W<sub>a</sub>;
+       store the result in T<sub>a</sub>
+    4) XOR T<sub>a</sub> and K<sub>a</sub>; store the result in T<sub>b</sub>
+    5) Encrypt T<sub>b</sub> with K<sub>a</sub>; store the result in T<sub>c</sub>
+    6) XOR T<sub>c</sub> with K<sub>a</sub>; store the result in K<sub>a</sub>
+ b. END IF
+ c. Shift S<sub>a</sub> one bit to the right.
+    Fill in on the left with a <ph><ph>B'0'</ph></ph> bit.
+ END DO</codeblock> The value in K<sub>a</sub> is the current encrypting key. <note>The CCA
+implementation does not adjust key parity on any of the bytes of the derived encrypting key before
+encrypting them under its master key. Parity adjustment is not done because the key value is used in
+two XOR operations during the <i>special decrypt</i> process of recovering the clear
+PIN-block.</note></li>
+</ol></li>
+</ol></p>
+<p>The following is an example of calculating the initial PIN encrypting key:
+<codeblock>Derivation key = <ph><ph>X'5152 5457 585B 5D5E 6162 6467 686B 6D6E'</ph></ph>
+Current key serial number = <ph><ph>X'0123 4567 89AB CDF0 0001'</ph></ph>
+ 
+C<sub>a</sub> = <ph><ph>X'0123 4567 89AB CDE0'</ph></ph>
+C<sub>b</sub> = <ph><ph>X'6497 E2F4 C59D 952E'</ph></ph>
+C<sub>c</sub> = <ph><ph>X'0163 CE85 359F F599'</ph></ph>
+ 
+Initial PIN encrypting key = K<sub>a<sub>1</sub></sub> = C<sub>d</sub> = <ph><ph>X'21EE 7C08 DBE8 20AB'</ph></ph></codeblock></p>
+<p>The following is an example of calculating the current PIN encrypting key:
+<codeblock>W<sub>a</sub> = <ph><ph>X'4567 89AB CDE0 0000'</ph></ph>
+C<sub>a</sub> = <ph><ph>X'10001'</ph></ph>
+S<sub>a<sub>1</sub></sub> = <ph><ph>X'100000'</ph></ph>
+ 
+ 
+T<sub>a<sub>1</sub></sub> = <ph><ph>X'4567 89AB CDF0 0000'</ph></ph>
+T<sub>b<sub>1</sub></sub> = <ph><ph>X'6489 F5A3 1618 20AB'</ph></ph>
+T<sub>c<sub>1</sub></sub> = <ph><ph>X'F9AC C638 1939 44BC'</ph></ph>
+K<sub>a<sub>2</sub></sub> = <ph><ph>X'D842 BA30 C2D1 6417'</ph></ph>
+⋮
+S<sub>a<sub>20</sub></sub> = <ph><ph>X'000001'</ph></ph>
+T<sub>a<sub>20</sub></sub> = <ph><ph>X'4567 89AB CDF0 0001'</ph></ph>
+T<sub>b<sub>20</sub></sub> = <ph><ph>X'9D25 339B 0F21 6416'</ph></ph>
+T<sub>c<sub>20</sub></sub> = <ph><ph>X'BF49 836E AE2A 042A'</ph></ph>
+K<sub>a<sub>20</sub></sub> = <ph><ph>X'670B 395E 6CFB 603D'</ph></ph>
+ 
+Current PIN encrypting key = <ph><ph>X'670B 395E 6CFB 60C2'</ph></ph></codeblock>
+</p>
+</body>
+</topic>

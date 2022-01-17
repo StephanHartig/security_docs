@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_akrd" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"></keyword>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/></navtitle><?Pub
+Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword> <ph>verb</ph> to perform one of the
+tasks listed in the AES key storage file.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"></keyword>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUAESDS</indexterm></indexterm>
+<indexterm>CSUAESDS</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p> <ul>
+<li>Overwrite (delete) a key token or key tokens in AES key-storage,
+replacing the key token of each selected record with a null AES key-token.</li>
+<li>Delete an entire key record or key records, including the key
+label and the key token of each selected record, from AES key-storage.</li>
+</ul></p></section>
+<section><p>Identify a task with the <synph><var>rule_array</var></synph> keyword,
+and the key record or records with the <synph><var>key_label</var></synph> parameter.
+To identify multiple records, use a wild card (*) in the key label.</p></section>
+<section> <note>AES key records are stored in the external key-storage
+file defined by the CSUAESDS environment variable.</note></section>
+</refbody>
+</reference>
+<?Pub *0000002340?>

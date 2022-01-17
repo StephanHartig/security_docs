@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_bktcparameters" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> verb</indexterm></indexterm>
+<indexterm>RTCMK</indexterm><indexterm>RTNMK</indexterm><indexterm>REFORMAT</indexterm>
+<indexterm>AES</indexterm><indexterm>DES</indexterm><indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm><indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm><indexterm>key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, 3, or 4.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> parameter is a pointer to a string variable
+containing an array of keywords. The keywords are eight bytes in length and must be left-aligned and
+padded on the right with space characters. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#l0wskc02_bktcparameters/l0wskc02_bktc_tab1"/>. <table frame="all"
+id="l0wskc02_bktc_tab1" pgwide="1">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Keyword</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colsep="1" nameend="col2" namest="col1"><b><i>Re-encipherment method</i></b>
+(Required)</entry>
+</row>
+<row>
+<entry valign="top"><synph><kwd>RTCMK</kwd></synph></entry>
+<entry valign="top">Re-enciphers a DES or AES key to the current master-key in an
+internal key-token in application storage or in key storage. If the supplied key is already
+enciphered under the current master-key the verb returns a positive response (return code 0, reason
+code 0). If the supplied key is enciphered under the old master-key, the key is updated to
+encipherment by the current master-key and the verb returns a positive response (return code 0,
+reason code 0). Other cases return some form of abnormal response.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>RTNMK</kwd></synph></entry>
+<entry colname="col2">Re-enciphers an internal DES or AES key to the new
+master-key. <p>A key enciphered under the new master key is not usable. It is expected that the user
+will use this keyword (<synph><kwd>RTNMK</kwd></synph>) to take a preparatory step in re-enciphering
+an external key store that they manage themselves to a new master-key, before the set operation has
+occurred. Note also that the new master-key register must be full; it must have had the last key
+part loaded and therefore not be empty or partially full (partially full means that one or more key
+parts have been loaded but not the last key part). </p>
+<p>The SET operation makes the new master-key operational, moving it to the current master-key
+register, and the current master-key is displaced into the old master-key register. When this
+happens, all the keys that were re-enciphered to the new master-key are now usable, because the new
+master-key is not 'new' any more, it is 'current'.</p>
+<p>Because the <synph><kwd>RTNMK</kwd></synph> keyword is added primarily for support of externally
+managed key storage (see <xref href="wskc_c_keysrule_zos.dita#l0wskc02_keysrule_zos"/>, it is not
+valid to pass a <synph><var>key_identifer</var></synph> when the <synph><kwd>RTNMK</kwd></synph>
+keyword is used. Only a full internal key token (encrypted under the current master-key) can be
+passed for re-encipherment with the <synph><kwd>RTNMK</kwd></synph> keyword. When a key label is
+passed along with the <synph><kwd>RTNMK</kwd></synph> keyword, the error return code 8 with reason
+code 181 will be returned.</p>
+<p>For more information, see <xref href="wskc_c_keysrule.dita#l0wskc02_keysrule"/>.</p></entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>VALIDATE</kwd></synph></entry>
+<entry>Validate an internal key token as described in the <parmname>key_identifier</parmname> which is 
+enciphered under the current master key. That is, the same processing as RTNMK is 
+applied. However, after a successful checking of the token, no re-enciphering of the 
+token to the new master key takes place. There is just a return code for a successful 
+validation.
+</entry>
+</row>
+<row>
+<entry><synph><kwd>REFORMAT</kwd></synph></entry>
+<entry>Rewrap the <synph><var>input_key_token</var></synph> with the key wrapping
+method specified. Only the <synph><var>input_KEK_identifier</var></synph> will be used. The
+<synph><var>output_KEK_identifier</var></synph> is ignored.</entry>
+</row>
+<row>
+<entry colsep="1" nameend="col2" namest="col1"><b><i>Algorithm</i></b> (Optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies that the key token is for an AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>Specifies that the key token is for a DES key. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key wrapping method</i></b>
+(Optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Use enhanced key wrapping method, which is compliant with the ANSI
+X9.24 standard.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Use original key wrapping method, which uses ECB wrapping for DES key tokens
+and CBC wrapping for AES key tokens.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Translation control</i></b>
+(Optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Restrict rewrapping of the
+<synph><var>output_key_token</var></synph>. After the token has been wrapped with the enhanced
+method, it cannot be rewrapped using the original method. </entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry><plentry>
+<pt>key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_identifier</var></synph> parameter is a pointer to a string variable
+containing the DES internal key-token or the key label of an internal key-token record in key
+storage.</pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000008083?>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pkdsser">
+<title>Verbs for managing the PKA key storage file and PKA keys in
+the cryptographic engine</title>
+  <titlealts>
+    <navtitle>Verbs for managing the PKA key storage file and PKA keys in the cryptographic
+      engine</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs for managing the
+      PKA key storage file and PKA keys in the cryptographic engine</searchtitle>
+  </titlealts><shortdesc>The PKA key storage file is a repository for RSA keys, similar
+to the AES and DES key storage files. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PKA key storage file</indexterm>
+<indexterm>key record</indexterm>
+<indexterm>files<indexterm>key storage</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>An application can store keys in the key storage file and refer
+to them by label when using any of the <ph>verbs</ph> which accept
+RSA key tokens as input. The following verbs are used to manage the
+PKA key storage file, or PKA keys stored in the cryptographic engine:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprc"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprl"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/>)</li>
+</ul></p>
+</conbody></concept>

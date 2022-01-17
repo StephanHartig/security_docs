@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_defaultinst" xml:lang="en-us">
+<title>Default installation directory</title>
+  <titlealts>
+    <navtitle>Default installation directory</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Default installation
+directory</searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh16a">RPM or DEB</ph> by default choose overall installation directories for their
+contents.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>default installation directory</indexterm>
+<indexterm>installation directory</indexterm>
+<indexterm>opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></indexterm>
+<indexterm>usr/lib64</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<dl>
+<dlentry rev="sh16a">
+<dt>/usr/lib64/ (RPM) and /usr/lib/ (DEB)</dt>
+<dd>all libraries to be used by applications</dd>
+</dlentry>
+<dlentry>
+<dt>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/</dt>
+<dd>all other actual files from the release are placed in sub-directories of this path</dd>
+</dlentry>
+</dl><p>In the past a part of the path name was the name of the specific <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor being supported, such as
+<term>CEX3C</term>. As of CEX4C support, multiple <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors are supported from the same
+install tree, and it is no longer appropriate to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor name in the path. The new
+default install path
+is:<codeblock>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/</codeblock></p>
+<p>Soft-links to the following paths are added for ease of use and migration:</p>
+<ul>
+<li><filepath>/opt/ibm/cca</filepath></li>
+<li><filepath>/opt/IBM/CEX3C/</filepath></li>
+</ul><p>If you are upgrading, note that the RPMs copy your key storage files from the old default
+location to the new default location. The old directory is kept and renamed to <filepath>
+/opt/IBM/CEX3C-old/</filepath>. </p></section>
+</refbody>
+</reference><?Pub Caret -1?>
+<?Pub *0000001378?>

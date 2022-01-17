@@ -1,0 +1,2256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc310" xml:lang="en-us">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>tr31_key_block_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>tr31_key_block parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>unwrap_kek_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>unwrap_kek_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>wrap_kek_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>wrap_kek_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>num_opt_blocks parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>cv_source parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+<indexterm>protection_method parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>. </p></section>
+<section> <parml><plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<synph><var>rule_array</var></synph> variable. The value must be 1, 2, 3, or 4.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords are shown in <xref href="#l0wskc310/csnbt31i_keywords"
+format="dita"/>: <table frame="all" pgwide="1" id="csnbt31i_keywords"><desc>
+<p outputclass="summary">Keywords for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="200*"/>
+<colspec colname="col2" colwidth="999*"/>
+<thead>
+<row rowsep="1">
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><i>Token identifier</i> (one required) </entry>
+</row>
+<row>
+<entry>INTERNAL</entry>
+<entry>Specifies to return the output key in an internal <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key-token.</entry>
+</row>
+<row>
+<entry>EXTERNAL</entry>
+<entry>Specifies to return the output key in an external <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key-token, wrapped by the transport key
+identified by the<parmname> wrap_kek_identifier</parmname> parameter. </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Wrap KEK key algorithm</i></b> (one, optional). Only valid
+for EXTERNAL.</entry>
+</row>
+<row>
+<entry>WKEY-AES</entry>
+<entry>Specifies that the <parmname>wrap_kek_identifier</parmname> parameter identifies an
+operational variable-length AES key-token, or the label of such a record in AES key-storage. Only
+valid when the key block identified by the <parmname>tr31_key_block</parmname> parameter contains an
+AES or DES key protected by the Key Derivation Binding Method 2017 Edition (that is, the key block
+version ID in byte 0 of the header is ASCII "D").</entry>
+</row>
+<row>
+<entry>WKEY-DES</entry>
+<entry>Specifies that the <parmname>wrap_kek_identifier</parmname> parameter identifies an
+operational fixed-length DES key-token, or the label of such a record in DES key-storage. Only valid
+when the key block identified by the <parmname>tr31_key_block</parmname> parameter contains a DES
+key protected by the Key Variant Binding Method 2005 Edition, Key Derivation Binding Method 2010
+Edition, or Variant Binding Method 2010 Edition (that is, the key block version ID in byte 0 of the
+header is ASCII "A", "B", or "C"). This is the default for keyword EXTERNAL.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> output key usage subgroups</i></b> (One
+from one subgroup required based on TR-31 input key usage. Keywords for the subgroup are valid only
+for given TR-31 key usage.) <note>None of the following keywords are allowed if the TR-31 key block
+provided as input has an optional block that contains a CCA control vector. See <xref
+href="wskc_tr31_optional_block_data.dita#tr31_optional_block_data/tr31_ibm_opt_bl_tab1"/>. If the
+TR-31 key block header contains an optional block with a control vector in it, the control vector is
+used in place of keywords to produce the output <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key-token. If the key usage and mode of use
+fields of the key block are not IBM-defined (see <xref
+href="wskc_tr31_optional_block_data.dita#tr31_optional_block_data/tr31_ibm_opt_bl_tab1"/>), the
+control vector must not conflict with any TR-31 header fields.</note></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV subtype extension for "C0" key
+usage</var></synph> (one required). Only valid for TR-31 key block with key usage "C0" and no
+control vector in optional block.</entry>
+</row>
+<row>
+<entry>CVK-CVV</entry>
+<entry>Convert a TR-31 card verification key (CVK) to a double-length CCA DES MAC key that has a
+subtype extension of CVVKEY-A. This restricts the key to generating or verifying a Visa CVV or
+MasterCard CVC.</entry>
+</row>
+<row>
+<entry>CVK-CSC</entry>
+<entry>Convert a TR-31 CVK to a CCA DES MAC key that has a subtype extension of AMEX-CSC. This
+restricts the key to generating or verifying an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> card security code, also known as a card
+identification number (CID). </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV key type for "K0" key usage</var></synph> (one
+required). Only valid for TR-31 key block with key usage "K0" and no control vector in optional
+block. </entry>
+</row>
+<row>
+<entry>EXPORTER</entry>
+<entry>For TR-31 key usage "K0" and mode of use "E" or "B", convert a TR-31 key encryption or
+wrapping key to a CCA EXPORTER key. </entry>
+</row>
+<row>
+<entry>OKEYXLAT</entry>
+<entry>For TR-31 key usage "K0" and mode of use "E" or "B", convert a TR-31 key encryption or
+wrapping key to a CCA OKEYXLAT key. </entry>
+</row>
+<row>
+<entry>IMPORTER</entry>
+<entry>For TR-31 key usage "K0" and mode of use "D" or "B", convert a TR-31 key encryption or
+wrapping key to a CCA IMPORTER key. </entry>
+</row>
+<row>
+<entry>IKEYXLAT</entry>
+<entry>For TR-31 key usage "K0" and mode of use "D" or "B", convert a TR-31 key encryption or
+wrapping key to a CCA IKEYXLAT key. </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key type of PIN encryption key for key usage "P0" and mode
+of use "E", "B", or "D"</i></b> (one required for "B", otherwise one, optional). Allowed for TR-31
+algorithm "A" (AES) or "T" (TDEA). Not allowed with any other key usage. Release 5.5 or later.
+<note><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> does not support a PIN
+encryption key that can do both outbound encryption and inbound decryption.</note></entry>
+</row>
+<row>
+<entry><synph>IPINENC<kwd/></synph></entry>
+<entry>Specifies to import a key with mode of use (byte 8) "B" to "D" (but not "E") and key usage
+(bytes 5 – 6) of "P0" – PIN encryption key to a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES IPINENC or AES PINPROT key, depending
+on the algorithm (byte 7): <ul>
+<li>For algorithm "T" (TDES), import the key as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> TDES default IPINENC key.</li>
+<li>For algorithm "A" (AES), import the key as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> AES PINPROT key with key usage of DECRYPT,
+CBC, PINXLATE, REFORMAT, NOFLDFMT, and ISO-4.</li>
+</ul> This is the default for mode of use "D".</entry>
+</row>
+<row>
+<entry><synph>OPINENC<kwd/></synph></entry>
+<entry>Specifies to import a key with mode of use (byte 8) "B" or "E" (but not "D") and key usage
+(bytes 5 – 6) of "P0" – PIN encryption key to a CCA DES OPINENC or AES PINPROT key, depending on the
+algorithm (byte 7): <ul>
+<li>For algorithm "T" (TDES), import the key as a CCA TDES default OPINENC key.</li>
+<li>For algorithm "A" (AES), import the key as a CCA AES PINPROT key with key usage of ENCRYPT, CBC,
+PINXLATE, REFORMAT, NOFLDFMT, and ISO-4.</li>
+</ul> This is the default for mode of use "E". </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>CV key type for "V0", "V1", or "V2" key usage</i></b> (one
+required). Only valid for TR-31 key block with key usage "V0", "V1", or "V2" and no control vector
+in optional block. When this keyword is specified, an optional CV key type modifier can be specified
+for key usage "V0" or "V1". </entry>
+</row>
+<row>
+<entry><synph><kwd>PINGEN</kwd></synph></entry>
+<entry>Convert a TR-31 PIN verification key to a CCA PINGEN key.</entry>
+</row>
+<row>
+<entry><synph><kwd>PINVER</kwd></synph></entry>
+<entry>Convert a TR-31 PIN verification key to a CCA PINVER key.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV key usage for "E0" or "E2" key usage
+</var></synph> (one required) Only valid for TR-31 key block with key usage "E0" or "E2" and no
+control vector in optional block. </entry>
+</row>
+<row>
+<entry><synph><kwd>DMAC</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: application cryptograms or secure messaging for
+integrity to CCA DKYGENKY with key usage DMAC. </entry>
+</row>
+<row>
+<entry><synph><kwd>DMV</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: application cryptograms or secure messaging for
+integrity to CCA DKYGENKY with key usage DMV.</entry>
+</row>
+<!-- <?xpp:page> -->
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV key usage for "E1" key usage </var></synph> (one
+required) Only valid for TR-31 key block with key usage "E1" and no control vector in optional
+block.</entry>
+</row>
+<row>
+<entry><synph><kwd>DMPIN</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: secure messaging for confidentiality to CCA
+DKYGENKY with key usage DMPIN</entry>
+</row>
+<row>
+<entry><synph><kwd>DDATA</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: secure messaging for confidentiality to CCA
+DKYGENKY with key usage DDATA.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV key usage for "E5" key usage</var></synph> (one
+required) Only valid for TR-31 key block with key usage "E5" and no control vector in optional
+block.</entry>
+</row>
+<row>
+<entry><synph><kwd>DMAC</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: card personalization to CCA DKYGENKY with key usage
+DMAC.</entry>
+</row>
+<row>
+<entry><synph><kwd>DMV</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: card personalization to CCA DKYGENKY with key usage
+DMV. </entry>
+</row>
+<row>
+<entry><synph><kwd>DEXP</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: card personalization to CCA DKYGENKY with key usage
+DEXP.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV subtype for "E0", "E1", or "E2" key
+usage</var></synph> (one required). Only valid for TR-31 key block with key usage "E0", "E1", or
+"E2" and no control vector in optional block. </entry>
+</row>
+<row>
+<entry><synph><kwd>DKYL0</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: application cryptograms, secure message for
+confidentiality, or secure message for integrity to CCA DKYGENKY with subtype DKYL0. </entry>
+</row>
+<row>
+<entry><synph><kwd>DKYL1</kwd></synph></entry>
+<entry>Convert TR-31 EMV/chip issuer master key: application cryptograms, secure message for
+confidentiality, or secure message for integrity to CCA DKYGENKY with subtype DKYL1. </entry>
+</row>
+<row>
+<entry><synph><kwd>DKYL2</kwd></synph></entry>
+<entry>Specifies to import an EMV/chip issuer master key with key usage (bytes 5 – 6) of "E0" -
+application programs, "E1" – secure messaging for confidentiality, "E2" – secure message for
+integrity, "E4" – dynamic numbers, or "E5" – card personalization to an AES DKYGENKY key (byte 7): <ul>
+<li>For algorithm "A", an AES DKYGENKY key with KUF1 HOB = X'02' (DKYL2).</li>
+<li>For algorithm "T", not valid.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>CV key type modifier for "V0" or "V1" key
+usage</var></synph> (one required). Only valid for TR-31 key block with key usage "V0" or "V1" and
+no control vector in optional block. </entry>
+</row>
+<row>
+<entry><synph><kwd>NOOFFSET</kwd></synph></entry>
+<entry>Convert a TR-31 PIN verification key to a CCA PINGEN or PINVER key with the key type modifier
+NOOFFSET, so that the key cannot participate in a PIN offset process or PVV process. </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>Key-wrapping method</var></synph> (one,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for the
+default wrapping method. The default wrapping method configuration setting may be changed using the
+TKE. This keyword is ignored for AES keys.<note>Do not use this keyword if the default wrapping
+method is WRAP-ECB and a control vector is present in an optional block of the TR-31 key block with
+CV bit 56 = <ph>B'1'</ph> (ENH-ONLY). Use the WRAP-ENH keyword instead.</note></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method. <note>Do not use this keyword if
+a control vector is present in an optional block of the TR-31 key block with CV bit 56 =
+<ph>B'1'</ph> (ENH-ONLY). </note></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit
+56 = B’1’ (ENH-ONLY). This is the default for <synph><kwd>TRIPLE</kwd></synph> and
+<synph><kwd>TRIPLE-O</kwd></synph>. </entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256
+hashing algorithm. This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the
+<synph><kwd>WRAPENH3</kwd></synph> wrapping method. </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><var>Translation control</var></synph> (optional). This
+keyword is valid only with key-wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with
+<synph><kwd>USECONFG</kwd></synph> when the default wrapping method is
+<synph><kwd>WRAP-ENH</kwd></synph>. This option cannot be used on a key with a control vector valued
+to binary zeros.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry colname="col2">Specifies to restrict the key from being wrapped with the legacy method once
+it has been wrapped with the enhanced method. Sets CV bit 56 = <ph>B'1'</ph> (ENH-ONLY). <note>If a
+control vector is present in an optional block of the TR-31 key block with CV bit 56 =
+<ph>B'0'</ph>, this keyword overrides that value in the CCA key-token. This keyword has no effect if
+the control vector in an optional block is all zeros. </note></entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>CPACF export</b></i> (optional).</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>XPRTCPAC</kwd></synph></entry>
+<entry>Allow this key token to be exported as a CPACF protected key. This keyword is valid only when
+the output key token is a DES CIPHER key token.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>NOEXCPAC</kwd></synph></entry>
+<entry>Do not allow this key token to be exported as a CPACF protected key. This is the
+default.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><i><b>HMAC hash algorithm limit for key usage "M7" and algorithm
+"H"</b></i> (One, optional). Not allowed with any other key usage. <p><b>Security note:</b> ISO
+20038 and ANSI X9 TR-31-2018 represent the HMAC hash algorithm limit in different ways:</p>
+<ul>
+<li>ISO 20038 represents hash limit in the algorithm value at offset 7. An HMAC key limited to SHA-1
+uses ASCII 'H' and does not contain an optional block 'HM'.</li>
+<li>ANSI X9 TR-31-2018 always uses 'H' for the algorithm value at offset 7 and represents the hash
+algorithm limit in the optional block with identifier 'HM'. </li>
+<li>The ISO 'H' algorithm key block has a dual meaning: <ul>
+<li>For an ISO 20038 implementation, the resulting key block is limited to SHA-1 hash MAC.</li>
+<li>For an ANSI X9 TR-31-2018 implementation, the key does not have any hash algorithm limit because
+the optional block with identifier 'HM' is not present.</li>
+</ul>
+</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC-ISO</kwd></synph></entry>
+<entry>This keyword specifies to import an HMAC key block according to the ISO 20038. Interpretation
+is as follows: <ul>
+<li>If the key block contains an optional block with identifier 'HM', it will be ignored.</li>
+<li>Import of a key block with 'H' for the algorithm value at offset 7 will result in the
+output_key_identifier holding an HMAC key in a Version X'05' variable-length symmetric key-token
+that allows a hash method of SHA-1 (KUF2 HOB = B'1xxx xxxx').</li>
+<li>Import of a key block with 'I' for the algorithm value at offset 7 will result in the
+output_key_identifier holding an HMAC key in a Version X'05' variable-length symmetric key-token
+that allows all SHA-2 hash methods (KUF2 HOB = B'x111 1xxx' for SHA-224, SHA-256, SHA-384, and
+SHA-512).</li>
+</ul>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>HMAC-X9</kwd></synph></entry>
+<entry>This keyword specifies to import an HMAC key block according to the ANSI X9 TR-31-2018.
+Interpretation is as follows: <ul>
+<li>If the key block does not have 'H' for the algorithm value at offset 7, 8/2121 will be returned.
+If the key block does not contain an optional block with identifier 'HM', new error 8/2182 will be
+returned.</li>
+<li>Import will result in the output_key_identifier holding an HMAC key in a Version X'05'
+variable-length symmetric key-token that allows the hash method in the KUF2 HOB that matches the
+specification in the optional block with identifier 'HM'.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC-UNK</kwd></synph></entry>
+<entry>This keyword specifies for the HSM to inspect the key block to determine the appropriate hash
+algorithm limit for the HMAC key. Interpretation is as follows: <ul>
+<li>Import of a key block with 'H' for the algorithm value at offset 7 and with an optional block
+with identifier 'HM' will result in the <parmname>output_key_identifier</parmname> holding an HMAC
+key in a Version X'05' variablelength symmetric key-token that allows the hash method in the KUF2
+HOB that matches the specification in the optional block with identifier 'HM'.</li>
+<li>Import of a key block with 'H' for the algorithm value at offset 7 and without an optional block
+with identifier 'HM' will result in the <parmname>output_key_identifier</parmname> holding an HMAC
+key in a Version X'05' variable-length symmetric key-token that allows hash methods of SHA-1 and
+SHA-2 (KUF2 HOB = B'1111 1xxx' for SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512).</li>
+<li>Import of a key block with 'I' for the algorithm value at offset 7 will result in the
+<parmname>output_key_identifier</parmname> holding an HMAC key in a Version X'05' variable-length
+symmetric key-token that allows all SHA-2 hash methods (KUF2 HOB = B'x111 1xxx' for SHA-224,
+SHA-256, SHA-384, and SHA-512).</li>
+</ul><p>This is the default.</p>
+</entry>
+</row>
+</tbody>
+</tgroup></table><p><xref href="#l0wskc310/kimptr31_tab1"/> shows all valid translations for import
+of a TR-31 BDK base derivation key (usage "B0") to either a CCA KEYGENKY key, <ph rev="sh21i1">or a
+CCA DKYGENKY key,</ph> along with any access control commands that must be enabled in the active
+role for that key type and control vector attributes. These keys are for translating derived unique
+key per transaction (DUKPT) base derivation keys. </p>
+<table id="kimptr31_tab1" pgwide="1"><title>Import translation table for a TR-31 BDK base derivation
+key (usage "B0")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 BDK base derivation key (usage
+"B0")</p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="2*"/>
+<colspec colname="col4" colwidth="3*"/>
+<colspec colname="col5" colwidth="8*"/>
+<colspec colname="col6" colwidth="2*"/>
+<colspec colname="col7" colwidth="3*"/>
+<thead>
+<row>
+<entry>Key usage </entry>
+<entry>Key block protection method keyword (version ID)</entry>
+<entry>Mode of use</entry>
+<entry>Rule-array keywords</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key type and control vector
+attributes</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>"B0"</entry>
+<entry>"A"</entry>
+<entry>"N"</entry>
+<entry>N/A</entry>
+<entry>KEYGENKY, double length, UKPT (CV bit 18 = <ph>B'1'</ph>)</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>"B0"</entry>
+<entry>"B", "C" or "D"</entry>
+<entry>"X"</entry>
+<entry>N/A</entry>
+<entry>KEYGENKY, double length, UKPT (CV bit 18 = B'1')</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row rev="sh21i1">
+<entry>"B0"</entry>
+<entry>"D"</entry>
+<entry>"X"</entry>
+<entry>N/A</entry>
+<entry>DKYGENKY, A-DUKPT KUF set to 1.</entry>
+<entry>X'017E'</entry>
+<entry>TR31I - Permit B0:X to AES DKYGENKY:DUKPT BDK</entry>
+</row>
+<row>
+<entry nameend="col7" namest="col1">
+<note>
+<ol compact="yes">
+<li>These keys are the base keys from which derived unique key per transaction (DUKPT) initial keys
+are derived for individual devices such as PIN pads.</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be the
+following value: <dl compact="yes">
+<dlentry>
+<dt>"B0"</dt>
+<dd>BDK base derivation key.</dd>
+</dlentry>
+</dl></li>
+<li>There are no specific access-control commands for this translation because it is not ambiguous
+or in need of interpretation.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p><xref href="#l0wskc310/kimptr31_tab2"/> shows all valid translations for import of a TR-31 CVK
+card verification key (usage "C0") to a CCA MAC or DATA key, along with any access control commands
+that must be enabled in the active role for that key type and control vector attributes. These keys
+are for computing or verifying (against supplied value) a card verification code with the CVV, CVC,
+CVC2, and CVV2 algorithm. <table id="kimptr31_tab2" pgwide="1"><title>Import translation table for a
+TR-31 CVK card verification key (usage "C0")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 CVK card verification key (usage
+"C0"). This table contains seven columns: Keyword, TR-31 key usage, CCA key types, and Meaning, and
+it contains rows for ("C0").<!--See z/OS--></p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="32*"/>
+<colspec colname="col3" colwidth="20*"/>
+<colspec colname="col4" colwidth="30*"/>
+<colspec colname="col5" colwidth="80*"/>
+<colspec colname="col6" colwidth="24*"/>
+<colspec colname="col7" colwidth="73*"/>
+<thead>
+<row>
+<entry colname="col1">Key usage</entry>
+<entry colname="col2">Key block protection method keyword (version ID)</entry>
+<entry colname="col3">Mode of use</entry>
+<entry colname="col4">Rule-array keywords</entry>
+<entry colname="col5">CCA key type and control vector attributes</entry>
+<entry colname="col6">Offset</entry>
+<entry colname="col7">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="3">"C0"</entry>
+<entry colname="col2" morerows="3">"A", "B", or "C"</entry>
+<entry colname="col3" morerows="1">"G" or "C"</entry>
+<entry colname="col4"><synph><kwd>CVK-CSC</kwd></synph></entry>
+<entry colname="col5">MAC, single or double length, AMEX-CSC (CV bits 0 - 3 =
+<ph>B'0100'</ph>)</entry>
+<entry colname="col6"><ph>X'015B'</ph></entry>
+<entry colname="col7"><cmdname>TR31 Import - Permit C0 to MAC/MACVER:AMEXCSC</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>CVK-CVV</kwd></synph></entry>
+<entry colname="col5">MAC, double length, CVVKEY-A (CV bits 0 - 3 = <ph>B'0010'</ph>)</entry>
+<entry colname="col6"><ph>X'015A'</ph></entry>
+<entry colname="col7"><cmdname>TR31 Import - Permit C0 to MAC/MACVER:CVVKEY-A</cmdname></entry>
+</row>
+<row>
+<entry colname="col3" morerows="1">"V"</entry>
+<entry colname="col4"><synph><kwd>CVK-CSC</kwd></synph></entry>
+<entry colname="col5">MACVER, single or double length, AMEX-CSC (CV bits 0 - 3 =
+<ph>B'0100'</ph>)</entry>
+<entry colname="col6"><ph>X'015B'</ph></entry>
+<entry colname="col7"><cmdname>TR31 Import - Permit C0 to MAC/MACVER:AMEXCSC</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>CVK-CVV</kwd></synph></entry>
+<entry colname="col5">MACVER, double length, CVVKEY-A (CV bits 0 - 3 = <ph>B'0010'</ph>)</entry>
+<entry colname="col6"><ph>X'015A'</ph></entry>
+<entry colname="col7"><cmdname>TR31 Import - Permit C0 to MAC/MACVER:CVVKEY-A</cmdname></entry>
+</row>
+<row>
+<entry nameend="col7" namest="col1">
+<p><synph><kwd>Security considerations:</kwd></synph></p>
+<p>
+<ol compact="yes">
+<li>There is asymmetry in the translation from a CCA DATA key to a TR-31 key. The asymmetry results
+from CCA DATA keys having attributes of both data encryption keys and MAC keys, while TR-31
+separates data encryption keys from MAC keys. A CCA DATA key can be exported to a TR-31 "C0" key, if
+one or both applicable MAC generate and MAC verify control vector bits are on. However, a TR-31 "C0"
+key cannot be imported to the lower-security CCA DATA key, it can be imported only to a CCA key type
+of MAC or MACVER. This restriction eliminates the ability to export a CCA MAC or MACVER key to a
+TR-31 key and re-importing it back as a CCA DATA key with the capability to Encipher, Decipher, or
+both.</li>
+<li>The translation from TR-31 usage "C0" is controlled by rule array keywords when using the
+TR31_Key_Import verb. This makes it possible to convert an exported CCA CVVKEY-A key into an
+AMEX-CSC key or the other way around. To prevent such a conversion, do not enable offsets
+<ph>X'015A'</ph> (TR31 Import - Permit C0 to MAC/MACVER:CVVKEY-A) and <ph>X'015B'</ph> (TR31 Import
+- Permit C0 to MAC/MACVER:AMEXCSC) at the same time. However, if both CVVKEY-A and AMEX-CSC
+translation types are required, then offsets <ph>X'015A'</ph> and <ph>X'015B'</ph> must be enabled.
+In this case, control is up to the development, deployment, and execution of the applications
+themselves. </li>
+</ol>
+</p>
+</entry>
+</row>
+<row>
+<entry nameend="col7" namest="col1">
+<note>
+<ol compact="yes">
+<li>Card verification keys are used for computing or verifying (against supplied value) a card
+verification code with the CVV, CVC, CVC2, and CVV2 algorithms. In CCA, these keys correspond to
+keys used with two algorithms: <ul compact="yes">
+<li>Visa CVV and MasterCard CVC codes are generated and verified using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs. These verbs require a key type
+of DATA or MAC/MACVER with a subtype extension (CV bits 0 - 3) of ANY-MAC, single-length CVVKEY-A
+and single-length CVVKEY-B, and <!-- beginning with Release 4.2 --> a double-length CVVKEY-A (see
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb). The MAC generate and
+the MAC verify (CV bits 20 - 21) key usage values must be set appropriately.</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> CSC codes are generated and
+verified using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb. This
+verb requires a key type of MAC or MACVER with a subtype extension of ANY-MAC or AMEX-CSC.</li>
+</ul></li>
+<li>The translation from TR-31 usage "C0" to a CCA MAC/MACVER key with a subtype extension of
+ANY-MAC (CV bits 0 - 3 = <ph>B'0000'</ph>) is not allowed.</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be the
+following value: <dl compact="yes">
+<dlentry>
+<dt>"C0"</dt>
+<dd>CVK card verification key</dd>
+</dlentry>
+</dl></li>
+<li>CCA does not have an equivalent to the TR-31 "generate only" mode of use, so a translation from
+TR-31 mode "G" will result in a CCA MAC key with both MAC generate and MAC verify attributes (CV
+bits 20 - 21 = <ph>B'11'</ph>). Note that any key that can perform a generate operation can readily
+verify a MAC as well.</li>
+<li>The CCA representation and the TR-31 representation of CVV keys are incompatible. CCA represents
+the CVVKEY-A and CVVKEY-B keys as two 8-byte (single length) keys, while TR-31 represents these keys
+as one 16-byte key. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs have support added to
+accept one 16-byte CVV key, using left and right key parts as A and B. Current Visa standards
+require this.</li>
+<li>Import and export of 8-byte CVVKEY-A and CVVKEY-B MAC/MACVER keys is allowed only using the
+proprietary TR-31 usage+mode values ("10" and "1", respectively) to indicate encapsulation of the
+<tm tmtype="reg" trademark="IBM">IBM</tm> control vector in an optional block, because the 8-byte
+CVVKEY-A is meaningless and useless as a TR-31 "C0" usage key of any mode.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p><xref href="#l0wskc310/kimptr31_tab3"/> shows all valid translations for import of a TR-31 data
+encryption key (usage "D0") to a CCA ENCIPHER, DECIPHER, CIPHER, or DATA key, along with any access
+control commands that must be enabled in the active role for that key type and control vector
+attributes. These keys are used for the encryption and/or decryption of data. <table
+id="kimptr31_tab3" pgwide="1"><title>Import translation table for a TR-31 data encryption key (usage
+"D0")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 data encryption key (usage "D0"). This
+table contains seven columns: Keyword, TR-31 key usage, CCA key types, and Meaning, and it contains
+rows for ("D0").<!--See z/OS--></p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="colspec1" colwidth="2*"/>
+<colspec colname="colspec0" colwidth="3*"/>
+<colspec colname="col3" colwidth="8*"/>
+<colspec colname="col5" colwidth="2*"/>
+<colspec colname="colspec4" colwidth="3*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Key usage </entry>
+<entry colname="col2">Key block protection method keyword (version ID)</entry>
+<entry colname="colspec1">Mode of use</entry>
+<entry colname="colspec0">Rule-array keywords</entry>
+<entry colname="col3">CCA key type and control vector attributes</entry>
+<entry colname="col5">Offset</entry>
+<entry colname="colspec4">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="2">"D0"</entry>
+<entry colname="col2" morerows="2">"A", "B", or "C"</entry>
+<entry colname="colspec1">"E"</entry>
+<entry colname="colspec0">N/A</entry>
+<entry colname="col3">ENCIPHER, single or double length</entry>
+<entry colname="col5" morerows="2">N/A</entry>
+<entry colname="colspec4" morerows="2">N/A</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+<entry colname="colspec0">N/A</entry>
+<entry colname="col3">DECIPHER, single or double length</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+<entry colname="colspec0">N/A</entry>
+<entry colname="col3">CIPHER, single or double length</entry>
+</row>
+<row>
+<entry nameend="colspec4" namest="col1">
+<p><synph><kwd>Security consideration:</kwd></synph> There is asymmetry in the translation from a
+CCA DATA key to a TR-31 key. The asymmetry results from CCA DATA keys having attributes of both data
+encryption keys and MAC keys, while TR-31 separates data encryption keys from MAC keys. A CCA DATA
+key can be exported to a TR-31 "D0" key, if one or both applicable Encipher or Decipher control
+vector bits are on. However, a TR-31 "D0" key <synph><kwd>cannot be imported</kwd></synph> to the
+lower-security CCA DATA key, it can be imported only to a CCA key type of ENCIPHER, DECIPHER, or
+CIPHER. This restriction eliminates the ability to export a CCA DATA key to a TR-31 key, and
+re-importing it back as a CCA DATA key with the capability to MAC generate and MAC verify.</p>
+<note>
+<ol compact="yes">
+<li>Data encryption keys are used for the encryption and decryption of data.</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be the
+following value: <dl compact="yes">
+<dlentry>
+<dt>"D0"</dt>
+<dd>Data encryption</dd>
+</dlentry>
+</dl></li>
+<li>There are no specific access-control commands for this translation since it is not ambiguous or
+in need of interpretation.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p><p><xref href="#l0wskc310/kimptr31_tab4"/> shows all valid translations for
+import of a TR-31 key encryption or wrapping, or key block protection key (usages "K0", "K1") to a
+CCA EXPORT, OKEYXLAT, IMPORTER, or IKEYXLAT key, along with any access control commands that must be
+enabled in the active role for that key type and control vector attributes. These keys are used only
+to encrypt or decrypt other keys, or as a key used to derive keys that are used for that purpose.
+<table id="kimptr31_tab4" pgwide="1"><title>Import translation table for a TR-31 key encryption or
+wrapping, or key block protection key (usages "K0", "K1")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 key encryption or wrapping, or key
+block protection key (usages "K0" and "K1") . This table contains seven columns: Keyword, TR-31 key
+usage, CCA key types, and Meaning, and it contains rows for "K0" and "K1".</p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="32*"/>
+<colspec colname="col3" colwidth="20*"/>
+<colspec colname="col4" colwidth="30*"/>
+<colspec colname="col5" colwidth="80*"/>
+<colspec colname="col6" colwidth="24*"/>
+<colspec colname="col7" colwidth="73*"/>
+<thead>
+<row>
+<entry colname="col1">Key usage</entry>
+<entry colname="col2">Key block protection method keyword (version ID)</entry>
+<entry colname="col3">Mode of use</entry>
+<entry colname="col4">Rule-array keywords</entry>
+<entry colname="col5">CCA key type and control vector attributes</entry>
+<entry colname="col6">Offset</entry>
+<entry colname="col7">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="7">"K0"</entry>
+<entry colname="col2" morerows="7">"A", "B", or "C"</entry>
+<entry colname="col3" morerows="1">"E"</entry>
+<entry colname="col4"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry colname="col5">OKEYXLAT, double length </entry>
+<entry colname="col6" morerows="1"><ph>X'015C'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K0:E to
+EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry colname="col5">EXPORTER, double length, EXPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col3" morerows="1">"D"</entry>
+<entry colname="col4"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry colname="col5">IKEYXLAT, double length</entry>
+<entry colname="col6" morerows="1"><ph>X'015D'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K0:D to
+IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry colname="col5">IMPORTER, double length, IMPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col3" morerows="3">"B"</entry>
+<entry colname="col4"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry colname="col5">OKEYXLAT, double length </entry>
+<entry colname="col6" morerows="1"><ph>X'015E'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K0:B to
+EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry colname="col5">EXPORTER, double length, EXPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry colname="col5">IKEYXLAT, double length</entry>
+<entry colname="col6" morerows="1"><ph>X'015F'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K0:B to
+IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry colname="col5">IMPORTER, double length, IMPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1" morerows="7">"K1"</entry>
+<entry colname="col2" morerows="7">"B" or "C"</entry>
+<entry colname="col3" morerows="1">"E"</entry>
+<entry colname="col4"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry colname="col5">OKEYXLAT, double length </entry>
+<entry colname="col6" morerows="1"><ph>X'0160'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K1:E to
+EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry colname="col5">EXPORTER, double length, EXPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col3" morerows="1">"D"</entry>
+<entry colname="col4"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry colname="col5">IKEYXLAT, double length</entry>
+<entry colname="col6" morerows="1"><ph>X'0161'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K1:D to
+IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry colname="col5">IMPORTER, double length, IMPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col3" morerows="3">"B"</entry>
+<entry colname="col4"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry colname="col5">OKEYXLAT, double length </entry>
+<entry colname="col6" morerows="1"><ph>X'0162'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K1:B to
+EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry colname="col5">EXPORTER, double length, EXPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry colname="col5">IKEYXLAT, double length</entry>
+<entry colname="col6" morerows="1"><ph>X'0163'</ph></entry>
+<entry colname="col7" morerows="1"><cmdname>TR31 Import - Permit K1:B to
+IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col4"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry colname="col5">IMPORTER, double length, IMPORT on (CV bit 21 = <ph>B'1'</ph>)</entry>
+</row>
+<row>
+<entry nameend="col7" namest="col1">
+<p><synph><kwd>Security considerations:</kwd></synph></p>
+<p>
+<ol>
+<li> The CCA OKEYXLAT, EXPORTER, IKEYXLAT, or IMPORTER KEK translation to a TR-31 "K0" key with mode
+"B" (both wrap and unwrap) is not allowed for security reasons. Even with access-control point
+control, this capability would give an immediate path to turn a CCA EXPORTER key into a CCA
+IMPORTER, and the other way around.</li>
+<li>When a TR-31 key block does not have an included control vector as an optional block, the
+default control vector is used to construct the output key-token. Default CCA EXPORTER or IMPORTER
+keys have CV bits 18 - 20 on, which are used for key generation.</li>
+</ol>
+</p>
+<note>
+<ol compact="yes">
+<li>Key encryption or wrapping keys are used only to encrypt or decrypt other keys, or as a key used
+to derive keys that are used for that purpose. </li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be the
+following value: <dl compact="yes">
+<dlentry>
+<dt>"K0"</dt>
+<dd>Key encryption or wrapping</dd>
+</dlentry>
+<dlentry>
+<dt>"K1"</dt>
+<dd>TR-31 key block protection key</dd>
+</dlentry>
+</dl></li>
+<li>Any attempt to import a TR-31 "K0" or "K1" key that has algorithm "D" (DEA) will result in an
+error because CCA does not support single-length KEKs.</li>
+<li>CCA mode support is the same for version IDs "A", "B", and "C", because the distinction between
+TR-31 "K0" and "K1" does not exist in CCA keys. CCA does not distinguish between targeted protocols
+currently, and so there is no good way to represent the difference. Also note that most wrapping
+mechanisms now involve derivation or key variation steps.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p><xref href="#l0wskc310/kimptr31_tab5"/> shows all valid translations for import of a TR-31 ISO
+MAC algorithm key (usages "M0", "M1", "M3") to a CCA MAC, MACVER, DATA, DATAM, or DATAMV key, along
+with any access control commands that must be enabled in the active role for that key type and
+control vector attributes. These keys are use to compute or verify a code for message
+authentication. </p>
+<table id="kimptr31_tab5" pgwide="1"><title>Import translation table for a TR-31 ISO MAC algorithm
+key (usages "M0", "M1", "M3")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 key encryption or wrapping, or key
+block protection key (usages "M0", "M1", and "M3") . This table contains seven columns: Keyword,
+TR-31 key usage, CCA key types, and Meaning, and it contains rows for "M0", "M1", and
+"M3".<!--See z/OS--></p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="32*"/>
+<colspec colname="colspec1" colwidth="20*"/>
+<colspec colname="colspec0" colwidth="30*"/>
+<colspec colname="col3" colwidth="80*"/>
+<colspec colname="col5" colwidth="24*"/>
+<colspec colname="colspec4" colwidth="78*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Key usage</entry>
+<entry colname="col2">Key block protection method keyword (version ID)</entry>
+<entry colname="colspec1">Mode of use</entry>
+<entry colname="colspec0">Rule-array keywords</entry>
+<entry colname="col3">CCA key type and control vector attributes</entry>
+<entry colname="col5">Offset</entry>
+<entry colname="colspec4">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="1">"M0"</entry>
+<entry colname="col2" morerows="5">"A", "B", or "C"</entry>
+<entry colname="colspec1">"G" or "C"</entry>
+<entry colname="colspec0" morerows="5">N/A</entry>
+<entry colname="col3">MAC, double length, ANY-MAC (CV bits 0 - 3 = <ph>B'0000'</ph>)</entry>
+<entry colname="col5" morerows="5"><ph>X'0164'</ph></entry>
+<entry colname="colspec4" morerows="5"><cmdname>TR31 Import - Permit M0/M1/M3 to
+MAC/MACVER:ANY-MAC</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+<entry colname="col3">MACVER, double length, ANY-MAC (CV bits 0 - 3 = <ph>B'0000'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">"M1"</entry>
+<entry colname="colspec1">"G" or "C"</entry>
+<entry colname="col3">MAC, single or double length, ANY-MAC (CV bits 0 - 3 =
+<ph>B'0000'</ph>)</entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+<entry colname="col3">MACVER, single or double length, ANY-MAC (CV bits 0 - 3 =
+<ph>B'0000'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">"M3"</entry>
+<entry colname="colspec1">"G" or "C"</entry>
+<entry colname="col3">MAC, single or double length, ANY-MAC (CV bits 0 - 3 =
+<ph>B'0000'</ph>)</entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+<entry colname="col3">MACVER, single or double length, ANY-MAC (CV bits 0 - 3 =
+<ph>B'0000'</ph>)</entry>
+</row>
+<row>
+<entry nameend="colspec4" namest="col1">
+<p><synph><kwd>Security consideration:</kwd></synph> There is asymmetry in the translation from a
+CCA DATA key to a TR-31 key. The asymmetry results from CCA DATA keys having attributes of both data
+encryption keys and MAC keys, while TR-31 separates data encryption keys from MAC keys. A CCA DATA
+key can be exported to a TR-31 "M0", "M1", or "M3" key, if one or both applicable MAC generate and
+MAC verify control vector bits are on. However, a TR-31 "M0", "M1", or "M3" key cannot be imported
+to the lower-security CCA DATA key, it can <synph><kwd>be imported only</kwd></synph> to a CCA key
+type of MAC or MACVER. This restriction eliminates the ability to export a CCA MAC or MACVER key to
+a TR-31 key, and re-importing it back as a CCA DATA key with the capability to Encipher, Decipher,
+or both.</p>
+</entry>
+</row>
+<row>
+<entry nameend="colspec4" namest="col1">
+<note>
+<ol compact="yes">
+<li>MAC keys are used to compute or verify a code for message authentication.</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be one of
+the following values: <dl compact="yes">
+<dlentry>
+<dt>"M0"</dt>
+<dd>SO 16609 MAC algorithm 1, TDEA <p>The ISO 16609 MAC algorithm 1 is based on ISO 9797. It is
+identical to "M1" except that it does not support 8-byte DES keys.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"M1"</dt>
+<dd>SO 9797 MAC algorithm 1 <p>The ISO 9797 MAC algorithm 1 is identical to "M0" except that it also
+supports 8-byte DES keys.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"M3"</dt>
+<dd>ISO 9797 MAC algorithm 3 <p>The X9.19 style of Triple-DES MAC.</p></dd>
+</dlentry>
+</dl></li>
+<li>A CCA control vector has no bits defined to limit key usage by algorithm, such as CBC MAC (TR-31
+usage "M0" and "M1") or X9.19 (TR-31 usage "M3"). When importing a TR-31 key block, the resulting
+CCA key token deviates from the restrictions of usages "M0", "M1", and "M3". Importing a TR-31 key
+block which allows MAC generation ("G" or "C") results in a control vector with the ANY-MAC
+attribute rather than for the restricted algorithm that is set in the TR-31 key block. The ANY-MAC
+attribute provides the same restrictions as what CCA currently uses for generating and verifying
+MACs.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p rev="sh20i1"><xref href="#l0wskc310/kimptr31_usagem7" format="dita"/> shows all the valid
+translations for import of a TR-31 HMAC algorithm key (usages "M7") to a CCA HMAC key, along with
+any access control commands that must be enabled in the active role for that key type and control
+vector attributes. These keys are used to compute or verify a code for message
+authentication.</p><p><xref href="#l0wskc310/kimptr31_tab6"/> shows all valid translations for
+import of a TR-31 PIN encryption or PIN verification key (usages "P0", "V0", "V1", "V2") to a CCA
+OPINENC, IPINENC, PINGEN, or PINVER key, along with any access control commands that must be enabled
+in the active role for that key type and control vector attributes. These keys are used to protect
+PIN blocks and to generate or verify a PIN using a particular PIN-calculation method for that key
+type. </p>
+<table id="kimptr31_usagem7" pgwide="1"><title>Import translation table for a TR-31 HMAC algorithm
+key (usages "M7")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 HMAC algorithm key (usages "M7"). This
+table contains seven columns: Key usage, Key block protection method (version ID), Mode of use,
+Rule-array keywords, CCA key type and required key usage attributes, Access control name, and Offset
+(hex).</p>
+</desc><tgroup cols="7">
+<colspec colname="c1" colwidth="3*"/>
+<colspec colname="c2" colwidth="3*"/>
+<colspec colname="c3" colwidth="3*"/>
+<colspec colname="c4" colwidth="3*"/>
+<colspec colname="c5" colwidth="6*"/>
+<colspec colname="c6" colwidth="6*"/>
+<colspec colname="c7" colwidth="3*"/>
+<thead>
+<row>
+<entry>Key usage</entry>
+<entry> Key block protection method keyword (version ID)</entry>
+<entry>Mode of use</entry>
+<entry> Rule-array keywords</entry>
+<entry>CCA key type and required key usage attributes </entry>
+<entry>Access control name</entry>
+<entry>Offset (hex)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="1">"M7"</entry>
+<entry morerows="1">"D"</entry>
+<entry>"G" or "C"</entry>
+<entry morerows="1">N/A</entry>
+<entry>MAC + HMAC + GENERATE</entry>
+<entry morerows="1">T31I – Permit M7:G/V/C to HMAC MAC:GENERATE/VERIFY</entry>
+<entry morerows="1">X'017D'</entry>
+</row>
+<row>
+<entry>"V"</entry>
+<entry>MAC + HMAC + Verify</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="kimptr31_tab6" pgwide="1" scale="90"><title>Import translation table for a TR-31 PIN
+encryption or PIN verification key (usages "P0", "V0", "V1", "V2")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 key encryption or wrapping, or key
+block protection key (usages "P0", "V0", "V1", "V2") . This table contains seven columns: Keyword,
+TR-31 key usage, CCA key types, and Meaning, and it contains rows for "P0", "V0", "V1", "V2".</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colwidth="30*"/>
+<colspec colname="c2" colwidth="40*"/>
+<colspec colname="c3" colwidth="50*"/>
+<colspec colname="c4" colwidth="50*"/>
+<colspec colname="c5" colwidth="53*"/>
+<colspec colname="c6" colwidth="52*"/>
+<colspec colname="c7" colwidth="35*"/>
+<colspec colname="c8" colwidth="90*"/>
+<thead>
+<row>
+<entry colname="c1">Key usage</entry>
+<entry colname="c2">Key block protection method keyword (version ID)</entry>
+<entry colname="c3">Mode of use</entry>
+<entry colname="c4">Rule-array keywords</entry>
+<entry namest="c5" nameend="c6">CCA key type and control vector attributes</entry>
+<entry colname="c7">Offset</entry>
+<entry colname="c8">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="7">&quot;P0"</entry>
+<entry morerows="3">&quot;A", &quot;B", &quot;C", or &quot;D"</entry>
+<entry>&quot;E"</entry>
+<entry>N/A</entry>
+<entry namest="c5" nameend="c6">OPINENC, double length</entry>
+<entry>X'0165'</entry>
+<entry>T31I - Permit P0:E to OPINENC</entry>
+</row>
+
+<row>
+<entry>&quot;D"</entry>
+<entry>N/A</entry>
+<entry namest="c5" nameend="c6">IPINENC, double length</entry>
+<entry>X'0166'</entry>
+<entry>T31I - Permit P0:D to IPINENC</entry>
+</row>
+<row>
+<entry rev="sh21i2">&quot;B" or &quot;E"</entry>
+<entry>OPINENC</entry>
+<entry namest="c5" nameend="c6">OPINENC, double length</entry>
+<entry>X'0165'</entry>
+<entry>T31I - Permit P0:E to OPINENC</entry>
+</row>
+<row>
+<entry rev="sh21i2">&quot;B" or &quot;D"</entry>
+<entry>IPINENC</entry>
+<entry namest="c5" nameend="c6">IPINENC, double length</entry>
+<entry>X'0166'</entry>
+<entry>T31I - Permit P0:D to IPINENC</entry>
+</row>
+<row>
+<entry morerows="3">&quot;D"</entry>
+<entry>E</entry>
+<entry>N/A</entry>
+<entry namest="c5" nameend="c6">AES PINPROT, ENCRYPT</entry>
+<entry>X'01E2'</entry>
+<entry>T31I - Permit P0:E/D to AES PINPROT: ENC/DEC+ CBC+ISO-4</entry>
+</row>
+<row>
+<entry>D</entry>
+<entry>N/A</entry>
+<entry namest="c5" nameend="c6">AES PINPROT, DECRYPT</entry>
+<entry>X'01E2'</entry>
+<entry>T31I - Permit P0:E/D to AES PINPROT: ENC/DEC+ CBC+ISO-4</entry>
+</row>
+<row rev="sh21i2">
+<entry>&quot;B" or &quot;E"</entry>
+<entry>OPINENC</entry>
+<entry namest="c5" nameend="c6">AES PINPROT, ENCCRYPT</entry>
+<entry>X'01E2'</entry>
+<entry>T31I - Permit P0:E/D to AES PINPROT: ENC/DEC+ CBC+ISO-4</entry>
+</row>
+<row  rev="sh21i2">
+<entry>&quot;B" or &quot;D"</entry>
+<entry>IPINENC</entry>
+<entry namest="c5" nameend="c6">AES PINPROT, DECCRYPT</entry>
+<entry>X'01E2'</entry>
+<entry>T31I - Permit P0:E/D to AES PINPROT: ENC/DEC+ CBC+ISO-4</entry>
+</row>
+<row>
+<entry morerows="11">&quot;V0&quot;</entry>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINGEN</entry>
+<entry morerows="5">PINGEN, double length, NO-SPEC (CV bits 0 - 3 = B'0000')</entry>
+<entry morerows="1">NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0167'</entry>
+<entry>T31I - Permit V0:N/G/C to DES PINGEN: NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"G" or "C"</entry>
+<entry>NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0167'</entry>
+<entry>T31I - Permit V0:N/G/C to DES PINGEN:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINGEN, NOOFFSET</entry>
+<entry morerows="1">NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0167'</entry>
+<entry>T31I - Permit V0:N/G/C to DES PINGEN:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"G" or "C"</entry>
+<entry>NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0167'</entry>
+<entry>T31I - Permit V0:N/G/C to DES PINGEN:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINVER</entry>
+<entry morerows="5">PINVER, double length, NO-SPEC (CV bits 0 - 3 = B'0000')</entry>
+<entry morerows="1">NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0168'</entry>
+<entry>T31I - Permit V0:N/V to DES PINVER:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"V" or "C"</entry>
+<entry>NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0168'</entry>
+<entry>T31I - Permit V0:N/V to DES PINVER:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINVER, NOOFFSET</entry>
+<entry morerows="1">NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0168'</entry>
+<entry>T31I - Permit V0:N/V to DES PINVER:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"V" or "C"</entry>
+<entry>NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0168'</entry>
+<entry>T31I - Permit V0:N/V to DES PINVER:NO-SPEC NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="11">"V1"</entry>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINGEN</entry>
+<entry morerows="5">PINGEN, double length, IBM PIN/IBM-PINO (CV bits 0 - 3 = B'0001')</entry>
+<entry morerows="1">NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0169'</entry>
+<entry>T31I - Permit V1:N/G/C to DES PINGEN:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"G" or "C"</entry>
+<entry>NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'0169'</entry>
+<entry>T31I - Permit V1:N/G/C to DES PINGEN:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINGEN, NOOFFSET</entry>
+<entry morerows="1">NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0169'</entry>
+<entry>T31I - Permit V1:N/G/C to DES PINGEN:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"G" or "C"</entry>
+<entry>NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'0169'</entry>
+<entry>T31I - Permit V1:N/G/C to DES PINGEN:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINVER</entry>
+<entry morerows="5">PINVER, double length, IBM PIN/IBM-PINO (CV bits 0 - 3 = B'0001')</entry>
+<entry morerows="1">NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'016A'</entry>
+<entry>T31I - Permit V1:N/V to DES PINVER:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"V" or "C"</entry>
+<entry>NOOFFSET off (CV bit 37 = B'0')</entry>
+<entry>X'016A'</entry>
+<entry>T31I - Permit V1:N/V to DES PINVER:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINVER, NOOFFSET</entry>
+<entry morerows="1">NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'016A'</entry>
+<entry>T31I - Permit V1:N/V to DES PINVER:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"V" or "C"</entry>
+<entry>NOOFFSET on (CV bit 37 = B'1')</entry>
+<entry>X'016A'</entry>
+<entry>T31I - Permit V1:N/V to DES PINVER:IBM-PIN/IBM-PINO NOOFFSET</entry>
+</row>
+<row>
+<entry morerows="5">"V2"</entry>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINGEN</entry>
+<entry morerows="1" namest="c5" nameend="c6">PINGEN, double length, VISA-PVV (CV bits 0 - 3 =
+B'0010')</entry>
+<entry>X'016B'</entry>
+<entry>T31I - Permit V2:N/G/C to DES PINGEN:VISA-PVV</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry>"G" or "C"</entry>
+<entry namest="c5" nameend="c6">PINGEN, double length, VISA-PVV (CV bits 0 - 3 = B'0010')</entry>
+<entry>X'016B'</entry>
+<entry>T31I - Permit V2:N/G/C to DES PINGEN:VISA-PVV</entry>
+</row>
+<row>
+<entry morerows="1">"A"</entry>
+<entry morerows="1">"N" (requires both controls)</entry>
+<entry morerows="2">PINVER</entry>
+<entry morerows="1" namest="c5" nameend="c6">PINVER, double length, VISA-PVV (CV bits 0 - 3 =
+B'0010')</entry>
+<entry>X'016C'</entry>
+<entry>T31I - Permit V2:N/V to DES PINVER:VISA-PVV</entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry>T31I - Permit V0/V1/V2:N to DES PINGEN/PINVER</entry>
+</row>
+<row>
+<entry>"A", "B", "C", or "D"</entry>
+<entry rev="sh21i2">"V" or "C"</entry>
+<entry namest="c5" nameend="c6">PINVER, double length, VISA-PVV (CV bits 0 - 3 = B'0010')</entry>
+<entry>X'016C'</entry>
+<entry>T31I - Permit V2:N/V to DES PINVER:VISA-PVV</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p><synph><kwd>Security note:</kwd></synph> TR-31 key blocks that are protected under legacy version
+ID "A" (using the Key Variant Binding Method 2005 Edition) use the same mode of use "N" for PINGEN
+and PINVER keys. For version ID "A" keys only, for a given PIN key usage, enabling both the PINGEN
+and PINVER access-control points at the same time while enabling offset <ph>X'017C'</ph> (for mode
+"N", no special restrictions) is <synph><kwd>NOT</kwd></synph> recommended. In other words, for a
+particular PIN verification key usage, you should not simultaneously enable the four commands shown
+below for that usage:</p>
+<table pgwide="0"><title>Commands</title><desc>
+<p outputclass="summary">A table with three columns, explaining Key type, mode, or version, offset,
+and command for usages of V0, V1, and V2</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="17*"/>
+<thead>
+<row>
+<entry>Key type, mode, or version</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3"><b>"V0":</b> For usage V0, a user with the following four
+commands enabled in the active role can change a PINVER key into a PINGEN key and the other way
+around. <synph><kwd>Avoid simultaneously enabling these four commands.</kwd></synph></entry>
+</row>
+<row>
+<entry>Key type PINGEN</entry>
+<entry><ph>X'0167'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V0 to PINGEN:NO-SPEC</cmdname></entry>
+</row>
+<row>
+<entry>Key type PINVER</entry>
+<entry><ph>X'0168'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V0 to PINVER:NO-SPEC</cmdname></entry>
+</row>
+<row>
+<entry>Mode "N"</entry>
+<entry><ph>X'017C'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER</cmdname></entry>
+</row>
+<row>
+<entry>Version "A"</entry>
+<entry><ph>X'0150'</ph></entry>
+<entry><cmdname>TR31 Import - Permit Version A TR-31 Key Blocks</cmdname></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b>"V1":</b> For usage V1, a user with the following four
+commands enabled in the active role can change a PINVER key into a PINGEN key and the other way
+around. <synph><kwd>Avoid simultaneously enabling these four commands.</kwd></synph></entry>
+</row>
+<row>
+<entry>Key type PINGEN</entry>
+<entry><ph>X'0169'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V1 to PINGEN:IBM-PIN/IBMPINO</cmdname></entry>
+</row>
+<row>
+<entry>Key type PINVER</entry>
+<entry><ph>X'016A'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V1 to PINVER:IBM-PIN/IBMPINO</cmdname></entry>
+</row>
+<row>
+<entry>Mode "N"</entry>
+<entry><ph>X'017C'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER</cmdname></entry>
+</row>
+<row>
+<entry>Version "A"</entry>
+<entry><ph>X'0150'</ph></entry>
+<entry><cmdname>TR31 Import - Permit Version A TR-31 Key Blocks</cmdname></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b>"V2":</b> For usage V2, a user with the following four
+commands enabled in the active role can change a PINVER key into a PINGEN key and the other way
+around. <synph><kwd>Avoid simultaneously enabling these four commands.</kwd></synph></entry>
+</row>
+<row>
+<entry>Key type PINGEN</entry>
+<entry><ph>X'016B'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V2 to PINGEN:VISA-PVV</cmdname></entry>
+</row>
+<row>
+<entry>Key type PINVER</entry>
+<entry><ph>X'016C'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V2 to PINVER:VISA-PVV</cmdname></entry>
+</row>
+<row>
+<entry>Mode "N"</entry>
+<entry><ph>X'017C'</ph></entry>
+<entry><cmdname>TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER</cmdname></entry>
+</row>
+<row>
+<entry>Version "A"</entry>
+<entry><ph>X'0150'</ph></entry>
+<entry><cmdname>TR31 Import - Permit Version A TR-31 Key Blocks</cmdname></entry>
+</row>
+</tbody>
+</tgroup></table><p>Failure to comply with this recommendation allows changing PINVER keys into
+PINGEN and the other way around.</p><note>
+<ol compact="yes">
+<li>PIN encryption keys are used to protect PIN blocks. PIN verification keys are used to generate
+or verify a PIN using a particular PIN-calculation method for that key type.</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be one of
+the following values: <dl compact="yes">
+<dlentry>
+<dt>"P0"</dt>
+<dd>PIN encryption</dd>
+</dlentry>
+<dlentry>
+<dt>"V0"</dt>
+<dd>PIN verification, KPV, other algorithm <p>Usage "V0" does not have its own PIN-calculation
+method defined. The mapping to NO-SPEC is sub-optimal. Exporting to "N" mode restricts keys from
+being imported with the IBM-PIN/IBM-PINO or VISA-PVV attribute, while CCA NO-SPEC allows any
+method.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"V1"</dt>
+<dd>PIN verification, <tm tmtype="reg" trademark="IBM">IBM</tm> 3624</dd>
+</dlentry>
+<dlentry>
+<dt>"V2"</dt>
+<dd>PIN verification, Visa PVV <p>The <synph><kwd>NOOFFSET</kwd></synph> keyword is not allowed for
+the Visa PVV algorithm because it does not support this attribute.</p></dd>
+</dlentry>
+</dl></li>
+<li>Mode must be one of the following values: <dl compact="yes">
+<dlentry>
+<dt>"E"</dt>
+<dd>Encrypt/wrap only <p>This mode restricts PIN encryption keys to encrypting a PIN block. May be
+used to create or reencipher an encrypted PIN block (for key-to-key translation).</p></dd>
+</dlentry>
+<dlentry>
+<dt>"D"</dt>
+<dd>Decrypt/unwrap only <p>This mode restricts PIN encryption keys to decrypting a PIN block.
+Generally used in a PIN translation to decrypt the incoming PIN block.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"N"</dt>
+<dd>No special restrictions (other than restrictions implied by the key usage) <p>This mode is used
+by several vendors for a PIN generate or PIN verification key when the key block version ID is
+"A".</p></dd>
+</dlentry>
+<dlentry>
+<dt>"G"</dt>
+<dd>Generate only <p>This mode is used for a PINGEN key that may not perform a PIN verification. The
+control vector will not have its EPINVER attribute on (CV bit 22 = <ph>B'0'</ph>).</p></dd>
+</dlentry>
+<dlentry>
+<dt>"V"</dt>
+<dd>Verify only <p>This mode is used for PIN verification only. If the TR-31 key block does not have
+a control vector included, the only usage bits set on in the control vector is the EPINVER bit (CV
+bits 18 - 22 = <ph>B'00001'</ph>).</p></dd>
+</dlentry>
+<dlentry>
+<dt>"C"</dt>
+<dd>Both generate and verify (combined) <p>This mode indicates that the control vector will have the
+default PINGEN bits on (CV bits 18 -22 = <ph>B'11111'</ph>).</p></dd>
+</dlentry>
+</dl></li>
+<li>Any attempt to import a TR-31 "P0" key that has mode "B" (both encrypt and decrypt) results in
+an error because CCA does not support this combination of attributes.</li>
+<li>If the TR-31 key block contains a control vector, and the control vector has NOOFFSET on, the
+<synph><kwd>NOOFFSET</kwd></synph> keyword is not necessary because the verb will automatically set
+NOOFFSET on in this case.</li>
+</ol>
+</note><p><xref href="#l0wskc310/kimptr31_tab7"/> shows all valid translations for import of a TR-31
+EMV/chip issuer master-key key (usages "E0", "E1", "E2", "E3", "E4", "E5") to a CCA DKYGENKY, DATA,
+MAC, CIPHER, or ENCIPHER key, along with any access control commands that must be enabled in the
+active role for that key type and control vector attributes. These keys are used by the chip cards
+to perform cryptographic operations or, in some cases, to derive keys used to perform operations.
+<table id="kimptr31_tab7" pgwide="1"><title>Import translation table for a TR-31 EMV/chip issuer
+master-key key (usages "E0", "E1", "E2", "E3", "E4", "E5")</title><desc>
+<p outputclass="summary">Import translation table for a TR-31 key encryption or wrapping, or key
+block protection key (usages "E0", "E1", "E2", "E3", "E4", "E5") . This table contains seven
+columns: Keyword, TR-31 key usage, CCA key types, and Meaning, and it contains rows for "E0", "E1",
+"E2", "E3", "E4", "E5".<!--See z/OS--></p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="32*"/>
+<colspec colname="colspec1" colwidth="20*"/>
+<colspec colname="colspec0" colwidth="30*"/>
+<colspec colname="col3" colwidth="79*"/>
+<colspec colname="col5" colwidth="26*"/>
+<colspec colname="colspec4" colwidth="76*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Key usage</entry>
+<entry colname="col2">Key block protection method keyword (version ID)</entry>
+<entry colname="colspec1">Mode of use</entry>
+<entry colname="colspec0">Rule-array keywords</entry>
+<entry colname="col3">CCA key type and control vector attributes</entry>
+<entry colname="col5">Offset</entry>
+<entry colname="colspec4">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="7">"E0"</entry>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DMAC</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DMAC (CV bits 19 - 22 = <ph>B'0010'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'016D'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E0 to
+DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DMV</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DMV (CV bits 19 - 22 = <ph>B'0011'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'016E'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E0 to
+DKYGENKY:DKYL0+DMV</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL1</kwd></synph>,
+<synph><kwd>DMAC</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL1 (CV bits 12 - 14 =
+<ph>B'001'</ph>), DMAC (CV bits 19 - 22 = <ph>B'0010'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'016F'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E0 to
+DKYGENKY:DKYL1+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL1</kwd></synph>,
+<synph><kwd>DMV</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL1 (CV bits 12 - 14 =
+<ph>B'001'</ph>), DMV (CV bits 19 - 22 = <ph>B'0011'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'0170'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E0 to
+DKYGENKY:DKYL1+DMV</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col1" morerows="19">"E1"</entry>
+<entry colname="col2" morerows="3">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="4"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DMPIN</kwd></synph></entry>
+<entry colname="col3" morerows="4">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DMPIN (CV bits 19 - 22 = <ph>B'1001'</ph>)</entry>
+<entry colname="col5" morerows="4"><ph>X'0171'</ph></entry>
+<entry colname="colspec4" morerows="4"><cmdname>TR31 Import - Permit E1 to
+DKYGENKY:DKYL0+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2" morerows="3">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="4"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DDATA</kwd></synph></entry>
+<entry colname="col3" morerows="4">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DDATA (CV bits 19 - 22 = <ph>B'0001'</ph>)</entry>
+<entry colname="col5" morerows="4"><ph>X'0172'</ph></entry>
+<entry colname="colspec4" morerows="4"><cmdname>TR31 Import - Permit E1 to
+DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2" morerows="3">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="4"><synph><kwd>DKYL1</kwd></synph>,
+<synph><kwd>DMPIN</kwd></synph></entry>
+<entry colname="col3" morerows="4">DKYGENKY, double length, DKYL1 (CV bits 12 - 14 =
+<ph>B'001'</ph>), DMPIN (CV bits 19 - 22 = <ph>B'1001'</ph>)</entry>
+<entry colname="col5" morerows="4"><ph>X'0173'</ph></entry>
+<entry colname="colspec4" morerows="4"><cmdname>TR31 Import - Permit E1 to
+DKYGENKY:DKYL1+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2" morerows="3">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="4"><synph><kwd>DKYL1</kwd></synph>,
+<synph><kwd>DDATA</kwd></synph></entry>
+<entry colname="col3" morerows="4">DKYGENKY, double length, DKYL1 (CV bits 12 - 14 =
+<ph>B'001'</ph>), DDATA (CV bits 19 - 22 = <ph>B'0001'</ph>)</entry>
+<entry colname="col5" morerows="4"><ph>X'0174'</ph></entry>
+<entry colname="colspec4" morerows="4"><cmdname>TR31 Import - Permit E1 to
+DKYGENKY:DKYL1+DDATA</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col1" morerows="3">"E2"</entry>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DMAC</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DMAC (CV bits 19 - 22 = <ph>B'0010'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'0175'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E2 to
+DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="1"><synph><kwd>DKYL1</kwd></synph>,
+<synph><kwd>DMAC</kwd></synph></entry>
+<entry colname="col3" morerows="1">DKYGENKY, double length, DKYL1 (CV bits 12 - 14 =
+<ph>B'001'</ph>), DMAC (CV bits 19 - 22 = <ph>B'0010'</ph>)</entry>
+<entry colname="col5" morerows="1"><ph>X'0176'</ph></entry>
+<entry colname="colspec4" morerows="1"><cmdname>TR31 Import - Permit E2 to
+DKYGENKY:DKYL1+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col1" morerows="5">"E3"</entry>
+<entry colname="col2" morerows="4">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="5">N/A</entry>
+<entry colname="col3" morerows="5">ENCIPHER</entry>
+<entry colname="col5" morerows="5"><ph>X'0177'</ph></entry>
+<entry colname="colspec4" morerows="5"><cmdname>TR31 Import - Permit E3 to
+ENCIPHER</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="colspec1">"G"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col1" morerows="2">"E4"</entry>
+<entry colname="col2" morerows="1">"A"</entry>
+<entry colname="colspec1">"N"</entry>
+<entry colname="colspec0" morerows="2">N/A</entry>
+<entry colname="col3" morerows="2">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DDATA (CV bits 19 - 22 = <ph>B'0001'</ph>)</entry>
+<entry colname="col5" morerows="2"><ph>X'0178'</ph></entry>
+<entry colname="colspec4" morerows="2"><cmdname>TR31 Import - Permit E4 to
+DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col1" morerows="23">"E5"</entry>
+<entry colname="col2" morerows="6">"A"</entry>
+<entry colname="colspec1">"G"</entry>
+<entry colname="colspec0" morerows="7"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DMAC</kwd></synph></entry>
+<entry colname="col3" morerows="7">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DMAC (CV bits 19 - 22 = <ph>B'0010'</ph>)</entry>
+<entry colname="col5" morerows="7"><ph>X'0179'</ph></entry>
+<entry colname="colspec4" morerows="7"><cmdname>TR31 Import - Permit E5 to
+DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"C"</entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="colspec1">"N"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2" morerows="6">"A"</entry>
+<entry colname="colspec1">"G"</entry>
+<entry colname="colspec0" morerows="7"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DDATA</kwd></synph></entry>
+<entry colname="col3" morerows="7">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DDATA (CV bits 19 - 22 = <ph>B'0001'</ph>)</entry>
+<entry colname="col5" morerows="7"><ph>X'017A'</ph></entry>
+<entry colname="colspec4" morerows="7"><cmdname>TR31 Import - Permit E5 to
+DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"C"</entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="colspec1">"N"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry colname="col2" morerows="6">"A"</entry>
+<entry colname="colspec1">"G"</entry>
+<entry colname="colspec0" morerows="7"><synph><kwd>DKYL0</kwd></synph>,
+<synph><kwd>DEXP</kwd></synph></entry>
+<entry colname="col3" morerows="7">DKYGENKY, double length, DKYL0 (CV bits 12 - 14 =
+<ph>B'000'</ph>), DEXP (CV bits 19 - 22 = <ph>B'0101'</ph>)</entry>
+<entry colname="col5" morerows="7"><ph>X'017B'</ph></entry>
+<entry colname="colspec4" morerows="7"><cmdname>TR31 Import - Permit E5 to
+DKYGENKY:DKYL0+DEXP</cmdname></entry>
+</row>
+<row>
+<entry colname="colspec1">"C"</entry>
+</row>
+<row>
+<entry colname="colspec1">"V"</entry>
+</row>
+<row>
+<entry colname="colspec1">"E"</entry>
+</row>
+<row>
+<entry colname="colspec1">"D"</entry>
+</row>
+<row>
+<entry colname="colspec1">"B"</entry>
+</row>
+<row>
+<entry colname="colspec1">"N"</entry>
+</row>
+<row>
+<entry colname="col2">"B" or "C"</entry>
+<entry colname="colspec1">"X"</entry>
+</row>
+<row>
+<entry nameend="colspec4" namest="col1">
+<note>
+<ol compact="yes">
+<li>EMV/chip issuer master-key keys are used by the chip cards to perform cryptographic operations
+or, in some cases, to derive keys used to perform operations. In CCA, these keys are (a) diversified
+key-generating keys (key type DKYGENKY), allowing derivation of operational keys, or (b) operational
+keys. Note that in this context, "master key" has a different meaning than for CCA. These master
+keys, also called KMCs, are described by EMV as DES master keys for personalization session keys.
+They are used to derive the corresponding chip card master keys, and not typically used directly for
+cryptographic operations other than key derivation. In CCA, these keys are usually key generating
+keys with derivation level DKYL1 (CV bits 12 - 14 = <ph>B'001'</ph>), used to derive other key
+generating keys (the chip card master keys). For some cases, or for older EMV key derivation
+methods, the issuer master keys could be level DKYL0 (CV bits 12 - 14 = <ph>B'000'</ph>).</li>
+<li>This table defines the only supported translations for this TR-31 usage. Usage must be one of
+the following values: <dl compact="yes">
+<dlentry>
+<dt>"E0"</dt>
+<dd>Application cryptograms</dd>
+</dlentry>
+<dlentry>
+<dt>"E1"</dt>
+<dd>Secure messaging for confidentiality</dd>
+</dlentry>
+<dlentry>
+<dt>"E2"</dt>
+<dd>Secure messaging for integrity</dd>
+</dlentry>
+<dlentry>
+<dt>"E3"</dt>
+<dd>Data authentication code</dd>
+</dlentry>
+<dlentry>
+<dt>"E4"</dt>
+<dd>Dynamic numbers</dd>
+</dlentry>
+<dlentry>
+<dt>"E5"</dt>
+<dd>Card personalization</dd>
+</dlentry>
+</dl></li>
+<li>EMV support in CCA is different than TR-31 support, and CCA key types do not match TR-31
+types.</li>
+<li>DKYGENKY keys are double length only.</li>
+<li>In CCA, a MAC key that can perform a MAC generate operation also can perform a MAC verify. For
+TR-31 mode "G" (generate only), the translation to a CCA key results in a key that can perform MAC
+generate and MAC verify.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p></pd>
+</plentry><plentry>
+<pt>tr31_key_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>tr31_key_block</var></synph> variable. The length field in the TR-31 block is a 4-digit
+decimal number, so the maximum acceptable length is 9992 bytes. For more information, see <xref
+href="wskc_r_vbtr31kp.dita#vbtr31kp"/>.</pd>
+</plentry><plentry>
+<pt>tr31_key_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the TR-31 key block that is to be imported. The
+key block is protected with the key identified by the
+<synph><var>unwrap_kek_identifier</var></synph> parameter.</pd>
+</plentry><plentry>
+<pt>unwrap_kek_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>unwrap_kek_identifier</var></synph> variable. Set this value to 64.</pd>
+</plentry><plentry>
+<pt>unwrap_kek_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the operational fixed-length DES key-token used to
+unwrap the key identified by the <synph><kwd>tr31_key_block</kwd></synph> parameter, or a key label
+of such a key in DES key-storage. The key must have a key type of IMPORTER or IKEYXLAT, and be
+authorized for import. <ph rev="sh20i1">For AES keys, the key must be an AES key-encrypting key of type IMPORTER 
+and key usage IMPTT31D with WR-DES, WRAES, or WR-HMAC capability, matching the wrapped key.</ph>
+<p>If a key token is passed which is wrapped under the old master key, it will be updated 
+on output so that it is wrapped under the current master key.</p>
+<note othertype="Notes" type="other">
+<ol compact="yes">
+<li>DES keys wrapped in ECB mode (CCA legacy wrap mode) cannot be used to wrap or unwrap TR-31 "B"
+or "C" key blocks that have or will have "E" exportability, because ECB mode does not comply with
+ANSI X9.24 Part 1.</li>
+<li rev="sh20i1">If the <synph><kwd>unwrap_kek_identifier</kwd></synph> is compliant-tagged, the
+TR-31 key block is imported as a compliant-tagged key token.</li>
+</ol>
+</note>
+</pd>
+</plentry><plentry>
+<pt>wrap_kek_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the length in bytes of the
+<synph><var>wrap_kek_identifier</var></synph> variable. The value must be greater than or equal to
+0. A null key-token can have a length of 1. Set this value to 64 for a key label or a KEK.</pd>
+</plentry><plentry>
+<pt>wrap_kek_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the operational fixed-length DES key-token used to
+wrap the key identified by the <synph><var>output_key_identifier</var></synph> parameter, a null
+key-token, or a key label of such a key in DES key-storage. If the parameter identifies a null
+key-token, then the <synph><var>unwrap_kek_identifier</var></synph> parameter is also used for
+wrapping the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> output key token.<p
+rev="sh20i1">For DES keys, the key must be a DES key-encrypting key of type IMPORTER or IKEYXLAT type. For
+AES keys, the key must be an AES key-encrypting key of type IMPORTER with WR-AES or WR-HMAC
+capability, matching the wrapped key.</p>
+<p rev="sh20i1">If the <synph><kwd>wrap_kek_identifier</kwd></synph> is
+compliant-tagged, the TR-31 key block is imported as a compliant-tagged key token.</p></pd>
+</plentry><plentry>
+<pt>output_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer specifying the length in bytes of the
+<synph><var>output_key_identifier</var></synph> variable. This is an input/output parameter.</pd>
+</plentry><plentry>
+<pt>output_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the key token or the key label for the token that
+is to receive the imported key. The output key-token is a CCA internal or external key token
+containing the key received in the TR-31 token. If a key token is provided, it must be a null token
+(64 bytes of <ph>X'00'</ph>). If a key label is provided, the imported token is stored in the key
+storage file and identified by that label.</pd>
+</plentry><plentry>
+<pt>num_opt_blocks</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable where the verb stores the number of optional blocks that
+are present in the TR-31 key token.</pd>
+</plentry><plentry>
+<pt>cv_source</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable where the verb stores a value indicating how the control
+vector in the output key token was created. It can be one of the values in <xref
+href="#l0wskc310/t31i_cv_source"/>. <table id="t31i_cv_source"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> CV sources</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> CV
+sources</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="7*"/>
+<thead>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/> CV source</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">0</entry>
+<entry colname="col2">No CV was present in an optional block, and the output CV was created by the
+verb based on input parameters and on the attributes in the TR-31 key block header.</entry>
+</row>
+<row>
+<entry colname="col1">1</entry>
+<entry colname="col2">A CV was obtained from an optional block in the TR-31 key block, and the key
+usage and mode of use were also specified in the TR-31 header. The verb verified compatibility of
+the header values with the CV and then used that CV in the output key token.</entry>
+</row>
+<row>
+<entry colname="col1">2</entry>
+<entry colname="col2">A CV was obtained from an optional block in the TR-31 key block, and the key
+usage and mode of use in the TR-31 header held the proprietary values indicating that key use and
+mode should be obtained from the included CV. The CV from the TR-31 token was used as the CV for the
+output key token.</entry>
+</row>
+</tbody>
+</tgroup></table><p>Any values other than these three are reserved and are currently
+invalid.</p></pd>
+</plentry><plentry>
+<pt>protection_method</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable where the verb stores a value indicating what method was
+used to protect the input TR-31 key block. The TR-31 standard allows two methods, and the
+application program might want to know which was used for security purposes. The variable can have
+one of the values in <xref href="#l0wskc310/t31i_protection"/>. <table id="t31i_protection"
+><title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> protection
+methods</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/>
+protection methods</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row valign="bottom">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/> protection
+method</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>The TR-31 key block was protected using the variant method as identified by a Key Block
+Version ID value of "A" (<ph>X'41'</ph>).</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>The TR-31 key block was protected using the derived key method as identified by a Key Block
+Version ID value of "B" (<ph>X'42'</ph>).</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>The TR-31 key block was protected using the variant method as identified by a Key Block
+Version ID value of "C" (<ph>X'43'</ph>). Functionally this method is the same as "A", but to
+maintain consistency a different value is returned here for "C".</entry>
+</row>
+</tbody>
+</tgroup></table><p>Any values other than these three are reserved and are currently
+invalid.</p></pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000082608?>

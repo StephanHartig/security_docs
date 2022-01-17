@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc262">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>EVEN</indexterm>
+<indexterm>even parity</indexterm>
+<indexterm>ODD</indexterm>
+<indexterm>odd parity</indexterm>
+<indexterm>RANDOM</indexterm>
+<indexterm>seed_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>seed parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>random_number_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>random_number parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb</indexterm></indexterm>
+<indexterm>TR-34 Key Receiving Device Random Number Token<indexterm>RT-KRD</indexterm></indexterm>
+<indexterm>RT-KRD<indexterm>TR-34 Key Receiving Device Random Number Token</indexterm></indexterm>
+<indexterm>Key Receiving Device (KRD) Random Number Token<indexterm>RT-KRD</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are eight bytes
+in length, and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc262/l0wskc02_rngl_tab1"/>. <table id="l0wskc02_rngl_tab1" pgwide="0">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="4*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" colsep="1"><b><i>Parity adjust</i></b> (One required)</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>EVEN</kwd></synph></entry>
+<entry colname="col2">Specifies that each generated random byte is adjusted for even parity.</entry>
+</row>
+<row>
+<entry><synph><kwd>ODD</kwd></synph></entry>
+<entry>Specifies that each generated random byte is adjusted for odd parity.</entry>
+</row>
+<row>
+<entry><synph><kwd>RANDOM</kwd></synph></entry>
+<entry>Specifies that each generated random byte is not adjusted for parity.</entry>
+</row>
+<row>
+<entry><synph><kwd>RT-KRD</kwd></synph></entry>
+<entry rev="sh21i3">RANDOM bytes are generated that are not adjusted for parity. The random bytes
+are returned in the <parmname>random_number</parmname> parameter formatted as a TR-34 <term>Key
+Receiving Device (KRD) Random Number Token</term>, or (RT-KRD). The user must allocate the<parmname>
+random_number_length</parmname> bytes requested in the <parmname>random_number</parmname> buffer
+plus an additional 21 bytes to allow for encoding and overhead.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>seed_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>seed</var></synph> variable. This value must be 0.</pd></plentry>
+<plentry><pt>seed</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry><pt>random_number_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<parmname>random_number</parmname> variable. On input, the minimum value is 1 and the maximum value
+is 8192.<p>Use this variable to specify the number of random bytes that the verb is to return. On
+output, this variable contains the number of bytes returned by the verb in the
+<parmname>random_number</parmname> variable.</p>
+<p rev="sh21i3">When the keyword <keyword>RT-KRD</keyword> is requested: 
+The user must allocate the <parmname>random_number_length</parmname> bytes requested in the 
+<parmname>random_number</parmname> buffer plus an additional 21 bytes to allow for encoding and overhead. 
+On output the actual size of the RT-KRD token, including overhead, is written to this variable. 
+If the maximum RT-KRD size is 200 bytes, the maximum random number size is 179 bytes.</p>
+</pd></plentry>
+<plentry><pt>random_number</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the random number generated.
+<p rev="sh21i3">When the keyword <keyword>RT-KRD</keyword> is requested: 
+The user must allocate the <parmname>random_number_length</parmname> bytes requested in the 
+<parmname>random_number</parmname> buffer plus an additional 21 bytes to allow for 
+encoding and overhead.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

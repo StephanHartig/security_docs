@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdpcpinchange" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> verb to
+update the personal identification number (PIN) reference value or word (PRW) for a specified
+account when a cardholder uses a bank or credit card at an ATM or point-of-sale (POS) terminal to
+update a card with a new PIN, in other words, to change the current PIN to a customer-selected
+PIN.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p rev="sh20i1">When cardholders use a terminal to update a card with a new PIN, they enter
+      the current PIN and the new PIN. At the terminal, the current PIN is formatted into an ISO-0, ISO-1, ISO-2, ISO-3 or, beginning with
+      Release 5.4, ISO-4 PIN-block and enciphered using a PIN encrypting key for the current PIN. Likewise,
+      the new PIN is formatted into an ISO-0, ISO-1, ISO-2, ISO-3 or, beginning with Release 5.4, ISO-4 PINblock
+      and enciphered using a PIN encrypting key for the new PIN.</p>
+<p>The account of a cardholder is uniquely identified by a 10 - 19 digit primary account number
+(PAN) of the bank or credit card. Additional information normally available on the card is a
+time-sensitive card expiry date and a time-invariant (permanent) card sequence number. The verb
+verifies the current PIN by deciphering the current ISO-1 PIN block and uses the recovered PIN and
+other additional information to verify the current PIN. If the current PIN does not verify, the
+process is aborted and an error is returned. If it does verify, the new PIN is recovered from the
+new ISO-1 PIN block and is reformatted into a DK-defined PIN block that is used with a new PRW
+random value and other information to calculate a new PRW. The new PRW and associated new PRW random
+value are returned to be used as input later by other PIN processes for PIN verification. </p>
+<p>A card script can be created and encrypted for use later to update a customer smart (chip) card.
+To create a TDES-encrypted card script, specify either the <keyword>TDES-CBC</keyword> or
+<keyword>TDES-ECB</keyword> script selection keyword in the rule array. Beginning with Release 4.4,
+to create an AES-encrypted card script, specify <keyword>AES-CBC</keyword>.</p>
+<p>If validation of the PIN is desired to personalize a smart card, specify the EPB PIN block output
+selection rule-array keyword. This keyword causes an output encrypted PIN block to be returned along
+with a PIN block MAC. The MAC is calculated over the output PIN block and additional card data using
+the block cipher-based MAC algorithm, called CMAC (refer to <cite>NIST SP 800-38B</cite>). </p>
+<p>Notes:</p>
+<ol>
+<li>If the PIN recovered from the <parmname>new_ISO1_PIN_block</parmname> variable is found in the
+weak PIN table, it is rejected and an error is returned indicating that the selected PIN was in the
+weak PIN table.</li>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+</ol>
+    </section>
+  </refbody>
+</reference>

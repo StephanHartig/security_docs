@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_enc">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>)</searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb to
+encipher data using the DES cipher block chaining mode. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)</indexterm></indexterm>
+<indexterm>data<indexterm>enciphering</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> processing rule</indexterm>
+<indexterm>processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>CBC processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>Cryptographic Unit Support Program (CUSP)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>Information Protection System (IPS)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>ANSI X9.23 processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>short blocks</indexterm>
+<indexterm>trailing short blocks</indexterm>
+<indexterm>padding method</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports the following
+processing rules to encipher data. You choose the type of processing rule that the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>
+<ph>verb</ph> should use for the block chaining. <dl>
+<dlentry>
+<dt>Cipher block chaining (CBC)</dt>
+<dd>In exact multiples of eight bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>Cryptographic Unit Support Program (CUSP)</dt>
+<dd>CBC mode (cipher block chaining) that is compatible with <tm trademark="IBM" tmtype="reg"
+>IBM</tm>’s CUSP and PCF products. The data need not be in exact multiples of eight bytes. The
+ciphertext is the same length as the plaintext.</dd>
+</dlentry>
+<dlentry>
+<dt>Information Protection System (IPS)</dt>
+<dd>CBC mode (cipher block chaining) that is compatible with <tm trademark="IBM" tmtype="reg"
+>IBM</tm>’s IPS product. The data need not be in exact multiples of eight bytes. The ciphertext is
+the same length as the plaintext.</dd>
+</dlentry>
+<dlentry>
+<dt>ANSI X9.23</dt>
+<dd>For block chaining not necessarily in exact multiples of eight bytes. This process rule pads the
+plaintext so that ciphertext produced is an exact multiple of eight bytes.</dd>
+</dlentry>
+</dl></p>
+<p>For more information about the processing rules, see <xref
+href="wskc_r_encparameters.dita#l0wskc02_encparameters/l0wskc02_pcbc2"/> and <xref
+href="wskc_c_apxcipm.dita#l0wskc02_apxcipm"/>.</p>
+<p>The cipher block chaining (CBC) mode of operation uses an initial chaining vector (ICV) in its
+processing. The ICV is XORed with the first eight bytes of plaintext before the encryption step and
+thereafter, the 8-byte block of ciphertext just produced is XORed with the next 8-byte block of
+plaintext and so on. This disguises any pattern that might exist in the plaintext.</p>
+<p>The selection between single-DES encryption mode and triple-DES encryption mode is controlled by
+the length of the key supplied in the <parmname>key_identifier</parmname> parameter. If a
+single-length key is supplied, single-DES encryption is performed. If a double-length or
+triple-length key is supplied, triple-DES encryption is performed.</p>
+<p>To nullify the CBC effect on the first 8-byte block, supply eight bytes of zero. However, the ICV
+might require zeros.</p>
+<p>Cipher block chaining also produces a resulting chaining value called the output chaining vector
+(OCV). The application can pass the OCV as the ICV in the next encipher call. This results in
+<i>record chaining</i>.</p>
+<p>Note that the OCV that results is the same, whether an Encipher or a Decipher <ph>verb</ph> was
+invoked, assuming the same text, ICV, and key were used.</p>
+<p>Short blocks are text lengths of between one and seven bytes. A short block can be the only
+block. Trailing short blocks are blocks of between one and seven bytes that follow an exact multiple
+of eight bytes. For example, if the text length is 21, there are two 8-byte blocks, and a trailing
+short block of five bytes. </p>
+<p>An alternative method is to pad the plaintext and produce a ciphertext that is longer than the
+plaintext. The plaintext can be padded with up to eight bytes using one of several padding
+methods. This padding produces a ciphertext that is an exact multiple of eight bytes in length.</p>
+<p>If the cleartext is already a multiple of eight, the ciphertext can be created using any
+processing rule.</p>
+<p>Because of padding, the returned ciphertext length is longer than the provided plaintext.
+Therefore, the <parmname>text_length</parmname> parameter  is modified. The returned ciphertext
+field should be eight bytes longer than the length of the plaintext to accommodate the maximum
+amount of padding. </p>
+<note type="attention"> If you lose the data-encrypting key under which the data (plaintext) is
+enciphered, the data enciphered under that key (ciphertext) cannot be recovered.</note>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

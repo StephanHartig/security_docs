@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ckirequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Clear Key Import/Multiple Clear Key Import - DES</cmdname>
+command (offset X'00C3') to be enabled in the active role.</p></section><section>
+<note>A role with offset X'00C3' enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> verb with the DES algorithm.</note></section>
+</refbody></reference>

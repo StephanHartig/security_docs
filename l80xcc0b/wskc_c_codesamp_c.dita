@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_codesamp_c" xml:lang="en-us">
+<title>Sample program in C</title>
+  <titlealts>
+    <navtitle>Sample program in C</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Sample program in C</searchtitle>
+  </titlealts>
+<shortdesc>This sample code, which consists of a C program (mac.c)
+and a makefile (makefile.Inx), can be found in the <ph>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples</ph> directory. </shortdesc><?Pub
+Caret 119?>
+<prolog><metadata>
+<keywords><indexterm>CCA sample program<indexterm>C</indexterm></indexterm>
+<indexterm>sample verb calls</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>For reference, a copy of the sample routine is shown in <xref
+href="#l0wskc02_codesamp_c/l0wskc02_code"></xref>.</p>
+<fig id="l0wskc02_code" scale="80"><title>Syntax, sample routine in
+C</title></fig>
+<codeblock>/*********************************************************************/ 
+/*                                                                   */ 
+/* Module Name: mac.c                                                */ 
+/*                                                                   */ 
+/* DESCRIPTIVE NAME: Cryptographic Coprocessor Support Program       */ 
+/*                   C language source code example                  */ 
+/*                                                                   */ 
+/*-------------------------------------------------------------------*/ 
+/*                                                                   */ 
+/* Licensed Materials - Property of IBM                              */ 
+/*                                                                   */ 
+/* (C) Copyright IBM Corp. 1997-2001 All Rights Reserved             */ 
+/*                                                                   */ 
+/* US Government Users Restricted Rights - Use duplication or        */ 
+/* disclosure restricted by GSA ADP Schedule Contract with IBM Corp. */ 
+/*                                                                   */ 
+/*-------------------------------------------------------------------*/ 
+/*                                                                   */ 
+/*        NOTICE TO USERS OF THE SOURCE CODE EXAMPLES                */ 
+/*                                                                   */ 
+/* The source code examples provided by IBM are only intended to     */ 
+/* assist in the development of a working software program. The      */ 
+/* source code examples do not function as written: additional       */ 
+/* code is required. In addition, the source code examples may       */ 
+/* not compile and/or bind successfully as written.                  */ 
+/*                                                                   */ 
+/* International Business Machines Corporation provides the source   */ 
+/* code examples, both individually and as one or more groups,       */ 
+/* "as is" without warranty of any kind, either expressed or         */ 
+/* implied, including, but not limited to the implied warranties of  */ 
+/* merchantability and fitness for a particular purpose. The entire  */ 
+/* risk as to the quality and performance of the source code         */ 
+/* examples, both individually and as one or more groups, is with    */ 
+/* you. Should any part of the source code examples prove defective, */ 
+/* you (and not IBM or an authorized dealer) assume the entire cost  */ 
+/* of all necessary servicing, repair or correction.                 */ 
+/*                                                                   */ 
+/* IBM does not warrant that the contents of the source code         */ 
+/* examples, whether individually or as one or more groups, will     */ 
+/* meet your requirements or that the source code examples are       */ 
+/* error-free.                                                       */ 
+/*                                                                   */ 
+/* IBM may make improvements and/or changes in the source code       */ 
+/* examples at any time.                                             */ 
+/*                                                                   */ 
+/* Changes may be made periodically to the information in the        */ 
+/* source code examples; these changes may be reported, for the      */ 
+/* sample code included herein, in new editions of the examples.     */ 
+/*                                                                   */ 
+/* References in the source code examples to IBM products, programs, */ 
+/* or services do not imply that IBM intends to make these           */ 
+/* available in all countries in which IBM operates. Any reference   */ 
+/* to the IBM licensed program in the source code examples is not    */ 
+/* intended to state or imply that IBM’s licensed program must be    */ 
+/* used. Any functionally equivalent program may be used.            */ 
+/*                                                                   */ </codeblock>
+<codeblock>/*-------------------------------------------------------------------*/ 
+/*                                                                   */ 
+/* This example program:                                             */ 
+/*                                                                   */ 
+/* 1) Calls the Key_Generate verb (CSNBKGN) to create a MAC (message */ 
+/*    authentication code) key token and a MACVER key token.         */ 
+/*                                                                   */ 
+/* 2) Calls the MAC_Generate verb (CSNBMGN) using the MAC key token  */ 
+/*    from step 1 to generate a MAC on the supplied text string      */ 
+/*    (INPUT_TEXT).                                                  */ 
+/*                                                                   */ 
+/* 3) Calls the MAC_Verify verb (CSNBMVR) to verify the MAC for the  */ 
+/*    same text string, using the MACVER key token created in        */ 
+/*    step 1.                                                        */ 
+/*                                                                   */ 
+/*********************************************************************/ 
+#include &lt;stdio.h> 
+#include &lt;string.h> 
+
+#ifdef _AIX 
+  #include &lt;csufincl.h> 
+#elif __WINDOWS__ 
+  #include "csunincl.h" 
+#else 
+  #include "csulincl.h"     /* else linux */ 
+#endif 
+
+/* Defines */ 
+#define KEY_FORM            "OPOP" 
+#define KEY_LENGTH          "SINGLE  " 
+#define KEY_TYPE_1          "MAC     " 
+#define KEY_TYPE_2          "MACVER  " 
+#define INPUT_TEXT          "abcdefhgijklmn0987654321" 
+#define MAC_PROCESSING_RULE "X9.9-1  " 
+#define SEGMENT_FLAG        "ONLY    " 
+#define MAC_LENGTH          "HEX-9   " 
+#define MAC_BUFFER_LENGTH   10 
+
+void main() 
+{ 
+  static long          return_code; 
+  static long          reason_code; 
+  static unsigned char key_form[4]; 
+  static unsigned char key_length[8]; 
+  static unsigned char mac_key_type[8]; 
+  static unsigned char macver_key_type[8]; 
+  static unsigned char kek_key_id_1[64]; 
+  static unsigned char kek_key_id_2[64]; 
+  static unsigned char mac_key_id[64]; 
+  static unsigned char macver_key_id[64]; 
+  static long          text_length; 
+  static unsigned char text[26]; 
+  static long          rule_array_count; 
+  static unsigned char rule_array[3][8];       /* Max 3 rule array elements  */ 
+  static unsigned char chaining_vector[18]; 
+  static unsigned char mac_value[MAC_BUFFER_LENGTH]; 
+
+/* Print a banner */ 
+printf("Cryptographic Coprocessor Support Program example program.\n");</codeblock>
+<codeblock>/* Set up initial values for Key_Generate call */ 
+return_code = 0; 
+reason_code = 0; 
+memcpy (key_form,        KEY_FORM, 4);       /* OPOP key pair                */ 
+memcpy (key_length,      KEY_LENGTH, 8);     /* Single-length keys           */ 
+memcpy (mac_key_type,    KEY_TYPE_1, 8);     /* 1st token, MAC key type      */ 
+memcpy (macver_key_type, KEY_TYPE_2, 8);     /* 2nd token, MACVER key type   */ 
+memset (kek_key_id_1,  0x00, sizeof(kek_key_id_1));    /* 1st KEK not used   */ 
+memset (kek_key_id_2,  0x00, sizeof(kek_key_id_2));    /* 2nd KEK not used   */ 
+memset (mac_key_id,    0x00, sizeof(mac_key_id));      /* Init 1st key token */ 
+memset (macver_key_id, 0x00, sizeof(macver_key_id));   /* Init 2nd key token */ 
+
+/* Generate a MAC/MACVER operational key pair */ 
+CSNBKGN(&amp;return_code, 
+        &amp;reason_code, 
+        NULL,                                 /* exit_data_length            */ 
+        NULL,                                 /* exit_data                   */ 
+        key_form, 
+        key_length, 
+        mac_key_type, 
+        macver_key_type, 
+        kek_key_id_1, 
+        kek_key_id_2, 
+        mac_key_id, 
+        macver_key_id); 
+
+/* Check the return/reason codes. Terminate if there is an error.            */ 
+if (return_code != 0 || reason_code != 0) { 
+  printf ("Key_Generate failed: ");             /* Print failing verb        */ 
+  printf ("return_code = %ld, ",  return_code); /* Print return code         */ 
+  printf ("reason_code = %ld.\n", reason_code); /* Print reason code         */ 
+  return; 
+} 
+else 
+  printf ("Key_Generate successful.\n"); 
+
+/* Set up initial values for MAC_Generate call */ 
+return_code = 0; 
+reason_code = 0; 
+text_length = sizeof (INPUT_TEXT) - 1;          /* Length of MAC text     */ 
+memcpy (text, INPUT_TEXT, text_length);         /* Define MAC input text  */ 
+rule_array_count = 3;                           /* 3 rule array elements  */ 
+memset (rule_array, ’ ’, sizeof(rule_array));   /* Clear rule array       */ 
+memcpy (rule_array[0], MAC_PROCESSING_RULE, 8); /* 1st rule array element */ 
+memcpy (rule_array[1], SEGMENT_FLAG,        8); /* 2nd rule array element */ 
+memcpy (rule_array[2], MAC_LENGTH,          8); /* 3rd rule array element */ 
+memset (chaining_vector, 0x00, 18);             /* Clear chaining vector  */ 
+memset (mac_value, 0x00, sizeof(mac_value));    /* Clear MAC value        */ </codeblock>
+<codeblock>/* Generate a MAC based on input text */ 
+CSNBMGN ( &amp;return_code, 
+          &amp;reason_code, 
+          NULL,                               /* exit_data_length             */ 
+          NULL,                               /* exit_data                    */ 
+          mac_key_id,                         /* Output from Key Generate     */ 
+          &amp;text_length, 
+          text, 
+          &amp;rule_array_count, 
+          &amp;rule_array[0][0], 
+          chaining_vector, 
+          mac_value); 
+
+/* Check the return/reason codes. Terminate if there is an error.             */ 
+if (return_code != 0 || reason_code != 0) { 
+  printf ("MAC Generate Failed: ");             /* Print failing verb         */ 
+  printf ("return_code = %ld, ",  return_code); /* Print return code          */ 
+  printf ("reason_code = %ld.\n", reason_code); /* Print reason code          */ 
+return; 
+} 
+else { 
+  printf ("MAC_Generate successful.\n"); 
+  printf ("MAC_value = %s\n", mac_value);      /* Print MAC value (HEX-9)     */ 
+} 
+/* Set up initial values for MAC_Verify call */ 
+return_code = 0; 
+reason_code = 0; 
+rule_array_count = 1;                        /* 1 rule array element       */ 
+memset (rule_array, ’ ’, sizeof(rule_array));/* Clear rule array           */ 
+memcpy (rule_array[0], MAC_LENGTH, 8);       /* Rule array element         */ 
+                                             /* (use default Ciphering     */ 
+                                             /* Method and Segmenting      */ 
+                                             /* Control)                   */ 
+memset (chaining_vector, 0x00, 18);          /* Clear the chaining vector  */ 
+
+/* Verify MAC value */ 
+CSNBMVR (&amp;return_code, 
+         &amp;reason_code, 
+         NULL,                               /* exit_data_length           */ 
+         NULL,                               /* exit_data                  */ 
+         macver_key_id,                      /* Output from Key_Generate   */ 
+         &amp;text_length,                       /* Same as for MAC_Generate   */ 
+         text,                               /* Same as for MAC_Generate   */ 
+         &amp;rule_array_count, 
+         &amp;rule_array[0][0], 
+         chaining_vector, 
+         mac_value);                         /* Output from MAC_Generate   */ 
+
+/* Check the return/reason codes. Terminate if there is an error.          */ 
+if (return_code != 0 || reason_code != 0) { 
+  printf ("MAC_Verify failed: ");               /* Print failing verb      */ 
+  printf ("return_code = %ld, ", return_code);  /* Print return code       */ 
+  printf ("reason_code = %ld.\n", reason_code); /* Print reason code       */ 
+  return; 
+} 
+else                                         /* No error occurred          */ 
+  printf ("MAC_Verify successful.\n"); 
+} </codeblock>
+</conbody>
+</concept>
+<?Pub *0000012952?>

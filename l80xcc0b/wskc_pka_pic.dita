@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_pka_pki" xml:lang="en-us" rev="sh18i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> verb to
+create a self-signed PKCS #10 certificate signing request (CSR) based on an existing RSA or ECC pair
+of private key and public key.  The self-signed PKCS #10 request for the input public key is signed
+by the input private key.</shortdesc>
+<?Pub Caret 135?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p> For a PKCS #10 CSR, the input private key can either be an internal RSA or ECC token, or the
+label of the private key, or it can be the label of an RSA retained key token. In addition to the
+input private key, the user must specify extra input parameters that specify the following:</p> <ul>
+<li>The subject's distinguished name.</li>
+<li>The key usage and constraints indicators.</li>
+<li>The signature algorithm and hashing-method.</li>
+<li>The certificate extensions.</li>
+<li>The output format of the CSR.</li>
+</ul><note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001751?>

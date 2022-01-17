@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="oc_mig" xml:lang="en-us">
+<title>Migrating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> version
+2 tokens to version 3</title>
+<titlealts>
+<navtitle>Migrating to version 3</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Migrating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 2 tokens to version 3 on
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle><?Pub
+Caret -1?>
+</titlealts>
+<abstract><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> token objects are
+persistent in the token. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+stores token objects in the token directory,
+<filepath>/var/lib/opencryptoki/ccatok/TOK_OBJ</filepath>, for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.<shortdesc>Private <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> token objects that have been saved in
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 2 format must be
+migrated before they can be used with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.</shortdesc></abstract>
+<prolog><metadata>
+<keywords><indexterm>migration, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+<indexterm>migration, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/></indexterm></indexterm></keywords>
+</metadata></prolog>
+<taskbody>
+<prereq>Public <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> token objects
+are not encrypted and no migration is required.<note>Throughout this section, <term>token
+object</term> is used to mean a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/>
+object, like a key, and the term <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> is used to denote the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> plug-in for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>.</note></prereq>
+<context> <p>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 2, private
+token objects are encrypted and decrypted with a secure key in the cryptographic adapter. In version
+3, this encryption and decryption is done with a clear key using cryptographic software functions.
+Therefore, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3 cannot
+decrypt a version 2 private token object.</p> <p>Migration decrypts the private key objects by using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+verb and the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> key
+stored in MK_USER. The objects are then re-encrypted using the cryptographic software functions
+according to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3. The key bits
+that are stored in MK_USER are subsequently used as a clear key.</p> <p>You can find more detailed information about token migration in the documentation of the
+appropriate  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> RPM.</p> </context>
+<steps>
+<step>
+<cmd>Back up the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>
+directory.</cmd>
+<info> For most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions,
+this directory is <filepath>/var/lib/opencryptoki/ccatok</filepath>.</info>
+<info>The content of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>
+directory includes the following items:<dl>
+<dlentry>
+<dt>MK_USER</dt>
+<dd>The TDES key used for internal on-disk encryption, encrypted under the user's PIN by software
+routines.</dd>
+</dlentry>
+<dlentry>
+<dt>MK_SO</dt>
+<dd>The TDES key used for internal on-disk encryption, encrypted under the SO's PIN by software
+routines. This is the same key as in MK_USER, but with a different encrytion.</dd>
+</dlentry>
+<dlentry>
+<dt>NKTOK.DAT</dt>
+<dd>Token information.</dd>
+</dlentry>
+<dlentry>
+<dt>TOK_OBJ</dt>
+<dd>The directory in which token objects are stored.</dd>
+</dlentry>
+<dlentry>
+<dt>TOK_OBJ/OBJ.IDX</dt>
+<dd>A list of current token objects.</dd>
+</dlentry>
+</dl></info>
+</step>
+<step>
+<cmd>Upgrade to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+version 3 or install version 3.</cmd>
+<info>
+<ul>
+<li>Upgrade to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.<p>
+For most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions,
+upgrading from version 2 to version 3 preserves the contents of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token directory.</p></li>
+<li>Install <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.<p>For
+most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions, installing
+version 3 removes the contents of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token directory. Restore your backup of
+this directory to migrate the version 2 tokens.</p></li>
+</ul>
+</info>
+</step>
+<step>
+<cmd>Ensure that no <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> processes are
+running.</cmd>
+<substeps>
+<substep>
+<cmd>Stop all applications that use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/>.</cmd>
+</substep>
+<substep>
+<cmd>Find out whether the <codeph>pkcsslotd</codeph> daemon is running by issuing the following
+command:</cmd>
+<info><screen>$ ps awx |grep pkcsslotd</screen>If the daemon is running, the command output shows a
+process for <codeph>pkcsslotd</codeph>.</info>
+</substep>
+<substep>
+<cmd>If applicable, stop the daemon by issuing a command of this form:</cmd>
+<info>
+<screen>$ killall pkcsslotd</screen>
+</info>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd>Run <cmdname>pkcscca</cmdname>.</cmd>
+<stepxmp>
+<note othertype="Example" type="other">
+<screen>$ pkcscca -m v2objectsv3 -v</screen>
+</note>
+</stepxmp>
+<stepxmp>The <option>-v</option> option prints information about which objects did and did not get
+migrated.</stepxmp>
+<info>This command migrates <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token
+objects in the default <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token
+directory, <filepath>/var/lib/opencryptoki/ccatok</filepath>.<p>If your distribution uses a
+different token directory, use the <option>-d</option> option to specify this directory.</p></info>
+<stepxmp>
+<note othertype="Example" type="other">
+<screen>$ pkcscca -m v2objectsv3 -v -d /home/ccaadmin/ccatok</screen>
+</note>
+</stepxmp>
+</step>
+</steps>
+<result>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> private
+token objects are encrypted according to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> version
+3 and ready to be accessed.</result>
+<postreq>If <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> version
+3 cannot find the newly migrated <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> private
+token objects, reboot or remove the shared memory file, <?linebreak pdf?><filepath>/dev/shm/var.lib.opencryptoki.ccatok</filepath>. <note
+type="attention">Ensure that no <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> processes
+are running when removing the shared memory.</note></postreq>
+</taskbody>
+</task>
+<?Pub *0000007650?>

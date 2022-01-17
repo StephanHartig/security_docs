@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rsame2">
+<title>RSA private key token, 1024-bit Modulus-Exponent internal format
+for cryptographic coprocessor feature</title>
+ <titlealts>
+    <navtitle>RSA private key token, 1024-bit Modulus-Exponent internal format
+for cryptographic coprocessor feature</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key token, 1024-bit
+Modulus-Exponent internal format for cryptographic coprocessor feature</searchtitle>
+  </titlealts>
+<shortdesc>The format of the RSA private key token, 1024-bit Modulus-Exponent
+internal format for cryptographic coprocessor feature.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RSA private internal key token</indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>RSA
+1024-bit private internal</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA 1024-bit private internal</indexterm></indexterm></indexterm>
+<indexterm>RSA 1024-bit private internal key token</indexterm>
+<indexterm>private internal key token<indexterm>RSA</indexterm></indexterm>
+<indexterm>internal key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_rsame2/l0wskc02_rpkai1"/> shows the format of the RSA private key token,
+1024-bit Modulus-Exponent internal format for cryptographic coprocessor feature.</p>
+<table id="l0wskc02_rpkai1" pgwide="1" frame="all">
+<title>RSA private internal key token, 1024-bit Modulus-Exponent format for cryptographic
+coprocessor feature</title>
+<desc>
+<p outputclass="summary">RSA private internal key token, 1024-bit Modulus-Exponent format for
+cryptographic coprocessor feature</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="15*"/>
+<thead>
+<row>
+<entry><b>Offset (decimal)</b></entry>
+<entry><b>Length (bytes)</b></entry>
+<entry><b>Description</b></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry><ph>X'02'</ph>, section identifier, RSA private key.</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry><ph>X'00'</ph>, version.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the RSA private key section <ph>X'016C'</ph> (364 decimal).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the private key subsection cleartext, offset 28 to the section end. This
+hash value is checked after an enciphered private key is deciphered for use.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>004</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security: <dl compact="yes">
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>RSA private key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry>Format of external key from which this token was derived: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>External private key was specified in the clear.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>External private key was encrypted.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of the key token structure contents that follow the public key section. If no
+sections follow, this field is set to binary zeros.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key use flag bits. <dl compact="yes">
+<dlentry>
+<dt><ph>B'11xx xxxx'</ph></dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'10xx xxxx'</ph></dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'01xx xxxx'</ph></dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'00xx xxxx'</ph></dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry>
+</dl>
+<p>All other bits reserved, set to binary zero.</p></entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>009</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>048</entry>
+<entry>Object Protection Key (OPK) encrypted under a PKA master key—can be under the Signature
+Master Key (SMK) or Key Management Master Key (KMMK) depending on key use.</entry>
+</row>
+<row>
+<entry>108</entry>
+<entry>128</entry>
+<entry>Secret key exponent <synph><var>d</var></synph>, encrypted under the OPK.
+<synph><var>d</var></synph> = <synph><var>e</var></synph><sup>-1</sup>
+mod((<synph><var>p</var></synph>-1)(<synph><var>q</var></synph>-1)) </entry>
+</row>
+<row>
+<entry>236</entry>
+<entry>128</entry>
+<entry>Modulus, <synph><var>n</var></synph>. <synph><var>n</var></synph> =
+<synph><var>p</var></synph><synph><var>q</var></synph> where <synph><var>p</var></synph> and
+<synph><var>q</var></synph> are prime and 1 &lt; <synph><var>n</var></synph> &lt; 2 <sup>1024</sup>.
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

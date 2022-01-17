@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kimparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb</indexterm></indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>DECIPHER</indexterm>
+<indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>MACD</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>source_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb</indexterm></indexterm>
+<indexterm>importer_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb</indexterm></indexterm>
+<indexterm>NOCV</indexterm>
+<indexterm>target_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_type</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The type of key you want to re-encipher under the master key. Specify an 8-byte keyword or
+the keyword TOKEN. The keyword must be left-aligned and padded on the right with blanks.<p>If the
+key type is <synph><kwd>TOKEN</kwd></synph>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> determines the key type from the control
+vector (CV) field in the external key token provided in the
+<synph><var>source_key_identifier</var></synph> parameter.</p><p>The key type of
+<synph><kwd>TOKEN</kwd></synph> is not allowed when the
+<synph><var>importer_key_identifier</var></synph> parameter is NOCV.</p><p id="l0wskc02_keytk">Key
+type values for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb are:
+<codeblock>
+CIPHER       DATAC        EXPORTER     MACVER       PINVER
+CIPHERXL     DATAM        IMPORTER     MACD         TOKEN
+CIPHERXI     DATAMV       IKEYXLAT     OKEYXLAT
+CIPHERXO     DECIPHER     IPINENC      OPINENC
+DATA         ENCIPHER     MAC          PINGEN
+</codeblock>
+For information on the meaning of the key types, see <xref
+href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</p><p>We recommend using key type of
+<synph><kwd>TOKEN</kwd></synph> when importing double-length <synph><kwd>MAC</kwd></synph> and
+<synph><kwd>MACVER</kwd></synph> keys.</p></pd></plentry>
+<plentry><pt>source_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The key you want to re-encipher under the master key. The parameter is a 64-byte field for
+the enciphered key to be imported containing either an external key token or a null key token. If
+you specify a null token, the token is all binary zeros, except for a key in bytes 16-23 or 16-31,
+or in bytes 16-31 and 48-55 for triple-length <synph><kwd>DATA</kwd></synph> keys. Refer to <xref
+href="wskc_r_appbdesnulkeytok.dita#l0wskc02_appbdesnulkeytok/l0wskc02_nulky"/>.<p>If key type is
+<synph><kwd>TOKEN</kwd></synph>, this field might not specify a null token.</p><p>This verb supports
+the no-export function in the CV.</p></pd></plentry>
+<plentry><pt>importer_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The importer key-encrypting key that the key is currently encrypted under. The parameter is
+a 64-byte area containing either the key label of the key in the cryptographic key data set or the
+internal key token for the key. If you supply a key label that is less than 64-bytes, it must be
+left-aligned and padded with blanks.<note>If you specify a NOCV importer in the
+<synph><var>importer_key_identifier</var></synph> parameter, the key to be imported must be
+enciphered under the importer key itself.</note></pd></plentry>
+<plentry><pt>target_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is the generated re-enciphered key. The parameter is a 64-byte area that
+receives the internal key token for the imported key.<p>If the imported key type is
+<synph><kwd>IMPORTER</kwd></synph> or <synph><kwd>EXPORTER</kwd></synph> and the token key type is
+the same, the <synph><var>target_key_identifier</var></synph> parameter changes direction to both
+input and output. If the application passes a valid internal key token for an
+<synph><kwd>IMPORTER</kwd></synph> or <synph><kwd>EXPORTER</kwd></synph> key in this parameter, the
+NOCV bit is propagated to the imported key token.</p><p rev="sh20i1">To import a key token as a compliant-tagged key token, a compliant-tagged skeleton token must be
+supplied.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

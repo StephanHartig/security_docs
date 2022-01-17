@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8genpin">
+<title>Generating a PIN</title>
+  <titlealts>
+    <navtitle>Generating a PIN</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating a PIN</searchtitle>
+  </titlealts><shortdesc>To generate personal identification numbers, call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> <ph>verb</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm id="l0wskc02_pgen">generating</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Using a PIN generation algorithm, data used in the algorithm, and
+the PIN generation key, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> <ph>verb</ph> generates a clear
+PIN and a PIN verification value, or offset. Using a PIN generation
+algorithm, data used in the algorithm, the PIN generation key, and
+an outbound PIN encrypting key, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> <ph>verb</ph> generates
+and formats a PIN and encrypts the PIN block. </p>
+</conbody></concept>

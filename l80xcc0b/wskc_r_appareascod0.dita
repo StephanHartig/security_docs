@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appareascod0">
+<title>Reason codes that accompany return code 0</title>
+<titlealts>
+<navtitle>Reason codes that accompany return code 0</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes that accompany return code
+0</searchtitle>
+</titlealts><shortdesc>Reason codes that accompany return code 0.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>reason codes<indexterm>with return code 0</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These codes are listed in <xref href="#l0wskc02_appareascod0/l0wskc02_rcbyrc"/>.
+<table id="l0wskc02_rcbyrc" pgwide="1">
+<title>Reason codes for return code
+0</title><desc><p outputclass="summary">Reason codes for return code 0</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="33*"/>
+<thead>
+<row>
+<entry>Return code, decimal</entry>
+<entry>
+Reason code, decimal (hex)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>000 (000)</entry>
+<entry>The verb completed processing successfully. </entry></row>
+<row>
+<entry>0</entry>
+<entry>002 (002)</entry>
+<entry>One or more bytes of a key do not have odd parity.</entry></row>
+<row>
+<entry>0</entry>
+<entry>008 (008)</entry>
+<entry>No value is present to be processed. </entry></row>
+<row>
+<entry>0</entry>
+<entry>151 (097)</entry>
+<entry>The key token supplies the MAC length or MACLEN4 	is the default
+for key tokens that contain MAC or MACVER keys. </entry></row>
+<row>
+<entry>0</entry>
+<entry>701 (2BD)</entry>
+<entry>A new master-key value has duplicate thirds. </entry></row>
+<row>
+<entry>0</entry>
+<entry>702 (2BE)</entry>
+<entry>A provided master-key part does not have odd parity.<ph> See <xref href="wskc_r_mkp.dita#l0wskc02_mkp"/> about parity requirements for master key parts.</ph></entry></row>
+<row>
+<entry>0</entry>
+<entry>2013 (7DD)</entry>
+<entry>The Pending Change Buffer (PCB) is empty. This return code and reason code pair applies only
+to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>. </entry></row>
+<row>
+<entry>0</entry>
+<entry>2146 (862)</entry>
+<entry>A weaker key was used to wrap a stronger key and the <cmdname>Warn when weak wrap - Transport
+keys</cmdname> command (offset <ph>X'032C'</ph>) was enabled in the active role.</entry></row>
+<row rev="shd3">
+<entry>0</entry>
+<entry>2173 (87D)</entry>
+<entry>The specified payload format version for the output key token matches
+the payload format version of the input key token.</entry>
+</row>
+<row>
+<entry>0</entry>
+<entry>3010 (BC2)</entry>
+<entry>This card is currently disabled. A card is placed in this state so that it can be moved from
+one piece of hardware to another, while keeping its secret keys and master keys intact. Normally,
+when a card has been moved a 'tamper' event is recorded and all secrets are erased. A TKE
+workstation is typically required to put a card in this state and to remove it from this state after
+the card is installed on the new hardware. This return code and reason code pair applies only to
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>.</entry></row>
+<row>
+<entry>0</entry>
+<entry>10001 (2711)</entry>
+<entry>A key encrypted under the old master key was used. </entry></row>
+<row>
+<entry>0</entry>
+<entry>10002 (2712)</entry>
+<entry>A fully qualified dataset name is longer than 64 bytes and
+the environment variable CSU<synph><var>xxx</var></synph>LD is not defined (where <synph><var>xxx</var></synph> is
+either AES, DES, or PKA). The current directory has been abbreviated
+as a single dot (period).</entry></row>
+<row>
+<entry>0</entry>
+<entry>10003 (2713)</entry>
+<entry>A fully qualified dataset name is longer than 64 bytes and
+the environment variable CSU<synph><var>xxx</var></synph>LD is defined (where <synph><var>xxx</var></synph> is
+either AES, DES, or PKA). Only the dataset name is returned. Use the
+CSU<synph><var>xxx</var></synph>LD environment variable to determine the fully qualified
+dataset name.</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syma_dec">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb to
+decipher data with an Advanced Encryption Standard (AES) algorithm. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> processing
+rule</indexterm>
+<indexterm>processing rule<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></indexterm></indexterm>
+<indexterm>CBC processing rule<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></indexterm></indexterm>
+<indexterm>Electronic Code Book (ECB)<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></indexterm></indexterm>
+<indexterm>PKCS-PAD<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"
+/></indexterm></indexterm>
+<indexterm>Galois/Counter Mode<indexterm>GCM</indexterm></indexterm>
+<indexterm>GCM<indexterm>Galois/Counter Mode</indexterm></indexterm>
+<indexterm>initial chaining value<indexterm>ICV</indexterm></indexterm>
+<indexterm>ICV<indexterm>initial chaining value</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p rev="sh16">Data can be deciphered in either Cipher Block Chaining (CBC) mode with or without
+padding, or in Electronic Code Book (ECB) mode. Beginning with Release 5.2, data can be deciphered
+in Galois/Counter Mode (GCM). Also see <xref href="wskc_r_syma_enc.dita#l0wskc02_syma_enc"/>.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports the following
+processing rules to decipher data. You choose the type of processing rule that the verb should use
+for block chaining. </p>
+<dl>
+<dlentry>
+<dt>Cipher Block Chaining (CBC)</dt>
+<dd>The plaintext must be an exact multiple of eight bytes, and the ciphertext will have the same
+length.</dd>
+</dlentry>
+<dlentry>
+<dt>Electronic Code Book (ECB)</dt>
+<dd>The plaintext length must be a multiple of the block size.</dd>
+</dlentry>
+<dlentry rev="sh16i1">
+<dt>Galois/Counter Mode (GCM)</dt>
+<dd>The plaintext can be deciphered in Galois/Counter Mode (GCM). For more information on GCM, read
+NIST SP 800-38D <cite>Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM)
+and GMAC</cite>, November 2007. Available at <xref
+href="http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf" format="pdf"
+scope="external"/>.</dd>
+</dlentry>
+<dlentry>
+<dt rev="sh16i1">Public Key Cryptography Standards Pad (PKCS-PAD)</dt>
+<dd>The plaintext was padded on the right with 1 - 16 bytes of pad characters, making the padded
+text a multiple of the block size.</dd>
+</dlentry>
+</dl>
+</section>
+<section>
+<p>The AES key used to decipher the data can either be 16, 24, or 32 bytes (128, 192, or 256 bits)
+in length. The key can be supplied to the verb in any of three forms: <ol>
+<li>A cleartext key consisting of only the key bytes, not contained in a key token.</li>
+<li>A cleartext key contained in an internal fixed or variable length AES key-token.</li>
+<li>An encrypted key contained in an internal fixed or variable length AES key-token, where the key
+is wrapped (encrypted) with the AES master key.</li>
+</ol></p>
+</section>
+<section>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+</section>
+<section>
+<p>To use this verb, specify: </p>
+<ul>
+<li>The <parmname>rule_array</parmname> parameter: <ol>
+<li>The algorithm identifier keyword <synph><kwd>AES</kwd></synph>, which is the only symmetric
+algorithm currently supported.</li>
+<li>An optional processing rule using keyword <synph><kwd>CBC</kwd></synph> (the default),
+<synph><kwd>ECB</kwd></synph>, <synph rev="sh16"><kwd>GCM</kwd></synph>, or
+<synph><kwd>PKCS-PAD</kwd></synph>, which selects the decryption mode.</li>
+<li>An optional key rule using the keyword <synph><kwd>KEY-CLR</kwd></synph> (the default) or
+<synph><kwd>KEYIDENT</kwd></synph>, which selects whether the <parmname>key_identifier</parmname>
+parameter points to a 16-byte, 24-byte, or 32-byte clear key, or a key contained in a 64-byte AES
+key-token, either in application storage or a key label of such a key in key storage.</li>
+<li rev="sh16">For processing rule CBC or ECB, specify an optional ICV (initial chaining value)
+selection using the keyword <synph><kwd>INITIAL</kwd></synph> (the default). Or use keyword
+<synph><kwd>CONTINUE</kwd></synph>, which indicates whether it is the first or a subsequent request,
+and which parameter points to the initialization vector. <p>For processing rule GCM, specify an
+optional ICV keyword <synph><kwd>ONLY</kwd></synph> (default).</p></li>
+</ol></li>
+<li>For a key rule of <synph><kwd>KEY-CLR</kwd></synph>, a key identifier containing a 16-byte,
+24-byte, or 32-byte clear key. For a key rule of <synph><kwd>KEYIDENT</kwd></synph>, a fixed-length
+or variable-length internal AES key-token or the key label of such a key in AES key-storage. The key
+token can contain either a clear or enciphered key. <p>A variable-length AES key-token must have a
+key type of CIPHER that can be used for decryption (key-usage field 1 high-order byte = B'x1xx
+xxxx') and cannot be used for data translation (KUF1 high-order byte = B'xx0x xxxx'). Also, for
+processing rule <synph><kwd>CBC</kwd></synph> or <synph><kwd>PKCS-PAD</kwd></synph>, key usage must
+allow the key to be used for Cipher Block Chaining (KUF2 high-order byte = X'00' or X'FF'). </p><p
+rev="sh16">For processing rule <synph><kwd>ECB</kwd></synph>, key usage must allow the key to be
+used for Electronic Code Book (KUF2 high-order byte = X'01' or X'FF'). </p><p rev="sh16">For
+processing rule GCM, the key usage must allow the key to be used for Galois/Counter mode (KUF2
+high-order byte = X'04' or X'FF').</p></li>
+<li>A block size of 16 for the cryptographic algorithm.</li>
+<li>For cipher block chaining, specify either one of these: <ol>
+<li>For an ICV selection of <synph><kwd>INITIAL</kwd></synph>, a 16-byte initialization vector of
+your choosing and a 32-byte chain data buffer.</li>
+<li>For an ICV selection of <synph><kwd>CONTINUE</kwd></synph>, no initialization vector and the
+32-byte chain data buffer from the output of the previous chained call. The electronic code book
+algorithm does not use an initialization vector or a chain data buffer.</li>
+<li rev="sh16">For an ICV selection of <synph><kwd>ONLY</kwd></synph>, an initialization vector
+greater than 0 and a maximum of 2<sup>32</sup> - 1, and a 104-byte chain data buffer.</li>
+</ol></li>
+<li>The ciphertext to be deciphered.</li>
+<li>A cleartext buffer large enough to receive the deciphered output.</li>
+</ul>
+</section>
+<section>
+<p>This verb does the following when it deciphers the data: <ol>
+<li>Verifies the AES key-token for keyword <synph><kwd>KEYIDENT</kwd></synph>.</li>
+<li>Verifies that the ciphertext length is a multiple of the block size.</li>
+<li>Deciphers the input AES key if the key is encrypted (MKVP was present in token).</li>
+<li rev="sh16">Deciphers the ciphertext with the AES clear key according to the encryption mode
+specified.</li>
+<li>Removes from 1 - 16 pad characters from the right of the clear data for keyword
+<synph><kwd>PKCS-PAD</kwd></synph>.</li>
+<li>Returns the cleartext data and its length.</li>
+<li>Returns the chain data and its length if keyword <synph><kwd>ECB</kwd></synph> is not
+specified.</li>
+</ol></p>
+<p>CPACF exploitation for CSNBSAD requires fixed-length AES key-tokens with a key type of
+<synph><kwd>DATA</kwd></synph> or variable-length AES key-tokens of type
+<synph><kwd>CIPHER</kwd></synph> with DECRYPT key-usage enabled. A fixed-length <synph><kwd>AES
+DATA</kwd></synph> key has a control vector (CV) of all X'00' bytes for all active bytes of the CV.
+For details about CPACF, see <xref href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"/>.</p>
+</section>
+</refbody></reference>

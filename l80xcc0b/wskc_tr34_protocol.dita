@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept rev="hw20i1" id="tr34_protocol" xml:lang="en-us">
+<title>TR-34 protocol</title>
+<titlealts>
+<navtitle>Protocol</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 protocol</searchtitle>
+</titlealts>
+<abstract><shortdesc>The TR-34 protocol provides a method of securely distributing symmetric keys
+using asymmetric techniques. </shortdesc>It is an implementation of the Unilateral Key Transport
+Method defined in ANSI X9.24-2.</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34<indexterm>protocol</indexterm></indexterm>
+<indexterm>ANSI X9.24-2</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<p>TR-34 specifies an interoperable method for one situation – the Distribution of Symmetric Keys
+using Asymmetric Techniques from a Single Key Distribution Host (KDH) to many Key Receiving Devices
+(KRDs). The KDH is assumed to be operated in a controlled environment. The KRDs may operate in
+uncontrolled environments.</p>
+<p> TR-34 is a Technical Report. This is different from a standard, which is a mandatory set of
+rules that must be followed. A Technical Report is not mandatory, but provides guidance to those who
+are using the standards. In this case, TR-34 is a companion to the ANSI X9.24-2 standard, which
+defines requirements for key management performed using asymmetric key techniques.</p>
+</section>
+</conbody>
+</concept>
+<?Pub *0000003278?>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_fhk">
+<title>Formatting hashes and keys in public-key cryptography</title>
+  <titlealts>
+    <navtitle>Formatting hashes and keys in public-key cryptography</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Formatting hashes and keys in public-key
+cryptography</searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> <ph>verbs</ph> support several methods
+for formatting a hash and, in some cases, a descriptor for the hashing
+method, into a bit-string to be processed by the cryptographic algorithm.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>hash formatting</indexterm>
+<indexterm>key formatting</indexterm>
+<indexterm>formatting hashes and keys</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p> This section provides information about the ANSI X9.31 and PKCS
+#1 methods. The ISO 9796-1 method can be found in the ISO standard.</p>
+<p> This section also describes the PKCS #1, version 1, 1.5, and 2.0,
+methods for placing a key in a bit string for RSA ciphering as part
+of a key exchange.</p>
+</conbody></concept>

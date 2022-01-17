@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mkprequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the
+master-key class and master-key operation: </p>
+<table pgwide="1">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verbs</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="2*"/>
+<colspec colname="col4" colwidth="11*"/>
+<thead>
+<row>
+<entry>Master-key operation</entry>
+<entry>Master-key class</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CLEAR</entry>
+<entry>
+<lines>AES-MK
+SYM-MK
+ASYM-MK
+APKA-MK</lines>
+</entry>
+<entry>
+<lines><ph>X'0124'</ph>
+<ph>X'0032'</ph>
+<ph>X'0060'</ph>
+<ph>X'031F'</ph></lines>
+</entry>
+<entry rev="shr2">
+<lines><cmdname>AES Master Key - Clear new master key register
+DES Master Key - Clear new master key register
+RSA Master Key - Clear new master key register
+ECC Master Key - Clear new master key register</cmdname></lines>
+</entry>
+</row>
+<row>
+<entry>FIRST</entry>
+<entry>
+<lines>AES-MK
+SYM-MK
+ASYM-MK
+APKA-MK</lines>
+</entry>
+<entry>
+<lines><ph>X'0125'</ph>
+<ph>X'0018'</ph>
+<ph>X'0053'</ph>
+<ph>X'0320'</ph></lines>
+</entry>
+<entry rev="shr2">
+<lines><cmdname>AES Master Key - Load first key part
+DES Master Key - Load first key part
+RSA Master Key - Load first key part
+ECC Master Key - Load first key part</cmdname></lines>
+</entry>
+</row>
+<row>
+<entry>MIDDLE or LAST</entry>
+<entry>
+<lines>AES-MK
+SYM-MK
+ASYM-MK
+APKA-MK</lines>
+</entry>
+<entry>
+<lines><ph>X'0126'</ph>
+<ph>X'0019'</ph>
+<ph>X'0054'</ph>
+<ph>X'0321'</ph></lines>
+</entry>
+<entry rev="shr2">
+<lines><cmdname>AES Master Key - Combine key parts
+DES Master Key - Combine key parts
+RSA Master Key - Combine key parts
+ECC Master Key - Combine key parts</cmdname></lines>
+</entry>
+</row>
+<row>
+<entry>SET</entry>
+<entry>
+<lines>AES-MK
+SYM-MK
+ASYM-MK
+APKA-MK</lines>
+</entry>
+<entry>
+<lines><ph>X'0128'</ph>
+<ph>X'001A'</ph>
+<ph>X'0057'</ph>
+<ph>X'0322'</ph></lines>
+</entry>
+<entry rev="shr2">
+<lines><cmdname>AES Master Key - Set master key
+DES Master Key - Set master key
+RSA Master Key - Set master key
+ECC Master Key - Set master key</cmdname></lines>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

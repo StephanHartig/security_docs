@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="acttracking" rev="sh20i1">
+<title>Interval tracking data structure</title>
+<titlealts>
+<navtitle>Interval tracking data structure</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Interval tracking data
+structure</searchtitle>
+</titlealts>
+<shortdesc>Learn about the interval tracking data structure as it is returned by the <b>GETINTVL</b>
+rule array keyword.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>interval tracking (<indexterm>data structure</indexterm></indexterm>
+<indexterm>data structure (<indexterm>interval tracking</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<table id="interval_tracking_data_structure"><desc><p outputclass="summary">Table with three columns: Offset, length and description</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="7*"/><thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>14</entry>
+<entry>Timestamp for the start of the interval. This is the time according to the adapter internal
+clock when a START request was received for the <parmname>role_ID</parmname>. This time value is set
+when the first START is received for the <parmname>role_ID</parmname> when the value of the start of
+the interval is currently zero. The value of the start of the interval is set to zero at system
+initialization, when a CLRDATA request is processed and tracking is stopped for the
+<parmname>role_ID</parmname>, or when a higher level zeroize request is processed that also clears
+the ACP tracking data. If a CLRDATA request is processed while tracking is enabled for the
+<parmname>role_ID</parmname>, then a new timestamp is written for the start of the interval.<p>If
+the value for the start of the interval is currently zero in the adapter, then this field is set to
+0x00 bytes. If the value for the start of the interval is non-zero, the according timestamp is
+returned in this field in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+generalized time format: "YYYYMMDDHHMMSS".</p>
+</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>14</entry>
+<entry>Timestamp for the end of the interval. This is the time according to the adapter internal
+clock when a STOP request was received for the <parmname>role_ID</parmname> (after a previous
+START). This time value is set to zero when a new START request is received for the
+<parmname>role_ID</parmname>, at system initialization, when a CLRDATA request is processed, or when
+a higher level zeroize request is processed that also clears the ACP tracking data. <p>If the value
+for the end of the interval is currently zero in the adapter, then this field is set to 0x00 bytes.
+If the value for the end of the interval is non-zero, the according timestamp is returned in this
+field in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> generalized time
+format: "YYYYMMDDHHMMSS".</p>
+</entry>
+</row>
+<row>
+<entry>28</entry>
+<entry>4</entry>
+<entry>Counter (Big-Endian) of STOPPED intervals since the first START was issued for the
+<parmname>role_ID</parmname>. This counter is incremented when a START has been issued after a
+previous STOP that was issued during collection of ACP tracking data. At a high level, this counter
+indicates the number of times that tracking for the <parmname>role_ID</parmname> was stopped and
+then re-started. This count can be helpful when looking at audit logs to determine how many gaps
+need to be accounted for. <p> This counter is not allowed to roll over. A value of 0xFFFFFFFF
+indicates that this many or more gaps occurred. This counter is set to zero at system
+initialization, when a CLRDATA request is processed, or when a higher level zeroize request is
+processed that also clears the ACP tracking data.</p>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

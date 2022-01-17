@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc200" xml:lang="en-us">
+<title>CSU_HCPUACLR</title>
+<titlealts>
+<navtitle>CSU_HCPUACLR</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): CSU_HCPUACLR for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Use the CSU_HCPUACLR variable to allow CPACF for clear
+key operations and hashing algorithms.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CSU_HCPUACLR</indexterm><indexterm>CPACF<indexterm>disabling
+for clear key</indexterm></indexterm><indexterm>CSU_HCPUACLR<indexterm>affected
+verbs</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Set CSU_HCPUACLR to 1 in a profile setup file or with this command:
+<codeblock>export CSU_HCPUACLR=1</codeblock></p>
+<p>Setting this variable to any other value (except for the case where the variable has not been
+set, as noted above) results in disabling the use of the CPACF for clear key operations and hashing
+algorithms. The default is 1, meaning that the function is enabled.</p>
+<section id="l0wskc201"><title>Affected verbs</title><ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>, clear key AES)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/>, clear key AES)</li>
+<!--<li rev="sh20i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>, Clear ECC/Edwards private keys)</li><li rev="sh20i1"> <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>, ECC/Edwards public keys)</li>-->
+</ul><?Pub Caret -2?></section>
+</conbody>
+</concept>
+<?Pub *0000001872?>

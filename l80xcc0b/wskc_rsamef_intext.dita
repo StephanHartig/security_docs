@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<topic id="rsamef_intext" xml:lang="en-us" rev="sh16i1">
+<title>RSA private key token, 4096-bit Modulus-Exponent</title>
+<titlealts>
+<navtitle>RSA private key token, 4096-bit Modulus-Exponent</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key token, 4096-bit
+Modulus-Exponent</searchtitle>
+</titlealts>
+<shortdesc>This RSA private key token is supported on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Crypto Express coprocessor (external and
+internal <ph>X'09'</ph> token).</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>PKA<indexterm>RSA 4096-bit modulus-exponent
+private</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA 4096-bit modulus-exponent
+private</indexterm></indexterm></indexterm>
+<indexterm>RSA private modulus-exponent key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<table frame="all" id="RSAPrivateKeyToken4096-bitModulus-E-112A05A8" pgwide="1">
+<title>RSA Private Key Token, 4096-bit Modulus-Exponent</title><desc><p outputclass="summary">Table with three columns 
+describing the RSA Private Key Token, 4096-bit Modulus-Exponent</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="70*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Number of bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry><ph>X'09'</ph>, section identifier, RSA private key, modulus-exponent format
+(RSAMEVAR).<p>This format is used for a clear or an encrypted RSA private-key in an external
+key-token up to a modulus size of 4096 bits.</p></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the RSA private key section: 132+ddd+nnn+xxx.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the private key subsection cleartext, offset 28 to the section end. This
+hash value is checked after an enciphered private key is deciphered for use.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>002</entry>
+<entry>
+<p>External fomat:</p>
+<p>Length of the encrypted private key section 8+ddd+xxx.</p>
+<p>Internal fomat:</p>
+<p>Length in bytes of the optionally encrypted secure subsection, or X'0000' if the subsection is
+not encrypted.</p>
+</entry>
+</row>
+<row>
+<entry>026</entry>
+<entry>002</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security flags: <p>External token: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Unencrypted RSA private-key subsection identifier</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'82'</ph></dt>
+<dd>Encrypted RSA private-key subsection identifier</dd>
+</dlentry>
+</dl></p><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry>
+<p>External format:</p>
+<p>Reserved, set to binary zero.</p>
+<p>Internal format:</p>
+<p>Private key source flag:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Generation method unknown</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of the optional key-name section. If there is no key-name section, then 20 bytes
+of <ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<!-- taken from BSM Table 136--><entry>Key-usage and translation control flag byte.
+<p>Key usage:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>B'11xx xxxx'</ph></dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'10xx xxxx'</ph></dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'01xx xxxx'</ph></dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'00xx xxxx'</ph></dt>
+<dd>Undefined</dd>
+</dlentry>
+</dl>
+<p>Translation control:</p>
+<dl><dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry>
+</dl>
+<p>All other bits are reserved and must be zero.</p></entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>065</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>116</entry>
+<entry>002</entry>
+<entry>Private-key exponent field length, in bytes: <i>ddd</i>.</entry>
+</row>
+<row>
+<entry>118</entry>
+<entry>002</entry>
+<entry>Private-key modulus field length, in bytes: <i>nnn</i>.</entry>
+</row>
+<row>
+<entry>120</entry>
+<entry>002</entry>
+<entry>Length of padding field, in bytes: <i>xxx</i>. <p>Padding of <ph>X'00'</ph>
+bytes for a length of <i>xxx</i> bytes such that the length from the start of the confounder at
+offset 124 to the end of the padding field is a multiple of 8 bytes.</p></entry>
+</row>
+<row>
+<entry>122</entry>
+<entry>002</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Start of the (optionally) encrypted subsection; all
+of the fields starting with the confounder field and ending with the variable-length pad field are
+enciphered for key confidentiality when the key format and security flags (offset 28) indicate that
+the private key is enciphered.</entry>
+</row>
+<row>
+<entry>124</entry>
+<entry>008</entry>
+<entry>Confounder. <p>This is an eight-byte random number.</p>
+<p>Data encrypted with two-part key-encrypting key.</p></entry>
+</row>
+<row>
+<entry>132</entry>
+<entry><i>ddd</i></entry>
+<entry>Private-key exponent, <synph><var>d</var></synph>:
+<codeblock><synph><var>d</var></synph> = <synph><var>e</var></synph><sup>-1</sup> mod((<synph><var>p</var></synph> - 1)(<synph><var>q</var></synph> - 1))</codeblock>where
+1 &lt; <synph><var>d</var></synph> &lt; <synph><var>n</var></synph>, and <synph><var>e</var></synph>
+is the public exponent. <p>The transport key encrypts the private key exponent using the EDE2
+algorithm.</p></entry>
+</row>
+<row>
+<entry>132 + <i>ddd</i></entry>
+<entry><i>xxx</i></entry>
+<entry>Pad of <ph>X'00'</ph> bytes.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">End of the optionally encrypted subsection.</entry>
+</row>
+<row>
+<entry>132 + <i>ddd</i> + <i>xxx</i></entry>
+<entry><i>nnn</i></entry>
+<entry>Private-key modulus.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>
+<?Pub *0000006937?>

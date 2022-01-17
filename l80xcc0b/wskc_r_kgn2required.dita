@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn2required">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Depending on your specification of key form and key type, different commands are required to
+enable the processing of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>
+verb.</p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row rev="sh21i1">
+<entry><ph>X'039D'</ph></entry>
+<entry><cmdname>Key Generate2 - Allow GEN of OPOP EPVR/OPIN Key Pair</cmdname><p>This command is
+required, if key form and key type combinations are specified that are shown with an
+<codeph>F</codeph> in <xref href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab2"
+/>.</p></entry>
+</row>
+<row>
+<entry><ph>X'00EA'</ph></entry>
+<entry><cmdname>Key Generate2 - OP</cmdname><p>This command is required, if key form and
+key type combinations are specified that are shown with an <codeph>X</codeph> in <xref
+href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab1"/>.</p></entry>
+</row>
+<row>
+<entry><ph>X'00EB'</ph></entry>
+<entry><cmdname>Key Generate2 - Key set</cmdname><p>This command is required,
+if key form and key type combinations are specified that are shown with an <codeph>X</codeph> in
+<xref href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab2"/>.</p></entry>
+</row>
+<row>
+<entry><ph>X'00EC'</ph></entry>
+<entry><cmdname>Key Generate2 - Key set extended</cmdname><p>This command is
+required, if key form and key type combinations are specified that are shown with an
+<codeph>E</codeph> in <xref href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab2"
+/>.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>To disallow the wrapping of a key with a weaker key-encrypting key, enable the 
+<cmdname>Prohibit weak wrapping - Transport keys</cmdname> command (offset <ph>X'0328'</ph>) in
+the active role. This command affects multiple verbs. See <xref href="wskc_r_apn.dita#l0wskc02_apn"/>.</p>
+</section>
+<section><p>To receive a warning when wrapping a key with a weaker key-encrypting key, enable the
+<cmdname>Warn when weak wrap - Transport keys</cmdname> command (offset <ph>X'032C'</ph>) in the
+active role. The <cmdname>Prohibit weak wrapping - Transport keys</cmdname> command
+(offset <ph>X'0328'</ph>) overrides this command.</p>
+<p>To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak wrapping -
+Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</p>
+<p>The following access-control points support DK keys (DK enabled AES key types MAC, PINCALC,
+PINPROT, and PINPRW):</p>
+<table>
+<title>ACPs supporting DK keys for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</title>
+<desc>
+<p outputclass="summary">ACPs supporting DK keys for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><ph>X'02BB'</ph></entry>
+<entry><cmdname>Key Generate2 - DK PIN key set</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'02BC'</ph></entry>
+<entry><cmdname>Key Generate2 - DK PIN print key</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'02BD'</ph></entry>
+<entry><cmdname>Key Generate2 - DK PIN admin1 key set PINPROT</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'02BE'</ph></entry>
+<entry><cmdname>Key Generate2 - DK PIN admin1 key set MAC</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'02BF'</ph></entry>
+<entry><cmdname>Key Generate2 - DK PIN admin2 key set MAC</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

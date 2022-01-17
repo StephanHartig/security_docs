@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="wskc_c_pkatok_secs">
+<title>PKA key token sections</title>
+<titlealts>
+<navtitle>PKA key token sections</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA key token sections</searchtitle>
+</titlealts>
+<shortdesc>A PKA key token is either for an ECC key or an RSA key. In either case, it is the
+concatenation of an ordered set of sections.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PKA key token sections</indexterm>
+<indexterm>PKA key token<indexterm>RSA</indexterm><indexterm>ECC</indexterm></indexterm>
+<indexterm>RSA key token</indexterm>
+<indexterm>ECC key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section id="pka_keytok_sections">
+<p>PKA key tokens can be built with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb. Either RSA or ECC key tokens can
+be built.</p>
+<p>An RSA key-token is a concatenation of these ordered sections: </p>
+<ul>
+<li>A token header: <ul>
+<li>An external header (first byte X'1E')</li>
+<li>An internal header (first byte X'1F')</li>
+</ul>
+</li>
+<li>An optional RSA private-key section in one of the token types shown in <xref
+href="#wskc_c_pkatok_secs/opt_rsa_pksections" format="dita"/>: <table id="opt_rsa_pksections">
+<title>Optional RSA private key sections</title>
+<desc>
+<p outputclass="summary">Optional RSA private key sections. A table with five columns.</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="1*"/>
+<colspec colname="col4" colwidth="1*"/>
+<colspec colname="col5" colwidth="1*"/>
+<thead>
+<row>
+<entry>Private key section identifier (token type)</entry>
+<entry>Modulus bit length and key format</entry>
+<entry>RSA key not protected by an object protection key (OPK)</entry>
+<entry>RSA key protected by OPK that is wrapped by DES KEK or PKA MK</entry>
+<entry>RSA key protected by OPK that is wrapped by an AES key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col5">External RSA key tokens (first byte of PKA key-token header
+X'1E')</entry>
+</row>
+<row>
+<entry>X'02' (RSA-PRIV)</entry>
+<entry>512 - 1024 M-E (Modulus-Exponent)</entry>
+<entry>Private key in the clear or wrapped by DES KEK</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'05' (input only, replaced by X'08')</entry>
+<entry>512 - 2048 CRT (Chinese-Remainder Theorem)</entry>
+<entry>Private key in the clear</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'08' (RSA-CRT)</entry>
+<entry>512 - 4096 CRT</entry>
+<entry>N/A</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK data wrapped by DES KEK</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'09' (RSAMEVAR)</entry>
+<entry>512 - 4096 M-E</entry>
+<entry>Private key in the clear or wrapped by DES KEK</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'30' (RSA-AESM)</entry>
+<entry>512 - 4096 M-E</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK data wrapped by AES KEK</entry>
+</row>
+<row>
+<entry>X'31' (RSA-AESC)</entry>
+<entry>512 - 4096 CRT</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK data wrapped by AES KEK</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5">Internal RSA key tokens (first byte of PKA key-token header
+X'1F')</entry>
+</row>
+<row>
+<entry>X'05' (input only, replaced by X'08')</entry>
+<entry>512 - 2048 CRT</entry>
+<entry>Private key wrapped by PKA MK</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'06' (old RSA-PRIV)</entry>
+<entry>512 - 1024 M-E</entry>
+<entry>N/A</entry>
+<entry>Private key wrapped by OPK, with OPK data wrapped by PKA MK</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'08' (RSA-CRT)</entry>
+<entry>512 - 4096 CRT</entry>
+<entry>N/A</entry>
+<entry>Private key wrapped by OPK, with OPK data wrapped by PKA MK</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>X'30' (RSA-AESM)</entry>
+<entry>512 - 4096 M-E</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK data wrapped by APKA MK</entry>
+</row>
+<row>
+<entry>X'31' (RSA-AESC)</entry>
+<entry>512 - 4096 CRT</entry>
+<entry>N/A</entry>
+<entry>N/A</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK data wrapped by APKA MK</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</li>
+<li>a required RSA public-key section (section identifier X'04')</li>
+<li>an optional PKA private-key name section (section identifier X'10')</li>
+<li>for internal key-tokens with private keys in X'02' or X'05' sections, a required RSA private-key
+blinding section (section identifier X'FF'), otherwise not allowed <table id="rsa_pk_blinding">
+<title>RSA private-key blinding information</title>
+<desc>
+<p outputclass="summary">RSA private-key blinding information. A table with three columns.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl>
+<dlentry>
+<dt>X'FF'</dt>
+<dd>RSA private-key blinding information</dd>
+</dlentry>
+</dl>
+<p>Used with internal key tokens created by the CCA Support Program, Version 1 (having section
+identifiers X'02' or X'05').</p>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (X'00').</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes (34+<i>rrr</i>+<i>iii</i>+<i>xxx</i>).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the internal information subsection cleartext, offset 28 to the section
+end. This hash value is checked after an enciphered private key is deciphered for use.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>002</entry>
+<entry>Length in bytes of the encrypted secure subsection.</entry>
+</row>
+<row>
+<entry>026</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Start of the encrypted secure information subsection. An
+internal token with section identifiers X'02' or X'05' uses the asymmetric master key and the EDE3
+algorithm. See <xref href="wskc_c_algtdes.dita#l0wskc02_algtdes"/>.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>002</entry>
+<entry>Length of the random number <varname>r</varname>, in bytes: <i>rrr</i>.</entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>002</entry>
+<entry>Length of the random number multiplicative inverse <varname>r</varname><sup>-1</sup>, in
+bytes: <i>iii</i>.</entry>
+</row>
+<row>
+<entry>032</entry>
+<entry>002</entry>
+<entry>Length of the padding field, in bytes <i>xxx</i>.</entry>
+</row>
+<row>
+<entry>034</entry>
+<entry><i>rrr</i></entry>
+<entry>Random number <varname>r</varname> (used in blinding).</entry>
+</row>
+<row>
+<entry>034 + <i>rrr</i></entry>
+<entry><i>iii</i></entry>
+<entry>Random number <varname>r</varname><sup>-1</sup> (used in blinding).</entry>
+</row>
+<row>
+<entry>034 + <i>rrr</i> + <i>iii</i></entry>
+<entry><i>xxx</i></entry>
+<entry>X'00' padding of length <i>xxx</i> bytes such that the length from the start of the encrypted
+subsection to the end of the padding field is a multiple of 8 bytes.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"> End of the encrypted secure information subsection.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</li>
+<li>an optional PKA public-key certificate section (section identifier X'40' with subsidiary
+sections).</li>
+</ul>
+<p>An ECC key-token is a concatenation of these ordered sections:</p>
+<ul>
+<li>a required PKA key-token header: <ul>
+<li>an external header (first byte X'1E')</li>
+<li>an internal header (first byte X'1F')</li>
+<li rev="sh18i1">an optional ECC private-key section in the token type shown in <xref
+href="#wskc_c_pkatok_secs/opt_ecc_pksections" format="dita"/>.</li>
+</ul><table id="opt_ecc_pksections">
+<title>Optional ECC private key sections</title>
+<desc>
+<p outputclass="summary">Optional ECC private key sections. A table with three columns.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row>
+<entry>Private key section identifier (token type)</entry>
+<entry>ECC curve type: length of prime p in bits</entry>
+<entry>ECC key protected by OPK that is wrapped by an AES key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3">External ECC key tokens (first byte of PKA key-token header
+X'1E')</entry>
+</row>
+<row>
+<entry>X'20' (ECC-PAIR)</entry>
+<entry>
+<lines>
+Brainpool:
+160, 192, 224, 256, 320, 384, or 512
+</lines>
+<lines>
+Prime:
+192, 224, 256, 384, or 521
+</lines>
+</entry>
+<entry>Private key in the clear or wrapped by OPK, with OPK and its data wrapped by AES KEK</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Internal ECC key tokens (first byte of PKA key-token header
+X'1F')</entry>
+</row>
+<row>
+<entry>X'20' (ECC-PAIR)</entry>
+<entry>
+<lines>
+Brainpool:
+160, 192, 224, 256, 320, 384, or 512
+</lines>
+<lines>
+Prime:
+192, 224, 256, 384, or 521
+</lines>
+</entry>
+<entry>Private key wrapped by OPK, with OPK and its data wrapped by APKA MK</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>a required ECC public-key section (section identifier X'21')</li>
+<li>an optional PKA private-key name section (section identifier X'10')</li>
+<li>an optional PKA public-key certificate section (section identifier X'40')</li>
+<li>an optional ECC key-derivation information section (section identifier X'23').</li>
+</ul>
+</section>
+</conbody>
+</concept>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc02_cvbbmap" xml:lang="en-us" rev="sh20i1">
+<title>DES control-vector-base bit maps</title>
+<titlealts>
+<navtitle>Control-vector-base bit maps</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Control-vector-base bit
+maps</searchtitle>
+</titlealts>
+<shortdesc>Details of the control vector base bit maps.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>Control-vector-base bit maps</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>Four figures below provide a bit map summary of valid control vectors by DES key type:</p>
+<ol>
+<li><xref href="#l0wskc02_cvbbmap/wskc_cv_base_bit_map_1_of_4" format="dita"/> shows the CV bits
+common to all DES control vectors.</li>
+<li><xref href="#l0wskc02_cvbbmap/wskc_cv_base_bit_map_2_of_4" format="dita"/> provides CV bit maps
+for key types that are used for encipher and decipher data operations.</li>
+<li><xref href="#l0wskc02_cvbbmap/wskc_cv_base_bit_map_3_of_4" format="dita"/> provides CV bit maps
+for key types that are used for the remaining data operations (such as MAC generate and MAC verify),
+and PIN processing.</li>
+<li><xref href="#l0wskc02_cvbbmap/wskc_cv_base_bit_map_4_of_4" format="dita"/> provides CV bit maps
+for key types that are used for cryptographic variable encrypting, key encrypting, and key
+generating.</li>
+</ol>
+<p>At the top of each figure is this header, which deserves additional explanation:</p>
+<fig expanse="column" id="wskc_cv_base_bit_map_hdr">
+<title>DES control vector header</title>
+<image href="wskc_cv_base_bit_map_hdr.jpg" placement="break" width="500">
+<alt>Control vector base bit map (data operation keys)</alt>
+</image>
+</fig>
+<p>A control vector (either the base or, for a double-length key, the extension) has 8 bytes.
+Observe that the header shown above has eight columns, one for each byte of a control vector.</p>
+<p>A control vector has 64 bits, numbered from left to right starting with bit 00 (the most
+significant CV bit) to bit 63 (the least significant CV bit). The first byte has bits 0 – 7
+(indicated in the header as &lt;00..07>, while the last byte has bits 56 – 63 (indicated in the
+header as &lt;56..63>.</p>
+<p>Each of the eight columns in the header has eight dots (periods), one for each control vector bit
+of the byte. Over each even-numbered control vector bit is a two-digit number (00, 02, 04, and 06
+for the first byte and 56, 58, 60, and 62 for the last byte), the first digit stacked over the
+second. This provides an easy way to identify each bit by number.</p>
+<p>
+<fig expanse="column" id="wskc_cv_base_bit_map_1_of_4">
+<title>Bit map of DES control vector base and extension (Part 1 of 4)</title>
+<image href="wskc_cv_base_bit_map_1_of_4.jpg" placement="break" width="500">
+<alt>Bit map of DES control vector base and extension (Part 1 of 4)</alt>
+</image>
+</fig>
+</p>
+<p>Here is an explanation of the bits common to all DES control vectors:</p>
+<ul>
+<li>CV bits 4 and 5 (marked with a 'u' in the figures) are undefined by CCA. These bits are
+available to be defined by any non-CCA user-defined extension (UDX).</li>
+<li>CV bits 7, 15, 23, 31, 39, 47, 55, and 63 (marked with a 'P' in the figures) are parity bits.
+Each byte of a control vector must have even parity, and it is an error if any of those bytes does
+not have even parity. Conversely, each byte of a DES key normally has odd parity. When CCA encrypts
+a DES key, it first exclusive-ORs the key-encrypting key with the control vector to form the actual
+key used in the DES key-encrypting process. The key resulting from this exclusive-OR has the same
+parity as the key-encrypting key.</li>
+<li>CV bit 17 (marked with an 'E' in the figures) is used to control whether a key can be exported
+or not. If a DES key-token has CV bit 17 = B'1' (XPORT-OK), the key can potentially be exported (see
+CV bit 57). If CV bit 17 = B'0' (NO-XPORT), the key cannot be exported. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> verbs can be used to change the
+control vector so that the key in the token cannot be exported (that is, to set CV bit 17 =
+B'0').</li>
+<li>CV bits 30 and 38 are anti-variant bits. These bits guarantee cryptographic separation between
+non-CCA variants and CCA control vectors, which may unavoidably be mixed in some implementations
+internal to a node. CV bit 30 must be B'0', and CV bit 38 must be B'1', otherwise the control vector
+is not valid.</li>
+<li>CV bits 40 – 42 (marked with "fff" or "FFF" in the figures) are key form bits. The bit pattern
+of these three contiguous bits determines the length of the DES key and whether the key parts are
+guaranteed unique (ignoring key parity bits). See <xref href="wskc_r_kformbfff.dita"/> for more
+information about key form bits.</li>
+<li>CV bit 56 (marked with a 'W' in the figures) is used to control whether a DES key cannot be
+wrapped using the weaker legacy method. If CV bit 56 = B'1' (ENH-ONLY), the key must be wrapped
+using the stronger enhanced method. The only exception to this rule is when a single-length key,
+which is always wrapped using the legacy method, is in a fixed-length DES key-token with the
+ENH-ONLY bit on.</li>
+<li>CV bit 57 (marked with a 'T' in the figures) is a TR-31 export-control bit used to control
+whether a DES key can be exported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb into a non-CCA TR-31 key block.
+If CV bit 57 = B'0' (T31XPTOK) and CV bit 17 = B'1' (XPORT-OK), an export of the key into a TR-31
+key block is OK (allowed) provided that CV bit 17 = B'1' (XPORT-OK). If either CV bit 57 = B'1'
+(NOT31XPT), CV bit 17 = B'0' (NO-XPORT), or both, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb is blocked from exporting the
+DES key. Note that if CV bit 17 = B'0' (NO-XPORT), the key cannot be exported by any verb.</li>
+<li>CV bit 61 (marked with a 'u' in the figures) is used to identify whether a control vector can be
+used by CCA. If CV bit 61 = B'1' (NOT-CCA), the control vector cannot be used by CCA, otherwise the
+control vector can be used, provided that is is otherwise valid.</li>
+</ul>
+<p>
+<fig expanse="column" id="wskc_cv_base_bit_map_2_of_4">
+<title>Bit map of DES control vector base and extension (Part 2 of 4)</title>
+<image href="wskc_cv_base_bit_map_2_of_4.jpg" placement="break" width="500">
+<alt>Bit map of DES control vector base and extension (Part 2 of 4)</alt>
+</image>
+</fig>
+<fig expanse="column" id="wskc_cv_base_bit_map_3_of_4">
+<title>Bit map of DES control vector base and extension (Part 3 of 4)</title>
+<image href="wskc_cv_base_bit_map_3_of_4.jpg" placement="break" width="500">
+<alt>Bit map of DES control vector base and extension (Part 3 of 4)</alt>
+</image>
+</fig>
+<fig expanse="column" id="wskc_cv_base_bit_map_4_of_4">
+<title>Bit map of DES control vector base and extension (Part 4 of 4)</title>
+<image href="wskc_cv_base_bit_map_4_of_4.jpg" placement="break" width="500">
+<alt>Bit map of DES control vector base and extension (Part 4 of 4)</alt>
+</image>
+</fig>
+</p>
+<note>When CV bit 40 = B'1', the left and right keys are guaranteed to have unique key values
+(ignoring parity bits). In other words, these key types are not allowed to have replicated key
+halves. A double-length Triple-DES key with replicated key halves has an effective key length of
+single.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001699?>

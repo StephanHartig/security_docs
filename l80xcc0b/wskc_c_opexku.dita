@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_opexku">
+<title>Examples of OPEX single-length, double-length, and triple-length
+keys in two forms</title>
+  <titlealts>
+    <navtitle>Examples of OPEX single-length, double-length, and triple-length
+keys in two forms</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Examples of OPEX single-length,
+double-length, and triple-length keys in two forms</searchtitle>
+  </titlealts><shortdesc>Examples of OPEX single-length, double-length, and triple-length
+keys in two forms.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key<indexterm>double-length</indexterm></indexterm>
+<indexterm>key<indexterm>pair</indexterm></indexterm>
+<indexterm>pair of keys</indexterm>
+<indexterm>key type 1</indexterm>
+<indexterm>key type 2</indexterm>
+<indexterm>OPEX key form</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<codeblock>Key   Type  Type 
+Form  1      2
+ 
+OPEX  DATA  DATA    Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>. Send the EX form and
+                    the ciphertext to another cryptographic partner.
+OPEX  MAC   MAC     Single-length MAC generation key. Use the OP form in
+                    both <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/>. Send the
+                    EX form to a cryptographic partner to be used in the
+                    <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs.
+OPEX  MAC   MACVER  Single-length MAC generation and MAC verification
+                    keys. Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/>. Send the EX
+                    form to a cryptographic partner where it will be put
+                    into <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>, and then <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/>, with the
+                    message and MAC that you have also transmitted.
+OPEX  PINGEN PINVER Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/>. Send the
+                    EX form to a cryptographic partner where it is put
+                    into <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>, and then <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>,
+                    along with an IPINENC key.
+OPEX  IMPORTER EXPORTER 
+                    Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>.
+                    Send the EX form to a cryptographic partner where
+                    it is used in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>, or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, 
+                    or put in the <ph>CCA key storage file</ph>.
+OPEX  EXPORTER IMPORTER 
+                    Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>,
+                    or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>. Send the EX form to a cryptographic
+                    partner where it is put into the <ph>CCA Key storage file</ph>
+                    or used in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>.</codeblock>
+<p>When you and your partner have the OPEX IMPORTER EXPORTER, OPEX
+EXPORTER IMPORTER pairs of keys in <xref href="#l0wskc02_opexku"/> installed,
+you can start key and data exchange.</p>
+</conbody></concept>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_compliant_tagged" rev="sh20i1">
+<title>Compliant-tagged key tokens</title>
+<titlealts>
+<navtitle>Compliant-tagged key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Compliant-tagged key tokens</searchtitle>
+</titlealts><abstract><shortdesc>A compliant-tagged key token must adhere to the requirements of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. A coprocessor in compliance
+mode must be available to use compliant-tagged key tokens. </shortdesc> Read the contained
+information for DES and AES key tokens. For additional information, read <xref
+href="wskc_pci_hsm_intro.dita"/>.</abstract>
+
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>compliant-tagged</indexterm></indexterm>
+<indexterm>DES key token<indexterm>compliant-tagged</indexterm></indexterm>
+<indexterm>AES key token<indexterm>compliant-tagged</indexterm></indexterm>
+<indexterm>compliant-tagged key tokens</indexterm>
+<indexterm>DES KDF 01 key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<title>DES</title>
+<p>The compliance-tag is indicated by bit 58 in the control vector of the key token. For more
+information about the compliance-tag, see <xref href="wskc_c_ap1me.dita"/>. </p>
+<p>To generate a compliant-tagged key token, you must first build a skeleton token with the
+compliance-tag bit on. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>) services provide this function. This
+skeleton token can then be passed to any verb that generates key tokens and supports
+compliant-tagged key tokens, for example, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>). A list of services that support
+compliant-tagged key tokens can be found in <xref href="wskc_pci_hsm_keys.dita"/>. </p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>) and EMV (Europay MasterCard Visa)
+services are exceptions because they do not support skeleton tokens as input. When importing a TR-31
+key block, if the key encrypting key is compliant-tagged, the resulting key is also
+compliant-tagged. Subsequent key tokens are generated based on the deriving key. </p>
+<p>Compliant-tagged key tokens are defined by two features of the key token: </p>
+<ol>
+<li>The compliant-tag bit in the key attributes, which is the control vector for DES fixed-length
+key tokens.</li>
+<li>The key derivation function (KDF) value which indicates what generation of compliance is
+applicable.</li>
+</ol>
+<p>The KDF value appears at the end of the truncated master-key verification pattern (MKVP) section.
+For additional information, see <xref href="wskc_r_aptkn.dita"/>.</p>
+<p> Beginning with CCA 6.3, it is important to note that the KDF value for DES compliant-tagged
+tokens has been incremented. Key tokens with the compliant-tag bit on in the control vector and a
+key derivation function (KDF) of X'01' are no longer considered compliant-tagged. They are referred
+to as <term>DES KDF 01</term> tokens throughout publications. They were either created on a
+coprocessor which does not have CCA 6.3 or later. Or they were created by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>) or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>) services using an input <term>DES KDF
+01</term> token. The only keys they can be used with are other <term>DES KDF 01</term> tokens or
+X.509 certificates (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> being the
+exception). </p>
+<p>It is recommended that <term>DES KDF 01</term> tokens are migrated using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) verb with the COMP-TAG keyword set.
+The output is a key token with the compliant-tag bit set in the control vector and a KDF greater
+than X'01'. Only DES tokens with a KDF greater than X'01' are referred to as compliant-tagged key
+tokens. Key tokens without the compliant-tag bit set or <term>DES KDF 01</term> tokens are referred
+to as non-compliant-tagged tokens. Though DES KDF 01 tokens are not compliant-tagged, a coprocessor
+in compliance mode is required to use them. </p>
+</section>
+<section>
+<title>AES</title>
+<p>Only version 05 AES key tokens may become compliant-tagged. The compliant-tag is indicated by a
+key management flag in the key token. For more information about the compliant-tag, see <xref
+href="wskc_r_aptkn.dita"/>. </p>
+<p>To generate a compliant-tagged key token, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) verb must first be used to build a
+skeleton token with the COMP-TAG keyword set. This skeleton token can then be passed to any callable
+service that generates version 05 AES key tokens and supports compliant-tagged key tokens, for
+example <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>). A list of verbs that support
+compliant-tagged key tokens can be found in <xref href="wskc_pci_hsm_keys.dita"/>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/>) verbs are exceptions because they do
+not support skeleton tokens as input. When importing a TR-31 key block, if the key encrypting key is
+compliant-tagged, the resulting key is also compliant-tagged. When creating a directed key, if the
+diversifying key is compliant-tagged, the resulting key is also compliant-tagged. For more
+information, see the description of the individual verbs.</p>
+</section>
+</conbody>
+</concept>

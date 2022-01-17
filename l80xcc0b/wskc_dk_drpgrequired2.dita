@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="drpgrequired_2" rev="sh20i1">
+<title>Required commands</title><titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> verb requires the
+<cmdname>Allow DK Random PIN Generate2</cmdname> command (offset X'0024') to be enabled in the
+active role.</p>
+</section>
+</refbody></reference>

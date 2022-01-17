@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ptrparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>input_PIN_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>IPINENC key type</indexterm>
+<indexterm>output_PIN_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>OPINENC key type</indexterm>
+<indexterm>input_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>PIN profile<indexterm>description</indexterm></indexterm>
+<indexterm>PAN_data_in parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>personal account number (PAN)<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/></indexterm></indexterm>
+<indexterm>input_PIN_block parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>REFORMAT</indexterm>
+<indexterm>TRANSLAT</indexterm>
+<indexterm>UKPTIPIN</indexterm>
+<indexterm>UKPTOPIN</indexterm>
+<indexterm>UKPTBOTH</indexterm>
+<indexterm>DUKPT-IP</indexterm>
+<indexterm>DUKPT-OP</indexterm>
+<indexterm>DUKPT-BH</indexterm>
+<indexterm>ADUKPTBH</indexterm>
+<indexterm>ADUKPTIP</indexterm>
+<indexterm>ADUKPTOP</indexterm>
+<indexterm>output_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>output_PAN_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>sequence_number parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+<indexterm>output_PIN_block parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <parmname>return_code</parmname>, <parmname>reason_code</parmname>, <parmname>exit_data_length</parmname>,
+and <parmname>exit_data</parmname> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>input_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The input PIN-encrypting key (<synph><kwd>IPINENC</kwd></synph>) for the
+<parmname>input_PIN_block</parmname> parameter specified as a 64-byte internal key token or a key
+label. If keyword <synph><kwd>UKPTOPIN</kwd></synph>, <synph><kwd>UKPTBOTH</kwd></synph>,
+<ph><synph><kwd>DUKPT-IP</kwd></synph>, or <synph><kwd>DUKPT-BH</kwd></synph></ph> is specified in
+the <parmname>rule_array</parmname> parameter, the
+<parmname>input_PIN_encrypting_key_identifier</parmname> must specify a key token or key label of a
+<synph><kwd>KEYGENKY</kwd></synph> with the UKPT usage bit enabled. <p rev="sh21i1">If you do not
+use the DES DUKPT process or you specify the UKPTIPIN or DUKPT-IP rule-array keyword, the key token
+must contain the input PIN-block encrypting key to be used to decrypt the input PIN- block. The
+control vector in the key token must specify the IPINENC key-type and have one or both of the
+TRANSLAT and REFORMAT bits set to B'1' as appropriate for the requested mode. </p>
+<p rev="sh21i1">If you use the DES DUKPT process for the input PIN-block by specifying the UKPTOPIN,
+UKPTBOTH, DUKPT-OP, or DUKPT-BH keyword, specify the base derivation key as a KEYGENKY key- type
+with the UKPT bit set to B'1'.</p>
+<p rev="sh21i1">If you use the AES DUKPT process for the input PIN-block by specifying ADUKPTIP or
+ADUKPTBH keywords, specify the base derivation key as an AES variable-length symmetric key-token,
+version X’ 05 AES DKYGENKY with Key-usage field 1, low-order byte, most significant bit set to 1
+indicating this key is allowed to be used as BDK.</p>
+</pd></plentry>
+<plentry><pt>output_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The output PIN-encrypting key (<synph><kwd>OPINENC</kwd></synph>) for the
+<parmname>output_PIN_block</parmname> parameter specified as a 64-byte internal key token or a key
+label. If keyword <synph><kwd>UKPTOPIN</kwd></synph>, <synph><kwd>UKPTBOTH</kwd></synph>,
+<ph><synph><kwd>DUKPT-IP</kwd></synph>, or <synph><kwd>DUKPT-BH</kwd></synph></ph> is specified in
+the rule_array, the <parmname>output_PIN_encrypting_key_identifier</parmname> must specify a key
+token or key label of a <synph><kwd>KEYGENKY</kwd></synph> with the UKPT usage bit enabled. <p
+rev="sh21i1">If you do not use the DES DUKPT process or you specify the UKPTOPIN or DUKPT-OP
+keyword, the key token must contain the output PIN-block encrypting key to be used to encrypt the
+output PIN block. The control vector in the key token must specify the OPINENC key type and have one
+or both of the TRANSLAT and REFORMAT bits set to B'1' as appropriate for the requested mode. </p>
+<p rev="sh21i1">If you use the DES DUKPT process for the output PIN-block by specifying the
+UKPTIPIN, UKPTBOTH, DUKPT-IP, or DUKPT-BH keyword, specify the base derivation key as a KEYGENKY
+key- type with the UKPT bit set to B'1'. </p>
+<p rev="sh21i1">If you use the AES DUKPT process for the input PIN-block by specifying ADUKPTOP or
+ADUKPTBH keywords, specify the base derivation key as an AES variable-length symmetric key-token,
+version X’ 05 AES DKYGENKY with key-usage field 1, low-order byte, most significant bit set to 1
+indicating this key is allowed to be used as BDK. </p>
+</pd></plentry>
+<plentry><pt>input_PIN_profile</pt>
+<pd id="l0wskc02_ipp"><table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to either create a
+formatted PIN block or extract a PIN from a formatted PIN block, <ph rev="sh21i1">and optionally
+containing additional 24 bytes containing the input CKSN extension used when a DES unique key per
+transaction keyword is specified in the rule array, or an additional 20 bytes containing the input
+Derivation Data extension when an AES DUKPT keyword is specified. The strings are equivalent to
+24-byte, 44-byte or 48-byte data structures. The first 24 bytes are ignored when TRANSLAT is
+specified in the rule array.</ph>
+<p>A particular PIN profile can be either an input PIN profile or an output PIN profile depending on
+whether the PIN block is being enciphered or deciphered by the verb. See <xref
+href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information.</p>
+<p>If you choose the <synph><kwd>TRANSLAT</kwd></synph> processing rule <ph>or</ph> the
+<synph><kwd>REFORMAT</kwd></synph> processing rule in the <parmname>rule_array</parmname> parameter,
+the input PIN profile and output PIN profile can have different PIN block formats. If you specify
+<synph><kwd>UKPTIPIN</kwd></synph> with <synph><kwd>DUKPT-IP</kwd></synph> or
+<synph><kwd>UKPTBOTH</kwd></synph> with <synph><kwd>DUKPT-BH</kwd></synph> in the
+<parmname>rule_array</parmname> parameter, the <parmname>input_PIN_profile</parmname> is extended to
+a 48-byte field and must contain the current key serial number. See <xref
+href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information.</p><p>The pad digit is
+needed to extract the PIN from a 3624 or 3621 PIN block in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb with a process rule
+(<parmname>rule_array</parmname> parameter) of <synph><kwd>REFORMAT</kwd></synph>. If the process
+rule is <synph><kwd>TRANSLAT</kwd></synph>, the pad digit is ignored.</p><p>The
+<b>PINLEN<synph><var>nn</var></synph></b> keywords are disabled for this verb by default. If these
+keywords are used, return code 8 with reason code 33 is returned. To enable them, the
+<cmdname>Enhanced PIN Security</cmdname> access control point (bit <ph>X'0313'</ph>) must be enabled
+using a TKE.</p>
+<p rev="sh21i1">If the keyword UKPTBOTH or UKPTIPIN is specified, CKSN extension must be included in
+the <parmname>input_PIN_profile</parmname>. Single-DES DUKPT algorithm will be used to derive the
+DUKPT key used to decrypt the input PIN block. If the keyword DUKPT-BH or DUKPT-IP is specified,
+<parmname>input_PIN_profile</parmname> must include CKSN extension and the triple-DES DUKPT
+algorithm is used to derive the DUKPT key used to decrypt the input PIN block. If the keyword
+ADUKPTIP or ADUKPTH is specified, <parmname>input_PIN_profile</parmname> must include Derivation
+Data extension and the AES DUKPT algorithm is used to derive the key used to decrypt the input PIN
+block.</p>
+<p rev="sh21i1">When you specify the AES DUKPT method, the Derivation Data extension of the
+<parmname>input_PIN_profile</parmname> parameter is a pointer to a hex data structure containing the
+20-byte Derivation Data structure described in <xref
+href="wskc_aes_dukpt.dita#aes_dukpt/adukpt_deriv_data"/>. Bytes 4 and 5, Algorithm Indicator, must
+be set to 0x0000 (2-key TDEA) or 0x0001 (3-key TDEA). Bytes 2 and 3, key usage indicator, must be
+set to 0x1000 (PIN Encryption).</p></pd></plentry>
+<plentry><pt>input_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The personal account number (PAN) if the process rule (<parmname>rule_array</parmname>
+parameter) is <synph><kwd>REFORMAT</kwd></synph> and the input PIN format is
+<synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, or
+<synph><kwd>VISA-4</kwd></synph> only. Otherwise, this parameter is ignored. Specify 12 digits of
+account data in character format.<p>For <synph><kwd>ISO-0</kwd></synph> or
+<synph><kwd>ISO-3</kwd></synph>, use the rightmost 12 digits of the PAN, excluding the check
+digit.</p><p>For <synph><kwd>VISA-4</kwd></synph>, use the leftmost 12 digits of the PAN, excluding
+the check digit.</p></pd></plentry>
+<plentry><pt>input_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 8-byte enciphered PIN block that contains the PIN to be translated.</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule for the <ph>verb</ph> is described in <xref
+href="#l0wskc02_ptrparameters/l0wskc02_pinpr1"/>. <table id="l0wskc02_pinpr1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row valign="bottom">
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Processing rule</i></b> (One, required) </entry>
+</row>
+<row>
+<entry><synph><kwd>REFORMAT</kwd></synph></entry>
+<entry>Changes the PIN format, the contents of the PIN block, and the PIN-encrypting
+key.</entry>
+</row>
+<row>
+<entry><synph><kwd>TRANSLAT</kwd></synph></entry>
+<entry>Changes the PIN-encrypting key only. It does not change the PIN format and the
+contents of the PIN block.</entry>
+</row>
+<row>
+<entry><b><i>PIN block format and PIN extraction method</i></b> (Optional)</entry>
+<entry>See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/pbfandpem"/> for additional
+information and a list of PIN block formats and PIN extraction method keywords. <note>If a PIN
+extraction method is not specified, the first one listed in <xref
+href="wskc_c_pbf.dita#l0wskc02_pbf/l0wskc02_newtb2"/> for the PIN block format will be the
+default.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i><ph rev="sh21i1">DES</ph> DUKPT keywords - Single length
+key derivation</i></b> (One, optional) </entry>
+</row>
+<row>
+<entry><synph><kwd>UKPTBOTH</kwd></synph></entry>
+<entry>Both the <parmname>input_PIN_encrypting_key_identifier</parmname> and the
+<parmname>output_PIN_encrypting_key_identifier</parmname> are derived as a single length key.
+Both the <parmname>input_PIN_encrypting_key_identifier</parmname> and the
+<parmname>output_PIN_encrypting_key_identifier</parmname> must be
+<synph><kwd>KEYGENKY</kwd></synph> keys with the UKPT usage bit enabled. Both the
+<parmname>input_PIN_profile</parmname> and the <parmname>output_PIN_profile</parmname>
+must be 48 bytes and contain the respective key serial number. 
+<ph rev="sh21i1">This keyword cannot be specified with any of the keywords in <i><b>AES DUKPT</b></i> group.</ph>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>UKPTIPIN</kwd></synph></entry>
+<entry>The <parmname>input_PIN_encrypting_key_identifier</parmname> is derived
+as a single length key. The <parmname>input_PIN_encrypting_key_identifier</parmname> must be a
+<synph><kwd>KEYGENKY</kwd></synph> key with the UKPT usage bit enabled. The
+<parmname>input_PIN_profile</parmname> must be 48 bytes and contain the key serial number.
+<ph rev="sh21i1">This keyword cannot be specified with the ADUKPTIP keyword.</ph>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>UKPTOPIN</kwd></synph></entry>
+<entry>The <parmname>output_PIN_encrypting_key_identifier</parmname> is derived
+as a single length key. The <parmname>output_PIN_encrypting_key_identifier</parmname> must be a
+<synph><kwd>KEYGENKY</kwd></synph>Y key with the UKPT usage bit enabled. The
+<parmname>output_PIN_profile</parmname> must be 48 bytes and contain the key serial number. 
+<ph rev="sh21i1">This keyword cannot be specified with the ADUKPTOP keyword.</ph>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i><ph rev="sh21i1">DES</ph> DUKPT keywords - double length
+key derivation</i></b> (One, optional) </entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-BH</kwd></synph></entry>
+<entry>Both the <parmname>input_PIN_encrypting_key_identifier</parmname> and the
+<parmname>output_PIN_encrypting_key_identifier</parmname> are derived as a double length key.
+Both the <parmname>input_PIN_encrypting_key_identifier</parmname> and the
+<parmname>output_PIN_encrypting_key_identifier</parmname> must be
+<synph><kwd>KEYGENKY</kwd></synph> keys with the UKPT usage bit enabled. Both the
+<parmname>input_PIN_profile</parmname> and the <parmname>output_PIN_profile</parmname>
+must be 48 bytes and contain the respective key serial number. 
+<ph rev="sh21i1">This keyword cannot be specified with any of the keywords in <i><b>AES DUKPT</b></i> group.</ph>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-IP</kwd></synph></entry>
+<entry>The <parmname>input_PIN_encrypting_key_identifier</parmname> is derived as a double length
+key. The <parmname>input_PIN_encrypting_key_identifier</parmname> must be a
+<synph><kwd>KEYGENKY</kwd></synph> key with the UKPT usage bit enabled. The
+<parmname>input_PIN_profile</parmname> must be 48 bytes and contain the key serial number. 
+<ph rev="sh21i1">This keyword cannot be specified with the ADUKPTIP keyword.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-OP</kwd></synph></entry>
+<entry>The <parmname>output_PIN_encrypting_key_identifier</parmname> is derived
+as a double length key. The <parmname>output_PIN_encrypting_key_identifier</parmname> must be a
+<synph><kwd>KEYGENKY</kwd></synph> key with the UKPT usage bit enabled. The
+<parmname>output_PIN_profile</parmname> must be 48 bytes and contain the key serial number. 
+<ph rev="sh21i1">This keyword cannot be specified with the ADUKPTOP keyword.</ph></entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>AES DUKPT</b></i> (one, optional). Valid for AES keys
+only. See <xref href="wskc_ptr2_usage.dita#ptr2_usage/ptr2_usag2"/> for valid DUKPT keyword
+combinations.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTBH</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for both input and
+output processing. This keyword cannot be specified with any of the keywords in the DES DUKPT
+groups.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTIP</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for input processing.
+This keyword cannot be specified with UKPTIPIN, UKPTBOTH, DUKPT-IP, or DUKPT-BH.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTOP</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for output processing.
+This keyword cannot be specified with UKPTOPIN, UKPTBOTH, DUKPT-OP, or DUKPT-BH.</entry>
+</row>
+
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>PIN-extraction method</b></i> (one, optional).</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>HEXDIGIT</b></entry>
+<entry>Specifies to use the first occurrence of a digit in the range from X'A' to X'F' as the pad
+value to determine the PIN length. Only valid with PIN-block format 3624.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>PADDIGIT</b></entry>
+<entry>Specifies to use the pad value in the PIN profile to identify the end of the PIN. Only
+valid with PIN-block format 3624. This is the default for 3624.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>PADEXIST</b></entry>
+<entry>Specifies to use the character in the sixth position of the PIN block as the value of the
+pad value. Only valid with PIN-block format 3624.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>PINBLOCK</b></entry>
+<entry>Specifies to use one of the following items to identify the PIN, depending on the
+contents of the PIN block:
+<ul>
+<li>The PIN length, if the PIN block contains a PIN-length field.</li>
+<li>The PIN-delimiter character, if the PIN block contains a PIN-delimiter character.</li>
+</ul>
+<p>Only valid with PIN-block format ISO-0, ISO-1, ISO-2, or ISO-3. This is the default for
+ISO-0, ISO-1, ISO-2, or ISO-3.</p></entry>
+</row>
+<row rev="sh21i1">
+<entry><b>PINLENxx</b></entry>
+<entry>Specifies Specifies to use the length xx specified in the keyword as the length in digits of the
+PIN, where <codeph>xx</codeph> is 04, 05, 06, ..., 16. For example, specify <keyword>PINLEN04</keyword> for 
+a PIN length of 4. Only valid with PIN block format 3624.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>output_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to either create a
+formatted PIN block or extract a PIN from a formatted PIN block. A particular PIN profile can be
+either an input PIN profile or an output PIN profile, depending on whether the PIN block is being
+enciphered or deciphered by the verb. <ul>
+<li>If you choose the <synph><kwd>TRANSLAT</kwd></synph> processing rule in the
+<parmname>rule_array</parmname> parameter, the <parmname>input_PIN_profile</parmname> and the
+<parmname>output_PIN_profile</parmname> must specify the same PIN block format.</li>
+<li>If you choose the <synph><kwd>REFORMAT</kwd></synph> processing rule in the
+<parmname>rule_array</parmname> parameter, the input PIN profile and output PIN profile can have
+different PIN block formats.</li>
+<li>If you specify <synph><kwd>UKPTOPIN</kwd></synph> or <synph><kwd>UKPTBOTH</kwd></synph> in the
+<parmname>rule_array</parmname> parameter, the <parmname>output_PIN_profile</parmname> is extended
+to a 48-byte field and must contain the current key serial number. See <xref
+href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information. </li>
+<li rev="sh21i1">Also, if you specify <synph><kwd>UKPTOPIN</kwd></synph> or
+<synph><kwd>UKPTBOTH</kwd></synph>, CKSN extension must be included in the
+<parmname>output_PIN_profile</parmname>. A Single-DES DUKPT algorithm is used to derive the DUKPT
+key used to encrypt the output PIN block. </li>
+<li rev="sh21i1">If you specify the keyword <synph><kwd>DUKPT-BH</kwd></synph> or
+<synph><kwd>DUKPT-OP</kwd></synph>, the <parmname>output_PIN_profile</parmname> must include CKSN
+extension and a Triple-DES DUKPT algorithm is used to derive the DUKPT key used to encrypt the
+output PIN block.</li>
+<li>Also, if you specify <synph><kwd>DUKPT-OP</kwd></synph> or <synph><kwd>DUKPT-BH</kwd></synph>,
+the <parmname>output_PIN_profile</parmname> is extended to a 48-byte field and must contain the
+current key serial number. See <xref href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional
+information. </li>
+<li rev="sh21i1">If you specify the keyword <synph><kwd>ADUKPTOP</kwd></synph> or
+<synph><kwd>ADUKPTBH</kwd></synph>, <parmname>output_PIN_profile</parmname> must include Derived
+Data extension and an AES-DUKPT algorithm is used to derive the encryption key to encrypt the output
+PIN lock. </li>
+</ul>
+<p rev="sh21i1">When you specify the AES DUKPT method, the <parmname>output_PIN_profile</parmname>
+parameter is a pointer to a hex data structure containing the 20-byte Derivation Data data structure
+described in <xref href="wskc_aes_dukpt.dita#aes_dukpt/adukpt_deriv_data"/>. Bytes 4 and 5,
+algorithm indicator, must be set to 0x0000 (2-key TDEA) or 0x0001 (3-key TDEA). Bytes 2 and 3, key
+usage indicator, must be set to 0x1000 (PIN Encryption). </p>
+</pd></plentry>
+<plentry><pt>output_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The personal account number (PAN) if the process rule (<parmname>rule_array</parmname>
+parameter) is <synph><kwd>REFORMAT</kwd></synph> and the output PIN format is
+<synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, or
+<synph><kwd>VISA-4</kwd></synph> only. Otherwise, this parameter is ignored. Specify 12 digits of
+account data in character format.<p>For <synph><kwd>ISO-0</kwd></synph> or
+<synph><kwd>ISO-3</kwd></synph>, use the rightmost 12 digits of the PAN, excluding the check
+digit.</p><p>For <synph><kwd>VISA-4</kwd></synph>, use the leftmost 12 digits of the PAN, excluding
+the check digit.</p></pd></plentry>
+<plentry><pt>sequence_number</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The sequence number if the process rule (<parmname>rule_array</parmname> parameter) is
+<synph><kwd>REFORMAT</kwd></synph> and the output PIN block format is 3621 or 4704-EPP only. Specify
+the integer value 99999. Otherwise, this parameter is ignored.</pd></plentry>
+<plentry><pt>output_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 8-byte output PIN block that is re-enciphered.</pd></plentry>
+</parml></section>
+</refbody></reference>

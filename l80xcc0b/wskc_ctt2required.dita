@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_ctt2required" rev="sh15">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> required
+commands.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb requires the following commands to be enabled in the active role:</p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="40*"></colspec>
+<colspec colname="col2" colwidth="12*"></colspec>
+<colspec colname="col3" colwidth="52*"></colspec>
+<thead>
+<row >
+<entry>Command</entry>
+<entry>Offset</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><cmdname>Cipher Text Translate2</cmdname></entry>
+<entry>X'01C0'</entry>
+<entry>Enable the Ciphertext Translate2 service</entry>
+</row>
+<row>
+<entry rev="shr2"><cmdname>Cipher Text Translate2 – Allow translate from AES to
+TDES</cmdname></entry>
+<entry>X'01C1'</entry>
+<entry>Allow translation from an AES key to 2 or 3 key triple DES key.</entry>
+</row>
+<row>
+<entry rev="shr2"><cmdname>Cipher Text Translate2 – Allow translate to weaker AES</cmdname></entry>
+<entry>X'01C2'</entry>
+<entry>Allow translation from a stronger to weaker AES key.
+(For example, IN key AES256 and OUT key AES128.)</entry>
+</row>
+<row rev="shd3">
+<entry><cmdname>Cipher Text Translate2 – Allow translate to weaker DES</cmdname></entry>
+<entry>X'01C3'</entry>
+<entry>Allow translation from a triple-length DES key to a weaker double-length DES key. </entry>
+</row>
+<row>
+<entry><cmdname>Cipher Text Translate2 – Allow only cipher text translate types</cmdname></entry>
+<entry>X'01C4'</entry>
+<entry rev="shr2">When enabled, the verb only accepts these key-translation-only key types, which
+cannot be used in normal cipher or MAC data operations: <ul>
+<li>AES key tokens with key type CIPHER and key usage set to allow data translate (C-XLATE)
+only</li>
+<li>DES key tokens with a key type CIPHERXI, CIPHERXO, or CIPHERXL</li>
+</ul><p>In other words, with offset X'01C4' enabled in the active role, AES key type AESDATA and DES
+key types CIPHER, DATA, DATAC, and ENCIPHER, are not allowed. This restricts the verb from using
+keys that can be used in data operations other than translation.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

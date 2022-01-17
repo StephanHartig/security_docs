@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<topic xml:lang="en-us" id="bsm_tmkvndf">
+<title>Master-key verification pattern</title>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<body>
+<p>A master-key verification pattern (MKVP) exists within an internal AES, HMAC, or DES key-token
+that has an encrypted key present. An MKVP also exists within an internal PKA key-token that has an
+encrypted RSA or ECC private-key present or within an active internal CCA trusted block. See <xref
+href="wskc_r_aktfb.dita"/>. An MKVP permits the cryptographic engine to detect whether the key
+within the token is enciphered by an available master key. Different internal
+key-verification-pattern approaches are employed depending on the version of the key token and, for
+DES key tokens, the value of the symmetric master key. See <xref href="wskc_c_algomkn.dita"/>.</p>
+<p>An <tm tmtype="reg" trademark="IBM">IBM</tm> cryptographic coprocessor does not permit the
+introduction of a new master-key value that has the same verification value as either the current
+master-key or as the old master-key.</p>
+</body>
+</topic>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_appdpvvveralg">
+<title>PVV Verification algorithm</title>
+  <titlealts>
+    <navtitle>PVV Verification algorithm</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PVV Verification algorithm</searchtitle>
+  </titlealts><shortdesc>The PVV verification algorithm requires specific parameters.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>algorithm<indexterm>PVV verification</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>PVV
+verification algorithm</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The algorithm requires the following input parameters: 
+<ul>
+<li>A 64-bit TSP</li>
+<li>A 16-bit referenced PVV</li>
+<li>A 128-bit PVV verification key</li>
+</ul></p>
+<p>A PVV is generated using the PVV generation algorithm, except a
+PVV verification key rather than a PVV generation key is used. The
+generated PVV is compared with the referenced PVV. If they match,
+verification is successful.</p>
+</conbody></concept>

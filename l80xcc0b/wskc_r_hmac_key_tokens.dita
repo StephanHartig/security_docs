@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc01_hmac_key_tokens">
+<title>HMAC key token</title>
+  <titlealts>
+    <navtitle>HMAC key token</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): HMAC key token</searchtitle>
+  </titlealts><shortdesc>The two formats of the HMAC key token.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>HMAC key tokens have two formats, <xref href="wskc_r_hvlsktok.dita#l0wskc02_hvlsktok"/> and <xref
+href="#l0wskc01_hmac_key_tokens/l0wskc02_hsnull" format="dita"/>.</p></section>
+<section id="l0wskc02_hsnull">
+<title>HMAC symmetric null key token</title>
+<p><xref href="#l0wskc01_hmac_key_tokens/l0wskc01_hmvlskt_tab2" format="dita"/> shows the format of
+the HMAC symmetric null key token. </p>
+<table pgwide="1" id="l0wskc01_hmvlskt_tab2">
+<title>HMAC symmetric null key token format</title>
+<desc>
+<p outputclass="summary">HMAC symmetric null key token format</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="9*"/>
+<thead>
+<row>
+<entry>Offset (bytes))</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3">Header</entry>
+</row>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry><ph>X'00'</ph> Token identifier, which indicates that this is a null key token.</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>1</entry>
+<entry><ph>X'00'</ph> Version</entry>
+</row>
+<row>
+<entry>2 - 3</entry>
+<entry>2</entry>
+<entry><ph>X'0008'</ph> Length of the key token structure.</entry>
+</row>
+<row>
+<entry>4 - 7</entry>
+<entry>4</entry>
+<entry>Ignored (zero).</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody></reference>

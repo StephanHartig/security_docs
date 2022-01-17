@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<!--SH: Acrolinx run on March 19, 2018-->
+<reference id="utility_verbs" xml:lang="en-us">
+<title>Utility verbs</title>
+<titlealts>
+<navtitle>Utility verbs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Utility verbs</searchtitle>
+</titlealts>
+<shortdesc>Use the described utility verb for code conversion.<?Pub Caret -1?>
+</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utility verbs</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul otherprops="pdf">
+<li><xref href="wskc_utility_xea.dita#utiltiy_xea"/></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001208?>

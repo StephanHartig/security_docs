@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkerequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>PKA Encrypt</cmdname> command (offset <ph>X'011E'</ph>) to be
+enabled in the active role.</p>
+<p rev="shd3">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> verb also
+requires the following commands to be enabled in the active role to disallow the encryption of clear source data:
+</p>
+<table rev="shd3">
+<desc>
+<p outputclass="summary">Required commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>MRP</kwd></synph></entry>
+<entry>X'0208'</entry>
+<entry><cmdname>PKA Encipher - Clear Key Disallow MRP</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry>X'0206'</entry>
+<entry><cmdname>PKA Encipher - Clear Key Disallow PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph></entry>
+<entry>X'0209'</entry>
+<entry><cmdname>PKA Encipher - Clear Key Disallow PKCSOAEP</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry>X'0207'</entry>
+<entry><cmdname>PKA Encipher - Clear Key Disallow ZERO-PAD</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

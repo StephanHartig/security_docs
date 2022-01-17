@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbtr31ko">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> verb to build a properly formatted TR-31 optional
+block from the data provided. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The newly constructed optional block can optionally be appended
+to an existing structure of optional blocks, or it can be returned
+as a new optional blocks structure. After the last optional block
+has been constructed, the completed structure containing the optional
+blocks can be included in a TR-31 key block during an export operation
+by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> verb by using its <synph><var>opt_blocks</var></synph> parameter.
+For information about TR-31, including the format of a TR-31 optional
+block, see X9 TR-31 2010: <synph><var>Interoperable Secure Key Exchange Block
+Specification for Symmetric Algorithms</var></synph>.</p></section>
+<section><p>The TR-31 key block has an unencrypted header that can contain
+optional blocks. The header is securely bound to the key block using
+the integrated MAC. An optional block has a 2-byte ASCII block ID
+value that determines the use of the block. The ID of each block in
+an optional blocks structure must be unique.</p></section>
+<section><p>The verb builds a structure of optional blocks by adding one optional
+block with each call. This process is repeated until the entire set
+of optional blocks has been added. For each call, provide the components
+for a single optional block. This includes the optional block ID,
+the optional block length in bytes, and the optional block data. In
+addition, provide an optional blocks buffer large enough to add the
+optional block being built.</p></section>
+<section><p>There are two valid scenarios for the optional blocks buffer provided
+on input, as determined by the value of the <synph><var>opt_blocks_length</var></synph> variable:
+<ol>
+<li>The optional blocks buffer is empty. In this case, the newly constructed
+optional block is copied into the buffer.</li>
+<li>The optional blocks buffer contains one or more existing optional
+blocks. In this case, the newly constructed optional block is appended
+to the existing optional blocks. No duplicate IDs are allowed.</li>
+</ol></p></section>
+<section><p>Upon successful completion, the <synph><var>opt_blocks_length</var></synph> variable
+is updated to the length of the returned optional blocks structure.</p></section>
+<section><p>This verb does not perform cryptographic services on any key value.
+You cannot use this verb to change a key or to change the control
+vector related to a key.</p></section>
+</refbody></reference>

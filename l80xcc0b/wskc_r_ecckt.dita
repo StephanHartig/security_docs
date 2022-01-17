@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ecckt">
+<title>ECC key token</title>
+<titlealts>
+<navtitle>ECC key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ECC key token</searchtitle>
+</titlealts><shortdesc>The format of ECC public and private key tokens.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key token<indexterm>ECC</indexterm></indexterm>
+<indexterm>ECC key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p><xref href="#l0wskc02_ecckt/eccprivksec"/> and <xref href="#l0wskc02_ecckt/eccpubksec"/> show the
+format of ECC public and private key tokens.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> allows a choice
+between three types of elliptic curves when generating an ECC key: Brainpool, Prime, and Edwards
+elliptic curves. <xref href="#l0wskc02_ecckt/sbecc"/> and <xref href="#l0wskc02_ecckt/specurve"/>
+show the size and name of each supported elliptic curve, along with its object identifier (OID) in
+dot notation. </p>
+</section>
+<table id="sbecc" pgwide="1"><title>Supported Brainpool elliptic curves</title><desc>
+<p outputclass="summary">Supported Brainpool elliptic curves by size, name, and object
+identifier</p>
+</desc><tgroup cols="3">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<thead>
+<row>
+<entry>Size of prime <synph><var>p</var></synph> in bits (key length)</entry>
+<entry>OID in dot notation</entry>
+<entry>Brainpool elliptic curve ID</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>160</entry>
+<entry>1.3.36.3.3.2.8.1.1.1</entry>
+<entry>brainpoolP160r1</entry>
+</row>
+<row>
+<entry>192 </entry>
+<entry>1.3.36.3.3.2.8.1.1.3</entry>
+<entry>brainpoolP192r1</entry>
+</row>
+<row>
+<entry>224</entry>
+<entry>1.3.36.3.3.2.8.1.1.5</entry>
+<entry>brainpoolP224r1</entry>
+</row>
+<row>
+<entry>256</entry>
+<entry>1.3.36.3.3.2.8.1.1.7</entry>
+<entry>brainpoolP256r1</entry>
+</row>
+<row>
+<entry>320</entry>
+<entry>1.3.36.3.3.2.8.1.1.9</entry>
+<entry>brainpoolP320r1</entry>
+</row>
+<row>
+<entry>384</entry>
+<entry>1.3.36.3.3.2.8.1.1.11</entry>
+<entry>brainpoolP384r1</entry>
+</row>
+<row>
+<entry>512</entry>
+<entry>1.3.36.3.3.2.8.1.1.13</entry>
+<entry>brainpoolP512r1</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="specurve" pgwide="1"><title>Supported Prime elliptic curves</title><desc>
+<p outputclass="summary">Supported Prime elliptic curves by size, name, and object identifier</p>
+</desc><tgroup cols="5">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<colspec colname="col4"/>
+<colspec colname="col5"/>
+<thead>
+<row>
+<entry>Size of prime <synph><var>p</var></synph> in bits (key length)</entry>
+<entry>OID in dot notation</entry>
+<entry>ANSI X9.62 ECDSA prime curve ID</entry>
+<entry>NIST-recommended elliptic curve ID</entry>
+<entry>SEC 2 recommended elliptic curve domain parameter</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>192 </entry>
+<entry>1.2.840.10045.3.1.1 </entry>
+<entry>prime192v1 </entry>
+<entry>P-192 </entry>
+<entry>secp192r1 </entry>
+</row>
+<row>
+<entry>224</entry>
+<entry>1.3.132.0.33 </entry>
+<entry>N/A</entry>
+<entry>P-224</entry>
+<entry>secp224r1 </entry>
+</row>
+<row>
+<entry>256</entry>
+<entry>1.2.840.10045.3.1.7 </entry>
+<entry>prime256v1</entry>
+<entry>P-256</entry>
+<entry>secp256r1 </entry>
+</row>
+<row>
+<entry>384</entry>
+<entry>1.3.132.0.34 </entry>
+<entry>N/A</entry>
+<entry>P-384</entry>
+<entry>secp384r1 </entry>
+</row>
+<row>
+<entry>521</entry>
+<entry>1.3.132.0.35 </entry>
+<entry>N/A</entry>
+<entry>P-521</entry>
+<entry>secp521r1 </entry>
+</row>
+</tbody>
+</tgroup></table>
+
+<table pgwide="1" id="ecc_edward_curves"><title>Supported Edwards elliptic curves</title><desc>
+<p outputclass="summary">Supported Edwards elliptic curves by size, name, and object
+identifier</p>
+</desc><tgroup cols="4">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<colspec colname="col4"/>
+<thead>
+<row>
+<entry>Size of prime <synph><var>p</var></synph> in bits (key length)</entry>
+<entry>OID in dot notation</entry>
+<entry>Edwards-coordinate signature system</entry>
+<entry>Elliptic curve</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>255</entry>
+<entry>1.3.101.112</entry>
+<entry>id-Ed25519</entry>
+<entry>Curve25519</entry>
+</row>
+<row>
+<entry>448</entry>
+<entry>1.3.101.113</entry>
+<entry>id-Ed448</entry>
+<entry>Curve448</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table pgwide="1" id="table_koblitz" rev="sh21i1"><title>Supported Koblitz elliptic curves</title><desc>
+<p outputclass="summary">Supported Koblitz elliptic curves by size, name, and object identifier</p>
+</desc><tgroup cols="4">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<colspec colname="col4"/>
+<thead>
+<row>
+<entry>Size of prime <synph><var>p</var></synph> in bits (key length)</entry>
+<entry>OID in dot notation</entry>
+<entry>ANS X9.62 curve name</entry>
+<entry>Elliptic curve</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>256</entry>
+<entry>1.3.132.0.10</entry>
+<entry>Koblitz curve over 256-bit Prime field</entry>
+<entry>secp256k1</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="eccprivksec" pgwide="1" frame="all"><title>ECC private key section (X'20') </title><desc>
+<p outputclass="summary">ECC private-key section (X'20') </p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'20'</ph></dt>
+<dd>ECC private key (ECC-PAIR)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Legacy section version, no pedigree field, no IBM Extended Associated Data (IEAD), no support
+for ECC key-derivation information section (X'23').<note>Use of this section version is provided for
+backward compatibility. Version 1 has additional security features and should be used
+instead.</note></dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Latest section version. Includes pedigree field, IEAD, SHA-256 hash of all optional sections to
+IEAD, supports ECC key-derivation information section (X'23').</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry rev="sh21i1">Length of section in bytes: 76 + asd + bb.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>001</entry>
+<entry>Wrapping method: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Section is unencrypted (clear)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>AESKW (ANS X9.102)</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>005</entry>
+<entry>001</entry>
+<entry>Algorithm used to hash associated data section: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>None (no key present or key is clear key)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>SHA-224</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>SHA-256</dd>
+</dlentry>
+</dl>
+<note>The message digest is calculated on the associated data section, offset 76 to offset 92
+<varname>+ kl + lead + uad</varname>. The message digest becomes part of the payload prior to its
+encryption.</note>
+</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>001</entry>
+<entry>Key-usage and translation control flag. <p>Management of symmetric keys and generation of
+digital signatures:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>B'11xx xxxx'</ph></dt>
+<dd>Only key establishment (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'10xx xxxx'</ph></dt>
+<dd>Both signature generation and key establishment (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'01xx xxxx'</ph></dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'00xx xxxx'</ph></dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry>
+</dl>
+<note rev="sh21i1">secp256k1 curves are usable for ECDSA (signature) or ECDH (key agreement/key
+management).</note>
+<p>Translation control:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>B'xxxx xx1x'</ph></dt>
+<dd>Private key translation is allowed (XLATE-OK).</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'xxxx xx0x'</ph></dt>
+<dd>Private key translation is not allowed (NO-XLATE).</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>B'xxxx x1xx'</dt>
+<dd>Private key export under AES key is allowed (AES1ECOK).</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>B'xxxx x0xx'</dt>
+<dd>Private key export under AES key is not allowed (NOAES1EC).</dd>
+</dlentry>
+</dl>
+<note rev="sh21i1">secp256k1 curves are NOT exportable to CPACF.</note>
+<p rev="sh21i1">Key management:</p>
+<dl compact="yes" rev="sh21i1">
+<dlentry>
+<dt><ph>B'B'xxxx xxx1'</ph></dt>
+<dd>Private key CPACF-export is allowed (XPRTCPAC).</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'xxxx xxx0'</ph></dt>
+<dd>Private key CPACF-export is not allowed (NOEXCPAC).</dd>
+</dlentry>
+</dl><p rev="sh21i1">All other bits are reserved and must be zero.</p></entry>
+</row>
+<row>
+<entry>009</entry>
+<entry>001</entry>
+<entry>Curve type: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Prime curve</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Brainpool curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>Edwards curve</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt><ph>X'03'</ph></dt>
+<dd>Koblitz curve</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>001</entry>
+<entry>Key format and security flag: <dl compact="yes">
+<dlentry>
+<dt><ph>X'08'</ph></dt>
+<dd>Encrypted internal ECC private key</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'40'</ph></dt>
+<dd>Unencrypted external ECC private key</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'42'</ph></dt>
+<dd>Encrypted external ECC private key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>011</entry>
+<entry>001</entry>
+<entry>
+<b>Section version X'00' (see offset 001):</b>
+<p>Reserved, binary zero</p>
+<p><b>Section version X'01' (see offset 001):</b></p>
+<p>Pedigree/Key source flag byte</p>
+<p>External key-token:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>None/Clear</dd>
+</dlentry>
+<dlentry>
+<dt>X'24'</dt>
+<dd>Randomly generated</dd>
+</dlentry>
+</dl>
+<p>Internal key-token:</p>
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>None/Clear</dd>
+</dlentry>
+<dlentry>
+<dt>X'21'</dt>
+<dd>Imported from cleartext</dd>
+</dlentry>
+<dlentry>
+<dt>X'22'</dt>
+<dd>Imported from ciphertext</dd>
+</dlentry>
+<dlentry>
+<dt>X'24'</dt>
+<dd>Randomly generated</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>Length of prime <synph><var>p</var></synph> in bits. See <xref
+href="#l0wskc02_ecckt/specurve"/> and <xref href="#l0wskc02_ecckt/sbecc"/>. <dl compact="yes">
+<dlentry>
+<dt><ph>X'00A0'</ph></dt>
+<dd>160 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00C0'</ph></dt>
+<dd>192 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00E0'</ph></dt>
+<dd>224 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'00FF'</dt>
+<dd>Edwards 25519</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0100'</ph></dt>
+<dd rev="sh21i1">256 (Brainpool, Prime, Koblitz)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0140'</ph></dt>
+<dd>320 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0180'</ph></dt>
+<dd>384 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt>X'01C0'</dt>
+<dd>Edwards 448</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0200'</ph></dt>
+<dd>512 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0209'</ph></dt>
+<dd>521 (Prime)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>002</entry>
+<entry>Length in bytes of <tm trademark="IBM" tmtype="reg">IBM</tm> associated data, 
+<ph rev="sh21i1">0 or iadl = 16 + pknl + ieadl.</ph></entry>
+</row>
+<row>
+<entry>016</entry>
+<entry>008</entry>
+<entry>Key verification pattern. <p>External key-token <ul compact="yes">
+<li>For an encrypted private key, KEK verification pattern (KVP)</li>
+<li>For a clear private key, binary zeros</li>
+<li>For a skeleton, binary zeros</li>
+</ul></p>
+<p>Internal key-token <ul compact="yes">
+<li>For encrypted private key, master-key verification pattern (MKVP)</li>
+<li>For a skeleton, binary zeros</li>
+</ul></p></entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>048</entry>
+<entry>Object Protection Key (OPK). <p>External key-token: Reserved, binary zero.</p><p>Internal key
+token:</p><p>OPK data consists of an 8-byte integrity check value (ICV) and length indicators, an
+8-byte confounder, and a 256-bit AES key used with the AESKW algorithm to encrypt the ECC private
+key contained in an AESKW formatted section.</p><note>The OPK is encrypted by the APKA master key
+using AESKW (ANS X9.102). The OPK has no associated data.</note></entry>
+</row>
+<row>
+<entry>072</entry>
+<entry>002</entry>
+<entry>Length in bytes of associated data,<ph rev="sh21i1"> 0 or <i>asdl = iadl + uadl</i></ph>.</entry>
+</row>
+<row>
+<entry>074</entry>
+<entry>002</entry>
+<entry>Length in bytes of formatted section, <ph rev="sh21i1">or
+<synph><var>bb</var></synph></ph>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Associated data section</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Start of <tm trademark="IBM" tmtype="reg">IBM</tm> associated
+data</entry>
+</row>
+<row>
+<entry>076</entry>
+<entry>001</entry>
+<entry>Associated data section version number. <p>Includes <tm trademark="IBM" tmtype="reg">IBM</tm>
+associated data and user-definable associated data.</p>
+<dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Legacy associated data section version. Only defined for section version number X'00' (see
+offset 001).</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Latest associated data section version. Only defined for section version number X'01' (see
+offset 001).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>077</entry>
+<entry>001</entry>
+<entry>Length in bytes of the key label: <synph><var>kl</var></synph> (0 - 64).</entry>
+</row>
+<row>
+<entry>078</entry>
+<entry>002</entry>
+<entry>Length in bytes of the <tm trademark="IBM" tmtype="reg">IBM</tm> associated data (AD),
+including key label and <tm trademark="IBM" tmtype="reg">IBM</tm> extended associated data. <lines>
+<b>AD data section version number (see offset 076)</b>
+</lines>
+<dl>
+<dlhead>
+<dthd/>
+<ddhd>Length of AD</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd>≥ 16</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>≥ 52</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>080</entry>
+<entry>002</entry>
+<entry>Length in bytes of the <tm trademark="IBM" tmtype="reg">IBM</tm> extended associated data:
+<term>iead</term>. <lines>
+<b>AD data section version number (see offset 076)</b>
+</lines>
+<dl>
+<dlhead>
+<dthd/>
+<ddhd>Length of AD</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'00'</dt>
+<dd><term>iead</term> = 0</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd><term>iead</term> = 36</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>082</entry>
+<entry>001</entry>
+<entry>Length in bytes of the user-definable associated data: <synph><var>uad</var></synph> (0 -
+100).</entry>
+</row>
+<row>
+<entry>083</entry>
+<entry>001</entry>
+<entry>Curve type (see offset 009).</entry>
+</row>
+<row>
+<entry>084</entry>
+<entry>002</entry>
+<entry>Length of <synph><var>p</var></synph> in bits (see offset 012).</entry>
+</row>
+<row>
+<entry>086</entry>
+<entry>001</entry>
+<entry>Key-usage flag (see offset 008).</entry>
+</row>
+<row>
+<entry>087</entry>
+<entry>001</entry>
+<entry>Key format and security flag (see offset 010).</entry>
+</row>
+<row>
+<entry>088</entry>
+<entry>001</entry>
+<entry>
+<lines>
+AD section version number X'00' (see offset 001):
+Reserved, binary zero
+</lines>
+<lines>
+AD section version number X'01' (see offset 001):
+Pedigree/Key source flag byte (see offset 011)
+</lines>
+</entry>
+</row>
+<row>
+<entry>089</entry>
+<entry>003</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>092</entry>
+<entry><synph><var>kl</var></synph></entry>
+<entry>Optional key label. <ph rev="sh21i1">Private key name (in ASCII), left-justified, padded with space
+characters (X'20').</ph></entry>
+</row>
+<row>
+<entry>092 + <synph><var>kl</var></synph></entry>
+<entry><synph><var>iead</var></synph></entry>
+<entry>Optional <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> extended
+associated data. For AD section version number X'01' (see offset 076): <p>Consists of a single
+section hash tag-length-value (TLV) object with TLV tag identifier X'60'. Refer to <xref
+href="#l0wskc02_ecckt/ecchashtlv" format="dita"/>.</p><note>A section hash TLV object cannot be
+present in section version number X'00', and will always be present in section version number of
+X'01'. When present, it contains the SHA-256 hash digest of all the optional sections that follow
+the public key section, if any. Otherwise, it contains binary zeros. </note>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">End of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> associated data</entry>
+</row>
+<row>
+<entry>092 + <synph><var>kl</var></synph> + <synph><var>iead</var></synph></entry>
+<entry><synph><var>uad</var></synph></entry>
+<entry>Optional user-definable associated data.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">End of associated data section</entry>
+</row>
+<row>
+<entry>092 + <synph><var>kl</var></synph> + <synph><var>iead</var></synph> +
+<synph><var>uad</var></synph></entry>
+<entry><synph><var>bb</var></synph></entry>
+<entry>Formatted section (payload), which includes private key <synph><var>d</var></synph>: <ul
+compact="yes">
+<li>Clear-key section contains <synph><var>d</var></synph>.</li>
+<li>Encrypted-key section contains <synph><var>d</var></synph> within the AESKW-wrapped
+payload.</li>
+</ul></entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="ecchashtlv" pgwide="1" frame="all"><title>ECC section hash TLV object (X'60') of Version
+1</title><desc>
+<p outputclass="summary">ECC section hash TLV object (X'60') of Version 1 ECC private-key section
+(X'20')</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Tag identifier: <dl>
+<dlentry>
+<dt><b>X'60'</b></dt>
+<dd>ECC section hash TLV object</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>TLV object version number (X'00').</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>TLV object length in bytes (X'0024').</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>032</entry>
+<entry>SHA-256 hash of all the optional sections that follow the public-key section, if any.
+Otherwise binary zeros.<note>A section hash TLV object will always be present in a PKA key token
+that has an ECC private key section (X'20') with a section version number of X'01'.</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="eccpubksec" pgwide="1" frame="all"><title>ECC public key section (X'21')</title><desc>
+<p outputclass="summary">ECC public key section (X'21')</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="37*"/>
+<colspec colname="col2" colwidth="42*"/>
+<colspec colname="col3" colwidth="215*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>ECC public key (ECC-PUBL)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>001</entry>
+<entry>Curve type: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Prime curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>Brainpool curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>Edwards curve</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt><ph>X'03'</ph></dt>
+<dd>Koblitz curve</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>009</entry>
+<entry>001</entry>
+<entry>Reserved, binary zero</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>Length of prime <synph><var>p</var></synph> in bits. See <xref
+href="#l0wskc02_ecckt/specurve"/> and <xref href="#l0wskc02_ecckt/sbecc"/>. <dl compact="yes">
+<dlentry>
+<dt><ph>X'00A0'</ph></dt>
+<dd>160 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00C0'</ph></dt>
+<dd>192 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00E0'</ph></dt>
+<dd>224 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00FF'</ph></dt>
+<dd>Edwards 25519</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0100'</ph></dt>
+<dd>256 (Brainpool, Prime, <ph rev="sh21i1">Koblitz</ph>)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0140'</ph></dt>
+<dd>320 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0180'</ph></dt>
+<dd>384 (Brainpool, Prime)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01C0'</ph></dt>
+<dd>Edwards 448</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0200'</ph></dt>
+<dd>512 (Brainpool)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0209'</ph></dt>
+<dd>521 (Prime)</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>Length of public key <synph><var>q</var></synph> in bytes. Value includes key material length
+plus a one-byte flag to indicate if the key material is compressed. <p>For Prime and Brainpool
+curves, the value includes the key material length plus a one byte flag to indicate if the key
+material is compressed or uncompressed. For Edwards curves, the value is in little endian
+format.</p>
+</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry><synph><var>cc</var></synph></entry>
+<entry>Public key <synph><var>q</var></synph>.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="eccpubx23" pgwide="1" frame="all"><title>ECC key-derivation information section
+(X'23')</title><desc>
+<p outputclass="summary">ECC key-derivation information section (X'23')</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="20*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt>X'23'</dt>
+<dd>ECC key-derivation information</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (X'00')</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes (8)</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>001</entry>
+<entry>Algorithm of key to be derived: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Algorithm</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>DES</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>AES</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>005</entry>
+<entry>001</entry>
+<entry>Type of key to be derived: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'01'</dt>
+<dd>DATA</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>EXPORTER</dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>IMPORTER</dd>
+</dlentry>
+<dlentry>
+<dt>X'04'</dt>
+<dd>CIPHER</dd>
+</dlentry>
+<dlentry>
+<dt>X'05'</dt>
+<dd>DECIPHER</dd>
+</dlentry>
+<dlentry>
+<dt>X'06'</dt>
+<dd>ENCIPHER</dd>
+</dlentry>
+<dlentry>
+<dt>X'07'</dt>
+<dd>CIPHERXI</dd>
+</dlentry>
+<dlentry>
+<dt>X'08'</dt>
+<dd>CIPHERXL</dd>
+</dlentry>
+<dlentry>
+<dt>X'09'</dt>
+<dd>CIPHERXO</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Key-bit length: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>X'0040' (64)</dt>
+<dd>DES</dd>
+</dlentry>
+<dlentry>
+<dt>X'000' (128)</dt>
+<dd>AES, DES</dd>
+</dlentry>
+<dlentry>
+<dt>X'00C0' (192)</dt>
+<dd>AES</dd>
+</dlentry>
+<dlentry>
+<dt>X'0100' (256)</dt>
+<dd>AES</dd>
+</dlentry>
+</dl>
+<note>Bit length of DES keys includes parity bits.</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</refbody></reference>

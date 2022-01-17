@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syirequired2">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb requires the
+following commands to be enabled in the active role: </p>
+<table pgwide="1" frame="all">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="12*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="5*"/>
+<colspec colname="col4" colwidth="12*"/>
+<thead>
+<row>
+<entry>Key-formatting method keyword</entry>
+<entry>Token algorithm keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AESKW</kwd></synph> (Rel. 4.2 or later)</entry>
+<entry><synph><kwd>AES</kwd></synph> or <synph><kwd>HMAC</kwd></synph></entry>
+<entry><ph>X'0329'</ph></entry>
+<entry rev="shr2"><cmdname>Symmetric Key Import2 - AESKW</cmdname></entry>
+</row>
+<row rev="shr2">
+<entry><synph><kwd>AESKWCV</kwd></synph> (Release 4.4 or later)</entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'02B4'</ph></entry>
+<entry><cmdname>Symmetric Key Import2 - AESKWCV</cmdname></entry>
+</row>
+<row rev="shr2">
+<entry><synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph>, when the default
+key-wrapping method setting does not match the keyword</entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>X'02B9'</entry>
+<entry><cmdname>Symmetric Key Import2 - Allow wrapping override keywords</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKOAEP2</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph> (Rel. 4.2 or later)</entry>
+<entry><ph>X'00FD'</ph></entry>
+<entry><cmdname>Symmetric Key Import2 - AES,PKOAEP2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKOAEP2</kwd></synph></entry>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry><ph>X'00F4'</ph></entry>
+<entry><cmdname>Symmetric Key Import2 - HMAC,PKOAEP2</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section>
+<p rev="shr2">To disallow the import of a key wrapped with a weaker transport key, the
+<cmdname>Symmetric Key Import2 - disallow weak import</cmdname> command (offset X'032B') must be
+enabled in the active role.  This command affects multiple verbs. See <xref
+href="wskc_r_apn.dita#l0wskc02_apn"/>.</p><p rev="shr2">To receive a warning against the wrapping of a stronger key with a weaker key, the
+<cmdname>Warn when weak wrap - Transport keys</cmdname> command (offset <ph>X'032C'</ph>) must be
+enabled in the active role. The <cmdname>Symmetric Key Import2 - disallow weak import</cmdname>
+command overrides this command.</p>
+<p rev="shr2">To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak wrapping -
+Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p rev="shr2">To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</p>
+</section>
+</refbody></reference>

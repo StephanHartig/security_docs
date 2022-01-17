@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="ccajni_top">
+<title>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI</title>
+  <titlealts>
+    <navtitle>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+JNI</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>: Using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+  </titlealts><shortdesc>You can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> native
+interface (JNI) to work with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI</indexterm>
+<indexterm>JNI</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> native
+interface</indexterm>
+      </keywords>
+</metadata>
+</prolog>
+<conbody>
+</conbody></concept>

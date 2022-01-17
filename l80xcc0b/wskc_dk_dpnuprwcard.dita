@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdpnuprwcard" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> verb to
+    generate a PIN reference value (PRW) when a replacement card is being issued. The original
+    primary account number (PAN) and PIN are used with new time-sensitive card data to generate the
+    new PRW.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+<p>You can use this service to perform the following tasks:</p>
+<ul>
+<li>Generate a PRW that can be used to verify the PIN.</li>
+<li>Optionally, generate an encrypted PIN block in PBF-1 format to be stored for later use in
+personalizing replacement cards.</li>
+</ul>
+<note rev="sh20i1" othertype="Notes" type="other">
+<ul>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+<li rev="sh20i1">This verb has been deprecated. New applications should use <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/> instead of this verb. See <xref
+href="wskc_dk_dpnuprwcard2.dita"/>. </li>
+</ul>
+</note>
+</section>
+  </refbody>
+</reference>

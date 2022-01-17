@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_coexist" xml:lang="en-us">
+<title rev="sh20i2">Coexistence of <ph rev="sh20i2">CEX7C</ph> and previous <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features</title>
+<titlealts>
+<navtitle>CEX*C feature coexistence</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Coexistence of CEX7C and previous
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features</searchtitle>
+</titlealts>
+<shortdesc rev="sh20i2">While CEX7C is only supported on processors starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibmz15"/>, and CEX6S and CEX5S coprocessors are
+supported on processors starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<ph conref="lxcommon.dita#phrases/ph_z14"/>, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.1 RPM is also useful on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/> and other legacy systems. The
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.1 RPM specifically adds support
+for the new <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/><ph rev="sh20i2"> 5.6
+firmware on <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.4 firmware on <ph
+conref="lxcommon.dita#phrases/ph_z14"/></ph>. This information unit discusses co-existence
+considerations for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.1
+RPM.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>coexistence<indexterm>of CEX*C features</indexterm></indexterm>
+<indexterm>feature coexistence</indexterm>
+<indexterm>CEX*C feature coexistence</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<ul>
+<li>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh20i2">7.1 to update existing 6.*</ph> installations or to install it to a fresh client.
+Running <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh20i2">7.1</ph> in parallel with a prior <ph rev="sh20i2">6.*</ph> RPM is not
+supported.</li>
+<li>The latest <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM supersedes and
+replaces earlier RPMs if installed in the default manner. It is not recommended to manually alter
+the installation in order to run newer versions of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPMs in parallel with older versions. This
+configuration is not supported.</li>
+<?Pub Caret 98?>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000002272?>

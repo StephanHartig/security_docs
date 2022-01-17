@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syirequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb requires the following commands to be enabled in the active role based on the
+key-formatting method and the algorithm: </p>
+<table pgwide="1">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="29*"/>
+<colspec colname="col2" colwidth="13*"/>
+<colspec colname="col3" colwidth="10*"/>
+<colspec colname="col4" colwidth="68*"/>
+<thead>
+<row>
+<entry>Key-formatting method</entry>
+<entry>Algorithm</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>PKA92</kwd></synph> and DATA, MAC, MACVER, KEYGENKY, EXPORTER, or OKEYXLAT
+key</entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'0235'</ph></entry>
+<entry><cmdname>Symmetric Key Import - DES, PKA92 KEK</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph> or <synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry>
+<lines><synph><kwd>AES</kwd></synph>
+<synph><kwd>DES</kwd></synph></lines>
+</entry>
+<entry>
+<lines><ph>X'012E'</ph>
+<ph>X'0106'</ph></lines>
+</entry>
+<entry>
+<lines><cmdname>Symmetric Key Import - AES, PKCSOAEP, PKCS-1.2
+Symmetric Key Import - DES, PKCS-1.2</cmdname></lines>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry>
+<lines><synph><kwd>AES</kwd></synph>
+<synph><kwd>DES</kwd></synph></lines>
+</entry>
+<entry>
+<lines><ph>X'012F'</ph>
+<ph>X'023D'</ph></lines>
+</entry>
+<entry>
+<lines><cmdname>Symmetric Key Import - AES, ZERO-PAD
+Symmetric Key Import - DES, ZERO-PAD</cmdname></lines>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph>, when the default
+key-wrapping method setting does not match the keyword</entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>X'0144'</entry>
+<entry><cmdname>Symmetric Key Import - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following access control points control the use of weak transport keys: </p>
+<ul>
+<li>To disallow the import of a key wrapped with a weaker transport key, the <cmdname>Symmetric Key
+Import2 - disallow weak import</cmdname> command (offset X'032B') must be enabled in the active
+role.</li>
+<li>To disable the wrapping of a key with a weaker transport key, the <cmdname>Prohibit weak
+wrapping - Transport keys</cmdname> command (offset X'0328') must be enabled in the active
+role.</li>
+<li>To receive an informational message when wrapping a key with a weaker key-encrypting key, enable
+the <cmdname>Warn when weak wrap - Transport keys</cmdname> command (offset X'032C') in the active
+role. The <cmdname>Prohibit weak wrapping - Transport keys</cmdname> command overrides this
+command.</li>
+</ul>
+<p>The following access control points control the use of weak master keys: </p>
+<ul>
+<li>To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak wrapping -
+Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</li>
+<li>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</li>
+</ul>
+</section>
+</refbody></reference>

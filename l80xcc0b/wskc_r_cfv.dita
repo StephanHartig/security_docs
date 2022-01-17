@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfv">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> verb is used to retrieve information about the Security
+Application Program Interface (SAPI) Version and the Security Application
+Program Interface build date. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</indexterm></indexterm>
+<indexterm>STATCCA</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>In the same format as the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>) verb returns for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application with the STATCCA
+<parmname>rule_array</parmname> option.</p>
+<p>This verb returns information elements in the <parmname>version_data</parmname> variable.</p></section>
+</refbody></reference>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_csvparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/></indexterm></indexterm>
+<indexterm>PAN-13</indexterm>
+<indexterm>PAN-14</indexterm>
+<indexterm>PAN-15</indexterm>
+<indexterm>PAN-16</indexterm>
+<indexterm>PAN-17</indexterm>
+<indexterm>PAN-18</indexterm>
+<indexterm>PAN-19</indexterm>
+<indexterm>CVV-1</indexterm>
+<indexterm>CVV-2</indexterm>
+<indexterm>CVV-3</indexterm>
+<indexterm>CVV-4</indexterm>
+<indexterm>CVV-5</indexterm>
+<indexterm>PAN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>expiration_date parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>service_code parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>CVV_key_A_Identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>CVV_key_B_Identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+<indexterm>CVV_value parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. Each keyword is left-aligned
+in 8-byte fields and padded on the right with blanks. All keywords must be in contiguous storage.
+The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_csvparameters/l0wskc02_csv_tab1"/>. <table id="l0wskc02_csv_tab1" pgwide="0"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row>
+<entry valign="top" align="left">Keyword</entry>
+<entry valign="top" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>PAN data length</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-13</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 13 bytes. <b>PAN-13 is
+the default value.</b></entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-14</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 14 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-15</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 15 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-16</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 16 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-17</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 17 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-18</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 18 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PAN-19</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the length of the PAN data is 19 bytes.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>CVV length</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVV-1</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the CVV is to be computed as one byte, followed by
+four blanks. <b>CVV-1 is the default value.</b></entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVV-2</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the CVV is to be computed as two bytes, followed by
+three blanks.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVV-3</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the CVV is to be computed as three bytes, followed
+by two blanks.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVV-4</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the CVV is to be computed as four bytes, followed by
+one blank.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVV-5</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that the CVV is to be computed as five bytes.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>PAN_data</var></synph> parameter specifies an address that points to the
+place in application data storage that contains personal account number (PAN) information in
+character form. The PAN is the account number as defined for the track-2 magnetic-stripe standards.
+If the <b>PAN-<synph><var>nn</var></synph></b> keyword is specified in the <i>rule_array</i>, where
+<synph><var>nn</var></synph> is a value between 13 and 19, then <synph><var>nn</var></synph> number
+of characters are processed.<p>If you specify the <b>PAN-<synph><var>nn</var></synph></b> keyword in
+the <i>rule_array</i> where <synph><var>nn</var></synph> is less than 16, the server might copy 16
+bytes to a work area. Therefore, ensure that the <ph>verb</ph> can address 16 bytes of
+storage.</p></pd></plentry>
+<plentry><pt>expiration_date</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>expiration_date</var></synph> parameter specifies an address that points to
+the place in application data storage that contains the card expiration date in numeric character
+form in a 4-byte field. The application programmer must determine whether the CVV will be calculated
+with the date form of YYMM or MMYY.</pd></plentry>
+<plentry><pt>service_code</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>service_code</var></synph> parameter specifies an address that points to the
+place in application data storage that contains the service code in numeric character form in a
+3-byte field. The service code is the number that the track-2 magnetic-stripe standards define.
+<ph>The service code of <ph>X'000'</ph> is supported.</ph></pd></plentry>
+<plentry><pt>CVV_key_A_Identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string that is the internal key token containing a single or double-length
+<synph><kwd>DATA</kwd></synph> or <synph><kwd>MAC</kwd></synph> key, or the label of a key storage
+record containing a single or double-length <synph><kwd>DATA</kwd></synph> or
+<synph><kwd>MAC</kwd></synph> key.<p>When this key is a double-length key,
+<synph><var>CVV_key_B_Identifier</var></synph> must be 64 byte of binary zero. When a double-length
+<synph><kwd>MAC</kwd></synph> key is used, the CV bits 0 - 3 must indicate a CVVKEY-A key
+(<ph>B'0010'</ph>).</p><p>A single-length key contains the key-A key that encrypts information in
+the CVV process. The left half of a double-length key contains the key-A key that encrypts
+information in the CVV process and the right half contains the key-B key that decrypts
+information.</p></pd></plentry>
+<plentry><pt>CVV_key_B_Identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a 64-byte internal key token or a key label of a single-length
+<synph><kwd>DATA</kwd></synph> or <synph><kwd>MAC</kwd></synph> key that decrypts information in the
+CCV process. The internal key token contains the Key-B key that decrypts information in the CVV
+process.<p>When <synph><var>CVV_key_A_Identifier</var></synph> is a double-length key, this
+parameter must be 64 byte of binary zero.</p></pd></plentry>
+<plentry><pt>CVV_value</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>CVV_value</var></synph> parameter specifies an address that contains the CVV
+value which will be compared to the computed CVV value. This is a 5-byte field.</pd></plentry>
+</parml></section>
+</refbody></reference>

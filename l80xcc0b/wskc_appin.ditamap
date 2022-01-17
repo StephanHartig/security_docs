@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Financial services</title><topicref href="wskc_c_appin.dita">
+
+<topicref href="wskc_c_chp8howpinused.dita">
+</topicref>
+<topicref href="wskc_c_usecvv.dita"></topicref>
+<topicref href="wskc_c_chp8trandatpinnet.dita"></topicref>
+<topicref href="wskc_c_wemcvsc.dita"></topicref>
+<topicref href="wskc_c_chp8pincalserv.dita">
+<topicref href="wskc_c_chp8genpin.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8encpin.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8genpinval.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8verpin.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8tranpin.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8alggenverpin.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8usepindefsys.dita" toc="no"></topicref>
+<topicref href="wskc_c_chp8pinenckey.dita" toc="no"/></topicref>
+<topicref href="wskc_c_x98_rest.dita">
+<topicref href="wskc_c_x98_enf.dita" toc="no"></topicref>
+<topicref href="wskc_c_x98_allow.dita" toc="no"></topicref>
+<topicref href="wskc_c_x98_allow_only.dita" toc="no"></topicref>
+<topicref href="wskc_c_x98_usdto.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_c_pinppp.dita">
+<topicref href="wskc_c_pbf.dita" toc="no"/>
+<topicref href="wskc_c_fc.dita" toc="no"></topicref>
+<topicref href="wskc_c_pd.dita" toc="no"/>
+<topicref href="wskc_c_cksn.dita" toc="no"></topicref>
+<topicref href="wskc_c_dectab.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_vfpe_concept.dita"/>
+<topicref href="wskc_apg.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Authentication Parameter Generate (CSNBAPG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_apgformat.dita" toc="no"/>
+<topicref href="wskc_apgparameters.dita" toc="no"/>
+<topicref href="wskc_apgrestrictions.dita" toc="no"/>
+<topicref href="wskc_apgrequired.dita" toc="no"/>
+<topicref href="wskc_apgusage.dita" toc="no"/>
+<topicref href="wskc_apgjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_cpe.dita">
+<topicmeta>
+<retrievalKeys><retkey>Clear PIN Encrypt (CSNBCPE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_cpeformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_cpeparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_cperestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_cperequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_cpeusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc66.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_pgn.dita">
+<topicmeta>
+<retrievalKeys><retkey>Clear PIN Generate (CSNBPGN)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pgnformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pgnparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pgnrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pgnrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pgnusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_pgnrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc207.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_cpa.dita">
+<topicmeta>
+<retrievalKeys><retkey>Clear PIN Generate Alternate (CSNBCPA)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_cpaformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_cpaparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_cparestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_cparequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_cpausage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc65.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_csg.dita"><topicmeta>
+<retrievalKeys><retkey>CVV Generate (CSNBCSG)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_csgformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_csgparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_csgrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_csgrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_csgusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc69.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_vbspckcombine.dita">
+<topicmeta>
+<retrievalKeys><retkey>CVV Key Combine (CSNBCKC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc70.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc71.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc72.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc73.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc74.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_csv.dita">
+<topicmeta>
+<retrievalKeys><retkey>CVV Verify (CSNBCSV)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_csvformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_csvparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc75.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc76.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc77.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc78.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_epg1.dita">
+<topicmeta>
+<retrievalKeys><retkey>Encrypted PIN Generate (CSNBEPG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_epg1format.dita" toc="no"></topicref>
+<topicref href="wskc_r_epg1parameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_epg1restrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_epg1required.dita" toc="no"></topicref>
+<topicref href="wskc_r_epg1usage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc109.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_ptr.dita">
+<topicmeta>
+<retrievalKeys><retkey>Encrypted PIN Translate (CSNBPTR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ptrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_ptrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_ptrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc242.dita" toc="no"></topicref>
+<topicref href="wskc_r_ptrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc243.dita" toc="no"></topicref>
+</topicref>
+
+<topicref href="wskc_ptr2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Encrypted PIN Translate2 (CSNBPTR2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ptr2_format.dita" toc="no"></topicref>
+<topicref href="wskc_ptr2_parameters.dita" toc="no"></topicref>
+<topicref href="wskc_ptr2_restrictions.dita" toc="no"/>
+<topicref href="wskc_ptr2_required.dita" toc="no"/>
+<topicref href="wskc_ptr2_usage.dita" toc="no"></topicref>
+<topicref href="wskc_ptr2_jniv.dita" toc="no"></topicref>
+</topicref>
+
+<topicref href="wskc_ptre.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Encrypted PIN Translate Enhanced (CSNBPTRE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ptreformat.dita" toc="no"/>
+<topicref href="wskc_ptreparameters.dita" toc="no"/>
+<topicref href="wskc_ptrerestrictions.dita" toc="no"/>
+<topicref href="wskc_ptrerequired.dita" toc="no"/>
+<topicref href="wskc_ptreusage.dita" toc="no"/>
+<topicref href="wskc_ptrejniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_pvr.dita">
+<topicmeta>
+<retrievalKeys><retkey>Encrypted PIN Verify (CSNBPVR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pvrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pvrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pvrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pvrrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pvrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_pvrrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc244.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_fped.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Decipher (CSNBFPED)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_fpedformat.dita" toc="no"/>
+<topicref href="wskc_fpedparameters.dita" toc="no"/>
+<topicref href="wskc_fpedrestrictions.dita" toc="no"/>
+<topicref href="wskc_fpedrequired.dita" toc="no"/>
+<topicref href="wskc_fpedusage.dita" toc="no"/>
+<topicref href="wskc_fpedjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_fpee.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Encipher (CSNBFPEE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_fpeeformat.dita" toc="no"/>
+<topicref href="wskc_fpeeparameters.dita" toc="no"/>
+<topicref href="wskc_fpeerestrictions.dita" toc="no"/>
+<topicref href="wskc_fpeerequired.dita" toc="no"/>
+<topicref href="wskc_fpeeusage.dita" toc="no"/>
+<topicref href="wskc_fpeejniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_fpet.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Translate (CSNBFPET)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_fpetformat.dita" toc="no"/>
+<topicref href="wskc_fpetparameters.dita" toc="no"/>
+<topicref href="wskc_fpetrestrictions.dita" toc="no"/>
+<topicref href="wskc_fpetrequired.dita" toc="no"/>
+<topicref href="wskc_fpetusage.dita" toc="no"/>
+<topicref href="wskc_fpetjniv.dita" toc="no"/>
+</topicref>
+
+
+<topicref href="wskc_ffxd.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Algorithms Decipher (CSNBFFXD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ffxd_format.dita" toc="no"/>
+<topicref href="wskc_ffxd_parameters.dita" toc="no"/>
+<topicref href="wskc_ffxd_restrictions.dita" toc="no"/>
+<topicref href="wskc_ffxd_required.dita" toc="no"/>
+<topicref href="wskc_ffxd_usage.dita" toc="no"/>
+<topicref href="wskc_ffxd_jniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_ffxe.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Algorithms Encipher (CSNBFFXE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ffxe_format.dita" toc="no"/>
+<topicref href="wskc_ffxe_parameters.dita" toc="no"/>
+<topicref href="wskc_ffxe_restrictions.dita" toc="no"/>
+<topicref href="wskc_ffxe_required.dita" toc="no"/>
+<topicref href="wskc_ffxe_usage.dita" toc="no"/>
+<topicref href="wskc_ffxe_jniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_ffxt.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>FPE Algorithms Decipher (CSNBFFXT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ffxt_format.dita" toc="no"/>
+<topicref href="wskc_ffxt_parameters.dita" toc="no"/>
+<topicref href="wskc_ffxt_restrictions.dita" toc="no"/>
+<topicref href="wskc_ffxt_required.dita" toc="no"/>
+<topicref href="wskc_ffxt_usage.dita" toc="no"/>
+<topicref href="wskc_ffxt_jniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_pcu.dita">
+<topicmeta>
+<retrievalKeys><retkey>PIN Change/Unblock (CSNBPCU)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_pcuformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_pcuparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_pcurestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_pcurequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_pcuusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc186.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_bpfo.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Recover PIN From Offset (CSNBPFO)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_bpfoformat.dita" toc="no"/>
+<topicref href="wskc_bpfoparameters.dita" toc="no"/>
+<topicref href="wskc_bpforestrictions.dita" toc="no"/>
+<topicref href="wskc_bpforequired.dita" toc="no"/>
+<topicref href="wskc_bpfousage.dita" toc="no"/>
+<topicref href="wskc_bpfojniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_sky.dita">
+<topicmeta>
+<retrievalKeys><retkey>Secure Messaging for Keys (CSNBSKY)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_skyformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_skyparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_skyrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_skyrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_skyusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc274.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_spn.dita">
+<topicmeta>
+<retrievalKeys><retkey>Secure Messaging for PINs (CSNBSPN)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_spnformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_spnparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_spnrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_spnrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_spnusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc275.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_trv.dita">
+<topicmeta>
+<retrievalKeys><retkey>Transaction Validation (CSNBTRV)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_trvformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_trvparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_trvrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_trvrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_trvusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc299.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

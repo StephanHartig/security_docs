@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="oc_trace" xml:lang="en-us" rev="sh18i1">
+<title>Tracing in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></title>
+<titlealts>
+<navtitle>Tracing in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/></navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Tracing in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></searchtitle>
+<?Pub Caret 43?>
+</titlealts>
+<shortdesc>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.3,
+tracing was introduced. There is no longer a need to compile <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> 
+with debug enabled via <codeph>configure --enable-debug</codeph> to debug problems.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>tracing in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/><indexterm>tracing</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>Trace messages are enabled via the environment variable,
+<codeph>OPENCRYPTOKI_TRACE_LEVEL=&lt;level&gt;</codeph>. All trace output is logged into a
+<filepath>trace.&lt;pid></filepath> file in the <filepath>/var/log/opencryptoki</filepath>
+directory. A trace file is created per process.</p>
+<p>Set the <codeph>OPENCRYPTOKI_TRACE_LEVEL</codeph> environment variable to one of the available
+levels:</p>
+<dl>
+<dlentry>
+<dt>0</dt>
+<dd>None. No messages are locked.</dd>
+</dlentry>
+<dlentry>
+<dt>1</dt>
+<dd>ERROR: log error messages </dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>WARNING: log warning messages</dd>
+</dlentry>
+<dlentry>
+<dt>3</dt>
+<dd>INFO: log informational messages</dd>
+</dlentry>
+<dlentry>
+<dt>4</dt>
+<dd>DEVELOPEMENT: log development debug messages; these messages may help debug
+while developing pkcs#11 applications.</dd>
+</dlentry>
+<dlentry>
+<dt>5</dt>
+<dd>DEBUG: debug messages that are useful to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> developers. This level must be enabled
+via the <codeph>configure --enable-debug</codeph> option in the configure script.</dd>
+</dlentry>
+</dl>
+<p>Trace level 4 includes all the messages from trace levels 1, 2 and 3.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002478?>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc71">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</indexterm></indexterm>
+<indexterm>key_A_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</indexterm></indexterm>
+<indexterm>key_B_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<synph><var>rule_array</var></synph> variable. The value must be 0, 1, or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords are: <table pgwide="1" frame="all"><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> control information</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Keyword</entry>
+<entry valign="top">Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><i>Key wrapping method</i> (one, optional)</entry>
+</row>
+<row>
+<entry><b>USECONFG</b></entry>
+<entry>This is the default. Specifies to wrap the key using the configuration setting for the
+default wrapping method. The default wrapping method configuration setting may be changed using the
+TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method.</entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Translation control </i> (optional). This is valid only with
+wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with <b>USECONFG</b> when the default wrapping
+method is <b>WRAP-ENH</b>. This option cannot be used on a key with a control vector valued to
+binary zeros.</entry>
+</row>
+<row>
+<entry><b>ENH-ONLY</b></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy wrapping method after it has
+been wrapped with the enhanced wrapping method. Sets bit 56 (ENH-ONLY) of the control vector to
+<ph>B'1'</ph>.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>WRAPENH3</b></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and SHA-256. This
+option sets the CV bit 56 = B’1’ (ENH-ONLY), which is required for the WRAPENH3 wrapping
+method.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="cvv_wrapenh3_matrix" pgwide="0" rev="sh21i2"><title>WRAPENH3 Key-wrapping matrix for 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/></title><desc>
+<p outputclass="summary">WRAPENH3 Key-wrapping matrix for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>key-A or key-B is wrapped using WRAPENH3 method</entry>
+<entry>WRAPENH3 (by keyword or by default)</entry>
+<entry>Resulting form of output key or error</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>No</entry>
+<entry>No to both</entry>
+<entry>ECB wrapped</entry>
+</row>
+<row >
+<entry>Yes</entry>
+<entry>No to both</entry>
+<entry>Wrap type conflict, 8/2161 (X'871') because ECB wrapping is requested so overall wrapping is weakened.</entry>
+</row>
+<row>
+<entry>No</entry>
+<entry>Yes to both</entry>
+<entry>WRAPENH3, CV bit 56 = B'1' (required for WRAPENH3).</entry>
+</row>
+<row>
+<entry>Yes</entry>
+<entry>Yes to both</entry>
+<entry>WRAPENH3, CV bit 56 = B'1' (required for WRAPENH3).</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>There are restrictions on the available wrapping methods for the output key derived from
+the wrapping methods employed and control vector restrictions of the input keys. These are detailed
+in <xref href="#l0wskc71/cvv_key_comb_tab1"/>. </p><table id="cvv_key_comb_tab1" pgwide="0"
+><title>Key-wrapping matrix for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</title><desc>
+<p outputclass="summary">Key-wrapping matrix for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb</p>
+</desc><tgroup cols="5">
+<colspec colname="col1" colwidth="10*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="8*"/>
+<colspec colname="col4" colwidth="5*"/>
+<colspec colname="col5" colwidth="10*"/>
+<thead>
+<row>
+<entry>key-A or key-B wrapped using WRAP-ENH method</entry>
+<entry>key-A or key-B has ENH-ONLY bit on (CV bit 56 = <ph>B'1'</ph>)</entry>
+<entry>WRAP-ENH (by keyword or by default)</entry>
+<entry>ENH-ONLY keyword</entry>
+<entry>Resulting form of output key or error</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>No</entry>
+<entry>No</entry>
+<entry>No to both</entry>
+<entry>No</entry>
+<entry>ECB wrapped</entry>
+</row>
+<row>
+<entry>Yes</entry>
+<entry>No</entry>
+<entry>No to both</entry>
+<entry>No</entry>
+<entry>Wrap type conflict, 8/2161 (<ph>X'871'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1">No</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">No</entry>
+<entry colname="col5" morerows="1">WRAP-ENH, CV bit 56 = <ph>B'0'</ph> (NOT set)</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">No</entry>
+</row>
+<row>
+<entry colname="col1">No</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">Yes</entry>
+<entry colname="col5" morerows="3">WRAP-ENH, CV bit 56 = <ph>B'1'</ph> (IS set)</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">Yes</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">Yes</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">No</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">Yes</entry>
+<entry colname="col3">Yes to either</entry>
+<entry colname="col4">Yes</entry>
+</row>
+<row>
+<entry colname="col1">No</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">No to both</entry>
+<entry colname="col4">Yes</entry>
+<entry colname="col5" morerows="3">CV bit 56 conflict, 8/2111 (<ph>X'83F'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">No</entry>
+<entry colname="col3">No to both</entry>
+<entry colname="col4">Yes</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">Yes</entry>
+<entry colname="col3">No to both</entry>
+<entry colname="col4">No</entry>
+</row>
+<row>
+<entry colname="col1">Yes</entry>
+<entry colname="col2">Yes</entry>
+<entry colname="col3">No to both</entry>
+<entry colname="col4">Yes</entry>
+</row>
+</tbody>
+</tgroup></table></pd></plentry>
+<plentry><pt>key_A_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>key_A_identifier</var></synph> variable. This value must be 64.</pd></plentry>
+<plentry><pt>key_A_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing either the operational single-length DES key-token
+of the key-A key, or the label of such a key token. This key must be a MAC key or a DATA key that
+can perform MAC operations.</pd></plentry>
+<plentry><pt>key_B_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>key_B_identifier</var></synph> variable. This value must be 64.</pd></plentry>
+<plentry><pt>key_B_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing either the operational single-length DES key-token
+of the key-B key, or the label of such a key token. This key must be a <synph><kwd>MAC</kwd></synph>
+key or a <synph><kwd>DATA</kwd></synph> key that can perform MAC operations.</pd></plentry>
+<plentry><pt>output_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>output_key_identifier</var></synph> variable. This value must be 64.</pd></plentry>
+<plentry><pt>output_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a NULL key token, or the key label of a null DES
+key-token.</pd></plentry>
+</parml></section>
+</refbody></reference>

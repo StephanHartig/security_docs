@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept xml:lang="en-us" id="wskc_pci_hsm_intro">
+<title>Using verbs and applications in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></title>
+<titlealts>
+<navtitle>Using verbs and applications in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using verbs and applications in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Beginning with the Crypto Express6 adapter, when configured as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor, such a coprocessor is capable
+of running in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. In
+order for the requirements of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"
+/> to apply to a workload, the workload must be using compliant-tagged key tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>migrating applications</indexterm><indexterm>non-compliant
+verbs</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> places certain
+restrictions on the use of compliant-tagged key tokens. Thus, not all verbs can make use of such
+keys. <xref href="wskc_pci_hsm_keys.dita#wskc_pci_hsm_keys/t_pci_hsm_impact_supp"/> provides a list
+of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant verbs.</p>
+<p>Furthermore, you may want to migrate applications to work in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. This means, that you can adapt
+existing applications prior to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+release 6.0 that exploit verbs that are now <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant, to apply to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. For more information, see <xref
+href="wskc_pci_hsm_migrate.dita#wskc_pci_hsm_migrate"/>.</p>
+</conbody>
+</concept>
+<?Pub *0000002516?>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<!--SH: Acrolinx run on March 19, 2018-->
+<?Pub Sty _display FontColor="red"?>
+<concept id="understand_mkeys" xml:lang="en-us">
+<title>Understanding and managing master keys</title>
+<titlealts>
+<navtitle>Understanding master keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Understanding and managing master
+keys</searchtitle>
+</titlealts>
+<shortdesc>In a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node, AES, DES,
+APKA, and PKA master keys are used to wrap or unwrap working keys. These master keys are also used
+to wrap or unwrap the object protection keys (OPKs) of the working keys that have an OPK defined.
+These keys are used by the node and can appear outside of the cryptographic engine, and therefore
+need wrapping.</shortdesc>
+<?Pub Caret -1?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>master keys<indexterm>managing</indexterm></indexterm>
+<indexterm>object protection keys<indexterm>OPK</indexterm></indexterm>
+<indexterm>OPK<indexterm>object protection keys</indexterm></indexterm>
+<indexterm>wrap working keys</indexterm>
+<indexterm>unwrap working keys</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p> The ECC keys are wrapped by using 32-byte AES keys. The DES and RSA working keys are wrapped
+using Triple-DES encryption. DES working keys can be wrapped by a more secure method of Triple-DES
+by using CBC mode. This method is called the enhanced key-wrapping method. These methods of securing
+keys enable a node to operate on an unlimited number of working keys, without concern for storage
+space within the confines of the secured cryptographic engine.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> design supports a set of
+three master-key registers for each master key: new, current, and old. While a master key is being
+assembled, it is accumulated in the <term>new-master-key register</term>. Then the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb is used to transfer the contents
+of the <term>new-master-key register</term>  to the <term>current-master-key register</term>.</p>
+<p>Working keys are normally encrypted by their associated current master key. To facilitate
+continuous operations, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> also has an
+old-master-key register. When a new master key is transferred to the <term>current-master-key</term>
+register, the preexisting contents, if any, of the <term>current-master-key</term> register are
+transferred to the <term>old-master-key</term> register. Whenever a working key must be decrypted by
+the master key in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, the master key
+verification pattern information that is included in the key token is used to determine whether the
+current or the old master key must be used to recover the working key. Special status (return code
+0, reason code 10001) is returned if the old master key is used. Thus, application programs can
+arrange to update the working key  by encryption with the current master key (with the help of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verbs). Whenever a working key is
+encrypted for local use, the key or its OPK is wrapped with the current master key.</p>
+</conbody>
+</concept>
+<?Pub *0000010101?>

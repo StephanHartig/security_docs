@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_apmky" xml:lang="en-us">
+<title>Managing AES, DES, and HMAC  cryptographic keys</title>
+<titlealts>
+<navtitle>AES, DES, and HMAC cryptographic keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Managing AES, DES, and HMAC
+cryptographic keys</searchtitle>
+</titlealts>
+<shortdesc rev="sh16">A group of verbs that generate and maintain AES, DES, and HMAC cryptographic
+keys.</shortdesc><?Pub Caret 12?>
+<prolog><metadata>
+<keywords><indexterm>DES key<indexterm>managing</indexterm></indexterm>
+<indexterm>AES key<indexterm>managing</indexterm></indexterm>
+<indexterm>HMAC key<indexterm>managing</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Using <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, you can generate keys
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides a number of verbs to assist you in
+managing and distributing <ph>AES, DES, and HMAC</ph> keys, generating random numbers, and
+maintaining the key storage files.</p></section>
+<section otherprops="pdf">
+<p>The following verbs are described: </p>
+<ul>
+<li><xref href="wskc_r_cki.dita#l0wskc02_cki"/></li>
+<li><xref href="wskc_r_cvg1.dita#l0wskc02_cvg1"/></li>
+<li><xref href="wskc_r_cvxl.dita#l0wskc02_cvxl"/></li>
+<li><xref href="wskc_r_cvenc.dita#l0wskc02_cvenc"/></li>
+<li><xref href="wskc_r_dkx.dita#l0wskc02_dkx"/></li>
+<li><xref href="wskc_r_dkm.dita#l0wskc02_dkm"/></li>
+<li><xref href="wskc_r_dkg.dita#l0wskc02_dkg"/></li>
+<li><xref href="wskc_dkg2.dita#l0wskc02_dkg2"/></li>
+<li rev="sh20i1"><xref href="wskc_ddk.dita"/></li>
+<li><xref href="wskc_r_vbecdhvb.dita#vbecdhvb"/></li>
+<li><xref href="wskc_r_kex.dita#l0wskc02_kex"/></li>
+<li><xref href="wskc_r_kgn.dita#l0wskc02_kgn"/></li>
+<li><xref href="wskc_r_kgn2.dita#l0wskc02_kgn2"/></li>
+<li><xref href="wskc_r_kim.dita#l0wskc02_kim"/></li>
+<li><xref href="wskc_r_kpi.dita#l0wskc02_kpi"/></li>
+<li><xref href="wskc_r_kpi2.dita#l0wskc02_kpi2"/></li>
+<li><xref href="wskc_r_kyt.dita#l0wskc02_kyt"/></li>
+<li><xref href="wskc_r_kyt2.dita#l0wskc02_kyt2"/></li>
+<li><xref href="wskc_r_kyt_ext.dita#l0wskc02_kyt_ext"/></li>
+<li><xref href="wskc_r_ktb.dita#l0wskc02_ktb"/></li>
+<li><xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/></li>
+<li><xref href="wskc_r_bktc.dita#l0wskc02_bktc"/></li>
+<li><xref href="wskc_r_bktc2.dita#l0wskc02_bktc2"/></li>
+<li><xref href="wskc_r_ktp.dita#l0wskc02_ktp"/></li>
+<li><xref href="wskc_r_ktp2.dita#l0wskc02_ktp2"/></li>
+<li><xref href="wskc_r_ktr1.dita#l0wskc02_ktr1"/></li>
+<li><xref href="wskc_r_ktr2.dita#l0wskc02_ktr2"/></li>
+<li><xref href="wskc_r_ckm.dita#l0wskc02_ckm"/></li>
+<li><xref href="wskc_r_spkd.dita#l0wskc02_spkd"/></li>
+<li><xref href="wskc_r_spke.dita#l0wskc02_spke"/></li>
+<li><xref href="wskc_r_pee.dita#l0wskc02_pee"/></li>
+<li><xref href="wskc_r_peex.dita#l0wskc02_peex"/></li>
+<li><xref href="wskc_r_rkat.dita#l0wskc02_rkat"/></li>
+<li><xref href="wskc_r_rng.dita#l0wskc02_rng"/></li>
+<li><xref href="wskc_r_rngl.dita#l0wskc02_rngl"/></li>
+<li><xref href="wskc_r_rkx.dita"/></li>
+<li><xref href="wskc_r_syx.dita#l0wskc02_syx"/></li>
+<li><xref href="wskc_pka.dita#wskc_pka"/></li>
+<li><xref href="wskc_r_syg.dita#l0wskc02_syg"/></li>
+<li><xref href="wskc_r_syi.dita#l0wskc02_syi"/></li>
+<li><xref href="wskc_r_syi2.dita#l0wskc02_syi2"/></li>
+<li><xref href="wskc_csnbukd.dita#csnbukd"/></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000003877?>

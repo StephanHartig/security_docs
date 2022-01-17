@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="wskc_aeskw_structure" xml:lang="en-us" rev="sh20i1">
+<title>AESKW key format for external keys</title>
+<titlealts>
+<navtitle>AESKW key format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  AESKW key format for external keys </searchtitle>
+</titlealts>
+<shortdesc>View the structure used to export an ECC private key when the ECC-AES1 keyword is used
+with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>. This key token is an
+external-only format and cannot be imported to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>External AESKW key format</indexterm>
+<indexterm>AESKW key format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<table frame="all" id="aeskw_structure" pgwide="1"><title>AESKW key format structure</title><desc>
+<p outputclass="summary">AESKW key format structure</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="16*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Number of bytes</entry>
+<entry>Field</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col3" namest="col1"><b>Start of Associated Data section</b></entry>
+</row>
+<row>
+<entry></entry>
+<entry nameend="col3" namest="col2">Sub-section: <b>Header</b></entry>
+</row>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry><lines>
+Primary Identifier:
+Value: <b>X'53'</b> (ASCII 'S')
+</lines></entry>
+</row>
+<row>
+<entry>1</entry>	
+<entry>1</entry>	
+<entry>
+<lines>
+Version: 
+Value:  <b>X'00'</b>  Version X‘00’ indicates AESKW wrapping method
+</lines>
+</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>
+<lines>
+SL = structLen
+Value: dynamic, Length in bytes of the total structure (big endian).
+</lines>
+</entry>
+</row>
+<row>
+<entry></entry>
+<entry nameend="col3" namest="col2">Sub-section: <b>Key data</b></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>1</entry>
+<entry>
+Algorithm type (algorithm for which the key can be used):
+<dl>
+<dlhead><dthd>Value</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>X'81'</dt>
+<dd>ECC key (private)</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>X'82'</dt>
+<dd>QSA key : <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+(private)</dd>
+</dlentry>
+<!--<dlentry rev="sh21i1"><dt>X'83'</dt><dd>QSA key : <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/> (private)</dd></dlentry>-->
+</dl>
+</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>2</entry>
+<entry>
+Key type (general class of the key):
+<note type="other" othertype="Notes">
+<p>Values in this field depend on the input token, the value at offset '0x4', key algorithm.</p> 
+<p>1. ECC private key source token:</p> 
+<dl>
+
+<dlentry>
+<dt>A.</dt>
+<dd>encoding:
+<dl>
+<dlentry>
+<dt>1.</dt>
+<dd>Upper nibble gives curve type</dd>
+</dlentry>
+<dlentry>
+<dt>2.</dt>
+<dd>Lower 3 nibbles give length of private key ‘p’ in bits</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+
+<dlentry>
+<dt>B.</dt>
+<dd>Values
+<dl>
+<dlentry>
+<dt>1.</dt>
+<dd>X’0209’ ECC_PRIME_521</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl>
+<p rev="sh21i1">2. QSA private key token:</p>
+<dl rev="sh21i1">
+<dlentry>
+<dt>A.</dt>
+<dd>encoding:
+<dl>
+<dlentry>
+<dt>1.</dt>
+<dd>values correspond to the algorithm parameter field of the QSA token</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt>B.</dt>
+<dd>Values
+<dl>
+<dlentry>
+<dt>1.</dt>
+<dd>X’0605’ <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (6,5)</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>2.</dt>
+<dd>X’0807’ <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (8,7)</dd>
+</dlentry>
+<!--<dlentry><dt>3.</dt><dd>X'1024' <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/> (1024)</dd></dlentry>-->
+</dl>
+</dd>
+</dlentry>
+</dl>
+</note>
+</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>1</entry>
+<entry>
+<b>kuf_count:</b> Key usage fields count: 0 - 4. Key-usage field information defines restrictions on
+the use of the key. <note type="other" othertype="Notes">
+<ol>
+<li>Values in this field depend on the input token, the value at offset '0x4', key algorithm, and
+the value at offset '0x5', key type. <dl>
+<dlentry>
+<dt>A.</dt>
+<dd>ECC private key source token:  kuf_count=2</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>B.</dt>
+<dd>QSA key : <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>:  kuf_count=2</dd>
+</dlentry>
+<!--<dlentry rev="sh21i1"><dt>B.</dt><dd>QSA key : <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>: kuf_count=2</dd></dlentry>-->
+</dl>
+</li>
+<li>Each key-usage field is 2 bytes in length. The value in this field indicates how many 2-byte key
+usage fields follow.</li>
+<li>There are 8 bytes of Associated Data after this field. Each of these remaining 8 bytes of
+Associated Data is either 0x00 or a KUF byte, as indicated by this <parmname>kuf_count</parmname>
+field.  This section is not variable size: unused bytes are 0x00 value. </li>
+</ol>
+</note>
+<p><b>Examples:</b></p>
+<dl>
+<dlentry>
+<dt>kuf_count = 1</dt>
+<dd>two bytes of key usage information follow, this is one <parmname>kuf</parmname> field. The
+remaining 6 bytes of Associated Data are 0x00 bytes</dd>
+</dlentry>
+<dlentry>
+<dt>kuf_count = 2</dt>
+<dd>four bytes of key usage information follow, this is two <parmname>kuf</parmname> fields. The
+remaining 4 bytes of Associated Data are 0x00 bytes</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1</entry>
+<entry>Bit value meanings:
+<p>Algorithm at offset 4; ECC (X’81’), <ph rev="sh21i1">QSA-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+(X'82')<!--, QSA-<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/> (X'83')--></ph>
+</p>
+<dl>
+<dlentry>
+<dt>A</dt>
+<dd>B'1xxx xxxx' digitalSignature</dd>
+</dlentry>
+<dlentry>
+<dt>B</dt>
+<dd>B'x1xx xxxx' nonrepudiation or contentCommitment </dd>
+</dlentry>
+<dlentry>
+<dt>C</dt>
+<dd>B'xx1x xxxx' keyEncipherment</dd>
+</dlentry>
+<dlentry>
+<dt>D</dt>
+<dd>B'xxx1 xxxx' dataEncipherment</dd>
+</dlentry>
+<dlentry>
+<dt>E</dt>
+<dd>B'xxxx 1xxx' keyAgreement</dd>
+</dlentry>
+<dlentry>
+<dt>F</dt>
+<dd>B'xxxx x1xx' keyCertSign</dd>
+</dlentry>
+<dlentry>
+<dt>G</dt>
+<dd>B'xxxx xx1x' cRLSign</dd>
+</dlentry>
+<dlentry>
+<dt>H</dt>
+<dd>B'xxxx xxx1' encipherOnly (requires keyAgreement)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>1</entry>
+<entry>Bit value meanings:
+<p>Algorithm at offset 4; ECC (X’81’), <ph rev="sh21i1">QSA-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+(X'82')<!--, QSA-<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/> (X'83')--></ph>
+</p>
+<dl>
+<dlentry>
+<dt>A</dt>
+<dd>B'1xxx xxxx' decipherOnly - Requires keyAgreement bit at offset 8. <p>Cannot be combined with
+encipherOnly</p></dd>
+</dlentry>
+<dlentry>
+<dt>B</dt>
+<dd>B’x111 1111’ reserved</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>1</entry><entry>This field is reserved and must be X'00' byte.</entry>
+</row> 
+<row><entry>11</entry>	<entry>1</entry>	<entry>This field is reserved and must be X'00' byte.</entry></row> 
+<row><entry>12</entry>	<entry>1</entry>	<entry>This field is reserved and must be X'00' byte.</entry></row> 
+<row><entry>13</entry>	<entry>1</entry>	<entry>This field is reserved and must be X'00' byte.</entry></row> 
+<row><entry>14</entry>	<entry>1</entry>	<entry>This field is reserved and must be X'00' byte.</entry></row> 
+<row><entry>15</entry>	<entry>1</entry>	<entry>This field is reserved and must be X'00' byte.</entry></row> 
+<row>
+<entry nameend="col3" namest="col1"><b>End of Associated Data section</b></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1"><b>Start of AESKW wrapped payload</b></entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>6</entry>	
+<entry><lines>
+Integrity Constant : byte array
+Value:          X'A6A6A6A6A6A6'
+</lines></entry>
+</row> 
+<row>
+<entry>22</entry>
+<entry>1</entry>	
+<entry><lines>
+PbL: Zero Padding bit length, this padding is AFTER the key, at the end of the payload
+Value:          dynamic, depends on KL and ADLen, see examples below
+</lines></entry>
+</row>
+<row>
+<entry>22</entry>
+<entry>1</entry>	
+<entry><lines>
+PbL: Zero Padding bit length, this padding is AFTER the key, at the end of the payload
+Value:          dynamic, depends on KL and ADLen, see examples below
+</lines></entry>
+</row>
+<row>
+<entry>23</entry>
+<entry>1</entry>	
+<entry><lines>
+ADLen: Associated Data byte length, in hex
+Value:          X’10’
+</lines></entry>
+</row>
+<row>
+<entry>24</entry>
+<entry>16</entry>	
+<entry>Copy of Associated Data. <p>The Associated Data is copied here after decryption. It must
+exactly match clear data as shown in the above <b><i>Associated Data</i></b> section of the AESKW
+key format structure.</p></entry>
+</row>
+<row>
+<entry>40</entry>
+<entry>KL</entry>	
+<entry>Keydata. <note>The size of the private key ‘p’ across all components is determined by the key
+algorithm at offset 0x04 and the type field at offset 0x05. </note>
+<p><b>Format of keydata</b></p>
+<ol>
+<li>Algorithm: ECC (X’81’), <dl>
+<dlentry>
+<dt>A</dt>
+<dd>The maximum size key, P521, will have KL=66 bytes.</dd>
+</dlentry>
+</dl>
+</li>
+<li rev="sh21i1">Algorithm: QSA <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (X’82’), Type (X'0605')<dl>
+<dlentry>
+<dt>A</dt>
+<dd>32 B for component 1: key D</dd>
+</dlentry>
+<dlentry>
+<dt>B</dt>
+<dd>48 B for component 2: tr T</dd>
+</dlentry>
+<dlentry>
+<dt>C</dt>
+<dd>480 B for component 3: vector 's1'</dd>
+</dlentry>
+<dlentry>
+<dt>D</dt>
+<dd>576 B component 4: vector 's2'</dd>
+</dlentry>
+<dlentry>
+<dt>E</dt>
+<dd>2688 B component 5: 't0'</dd>
+</dlentry>
+</dl></li>
+<li rev="sh21i1">Algorithm QSA <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (X'82'), Type (X'0807')<dl>
+<dlentry>
+<dt>A</dt>
+<dd>32 B for component 1: key D</dd>
+</dlentry>
+<dlentry>
+<dt>B</dt>
+<dd>48 B for component 2: tr T</dd>
+</dlentry>
+<dlentry>
+<dt>C</dt>
+<dd>672 B for component 3: vector 's1'</dd>
+</dlentry>
+<dlentry>
+<dt>D</dt>
+<dd>768 B component 4: vector 's2'</dd>
+</dlentry>
+<dlentry>
+<dt>E</dt>
+<dd>3584 B component 5: 't0'</dd>
+</dlentry>
+</dl></li>
+
+
+
+
+
+
+
+
+<!--<li rev="sh21i1">Algorithm QSA <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>(X'83'), 
+Type (X'1024')<dl><dlentry><dt>A</dt><dd>1536 B for component 1: secret polynomial vector</dd></dlentry>
+<dlentry><dt>B</dt><dd>32 B for component 2: public key integrity check</dd></dlentry>
+<dlentry><dt>C</dt><dd>32 B for component 3: random data</dd></dlentry></dl></li>-->
+</ol>
+</entry>
+</row>
+<row>
+<entry>KL+40</entry>
+<entry>PbL / 8</entry>	
+<entry>Padding data: PbL count of 0b0 bits.</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1"><b>End of AESKW wrapped payload</b></entry>
+</row>
+
+<row>
+<entry>KL+40+(PbL/8)</entry>
+<entry></entry>	
+<entry>Final size (FS) = structLen <lines>
+Size of Keydata = KL = structLen – ((2 * 16) + 8 + (PbL / 8))
+PbL (bits) = 64 – ((ADLen*8 + KL*8)mod64) = 64-((16*8 +KL*8)mod64) = 0 when (KL)mod8=0
+FS = KL+40+(PbL/8)
+</lines>
+<p><b>ECC:</b> Actual KL values, Pbl values:</p>
+<p>521 bit P521 : KL = 66 Bytes; PbL = 48 bits; FS = 112 bytes. This is the maximum for the largest
+exportable ECC key size.</p>
+<p rev="sh21i1">QSA <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+(X’82’), Type (X'0605')</p>
+<p rev="sh21i1">KL = 3824; PbL = 0; FS = 3864 Bytes</p>
+<p rev="sh21i1">QSA <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+(X'82'), Type (X'0807')</p>
+<p rev="sh21i1">KL = 5104; PbL = 0; FS = 5144 Bytes</p>
+<!--<p rev="sh21i1">QSA <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/> (X'83'), Type (X'1024')</p>
+<p rev="sh21i1">KL = 1600; PbL = 0; FS = 1640 Bytes</p>-->
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</body>
+</topic>
+<?Pub *0000009493?>

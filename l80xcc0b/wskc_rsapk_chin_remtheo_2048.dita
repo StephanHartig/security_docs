@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="rsapk_chin_remtheo_2048" xml:lang="en-us" rev="sh18i1">
+<title>RSA private key, 2048-bit Chinese Remainder Theorem</title>
+<titlealts>
+<navtitle>RSA private key, 2048-bit Chinese Remainder Theorem</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key, 2048-bit Chinese
+Remainder Theorem</searchtitle>
+</titlealts>
+<shortdesc>View the RSA private key token, 2048-bit Chinese Remainder Theorem (X'05'). This is an
+asymmetric key token.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>RSA private key<indexterm>2048-bit Chinese Remainder Theorem</indexterm></indexterm>
+<indexterm>2048-bit Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<table frame="all" id="crt2048" pgwide="1">
+<title>RSA private key, 2048-bit Chinese Remainder Theorem format section (X'05')</title>
+<desc>
+<p outputclass="summary">RSA private key, 2048-bit Chinese-Remainder Theorem format section
+(X'05')</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="18*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Number of bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry><b>X'05'</b>, section identifier, RSA private key, 2048-bit maximum CRT (replaced by RSA-CRT)
+format<p>This section type is no longer created by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>.</p></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (X'00').</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes (76 + ppp + qqq + rrr + sss + ttt + uuu + xxx + nnn).</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the private-key subsection cleartext, offset 28 to the end of the
+modulus.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>002</entry>
+<entry>Length in bytes of the optionally encrypted secure subsection, or X'0000' if the subsection
+is not encrypted.</entry>
+</row>
+<row>
+<entry>026</entry>
+<entry>002</entry>
+<entry>Master-key verification pattern in an internal key-token, else X'0000'.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security flag byte. <p>External key-token:</p><dl>
+<dlentry>
+<dt>X'40'</dt>
+<dd>Unencrypted RSA private-key subsection identifier, Chinese-Remainder Theorem format</dd>
+</dlentry>
+</dl><p>Internal key-token:</p><dl>
+<dlentry>
+<dt>X'42'</dt>
+<dd>Encrypted RSA private-key subsection identifier, Chinese-Remainder Theorem format</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of the optional key-name section; if there is no name section, then 20 bytes of
+X'00'.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key-usage flag byte. <p>Key usage:</p><dl>
+<dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt>B'00xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+</dl> All other bits are reserved and must be zero. </entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>001</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1">052</entry>
+<entry>Start of the optionally encrypted subsection. <p>Private key encryption:</p><ul>
+<li>External token: EDE2 process using the double-length transport key</li>
+<li>Internal token: EDE3 process using the asymmetric master key.</li>
+</ul><p>See <xref href="wskc_c_algtdes.dita#l0wskc02_algtdes"/>.</p>
+</entry>
+</row>
+<row>
+<entry>052</entry>
+<entry>008</entry>
+<entry>Random number, confounder.</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>002</entry>
+<entry>Length of prime number, <varname>p</varname>, in bytes: <varname>ppp</varname>.</entry>
+</row>
+<row>
+<entry>062</entry>
+<entry>002</entry>
+<entry>Length of prime number, <varname>q</varname>, in bytes: <varname>qqq</varname>.</entry>
+</row>
+<row>
+<entry>064</entry>
+<entry>002</entry>
+<entry>Length of d<sub>p</sub>, in bytes: <varname>rrr</varname>.</entry>
+</row>
+<row>
+<entry>066</entry>
+<entry>002</entry>
+<entry>Length of d<sub>q</sub>, in bytes:<varname> sss</varname>.</entry>
+</row>
+<row>
+<entry>068</entry>
+<entry>002</entry>
+<entry>Length of A<sub>p</sub>, in bytes: <varname>ttt</varname>.</entry>
+</row>
+<row>
+<entry>070</entry>
+<entry>002</entry>
+<entry>Length of A<sub>q</sub>, in bytes: <varname>uuu</varname>.</entry>
+</row>
+<row>
+<entry>072</entry>
+<entry>002</entry>
+<entry>Length of modulus, <varname>n</varname>, in bytes: <varname>nnn</varname>.</entry>
+</row>
+<row>
+<entry>074</entry>
+<entry>002</entry>
+<entry>Length of padding field, in bytes: <varname>xxx</varname>.</entry>
+</row>
+<row>
+<entry>076</entry>
+<entry>ppp</entry>
+<entry>Prime number, <varname>p</varname>.</entry>
+</row>
+<row>
+<entry>076+ppp</entry>
+<entry>qqq</entry>
+<entry>Prime number, <varname>q.</varname></entry>
+</row>
+<row>
+<entry>076+ppp+qqq</entry>
+<entry>rrr</entry>
+<entry>d<sub>p</sub> = d mod(p - 1).</entry>
+</row>
+<row>
+<entry>076+ppp+qqq+rrr</entry>
+<entry>sss</entry>
+<entry>d<sub>q</sub> = d mod(q - 1).</entry>
+</row>
+<row>
+<entry><lines>
+076+ppp+qqq
++rrr+sss</lines></entry>
+<entry>ttt</entry>
+<entry>A<sub>p</sub> = q<sup>p-1</sup> mod(n).</entry>
+</row>
+<row>
+<entry>
+<lines>
+076+ppp+qqq+rrr
++sss+ttt
+</lines>
+</entry>
+<entry>uuu</entry>
+<entry>A<sub>q</sub> (n + 1 - A<sub>p</sub>).</entry>
+</row>
+<row>
+<entry>
+<lines>
+076+ppp+qqq+rrr
++sss+ttt+uuu
+</lines>
+</entry>
+<entry>xxx</entry>
+<entry>X'00' padding of length xxx bytes such that the length from the start of the random number
+above to the end of the padding field is a multiple of 8 bytes.</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">End of the optionally encrypted subsection; all of the fields
+starting with the confounder field and ending with the variable-length pad field are enciphered for
+key confidentiality when the key-format-and-security flag byte (offset 28) indicates that the
+private key is enciphered.</entry>
+</row>
+<row>
+<entry>
+<lines>
+076+ppp+qqq
++rrr+sss+ttt
++uuu+xxx
+</lines>
+</entry>
+<entry>nnn</entry>
+<entry>Modulus, n. n = pq, where p and q are prime and 2<sup>512</sup> ≤ n &lt;
+2<sup>2048</sup>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>
+<?Pub *0000009493?>

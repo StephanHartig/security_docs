@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_cvtable" xml:lang="en-us">
+<title>Control vector table</title>
+<titlealts>
+<navtitle>Control vector table</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Control vector table</searchtitle>
+</titlealts>
+<shortdesc>The control vector values that CCA uses to XOR
+key halves depend on the type of key.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>control vector table</indexterm><indexterm>control
+vector<indexterm>description</indexterm></indexterm><indexterm>control
+vector<indexterm>value</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The master key enciphers all keys operational on your system. A transport key enciphers keys
+distributed off your system. Before a master key or transport key enciphers a key, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> XORs both halves of the master key or
+transport key with a control vector. The same control vector is XORed to the left and right half of
+a master key or transport key.</p>
+<p>Also, if you are entering a key part, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> XORs each half of the key part with a
+control vector before placing the key part into the <ph>key storage file.</ph></p>
+<p>Each type of CCA key (except the master key) has either one or two unique control vectors
+associated with it. <ph>The master key or transport key <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> XORs with the control vector</ph> depending
+on the type of key the master key or transport key is enciphering. For double-length keys, a unique
+control vector exists for each half of a specific key type. For example, there is a control vector
+for the left half of an input PIN-encrypting key, and a control vector for the right half of an
+input PIN-encrypting key.</p>
+<p>If you are entering a cleartext key part, CC XORs the key part with the unique control vector(s)
+associated with the key type. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> also
+enciphers the key part with two master key variants for a key part. One master key variant enciphers
+the left half of the key part and another master key variant enciphers the right half of the key
+part. CCA creates the master key variants for a key part by XORing the master key with the control
+vectors for key parts. These procedures protect key separation.</p>
+<p><xref href="#l0wskc02_cvtable/l0wskc02_contab"></xref> displays
+the default value of the control vector associated with each type
+of key.  Some key types do not have a default control vector. For
+keys that are double-length, <ph>CCA enciphers using</ph> a unique
+control vector on each half. </p>
+<table frame="all" id="l0wskc02_contab">
+<title>Default control vector values</title>
+<desc>
+<p outputclass="summary">Default control vector values</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="colspec0" colwidth="180*"/>
+<colspec colname="colspec1" colwidth="180*"/>
+<colspec colname="colspec2" colwidth="180*"/>
+<thead>
+<row>
+<entry>Key Type</entry>
+<entry>Control Vector Value (Hex) Value for Single-length Key or Left Half
+of Double-length Key</entry>
+<entry>Control Vector Value (Hex) Value for Right Half of Double-length
+Key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>AES</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+</row>
+<row>
+<entry>AESTOKEN</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+</row>
+<row rev="shd3">
+<entry>CIPHERXI</entry>
+<entry>00 0C 50 00 03 C0 00 00</entry>
+<entry>00 0C 50 00 03 A0 00 00</entry>
+</row>
+<row rev="shd3">
+<entry>CIPHERXO</entry>
+<entry>00 0C 60 00 03 C0 00 00</entry>
+<entry>00 0C 60 00 03 A0 00 00</entry>
+</row>
+<row rev="shd3">
+<entry>CIPHERXL</entry>
+<entry>00 0C 71 00 03 C0 00 00</entry>
+<entry>00 0C 71 00 03 A0 00 00</entry>
+</row>
+<row>
+<entry>CIPHER</entry>
+<entry>00 03 71 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>CIPHER (double length)</entry>
+<entry>00 03 71 00 03 41 00 00</entry>
+<entry>00 03 71 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>CVARDEC</entry>
+<entry>00 3F 42 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>CVARENC</entry>
+<entry>00 3F 48 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>CVARPINE</entry>
+<entry>00 3F 41 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>CVARXCVL</entry>
+<entry>00 3F 44 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>CVARXCVR</entry>
+<entry>00 3F 47 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row rev="shd3">
+<entry>DATA (external)</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+</row>
+<row rev="shd3">
+<entry>DATA (internal)</entry>
+<entry>00 00 7D 00 03 41 00 00</entry>
+<entry>00 00 7D 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DATA</entry>
+<entry>00 00 00 00 00 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>DATAC</entry>
+<entry>00 00 71 00 03 41 00 00</entry>
+<entry>00 00 71 00 03 21 00 00</entry>
+</row>
+<row rev="sh21i1">
+<entry>DATAM generation key (external and internal)</entry>
+<entry>00 00 4D 00 03 41 00 00</entry>
+<entry>00 00 4D 00 03 21 00 00</entry>
+</row>
+<row  rev="sh21i1">
+<entry>DATAM key (internal, deprecated)</entry>
+<entry>00 00 4D 00 03 00 00 00</entry>
+<entry>00 00 4D 00 03 00 00 00</entry>
+</row>
+<row rev="sh21i1">
+<entry>DATAMV MAC verification key (external and internal)</entry>
+<entry>00 00 44 00 03 41 00 00</entry>
+<entry>00 00 44 00 03 21 00 00</entry>
+</row>
+<row rev="sh21i1">
+<entry>DATAMV MAC verification key (internal, deprecated)</entry>
+<entry>00 00 44 00 03 00 00 00</entry>
+<entry>00 00 44 00 03 00 00 00</entry>
+</row>
+<row>
+<entry>DATAXLAT</entry>
+<entry>00 06 71 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>DECIPHER</entry>
+<entry>00 03 50 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>DECIPHER (double-length)</entry>
+<entry>00 03 50 00 03 41 00 00</entry>
+<entry>00 03 50 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYGENKY</entry>
+<entry>00 71 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL0</entry>
+<entry nameend="colspec2" namest="colspec1">This control vector has the DKYL0 set by
+default.</entry>
+</row>
+<row>
+<entry>DKYL1</entry>
+<entry>00 72 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL2</entry>
+<entry>00 74 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL3</entry>
+<entry>00 77 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL4</entry>
+<entry>00 78 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL5</entry>
+<entry>00 7B 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL6</entry>
+<entry>00 7D 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>DKYL7</entry>
+<entry>00 7E 44 00 00 03 41 00</entry>
+<entry>00 71 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>ENCIPHER</entry>
+<entry>00 03 60 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>ENCIPHER (double-length)</entry>
+<entry>00 03 60 00 03 41 00 00</entry>
+<entry>00 03 60 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>EXPORTER</entry>
+<entry>00 41 7D 00 03 41 00 00</entry>
+<entry>00 41 7D 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>IKEYXLAT</entry>
+<entry>00 42 42 00 03 41 00 00</entry>
+<entry>00 42 42 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>IMP-PKA</entry>
+<entry>00 42 05 00 03 41 00 00</entry>
+<entry>00 42 05 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>IMPORTER</entry>
+<entry>00 42 7D 00 03 41 00 00</entry>
+<entry>00 42 7D 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>IPINENC</entry>
+<entry>00 21 5F 00 03 41 00 00</entry>
+<entry>00 21 5F 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>MAC</entry>
+<entry>00 05 4D 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>MAC (double-length)</entry>
+<entry>00 05 4D 00 03 41 00 00</entry>
+<entry>00 05 4D 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>MACVER</entry>
+<entry>00 05 44 00 03 00 00 00</entry>
+<entry/>
+</row>
+<row>
+<entry>MACVER (double-length)</entry>
+<entry>00 05 44 00 03 41 00 00</entry>
+<entry>00 05 44 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>OKEYXLAT</entry>
+<entry>00 41 42 00 03 41 00 00</entry>
+<entry>00 41 42 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>OPINENC</entry>
+<entry>00 24 77 00 03 41 00 00</entry>
+<entry>00 24 77 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>PINGEN</entry>
+<entry>00 22 7E 00 03 41 00 00</entry>
+<entry>00 22 7E 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>PINVER</entry>
+<entry>00 22 42 00 03 41 00 00</entry>
+<entry>00 22 42 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>SECMSG with SMPIN set</entry>
+<entry>00 0A 50 00 03 41 00 00 </entry>
+<entry>00 0A 50 00 03 21 00 00</entry>
+</row>
+<row>
+<entry>SECMSG with SMKEY set</entry>
+<entry>00 0A 60 00 03 41 00 00 </entry>
+<entry>00 0A 60 00 03 21 00 00</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<note>The external control vectors for DATAC, DATAM MAC generation,
+and DATAMV MAC verification keys are also referred to as data compatibility
+control vectors.</note>
+<p rev="sh20i1">For the default control vector values for triple-length DES keys, see <xref
+href="#l0wskc02_cvtable/cvdflt3l" format="dita"/>. For key generation, use key length keyword
+TRIPLE-O to indicate the key parts ARE guaranteed to be unique (ignoring parity bits). Use TRIPLE to
+indicate that the key parts are NOT guaranteed to be unique.</p>
+<table id="cvdflt3l" rev="sh20i1"><title>Default control vectors for triple-length DES keys</title><desc>
+<p outputclass="summary">Default control vectors for triple-length DES keys. A table with four
+columns: Key type, ey length, CV base of left part of triple-length key, and CV extension of middle
+part of triple-length key</p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="0.9*"/>
+<colspec colname="col2" colwidth="2.0*"/>
+<colspec colname="col3" colwidth="2.2*"/>
+<colspec colname="col4" colwidth="1.9*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1" morerows="1">Key type (see Note 1)</entry>
+<entry colname="col2" morerows="1">Key length</entry>
+<entry namest="col3" nameend="col4" align="center">Default control vector in hexadecimal (see Note
+2)</entry>
+</row>
+<row>
+<entry colname="col3" valign="bottom">CV base of left part of triple-length key</entry>
+<entry valign="bottom" colname="col4">CV extension of middle part of triple-length key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col4"><b>Key encrypting keys</b></entry>
+</row>
+<row>
+<entry morerows="1">EXPORTER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 41 7D 00 03 60 00 81 </codeph></entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 41 7D 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">IMPORTER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 42 7D 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 42 7D 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>Data operation keys</b>
+</entry>
+</row>
+<row>
+<entry morerows="3">DATA</entry>
+<entry><b>TRIPLE</b>
+</entry>
+<entry><codeph>00 00 7D 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="3" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry>
+<b>TRIPLE-O</b></entry>
+<entry><codeph>00 00 7D 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry><b>ZEROCV24</b> External Version X'01' key token, token marks = B'0010 0000'</entry>
+<entry><codeph>00 00 00 00 00 00 00 00 </codeph>
+</entry>
+</row>
+<row>
+<entry><b>ZEROCV24</b> Internal Version X'00' key token. Only applies to internal key of an
+external/internal key pair (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>
+OPEX or OPIM).</entry>
+<entry>Same as TRIPLE.</entry>
+</row>
+<row>
+<entry morerows="1">CIPHER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 03 71 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 03 71 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">DECIPHER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 03 50 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 03 50 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">ENCIPHER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 03 60 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 03 60 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">MAC</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 05 4D 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 05 4D 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">MACVER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 05 44 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 05 44 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><b>PIN processing keys</b></entry>
+</row>
+<row>
+<entry morerows="1">IPINENC</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 21 5F 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 21 5F 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">OPINENC</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 24 77 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 24 77 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">PINGEN</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 22 7E 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 22 7E 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry morerows="1">PINVER</entry>
+<entry><b>TRIPLE</b></entry>
+<entry><codeph>00 22 42 00 03 60 00 81 </codeph>
+</entry>
+<entry morerows="1" valign="middle">Same as CV base.</entry>
+</row>
+<row>
+<entry><b>TRIPLE-O</b></entry>
+<entry><codeph>00 22 42 00 03 E1 00 81 </codeph>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<p><b>Note:</b></p>
+<ol>
+<li>Only the key types shown in this table are allowed to be triple length in Release 5.4. and
+Release 6.2</li>
+<li>A triple-length key in a Version X'00' fixed-length DES key-token is required to have CV bit 56
+= B'1' (<b>ENH-ONLY</b>).</li>
+</ol>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</conbody>
+</concept>
+<?Pub *0000011511?>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l0wskc06_seventh" xml:lang="en-us" rev="sh16">
+<title>Edition July 2016, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Support
+Program Releases 4.4 and 5.2</title>
+<shortdesc>This edition describes the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Basic Services API for Release
+5.2, including those for Release 4.4. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>edition 2016</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For Release 5.2, changes to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+API include the following new verbs:</p>
+<table id="new_verbs52" pgwide="1" frame="all">
+<title>New verbs for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4
+and 5.2</title>
+<desc>
+<p outputclass="summary">New verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4 and 5.2 with entry-point name,
+category, and long name with link to the verb description.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Verb entry-point name</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/></entry>
+<entry><xref href="wskc_r_acm.dita#csuaacm"/></entry>
+<entry>Using the CCA nodes and resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></entry>
+<entry><xref href="wskc_r_act.dita#csuaact"/></entry>
+<entry>Using the CCA nodes and resource control verbs</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following verbs provide new keywords:</p>
+<table id="updated_verbs52" pgwide="1" frame="all">
+<title>Updated verbs for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases
+4.4 and 5.2</title>
+<desc>
+<p outputclass="summary">Updated verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 4.4 and 5.2 with entry-point name,
+category, and long name with link to the verb description.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Entry-point</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></entry>
+<entry><xref href="wskc_r_kgn2.dita#l0wskc02_kgn2"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></entry>
+<entry><xref href="wskc_r_kyt2.dita#l0wskc02_kyt2"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></entry>
+<entry><xref href="wskc_r_vbecdhvb.dita#vbecdhvb"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>
+<!--<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></entry>
+<entry><xref href="wskc_r_spkd.dita#l0wskc02_spkd"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>-->
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></entry>
+<entry><xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></entry>
+<entry><xref href="wskc_r_ktp2.dita#l0wskc02_ktp2"/></entry>
+<entry>Managing AES and DES cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/></entry>
+<entry><xref href="wskc_r_syma_dec.dita#l0wskc02_syma_dec"/></entry>
+<entry>Protecting data</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/></entry>
+<entry><xref href="wskc_r_syma_enc.dita#l0wskc02_syma_enc"/></entry>
+<entry>Protecting data</entry>
+</row>
+<!--<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></entry>
+<entry><xref href="wskc_dk_dpcpinchange.dita#csnbdpcpinchange"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>-->
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/></entry>
+<entry><xref href="wskc_r_pkb.dita#l0wskc02_pkb"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></entry>
+<entry><xref href="wskc_r_xpkg.dita#l0wskc02_xpkg"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>:  The keywords CV-KEK and NOCV-KEK
+introduced with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.0 produced
+unexpected results during further testing. These issues are fixed in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.2.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>In addition, the following change applies to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 5.2</p>
+<ul>
+<li>For the JNI version of the verbs, starting with this release, a new data type <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> is replacing the old type
+<b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b>.  Both types
+inherit from an abstract class <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"
+/></i></b>. Thus, type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"
+/></i></b> is still supported, so you can run existing applications with this deprecated data type.
+However, start using type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"
+/></i></b> for new applications instead, because <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> may be removed in the
+future.</li>
+</ul>
+<p rev="sh16"> Applications linked with prior <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host software will continue to function if
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host software is upgraded in
+place. However, <tm tmtype="reg" trademark="IBM">IBM</tm> always recommends full testing of upgrades
+before implementing production roll-out. </p>
+</section>
+<section rev="sh16i1">A note on the document structure: There is a new topic called <xref
+href="wskc_rsa_priv_intextkeytok.dita#wskc_rsa_priv_intextkeytok"/> that describes in its subtopics
+the RSA private key tokens for both the external and internal format, combined into one table for
+each token type.</section>
+</refbody>
+</reference>

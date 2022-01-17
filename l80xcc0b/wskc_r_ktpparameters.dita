@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktpparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>CVARDEC</indexterm>
+<indexterm>CVARENC</indexterm>
+<indexterm>CVARPINE</indexterm>
+<indexterm>CVARXCVL</indexterm>
+<indexterm>CVARXCVR</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>DECIPHER</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>SECMSG</indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>INTERNAL</indexterm>
+<indexterm>EXTERNAL</indexterm>
+<indexterm>KEY</indexterm>
+<indexterm>NO-KEY</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>CV</indexterm>
+<indexterm>NO-CV</indexterm>
+<indexterm>AMEX-CSC</indexterm>
+<indexterm>ANSI X9.9</indexterm>
+<indexterm>ANY</indexterm>
+<indexterm>ANY-MAC</indexterm>
+<indexterm>CLR8-ENC</indexterm>
+<indexterm>CPINENC</indexterm>
+<indexterm>CPINGEN</indexterm>
+<indexterm>CPINGENA</indexterm>
+<indexterm>CVVKEY-A</indexterm>
+<indexterm>CVVKEY-B</indexterm>
+<indexterm>DALL</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DDATA</indexterm>
+<indexterm>DEXP</indexterm>
+<indexterm>DIMP</indexterm>
+<indexterm>DKYL0</indexterm>
+<indexterm>DKYL1</indexterm>
+<indexterm>DKYL2</indexterm>
+<indexterm>DKYL3</indexterm>
+<indexterm>DKYL4</indexterm>
+<indexterm>DKYL5</indexterm>
+<indexterm>DKYL6</indexterm>
+<indexterm>DKYL7</indexterm>
+<indexterm>DMAC</indexterm>
+<indexterm>DMKEY</indexterm>
+<indexterm>DMPIN</indexterm>
+<indexterm>DMV</indexterm>
+<indexterm>DOUBLE</indexterm>
+<indexterm>DPVR</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>EPINGEN</indexterm>
+<indexterm>EPINGENA</indexterm>
+<indexterm>EPINVER</indexterm>
+<indexterm>EXEX</indexterm>
+<indexterm>EXPORT</indexterm>
+<indexterm>GBP-PIN</indexterm>
+<indexterm>GBP-PINO</indexterm>
+<indexterm>IBM-PIN</indexterm>
+<indexterm>IBM-PINO</indexterm>
+<indexterm>IMEX</indexterm>
+<indexterm>IMIM</indexterm>
+<indexterm>IMPORT</indexterm>
+<indexterm>INBK-PIN</indexterm>
+<indexterm>KEY-PART</indexterm>
+<indexterm>KEYLN8</indexterm>
+<indexterm>KEYLN16</indexterm>
+<indexterm>LMTD-KEK</indexterm>
+<indexterm>MIXED</indexterm>
+<indexterm>NO-SPEC</indexterm>
+<indexterm>NO-XPORT</indexterm>
+<indexterm>NOOFFSET</indexterm>
+<indexterm>NOT-KEK</indexterm>
+<indexterm>OPEX</indexterm>
+<indexterm>OPIM</indexterm>
+<indexterm>PIN</indexterm>
+<indexterm>REFORMAT</indexterm>
+<indexterm>SINGLE</indexterm>
+<indexterm>SMKEY</indexterm>
+<indexterm>SMPIN</indexterm>
+<indexterm>TRANSLAT</indexterm>
+<indexterm>UKPT</indexterm>
+<indexterm>VISA-PVV</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>XLATE</indexterm>
+<indexterm>XPORT-OK</indexterm>
+<indexterm>key_value parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>masterkey_verification_pattern_vnn parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+<indexterm>control_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_token</var></synph> parameter is a pointer to a string variable in
+application storage containing an external or internal key-token to be disassembled. <note>You
+cannot use a key label for a key-token record in key storage. The key token must be in application
+storage. </note></pd></plentry>
+<plentry><pt>key_type</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_type</var></synph> parameter is a pointer to a string variable
+containing a keyword defining the key type. The keyword is eight bytes in length and must be
+left-aligned and padded on the right with space characters. Valid <synph><var>key_type</var></synph>
+keywords are shown here:
+<codeblock rev="sh15">
+ CIPHER       CVARXCVL     DKYGENKY     MAC
+ CIPHERXI     CVARXCVR     ENCIPHER     MACVER
+ CIPHERXL     DATA         EXPORTER     OKEYXLAT
+ CIPHERXO     DATAC        IKEYXLAT     OPINENC
+ CVARDEC      DATAM        IMPORTER     PINGEN
+ CVARENC      DATAMV       IPINENC      PINVER
+ CVARPINE     DECIPHER     KEYGENKY     SECMSG
+</codeblock><p
+rev="shd3">Key types are described in <xref href="wskc_c_keys.dita#l0wskc02_keys"/>.</p></pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be a minimum of <ph rev="shd3">4.</ph><p>On input, specify the maximum
+number of usable array elements that are allocated. On output, the verb sets the value to the number
+of keywords returned to the application.</p></pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> parameter is a pointer to a string variable
+containing an array of keywords that expresses the contents of the key token. The keywords are eight
+bytes in length and are left-aligned and padded on the right with space characters. The
+<parmname>rule_array</parmname> keywords are described in <xref
+href="#l0wskc02_ktpparameters/l0wskc02_ktp_tab1"/>. <table id="l0wskc02_ktp_tab1" pgwide="1"
+frame="all"><title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"
+/> control information</title><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> control information</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Keyword</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Token type</i></b> (One returned)</entry>
+</row>
+<row>
+<entry valign="top"><b>INTERNAL</b></entry>
+<entry valign="top">Specifies an internal key-token.</entry>
+</row>
+<row>
+<entry valign="top"><b>EXTERNAL</b></entry>
+<entry valign="top">Specifies an external key-token. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Key status</i></b> (One returned)</entry>
+</row>
+<row>
+<entry valign="top"><b>KEY</b></entry>
+<entry valign="top">Indicates the key token contains a key. The <synph><var>key_value</var></synph>
+parameter contains the key.</entry>
+</row>
+<row>
+<entry valign="top"><b>NO-KEY</b></entry>
+<entry valign="top">Indicates the key token does not contain a key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Key-wrapping method</i></b> (One
+returned)</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>The wrapping method for this key is legacy.</entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>The wrapping method for this key is enhanced.</entry>
+</row>
+<row>
+<entry><b>WRAPENH2</b></entry>
+<entry>The wrapping method for this key is enhanced. This enhanced method uses the SHA-256 
+hash algorithm. Only valid for three-key Triple-DES keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>WRAPENH3</b></entry>
+<entry>The wrapping method for this key is enhanced. This enhanced method uses the TDES-CMAC and
+SHA-256 hash algorithms.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Control-vector (CV) status</i></b> (One returned)</entry>
+</row>
+<row>
+<entry><b>CV</b></entry>
+<entry>The key token specifies that a control vector is present. The verb sets the control vector
+variable with the value of the control vector found in the key token.</entry>
+</row>
+<row>
+<entry><b>NO-CV</b></entry>
+<entry>The key token does not specify the presence of a control vector. The verb sets the control
+vector variable with the value of the control vector variable found in the key token. </entry>
+</row>
+</tbody>
+</tgroup></table>The difference between <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>) is that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> returns the
+<synph><var>rule_array</var></synph> keywords that apply to a parsed token, such as
+<synph><kwd>EXTERNAL</kwd></synph>, <synph><kwd>INTERNAL</kwd></synph>, and so forth. These
+<synph><var>rule_array</var></synph> parameters are returned in addition to
+<synph><var>key_type</var></synph> parameter. Refer to <xref href="wskc_r_ktb.dita#l0wskc02_ktb"/>
+and <xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/> for keyword
+discussion.<codeblock>AMEX-CSC          DKYL0      EPINGEN       KEYLN16       UKPT
+ANSIX9.9          DKYL1      EPINGENA      LMTD-KEK      VISA-PVV
+ANY               DKYL2      EPINVER       MIXED         WRAP-ECB
+ANY-MAC           DKYL3      EXEX          NO-SPEC       WRAP-ENH
+CLR8-ENC          DKYL4      EXPORT        NO-XPORT      XLATE
+CPINENC           DKYL5      GBP-PIN       NOOFFSET      XPORT-OK
+CPINGEN           DKYL6      GBP-PINO      NOT-KEK
+CPINGENA          DKYL7      IBM-PIN       OPEX
+CVVKEY-A          DMAC       IBM-PINO      OPIM
+CVVKEY-B          DMKEY      IMEX          PIN
+DALL              DMPIN      IMIM          REFORMAT
+DATA              DMV        IMPORT        SINGLE
+DDATA             DOUBLE     INBK-PIN      SMKEY
+DEXP              DPVR       KEY-PART      SMPIN
+DIMP              ENH-ONLY   KEYLN8        TRANSLAT       </codeblock></pd></plentry>
+<plentry><pt>key_value</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>key_value</parmname> parameter is a pointer to a string variable. If the verb
+returns the <synph><kwd>KEY</kwd></synph> keyword in the <parmname>rule_array</parmname>, the
+<parmname>key_value</parmname> parameter contains the 16-byte enciphered key. </pd></plentry>
+<plentry><pt rev="sh15">masterkey_verification_pattern_v03</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>masterkey_verification_pattern_v03</parmname> parameter is a pointer to an
+integer variable. The verb writes zero into the variable except when parsing a version
+<ph>X'03'</ph> internal key-token. </pd></plentry>
+<plentry><pt>reserved_2/5</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_2</parmname> and <parmname>reserved_5</parmname> parameters are
+either null pointers or pointers to integer variables. If the parameter is not a null pointer, the
+verb writes zero into the reserved variable. </pd></plentry>
+<plentry><pt>reserved_3/4</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_3</parmname> and <parmname>reserved_4</parmname> parameters are
+either null pointers or pointers to string variables. If the parameter is not a null pointer, the
+verb writes eight bytes of <ph>X'00'</ph> into the reserved variable. </pd></plentry>
+<plentry><pt>reserved_6</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_6</parmname> parameter is either a null pointer or a pointer to a
+string variable. If the parameter is not a null pointer, the verb writes eight space characters into
+the reserved variable. </pd></plentry>
+<plentry><pt>control_vector</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>control_vector</parmname> parameter is a pointer to a string variable in
+application storage. If the verb returns the <synph><kwd>NO-CV</kwd></synph> keyword in the
+<parmname>rule_array</parmname>, the key token did not contain a control-vector value and the
+control vector variable is filled with 16 space characters. </pd></plentry>
+<plentry><pt rev="sh15">master_key_verification_pattern_v00</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname rev="sh15">master_key_verification_pattern_v00</parmname> parameter is a
+pointer to a string variable in application storage. For version 0 key-tokens that contain a key,
+the 8-byte master key version number is copied to the variable. Otherwise the variable is filled
+with eight space characters. </pd></plentry>
+</parml></section>
+</refbody></reference>

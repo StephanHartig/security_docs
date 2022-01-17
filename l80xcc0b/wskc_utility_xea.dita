@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="utiltiy_xea" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/></searchtitle>
+  </titlealts>
+  <shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> utility
+    to convert between ASCII data, EBCDIC data, or a custom 8-bit based conversion
+    table.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>ASCII conversion</indexterm>
+        <indexterm>EBCDIC conversion</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody/>
+</reference>

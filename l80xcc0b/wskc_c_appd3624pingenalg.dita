@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appd3624pingenalg" xml:lang="en-us">
+<title>3624 PIN generation algorithm</title>
+<titlealts>
+<navtitle>3624 PIN generation </navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): 3624 PIN generation
+algorithm</searchtitle>
+</titlealts>
+<shortdesc>This algorithm generates an n-digit PIN based on account-related
+data or person-related data, namely the validation data. The assigned
+PIN length parameter specifies the length of the generated PIN.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>algorithm<indexterm>3624 PIN generation</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>3624 PIN
+generation algorithm</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The algorithm requires the following input parameters:  <ul>
+<li>A 64-bit validation data</li>
+<li>A 64-bit decimalization table</li>
+<li>A 4-bit assigned PIN length</li>
+<li>A 128-bit PIN-generation key</li>
+</ul></p>
+<p>The service uses the PIN generation key to encipher the validation
+data. Each digit of the enciphered validation data is replaced by
+the digit in the decimalization table whose displacement from the
+leftmost digit of the table is the same as the value of the digit
+of the enciphered validation data. The result is an intermediate PIN.
+The leftmost n digits of the intermediate PIN are the generated PIN,
+where n is specified by the assigned PIN length.</p>
+<p><xref href="#l0wskc02_appd3624pingenalg/l0wskc02_pga3"></xref> illustrates
+the 3624 PIN generation algorithm.</p>
+<fig expanse="column" id="l0wskc02_pga3"><title>3624 PIN generation
+algorithm</title>
+<image href="l0wskc02_fig1.jpg" placement="break" width="300">
+<alt>3624 PIN generation algorithm</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000001938?>

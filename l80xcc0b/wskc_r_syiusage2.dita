@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syiusage2">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This is the message layout used to encode the key material exported
+with the PKOAEP2 formatting method.</p></section>
+<table pgwide="0" frame="all">
+<title>PKCS#1 OAEP encoded message layout (PKOAEP2)</title>
+<desc>
+<p outputclass="summary">PKCS#1 OAEP encoded message layout (PKOAEP2)</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="colspec0" colwidth="2*"/>
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry colname="colspec0">Field </entry>
+<entry valign="bottom" align="left">Size</entry>
+<entry valign="bottom" align="left">Value</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="colspec0">Hash field</entry>
+<entry colname="col1">32 bytes</entry>
+<entry colname="col2">SHA-256 hash of associated data section in the source key identifier</entry>
+</row>
+<row>
+<entry colname="colspec0">Key bit length</entry>
+<entry colname="col1">2 bytes</entry>
+<entry colname="col2">Variable</entry>
+</row>
+<row>
+<entry colname="colspec0">Key material</entry>
+<entry colname="col1">length in bytes of the key material (rounded up to the nearest byte)</entry>
+<entry colname="col2">Variable</entry>
+</row>
+</tbody>
+</tgroup>
+</table><section>
+<dl>
+<dlentry><dt>Hash field</dt>
+<dd>The associated data for the HMAC variable length token is hashed
+using SHA-256.</dd></dlentry>
+<dlentry><dt>Key bit length</dt>
+<dd>A 2-byte key bit length field.</dd></dlentry>
+<dlentry><dt>Key material</dt>
+<dd>The key material is padded to the nearest byte with '0' bits.</dd></dlentry>
+</dl></section>
+<section><p>The hardware configuration sets the limit on the modulus size of
+keys for key management; thus, this verb will fail if the RSA key
+modulus bit length exceeds this limit.</p></section>
+<section><p>Specification of <synph><kwd>PKA92</kwd></synph> with an input NOCV key-encrypting
+key token is not supported.</p></section>
+<section><p>During initialization of a <ph><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>, an Environment Identifier (EID)
+of zero is set in the coprocessor. This is interpreted by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb to mean that environment
+identification checking is to be bypassed. Thus it is possible on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> platform for a key-encrypting key
+RSA-enciphered at a node (EID) to be imported at the same node.</p></section>
+</refbody></reference>

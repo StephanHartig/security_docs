@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_inbkal">
+<title>Interbank PIN Generation algorithm</title>
+<titlealts>
+<navtitle>Interbank PIN Generation algorithm</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Interbank PIN Generation
+algorithm</searchtitle>
+</titlealts><shortdesc>A description of the Interbank PIN calculation method.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>algorithm<indexterm>Interbank PIN generation</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>Interbank
+PIN generation algorithm</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The Interbank PIN calculation method consists of the following
+steps: 
+<ol>
+<li>Let X denote the <synph><var>transaction_security</var></synph> parameter element
+converted to an array of 16 4-bit numeric values. This parameter consists
+of (in the following sequence) the 11 rightmost digits of the customer
+PAN (excluding the check digit), a constant of 6, a 1-digit key indicator,
+and a 3-digit validation field.</li>
+<li>Encrypt X with the double-length PINGEN (or PINVER) key to get
+16 hexadecimal digits (64 bits).</li>
+<li>Perform decimalization on the result of the previous step by scanning
+the 16 hexadecimal digits from left to right, skipping any digit greater
+than <ph>X'9'</ph> until 4 decimal digits (for example, digits that
+have values from <ph>X'0'</ph> - <ph>X'9'</ph>) are found. 
+<p>If all
+digits are scanned but 4 decimal digits are not found, repeat the
+scanning process, skipping all digits that are <ph>X'9'</ph> or less
+and selecting the digits that are greater than <ph>X'9'</ph>. Subtract
+10 (<ph>X'A'</ph>) from each digit selected in this scan.</p>
+<p>If
+the 4 digits that were found are all zeros, replace the 4 digits with
+0100.</p></li>
+<li>Concatenate and use the resulting digits for the Interbank PIN.
+The 4-digit PIN consists of the decimal digits in the sequence in
+which they are found.</li>
+</ol></p>
+</conbody></concept>

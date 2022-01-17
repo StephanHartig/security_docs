@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2csmccaksf">
+<title>Verbs for managing AES and DES key storage files</title>
+<titlealts>
+<navtitle>Verbs for managing AES and DES key storage files</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs for managing AES and DES key
+storage files</searchtitle>
+</titlealts><shortdesc>CCA provides API functions to allow application programs to manage
+the AES and DES key storage file, where key tokens are stored when
+the program references them by key label name. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key storage file<indexterm>managing AES and DES </indexterm></indexterm>
+<indexterm>AES key storage files</indexterm>
+<indexterm>DES key storage files</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The following verbs are used to manage the AES and DES key storage files: </p>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrc"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrl"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrl"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrw"/>)</li>
+</ul>
+</conbody></concept>

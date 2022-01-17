@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<concept id="oc_ccatok_recognize" xml:lang="en-us">
+<title>How to recognize the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword></title>
+<titlealts>
+<navtitle>Recognize the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/></navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): How to recognize the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <cmdname>pkcsconf -t</cmdname> command to display a list of all
+available tokens. You can check the slot and token information, and the PIN status at any
+time.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>status information</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword><indexterm>status
+information</indexterm></indexterm><indexterm>pkcsconf -t</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword><indexterm>status
+information</indexterm></indexterm></keywords><?Pub Caret 30?>
+</metadata></prolog>
+<conbody>
+<section>    <p>The following example shows information about the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> in the <codeph>Token #2 Info</codeph> section.
+This section provides information about the token that is plugged into slot number
+2.<screen scale="80">
+$ pkcsconf -t
+...
+Token #2 Info:
+        Label: CCA Token
+        Manufacturer: IBM Corp.
+        Model: IBM CCA Token
+        Serial Number: 123
+        Flags: 0x44D (RNG|LOGIN_REQUIRED|USER_PIN_INITIALIZED|CLOCK_ON_TOKEN|TOKEN_INITIALIZED)
+        Sessions: 0/-2
+        R/W Sessions: -1/-2
+        PIN Length: 4-8
+        Public Memory: 0xFFFFFFFF/0xFFFFFFFF
+        Private Memory: 0xFFFFFFFF/0xFFFFFFFF
+        Hardware Version: 1.0
+        Firmware Version: 1.0
+        Time: 16:10:40
+...
+</screen></p>    <p>The output includes the following information:<dl>
+<dlentry>
+<dt>Label</dt>
+<dd>The token label that was assigned when the token was initialized.
+You can change token labels with the <cmdname>pkcsconf -I</cmdname> command.</dd>
+</dlentry><dlentry>
+<dt>Model</dt>
+<dd>A unique designation for the token, <q>IBM CCA Token</q> for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.</dd>
+</dlentry><dlentry>
+<dt>Flags</dt>
+<dd>A mask with information about the token initialization status, the PIN status, and features such
+as random number generator (RNG). For example, the mask for TOKEN_INITIALIZED is 0x00000400 and it
+is true if the token was initialized. <q>Login required</q> means that there is at least one
+mechanism that requires a session login to use that cryptographic function. <p>For more information
+about the flags, see the description of the TOKEN_INFO structure and the token information flags in
+the <xref conref="wskc_conref-l0wskc04.dita#links/pkcs11_standard_url"/>.</p></dd>
+</dlentry><dlentry>
+<dt>PIN length</dt>
+<dd>The PIN length range that was specified for the token.</dd>
+</dlentry></dl></p>   </section>
+</conbody>
+</concept>
+<?Pub *0000003374?>

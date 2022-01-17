@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc03_zapgtr31v" xml:lang="en-us">
+<title>TR-31 symmetric key management</title>
+<titlealts>
+<navtitle>TR-31 symmetric key management</navtitle><?Pub Caret 20?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): TR-31 symmetric key
+management</searchtitle>
+</titlealts>
+<shortdesc>These verbs support TR-31 symmetric key management. </shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p> <ul otherprops="pdf">
+<li><xref href="wskc_r_vbspkextr31.dita#vbspkextr31"></xref></li>
+<li><xref href="wskc_r_vbtr31ki.dita#vbtr31ki"></xref></li>
+<li><xref href="wskc_r_vbtr31kp.dita#vbtr31kp"></xref></li>
+<li><xref href="wskc_r_vbtr31ko.dita#vbtr31ko"></xref></li>
+<li><xref href="wskc_r_vbtr31kr.dita#vbtr31kr"></xref></li>
+</ul></p></section>
+</refbody>
+</reference>
+<?Pub *0000001225?>

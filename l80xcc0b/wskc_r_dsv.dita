@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsv">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> callable
+service to verify a digital signature using a PKA public key.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>RSA key</indexterm>
+<indexterm>ECC key</indexterm>
+<indexterm>CSU_EC_CHECKCURVE</indexterm>
+<indexterm>environment variable<indexterm>CSU_EC_CHECKCURVE</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> callable service can
+use the RSA, ECC, or CRYSTALS-Dilithium public key, depending on the digital signature algorithm
+used to generate the signature.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> callable service can
+use the RSA public keys that are contained in trusted blocks regardless of whether the block also
+contains rules to govern its use when generating or exporting keys with the RKX service. If the
+TPK-ONLY keyword is used in the rule_array parameter, an error will occur if the
+<parmname>PKA_public_key_identifier</parmname> parameter does not contain a trusted block.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> callable service can
+use an X.509 certificate containing an RSA or ECC public key.</li>
+</ul>
+</section>
+<section><p>This service verifies digital signatures generated with these methods:</p> 
+<ul rev="sh21i1">
+<li rev="sh21i1">ANSI X9.62 (ECC using ECDSA: Brainpool, NIST prime, and Koblitz curve secp256k1)<ul>
+<li>Recommended hash methods: SHA-1, SHA-224, SHA-256, SHA-384, or SHA-512.</li>
+</ul></li>
+<li rev="sh21i1">Edwards-curve digital signature algorithm (ECC using EdDSA)<ul>
+<li>Required hash method for Ed25519: SHA-512.</li>
+<li>Required hash method for Ed448: SHAKE-256.</li>
+</ul></li>
+<li>ANSI X9.31 (RSA)</li>
+<li>ISO 9796-1 (RSA)</li>
+<li>RSA DSI PKCS #1 v1.5 and v2.1 (RSA)</li>
+<li>Padding on the left with zeros (RSA)</li>
+<li>CRYSTALS-Dilithium Digital Signature Algorithm (QSA)</li>
+</ul>
+<p rev="sh21i1">The input text can be hashed using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb, or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> verb.</p>
+</section>
+<section><p>This verb can use the RSA or ECC public key, depending on the digital
+signature algorithm used to generate the signature.</p></section>
+<section><p>This verb can also use the public keys that are contained in trusted
+blocks, regardless of whether the block also contains rules to govern
+its use when generating or exporting keys with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> verb.
+The format of the trusted block enables <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> to distinguish it
+from other RSA key tokens, and therefore no special rule array keyword
+or other parameters are required in order to indicate that the trusted
+block is being used. However, if the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> verb is used with the <synph><kwd>TPK-ONLY</kwd></synph> keyword
+in the <synph><var>rule_array</var></synph>, an error will occur if the <synph><var>PKA_public_key_identifier</var></synph> does
+not contain a trusted block.</p>
+<p rev="sh20i1">In addition, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"
+/> callable service can use the RSA, EC, or CRYSTALS-Dilithium public key, depending on the digital
+signature algorithm used to generate the signature.</p></section>
+<section><p><ph rev="sh21i1">This service accepts either the input message (text) or a hash of the input message.</ph> 
+If the input text is specified to be a hash, then it should have been
+previously hashed. You can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb. See also 
+<xref href="wskc_c_fhk.dita#l0wskc02_fhk"/>.</p>
+<p>An X.509 certificate couples an identity to a PKA (RSA or ECC) public key. As of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0, such an X.509 certificate can be used
+by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/> verb instead of a PKA
+(RSA or ECC) public key token. Because X.509 certificates require authentication against a PKI, the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> must be used to install the
+trust roots that will be used to validate your operational X.509 certificates at run-time.</p>
+<p>If the input text is specified to be a message (by the MESSAGE key word), or if PKCS-PSS is
+specified, then apply a required hashing-method specification keyword. If the PKCS-PSS keyword is
+specified, optionally specify a signature checking rule to indicate whether the derived salt length
+is an exact match to the input salt length (the default), or is not an exact match (requires special
+authorization).</p>
+<p rev="sh20i1">If keyword ECDSA is specified in the rule array, the Elliptic Curve Digital Signature Algorithm is used 
+as the digital-signature hash formatting method. If keyword EDDSA is specified, the EC Edwards digital signature 
+algorithm and hashing method appropriate for Edwards curves is used. If keyword CRDL-DSA is specified, the
+CRYSTALS-Dilithium algorithm and hashing method appropriate for CRYSTALS-Dilithium is used.
+Otherwise, specify the optional digital-signature hash formatting method keyword in the rule array for the
+method used to generate the RSA digital signature being verified.</p>
+<p>See also <xref href="wskc_c_fhk.dita#l0wskc02_fhk"/>.</p>
+<p><b>Notes:</b></p>
+<ol>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+<li>The maximum signature length is 256 bytes (2048 bits).</li>
+</ol>
+</section><section rev="shd3"><title>EC signature verification update</title>Beginning with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 5.0 of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/> for the CEX5C, checking of EC
+signatures is strengthened with new hardware support. For most invalid signatures the typical
+response of return code 4, reason code 429 is still returned. However, for some cases where the
+signature value <codeph><b><i>r</i></b></codeph> or value <codeph><b><i>s</i></b></codeph> is
+mathematically off the curve described by the <codeph><b><i>q</i></b></codeph> value from the EC
+key, that is, when <codeph>r > (q-1) or s > (q-1)</codeph>, then return code 12 with reason code 769
+is returned, indicating a rejection from the EC hardware layer. The decision to return the different
+error for the more serious case is reached when the host library loads (at application startup) by
+the value of a new environment variable: <codeph>CSU_EC_CHECKCURVE</codeph><p>For appropriate
+failure cases, if the value of <codeph>CSU_EC_CHECKCURVE</codeph> is 1, then the new return/reason
+code 12/769 is returned. Otherwise, 4/429 is returned. The default value of
+<codeph>CSU_EC_CHECKCURVE</codeph> is 0, to maintain compatibility with prior releases. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> recommends that customers prepare their
+applications and set the new environment variable to 1. Use the following command to set the
+variable (also to set it in a profile):<codeblock> export CSU_EC_CHECKCURVE=1</codeblock></p><p>Some
+error path test cases with pre-figured values may need to be updated, and the new return/reason code
+handling may need to be added to your application as a different type of signature verification
+failure. The adapter is functioning normally and no service action is required. Note that this
+change does not narrow valid verification cases or add restrictions. All valid signatures when
+passed to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/> with the correct key
+still verify with return code of 0, reason code of 0. </p><sectiondiv>
+<p><b>Advantages of the new verification granularity </b></p>
+<p>The new use of return code/reason code 12/769 can help you with  problem determination for the
+following practical cases:</p>
+<ul>
+<li>Check the bytes of the ECDSA signature. The <codeph><b><i>r</i></b></codeph> value is
+mathematically determined from the <term>order of G</term> of the curve and a random number. If the
+value of <codeph><b><i>r</i></b></codeph> or the value of <codeph><b><i>s</i></b></codeph> equals or
+exceeds the <term>order of G</term> of the curve, then the signature has been corrupted. No value or
+range of values can be statically ruled out for any bytes of <codeph><b><i>r</i></b></codeph> or
+<codeph><b><i>s</i></b></codeph> because of the random components. However you may be able to detect
+a corruption pattern by inspection. The <codeph><b><i>s</i></b></codeph> value is the same byte
+length as <codeph><b><i>r</i></b></codeph> (which is the same length as the curve <term>order of
+G</term>). The <codeph><b><i>s</i></b></codeph> value immediately follows
+<codeph><b><i>r</i></b></codeph> in the signature. </li>
+<li>Certain types of key corruption may also cause this error - forcing the key to be off the curve.
+Since public keys are passed in the clear, this is hard to detect until the public key is actually
+used, but again inspection of the key data may help. </li>
+<li>While using the wrong key type on the same curve size (example: substituting a P384 key for a
+BP384 key) will probably not generate 12/769 instead of 4/429, using a key for a smaller curve may
+generate 12/769 (example: substituting a P224 key for a P256 key). </li>
+</ul>
+</sectiondiv></section>
+</refbody></reference>

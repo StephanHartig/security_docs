@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="acmparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> verb</indexterm></indexterm>
+<indexterm>Transaction Sequence Number (TSN)</indexterm>
+<indexterm>TSN)<index-see>Transaction Sequence Number</index-see></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements
+in the <i>rule_array</i> variable. This value must
+be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>rule_array</parmname> parameter is a pointer to a string variable containing
+an array of keywords. The keywords are eight bytes in length and must be left-aligned and padded on
+the right with space characters. The <parmname>rule_array</parmname> keywords are described in <xref
+href="#acmparameters/acm_params"/>. <table id="acm_params" pgwide="0" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="3*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Service to perform</i></b> (one required) </entry>
+</row>
+<!--<row>
+<entry><synph><kwd>LSTPROFS</kwd></synph></entry>
+<entry>Retrieves a list of the user profiles installed in the coprocessor.
+<p>Keyword <synph><kwd>Q-NUM-RP</kwd></synph> shows how to determine how much data this request returns to the
+application program.</p></entry>
+</row>-->
+<row>
+<entry><synph><kwd>LSTROLES</kwd></synph></entry>
+<entry>Retrieves a list of the roles installed in the coprocessor.</entry>
+</row>
+<!--<row>
+<entry><synph><kwd>GET-PROF</kwd></synph></entry>
+<entry>Retrieves the non-secret part of a specified user profile.</entry>
+</row>-->
+<row>
+<entry><synph><kwd>GET-ROLE</kwd></synph></entry>
+<entry>Retrieves the non-secret part of a role definition from the coprocessor.</entry>
+</row>
+<!--<row>
+<entry><synph><kwd>DEL-PROF</kwd></synph></entry>
+<entry>Deletes a specified user profile.</entry>
+</row>
+<row>
+<entry><synph><kwd>DEL-ROLE</kwd></synph></entry>
+<entry>Deletes a specified role definition from the coprocessor.</entry>
+</row>
+<row>
+<entry><synph><kwd>Q-NUM-RP</kwd></synph></entry>
+<entry>Queries the number of roles and profiles presently installed in the coprocessor. This enables the
+application program to know how much data is returned with the <synph><kwd>LSTROLES</kwd></synph> or
+<synph><kwd>LSTPROFS</kwd></synph> keywords.</entry>
+</row>
+<row>
+<entry><synph><kwd>Q-NUM-UR</kwd></synph></entry>
+<entry>Queries the number of users logged on to the coprocessor.
+This enables the application program to know how much data is returned with the
+<synph><kwd>LSTUSERS</kwd></synph> keyword.
+<p>Users can log on or log off between the time <synph><kwd>Q-NUM-UR</kwd></synph> is used and the time
+<synph><kwd>LSTUSERS</kwd></synph> is used, so the list of users might not always
+contain exactly the number of users that the coprocessor reported as being logged on.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>LSTUSERS</kwd></synph></entry>
+<entry>Retrieves a list of the profile IDs for all users who are logged on to the coprocessor.</entry>
+</row>
+<row>
+<entry><synph><kwd>QTSN</kwd></synph> (beginning with Release 5.2)</entry>
+<entry>Retrieves the current random Transaction Sequence Number (TSN) for the specified user
+profile.</entry>
+</row>-->
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry>
+<pt>name</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>name</parmname> parameter is a pointer to a string variable containing the
+name of a role or user profile which is the target of the request. <p>The manner in which this
+variable is used depends on the service being performed.</p><table id="acm_name_params" pgwide="0"
+frame="all">
+<title>Meaning of the <parmname>name</parmname> parameter</title>
+<desc>
+<p outputclass="summary">Meaning of the <parmname>name</parmname> parameter</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Contents of <parmname>name</parmname> parameter</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><!--LSTPROFS, -->LSTROLES<!--, Q-NUM-RP, Q-NUM-UR, or LSTUSERS--></entry>
+<entry>The <parmname>name</parmname> parameter is unused.</entry>
+</row>
+<!--<row>
+<entry>GET-PROF or DEL-PROF</entry>
+<entry>The <parmname>name</parmname> parameter contains the 8-character profile ID for the user
+profile that is to be retrieved or deleted. A profile ID cannot start with a space
+character.</entry>
+</row>-->
+<row>
+<entry>GET-ROLE<!-- or DEL-ROLE--></entry>
+<entry>The <parmname>name</parmname> parameter contains the 8-character role ID for the role
+definition that is to be retrieved or deleted. A role ID cannot start with a space
+character.</entry>
+</row>
+<!--<row>
+<entry>QTSN</entry>
+<entry>The <parmname>name</parmname> parameter contains the 8-character profile ID of the user
+profile for which the current random TSN is to be retrieved.</entry>
+</row>-->
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>output_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>output_data_length</parmname> parameter is a pointer to an integer variable
+containing the number of bytes of data in the <parmname>output_data</parmname> variable. The value
+must be a multiple of four bytes. <p>On input, the <parmname>output_data_length</parmname> parameter
+must be set to the total size of the variable pointed to by the <parmname>output_data</parmname>
+parameter. On output, this variable contains the number of bytes of data returned by the verb in the
+<parmname>output_data</parmname> variable.</p></pd>
+</plentry>
+<plentry>
+<pt>output_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>output_data</parmname> parameter is a pointer to a string variable containing
+data returned by the verb. Any integer value returned in the <parmname>output_data</parmname>
+variable is in big-endian format; the high-order byte of the value is in the lowest-numbered address
+in storage. Authentication data structures are described in <xref
+href="wskc_acodas_intro.dita#acodas_intro"/>. <p>The manner in which this variable is used depends
+on the function being performed.</p><table id="output_data" pgwide="0" frame="all">
+<title>Meaning of the <parmname>output_data</parmname> parameter</title>
+<desc>
+<p outputclass="summary">Meaning of the <parmname>output_data</parmname> parameter</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Contents of <parmname>output_data</parmname> parameter</entry>
+</row>
+</thead>
+<tbody>
+<!--<row>
+<entry>LSTPROFS</entry>
+<entry>Contains a list of the profile IDs for all the user profiles stored in the coprocessor.</entry>
+</row>-->
+<row>
+<entry>LSTROLES</entry>
+<entry>Contains a list of the role IDs for all the roles stored in the coprocessor.</entry>
+</row>
+<!--<row>
+<entry>GET-PROF</entry>
+<entry>The variable contains the non-secret portion of the selected user profile. This includes the
+following data, in the order listed.<dl>
+<dlentry>
+<dt>Profile version</dt>
+<dd>Two bytes containing two 1-byte integer values, where the first byte contains the major
+version number and the second byte contains the minor version number.</dd>
+</dlentry>
+<dlentry>
+<dt>Comment</dt>
+<dd>A 20-character variable padded on the right with spaces, which describes the profile.
+This variable is not X'00' terminated.</dd>
+</dlentry>
+<dlentry>
+<dt>Role</dt>
+<dd>The 8-character name of the user's assigned role.</dd>
+</dlentry>
+<dlentry>
+<dt>Logon failure count</dt>
+<dd>A 1-byte integer containing the number of consecutive failed logon attempts by the
+user.</dd>
+</dlentry>
+<dlentry>
+<dt>Pad</dt>
+<dd>A 1-byte padding value containing X'00'.</dd>
+</dlentry>
+<dlentry>
+<dt>Activation date</dt>
+<dd>The first date on which the profile is valid. The date consists of a 2-byte integer
+containing the year, followed respectively by a 1-byte integer for the month and a
+1-byte integer for the day of the month.</dd>
+</dlentry>
+<dlentry>
+<dt>Expiration date</dt>
+<dd>The last date on which the profile is valid. The format is the same as the <parmname>Activation
+date</parmname> previously described.</dd>
+</dlentry>
+<dlentry>
+<dt>List of enrolled authentication mechanisms information</dt>
+<dd>For each authentication mechanism associated with the profile, the verb returns a
+series of three integer values:
+<ul compact="yes">
+<li>The 2-byte Mechanism ID</li>
+<li>The 2-byte Mechanism Strength</li>
+<li>The 4-byte authentication data Expiration date, which has the same format as the
+<parmname>Activation date</parmname> previously described.</li>
+</ul>
+</dd>
+</dlentry>
+</dl>
+<p>The authentication data itself is not returned. Only the IDs, strength, and expiration date of the
+data are returned.</p></entry>
+</row>-->
+<!--<row>
+<entry>QTSN</entry>
+<entry>Contains the current random TSN for the specified user profile.</entry>
+</row>-->
+<row>
+<entry>GET-ROLE</entry>
+<entry>The variable contains the non-secret portion of the selected role. This includes the
+following data, in the order listed.<dl>
+<dlentry>
+<dt>Role version</dt>
+<dd>Two bytes containing 2 one-byte integer values, where the first byte contains the major version
+number and the second byte contains the minor version number.</dd>
+</dlentry>
+<dlentry>
+<dt>Comment</dt>
+<dd>A 20-character variable padded on the right with spaces, containing a comment which describes
+the role. This variable is not X'00' terminated.</dd>
+</dlentry>
+<dlentry>
+<dt>Required authentication-strength level</dt>
+<dd>A 2-byte integer defining how secure the user authentication must be in order to authorize this
+role.</dd>
+</dlentry>
+<dlentry>
+<dt>Lower time-limit</dt>
+<dd>The earliest time of day that this role can be used. The time limit consists of two 1-byte
+integer values, a 1-byte hour, followed by a 1-byte minute. The hour can range from 0 - 23, and the
+minute can range from 0 - 59.</dd>
+</dlentry>
+<dlentry>
+<dt>Upper time-limit</dt>
+<dd>The latest time of day that this role can be used. The format is the same as the Lower
+time-limit.</dd>
+</dlentry>
+<dlentry>
+<dt>Valid days of the week</dt>
+<dd>A 1-byte variable defining which days of the week this role can be used. Seven bits of the byte
+are used to represent Sunday through Saturday, where a 1 bit means that the day is allowed, while a
+0 bit means it is not. <p>The first bit (most significant bit, MSB) is for Sunday, and the last
+significant bit (LSB) is unused and is set to B'0'.</p>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Access-control-point list</dt>
+<dd>The access-control-point bit map defines which functions a user with this role is permitted to
+run.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<!--<row>
+<entry>DEL-PROF or DEL-ROLE</entry>
+<entry>The variable is empty. Its length is 0.</entry>
+</row>
+<row>
+<entry>Q-NUM-RP</entry>
+<entry>The variable contains an array of two 4-byte integers. The first integer is the number of roles
+loaded using the Access Control Initialization verb (CSUAACI), while the second integer is the number of
+user profiles loaded with use of the same verb.</entry>
+</row>
+<row>
+<entry>Q-NUM-UR</entry>
+<entry>The variable contains a single integer value which indicates the number of users logged on to
+the coprocessor.</entry>
+</row>
+<row>
+<entry>LSTUSERS</entry>
+<entry>The variable contains an array of 8-character profile IDs, one for each user logged on to the
+coprocessor. The list is not in any specific order.</entry>
+</row>-->
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+</parml></section>
+</refbody></reference>

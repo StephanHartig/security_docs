@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_install_ubuntu" xml:lang="en-us" rev="sh16a">
+<title>Ubuntu installation considerations</title>
+<titlealts>
+<navtitle>Ubuntu installation considerations </navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Ubuntu installation
+considerations</searchtitle>
+</titlealts>
+<shortdesc>The installation process for Ubuntu is very similar to that for the other distributions.
+Read the provided information about special Ubuntu considerations.</shortdesc>
+<?Pub Caret 0?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>Ubuntu installation</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<dl>
+<dlentry>
+<dt>Package</dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Host Libraries and Tools</dd>
+</dlentry>
+<dlentry>
+<dt>Name</dt>
+<dd>csulcca-version-arch.deb</dd>
+</dlentry>
+<dlentry>
+<dt>Target Architecture</dt>
+<dd>tested and supported for 64-bit s390x; 31-bit is not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>Further information </dt>
+<dd>There is a web location presenting a file with eventually updated Ubuntu installation
+instructions: <codeblock><xref href="http://www.ibm.com/security/cryptocards/pciecc2/lonzsoftware.shtml" format="html" scope="external">Software packages for IBM z Systems servers running Linux</xref></codeblock><ol>
+<li>Click on the <b>Software version</b> that matches your environment (such as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh18i1">Releases 6.0 for CEX6C</ph> … for RHEL, SLES, and Ubuntu)</li>
+<li>Select <b>Ubuntu installation instructions</b> to open and download a text file with the most
+recent instructions and also with a list of known issues.</li>
+</ol><note>Debian, and by extension Ubuntu, use a different model for DSO Linking when compared to
+RHEL and SLES. Ubuntu adds <codeph>--as-needed</codeph> for <apiname>gcc</apiname> when
+<apiname>gcc</apiname> calls the linker. This can cause a link to fail on Ubuntu with
+<cite>undefined reference</cite> issues for symbols that are defined in <b>libcsulcca.so</b>. The
+remedy is to add this argument to the <apiname>gcc</apiname> call
+<codeblock>-Wl,--no-as-needed</codeblock>When building our sample program, as copied from this
+documentation to a file named <filepath>sample.c</filepath>, an appropriate compile call would look
+like the following:
+<codeblock scale="90">gcc -g -Wl,--no-as-needed -I/opt/IBM/CCA/include -lcsulcca -lcsulccamk -o sample sample.c</codeblock></note>
+</dd>
+</dlentry>
+</dl>
+</conbody>
+</concept>
+<?Pub *0000001262?>

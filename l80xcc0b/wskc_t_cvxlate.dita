@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_cvxlate" xml:lang="en-us">
+<title>Changing control vectors with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb</title>
+<titlealts>
+<navtitle>Changing control vectors</navtitle><?Pub Caret 6?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Changing control vectors with the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb</searchtitle>
+</titlealts>
+<shortdesc>What you need to do when you use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>changing control vectors</indexterm><indexterm>control
+vectors, changing</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"></keyword>)</indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<context> <p>Do the following when using the verb: </p>
+<ul>
+<li>Provide the control information for testing the control vectors of the source, target, and
+key-encrypting keys to ensure that only sanctioned changes can be performed</li>
+<li>Select the key-half processing mode.</li>
+</ul>
+<note rev="sh18i2">This verb is not available for compliance-tagged key tokens.</note></context>
+</taskbody>
+</task>
+<?Pub *0000001316?>

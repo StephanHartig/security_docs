@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_akrl" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> verb
+creates a key-record-list file containing information about specified
+key records in key storage. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"></keyword>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUAESDS</indexterm></indexterm>
+<indexterm>CSUAESDS</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Information listed includes whether record validation
+is correct, the type of key, and the date and time the record was
+created and last updated.</p></section>
+<section><p>Specify the key records to be listed using the key-label
+variable. To identify multiple key records, use the wild card (*)
+in the key label.</p></section>
+<section> <note><ol>
+<li>To list all the labels in key storage, specify the <synph><var>key_label</var></synph> parameter
+with *,  *.*,  *.*.*, and so forth, up to a maximum of seven name
+tokens (*.*.*.*.*.*.*).</li>
+<li>AES key records are stored in the external key-storage file defined
+by the CSUAESDS environment variable.</li>
+</ol> </note></section>
+<section><p>This verb creates the key-record-list file and returns
+the name of the file and the length of the file name to the calling
+application. This file has a header record, followed by 0 - <synph><var>n</var></synph> detail
+records, where <synph><var>n</var></synph> is the number of key records
+with matching key-labels.</p></section>
+<section><p><ph>The file is kept in the <codeph>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/keys/deslist</codeph> directory
+(assuming the directory name was not changed during installation).
+ These list files are created under the ownership of the environment
+of the user that requests the list service.  Make sure the files created
+kept the same group ID as your installation requires.  This can also
+be achieved by setting the 'set-group-id-on-execution' bit on in this
+directory.  See the g+s flags in the <synph><kwd>chmod</kwd></synph> command
+for full details.  Not doing this might cause errors to <ph>be</ph> returned
+on key-record-list verbs.</ph></p><?Pub Caret 36?></section>
+</refbody>
+</reference>
+<?Pub *0000003227?>

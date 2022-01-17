@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dmprequired" rev="sh15">
+<title>Required commands</title><titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)<indexterm>required
+            commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> verb requires the
+<cmdname>DK Migrate PIN</cmdname> command (offset X'02CE') to be enabled in the active role.</p>
+<p>When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is enabled in the
+domain role, this service will fail.</p>
+    </section>
+</refbody></reference>

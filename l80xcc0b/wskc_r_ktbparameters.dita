@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l0wskc02_ktbparameters" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm><indexterm>CLRAES</indexterm><indexterm>DATA</indexterm>
+<indexterm>CIPHER</indexterm><indexterm>CVARDEC</indexterm><indexterm>CVARENC</indexterm>
+<indexterm>CVARPINE</indexterm><indexterm>CVARXCVL</indexterm>
+<indexterm>CVARXCVR</indexterm><indexterm>DATA</indexterm><indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm><indexterm>DATAMV</indexterm><indexterm>DECIPHER</indexterm>
+<indexterm>DKYGENKY</indexterm><indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm><indexterm>IKEYXLAT</indexterm>
+<indexterm>IMPORTER</indexterm><indexterm>IPINENC</indexterm><indexterm>KEYGENKY</indexterm>
+<indexterm>MAC</indexterm><indexterm>MACVER</indexterm><indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm><indexterm>PINGEN</indexterm><indexterm>PINVER</indexterm>
+<indexterm>SECMSG</indexterm><indexterm>USE-CV</indexterm><indexterm>rule_array_count
+parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+<indexterm>EXTERNAL</indexterm><indexterm>INTERNAL</indexterm>
+<indexterm>AES</indexterm><indexterm>DES</indexterm>
+<indexterm>KEY</indexterm><indexterm>NO-KEY</indexterm><indexterm>CV</indexterm>
+<indexterm>NO-CV</indexterm><indexterm>WRAP-ENH</indexterm><indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm><indexterm>EXTERNAL</indexterm>
+<indexterm>INTERNAL</indexterm><indexterm>AMEX-CSC</indexterm>
+<indexterm>ANSI X9.9</indexterm><indexterm>ANY</indexterm><indexterm>ANY-MAC</indexterm>
+<indexterm>CLR8-ENC</indexterm><indexterm>CPINENC</indexterm><indexterm>CPINGEN</indexterm>
+<indexterm>CPINGENA</indexterm><indexterm>CVVKEY-A</indexterm>
+<indexterm>CVVKEY-B</indexterm>
+<indexterm>CV-KEK</indexterm><indexterm>DALL</indexterm><indexterm>DATA</indexterm>
+<indexterm>DDATA</indexterm><indexterm>DEXP</indexterm><indexterm>DIMP</indexterm>
+<indexterm>DKYL0</indexterm><indexterm>DMAC</indexterm>
+<indexterm>DMKEY</indexterm><indexterm>DMPIN</indexterm><indexterm>DMV</indexterm>
+<indexterm>DOUBLE</indexterm>
+<indexterm>DOUBLE-O</indexterm><indexterm>DPVR</indexterm><indexterm>ENH-ONLY</indexterm>
+<indexterm>EPINGEN</indexterm><indexterm>EPINGENA</indexterm><indexterm>EPINVER</indexterm>
+<indexterm>EXEX</indexterm><indexterm>EXPORT</indexterm><indexterm>GBP-PIN</indexterm>
+<indexterm>GBP-PINO</indexterm><indexterm>IBM-PIN</indexterm><indexterm>IBM-PINO</indexterm>
+<indexterm>IMEX</indexterm><indexterm>IMIM</indexterm><indexterm>IMPORT</indexterm>
+<indexterm>INBK-PIN</indexterm><indexterm>KEY-PART</indexterm>
+<indexterm>KEYLN8</indexterm>
+<indexterm>KEYLN24</indexterm><indexterm>LMTD-KEK</indexterm>
+<indexterm>MIXED</indexterm>
+<indexterm>MKVP</indexterm><indexterm>NO-SPEC</indexterm>
+<indexterm>NOCV-KEK</indexterm><indexterm>NO-XPORT</indexterm>
+<indexterm>NOOFFSET</indexterm><indexterm>NOT-KEK</indexterm><indexterm>OPEX</indexterm>
+<indexterm>OPIM</indexterm><indexterm>PIN</indexterm><indexterm>REFORMAT</indexterm>
+<indexterm>SINGLE</indexterm><indexterm>SMKEY</indexterm><indexterm>SMPIN</indexterm>
+<indexterm>TRANSLAT</indexterm><indexterm>UKPT</indexterm><indexterm>VISA-PVV</indexterm>
+<indexterm>WRAP-ECB</indexterm><indexterm>WRAP-ENH</indexterm>
+<indexterm>XLATE</indexterm><indexterm>XPORT-OK</indexterm><indexterm>key_value
+parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+<indexterm>control_vector parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+<indexterm>masterkey_verify_parm parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_token</var></synph> parameter is a pointer to a string variable
+containing the assembled <ph rev="sh21i1">64-byte fixed-length  key token.</ph><note>This variable
+cannot contain a key label.</note></pd>
+</plentry><plentry id="l0wskc02_ktparm">
+<pt>key_type </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_type</var></synph> parameter is a pointer to a string variable
+containing a keyword that defines the key type. The keyword is eight bytes in length and must be
+left-aligned and padded on the right with space characters. <table pgwide="0" frame="all">
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="1*"/>
+<thead>
+<row>
+<entry>Key type</entry>
+<entry>Description</entry>
+<entry>Algorithm</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>
+<lines>
+CIPHER
+CIPHERXI
+CIPHERXL
+CIPHERXO</lines>
+</entry>
+<entry>See <xref href="wskc_des_key_usage_restrictions.dita"/>.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry>CLRAES</entry>
+<entry>The <parmname>key_token</parmname> parameter is a clear AES DATA key token. 
+The <parmname>rule_array</parmname> must contain the keyword <keyword>INTERNAL</keyword> and one of the 
+optional keywords: <keyword>KEYLN16</keyword>, <keyword>KEYLN24</keyword>, or <keyword>KEYLN32</keyword>. 
+A key value parameter must also be provided.</entry>
+<entry>AES</entry>
+</row>
+<row>
+<entry>CLRDES</entry>
+<entry>The <parmname>key_token</parmname> parameter is a clear DES DATA key token. 
+The <parmname>rule_array</parmname> must contain the keyword <keyword>INTERNAL</keyword> and one of the 
+optional keywords: <keyword>KEYLN8</keyword>, <keyword>KEYLN16</keyword>, or <keyword>KEYLN24</keyword>. 
+A key value parameter must also be provided.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry><lines>
+CVARDEC
+CVARENC
+CVARPINE
+CVARXCVL
+CVARXCVR
+</lines></entry>
+<entry>See <xref href="wskc_des_key_usage_restrictions.dita"/>.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry>DATA</entry>
+<entry>Valid for AES and DES keys and must be specified with
+the <parmname>rule_array</parmname> keyword AES to build an encrypted AES key token.</entry>
+<entry>AES and DES</entry>
+</row>
+<row>
+<entry><lines>
+DATAC
+DATAM
+DATAMV
+DECIPHER
+DKYGENKY
+ENCIPHER
+EXPORTER
+IKEYXLAT
+IMPORTER</lines></entry>
+<entry>See <xref href="wskc_des_key_usage_restrictions.dita"/>.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry>KEYGENKY</entry>
+<entry>CLR8-ENC or UKPT must be coded in <parmname>rule_array</parmname> parameter.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry><lines>
+IPINENC
+MAC
+MACVER
+OKEYXLAT
+OPINENC
+PINGEN
+PINVER</lines></entry>
+<entry>See <xref href="wskc_des_key_usage_restrictions.dita"/>.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry>SECMSG</entry>
+<entry>SMKEY or SMPIN must be specified in the <parmname>rule_array</parmname> parameter.</entry>
+<entry>DES</entry>
+</row>
+<row>
+<entry>USE-CV</entry>
+<entry>A user-supplied control vector, supplied in the <parmname>control_vector</parmname>
+parameter, is used to build the token. The <keyword>CV</keyword> rule array keyword should be
+specified if <keyword>USE-CV</keyword> is specified. When the key type is <keyword>USE-CV</keyword>,
+control vector keywords in the rule array are ignored. <p>The number of bytes of the control vector
+copied into the output key token depends on the DES key length keyword specified in the rule array: </p><ul>
+<li>If no keyword is specified, 16 bytes are copied.</li>
+<li>If KEYLN8 or SINGLE is specified, 8 bytes are copied.</li>
+<li>If KEYLN16, DOUBLE, or DOUBLE-0 is specified, 16 bytes are copied.</li>
+<li>If KEYLN24, TRIPLE, or TRIPLE-O is specified, 16 bytes are copied.</li>
+</ul><p>A DES key wrapping method keyword may be required to match the CCA control vector and key
+length specified. </p><p>When the <keyword>KEY</keyword> keyword is specified, the default length is
+16 bytes. The key length keywords for DES keys are used to change the length to 8 or 24. </p>
+</entry>
+<entry>DES</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd>
+</plentry><plentry>
+<pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, 3, 4, 5, or 6.</pd>
+</plentry><plentry>
+<pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>One to four keywords that provide control information to the <ph>verb</ph>. The keywords
+must be in contiguous storage with each of the keywords left-aligned in its own 8-byte location and
+padded on the right with blanks. For any key type, there are no more than four valid
+<synph><var>rule_array</var></synph> values. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#l0wskc02_ktbparameters/l0wskc02_ktbci"/>. <table frame="all"
+id="l0wskc02_ktbci" pgwide="0"><title>Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> control information</title><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> control information</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="3*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Token type</i></b> (One required)</entry>
+</row>
+<row>
+<entry>EXTERNAL</entry>
+<entry>An external key token. Valid only for DES keys.</entry>
+</row>
+<row>
+<entry>INTERNAL</entry>
+<entry>An internal key token. Valid for both AES and DES keys.</entry>
+</row>
+<row>
+<entry colsep="1" nameend="col2" namest="col1"><b><i>Token algorithm</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry>AES</entry>
+<entry>An AES key. Only valid for CLRAES or DATA. If CLRAES is specified, this is the default token
+algorithm. </entry>
+</row>
+<row>
+<entry>DES</entry>
+<entry>A DES key. Not valid for CLRAES. If CLRAES is not specified, this is the default token
+algorithm. </entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key status</i></b> (One, optional).</entry>
+</row>
+<row>
+<entry>KEY</entry>
+<entry>The key token to build will contain an encrypted key. The
+<synph><var>key_value</var></synph> parameter identifies the field that contains the key.</entry>
+</row>
+<row>
+<entry>NO-KEY</entry>
+<entry>The key token to build will not contain a key. This is the default key
+status.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1" valign="top"><b><i>Key length</i></b> (one keyword required for
+<synph><kwd>AES</kwd></synph> keys, one optional for <synph><kwd>DES</kwd></synph>
+keys)</entry>
+</row>
+<row>
+<entry>KEYLN8</entry>
+<entry>Single-length or 8-byte key. Valid only for <synph><kwd>DES</kwd></synph>
+keys.</entry>
+</row>
+<row>
+<entry>KEYLN16</entry>
+<entry>Specifies that the key is 16 bytes long.</entry>
+</row>
+<row>
+<entry>KEYLN24</entry>
+<entry>Specifies that the key is 24 bytes long.</entry>
+</row>
+<row>
+<entry>KEYLN32</entry>
+<entry>Specifies that the key is 32 bytes long. Valid only for
+<synph><kwd>AES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>DOUBLE</entry>
+<entry>Double-length or 16-byte key. Synonymous with KEYLN16. 
+Valid only for <synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>DOUBLE-O</entry>
+<entry>Double-length key with guaranteed unique 8-byte key halves. The key is 16
+bytes long. Valid only for <synph><kwd>DES</kwd></synph> keys. </entry>
+</row>
+<row>
+<entry>MIXED</entry>
+<entry>Double-length key. Indicates that the key can either be a replicated
+single-length key (both key halves equal), or a double-length key with two different 8–byte values.
+Valid only for <synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>SINGLE</entry>
+<entry>Single-length or 8-byte key. Synonymous with KEYLN8. Valid only for DES
+keys.</entry>
+</row>
+<row>
+<entry>TRIPLE</entry>
+<entry> Specifies that the key contains three key parts and is either a replicated single-length or
+replicated double-length key (two or three parts equal, ignoring parity bits), or a triple-length
+key with three different 8-byte values, ignoring parity bits. Valid only for supported DES key types
+listed in  <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</entry>
+</row>
+<row>
+<entry>TRIPLE-O</entry>
+<entry>Specifies that the key contains three key parts and is a triple-length key that is guaranteed
+to have three different 8-byte values, ignoring parity bits. Valid only for supported DES key types
+listed in <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</entry>
+</row>
+<row>
+<entry>ZEROCV24</entry>
+<entry>Specifies that the key contains three key parts and is either a replicated single-length or
+replicated double-length key (two or three key parts equal, ignoring parity bits), or a
+triple-length key with three different 8-byte values, ignoring parity bits. Only valid with DES
+EXTERNAL DATA keys. Not valid with XPORT-OK, ENH-ONLY, NOT31XPT, or WRAPENH2. Specifies to build
+Version X’01’ fixed-length DES key-token with a CV valued to binary zeros, with the exception that
+the KEY-PART bit can be on together with the parity bit of that byte.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key Part Indicator</i></b> (optional). Valid only for
+<synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>KEY-PART</entry>
+<entry>This token is to be used as input to the Key Part Import service.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>CV source</i></b> (One, optional). Valid only for
+<synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>CV</entry>
+<entry>The key token is built using the control vector identified by the
+<varname>control_vector</varname> parameter. <note rev="sh21i1">When this keyword is specified, all control
+vector related keywords in the rule array are ignored.</note></entry>
+</row>
+<row>
+<entry>NO-CV</entry>
+<entry>The control vector is to be supplied based on the key type and the control vector related
+keywords. This is the default.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Control vector on the link
+specification</i></b> (optional). Valid only for IMPORTER and EXPORTER.</entry>
+</row>
+<row>
+<entry>CV-KEK</entry>
+<entry>This keyword indicates marking the KEK as a CV KEK. The control vector is applied to the KEK
+prior to its use in encrypting other keys. This is the default.</entry>
+</row>
+<row>
+<entry>NOCV-KEK</entry>
+<entry>This keyword indicates marking the KEK as a NOCV KEK. The control vector is not applied to
+the KEK prior to its use in encrypting other keys.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Key-wrapping method</i></b> (One, optional). 
+Valid only for <synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>WRAP-ENH</entry>
+<entry>Use enhanced key wrapping method, which is compliant with the ANSI X9.24 standard.</entry>
+</row>
+<row>
+<entry>WRAP-ECB</entry>
+<entry>Use original key wrapping method, which uses ECB wrapping for DES key tokens and CBC wrapping
+for AES key tokens.</entry>
+</row>
+
+<row rev="sh21i1">
+<entry>WRAPENH2</entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for
+TRIPLE or TRIPLE-O. This is the default for TRIPLE and TRIPLE-O.</entry>
+</row>
+<row rev="sh21i1">
+<entry>WRAPENH3</entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and SHA-256. 
+This method requires CV bit 56 = B’1’ (ENH-ONLY), which is the default.</entry>
+</row>
+
+<row>
+<entry nameend="col2" namest="col1"><b><i>Translation control</i></b> (Optional). Valid only for
+<synph><kwd>DES</kwd></synph> keys.</entry>
+</row>
+<row>
+<entry>ENH-ONLY</entry>
+<entry rev="sh21i1">Restrict re-wrapping of the <synph><var>output_key_token</var></synph>. After the token has
+been wrapped with the enhanced method, it cannot be re-wrapped using the original method. This is the default if 
+<synph><kwd>WRAPENH3</kwd></synph> is specified.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Compliance</i></b> (Optional)</entry>
+</row>
+<row>
+<entry>COMP-TAG</entry>
+<entry>Generate a compliant-tagged key. While a skeleton key token with the compliance-tag can be
+created at any time, the skeleton must be passed to an adapter domain that is in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> to be provisioned with key
+material (either generated or imported).</entry>
+</row>
+<row>
+<entry>NOCMPTAG</entry>
+<entry>Do not generate a compliant-tagged key. This is the default.</entry>
+</row>
+</tbody>
+</tgroup></table><p>See <xref href="wskc_des_key_usage_restrictions.dita"/> for the key usage
+keywords that can be specified for a given key type.</p><p>The difference between <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>) and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/>) is that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> returns the
+<synph><var>rule_array</var></synph> keywords that apply to a parsed token, such as
+<synph><kwd>EXTERNAL</kwd></synph>, <synph><kwd>INTERNAL</kwd></synph>, and so forth. These
+<synph><var>rule_array</var></synph> parameters are returned in addition to the
+<synph><var>key_type</var></synph> parameter.
+<codeblock>AMEX-CSC          DKYL0      EPINGEN       KEYLN16       UKPT
+ANSIX9.9          DKYL1      EPINGENA      LMTD-KEK      VISA-PVV
+ANY               DKYL2      EPINVER       MIXED         WRAP-ECB
+ANY-MAC           DKYL3      EXEX          NO-SPEC       WRAP-ENH
+CLR8-ENC          DKYL4      EXPORT        NO-XPORT      XLATE
+CPINENC           DKYL5      GBP-PIN       NOOFFSET      XPORT-OK
+CPINGEN           DKYL6      GBP-PINO      NOT-KEK
+CPINGENA          DKYL7      IBM-PIN       OPEX
+CVVKEY-A          DMAC       IBM-PINO      OPIM
+CVVKEY-B          DMKEY      IMEX          PIN
+DALL              DMPIN      IMIM          REFORMAT
+DATA              DMV        IMPORT        SINGLE
+DDATA             DOUBLE     INBK-PIN      SMKEY
+DEXP              DPVR       KEY-PART      SMPIN
+DIMP              ENH-ONLY   KEYLN8        TRANSLAT       </codeblock></p></pd>
+</plentry><plentry>
+<pt>key_value</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+This parameter is a pointer to a string variable containing the enciphered key or AES
+clear-key value which is placed into the key field of the key token when you use the
+<synph><kwd>KEY</kwd></synph>
+<synph><var>rule_array</var></synph> keyword. If the <synph><kwd>KEY</kwd></synph> keyword is not
+specified, this parameter is ignored.<p>The length of this variable depends on the type of key that
+is provided. The length is 16 bytes for DES keys. A single-length DES key must be left-aligned and
+padded on the right with eight bytes of X'00'. For a clear AES key, the length is 16 bytes for
+<synph><kwd>KEYLN16</kwd></synph>, 24 bytes for <synph><kwd>KEYLN24</kwd></synph>, and 32 bytes for
+<synph><kwd>KEYLN32</kwd></synph>. An enciphered AES key is 32 bytes.</p></pd>
+</plentry><plentry>
+<pt>reserved_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to an integer variable or a 4-byte string variable. The value
+must be equal to an integer valued 0.</pd>
+</plentry><plentry>
+<pt>reserved_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameters is a pointer to an integer variable. The value must be 0 or a null
+pointer.</pd>
+</plentry><plentry>
+<pt>token_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is unused for DES keys and cleartext AES keys. In either of those cases it
+must be a null pointer or point to a string variable containing eight bytes of binary zeros. For
+encrypted AES keys, this parameter is a pointer to a one-byte string variable containing the LRC
+value for the key passed in the <varname>key_value</varname> parameter. For more information on LRC
+values, see <cite>CCA Basic Services Reference and Guide
+for the IBM 4767 and IBM 4765 PCI-X Cryptographic Coprocessors</cite>.</pd>
+</plentry><plentry>
+<pt>control_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A parameter is a pointer to a string variable. If you specify the
+<synph><kwd>CV</kwd></synph> keyword in the <i>rule_array</i>, the contents of this variable are
+copied to the control vector field of the fixed-length DES key token. If the
+<synph><kwd>CV</kwd></synph> keyword is not specified, this keyword is ignored.</pd>
+</plentry><plentry>
+<pt>reserved_4</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to a string variable. The value must be binary zeros or a null
+pointer.</pd>
+</plentry><plentry>
+<pt>reserved_5</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to an integer variable. The value must be 0 or a null
+pointer.</pd>
+</plentry><plentry>
+<pt>reserved_6</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to an 8-byte string variable. The value must eight space
+characters or a null pointer.</pd>
+</plentry><plentry>
+<pt>master_key_verification_pattern</pt><?Pub Caret -2?>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to a string variable containing the master-key verification
+pattern of the master key used to encipher the key in the internal key-token. The contents of the
+variable are copied into the MKVP field of the of the key token when keywords
+<synph><kwd>INTERNAL</kwd></synph> and <synph><kwd>KEY</kwd></synph> are specified, and
+<i>key_type</i> keyword <synph><kwd>CLRAES</kwd></synph> is not specified.</pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000017508?>

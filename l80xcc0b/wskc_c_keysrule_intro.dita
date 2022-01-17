@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_keysrule_intro">
+<title>Background information about master key management</title>
+<titlealts>
+<navtitle>Background information about master key management</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Background information about master key
+management</searchtitle>
+</titlealts><shortdesc>There are four types (or sets) of master keys (Symmetric DES, AES,
+Asymmetric RSA (PKA), and APKA). </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>master key management</indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>NMK</indexterm>
+<indexterm>CMK</indexterm>
+<indexterm>OMK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>There are three master key registers for each of the four types
+of master key. In other words, there are a total of twelve master
+key registers.</p>
+<p>The APKA master-key register set, introduced to CCA beginning with
+Release 4.1.0, is used to encrypt and decrypt the Object Protection
+Key (OPK) that is itself used to wrap the key material of an Elliptic
+Curve Cryptography (ECC) key. ECC keys are asymmetric.</p>
+<p>For each of the four types, there is a master key register in one
+of these three categories:
+<dl>
+<dlentry><dt>New master-key (NMK) register</dt>
+<dd>This register holds a master key that is not yet usable for
+decrypting key tokens for normal cryptographic operations.  
+<p>The
+NMK register can be in one of these states:
+<dl>
+<dlentry><dt>EMPTY</dt>
+<dd>No key parts have been loaded yet.</dd></dlentry>
+<dlentry><dt>PARTIALLY FULL</dt>
+<dd>Some key parts have been loaded, but not the LAST key part.
+See <xref href="wskc_r_mkp.dita#l0wskc02_mkp"/>.</dd></dlentry>
+<dlentry><dt>FULL</dt>
+<dd>The LAST key part has been loaded, but the SET command has not
+yet been called. See <xref href="wskc_r_mkp.dita#l0wskc02_mkp"/>.</dd></dlentry>
+</dl></p></dd></dlentry>
+<dlentry><dt>Current master-key (CMK) register</dt>
+<dd>This register holds a master key that can be used to decrypt
+internal key tokens for keys in use with normal cryptographic operations.
+Internal key tokens are protected under the master key; the keys are
+actually stored outside the adapter. 
+<p>The CMK register can be in
+one of these states:
+<dl>
+<dlentry><dt>EMPTY</dt>
+<dd>No valid key has yet been established with the SET command in
+the life of this adapter, or the adapter has been re-initialized to
+clear the master key registers.</dd></dlentry>
+<dlentry><dt>VALID</dt>
+<dd>A master key has been loaded with the SET command.</dd></dlentry>
+</dl></p></dd></dlentry>
+<dlentry><dt>Old master-key (OMK) register</dt>
+<dd>This is the master key that previously has been the CMK, before
+the master key that is now in the CMK register. The OMK register can
+also be used to decrypt internal key tokens, but for these keys a
+warning with return code 0 and reason code 2 is returned, along with
+the results from the requested cryptographic operation.  
+<p>The OMK
+register can be in one of these states:
+<dl>
+<dlentry><dt>EMPTY</dt>
+<dd>No valid key is in this register.</dd></dlentry>
+<dlentry><dt>VALID</dt>
+<dd>A master key that previously was in the CMK register has been
+shifted to the OMK register by the SET command. The same invocation
+of the SET command also shifted the contents of the NMK register into
+the CMK register.</dd></dlentry>
+</dl></p></dd></dlentry>
+</dl></p>
+</conbody></concept>

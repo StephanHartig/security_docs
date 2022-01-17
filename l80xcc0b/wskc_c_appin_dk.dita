@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_appin_dk" rev="sh15" xml:lang="en-us">
+<title>Financial services for DK PIN methods</title>
+<titlealts>
+<navtitle>DK PIN methods</navtitle><?Pub Caret 0?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Financial services for DK PIN methods</searchtitle>
+</titlealts>
+<shortdesc>The German Banking Industry Committee, <term>Deutsche
+Kreditwirtschaft</term> (DK) specifies PIN methods and requirements
+for financial services.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>financial services support for
+DK</indexterm></indexterm><indexterm>DK (Deutsche Kreditwirtschaft)</indexterm>
+<indexterm>DK PIN methods</indexterm><indexterm>financial services
+support for DK</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>DK is an association of the German banking industry. The intellectual
+property rights regarding the methods and specification belong to
+the German Banking Industry Committee. </p>
+<note>All cryptographic coprocessors must be loaded with the same
+level of code. There are several licensed internal code (LIC) releases
+ in support of the DK PIN methods. Ensure that all of the coprocessors
+have the same LIC level to support the function you want to use.</note>
+<p otherprops="pdf">The following financial services (verbs) are described
+in this topic: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_dk_ddpgdeterm.dita#csnbddpgdeterm"></xref></li>
+<li><xref href="wskc_dk_dmpmigpin.dita#csnbdpmmigpin"></xref></li>
+<li><xref href="wskc_dk_dpmtpanmod.dita#csnbdpmtpanmod"></xref></li>
+<li><xref href="wskc_dk_dptpantrans.dita#csnbdptpantrans"></xref></li>
+<li><xref href="wskc_dk_dpcpinchange.dita#csnbdpcpinchange"></xref></li>
+<li><xref href="wskc_dk_dpvpinverify.dita#csnbdpvpinverify"></xref></li>
+<li><xref href="wskc_dk_dpnuprwcard.dita#csnbdpnuprwcard"></xref></li>
+<li rev="sh20i1"><xref href="wskc_dk_dpnuprwcard2.dita"/></li>
+<li><xref href="wskc_dk_dpcgprwcmac.dita#csnbdpcgprwcmac"></xref></li>
+<li><xref href="wskc_dk_drpgranpin.dita#csnbdrpgranpin"></xref></li>
+<li rev="sh20i1"><xref href="wskc_dk_drpgranpin2.dita"/></li>
+<li><xref href="wskc_dk_drpregpin.dita#csnbdrpregpin"></xref></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000002526?>

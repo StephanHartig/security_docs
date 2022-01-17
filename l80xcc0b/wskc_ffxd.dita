@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbffxd" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>)</title>
+<titlealts>
+<navtitle> FPE Algorithms Decipher (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"
+/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  FPE Algorithms Decipher (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>) callable service implements format
+preserving encryption (FPE) algorithms FF1, FF2, and FF2.1. This service returns the decrypted data
+which is equal in terms of length and alphabet characters to the input plaintext.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>)</indexterm>
+<indexterm>FF1, FF2, and FF2.1 <indexterm>format preserving algorithms</indexterm></indexterm>
+<indexterm>format preserving algorithms <indexterm>FF1, FF2, and FF2.1</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section/>
+</refbody>
+</reference>

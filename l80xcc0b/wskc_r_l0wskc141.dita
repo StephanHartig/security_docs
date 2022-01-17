@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc141">
+<title>Format</title>
+  <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts>
+<shortdesc rev="sh15">The format of <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<table pgwide="0">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry>
+<codeblock>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>(
+           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <synph><var>key_token_length</var></synph>,
+           <synph><var>key_token</var></synph>,
+           <synph><var>key_type</var></synph>,
+           <synph><var>rule_array_count</var></synph>,
+           <synph><var>rule_array</var></synph>,
+           <synph><var>key_material_state</var></synph>,
+           <synph><var>payload_bit_length</var></synph>,
+           <synph><var>payload</var></synph>,
+           <synph><var>key_verification_pattern_type</var></synph>,
+           <synph><var>key_verification_pattern_length</var></synph>,
+           <synph><var>key_verification_pattern</var></synph>,
+           <synph><var>key_wrapping_method</var></synph>,
+           <synph><var>key_hash_algorithm</var></synph>,
+           <synph><var>key_name_length</var></synph>,
+           <synph><var>key_name</var></synph>,
+           <synph><var>TLV_data_length</var></synph>,
+           <synph><var>TLV_data</var></synph>,
+           <synph><var>user_associated_data_length</var></synph>,
+           <synph><var>user_associated_data</var></synph>,
+           <synph rev="sh15"><var>verb_data_length</var></synph>,
+           <synph rev="sh15"><var>verb_data</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

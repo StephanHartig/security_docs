@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc92">
+<title>Host CPU acceleration: CPACF</title>
+ <titlealts>
+    <navtitle>Host CPU acceleration: CPACF</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Host CPU acceleration:
+CPACF</searchtitle>
+  </titlealts>
+<shortdesc>Only keys with a key type of DATA can be used successfully with
+the CPACF exploitation layer through this verb. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>DATA</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>CPACF</indexterm>
+<indexterm>host CPU acceleration</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Specifically, a DATA key has a CV (Control Vector) of all <ph>X'00'</ph> bytes
+for all active bytes of the CV (eight bytes for 8-byte DES keys, 16
+bytes for 16-byte DES keys, and 16 bytes for 24-byte DES keys).</p></section>
+<section><p>For details about CPACF, see <xref href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"/>.</p></section>
+</refbody></reference>

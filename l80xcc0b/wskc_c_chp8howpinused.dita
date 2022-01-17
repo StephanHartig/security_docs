@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8howpinused">
+<title>How personal identification numbers (PINs) are used</title>
+  <titlealts>
+    <navtitle>How personal identification numbers (PINs) are used</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): How personal identification numbers
+(PINs) are used</searchtitle>
+  </titlealts><shortdesc>CCA allows your applications to generate PINs, to verify supplied
+PINs, and to translate PINs from one format <ph>or encryption key</ph> to
+another.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>using</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Many people are familiar with PINs, which are used to access an
+automated teller machine (ATM). From the system point of view, PINs
+are used primarily in financial networks to authenticate users. Typically,
+a user is assigned a PIN and enters the PIN at automated teller machines
+(ATMs) to gain access to his or her accounts. It is extremely important
+that the PIN be kept private so no one other than the account owner
+can use it. </p>
+</conbody></concept>

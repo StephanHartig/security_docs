@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkxrequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Requried commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Data Key Export</cmdname> command (offset X'010A') to be enabled
+in the active role.</p>
+<p>By also specifying the <cmdname>Data Key Export - Unrestricted</cmdname> command (offset
+X'0277'), you can permit a less secure mode of operation that enables an equal key-halves EXPORTER
+key-encrypting-key to export a key having unequal key-halves (key parity bits are ignored).</p></section>
+</refbody></reference>

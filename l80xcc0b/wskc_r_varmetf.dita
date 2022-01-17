@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_varmetf">
+<title>RSA variable Modulus-Exponent token</title>
+ <titlealts>
+    <navtitle>RSA variable Modulus-Exponent token</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): </searchtitle>
+  </titlealts>
+<shortdesc>A description of the fields in the new variable length Modulus-Exponent token. RSA
+variable Modulus-Exponent token.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key token<indexterm>PKA<indexterm>variable
+Modulus-Exponent</indexterm></indexterm></indexterm>
+<indexterm>RSA variable Modulus-Exponent token</indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>variable Modulus-Exponent</indexterm></indexterm></indexterm>
+<indexterm>variable Modulus-Exponent token<indexterm>RSA</indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>RSA
+1024-bit private internal</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA 1024-bit private internal</indexterm></indexterm></indexterm>
+<indexterm>RSA 1024-bit private internal key token</indexterm>
+<indexterm>private internal key token<indexterm>RSA</indexterm></indexterm>
+<indexterm>internal key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_varmetf/l0wskc02_varmetf_tab1"/> describes the fields in the new variable
+length Modulus-Exponent token. Currently, only the external form of the token will be used. There
+are no blinding values for the token. The latest level hardware makes this unnecessary. </p>
+<table id="l0wskc02_varmetf_tab1" pgwide="1">
+<title>RSA variable Modulus-Exponent token format</title>
+<desc>
+<p outputclass="summary">RSA variable Modulus-Exponent token format</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="40*"/>
+<colspec colname="col3" colwidth="19*"/>
+<colspec colname="col4" colwidth="40*"/>
+<colspec colname="col5" colwidth="10*"/>
+<thead>
+<row>
+<entry>Number</entry>
+<entry>If External Key</entry>
+<entry>New version '09' field</entry>
+<entry>If Internal Key</entry>
+<entry>Length in bytes</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>1</entry>
+<entry>'09'</entry>
+<entry>sectionId</entry>
+<entry>'09'</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>'00'</entry>
+<entry>version</entry>
+<entry>'00'</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>132 + dLength + nLength + padLength</entry>
+<entry>sectionLength</entry>
+<entry>132 + dLength + nLength + padLength</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>Hash over fields 7 - end of section (clear values)</entry>
+<entry>sha1Hash</entry>
+<entry>Hash over fields 7 - end of section</entry>
+<entry>20</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>8 + dLength + padLength</entry>
+<entry>encrypted sectionLength</entry>
+<entry>8 + dLength + padLength</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>This is actually a reserved field, not a pad '0000'</entry>
+<entry>pad</entry>
+<entry>'0000'</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>
+<lines>'82' encrypted external key or
+'00' clear external key</lines>
+</entry>
+<entry>keyFormat</entry>
+<entry>'02' encrypted operational key</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>'00'</entry>
+<entry>pedigree</entry>
+<entry>'21', '22', '23', or '24' as '06' token</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>Hash over sections which follow the public key section, or '00'</entry>
+<entry>sha1Key NameHash</entry>
+<entry>Hash over sections which follow the public key section, or '00'</entry>
+<entry>20</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>’02’ indicates that the key is translatable</entry>
+<entry>keyUsageFlag</entry>
+<entry>same as in '06'</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>'00'</entry>
+<entry>reserved1</entry>
+<entry>'00'</entry>
+<entry>1</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>Binary zeroes</entry>
+<entry>OPK</entry>
+<entry>8 byte confounder + 40-byte (5-part) DES key, encrypted with the PKA master key</entry>
+<entry>48</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>Binary zeroes</entry>
+<entry>mkHash Pattern</entry>
+<entry>16 byte MKVP</entry>
+<entry>16</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>Length of private exponent</entry>
+<entry>dLength</entry>
+<entry>Length of private exponent</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>Length of modulus</entry>
+<entry>nLength</entry>
+<entry>Length of modulus</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>Length required to pad dLength to a multiple of 8</entry>
+<entry>padLength</entry>
+<entry>Length required to pad dLength to a multiple of 8</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>17</entry>
+<entry>'0000'</entry>
+<entry>reserved2</entry>
+<entry>'0000'</entry>
+<entry>2</entry>
+</row>
+<row>
+<entry>18</entry>
+<entry>Random value - encrypted data (with PKA MK) begins here</entry>
+<entry>confounder</entry>
+<entry>encrypted data (with 5-part OPK) begins here</entry>
+<entry>8</entry>
+</row>
+<row>
+<entry>19</entry>
+<entry/>
+<entry>&lt;d follows, then pad, then n&gt;</entry>
+<entry/>
+<entry>1</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

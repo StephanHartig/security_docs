@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="cca_capps" xml:lang="en-us">
+<title>Building C applications using the <keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> libraries</title>
+ <titlealts>
+    <navtitle>Building C applications using the <keyword
+                conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> libraries</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>: Building C
+applications using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> libraries
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+  </titlealts>
+<shortdesc>Perform these steps to build a C program from a make file.</shortdesc>
+<prolog><metadata>
+<keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+            libraries<indexterm>C applications</indexterm></indexterm>
+        <indexterm>C applications<indexterm>using <keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+          libraries</indexterm></indexterm>
+      </keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step><cmd>Change to the directory that contains the make file.</cmd>
+</step>
+<step><cmd>Issue this command to compile the program: </cmd><info><codeblock>make -f <synph><var>&lt;makefile&gt;</var></synph></codeblock>For
+example, to use the make file of <xref
+href="wskc_c_codesamp_c.dita#l0wskc02_codesamp_c"></xref>, issue:
+<codeblock>make -f makefile.lnx</codeblock></info></step>
+</steps><?Pub Caret -2?>
+</taskbody>
+</task>
+<?Pub *0000001012?>

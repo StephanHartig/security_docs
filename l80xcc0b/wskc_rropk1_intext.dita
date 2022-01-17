@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<topic id="rropk1" xml:lang="en-us">
+<title>RSA private key, 4096-bit Chinese Remainder Theorem format with AES encrypted OPK
+section</title>
+<titlealts>
+<navtitle>RSA private key, 4096-bit Chinese Remainder Theorem format with AES encrypted OPK
+section</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key, 4096-bit Chinese
+Remainder Theorem format with AES encrypted OPK section</searchtitle>
+</titlealts>
+<shortdesc>View the format of an RSA private key token, 4096-bit Chinese Remainder Theorem, with AES
+encrypted OPK section (X'31'), in internal and external format.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>RSA private key<indexterm>4096-bit Chinese Remainder Theorem
+format</indexterm><indexterm>AES encrypted OPK section</indexterm><indexterm>external and internal
+form</indexterm></indexterm>
+<indexterm>AES encrypted OPK section<indexterm>RSA private key</indexterm><indexterm>4096-bit
+Chinese Remainder Theorem format</indexterm></indexterm>
+<indexterm>RSA-AESC</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<table frame="all" id="RSAPrivateKey4096-bitChineseRemaind-112ADF20" pgwide="1" scale="90">
+<title>RSA private key, 4096-bit Chinese Remainder Theorem format with AES encrypted OPK section
+(X'31')</title>
+<desc>
+<p outputclass="summary">RSA private key, 4096-bit Chinese Remainder Theorem format with AES
+encrypted OPK section (X'31')</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="15*"/>
+<colspec colname="col2" colwidth="15*"/>
+<colspec colname="col3" colwidth="150*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl>
+<dlentry>
+<dt><ph>X'31'</ph></dt>
+<dd>RSA private key, 4096-bit Chinese-Remainder Theorem format with AES encrypted OPK
+(RSA-AESC)</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length: 134 + nnn + xxx</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Length in bytes of Associated Data section</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Length in bytes of payload data: xxx</entry>
+</row>
+<row>
+<entry>008 </entry>
+<entry>002 </entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b>Start of Associated Data section</b></entry>
+</row>
+<row>
+<entry>010 </entry>
+<entry>001 </entry>
+<entry>Associated Data version: <dl>
+<dlentry>
+<dt><ph>X'03'</ph></dt>
+<dd>Version 3</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'05'</ph></dt>
+<dd>Version 5</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>011 </entry>
+<entry>001 </entry>
+<entry>Key format and security flag: <p>External key-token:</p>
+<dl>
+<dlentry>
+<dt><ph>X'40'</ph></dt>
+<dd>Unencrypted RSA private-key subsection identifier</dd>
+</dlentry>
+<dlentry>
+<dt>X'42'</dt>
+<dd>Encrypted RSA private-key subsection identifier</dd>
+</dlentry>
+</dl><p>Internal key-token:</p><dl>
+<dlentry>
+<dt>X'08'</dt>
+<dd>Encrypted RSA private-key subsection identifier</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>001</entry>
+<entry>Key source flag: <p>External key-token: Reserved, binary zero.</p><p>Internal
+key-token:</p><dl compact="yes">
+<dlentry>
+<dt>X'21'</dt>
+<dd>External private key was specified in the clear.</dd>
+</dlentry>
+<dlentry>
+<dt>X'22'</dt>
+<dd>External private key was encrypted.</dd>
+</dlentry>
+<dlentry>
+<dt>X'23'</dt>
+<dd>Private key was generated using regeneration data.</dd>
+</dlentry>
+<dlentry>
+<dt>X'24'</dt>
+<dd>Private key was randomly generated.</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry>013</entry>
+<entry>001</entry>
+<entry>
+When associated data section version is X'03': Reserved, binary zero.
+<p>When associated data section version is X'05': Compliance and export control byte.</p>
+<dl>
+<dlhead>
+<dthd>Bit</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Compliant-tagged key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'0xxx xxxx'</dt>
+<dd>Non-compliant-tagged key.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE).</dd>
+</dlentry>
+</dl>All other bits are reserved and must be zero.</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>001</entry>
+<entry>Hash type: <dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Clear key</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>015</entry>
+<entry>032</entry>
+<entry>When associated data section version is X'03': SHA-256 hash of all optional sections that
+follow the public key section, if any. Otherwise, 32 bytes of binary zero. <p>When associated data
+section version is X'04': Hash value of:</p>
+<ol>
+<li>The public key section (section identifier X'04')</li>
+<li>All optional sections that follow the public key section, if any.</li>
+</ol> If there are no optional sections, the hash covers only the public keys section.</entry>
+</row>
+<row>
+<entry>047</entry>
+<entry rev="sh20i1">001</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>048</entry>
+<entry>002</entry>
+<entry>When associated data section version is X'03': Reserved, binary zero.
+<p>When associated data section version is X'05':</p>
+<p>Usage bytes:</p>
+<ul>
+<li>Offset 48:
+<dl>
+<dlhead>
+<dthd>Bit</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Digital Signature usage is allowed (U-DIGSIG). Services: CSNDDSG,
+CSNDDSV, CSNDT34B, CSNDT34D.</dd>
+</dlentry>
+<dlentry>
+<dt>B'x1xx xxxx'</dt>
+<dd>Non-Repudiation usage is allowed (U-NONRPD). Services: CSNDDSG,
+CSNDDSV.</dd>
+</dlentry>
+
+<dlentry>
+<dt>
+B'xx1x xxxx'
+</dt>
+<dd>Key Encipherment usage is allowed (U-KEYENC). Services: CSNDSYG,
+CSNDSYX, CSNDSYI, CSNDSYI2, CSNDT34R, CSNDPKE, CSNDPKD.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxx1 xxxx'</dt>
+<dd>Data Encipherment usage is allowed (U-DATENC). Services: CSNDPKE,
+CSNDPKD.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx 1xxx'</dt>
+<dd>Key agreement usage is allowed (U-KEYAGR).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx x1xx'</dt>
+<dd>keyCertSign usage is allowed (U-KCRTSN). Services: CSNDDSG, CSNDDSV.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Certificate Revocation List Sign usage is allowed (U-CRLSN). Services:
+CSNDDSG, CSNDDSV.</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xxx1'</dt>
+<dd>Only encipher operations are allowed during key agreement (U-ENCONL).</dd>
+</dlentry>
+</dl>
+</li>
+<li>Offset 49:
+<dl>
+<dlhead>
+<dthd>Bit</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Only decipher operations are allowed during key agreement (U-DECONL).</dd>
+</dlentry>
+</dl>
+</li>
+</ul>
+</entry>
+</row>
+
+<row rev="sh21i3">
+<entry>048</entry>
+<entry>002</entry>
+<entry ><b>Continued description for Offset 048:</b>
+<p><b>Comp-tag single-usage restrictions and bits that are allowed to be ON 
+together:</b> The left-column of the table shows the exclusive key types that are allowed with
+respect to CCA services and the usage bit that corresponds to each type.</p>
+<note>
+<ol>
+<li>For some services, CCA cannot distinguish subsets of those service types operationally. The bits that
+correspond to the function subsets are allowed to be on at the same time as the key type bit, as
+shown in the table.</li>
+<li>There are cases in RFC 5280 where one bit depends on another bit. Bits that
+control unique CCA services are not allowed to be ON at the same time.</li>
+<li>For keyAgreement, the
+subset bit or dependent bit is not a stand-in for the primary key type bit. If encipherOnly is
+enabled, then keyAgreement must also be enabled.</li>
+<li>For digitalSignature the case is different, all
+of the bits that map to the CCA SIGN-ONLY usage are independent. For example, a digitalSignature
+private key is usable in CSNDDSG. If the key token also has the nonrepudiation bit set, the key token
+will still be acceptable for use in CSNDDSG and as a Comp-tag token. Also, if the nonrepudiation bit
+is set and the digitalSignature bit is not set, then the key token is usable with CSNDDSG.</li>
+</ol>
+</note>
+<codeblock rev="sh21i3" scale="80">
+<b>Single Use Key</b>                       <b>bits allowed to be</b>
+<b>allowed bits</b>                         <b>enabled at the same time</b>
+
+(Any of the 4 bits at right)         (0 - 0x80), digitalSignature       
+== CCA SIGN-ONLY                     (1 - 0x40), nonrepudiation, 
+                                     subset of CCA SIGN-ONLY 
+                                     (5 - 0x04), keyCertSign, 
+                                     subset of CCA SIGN-ONLY
+                                     (6 - 0x02), cRLSign, 
+                                     subset of CCA SIGN-ONLY
+
+(2 - 0x20), keyEncipherment          NONE
+== CCA KM-ONLY  
+
+(3 - 0x10), dataEncipherment         NONE
+== CCA services CSNDPKE, CNSDPKD  
+
+(4 - 0x08), keyAgreement             (7 - 0x01), encipherOnly, cannot be 
+== no current CCA service for RSA    ON at the same time as decipherOnly  
+                                     (8 - 0x80), decipherOnly, cannot be 
+                                     ON at the same time as encipherOnly 
+</codeblock>
+</entry>
+</row>
+
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key-usage flag: <dl>
+<dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt>B'00xx xxxx' </dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry>
+</dl><p>Translation control flag:</p><dl>
+<dlentry>
+<dt>B'xxxx xx1x' </dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x' </dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry>
+</dl>
+<p>All other bits are reserved and must be zero.</p>
+<p>When associated data section version is X'05': Reserved, binary zero.</p></entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>001</entry>
+<entry>Format restriction for digital-signature hash-formatting method:
+<dl compact="yes"><dlhead><dthd>Value</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>B'0000 0000'</dt>
+<dd>No format restriction</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0001'</dt>
+<dd>ISO-9796 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0010'</dt>
+<dd>PKCS-1.0 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0011'</dt>
+<dd>PKCS-1.1 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0100'</dt>
+<dd>PKCS-PSS only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0101'</dt>
+<dd>X9.31 only</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0110'</dt>
+<dd>ZERO-PAD only</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p>
+</entry>
+</row>
+<row>
+<entry>052</entry>
+<entry>002</entry>
+<entry>Length of the prime number, p, in bytes: ppp.</entry>
+</row>
+<row>
+<entry>054</entry>
+<entry>002</entry>
+<entry>Length of the prime number, q, in bytes: qqq</entry>
+</row>
+<row>
+<entry>056</entry>
+<entry>002</entry>
+<entry>Length of d<sub>p</sub> : rrr.</entry>
+</row>
+<row>
+<entry>058</entry>
+<entry>002</entry>
+<entry>Length of d<sub>q</sub> : sss.</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>002</entry>
+<entry>Length of U: uuu.</entry>
+</row>
+<row>
+<entry>062</entry>
+<entry>002</entry>
+<entry>Length of modulus n: nnn.</entry>
+</row>
+<row>
+<entry>064</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b>End of Associated Data</b></entry>
+</row>
+<row>
+<entry>068</entry>
+<entry>048</entry>
+<entry>Object Protection Key (OPK) data: 16-byte confounder followed by 32-byte AES key. <p>External
+key-token: Encrypted with an AES key-encrypting key (AES KEK)</p><p>Internal key-token: Encrypted
+with the <ph rev="sh20i1">ECC</ph> master key.</p>
+</entry>
+</row>
+<row>
+<entry>116</entry>
+<entry>016</entry>
+<entry>Key verification pattern <p>External key-token:</p><dl>
+<dlentry>
+<dt>For an encrypted private key</dt>
+<dd>Key-encrypting key verification pattern (KVP)</dd>
+</dlentry>
+<dlentry>
+<dt>For a clear private key</dt>
+<dd>Binary zero</dd>
+</dlentry>
+<dlentry>
+<dt>For a skeleton</dt>
+<dd>Binary zero</dd>
+</dlentry>
+</dl><p>Internal key-token:</p><dl>
+<dlentry>
+<dt>For an encrypted private key</dt>
+<dd>
+<ul rev="sh20i1">
+<li>When a non-compliant-tagged token (bit 0 at offset 13 is not set), the ECC master-key
+verification pattern (MKVP).</li>
+<li>When a compliant-tagged token (bit 0 at offset 13 is set), 5 bytes of the ECC MKVP followed by 3
+bytes of internal compliance information.</li>
+</ul>
+</dd>
+</dlentry>
+<dlentry>
+<dt>For a skeleton</dt>
+<dd>Binary zero</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>132</entry>
+<entry>002</entry>
+<entry>Reserved, binary zeros</entry>
+</row>
+<row>
+<entry>134</entry>
+<entry>nnn</entry>
+<entry rev="sh20i1">Modulus n. n=pq where p and q are prime and 2<sup>512</sup>&lt;n&lt;2<sup>4096</sup>.</entry>
+</row>
+<row>
+<entry>134+nnn</entry>
+<entry>xxx</entry>
+<entry>Payload starts here and includes: <p>When this section is unencrypted:</p><ul>
+<li>Clear prime number p</li>
+<li>Clear prime number q</li>
+<li>Clear d<sub>p</sub></li>
+<li>Clear d<sub>q</sub></li>
+<li>Clear U</li>
+<li>Length xxx bytes: ppp + qqq + rrr + sss +uuu + 0 </li>
+</ul><p>When this section is encrypted: </p><ul>
+<li>Private key values in the payload are wrapped by the OPK using the AESKW algorithm.</li>
+</ul></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>

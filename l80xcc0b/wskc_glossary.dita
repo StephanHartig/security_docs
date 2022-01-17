@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="l0wskc03_glossary" xml:lang="en-us">
+<title>Glossary</title>
+<prolog><metadata>
+<keywords>
+<indexterm>function control vector<indexterm>FCV</indexterm></indexterm>
+<indexterm>FCV<indexterm>function control vector</indexterm></indexterm>
+</keywords><?Pub Caret -1?>
+</metadata></prolog>
+<body>
+<p>This glossary includes some terms and definitions from the <synph><var>IBM Dictionary of Computing</var></synph>, New York: McGraw Hill, 1994. This glossary also includes some terms and definitions from:  <ul>
+<li>The <cite>American National Standard Dictionary for Information Systems</cite>, ANSI X3.172-1990, copyright 1990 by the U.S. American National Standards Institute (ANSI). Definitions are identified by the symbol (A) after the definition.</li>
+<li>The <cite><tm tmtype="reg" trademark="IBM">IBM</tm> Glossary of Computing Terms</cite>. Definitions are identified by the symbol (D) after the definition.</li>
+<li>The <cite><tm tmtype="reg" trademark="IBM">IBM</tm> <tm tmclass="unknown" tmtype="reg" trademark="TotalStorage">TotalStorage</tm> <tm tmtype="reg" trademark="Enterprise Storage Server">Enterprise Storage Server</tm></cite> documentation. Definitions of published parts of this vocabulary are identified by the symbol (E) after the definition.</li>
+<li>The <cite>Information Technology Vocabulary</cite>, developed by Subcommittee 1, Joint Technical Committee 1, of the International Organization for Standardization and the International Electrotechnical Commission (ISO/IEC JTC1/SC1). Definitions of published parts of this vocabulary are identified by the symbol (I) after the definition;  definitions taken from draft international standards, committee drafts, and working papers being developed by ISO/IEC JTC1/SC1 are identified by the symbol (T) after the definition, indicating that final agreement has not yet been reached among the participating National Bodies of SC1.</li>
+</ul></p>
+<dl><dlentry>
+<dt>access control</dt>
+<dd>Ensuring that the resources of a computer system can be accessed only by authorized users in authorized ways. </dd>
+</dlentry><dlentry>
+<dt>access method</dt>
+<dd>A technique for moving data between main storage and input/output devices. </dd>
+</dlentry><dlentry>
+<dt>adapter</dt>
+<dd>A printed circuit card that modifies the system unit to allow it to operate in a particular way. </dd>
+</dlentry><dlentry>
+<dt>Advanced Encryption Standard (AES)</dt>
+<dd>A data encryption technique that improved upon and officially replaced the Data Encryption Standard (DES). AES is sometimes referred to as Rijndael, which is the algorithm on which the standard is based.</dd>
+</dlentry><dlentry>
+<dt>Advanced Interactive Executive (<tm tmtype="reg" trademark="AIX">AIX</tm>) operating system</dt>
+<dd>IBM's implementation of the <tm tmtype="tm" trademark="UNIX">UNIX</tm><xref href="#l0wskc03_glossary/tmun"></xref> operating system. <fn id="tmun"><tm tmtype="tm" trademark="UNIX">UNIX</tm> is a trademark of <tm tmtype="tm" trademark="UNIX">UNIX</tm> Systems Laboratories, Incorporated.</fn> </dd>
+</dlentry><dlentry>
+<dt>American National Standard Code for Information Interchange (ASCII)</dt>
+<dd>The standard code using a coded character set consisting of 7-bit characters (8 bits including parity check) that is used for information exchange among data processing systems, data communication systems, and associated equipment. The ASCII set consists of control characters and graphic characters. </dd>
+</dlentry><dlentry>
+<dt>American Institute of Standardization (ANSI)</dt>
+<dd>An organization, consisting of producers, consumers, and general interest groups that establishes the procedures by which accredited organizations create and maintain voluntary industry standards in the United States. (A) </dd>
+</dlentry><dlentry>
+<dt>ANSI key-encrypting key (AKEK)</dt>
+<dd>A 64- or 128-bit key used exclusively in ANSI X9.17 key management applications to protect data keys exchanged between systems.</dd>
+</dlentry><dlentry>
+<dt>ANSI X9.17</dt>
+<dd>An ANSI standard that specifies algorithms and messages for DES key distribution.</dd>
+</dlentry><dlentry>
+<dt>ANSI X9.19</dt>
+<dd>An ANSI standard that specifies an optional double-MAC procedure which requires a double-length MAC key.</dd>
+</dlentry><dlentry>
+<dt>application program interface (API)</dt>
+<dd>A functional interface supplied by the operating system or by a separately deliverable licensed
+program that allows an application program written in a high-level language to use specific data or
+functions of the operating system or the licensed program. (D)</dd>
+</dlentry><dlentry>
+<dt><tm tmtype="reg" trademark="Application System/400">Application System/400</tm> system (<tm tmtype="reg" trademark="AS/400">AS/400</tm>)</dt>
+<dd><tm tmtype="reg" trademark="AS/400">AS/400</tm> was one of a family of general purpose mid-range
+systems with a single operating system, <tm tmtype="reg" trademark="Operating System/400">Operating
+System/400</tm>, that provides application portability across all models. <tm tmtype="reg"
+trademark="AS/400">AS/400</tm> is now referred to as <tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="System i">System i</tm>. </dd>
+</dlentry><dlentry>
+<dt>assembler language</dt>
+<dd>A source language that includes symbolic machine language statements in which there is a one-to-one correspondence between the instruction formats and the data formats of the computer. </dd>
+</dlentry><dlentry>
+<dt>asymmetric cryptography</dt>
+<dd>Synonym for public key cryptography. (D)</dd>
+</dlentry><dlentry>
+<dt>authentication</dt>
+<dd>A process used to verify the integrity of transmitted data, especially a message (I). In computer security, a process used to verify the user of an information system or protected resources. </dd>
+</dlentry><dlentry>
+<dt>authentication pattern</dt>
+<dd>An 8-byte pattern that is calculated from the master key when initializing the cryptographic key data set. The value of the authentication pattern is placed in the header record of the cryptographic key data set.</dd>
+</dlentry><dlentry>
+<dt>authorize</dt>
+<dd>To permit or give authority to a user to communicate with or make use of an object, resource, or function.</dd>
+</dlentry><dlentry>
+<dt>authorization</dt>
+<dd>The right granted to a user to communicate with or make use of a computer system (I). The process of granting a user either complete or restricted access to an object, resource, or function. </dd>
+</dlentry><dlentry>
+<dt>bus</dt>
+<dd>In a processor, a physical facility along which data is transferred. </dd>
+</dlentry><dlentry>
+<dt>C</dt>
+<dd></dd>
+</dlentry><dlentry>
+<dt>Card-Verification Code (CVC)</dt>
+<dd>See <i>Card-Verification Value</i>. </dd>
+</dlentry><dlentry>
+<dt>Card-Verification Value (CVV)</dt>
+<dd>A cryptographic method, defined by VISA, for detecting forged magnetic-striped cards.  This method cryptographically checks the contents of a magnetic stripe.  This process is functionally the same as MasterCard’s Card-Verification Code (CVC) process. </dd>
+</dlentry><dlentry rev="sh18i1">
+<dt>Central Processor Assist for Cryptographic Functions (CPACF)</dt>
+<dd>Hardware that provides support for symmetric ciphers and secure hash algorithms (SHA) on every
+central processor. Hence the potential encryption/decryption throughput scales with the number of
+central processors in the system.</dd>
+</dlentry><dlentry>
+<dt>channel</dt>
+<dd>A path along which signals can be sent, for example, a data channel or an output channel. (A) </dd>
+</dlentry><dlentry>
+<dt>checksum</dt>
+<dd>The sum of a group of data associated with the group and used for checking purposes. (T)</dd>
+</dlentry><dlentry>
+<dt>Chinese Remainder Theorem (CRT)</dt>
+<dd>A mathematical theorem that defines a format for the RSA private key that improves performance.</dd>
+</dlentry><dlentry>
+<dt>Cipher Block Chaining (CBC)</dt>
+<dd>A mode of encryption that uses the data encryption algorithm and requires an initial chaining vector. For encipher, it exclusively ORs the initial block of data with the initial control vector and then enciphers it. This process results in the encryption both of the input block and of the initial control vector that it uses on the next input block as the process repeats. A comparable chaining process works for decipher.</dd>
+</dlentry><dlentry>
+<dt>ciphertext</dt>
+<dd>Text that results from the encipherment of plaintext. Synonym for enciphered data. (D).</dd>
+</dlentry><dlentry>
+<dt>clear data</dt>
+<dd>Data that is not enciphered. </dd>
+</dlentry><dlentry>
+<dt>clear key</dt>
+<dd>Any type of encryption key not protected by encryption under another key.</dd>
+</dlentry><dlentry>
+<dt>cleartext</dt>
+<dd>Text that has not been altered by a cryptographic process. Synonym for <term>plaintext</term>. See also
+<term>ciphertext</term>.</dd>
+</dlentry><dlentry>
+<dt>Common Cryptographic Architecture (CCA)</dt>
+<dd>The CCA API is the programming interface described in this document.</dd>
+</dlentry><dlentry>
+<dt>Common Cryptographic Architecture: Cryptographic Application Programming Interface</dt>
+<dd>Defines a set of cryptographic functions, external interfaces, and a set of key management rules that provide a consistent, end-to-end cryptographic architecture across different <tm tmtype="reg" trademark="IBM">IBM</tm> platforms.</dd>
+</dlentry><dlentry>
+<dt>concatenation</dt>
+<dd>An operation that joins two characters or strings in the order specified, forming one string whose length is equal to the sum of the lengths of its parts.</dd>
+</dlentry><dlentry>
+<dt>console</dt>
+<dd>A part of a computer used for communication between the operator or maintenance engineer and the computer. (A) </dd>
+</dlentry><dlentry>
+<dt>control vector (CV)</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, a 16-byte string that is
+exclusive-OR-ed with a master key or a key-encrypting key to create another key that is used to
+encipher and decipher data or data keys. A control vector determines the type of key and the
+restrictions on the use of that key. </dd>
+</dlentry><dlentry>
+<dt>cryptographic adapter</dt>
+<dd>See <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>.</dd>
+</dlentry><dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/></dt>
+<dd>A microprocessor that adds cryptographic processing functions to specific processors. A <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> on an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> mainframe is a tamper-resistant
+chip built into the processor board. </dd>
+</dlentry><dlentry>
+<dt>cryptographic key data set (CKDS)</dt>
+<dd>A data set that contains the encrypting keys used by an installation. (D)</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>CRYSTALS</dt>
+<dd>Cryptographic Suite for Algebraic Lattices<indexterm>CRYSTALS</indexterm></dd>
+</dlentry>
+<!--<dlentry rev="sh21i1"><dt>Cryptographic Suite for Algebraic Lattices (CRYSTALS)</dt><dd>Encompasses two cryptographic primitives: Kyber, an IND-CCA2-secure key-encapsulation mechanism (KEM); and Dilithium, a strongly EUF-CMA-secure digital signature algorithm.<indexterm>CRYSTALS</indexterm></dd></dlentry>-->
+<dlentry rev="sh21i1">
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> Digital Signature
+Algorithm (CRDL-DSA)</dt>
+<dd>A lattice-based digital signature scheme whose security is based on the hardness of finding short 
+vectors in lattices. The CRYSTALS-Dilithium Digital Signature Algorithm (CRDL-DSA) is a qantum-safe algorithm (QSA) 
+and a member of the CRYSTALS (Cryptographic Suite for Algebraic Lattices) suite of
+algorithms.</dd>
+</dlentry>
+<dlentry>
+<dt>CUSP (Cryptographic Unit Support Program)</dt>
+<dd>The <tm tmtype="reg" trademark="IBM">IBM</tm> cryptographic offering, program product 5740-XY6, using the channel-attached 3848. CUSP is no longer in service.</dd>
+</dlentry><dlentry>
+<dt>data key or data-encrypting key</dt>
+<dd>A key used to encipher, decipher, or authenticate data. Contrast with <i>key-encrypting key</i>. </dd>
+</dlentry><dlentry>
+<dt>Data Encryption Algorithm (DEA)</dt>
+<dd>A 64-bit block cipher that uses a 64-bit key, of which 56 bits are used to control the cryptographic process and 8 bits are used for parity checking to ensure that the key is transmitted properly. </dd>
+</dlentry><dlentry>
+<dt>Data Encryption Standard (DES)</dt>
+<dd>The National Institute of Standards and Technology Data Encryption Standard, adopted by the U.S. government as Federal Information Processing Standard (FIPS) Publication 46. which allows only hardware implementations of the data-encryption algorithm. </dd>
+</dlentry><dlentry>
+<dt>data translation key</dt>
+<dd>A 64-bit key that protects data transmitted through intermediate systems when the originator and receiver do not share the same key.</dd>
+</dlentry><dlentry>
+<dt>decipher</dt>
+<dd>To convert enciphered data in order to restore the original data. (T)</dd>
+<dd>In computer security, to convert ciphertext into plaintext by means of a cipher system.</dd>
+<dd>To convert enciphered data into clear data. Synonym for <i>decrypt</i>. Contrast with <i>encipher</i>. (D)</dd>
+</dlentry><dlentry>
+<dt>decrypt</dt>
+<dd>To decipher or decode. Synonym for <i>decipher</i>. Contrast with <i>encrypt</i>. </dd>
+</dlentry><dlentry>
+<dt>device driver</dt>
+<dd>A program that contains the code needed to attach and use a device. </dd>
+</dlentry><dlentry>
+<dt>directory server</dt>
+<dd>A server that manages key records in key storage by using an Indexed Sequential Access Method.</dd>
+</dlentry><dlentry>
+<dt>digital signature</dt>
+<dd>In public key cryptography, information created by using a private key and verified by using a public key. A digital signature provides data integrity and source nonrepudiation. </dd>
+</dlentry><dlentry>
+<dt>Digital Signature Algorithm (DSA)</dt>
+<dd>A public key algorithm for digital signature generation and verification used with the Digital Signature Standard.</dd>
+</dlentry><dlentry>
+<dt>Digital Signature Standard (DSS)</dt>
+<dd>A standard describing the use of algorithms for digital signature purposes. One of the algorithms specified is DSA (Digital Signature Algorithm).</dd>
+</dlentry><dlentry>
+<dt>domain</dt>
+<dd>That part of a network in which the data processing resources are under common control. (T)</dd>
+</dlentry><dlentry>
+<dt>double-length key</dt>
+<dd>A key that is 128 bits long. A key can be either double- or single-length. A single-length key is 64 bits long.</dd>
+</dlentry><dlentry>
+<dt>Electronic Code Book (ECB)</dt>
+<dd>A mode of operation used with block cipher cryptographic algorithms in which plaintext or
+ciphertext is placed in the input to the algorithm and the result is contained in the output of the
+algorithm. </dd>
+</dlentry><dlentry>
+<dt>Elliptic Curve Cryptography (ECC)</dt>
+<dd>A public-key process discovered independently in 1985 by Victor Miller (<tm tmtype="reg" trademark="IBM">IBM</tm>) and Neal Koblitz (University of Washington). ECC is based on discrete logarithms. The algebraic structure of elliptic curves over finite fields makes it much more difficult to challenge at equivalent RSA key lengths.</dd>
+</dlentry><dlentry>
+<dt>encipher</dt>
+<dd>To scramble data or to convert data to a secret code that masks the meaning of the data to unauthorized recipients. Synonym for <i>encrypt</i>. Contrast with <i>decipher</i>. See also <i>encode</i>. </dd>
+</dlentry><dlentry>
+<dt>encrypt</dt>
+<dd>Synonym for <term>encipher</term>. (I) To convert cleartext into ciphertext. Contrast with
+<term>decrypt</term>.</dd>
+</dlentry><dlentry>
+<dt>erasable programmable read-only memory (EPROM)</dt>
+<dd>A type of memory chip that can retain its contents without electricity. Unlike the programmable read-only memory (PROM), which can be programmed only once, the EPROM can be erased by ultraviolet light and then reprogrammed. (E)</dd>
+</dlentry><dlentry>
+<dt>Eurocheque International S.C. (ECI)</dt>
+<dd>A financial institution consortium that has defined three PIN-block formats.</dd>
+</dlentry><dlentry>
+<dt>exit routine</dt>
+<dd>In the CCA products, a user-provided routine that acts as an extension to the processing provided with calls to the security API.</dd>
+</dlentry><dlentry>
+<dt>exit</dt>
+<dd>To execute an instruction within a portion of a computer program in order to terminate the execution of that portion. Such portions of computer programs include loops, subroutines, modules, and so on. (T)</dd>
+<dd>A user-written routine that receives control from the system during a certain point in processing - for example, after an operator issues the START command. </dd>
+</dlentry><dlentry>
+<dt>exportable form</dt>
+<dd>A condition a key is in when enciphered under an exporter key-encrypting key. In this form, a key can be sent outside the system to another system. A key in exportable form cannot be used in a cryptographic function.</dd>
+</dlentry><dlentry>
+<dt>EXPORTER key</dt>
+<dd>In the CCA implementation, a type of DES key-encrypting key that can encipher a key at a sending node. Contrast with <i>IMPORTER key</i>.</dd>
+</dlentry><dlentry>
+<dt>exporter key-encrypting key</dt>
+<dd>A 128-bit key used to protect keys sent to another system. A type of transport key.</dd>
+</dlentry><dlentry>
+<dt>feature</dt>
+<dd>A part of an <tm tmtype="reg" trademark="IBM">IBM</tm> product that can be ordered separately. </dd>
+</dlentry><dlentry>
+<dt>Federal Information Processing Standard (FIPS)</dt>
+<dd>A standard published by the US National Institute of Science and Technology. </dd>
+</dlentry><dlentry>
+<dt>financial PIN</dt>
+<dd>A Personal Identification Number used to identify an individual in some financial transactions. To maintain the security of the PIN, processes and data structures have been adopted for creating, communicating, and verifying PINs used in financial transactions. See also <i>Personal Identification Number</i>. </dd>
+</dlentry><dlentry>
+<dt>Flash-Erasable Programmable Read-Only Memory (flash EPROM)</dt>
+<dd>A memory that has to be erased before new data can be saved into the memory. </dd>
+</dlentry>
+<dlentry>
+<dt>Function control vector (FCV)</dt>
+<dd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software that can be
+loaded into the coprocessor limits the functionality of the coprocessor based on the values in a
+distributed function control vector (FCV). A <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> FCV is a digitally signed data structure
+(certificate) signed by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>. The
+certificate is used to accommodate potential government export and import regulations under USA
+Government control. An <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+cryptographic coprocessor becomes a practical cryptographic engine when it validates and accepts
+digitally signed software. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> exports
+its cryptographic coprocessor hardware as non-cryptographic products, and controls and reports the
+export of the cryptography-enabling software as required. </dd>
+</dlentry>
+<dlentry rev="sh16i1">
+<dt>Galois/Counter Mode (GCM)</dt>
+<dd> A mode of operation for symmetric key cryptographic block ciphers that uses universal hashing
+over a binary Galois field to provide authenticated encryption. The operation is an authenticated
+encryption algorithm designed to provide both data authenticity (integrity) and confidentiality. GCM
+is defined for block ciphers with a block size of 128 bits. It can be implemented in hardware to
+achieve high speeds with low cost and low latency. Software implementations can achieve excellent
+performance by using table-driven field operations. It uses mechanisms that are supported by a
+well-understood theoretical foundation, and its security follows from a single reasonable assumption
+about the security of the block cipher.</dd>
+</dlentry><dlentry>
+<dt>German Bank Pool (GBP)</dt>
+<dd>A German financial institution consortium that defines specific methods of PIN calculation.</dd>
+</dlentry><dlentry>
+<dt>hashing</dt>
+<dd>An operation that uses a one-way (irreversible) function on data, usually to reduce the length of the data and to provide a verifiable authentication value (checksum) for the hashed data. </dd>
+</dlentry><dlentry>
+<dt>header record</dt>
+<dd>A record containing common, constant, or identifying information for a group of records that follows. (D)</dd>
+</dlentry><dlentry>
+<dt>host</dt>
+<dd>In this publication, same as host computer or host processor. The machine in which the
+coprocessor resides. In a computer network, the computer that usually performs network-control
+functions and provides end-users with services such as computation and database access. (I)</dd>
+</dlentry><dlentry>
+<dt>importable form</dt>
+<dd>A condition a key is in when it is enciphered under an importer key-encrypting key. A key is received from another system in this form. A key in importable form cannot be used in a cryptographic function.</dd>
+</dlentry><dlentry>
+<dt>IMPORTER key</dt>
+<dd>In the CCA implementation, a type of DES key-encrypting key that can decipher a key at a receiving mode. Contrast with <i>EXPORTER key</i>. </dd>
+</dlentry><dlentry>
+<dt>importer key-encrypting key</dt>
+<dd>A 128-bit key used to protect keys received from another system. A type of transport key. </dd>
+</dlentry><dlentry>
+<dt>Integrated Cryptographic Service Facility (ICSF)</dt>
+<dd>An <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> licensed program that
+supports the cryptographic hardware feature for the high-end <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> machines running in a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> environment. </dd>
+</dlentry><dlentry>
+<dt>International Organization for Standardization (ISO)</dt>
+<dd>An organization of national standards bodies established to promote the development of standards to facilitate the international exchange of goods and services, and develop cooperation in intellectual, scientific, technological, and economic activity.</dd>
+</dlentry><dlentry>
+<dt>initial chaining vector (ICV)</dt>
+<dd>A 64-bit random or pseudo-random value used in the cipher block chaining mode of encryption with the data encryption algorithm.</dd>
+</dlentry><dlentry>
+<dt>input PIN-encrypting key</dt>
+<dd>A 128-bit key used to protect a PIN block sent to another system or to translate a PIN block from one format to another. </dd>
+</dlentry><dlentry>
+<dt>installation exit</dt>
+<dd>See <synph><var>exit</var></synph>.</dd>
+</dlentry><dlentry>
+<dt>jumper</dt>
+<dd>A wire that joins two unconnected circuits on a printed circuit board.</dd>
+</dlentry><dlentry>
+<dt>key</dt>
+<dd>In computer security, a sequence of symbols used with a cryptographic algorithm to encrypt or decrypt data. </dd>
+</dlentry><dlentry>
+<dt>key agreement</dt>
+<dd>A key establishment procedure where the resultant secret keying material is a function of information contributed by two participants, so that no party can predetermine the value of the secret keying material independently from the contributions from the other parties.</dd>
+</dlentry><dlentry>
+<dt>key-encrypting key (KEK)</dt>
+<dd>A key used for the encryption and decryption of other keys. Contrast with <i>data-encrypting key</i>. <ph>Also called a transport key.</ph></dd>
+</dlentry><dlentry>
+<dt>key half</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, one of the two DES keys
+that make up a double-length key.</dd>
+</dlentry><dlentry>
+<dt>key identifier</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, a 64-byte variable which
+is either a key label or a key token. </dd>
+</dlentry><dlentry>
+<dt>key label</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, an identifier of a
+key-record in key storage.</dd>
+</dlentry><dlentry>
+<dt>key storage</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, a data file that contains
+cryptographic keys which are accessed by key label. </dd>
+</dlentry><dlentry>
+<dt>key token</dt>
+<dd>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, a data structure that can
+contain a cryptographic key, a control vector, and other information related to the key. </dd>
+</dlentry><dlentry>
+<dt>key output data set</dt>
+<dd>A key generator utility program data set containing information about each key that the key generator utility program generates except an importer key for file encryption.</dd>
+</dlentry><dlentry>
+<dt>key part</dt>
+<dd>A 32-digit hexadecimal value that you enter to be combined with other values to create a master key or clear key.</dd>
+</dlentry><dlentry>
+<dt>key part register</dt>
+<dd>A register in the key storage unit that stores a key part while you enter the key part.</dd>
+</dlentry><dlentry>
+<dt>link</dt>
+<dd>The logical connection between nodes including the end-to-end control procedures. The combination of physical media, protocols, and programming that connects devices on a network. In computer programming, the part of a program, in some cases a single instruction or an address, that passes control and parameters between separate portions of the computer program. (A) (I) To interconnect items of data or portions of one or more computer programs. (I) In SNA, the combination of the link connection and link stations joining network nodes. </dd>
+</dlentry><dlentry>
+<dt>LPAR mode</dt>
+<dd>The central processor mode that enables the operator to allocate the hardware resources among several logical partitions. </dd>
+</dlentry><dlentry>
+<dt>MAC generation key</dt>
+<dd>A 64-bit or 128-bit key used by a message originator to generate a message authentication code sent with the message to the message receiver.</dd>
+</dlentry><dlentry>
+<dt>MAC verification key</dt>
+<dd>A 64-bit or 128-bit key used by a message receiver to verify a message authentication code received with a message.</dd>
+</dlentry><dlentry>
+<dt>make file</dt>
+<dd>A composite file that contains either device configuration data or individual user profiles. </dd>
+</dlentry><dlentry>
+<dt>master key (MK)</dt>
+<dd>In computer security, the top-level key in a hierarchy of key-encrypting keys. </dd>
+</dlentry><dlentry>
+<dt>master key register</dt>
+<dd>A register in the cryptographic coprocessors that stores the master key that is active on the system. </dd>
+</dlentry><dlentry>
+<dt>master key variant</dt>
+<dd>A key derived from the master key by use of a control vector. It is used to force separation by type of keys on the system.</dd>
+</dlentry><dlentry>
+<dt>MD5</dt>
+<dd>Message Digest 5. A hash algorithm.</dd>
+</dlentry><dlentry>
+<dt>Message Authentication Code (MAC)</dt>
+<dd>A number or value derived by processing data with an authentication algorithm, The cryptographic result of block cipher
+operations on text or data using a Cipher Block Chaining (CBC) mode of operation, A digital signature code. </dd>
+</dlentry><dlentry>
+<dt>Modification Detection Code (MDC)</dt>
+<dd>In cryptography, a number or value that interrelates all bits of a data stream so that, when enciphered, modification of any bit in the data stream results in a new MDC.</dd>
+</dlentry><dlentry>
+<dt>multiple encipherment</dt>
+<dd>The method of encrypting a key under a double-length key-encrypting key.</dd>
+</dlentry><dlentry>
+<dt>National Institute of Science and Technology (NIST)</dt>
+<dd>The current name for the US National Bureau of Standards.</dd>
+</dlentry><dlentry>
+<dt>new master key (NMK) register</dt>
+<dd>A register in the key storage unit that stores a master key before you make it active on the system.</dd>
+</dlentry><dlentry>
+<dt>NOCV processing</dt>
+<dd>Process by which the key generator utility program or an application program encrypts a key under a transport key itself rather than a transport key variant.</dd>
+</dlentry><dlentry>
+<dt>nonce </dt>
+<dd>A time-varying value that has at most a negligible chance of repeating, such as a random value that is generated anew for each use, a timestamp, a sequence number, or some combination of these.</dd>
+</dlentry><dlentry>
+<dt>nonrepudiation</dt>
+<dd>A method of ensuring that a message was sent by the appropriate individual.</dd>
+</dlentry><dlentry>
+<dt>old master key (OMK) register</dt>
+<dd>A register in the key storage unit that stores a master key that you replaced with a new master key.</dd>
+</dlentry><dlentry>
+<dt>operational form</dt>
+<dd>The condition of a key when it is encrypted under the master key so that it is active on the system.</dd>
+</dlentry><dlentry>
+<dt>output PIN-encrypting key</dt>
+<dd>A 128-bit key used to protect a PIN block received from another system or to translate a PIN block from one format to another.</dd>
+</dlentry><dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcix"/></dt>
+<dd>An asynchronous cryptographic coprocessor available on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/trex"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z800"/>.</dd>
+</dlentry><dlentry>
+<dt>Personal Account Number (PAN)</dt>
+<dd>A Personal Account Number identifies an individual and relates that individual to an account at a financial institution. It consists of an issuer identification number, customer account number, and one check digit.</dd>
+</dlentry><dlentry>
+<dt>Personal Identification Number (PIN)</dt>
+<dd>The 4-digit to 12-digit number entered at an automatic teller machine to identify and validate the requester of an automatic teller machine service. Personal identification numbers are always enciphered at the device where they are entered, and are manipulated in a secure fashion.</dd>
+</dlentry><dlentry>
+<dt>Personal Security card</dt>
+<dd>An ISO-standard “smart card” with a microprocessor that enables it to perform a variety of functions such as identifying and verifying users, and determining which functions each user can perform. </dd>
+</dlentry><dlentry>
+<dt>PIN block</dt>
+<dd>A 64-bit block of data in a certain PIN block format. A PIN block contains both a PIN and other data.</dd>
+</dlentry><dlentry>
+<dt>PIN generation key</dt>
+<dd>A 128-bit key used to generate PINs or PIN offsets algorithmically.</dd>
+</dlentry><dlentry>
+<dt>PIN key</dt>
+<dd>A 128-bit key used in cryptographic functions to generate, transform, and verify the personal identification numbers. </dd>
+</dlentry><dlentry>
+<dt>PIN offset</dt>
+<dd>For 3624, the difference between a customer-selected PIN and an institution-assigned PIN. For German Bank Pool, the difference between an institution PIN (generated with an institution PIN key) and a pool PIN (generated with a pool PIN key).</dd>
+</dlentry><dlentry>
+<dt>PIN verification key</dt>
+<dd>A 128-bit key used to verify PINs algorithmically. </dd>
+</dlentry><dlentry>
+<dt>plaintext</dt>
+<dd>Data that has nor been altered by a cryptographic process. Synonym for <term>cleartext</term>. See
+also <synph><var>ciphertext</var></synph>. </dd>
+</dlentry><dlentry>
+<dt>Power-On Self Test (POST)</dt>
+<dd>A series of diagnostic tests run automatically by a device when the power is turned on. </dd>
+</dlentry><dlentry>
+<dt>private key</dt>
+<dd>In computer security, a key that is known only to the owner and used together with a public-key algorithm to decipher data. The data is enciphered using the related public key. Contrast with <i>public key</i>. See also <i>public-key algorithm</i>. </dd>
+</dlentry><dlentry>
+<dt>profile</dt>
+<dd id="prospot">Data that describes the significant characteristics of a user, a group of users, or one-or-more computer resources. </dd>
+</dlentry><dlentry>
+<dt>profile ID</dt>
+<dd>In the CCA implementation, the value used to access a profile within the CCA access-control system. </dd>
+</dlentry><dlentry>
+<dt>protocol</dt>
+<dd>A set of semantic and syntactic rules that determines the behavior of functional units in achieving communication. (I) In SNA, the meanings of and the sequencing rules for requests and responses used to manage the network, transfer data, and synchronize the states of network components. A specification for the format and relative timing of information exchanged between communicating parties. </dd>
+</dlentry><dlentry>
+<dt>Programmed Cryptographic Facility (PCF)</dt>
+<dd>An <tm tmtype="reg" trademark="IBM">IBM</tm> licensed program that provides facilities for enciphering and deciphering data and for creating, maintaining, and managing cryptographic keys. (D)</dd>
+<dd> The <tm tmtype="reg" trademark="IBM">IBM</tm> cryptographic offering, program product 5740-XY5, using software only for encryption and decryption. This product is no longer in service.</dd>
+</dlentry><dlentry>
+<dt>public key</dt>
+<dd>In computer security, a key that is widely known, and used with a public-key algorithm to encrypt data. The encrypted data can be decrypted only with the related private key. Contrast with <i>private key</i>. See also <i>public-key algorithm</i>. </dd>
+</dlentry><dlentry>
+<dt>Public Key Algorithm (PKA)</dt>
+<dd>In computer security, an asymmetric cryptographic process that uses a public key to encrypt data and a related private key to decrypt data. Contrast with <i>Data Encryption Algorithm</i> and <i>Data Encryption Standard algorithm</i>. See also <i>Rivest-Shamir-Adleman algorithm</i>. </dd>
+</dlentry><dlentry>
+<dt>public key cryptography</dt>
+<dd>In computer security, cryptography in which a public key is used for encryption and a private key is used for decryption. Synonymous with asymmetric cryptography.</dd>
+</dlentry><dlentry>
+<dt>Public-Key Cryptography Standards (PKCS)</dt>
+<dd>Specifications produced by RSA Laboratories in cooperation with secure system developers worldwide, for the purpose of accelerating the deployment of public-key cryptography. First published in 1991.</dd>
+</dlentry><dlentry>
+<dt>Random access memory (RAM)</dt>
+<dd>A storage device into which data are entered and from which data are retrieved in a
+non-sequential manner. </dd>
+</dlentry><dlentry>
+<dt>record chaining</dt>
+<dd>When there are multiple cipher requests and the output chaining vector (OCV) from the previous encipher request is used as the input chaining vector (ICV) for the next encipher request.</dd>
+</dlentry><dlentry>
+<dt>Read-only memory (ROM)</dt>
+<dd>Memory in which stored data cannot be modified by the user except under special conditions. </dd>
+</dlentry><dlentry>
+<dt>Resource Access Control Facility (<tm tmtype="reg" trademark="RACF">RACF</tm>)</dt>
+<dd>An <tm tmtype="reg" trademark="IBM">IBM</tm> licensed program that enables access control by identifying and verifying the users to the system, authorizing access to protected resources, logging detected unauthorized attempts to enter the system, and logging detected accesses to protected resources. </dd>
+</dlentry><dlentry>
+<dt>retained key</dt>
+<dd>A private key that is generated and retained within the secure boundary of the cryptographic coprocessor.</dd>
+</dlentry><dlentry>
+<dt>Rivest-Shamir-Adleman (RSA) algorithm</dt>
+<dd>A process for public key cryptography that was developed by R. Rivest, A. Shamir, and L. Adleman.</dd>
+</dlentry><dlentry>
+<dt>RS-232</dt>
+<dd>A specification that defines the interface between data terminal equipment and data circuit-terminating equipment, using serial binary data interchange. </dd>
+</dlentry><dlentry>
+<dt>RS-232C</dt>
+<dd>A standard that defines the specific physical, electronic, and functional characteristics of an interface line that uses a 25-pin connector to connect a workstation to a communication device. </dd>
+</dlentry><dlentry>
+<dt>Secure Electronic Transaction</dt>
+<dd>A standard created by Visa International and MasterCard for safeguarding payment card purchases made over open networks.</dd>
+</dlentry><dlentry>
+<dt>Secure Hash Algorithm (SHA), FIPS 180 </dt>
+<dd>A set of related cryptographic hash functions designed by the National Security Agency (NSA) and published by the National Institute of Standards and Technology (NIST). The first member of the family, published in 1993, is officially called SHA. However, today, it is often unofficially called <synph><var>SHA-0</var></synph> to avoid confusion with its successors. Two years later, SHA-1, the first successor to SHA, was published. Four more variants have since been published with increased output ranges and a slightly different design: SHA-224, SHA-256, SHA-384, and SHA-512 (all are sometimes referred to as <synph><var>SHA-2</var></synph>).</dd>
+</dlentry><dlentry>
+<dt>secure key</dt>
+<dd>A key that is encrypted under a master key. When using a secure key, it is passed to a cryptographic coprocessor where the coprocessor decrypts the key and performs the function. The secure key never appears in the clear outside of the cryptographic coprocessor.  </dd>
+</dlentry><dlentry>
+<dt>Secure Sockets Layer</dt>
+<dd>A security protocol that provides communications privacy over the Internet by allowing client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery.</dd>
+</dlentry><dlentry>
+<dt>security server</dt>
+<dd>In the CCA implementation, the functions provided through calls made to the security API.</dd>
+</dlentry><dlentry>
+<dt>SHA-1 (Secure Hash Algorithm 1, FIPS 180)</dt>
+<dd>A hash algorithm required for use with the Digital Signature Standard.</dd>
+</dlentry><dlentry>
+<dt>SHA-2 (Secure Hash Algorithm 2, FIPS 180)</dt>
+<dd>Four additional variants to the SHA family, with increased output ranges and a slightly different design: SHA-224, SHA-256, SHA-384, and SHA-512 (all are sometimes referred to as SHA-2).</dd>
+</dlentry><dlentry>
+<dt>SHA-224</dt>
+<dd>One of the SHA-2 algorithms.</dd>
+</dlentry><dlentry>
+<dt>SHA-256 </dt>
+<dd>One of the SHA-2 algorithms.</dd>
+</dlentry><dlentry>
+<dt>SHA-384</dt>
+<dd>One of the SHA-2 algorithms.</dd>
+</dlentry><dlentry>
+<dt>SHA-512 </dt>
+<dd>One of the SHA-2 algorithms.</dd>
+</dlentry><dlentry>
+<dt>single-length key</dt>
+<dd>A key that is 64 bits long. A key can be single- or double-length. A double-length key is 128 bits long. </dd>
+</dlentry><dlentry>
+<dt>smart card</dt>
+<dd>A plastic card that has a microchip capable of storing data or process information.</dd>
+</dlentry><dlentry>
+<dt>supervisor state</dt>
+<dd>A state during which a processing unit can execute input/output and other privileged instructions. (D)</dd>
+</dlentry><dlentry>
+<dt>Systems Network Architecture (SNA)</dt>
+<dd>An architecture that describes logical structure, formats, protocols, and operational sequences for transmitting information units through, and controlling the configuration and operation of, networks. <b>Note:</b>  The layered structure of SNA allows the ultimate origins and destinations of information, that is, the end users, to be independent of and unaffected by the specific SNA network services and facilities used for information exchange. </dd>
+</dlentry><dlentry>
+<dt>TLV</dt>
+<dd>A widely used construct, Tag, Length, Value, to render data self-identifying. For example, such constructs are used with EMV smart cards.</dd>
+</dlentry><dlentry>
+<dt>token</dt>
+<dd>In a Local Area Network, the symbol of authority passed successively from one data station to another to indicate the station is temporarily in control of the transmission medium. (I) A string of characters treated as a single entity. </dd>
+</dlentry><dlentry>
+<dt>Transaction Security System (TSS)</dt>
+<dd>An <tm tmtype="reg" trademark="IBM">IBM</tm> product offering including both hardware and supporting software that provides access control and basic cryptographic key-management functions in a network environment. In the workstation environment, this includes the 4755 Cryptographic Adapter, the Personal Security Card, the 4754 Security Interface Unit, the Signature Verification feature, the Workstation Security Services Program, and the <tm tmtype="reg" trademark="AIX">AIX</tm> Security Services Program/6000. In the host environment, this includes the 4753 Network Security Processor and the 4753 Network Security Processor <tm tmtype="tm" trademark="MVS">MVS</tm> Support Program.</dd>
+</dlentry><dlentry>
+<dt>transport key</dt>
+<dd>A 128-bit key used to protect keys distributed from one system to another. A transport key can either be an exporter key-encrypting key, an importer key-encrypting key, or an ANSI key-encrypting key. </dd>
+</dlentry><dlentry>
+<dt>transport key variant</dt>
+<dd>A key derived from a transport key by use of a control vector. It is used to force separation by type for keys sent between systems.</dd>
+</dlentry><dlentry>
+<dt>Unique key per transaction (UKPT)</dt>
+<dd>A cryptographic process that can be used to decipher PIN blocks in a transaction. </dd>
+</dlentry><dlentry>
+<dt>user-exit routine</dt>
+<dd>A user-written routine that receives control at predefined user-exit points.</dd>
+</dlentry><dlentry>
+<dt>verb</dt>
+<dd>A function that has an entry-point-name and a fixed-length parameter list. The procedure call for a verb uses the standard syntax of a programming language. </dd>
+</dlentry><dlentry>
+<dt>verification pattern</dt>
+<dd>An 8-byte pattern calculated from the key parts you enter when you enter a master key or clear key. You can use the verification pattern to verify that you have entered the key parts correctly and specified a certain type of key.</dd>
+</dlentry><dlentry>
+<dt>virtual machine (VM)</dt>
+<dd>A functional simulation of a computer and its associated devices. Each virtual machine is controlled by a suitable operating system. VM controls concurrent execution of multiple virtual machines on one host computer. </dd>
+</dlentry><dlentry>
+<dt>VISA</dt>
+<dd>A financial institution consortium that has defined four PIN block formats and a method for PIN verification.</dd>
+</dlentry><dlentry>
+<dt>VISA PIN Verification Value (VISA PVV)</dt>
+<dd>An input to the VISA PIN verification process that, in practice, works similarly to a PIN offset.</dd>
+</dlentry><dlentry>
+<dt>3621</dt>
+<dd>A model of an <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Automatic Teller
+Machine that has a defined PIN block format.</dd>
+</dlentry><dlentry>
+<dt>3624</dt>
+<dd>A model of an <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Automatic Teller
+Machine that has a defined PIN block format and methods of PIN calculation.</dd>
+</dlentry><dlentry>
+<dt>4753</dt>
+<dd>The Network Security processor. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 4753 is a processor that uses the Data
+Encryption Algorithm and the RSA algorithm to provide cryptographic support for systems requiring
+secure transaction processing (and other cryptographic services) at the host computer. The NSP
+includes a 4755 cryptographic adapter in a workstation which is channel attached to a main frame
+computer.</dd>
+</dlentry></dl>
+</body>
+</topic>
+<?Pub *0000050652?>

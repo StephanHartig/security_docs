@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_a">
+<title>Return codes and reason codes</title>
+<topicref href="wskc_r_aprec.dita">
+<topicref href="wskc_r_retcode.dita"/>
+<topicref href="wskc_r_appareascod.dita">
+<topicref href="wskc_r_appareascod0.dita"/>
+<topicref href="wskc_r_retcode4reasoncodes.dita"/>
+<topicref href="wskc_r_appareascod8.dita"/>
+<topicref href="wskc_r_appareascod12.dita"/>
+<topicref href="wskc_r_appareascod16.dita"/>
+</topicref>
+</topicref>
+</map>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="rsamee_intext" xml:lang="en-us" rev="sh16">
+<title>RSA private key token, 1024-bit Modulus-Exponent</title>
+<titlealts>
+<navtitle>RSA private key token, 1024-bit Modulus-Exponent</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key token, 1024-bit
+Modulus-Exponent</searchtitle>
+</titlealts>
+<shortdesc>This RSA private key token is supported starting with CEX3C. It is supported as the
+external X'02' and the internal X'06' token format.</shortdesc>
+<?Pub Caret 85?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+<indexterm>RSA private token</indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA
+private</indexterm></indexterm></indexterm>
+<indexterm>private key token<indexterm>RSA</indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>RSA 1024-bit modulus-exponent
+private</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA 1024-bit modulus-exponent
+private</indexterm></indexterm></indexterm>
+<indexterm>RSA private Modulus-Exponent key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p><xref href="#rsamee_intext/l0wskc02_rsapka2"/> shows the external and internal format.</p>
+<table frame="all" id="l0wskc02_rsapka2" pgwide="1">
+<title>RSA private key, 1024-bit Modulus-Exponent format section (X'02')</title>
+<desc>
+<p outputclass="summary">RSA private key token, 1024-bit Modulus-Exponent format</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="15*"/>
+<thead>
+<row>
+<entry>Offset (decimal)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>
+<p><ph>X'02'</ph>, section identifier, RSA private key, Modulus-Exponent format (RSA-PRIV) for the
+external format</p>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry><ph>X'00'</ph>, version.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>
+<p>External format: Length of the RSA private key section <ph>X'016C'</ph> (364 decimal).</p>
+<p>Internal format: Length of the RSA private key section <ph>X'0198'</ph> (408 decimal) + rrr + iii
++ xxx.</p>
+</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>020</entry>
+<entry>
+<p>External format: SHA-1 hash value of the private key subsection cleartext, offset 28 to the
+section end. This hash value is checked after an enciphered private key is deciphered for use.</p>
+<p>Internal format: SHA-1 hash value of the private key subsection cleartext, offset 28 to and
+including the modulus at offset 236.</p>
+</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry>004</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>028</entry>
+<entry>001</entry>
+<entry>Key format and security: <p>External format:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Unencrypted RSA private key subsection identifier.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'82'</ph></dt>
+<dd>Encrypted RSA private key subsection identifier.</dd>
+</dlentry>
+</dl><p>Internal format:</p>
+<dl compact="yes">
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>RSA private key</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>029</entry>
+<entry>001</entry>
+<entry><p>External format: Reserved, binary zero.</p>
+<p>Internal format:</p> Format of external key from which this token was derived: <dl compact="yes">
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>External private key was specified in the clear.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>External private key was encrypted.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'23'</ph></dt>
+<dd>Private key was generated using regeneration data.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'24'</ph></dt>
+<dd>Private key was randomly generated.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>030</entry>
+<entry>020</entry>
+<entry>SHA-1 hash of the optional key-name section and any following optional sections. If there are
+no optional sections, this field is set to binary zeros.</entry>
+</row>
+<row rev="sh18i1">
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key use flag bits. <dl compact="yes">
+<dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry>
+<dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry>
+<dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry>
+<dlentry>
+<dt>B'00xx xxxx'</dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry>
+</dl>
+<p>Translation control flag bits:</p>
+<dl compact="yes">
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry>
+<dlentry>
+<dt><ph>B'xxxx xx0x'</ph></dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry>
+</dl>
+<p>All other bits reserved, set to binary zero.</p></entry>
+</row>
+<row rev="sh18i1">
+<entry>051</entry>
+<entry>009</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">External format: 060 - 235</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>024</entry>
+<entry>Reserved; set to binary zero.</entry>
+</row>
+<row>
+<entry>084</entry>
+<entry nameend="col3" namest="col2">Start of the optionally-encrypted secure subsection.</entry>
+</row>
+<row>
+<entry>084</entry>
+<entry>024</entry>
+<entry>Random number, confounder. </entry>
+</row>
+<row>
+<entry>108</entry>
+<entry>128</entry>
+<entry>Private-key exponent, d. d = e<sup>-1</sup> mod((p-1)(q-1)), and 1 &lt; d &lt; n where e is
+the public exponent.</entry>
+</row>
+<row>
+<entry/>
+<entry nameend="col3" namest="col2">End of the optionally-encrypted subsection; the confounder field
+and the private-key exponent field are enciphered for key confidentiality when the key format and
+security flags (offset 28) indicate the private key is enciphered. They are enciphered under a
+double-length transport key using the ede2 algorithm.</entry>
+</row>
+<row>
+<entry>236</entry>
+<entry>128</entry>
+<entry rev="sh18i1">Modulus, n. <varname>n</varname> = <varname>pq</varname> where
+<varname>p</varname> and <varname>q</varname> are prime and 1 &lt; <varname>n</varname> &lt;
+2<sup>1024</sup>. </entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">External format ends here.</entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">Internal format: 060 - 235</entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>048</entry>
+<entry>Object Protection Key (OPK) encrypted under the Asymmetric Keys Master Key using the ede3
+algorithm.</entry>
+</row>
+<row>
+<entry>108</entry>
+<entry>128</entry>
+<entry>Private key exponent <synph><var>d</var></synph>, encrypted under the OPK using the ede5
+algorithm. <synph><var>d</var></synph> =
+<synph><var>e</var></synph><sup>-1</sup>mod((<synph><var>p</var></synph>-1)(<synph><var>q</var></synph>-1)),
+and 1 &lt; <synph><var>d</var></synph> &lt; <synph><var>n</var></synph> where
+<synph><var>e</var></synph> is the public exponent.</entry>
+</row>
+<row>
+<entry>236</entry>
+<entry>128</entry>
+<entry>Modulus, n. n = pq where p and q are prime and 1 &lt; n &lt; 2<sup>1024</sup>. </entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">Internal format only, until end of table</entry>
+</row>
+<row>
+<entry>364</entry>
+<entry>016</entry>
+<entry>Asymmetric-Keys Master Key hash pattern.</entry>
+</row>
+<row>
+<entry>380</entry>
+<entry>020</entry>
+<entry>SHA-1 hash value of the blinding information subsection cleartext, offset 400 to the end of
+the section.</entry>
+</row>
+<row>
+<entry>400</entry>
+<entry>002</entry>
+<entry>Length of the random number <synph><var>r</var></synph>, in bytes:
+<synph><var>rrr</var></synph></entry>
+</row>
+<row>
+<entry>402</entry>
+<entry>002</entry>
+<entry>Length of the random number <synph><var>r</var></synph><sup>–1</sup>, in bytes:
+<synph><var>iii</var></synph></entry>
+</row>
+<row>
+<entry>404</entry>
+<entry>002</entry>
+<entry>Length of the padding field, in bytes: <synph><var>xxx</var></synph></entry>
+</row>
+<row>
+<entry>406</entry>
+<entry>002</entry>
+<entry>Reserved; set to binary zeros.</entry>
+</row>
+<row>
+<entry>408</entry>
+<entry nameend="col3" namest="col2">Start of the encrypted blinding subsection</entry>
+</row>
+<row>
+<entry>408</entry>
+<entry><synph><var>rrr</var></synph></entry>
+<entry>Random number r (used in blinding).</entry>
+</row>
+<row>
+<entry>408 + <synph><var>rrr</var></synph></entry>
+<entry><synph><var>iii</var></synph></entry>
+<entry>Random number r<sup>–1</sup> (used in blinding).</entry>
+</row>
+<row>
+<entry>408 + <synph><var>rrr</var></synph> + <synph><var>iii</var></synph></entry>
+<entry><synph><var>xxx</var></synph></entry>
+<entry><ph>X'00'</ph> padding of length <synph><var>xxx</var></synph> bytes such that the length
+from the start of the encrypted blinding subsection to the end of the padding field is a multiple of
+eight bytes.</entry>
+</row>
+<row>
+<entry/>
+<entry nameend="col3" namest="col2">End of the encrypted blinding subsection; all of the fields
+starting with the random number r and ending with the variable length pad field are encrypted under
+the OPK using TDES (CBC outer chaining) algorithm.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

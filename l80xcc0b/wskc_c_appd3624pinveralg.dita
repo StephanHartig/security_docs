@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appd3624pinveralg" xml:lang="en-us">
+<title>3624 PIN verification algorithm</title>
+<titlealts>
+<navtitle>3624 PIN verification</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): 3624 PIN verification
+algorithm</searchtitle>
+</titlealts>
+<shortdesc>This algorithm generates an intermediate PIN based on the
+specified validation data. A part of the intermediate PIN is adjusted
+by adding an offset data. A part of the result is compared with the
+corresponding part of the customer-entered PIN.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>algorithm<indexterm>3624 PIN verification</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>3624 PIN
+verification algorithm</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The algorithm requires the following input parameters:  <ul>
+<li>A 64-bit validation data</li>
+<li>A 64-bit decimalization table</li>
+<li>A 128-bit PIN-verification key</li>
+<li>A 4-bit PIN check length</li>
+<li>An offset data</li>
+<li>A customer-entered PIN</li>
+</ul></p>
+<p>The rightmost m digits of the offset data form the PIN offset,
+where m is the PIN check length.  <ol>
+<li>The validation data is enciphered using the PIN verification key.
+Each digit of the enciphered validation data is replaced by the digit
+in the decimalization table whose displacement from the leftmost digit
+of the table is the same as the value of the digit of enciphered validation
+data.</li>
+<li>The leftmost n digits of the result is added (modulo 10) to the
+offset data value, where n is the length of the customer-entered PIN.
+The modulo 10 addition ignores carries.</li>
+<li>The rightmost m digits of the result of the addition operation
+form the PIN check number. The PIN check number is compared with the
+rightmost m digits of the customer-entered PIN. If they match, PIN
+verification is successful; otherwise, verification is unsuccessful.</li>
+</ol></p>
+<p>When a nonzero PIN offset is used, the length of the customer-entered
+PIN is equal to the assigned PIN length.</p>
+<p><xref href="#l0wskc02_appd3624pinveralg/l0wskc02_pva"></xref> illustrates
+the PIN verification algorithm.</p>
+<fig expanse="column" id="l0wskc02_pva"><title>PIN verification algorithm</title>
+<image href="l0wskc02_fig4.jpg" placement="break" width="250">
+<alt>PIN verification algorithm</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000002565?>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>TR-34 symmetric key management</title>
+<topicref href="wskc_tr34.dita">
+<topicref href="wskc_tr34_protocol.dita"/>
+<topicref href="wskc_tr34_userFlows.dita">
+<topicref href="wskc_tr34_userFlow_Setup.dita"/>
+<topicref href="wskc_tr34_bind.dita"/>
+<topicref href="wskc_tr34_unbind.dita"/>
+<topicref href="wskc_tr34_rebind.dita"/>
+<topicref href="wskc_tr34_2pass.dita"/>
+<topicref href="wskc_tr34_1pass.dita"/>
+</topicref>
+
+<topicref href="wskc_tr34_BindBegin.dita" chunk="by-topic">
+<topicmeta>
+<retrievalKeys>
+<retkey>TR-34 Bind-Begin</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_tr34_BindBegin_format.dita"/>
+<topicref href="wskc_tr34_BindBegin_parameters.dita"/>
+<topicref href="wskc_tr34_BindBegin_required.dita"/>
+<topicref href="wskc_tr34_BindBegin_usage.dita"/>
+<topicref href="wskc_tr34_BindBegin_jniv.dita"/>
+</topicref>
+
+<topicref href="wskc_tr34_BindComplete.dita" chunk="by-topic">
+<topicmeta>
+<retrievalKeys>
+<retkey>TR-34 Bind-Complete</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_tr34_BindComplete_format.dita"/>
+<topicref href="wskc_tr34_BindComplete_parameters.dita"/>
+<topicref href="wskc_tr34_BindComplete_required.dita"/>
+<topicref href="wskc_tr34_BindComplete_usage.dita"/>
+<topicref href="wskc_tr34_BindComplete_jniv.dita"/>
+</topicref>
+
+<topicref href="wskc_tr34_Distribution.dita" chunk="by-topic">
+<topicmeta>
+<retrievalKeys>
+<retkey>TR-34 Key Distribution</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_tr34_Distribution_format.dita"/>
+<topicref href="wskc_tr34_Distribution_parameters.dita"/>
+<topicref href="wskc_tr34_Distribution_required.dita"/>
+<topicref href="wskc_tr34_Distribution_usage.dita"/>
+<topicref href="wskc_tr34_Distribution_jniv.dita"/>
+</topicref>
+
+<topicref href="wskc_tr34_Receive.dita" chunk="by-topic">
+<topicmeta>
+<retrievalKeys>
+<retkey>TR-34 Key Receive</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_tr34_Receive_format.dita"/>
+<topicref href="wskc_tr34_Receive_parameters.dita"/>
+<topicref href="wskc_tr34_Receive_usage.dita"/>
+<topicref href="wskc_tr34_Receive_required.dita"/>
+<topicref href="wskc_tr34_Receive_jniv.dita"/>
+</topicref>
+</topicref>
+</map>

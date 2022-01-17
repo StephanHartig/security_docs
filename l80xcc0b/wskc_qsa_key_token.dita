@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_qsa_key_token" rev="sh20i2">
+<title>QSA key token</title>
+<titlealts>
+<navtitle>QSA key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): QSA key token</searchtitle>
+</titlealts>
+<shortdesc>The format of QSA public and private key tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>QSA</indexterm></indexterm>
+<indexterm>QSA key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p><xref href="#l0wskc02_qsa_key_token/qsa_private_key_section" format="dita"/> and <xref
+href="#l0wskc02_qsa_key_token/qsa_private_key_section" format="dita"/> show the format of QSA public
+and private key tokens. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> allows the
+QSA algorithms and key sizes shown in <xref href="#l0wskc02_qsa_key_token/crystal_strangths"
+format="dita"/> with the OID for each.</p>
+</section>
+<section>
+<table id="crystal_strangths" pgwide="1" frame="all" rev="sh20i1"><title>Supported
+CRYSTALS-Dilithium strengths</title><desc>
+<p outputclass="summary">Supported CRYSTALS-Dilithium strengths</p>
+</desc><tgroup cols="3">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<thead>
+<row>
+<entry>Size of matrix (n x n)</entry>
+<entry>Size of t1 in bits</entry>
+<entry>OID in dot notation</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>(6 x 5)</entry>
+<entry>13824</entry>
+<entry>1.3.6.1.4.1.2.267.1.6.5</entry>
+</row>
+<row rev="sh21i1">
+<entry>(8 x 7)</entry>
+<entry></entry>
+<entry>1.3.6.1.4.1.2.267.1.8.7</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>A QSA key token is the concatenation of these sections:</p>
+<ul>
+<li>A token header: <ul>
+<li>An external header (first byte X'1E').</li>
+<li>An internal header (first byte X'1F').</li>
+</ul>
+</li>
+<li>An optional private key section (section identifier X’50’).</li>
+<li>A public key section (section identifier X’51’).</li>
+<li>An optional private key name section (section identifier X’10’).</li>
+</ul>
+<table id="qsa_private_key_section" pgwide="1" frame="all"><title>QSA Private Key
+section with OPK (X’50’)</title><desc>
+<p outputclass="summary">QSA Private Key section with OPK (X’50’) with three columns offset, length,
+description</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section Identifier: <dl compact="yes">
+<dlentry>
+<dt>X'50'</dt>
+<dd>QSA Private Key <ph rev="sh21i1">with AES-wrapped AES OPK</ph></dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number: <b>X'00'</b>.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length in bytes: 128 + <i>ppp</i>. <p>When 'Key format' (offset 12) is:</p> 
+<dl>
+<dlentry>
+<dt>X'00' (Clear key)</dt>
+<dd>For CRYSTALS-Dilithium (6,5):
+<dl>
+<dlentry>
+<dt><i>ppp</i></dt>
+<dd>3824 bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>section length</dt>
+<dd>3952 bytes.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>X'01' (Encrypted key)</dt>
+<dd>
+<ul>
+<li>For CRYSTALS-Dilithium (6,5):
+<dl>
+<dlentry>
+<dt><i>ppp</i></dt>
+<dd>3872 bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>section length</dt>
+<dd>4000 bytes.</dd>
+</dlentry>
+</dl>
+</li>
+<li rev="sh21i1">For CRYSTALS-Dilithium (8,7):
+<dl>
+<dlentry>
+<dt><i>ppp</i></dt>
+<dd>5152 bytes.</dd>
+</dlentry>
+<dlentry>
+<dt>section length</dt>
+<dd>5280 bytes.</dd>
+</dlentry>
+</dl>
+</li>
+</ul>
+</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Length of associated data section in bytes: 54.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>001</entry>
+<entry>Associated data section version number: X'01'.</entry>
+</row>
+<row>
+<entry>009</entry>
+<entry>001</entry>
+<entry>Algorithm identifier:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No algorithm.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>CRYSTALS-Dilithium.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>Algorithm parameters:<p>When 'Algorithm identifier' is X'01', allowed values are:<dl>
+<dlentry>
+<dt>X'0605'</dt>
+<dd>CRYSTALS-Dilithium (6,5). <ph rev="sh21i1">OID for this algorithm and key parameter:
+1.3.6.1.4.1.2.267.1.6.5</ph></dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>X'0807'</dt>
+<dd>CRYSTALS-Dilithium (8,7). OID for this algorithm and key parameter: 1.3.6.1.4.1.2.267.1.8.7</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>001</entry>
+<entry>Key format:<p>External token:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Unencrypted QSA private key subsection identifier.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Encrypted QSA private key subsection identifier.</dd>
+</dlentry>
+</dl></p><p>Internal token:<dl>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Encrypted QSA private key subsection identifier.</dd>
+</dlentry>
+</dl></p><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>013</entry>
+<entry>001</entry>
+<entry>Key source flag byte:<p>External token:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No Key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'24'</dt>
+<dd>Randomly generated.</dd>
+</dlentry>
+</dl></p><p>Internal token:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No Key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'21'</dt>
+<dd>Imported from cleartext.</dd>
+</dlentry>
+<dlentry>
+<dt>X'22'</dt>
+<dd>Imported from ciphertext.</dd>
+</dlentry>
+<dlentry>
+<dt>X'24'</dt>
+<dd>Randomly generated.</dd>
+</dlentry>
+</dl></p><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>001</entry>
+<entry>Compliance and export control byte:<dl>
+<dlhead>
+<dthd>Bit </dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK).</dd>
+</dlentry>
+<dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE).</dd>
+</dlentry>
+</dl><p>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>015</entry>
+<entry>001</entry>
+<entry>Hash type:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>Clear key.</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>016</entry>
+<entry>002</entry>
+<entry>Usage bytes:<p>Byte 16:<dl>
+<dlhead>
+<dthd>Bit </dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Digital Signature usage is allowed (U-DIGSIG). Services: CSNDDSG, CSNDDSV.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>Byte 17: All values are reserved and
+undefined.</p></entry>
+</row>
+<row>
+<entry>018</entry>
+<entry>032</entry>
+<entry>SHA-256 hash value of:<ol>
+<li>The public key section (section identifier X'51') and</li>
+<li>All optional sections that follow the public key section, if any.</li>
+</ol>If there are no optional sections, the hash will cover only the public key section.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>002</entry>
+<entry>'<i>aaa</i>' = QSA payload component 1 length.<p>When 'Algorithm identifier' is X'01'
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>):<dl>
+<dlentry>
+<dt>Length of key D, also called 'seed'</dt>
+<dd>
+<ul>
+<li>32 B for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (6,5).</li>
+<li rev="sh21i1">32 B for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (8,7).</li>
+</ul>
+</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>052</entry>
+<entry>002</entry>
+<entry>'<i>bbb</i>' = QSA payload component 2 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of tr T, prf output</dt>
+<dd>
+<ul>
+<li>48 B for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (6,5).</li>
+<li rev="sh21i1">48 B for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (8,7).</li>
+</ul>
+</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>054</entry>
+<entry>002</entry>
+<entry>'<i>ccc</i>' = QSA payload component 3 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of vector 's1', of L elements</dt>
+<dd><ul>
+<li>480 B for CRYSTALS-Dilithium (6,5)</li>
+<li rev="sh21i1">672 B for CRYSTALS-Dilithium (8,7)</li>
+</ul>.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>056</entry>
+<entry>002</entry>
+<entry>'<i>ddd</i>' = QSA payload component 4 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of vector 's2', of K elements</dt>
+<dd><ul>
+<li>576 B for CRYSTALS-Dilithium (6,5)</li>
+<li rev="sh21i1">768 B for CRYSTALS-Dilithium (8,7)</li>
+</ul>.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>058</entry>
+<entry>002</entry>
+<entry>'<i>eee</i>' = QSA payload component 5 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of vector 't0', of K * high bits (vector)</dt>
+<dd><ul>
+<li>2688 B for CRYSTALS-Dilithium (6,5)</li>
+<li rev="sh21i1">3584 B for CRYSTALS-Dilithium (8,7)</li>
+</ul>.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>060</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>062</entry>
+<entry>056</entry>
+<entry>Object Protection key (OPK) data: The OPK consists of a 16-byte confounder and a 256-bit AES
+key, followed by 8 bytes of AESKW overhead.<p>External token:<ul>
+<li>Encrypted: Encrypted by AES KEK.</li>
+<li>Clear: All bytes binary zero.</li>
+</ul></p><p>Internal token<ul>
+<li>Encrypted: Encrypted with the ECC master key.</li>
+</ul></p></entry>
+</row>
+<row>
+<entry>118</entry>
+<entry>008</entry>
+<entry>Key verification pattern (KVP):<p>When 'Key format' (offset 12) is:<dl>
+<dlentry>
+<dt>X'00' (Clear key)</dt>
+<dd>Binary zero.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01' (Encrypted key)</dt>
+<dd>Bytes 0 – 7: KVP<ul>
+<li>When internal, this is the ECC master key verification pattern (MKVP).</li>
+<li>When external, this is the KVP for the KEK.</li>
+</ul></dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>126</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero</entry>
+</row>
+<row>
+<entry>128</entry>
+<entry><i>ppp</i></entry>
+<entry>Payload starts here and includes:<p>When this section is encrypted: Private exponent <i>d</i>
+in the payload wrapped by the OPK using the AESKW algorithm.</p>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="qsa_public_key_section" pgwide="1" frame="all" rev="sh20i1"><title>QSA Public Key section
+(X’51’)</title><desc>
+<p outputclass="summary">QSA Public Key section (X’51’) with three columns offset, length,
+description</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section Identifier:<dl>
+<dlentry>
+<dt>X'51'</dt>
+<dd>QSA Public Key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number: <b>X'00'</b>.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length: 24 + <i>aaa</i> + <i>bbb</i>
+<lines rev="sh21i1">= 24 + 32 + 1728 = 1784 B for CRYSTALS-Dilithium (6,5)
+= 24 + 32 + 2304 = 2360 B for CRYSTALS-Dilithium (8,7)
+</lines>
+</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>001</entry>
+<entry>Key format:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No MAC over public key subsection.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>005</entry>
+<entry>001</entry>
+<entry>Algorithm identifier:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No algorithm.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>CRYSTALS-Dilithium.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Algorithm parameters:<p>When 'Algorithm identifier' is X'01', allowed values are:<dl>
+<dlentry>
+<dt>X'0605'</dt>
+<dd>CRYSTALS-Dilithium (6,5).</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>X'0807'</dt>
+<dd>CRYSTALS-Dilithium (8,7).</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>002</entry>
+<entry>Usage bytes:<p>Byte 8:<dl>
+<dlhead>
+<dthd>Bit </dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'1xxx xxxx'</dt>
+<dd>Digital Signature usage is allowed (U-DIGSIG). Services: CSNDDSG, CSNDDSV.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>Byte 9: All values are reserved and
+undefined.</p></entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>'<i>aaa</i>' = QSA public component 1 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of 'rho' , also called 'nonce'</dt>
+<dd><ul><li>32 B for CRYSTALS-Dilithium (6,5) <ph rev="sh21i1">also called 'nonce'</ph></li>
+<li rev="sh21i1">32 B for CRYSTALS-Dilithium (8,7) also called 'nonce'</li></ul></dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>'<i>bbb</i>' = QSA public component 2 length.<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<dl>
+<dlentry>
+<dt>Length of 't1' : K * low bits (vector)</dt>
+<dd><ul><li>1728 B for CRYSTALS-Dilithium (6,5)</li>
+<li rev="sh21i1">2304 B for CRYSTALS-Dilithium (8,7)</li></ul></dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>010</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>024</entry>
+<entry><i>aaa</i></entry>
+<entry>QSA public component 1<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<ul>
+<li>'rho' , also called 'nonce'.</li>
+</ul></p></entry>
+</row>
+<row>
+<entry>024 + <i>aaa</i></entry>
+<entry><i>bbb</i></entry>
+<entry>QSA public component 2<p>When 'Algorithm identifier' is X'01' (CRYSTALS-Dilithium):<ul>
+<li>'t1' : K * low bits (vector).</li>
+</ul></p></entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

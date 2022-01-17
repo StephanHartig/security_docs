@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktpusage">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts><shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Be aware that <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>) will fail (return code 8, reason
+code 49) when given a DES INTERNAL key token that is version <ph>X'01'</ph>.
+These tokens are DOUBLE and TRIPLE length DES INTERNAL DATA key tokens.</p></section>
+</refbody></reference>

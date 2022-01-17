@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_pk4" xml:lang="en-us">
+<title>Managing PKA cryptographic keys</title>
+<titlealts>
+<navtitle>Managing PKA cryptographic keys</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Managing PKA cryptographic       keys</searchtitle>
+</titlealts>
+<shortdesc>Use these verbs to generate and manage PKA keys. </shortdesc><?Pub
+Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>PKA cryptographic key</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p> <ul otherprops="pdf">
+<li><xref href="wskc_r_xpkg.dita#l0wskc02_xpkg"></xref></li>
+<li><xref href="wskc_r_pki.dita#l0wskc02_pki"></xref></li>
+<li><xref href="wskc_r_pkb.dita#l0wskc02_pkb"></xref></li>
+<li><xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"></xref></li>
+<li><xref href="wskc_r_zapgkxlate.dita#l0wskc02_zapgkxlate"></xref></li>
+<li><xref href="wskc_r_pkx.dita#l0wskc02_pkx"></xref></li>
+<li><xref href="wskc_r_rkx.dita#l0wskc02_rkx"></xref></li>
+<li><xref href="wskc_r_tbc.dita#l0wskc02_tbc"></xref></li>
+<li rev="sh18i1"><xref href="wskc_pka_pic.dita#l0wskc02_pka_pki"/></li>
+<li rev="sh18i1"><xref href="wskc_pka_pim.dita#wskc_pka_pim"/></li>
+</ul></p></section>
+</refbody>
+</reference>
+<?Pub *0000001402?>

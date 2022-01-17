@@ -1,0 +1,2620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfqparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>function control vector<indexterm>FCV</indexterm></indexterm>
+<indexterm>FCV<indexterm>function control vector</indexterm></indexterm>
+<indexterm>ADAPTER1</indexterm>
+<indexterm>GET-UDX</indexterm>
+<indexterm>NUM-DECT</indexterm>
+<indexterm>QPENDING</indexterm>
+<indexterm>STATAPKA</indexterm>
+<indexterm>STATCCAE</indexterm>
+<indexterm>STATCRD2</indexterm>
+<indexterm>STATDIAG</indexterm>
+<indexterm>STATEID</indexterm>
+<indexterm>STATEXPT</indexterm>
+<indexterm>STATICSA</indexterm>
+<indexterm>STATICSC</indexterm>
+<indexterm>STATICSE</indexterm>
+<indexterm>STATICSX</indexterm>
+<indexterm>STATKPR</indexterm>
+<indexterm>STATKPRL</indexterm>
+<indexterm>STATMOFN</indexterm>
+<indexterm>STATVKPL</indexterm>
+<indexterm>STATVKPR</indexterm>
+<indexterm>TIMEDATE</indexterm>
+<indexterm>TKESTATE</indexterm>
+<indexterm>WRAPMTHD</indexterm>
+<indexterm>CSUACFQ<indexterm>STATOAHL</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm></indexterm>
+<indexterm>pending change stored in adapter</indexterm>
+<indexterm>adapter<indexterm>pending change</indexterm></indexterm>
+<indexterm>pending change user ID</indexterm>
+<indexterm>user ID<indexterm>pending change</indexterm></indexterm>
+<indexterm>STATAES</indexterm>
+<indexterm>NMK status, AES </indexterm>
+<indexterm>status<indexterm>AES  NMK</indexterm></indexterm>
+<indexterm>CMK status, AES </indexterm>
+<indexterm>status<indexterm>AES  CMK</indexterm></indexterm>
+<indexterm>OMK status, AES </indexterm>
+<indexterm>status<indexterm>AES  OMK</indexterm></indexterm>
+<indexterm>NMK status, ECC</indexterm>
+<indexterm>status<indexterm>ECC NMK</indexterm></indexterm>
+<indexterm>CMK status, ECC</indexterm>
+<indexterm>status<indexterm>ECC CMK</indexterm></indexterm>
+<indexterm>OMK status, ECC</indexterm>
+<indexterm>status<indexterm>ECC OMK</indexterm></indexterm>
+<indexterm>STATCARD</indexterm>
+<indexterm>number of active coprocessors</indexterm>
+<indexterm>coprocessor<indexterm>number of</indexterm></indexterm>
+<indexterm>DES hardware version</indexterm>
+<indexterm>RSA hardware version</indexterm>
+<indexterm>POST firmware version</indexterm>
+<indexterm>coprocessor part number</indexterm>
+<indexterm>part number<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>coprocessor EC level</indexterm>
+<indexterm>EC level<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>miniboot firmware version</indexterm>
+<indexterm>micropocessor chip operating speed</indexterm>
+<indexterm>operating speed<indexterm>micropocessor chip</indexterm></indexterm>
+<indexterm>coprocessor adapter ID</indexterm>
+<indexterm>adapter ID<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>size of flash EPROM memory</indexterm>
+<indexterm>flash EPROM memory<indexterm>size</indexterm></indexterm>
+<indexterm>size of dynamic RAM (DRAM) memory</indexterm>
+<indexterm>dynamic RAM (DRAM) memory<indexterm>size</indexterm></indexterm>
+<indexterm>size of battery-backed RAM</indexterm>
+<indexterm>battery-backed RAM<indexterm>size</indexterm></indexterm>
+<indexterm>coprocessor serial number</indexterm>
+<indexterm>serial number<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>STATCCA</indexterm>
+<indexterm>NMK status</indexterm>
+<indexterm>CMK status</indexterm>
+<indexterm>OMK status</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API version</indexterm>
+<indexterm>CEX3C</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API build
+date</indexterm>
+<indexterm>role identifier</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API version</indexterm>
+<indexterm>asymmetric NMK status</indexterm>
+<indexterm>asymmetric CMK status</indexterm>
+<indexterm>asymmetric OMK status</indexterm>
+<indexterm>STATCRD2</indexterm>
+<indexterm>number of active coprocessors</indexterm>
+<indexterm>coprocessor<indexterm>number of</indexterm></indexterm>
+<indexterm>DES hardware version</indexterm>
+<indexterm>RSA hardware version</indexterm>
+<indexterm>POST firmware version</indexterm>
+<indexterm>operating system firmware name</indexterm>
+<indexterm>operating system firmware version</indexterm>
+<indexterm>coprocessor part number</indexterm>
+<indexterm>part number<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>coprocessor EC level</indexterm>
+<indexterm>EC level<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>miniboot firmware version</indexterm>
+<indexterm>micropocessor chip operating speed</indexterm>
+<indexterm>operating speed<indexterm>micropocessor chip</indexterm></indexterm>
+<indexterm>coprocessor adapter ID</indexterm>
+<indexterm>adapter ID<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>size of flash EPROM memory</indexterm>
+<indexterm>flash EPROM memory<indexterm>size</indexterm></indexterm>
+<indexterm>size of dynamic RAM (DRAM) memory</indexterm>
+<indexterm>dynamic RAM (DRAM) memory<indexterm>size</indexterm></indexterm>
+<indexterm>size of battery-backed RAM</indexterm>
+<indexterm>battery-backed RAM<indexterm>size</indexterm></indexterm>
+<indexterm>coprocessor serial number</indexterm>
+<indexterm>serial number<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>coprocessor POST2 version</indexterm>
+<indexterm>POST2 version<indexterm>coprocessor</indexterm></indexterm>
+<indexterm>battery indicator</indexterm>
+<indexterm>coprocessor<indexterm>battery indicator</indexterm></indexterm>
+<indexterm>intrusion latch</indexterm>
+<indexterm>coprocessor<indexterm>intrusion latch</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> error log</indexterm>
+<indexterm>coprocessor<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+error log</indexterm></indexterm>
+<indexterm>tampering</indexterm>
+<indexterm>coprocessor<indexterm>tampering</indexterm></indexterm>
+<indexterm>power-supply voltage</indexterm>
+<indexterm>coprocessor<indexterm>power-supply voltage</indexterm></indexterm>
+<indexterm>temperature</indexterm>
+<indexterm>coprocessor<indexterm>temperature</indexterm></indexterm>
+<indexterm>radiation</indexterm>
+<indexterm>coprocessor<indexterm>radiation</indexterm></indexterm>
+<indexterm>rule_array element<indexterm>last five commands</indexterm></indexterm>
+<indexterm>coprocessor<indexterm>last five commands</indexterm></indexterm>
+<indexterm>rule_array element<indexterm>security API
+return code</indexterm></indexterm>
+<indexterm>security API return code<indexterm>rule_array
+element</indexterm></indexterm>
+<indexterm>STATEID</indexterm>
+<indexterm>Environment Identifier (EID)</indexterm>
+<indexterm>base <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+services</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+services<indexterm>base</indexterm></indexterm>
+<indexterm>DES encryption<indexterm>56-bit</indexterm></indexterm>
+<indexterm>TDES encryption</indexterm>
+<indexterm>Triple-DES encryption</indexterm>
+<indexterm>secure electronic transaction (SET) services</indexterm>
+<indexterm>symmetric key<indexterm>maximum modulus size</indexterm></indexterm>
+<indexterm>STATICSA<indexterm>verb_data field</indexterm><indexterm>adapter serial number</indexterm><indexterm>serial
+number<indexterm>adapter</indexterm></indexterm></indexterm>
+<indexterm>STATICSB<indexterm>verb_data field</indexterm><indexterm>adapter serial number</indexterm><indexterm>serial
+number<indexterm>adapter</indexterm></indexterm></indexterm>
+<indexterm>APKA NMK</indexterm>
+<indexterm>APKA CMK</indexterm>
+<indexterm>APKA OMK</indexterm>
+<indexterm>STATICSE<indexterm>verb_data field</indexterm><indexterm>adapter serial number</indexterm><indexterm>serial
+number<indexterm>adapter</indexterm></indexterm></indexterm>
+<indexterm>adapter serial number</indexterm>
+<indexterm>serial number<indexterm>adapter</indexterm></indexterm>
+<indexterm>DES NMK</indexterm>
+<indexterm>DES CMK</indexterm>
+<indexterm>DES OMK</indexterm>
+<indexterm>PKA NMK</indexterm>
+<indexterm>PKA CMK</indexterm>
+<indexterm>PKA OMK</indexterm>
+<indexterm>STATICSX</indexterm>
+<indexterm>verb_data field</indexterm>
+<indexterm>adapter serial number</indexterm>
+<indexterm>serial number<indexterm>adapter</indexterm></indexterm>
+<indexterm>STATMOFN</indexterm>
+<indexterm>TIMEDATE</indexterm>
+<indexterm>date</indexterm>
+<indexterm>UTC time of day</indexterm>
+<indexterm>time of day</indexterm>
+<indexterm>day of the week</indexterm>
+<indexterm>TKESTATE</indexterm>
+<indexterm>TKE access</indexterm>
+<indexterm>CEX3C</indexterm>
+<indexterm>WRAPMTHD</indexterm>
+<indexterm>tokens<indexterm>wrapping method</indexterm></indexterm>
+<indexterm>verb_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. On input, this value must be 1 or 2. <p>On output, the
+verb sets the variable to the number of <parmname>rule_array</parmname> elements it returns to the
+application program.</p><note type="other" othertype="Tip"> With this verb, the number of returned
+<parmname>rule_array</parmname> elements can exceed the <parmname>rule_array_count</parmname> you
+specified on input. Be sure you allocate adequate memory to receive all the information elements
+according to the information class you select on input with the information-to-return keyword in the
+<parmname>rule_array</parmname>. </note></pd>
+</plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>rule_array</parmname> parameter is a pointer to a string variable containing
+an array of keywords. The keywords are eight bytes in length and must be left-aligned and padded on
+the right with space characters. <p>On input, set the <parmname>rule_array</parmname> to specify the
+type of information to retrieve. There are two input <i>rule_array</i> elements, as described in
+<xref href="#l0wskc02_cfqparameters/l0wskc02_cfq_tab1"/>. This table also indicates to which
+parameter, <parmname>rule_array</parmname> or <parmname>verb_data</parmname>, output data is
+returned for each keyword.</p><table id="l0wskc02_cfq_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> control
+information</title>
+<desc>
+<p outputclass="summary">The first and third data row span all columns and serve as headers for
+table sections.</p>
+</desc>
+<tgroup cols="4" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="12*"/>
+<colspec colname="col2" colwidth="48*"/>
+<colspec colname="col3" colwidth="12*"/>
+<colspec colname="col4" colwidth="17*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+<entry>Output in <i>rule_array</i></entry>
+<entry>Output in <i>verb_data</i></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col4"><i>Adapter to use</i> (Optional) </entry>
+</row>
+<row>
+<entry><b>ADAPTER1</b></entry>
+<entry>This keyword is ignored. It is accepted for backward compatibility.</entry>
+<entry>n/a</entry>
+<entry>n/a</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><i>Information to return</i> (One required)</entry>
+</row>
+<row rev="sh20i2">
+<entry><b>DOM-CONT</b></entry>
+<entry>Obtain an array of enabled control domains.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_domcont.dita"/>.</entry>
+</row>
+<row rev="sh20i2">
+<entry><b>DOM-NUMS</b></entry>
+<entry>Returns the total number of domains allocated for the system in the <parmname>verb_data</parmname> variable.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_domnums.dita"/>.</entry>
+</row>
+<row rev="sh20i2">
+<entry><b>DOM-USAG</b></entry>
+<entry>Obtain an array of enabled usage domains.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_domusag.dita"/>.</entry>
+</row>
+<row>
+<entry><b>GETCOMPD</b></entry>
+<entry>Get compliance data. Returns official card and domain compliance information. 
+See the SIGNSTAT keyword later in this table for a method to have the entire bundle hashed and signed by adapter 
+firmware outbound authentication firmware keys.
+</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_getcompd.dita#cfq_getcompd"/>.</entry>
+</row>
+<row>
+<entry><b>GET-UDX</b></entry>
+<entry>Obtains UDX identifiers. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_vdras390_gudx.dita#l0wskc02_cfq_vdras390_gudx"/>. </entry>
+</row>
+<row>
+<entry><b>MOREMKS</b></entry>
+<entry>This keyword returns additional master key information. It is in a second rule
+array class and used to signify that additional data is to be returned with one or more existing
+keywords. This keyword is only allowed when one of STATICSFB, STATCCA, or STATCCAE is also present.
+Any other use results in an error return code of ( 8 / 0x22 [ 34 ] ). <p>When present, the reply
+rule array elements for the SYM and ASYM master keys have additional bytes populated. The master key
+status is still present in the same format in offset 0 of the element. </p><p>When STATICSFB is
+present, an ASCII '1' is in offset 7 of the reply rule array element if ACP '0x0330' was set when
+the master key parts were loaded. This forces the user to enter 24-bytes of key material. This is
+only present for the SYM MK.</p><p>
+<lines>
+Example output for <cmdname>STATICSFB MOREMKS</cmdname>
+(truncated to show only the SYM reply):
+</lines>
+</p><codeblock>
+Rule array kw 0: Card Serial Number
+Rule array kw 1: “3 1“ SYM MK new mk reg is full and
+                      24-bytes entered.
+Rule array kw 2: “2 “ SYM MK valid (contains a key)
+                      current mk.
+Rule array kw 3: “2 “ SYM MK valid old mk.</codeblock></entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry><b>NUM-DECT</b></entry>
+<entry>Returns the number of bytes of data required for the <synph><var>verb_data</var></synph>
+variable when the <synph><kwd>STATDECT</kwd></synph> rule-array keyword is specified. <note>A TKE is
+used to securely load PIN decimalization tables.</note></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_num-dect.dita#l0wskc02_cfq_num-dect"/>.</entry>
+</row>
+<row>
+<entry><b>QPENDING</b></entry>
+<entry>TKE uses this <i>rule_array</i> keyword to request information about pending changes
+previously submitted by this TKE or another TKE to this adapter. Only TKE can submit changes to be
+stored in the Pending Change Buffer queried with this command. <p>The keyword is available for
+normal users of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/>, for
+informational or debugging reasons (no secrets are exposed).</p>
+<p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>SIGNSTAT</b></entry>
+<entry>This keyword causes the returned data to have a signature post-pended to the reply data which
+covers the reply data. <p>It works in combination with the GETCOMPD and STATOAHL keywords.</p>
+<p>It always returns data prefixed with a <parmname>signed_data_t</parmname> structure that defines
+where the data is (following the signed_data_t) and where an optional signature is, (after the data
+BLOB).</p>
+<ul>
+<li>If SIGNSTAT is not present, the <parmname>signed_data_t</parmname> beginning structure is still
+returned, however the signature fields show offset, length, and sig-type of 0x00.</li>
+<li>If SIGNSTAT is present, adapter firmware signs the data, puts a signature after the data, and
+fixes the signature fields to allow for the signature fields and payload.</li>
+</ul>
+</entry>
+<entry>None.</entry>
+<entry>See the extension of the GETCOMPD and STATOAHL ouput in <xref
+href="wskc_r_cfq_getcompd.dita#cfq_getcompd"/> and <xref
+href="wskc_r_cfq_statoahl.dita#cfq_statoahl"/>.</entry>
+</row>
+<row>
+<entry><b>SIZEWPIN</b></entry>
+<entry>Get the number of bytes of storage required for the output of a STATWPIN request.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_sizewpin.dita#l0wskc02_cfq_sizewpin/sizewpin_table"/>.</entry>
+</row>
+<row>
+<entry><b>STATAES</b></entry>
+<entry>Obtains status information on AES master-key registers and AES key-length enablement.</entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATAPKA</b></entry>
+<entry>Obtains status information on APKA master-key registers and APKA key-length enablement. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATCARD</b></entry>
+<entry>Obtains coprocessor-related basic status information. This keyword is provided for backwards
+compatibility. The <b>STATCRD2</b> should be used instead of <b>STATCARD</b>.</entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATCCA</b></entry>
+<entry>Obtains <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>-related status
+information. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATCCAE</b></entry>
+<entry>Obtains <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>-related extended
+status information. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATCRD2</b></entry>
+<entry>Obtains extended basic status information about the coprocessor.</entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATDECT</b></entry>
+<entry>Obtains the information on all of the authorized PIN decimalization tables that are currently
+stored on the coprocessor. Output is returned in the <synph><var>verb_data</var></synph> variable.
+<note>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> is used to securely load
+PIN decimalization tables.</note></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statdect.dita#l0wskc02_cfq_statdect"/>.</entry>
+</row>
+<row>
+<entry><b>STATDIAG</b></entry>
+<entry>Obtains diagnostic information. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATEID</b></entry>
+<entry>Obtains the Environment Identifier (EID). </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATEXPT</b></entry>
+<entry>Obtains function control vector-related status information. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATICSA</b></entry>
+<entry>Obtains the indicated master key hash and verification patterns to be returned for the master
+keys loaded in the current domain. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>See <xref href="wskc_r_cfq_staticsa.dita#l0wskc02_cfq_staticsa"/>.</entry>
+</row>
+<row>
+<entry><b>STATICSB</b></entry>
+<entry>Obtains the indicated master key hash and verification patterns to be returned for the master
+keys loaded in the current domain. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>See <xref href="wskc_r_cfq_staticsb.dita#l0wskc02_cfq_staticsb"/>.</entry>
+</row>
+
+<row rev="sh20i1">
+<entry><b>STATICSC</b></entry>
+<entry>Obtains the indicated master key hash and verification patterns to be returned for the master
+keys loaded in the current domain.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_staticsc.dita#l0wskc02_cfq_staticsc"/>.</entry>
+</row>
+
+<row>
+<entry><b>STATICSE</b></entry>
+<entry>Obtains the indicated master key hash and verification patterns to be returned for the master
+keys loaded in the current domain. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>See <xref href="wskc_r_cfq_staticse.dita#l0wskc02_cfq_staticse"/>.</entry>
+</row>
+<row>
+<entry><b>STATICSF</b></entry>
+<entry>This keyword returns the adapter serial number and status information about the SYM (DES) and
+ASYM (RSA) master-key registers, including whether a valid key is present in each of the old,
+current, and new registers. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>STATICSX</b></entry>
+<entry>Obtains the indicated master key hash and verification patterns to be returned for the master
+keys loaded in the current domain. <p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>See <xref href="wskc_r_cfq_staticsx.dita#l0wskc02_cfq_staticsx"/>.</entry>
+</row>
+<row>
+<entry><b>STATKPR</b></entry>
+<entry>Obtains non-secret information about an operational key part. <p>This keyword applies only
+when using <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statkpr.dita#l0wskc02_cfq_statkpr"/>.</entry>
+</row>
+<row>
+<entry><b>STATKPRL</b></entry>
+<entry>Obtains the names of the operational key parts. <p>This keyword applies only when using
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>None.</entry>
+<entry><xref href="wskc_r_cfq_statkprl.dita#l0wskc02_cfq_statkprl"/>.</entry>
+</row>
+<row>
+<entry><b>STATMOFN</b></entry>
+<entry>Obtains master-key shares distribution information.</entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row rev="sh18i1">
+<entry><b>STATOAHL</b></entry>
+<entry>Returns the adapter health for firmware, with full bootloader fields. This data structure
+matches the signed <parmname>health_t</parmname> structure, which is returned by the secure
+bootloader of the HSM when a <cmdname>QueryHealth</cmdname> command is issued. (Such a command is
+isssued by low level <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>
+firmware which then caches the information for the management console). Thus, this STATOAHL keyword
+returns the same <parmname>health_t</parmname> structure through <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, signed by an OA key.<p>Input:</p><p>The
+<parmname>verb_data</parmname> parameter holds the 32-byte nonce desired by the user to be signed in
+the returned <parmname>health_t</parmname> structure.</p><p>Output:</p><p>The
+<parmname>verb_data</parmname> parameter holds the <parmname>health_t</parmname> structure.</p><p>
+<note type="tip">Adding the SIGNSTAT keyword causes the returned data to be signed. The signature
+returned from this call can be verified using the public key returned by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> call to CSUADPK:GET-CERT. Then pass the
+public key, signature, and hash of the data to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/> verb.</note>
+</p></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statoahl.dita#cfq_statoahl"/>.</entry>
+</row>
+<row>
+<entry><b>STATVKPL</b></entry>
+<entry>Obtains the names of all the operational key parts for variable length key token preparation.
+<p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statvkpl.dita#l0wskc02_cfq_statvkpl"/>.</entry>
+</row>
+<row>
+<entry><b>STATVKPR</b></entry>
+<entry>
+<p>Obtains non-secret information about an operational key part. This is different from STATKPR in
+that a register for creating a key in a variable length key token is described.</p>
+<p>This keyword applies only when using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p>
+</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statvkpr.dita#l0wskc02_cfq_statvkpr"/>.</entry>
+</row>
+<row rev="shd3">
+<entry><b>STATWPIN</b></entry>
+<entry>Returns the state information on all of the weak PIN entries that are currently stored on the
+coprocessor.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statwpin.dita#l0wskc02_cfq_statwpin/statwpin_table"/>.</entry>
+</row>
+<row>
+<entry><b>TIMEDATE</b></entry>
+<entry>Reads the current date, time, and day of the week from the secure clock within the
+coprocessor.</entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>TKESTATE</b></entry>
+<entry>Indicates whether TKE access is enabled or not. <p>This keyword applies only when using
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</p></entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry><b>WRAPMTHD</b></entry>
+<entry>Obtains the default key wrapping method. </entry>
+<entry>See <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/>.</entry>
+<entry>None.</entry>
+</row>
+<row rev="sh20i1">
+<entry namest="col1" nameend="col4"><i>Verification Pattern Format selection for STATKPR, STATVKPR.</i>
+The STATKPR and STATVKPR keywords request information about operational key parts that have been stored in 
+the domain. Part of this information is a verification pattern for the key part, returned in the 
+<parmname>ver_pattern</parmname> field of the STATKPR or STATVKPR output data.
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>ENC-ZERO</b></entry>
+<entry>This keyword modifies the output returned in the <parmname>ver_pattern</parmname> field of
+the STATKPR or STATVKPR output data format structures when the subject key is a DES or TDES key. The
+length of returned data in the <parmname>ver_pattern</parmname> field from the ENC-ZERO calculation
+is 3 bytes when this keyword is used. The default length of returned data is 4 bytes.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statkpr.dita"/> or <xref href="wskc_r_cfq_statvkpr.dita"/>.</entry>
+</row>
+<row rev="sh20i1">
+<entry namest="col1" nameend="col4"><i>Hash Value Format selection for STATKPR, STATVKPR.</i>
+The STATKPR and STATVKPR keywords request information about operational key parts that have been stored 
+in the domain. Part of this information is a hash value for the key part, returned in the 
+<parmname>key_part_hash</parmname> field of the STATKPR or STATVKPR output data.
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>CMACZERO</b></entry>
+<entry>This keyword modifies the output returned in the <parmname>key_part_hash</parmname> field of the STATKPR 
+or STATVKPR output data format structures. The returned data in the <parmname>key_part_hash</parmname> field 
+is changed to be 5 bytes of a truncated CMAC over the subject key when this keyword is used.</entry>
+<entry>None.</entry>
+<entry>See <xref href="wskc_r_cfq_statkpr.dita"/> or <xref href="wskc_r_cfq_statvkpr.dita"
+/>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Different sets of <parmname>rule_array</parmname> elements are returned, depending on the input
+keyword. <xref href="#l0wskc02_cfqparameters/l0wskc02_cfqoa"/> describes these
+<parmname>rule_array</parmname> elements for keywords that result in output data in the
+<parmname>rule_array</parmname> parameter.</p><p>For <parmname>rule_array</parmname> elements that
+contain numbers, those numbers are represented by numeric characters which are left-aligned and
+padded on the right with space characters. For example, a <parmname>rule_array</parmname> element
+that contains the number 2 contains the character string <b><q>2       </q></b> (the number 2
+followed by seven space characters).</p><p>For some keywords, there is output data in the
+<parmname>verb_data</parmname> variable. This output data is described in <xref
+href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"/>.</p>
+<table id="l0wskc02_cfqoa" pgwide="1" frame="all">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> information returned in
+the <i>rule_array</i></title>
+<desc>
+<p outputclass="summary">This table contains data rows that span all columns and separate table
+sections for individual keywords.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry>Element number</entry>
+<entry>Name</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option QPENDING</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Change type (ASCII number)</entry>
+<entry>An ASCII number that indicates the type of pending change stored in the
+adapter (if there is one) <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>none</dt>
+<dd>No pending change</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Role load</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Profile load</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Role delete</dd>
+</dlentry>
+<dlentry>
+<dt>  4</dt>
+<dd>Profile delete</dd>
+</dlentry>
+<dlentry>
+<dt>  5</dt>
+<dd>Domain zeroize</dd>
+</dlentry>
+<dlentry>
+<dt>  6</dt>
+<dd>Enable</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>user ID (string)</entry>
+<entry>A string of eight ASCII characters for the user ID of the user who initiated
+the pending change.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATAES</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>AES NMK status</entry>
+<entry>State of the AES new master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry><dt>1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>Register contains a partially complete key</dd>
+</dlentry>
+<dlentry>
+<dt>3</dt>
+<dd>Register contains a complete key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>AES CMK status</entry>
+<entry>State of the AES current master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>Register contains a key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>AES OMK status</entry>
+<entry>State of the AES old master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Register contains a key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>AES key length enablement</entry>
+<entry>The maximum AES key length that is enabled by the function control vector. The
+value is 0 (if no AES key length is enabled in the function control vector (FCV)), 128, 192, or
+256.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATAPKA</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>ECC NMK status</entry>
+<entry>The state of the ECC new master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Register contains a partially complete key</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Register contains a complete key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>ECC CMK status</entry>
+<entry>The state of the ECC current master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Register contains a key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>ECC OMK status</entry>
+<entry>The state of the ECC old master key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Register is clear</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Register contains a key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>ECC key length enablement</entry>
+<entry>The maximum ECC curve size that is enabled by the function control vector. The
+value is 0 (if no ECC keys are enabled in the function control vector (FCV)) and 521 for the maximum
+size.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATCARD</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Number of installed adapters</entry>
+<entry>A numeric character string containing the number of active coprocessors installed in the
+machine. This includes only coprocessors that have <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software loaded (including those with
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> UDX software). Non-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors are not included in this
+number.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES hardware level</entry>
+<entry>A numeric character string containing an integer value identifying the version
+of DES hardware on the coprocessor.</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>RSA hardware level</entry>
+<entry>A numeric character string containing an integer value identifying the version
+of RSA hardware on the coprocessor.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>POST version</entry>
+<entry>A character string identifying the version of the coprocessor's Power-On Self
+Test (POST) firmware. <p>The first four characters define the POST0 version and the last four
+characters define the POST1 version.</p></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>Coprocessor operating system name</entry>
+<entry>A character string identifying the operating system firmware on the
+coprocessor.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>Coprocessor operating system version</entry>
+<entry>A character string identifying the version of the coprocessor's operating
+system firmware.</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>Coprocessor part number</entry>
+<entry>A character string containing the 8 character part number identifying the
+version of the coprocessor.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>Coprocessor EC level</entry>
+<entry>A character string containing the 8 character engineering change (EC) level
+for this version of the coprocessor.</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>Miniboot version</entry>
+<entry>A character string identifying the version of the coprocessor's miniboot
+firmware. This firmware controls the loading of programs into the coprocessor. <p>The first four
+characters define the MiniBoot0 version and the last four characters define the MiniBoot1
+version.</p></entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>CPU speed</entry>
+<entry>A numeric character string containing the operating speed of the
+microprocessor chip, in megahertz.</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>Adapter ID (see also element number 15)</entry>
+<entry>A unique identifier manufactured into the coprocessor. The coprocessor adapter
+ID is an 8-byte <b>binary</b> value.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>Flash memory size</entry>
+<entry>A numeric character string containing the size of the flash EPROM memory on
+the coprocessor, in 64 KB increments.</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>DRAM memory size</entry>
+<entry>A numeric character string containing the size of the dynamic RAM (DRAM)
+memory on the coprocessor, in kilobytes.</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>Battery-backed memory size</entry>
+<entry>A numeric character string containing the size of the battery-backed RAM on
+the coprocessor, in kilobytes.</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>Serial number</entry>
+<entry>A character string containing the unique serial number of the coprocessor. The
+serial number is factory installed.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATCCA</i>
+</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>NMK status</entry>
+<entry>The state of the new master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a partially complete key.</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>CMK status</entry>
+<entry>The state of the current master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>OMK status</entry>
+<entry>The state of the old master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application version</entry>
+<entry>A character string that identifies the version of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application program running in the
+coprocessor. <p>If the first character of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application version field is a number, such
+as <codeph>4</codeph> or greater, then this card is a CEX3C or higher. For example, a
+<codeph>4</codeph> in the first character indicates a CEX3C or CEX4C. A <codeph>5</codeph> in the
+first character indicates a CEX5C. <ph rev="sh18i2">A <codeph>6</codeph> in the first character
+indicates a CEX6C.</ph></p><p>The results of this query come directly from the card itself. If the
+host device driver is not up to date, it could incorrectly identify a wrong <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>. Therefore, looking at this field
+resolves all questions.</p></entry>
+</row>
+<row>
+<entry>5 </entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application build
+date</entry>
+<entry>A character string containing the build date for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application program running in the
+coprocessor.</entry>
+</row>
+<row>
+<entry>6 </entry>
+<entry>User role</entry>
+<entry>A character string containing the role identifier which defines the host application user's
+current authority.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATCCAE</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Symmetric NMK status</entry>
+<entry>The state of the symmetric new master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a partially complete key.</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>Symmetric CMK status</entry>
+<entry>The state of the symmetric current master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>Symmetric OMK status</entry>
+<entry>The state of the symmetric old master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application version</entry>
+<entry>A character string that identifies the version of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application program that is running in the
+coprocessor.</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application build
+date</entry>
+<entry>A character string containing the build date for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application program that is running in the
+coprocessor.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>User role</entry>
+<entry>A character string containing the role identifier which defines the host application user's
+current authority.</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>Asymmetric NMK status</entry>
+<entry>The state of the asymmetric new master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a partially complete key.</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>Asymmetric CMK status</entry>
+<entry>The state of the asymmetric current master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>Asymmetric OMK status</entry>
+<entry>The state of the asymmetric old master-key register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The register is clear.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The register contains a key.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATCRD2</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Number of installed adapters</entry>
+<entry>A numeric character string containing the number of active coprocessors installed in the
+machine. This includes only coprocessors that have <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software loaded (including those with
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> UDX software). Non-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors are not included in this
+number.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES hardware level</entry>
+<entry>A numeric character string containing an integer value identifying the version of DES
+hardware on the coprocessor.</entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>RSA hardware level</entry>
+<entry>A numeric character string containing an integer value identifying the version of RSA
+hardware on the coprocessor.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>POST version</entry>
+<entry>A character string identifying the version of the coprocessor's Power-On Self Test (POST)
+firmware. <p>The first four characters define the POST0 version and the last four characters define
+the POST1 version.</p></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>Coprocessor operating system name</entry>
+<entry>A character string identifying the operating system firmware on the coprocessor.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>Coprocessor operating system version</entry>
+<entry>A character string identifying the version of the coprocessor's operating system
+firmware.</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>Coprocessor part number</entry>
+<entry>A character string containing the 8 character part number identifying the version of the
+coprocessor.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>Coprocessor EC level</entry>
+<entry>A character string containing the 8 character engineering change (EC) level for this version
+of the coprocessor.</entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>Miniboot version</entry>
+<entry>A character string identifying the version of the coprocessor's miniboot firmware. This
+firmware controls the loading of programs into the coprocessor. <p>The first four characters define
+the MiniBoot0 version and the last four characters define the MiniBoot1 version.</p></entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>CPU speed</entry>
+<entry>A numeric character string containing the operating speed of the microprocessor chip, in
+megahertz.</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>Adapter ID (see also element number 15)</entry>
+<entry>A unique identifier manufactured into the coprocessor. The coprocessor adapter ID is an
+8-byte <b>binary</b> value.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>Flash memory size</entry>
+<entry>A numeric character string containing the size of the flash EPROM memory on the coprocessor,
+in 64 KB increments.</entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>DRAM memory size</entry>
+<entry>A numeric character string containing the size of the dynamic RAM (DRAM) memory on the
+coprocessor, in kilobytes.</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>Battery-backed memory size</entry>
+<entry>A numeric character string containing the size of the battery-backed RAM on the coprocessor,
+in kilobytes.</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>Serial number</entry>
+<entry>A character string containing the unique serial number of the coprocessor. The serial number
+is factory installed.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>POST2 version</entry>
+<entry>A character string identifying the version of the coprocessor's POST2 firmware. The first
+four characters define the POST2 version, and the last four characters are reserved and valued to
+space characters.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATDIAG</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Battery state</entry>
+<entry>A numeric character string containing a value which indicates whether the battery on the
+coprocessor needs to be replaced: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The battery is good.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The battery should be replaced.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>Intrusion latch state</entry>
+<entry>A numeric character string containing a value which indicates whether the intrusion latch on
+the coprocessor is set or cleared: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The latch is cleared.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The latch is set.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>Error log status</entry>
+<entry>A numeric character string containing a value which indicates whether there is data in the
+coprocessor <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> error log: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The error log is empty.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The error log contains abnormal termination data, but is not yet full.</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>The error log is full and cannot hold any more data.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>Mesh intrusion</entry>
+<entry>A numeric character string containing a value to indicate whether the coprocessor has
+detected tampering with the protective mesh that surrounds the secure module. This indicates a
+probable attempt to physically penetrate the module: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>No intrusion has been detected.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>An intrusion attempt has been detected.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>Low voltage detected</entry>
+<entry>A numeric character string containing a value to indicate whether a power-supply voltage was
+below the minimum acceptable level. This might indicate an attempt to attack the security module:
+<dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Only acceptable voltages have been detected.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>A voltage has been detected below the low-voltage tamper threshold.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>High voltage detected</entry>
+<entry>A numeric character string containing a value indicates whether a power-supply voltage was
+greater than the maximum acceptable level. This might indicate an attempt to attack the security
+module: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Only acceptable voltages have been detected.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>A voltage has been detected greater than the high-voltage tamper threshold.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>Temperature range exceeded</entry>
+<entry>A numeric character string containing a value to indicate whether the temperature in the
+secure module was outside of the acceptable limits. This might indicate an attempt to attack the
+security module: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>The temperature is acceptable.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>The temperature has been detected outside of an acceptable limit.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>Radiation detected</entry>
+<entry>A numeric character string containing a value to indicate whether radiation was detected
+inside the secure module. This might indicate an attempt to attack the security module: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>No radiation has been detected.</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Radiation has been detected.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>9, 11, 13, 15, 17</entry>
+<entry>Last 5 commands run</entry>
+<entry>These five <i>rule_array</i> elements contain the last five commands that were run by the
+coprocessor <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application. They are
+in chronological order, with the most recent command in element 9. Each element contains the
+security API command code in the first four characters and the subcommand code in the last four
+characters. See <xref href="wskc_alpha_security_api.dita#alpa_security_api/security_api-codes"
+/>.</entry>
+</row>
+<row>
+<entry>10, 12, 14, 16, 18</entry>
+<entry>Last 5 return codes</entry>
+<entry>These five <i>rule_array</i> elements contain the security API return codes and reason codes
+corresponding to the five commands in <i>rule_array</i> elements 9, 11, 13, 15, and 17. Each element
+contains the return code in the first four characters and the reason code in the last four
+characters.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATEID</i></entry>
+</row>
+<row>
+<entry>1, 2</entry>
+<entry>EID</entry>
+<entry>The two elements, when concatenated, provide the 16-byte Environment Identifier (EID)
+value.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3" rev="sh18i2"><i>Output rule_array for option
+STATEXPT</i>, when a function control vector (FCV) is loaded. Returns space characters in each of the 
+six rule array elements if an FCV is not loaded.</entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Base <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services
+availability</entry>
+<entry>A numeric character string containing a value to indicate whether base <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services are available: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Base <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services are not
+available.</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Base <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services are
+available.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>56-bit DES availability</entry>
+<entry>A numeric character string containing a value to indicate whether 56-bit DES encryption is
+available: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>56-bit DES encryption is not available.</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>56-bit DES encryption is available.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>Triple-DES availability</entry>
+<entry>A numeric character string containing a value to indicate whether Triple-DES encryption is
+available: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Triple-DES encryption is not available.</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Triple-DES encryption is available.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>SET services availability</entry>
+<entry>A numeric character string containing a value to indicate whether SET (secure electronic
+transaction) services are available: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>SET services are not available. </dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>SET services are available.</dd>
+</dlentry>
+</dl>
+<note>The SET services are not supported in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> environment.</note></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>Maximum modulus for symmetric key encryption</entry>
+<entry>A numeric character string containing the maximum modulus size enabled for the encryption of
+symmetric keys. This defines the longest public-key modulus that can be used for key management of
+symmetric-algorithm keys.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATICSA</i>
+<p>This keyword also has verb data returned in the <synph><var>verb_data</var></synph> field. See
+<xref href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"/>.</p></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Card serial number</entry>
+<entry>Eight ASCII characters for the adapter serial number</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES new master-key register state</entry>
+<entry>An ASCII number showing the state of the DES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>DES current master-key register state</entry>
+<entry>An ASCII number showing the state of the DES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>DES old master-key register state</entry>
+<entry>An ASCII number showing the state of the DES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>PKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>PKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>PKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>AES new master-key register state</entry>
+<entry>An ASCII number showing the state of the AES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>AES current master-key register state</entry>
+<entry>An ASCII number showing the state of the AES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>AES old master-key register state</entry>
+<entry>An ASCII number showing the state of the AES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATICSB</i>
+<p>This keyword also has verb data returned in the <synph><var>verb_data</var></synph> field. See
+<xref href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"/>.</p></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Card serial number</entry>
+<entry>Eight ASCII characters for the adapter serial number</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES new master-key register state</entry>
+<entry>An ASCII number showing the state of the DES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>DES current master-key register state</entry>
+<entry>An ASCII number showing the state of the DES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>DES old master-key register state</entry>
+<entry>An ASCII number showing the state of the DES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>PKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>PKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>PKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row rev="sh22i1">
+<entry>8</entry>
+<entry>AES new master-key register state</entry>
+<entry>An ASCII number showing the state of the AES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row  rev="sh22i1">
+<entry>9</entry>
+<entry>AES current master-key register state</entry>
+<entry>An ASCII number showing the state of the AES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row rev="sh22i1">
+<entry>10</entry>
+<entry>AES old master-key register state</entry>
+<entry>An ASCII number showing the state of the AES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>APKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the APKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>APKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the APKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>APKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the APKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATICSE</i>
+<p>This keyword also has verb data returned in the <synph><var>verb_data</var></synph> field. See
+<xref href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"/>.</p></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Card serial number</entry>
+<entry>Eight ASCII characters for the adapter serial number</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES new master-key register state</entry>
+<entry>An ASCII number showing the state of the DES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>DES current master-key register state</entry>
+<entry>An ASCII number showing the state of the DES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>DES old master-key register state</entry>
+<entry>An ASCII number showing the state of the DES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>PKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>PKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>PKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATICSF</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Card serial number</entry>
+<entry>Eight ASCII characters for the adapter serial number</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES new master-key register state</entry>
+<entry>An ASCII number showing the state of the DES new master-ky register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>DES current master-key register state</entry>
+<entry>An ASCII number showing the state of the DES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>DES old master-key register state</entry>
+<entry>An ASCII number showing the state of the DES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>PKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>PKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>PKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATICSX</i>
+<p>This keyword also has verb data returned in the <synph><var>verb_data</var></synph> field. See
+<xref href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"/>.</p></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Card serial number</entry>
+<entry>Eight ASCII characters for the adapter serial number</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>DES new master-key register state</entry>
+<entry>An ASCII number showing the state of the DES new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>DES current master-key register state</entry>
+<entry>An ASCII number showing the state of the DES current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>DES old master-key register state</entry>
+<entry>An ASCII number showing the state of the DES old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>PKA new master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA new master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Empty</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Partially full</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Full</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>PKA current master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA current master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>PKA old master-key register state</entry>
+<entry>An ASCII number showing the state of the PKA old master-key register: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  1</dt>
+<dd>Invalid</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Valid</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option STATMOFN</i>
+<p>Elements 1 and 2 are treated as a 16-byte string, as are elements 3 and 4, with the high-order 15
+bytes containing meaningful information and the 16th byte containing a space character. Each byte
+provides status information about the <synph><var>i</var></synph>th share, 1 ≤
+<synph><var>i</var></synph> ≤ 15, of master-key information.</p></entry>
+</row>
+<row>
+<entry>1, 2</entry>
+<entry>Master-key shares generation</entry>
+<entry>The 15 individual bytes are set to one of these character values: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Cannot be generated</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Can be generated</dd>
+</dlentry>
+<dlentry>
+<dt>  2</dt>
+<dd>Has been generated but not distributed</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Generated and distributed once</dd>
+</dlentry>
+<dlentry>
+<dt>  4</dt>
+<dd>Generated and distributed more than once</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3, 4</entry>
+<entry>Master-key shares reception</entry>
+<entry>The 15 individual bytes are set to one of these character values: <dl
+compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Cannot be received</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Can be received</dd>
+</dlentry>
+<dlentry>
+<dt>  3</dt>
+<dd>Has been received</dd>
+</dlentry>
+<dlentry>
+<dt>  4</dt>
+<dd>Has been received more than once</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>5</entry>
+<entry><synph><var>m</var></synph></entry>
+<entry>The minimum number of shares required to instantiate a master key through the
+master-key-shares process. The value is returned in two characters, valued from 01 – 15, followed by
+six space characters.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry><synph><var>n</var></synph></entry>
+<entry>The maximum number of distinct shares involved in the master-key shares
+process. The value is returned in two characters, valued from 01 - 15, followed by six space
+characters.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option TIMEDATE</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Date</entry>
+<entry>The current date is returned as a character string of the form YYYYMMDD, where: <dl
+compact="yes">
+<dlentry>
+<dt>YYYY</dt>
+<dd>Represents the year.</dd>
+</dlentry>
+<dlentry>
+<dt>MM</dt>
+<dd>Represents the month (01 - 12).</dd>
+</dlentry>
+<dlentry>
+<dt>DD</dt>
+<dd>Represents the day of the month (01 - 31).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>Time</entry>
+<entry>The current UTC time of day is returned as a character string of the form HHMMSS, where: <dl
+compact="yes">
+<dlentry>
+<dt>HH</dt>
+<dd>Represents the hour (0 - 23).</dd>
+</dlentry>
+<dlentry>
+<dt>MM</dt>
+<dd>Represents the minute (0 - 59).</dd>
+</dlentry>
+<dlentry>
+<dt>SS</dt>
+<dd>Represents second (0 - 59).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>3</entry>
+<entry>Day of the week</entry>
+<entry>The day of the week is returned as a number between 1 (Sunday) and 7 (Saturday).</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option TKESTATE</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>TKE access enabled</entry>
+<entry>Indicates whether a TKE can be used to administer this <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>. Values are: <dl compact="yes">
+<dlentry>
+<dt>TKEPERM</dt>
+<dd>Allowed</dd>
+</dlentry>
+<dlentry>
+<dt>TKEDENY</dt>
+<dd>Not allowed</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><i>Output rule_array for option WRAPMTHD</i></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>Internal tokens</entry>
+<entry>Default wrapping method for internal tokens. <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Keys are be wrapped with the original method.</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Keys are be wrapped with the enhanced X9.24 method.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>External tokens</entry>
+<entry>Default wrapping method for external tokens. <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>  0</dt>
+<dd>Keys are wrapped with the original method.</dd>
+</dlentry>
+<dlentry>
+<dt>  1</dt>
+<dd>Keys are wrapped with the enhanced X9.24 method.</dd>
+</dlentry>
+</dl></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>verb_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>verb_data_length</var></synph> parameter is a pointer to an integer variable
+containing the number of bytes of data in the <i>verb-data</i> variable.</pd></plentry>
+<plentry><pt>verb_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable containing output data that is returned for some of the
+keywords specified in the <parmname>rule_array</parmname> variable. This output is described in a
+separate section for each keyword in <xref href="wskc_r_cfq_vdras390.dita#l0wskc02_cfq_vdras390"
+/>.</p>
+</pd></plentry>
+</parml></section>
+</refbody></reference>

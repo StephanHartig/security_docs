@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002--><!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference id="l0wskc02_ch1dual" xml:lang="en-us">
+<title><ph rev="sh20i2">CEX7C</ph> information</title>
+<titlealts>
+<navtitle>CEX7C information</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): CEX7C information</searchtitle>
+</titlealts>
+<shortdesc> Since the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> catcher
+daemon listens on one particular numbered port, it is impossible to allow a legacy catcher daemon to
+co-exist with a newer catcher daemon. This must be the new <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> catcher to support the newest <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoprocs"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>CEX7S information</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p> There are the following impacts: </p>
+<ul>
+<li>The newest <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> catcher must
+support all in-service CPRB types: <ul>
+<li>T5 (CCA 4.*)</li>
+<li rev="sh20i2">T6 (CCA 5.*, CCA 6.*, and CCA 7.*)</li>
+</ul></li>
+<li>libcsulcca.so supports access to both types of  CPRBs. </li>
+</ul>
+</section>
+<section>
+<title><ph rev="sh20i2">CEX4C - CEX7C information</ph></title>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> catcher daemon listens on
+a single port for management communication. This port number has not changed for the <ph
+rev="sh20i2">CEX4C</ph> or later release. Therefore, the new daemon supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> management communication to the <ph
+rev="sh20i2">CEX4C - CEX7S-CCA </ph> or later adapters. Special steps are taken in the
+install/uninstall and daemon management for the <ph rev="sh20i2">CEX4C</ph> or later release to
+ensure that the new daemon is running when it is available.</p>
+<?Pub Caret 342?>
+</section>
+<section id="tke_versions">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> versions for
+CEX*Cs</title>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V7.2: CEX4Cs are reported by
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> 7.2 as CEX3Cs. CEX4Cs are only
+supported by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> 7.2 or later if the
+<tm trademark="Linux" tmtype="tm">Linux</tm> driver reports them as CEX4s.</li>
+<li>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V8.0 or higher workstation
+is required to see CEX5Cs. CEX4Cs, and CEX3Cs.</li>
+<li>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V9.0 or higher workstation
+is required to see CEX6Cs and to exploit <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. </li>
+<li rev="sh20i2">A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V9.2
+workstation is required to manage CEX7C coprocessors.</li>
+</ul>
+<p>For more information about the TKE workstation, see <xref
+conref="wskc_conref-l0wskc04.dita#links/icsf_tke_ug"/>.</p>
+</section>
+</refbody>
+</reference><?Pub *0000001682?><?tm 1465396414995 3 z/OS||Linux ?>

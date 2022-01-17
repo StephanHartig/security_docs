@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_keysrule_zos">
+<title>Key Storage on <tm trademark="z/OS" tmtype="reg">z/OS</tm> (RTNMK-focused)</title>
+<titlealts>
+<navtitle>Key Storage on z/OS (RTNMK-focused)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key Storage on z/OS
+(RTNMK-focused)</searchtitle>
+</titlealts><shortdesc><synph><var>Design point</var></synph> - Keys should be re-enciphered to a master
+key in the NMK register. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RTNMK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This forces the following process to be followed when changing
+the master key:
+<ul>
+<li>Load all the master key parts for a NMK, such that the LAST key
+part has been loaded, but the SET command has not been issued. Now
+the NMK register is in the FULL state.</li>
+<li>Re-encipher all of (for example: CKDS) an existing key storage
+to a copy of that key storage that is not online, using the RTNMK <synph><var>rule_array</var></synph> keyword
+of <xref href="wskc_r_bktc.dita#l0wskc02_bktc"/> (for AES or DES) or <xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"/> (for PKA), creating CKDS-pending. Keys in this
+copy are enciphered under the NMK register, and so are not usable
+for normal cryptographic operations.</li>
+<li>Invoke the SET command for the NMK. See <xref href="wskc_c_keysrule_set.dita#l0wskc02_keysrule_set"/>. Now the master keys in the current
+CKDS are enciphered under the OMK (because of the shift), and are
+usable. Also, the master keys in the CKDS-pending are also usable
+because the NMK has now become the CMK.</li>
+<li>Delete the old CKDS and change CKDS-pending to be the normal CKDS,
+completing the process.</li>
+</ul></p>
+</conbody></concept>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pcu">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb is used to
+generate a special PIN block to change the PIN accepted by an integrated circuit card (smart card). </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section  rev="sh21i1">
+<p>The special PIN block is based on the new PIN and the card-specific diversified key and,
+optionally, on the current PIN of the smart card. The new PIN block is encrypted with a session key.
+The session key is derived in a two-step process. First, the card-specific diversified key (ICC
+Master Key) is derived according to the algorithm of the key: </p>
+<ul>
+<li>For TDES keys: Using the TDES-ENC algorithm of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> service.</li>
+<li>For AES keys: Using the MK-OPTC algorithm of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> service.</li>
+</ul>
+<p> </p>
+<p>The session key is then generated according to the rule array algorithm: </p>
+<ul>
+<li>TDES-XOR - XOR ICC Master Key with the Application Transaction Counter (ATC).</li>
+<li>TDESEMV2 - Use the EMV2000 algorithm with a branch factor of 2. </li>
+<li>TDESEMV4 - Use the EMV2000 algorithm with a branch factor of 4.</li>
+<li>AES-EMV1 - Use the EMV Book 2 Common Session key derivation option, which is also available as
+the SESS-ENC algorithm of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/>
+service.</li>
+</ul>
+<p>The TDES generating DKYGENKY cannot have replicated halves. The
+<parmname>encryption_master_key</parmname> is a DKYGENKY that permits generation of a SMPIN key. The
+<parmname>authentication_master_key</parmname> is also a DKYGENKY that permits generation of a
+double length MAC key. </p>
+<p>The AES generating key must have the type DKYGENKY. The
+<parmname>encryption_master_key</parmname> must permit generation of a PINPROT key (D-PPROT or
+D-ALL). For an AES D-PPROT key, the key usage fields must indicate that the derived key can be used
+for encryption (ENCRYPT) or decryption (DECRYPT), the encryption mode must be Cipher Block Chaining
+(CBC), common usage control must be NOFLDFMT, PIN block format usage must be ISO-4, and PIN services
+control must include PINXLATE or REFORMAT. For the EMV-PCU1 service, the
+<parmname>authentication_master_key</parmname> is not used. </p>
+<p>The following output PIN block formats are specified by the mutually exclusive rule array
+keywords: <keyword>AMEXPCU1</keyword> and <keyword>AMEXPCU2</keyword>, or
+<keyword>VISAPCU1</keyword> and <keyword>VISAPCU2</keyword>. They refer to whether the current PIN
+is used in the generation of the new PIN. Starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.2, the <keyword>ISO-4</keyword> PIN block
+format is allowed for the <parmname>new_reference_PIN_block</parmname>, the
+<parmname>current_reference_PIN_block</parmname>, or both.</p>
+<ul>
+<li><keyword>AMEXPCU1</keyword> would create the output PIN from the new-reference PIN, the smart
+card-unique, intermediate key, and the current-reference PIN.</li>
+<li><keyword>AMEXPCU2</keyword> would create the output PIN from the new-reference PIN and the
+smart-card-unique, intermediate key.</li>
+<li><keyword>VISAPCU1</keyword> would create a new PIN for a card without a PIN in an encrypted
+PIN-block in the <parmname>new_reference_PIN_block</parmname> variable. The contents of the five
+<parmname>current_reference_PIN_*</parmname> variables are ignored.</li>
+<li><keyword>VISAPCU2</keyword> would provide the existing PIN for a card with a current PIN in an
+encrypted PIN-block in the <parmname>current_reference_PIN_block</parmname> variable and supply the
+new PIN value in an encrypted PIN block in the <parmname>new_reference_PIN_block</parmname>
+variable.</li>
+</ul>
+<p>The <keyword>EMV-PCU1</keyword> output PIN block format specified in EMV v4.3 Book 2 Format 1 and
+detailed in the EMV Common Payment Application (2011) specification as updated by SB165. The
+new-reference PIN is passed in to the service as an encrypted PIN block. The contents of the five
+<parmname>current_reference_PIN_*</parmname> variables are ignored. Both TDES-CBC and AES encryption
+of the output PIN block are supported. </p>
+<p>An enhanced PIN security mode is available for extracting PINs from encrypted PIN blocks. This
+mode only applies when specifying a PIN-extraction method for an IBM 3621 or an IBM 3624 PIN-block.
+To do this, you must enable the <cmdname>Enhanced PIN Security</cmdname> access control point in the
+domain role. When activated, this mode limits checking of the PIN to decimal digits and a PIN length
+minimum of 4 is enforced. No other PIN-block consistency checking occurs.</p>
+</section>
+<!--<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb prepares an encrypted message-portion for communicating an original or replacement PIN for an EMV smart card. The verb embeds the PINs in an encrypted PIN-block from information that you supply. You incorporate the information created with the verb in a message sent to the smart card.</p><p>The processing is consistent with the specifications provided in these documents:</p><ul><li><cite>EMV 2000 Integrated Circuit Card Specifications for Payment Systems Version 4.0 (EMV4.0)</cite></li><li><cite>Visa Integrated Circuit Card Specification Manual, Version 1.4.0</cite></li><li><cite>Integrated Circuit Card Specification (VIS) 1.4.0 Corrections</cite></li></ul><p>You specify the following information:</p><ul><li>Through the optional choice of one rule-array keyword, the key-diversification process to employ in deriving the session key used to encrypt the PIN block. See <xref href="wskc_c_wemcvsc.dita#l0wskc02_wemcvsc"/> for processing details.<dl><dlentry><dt>TDES-XOR</dt><dd>An exclusive-OR process described in <xref href="#l0wskc02_pcu/der_cca_tdes" format="dita"/>. It is the default.</dd></dlentry><dlentry><dt>TDESEMV2</dt><dd>The tree-based-diversification process with a branch factor of 2.</dd></dlentry><dlentry><dt>TDESEMV4</dt><dd>The tree-based-diversification process with a branch factor of 4.</dd></dlentry></dl></li><li>Through the required choice of one rule-array keyword, if you are providing a PIN for a smart card: <dl><dlentry><dt>AMEXPCU1</dt><dd>For a card with a current PIN, provide the existing PIN in an encrypted PIN-block in the <parmname>current_reference_PIN_block</parmname> variable, and supply the new PIN-value in an encrypted PIN-block in the <parmname>new_reference_PIN_block</parmname> variable.</dd></dlentry><dlentry><dt>AMEXPCU2</dt><dd>For a card without a PIN, provide the new PIN in an encrypted PIN-block in the <parmname>new_reference_PIN_block</parmname> variable. The contents of the five current_reference_PIN_x variables are ignored.</dd></dlentry><dlentry><dt>VISAPCU1</dt><dd>For a card without a PIN, provide the new PIN in an encrypted PIN-block in the new_reference_PIN_block variable. The contents of the five <parmname>current_reference_PIN_x</parmname> variables are ignored. </dd></dlentry><dlentry><dt>VISAPCU2</dt><dd>For a card with a current PIN, provide the existing PIN in an encrypted PIN-block in the <parmname>current_reference_PIN_block</parmname> variable, and supply the new PIN-value in an encrypted PIN-block in the <parmname>new_reference_PIN_block</parmname> variable.</dd></dlentry></dl></li><li>Issuer-provided master-derivation keys (MDK). The card-issuer provides two keys for diversifying the same data:<ul><li>The MAC-MDK key that you incorporate in the variable specified by the authentication_key_identifier parameter. The verb uses this key to derive an authentication value incorporated in the PIN block. The control vector for the MAC-MDK key must specify a DKYGENKY key type with DKYL0 (level-0), and DMAC or DALL permissions.</li><li>The ENC-MDK key that you incorporate in the variable specified by the encryption_key_identifier parameter. The verb uses this key to derive the PIN-block encryption key. The control vector for the ENC-MDK key must specify a DKYGENKY key type with DKYL0 (level-0), and DMPIN or DALL permissions.</li></ul></li><li>Specify the <parmname>diversification_data_length</parmname> parameter to indicate the sum of the lengths of:<ul><li>Data, 8 or 16 bytes, encrypted by the verb using the MDK keys to generate the ENC-UDK and Unique DES Key.</li><li>The 2-byte application transaction counter (ATC). You receive the ATC value from the EMV smart card.</li><li>The optional 16-byte initial value used in the TDESEMVn processes.</li></ul><p>Valid lengths are 10, 18, 26, and 34 bytes.</p></li><li>The <parmname>diversification_data</parmname> variable. Concatenate the 8-byte or 16-byte data, the ATC, and optionally the Initial Value. <p>The 16-bit ATC counter is processed as a two-byte string, not as an integer value. </p></li><li>The new-reference PIN in an encrypted PIN block. You provide:<ul><li>the key to decrypt the PIN block</li><li>the PIN block</li><li>the format information that defines how to parse the PIN block</li><li>when using an ISO-0 or ISO-3 PIN-block format, primary account number (PAN) information to enable PIN recovery from the ISO-0 or ISO-3 PIN-block format.</li></ul></li><li>If you specified VISAPCU2 (because the target smart card already has a PIN), the current_reference_PIN in an encrypted PIN block with the associated decrypting key, PIN-block format, and PAN data. In any case, you must declare the five <parmname>current_reference_PIN_x</parmname> variables.</li><li>The <parmname>output_PIN_message</parmname> variable to receive the encrypted PIN block for the smart card, and the length in bytes of the PIN block (16). The PIN-block format you specify (VISAPCU1 or VISAPCU2) corresponds to the one or two PIN values to be communicated to the smart card.</li><li>Two variables which are reserved for future use: <parmname>output_PIN_data_length</parmname> (valued to zero), and an <parmname>output_PIN_data</parmname> string variable (or set the associated parameter to a null pointer). </li></ul><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb:</p><ul><li>Decrypts the MDK keys and verifies the required control vector permissions.</li><li>Diversifies the left-most eight bytes of data using the MAC-MDK key to obtain the authentication value for placement into the PIN block.</li><li>Recovers the supplied PIN values provided that PIN-block encrypting keys are one of IPINENC or OPINENC type, and the use of the specific type is authorized with the appropriate access-control command.</li><li>Constructs and pads the output PIN block to a 16-byte string. </li><li>Generates the session key used to encrypt the output-PIN block using the ENC-MDK, the key_generation_data, the ATC counter value, and the optional Initial Value.</li><li>Triple encrypts the 16-byte padded PIN-block in ECB mode.</li><li>Returns the encrypted, padded PIN-block in the <parmname>output_PIN_message</parmname> variable. </li></ul></section>-->
+<!--<section><p>The generating <synph><kwd>DKYGENKY</kwd></synph> cannot have replicated halves. <ph>The <synph><var>encryption_master_key</var></synph> is a <synph><kwd>DKYGENKY</kwd></synph> that permits generation of a SMPIN key. The <synph><var>authentication_master_key</var></synph> is also a DKYGENKY that permits generation of a double length MAC key. </ph></p></section>-->
+<section id="der_cca_tdes" rev="sh21i1">
+<title>Deriving the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> TDES-XOR
+session key</title>
+<p>In the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verbs, the TDES-XOR process first
+derives a smart-card-specific intermediate key from the issuer-supplied ENC-MDK key and
+card-specific data. This intermediate key is also used in the TDESEMV2 and TDESEMV4 processes. The
+intermediate key is then modified using the application transaction counter (ATC) value supplied by
+the smart card. </p>
+<p>The double-length session-key creation steps are as follows:</p>
+<ol>
+<li>Obtain the left-half of an intermediate key by ECB-mode Triple-DES encrypting the (first) eight
+bytes of card specific data using the issuer-supplied ENC-MDK key. </li>
+<li>Again using the ENC-MDK key, obtain the right-half of the intermediate key by ECB-mode
+Triple-DES encrypting with one of these methods: <ul>
+<li>The second 8 bytes of card-specific derivation data when 16 bytes have been supplied.</li>
+<li>The exclusive-OR of the supplied 8 bytes of derivation data with X'FFFFFFFF FFFFFFFF'. </li>
+</ul></li>
+<li>Pad the ATC value to the left with six bytes of X'00' and exclusive-OR the result with the
+left-half of the intermediate key to obtain the left-half of the session key.</li>
+<li>Obtain the one's complement of the ATC by exclusive-ORing the ATC with X'FFFF'. Pad the result
+on the left with six bytes of X'00'. Exclusive-OR the 8-byte result with the right-half of the
+intermediate key to obtain the right-half of the session key.</li>
+</ol>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>

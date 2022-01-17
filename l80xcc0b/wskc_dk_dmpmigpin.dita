@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdpmmigpin" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> verb to
+    generate the PIN reference value (PRW) for a specified user account. The PIN reference value is
+    used to verify the PIN in other services.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>An ISO-1 formatted PIN block is input to determine the value of the PIN for the account.
+        The PIN is reformatted into a DK-defined PIN block and the PIN reference value is calculated
+        using a PRW random value and other account information. The PIN reference value and
+        associated PRW random value are returned to be used as input by other PIN processes to
+        verify the PIN.</p>
+      <p>If validation of the PIN is desired to personalize smart cards, specify the EPB
+          <parmname>rule-array</parmname> keyword. This keyword causes an output encrypted PIN block
+        to be returned along with a PIN block MAC. The MAC is calculated over the output PIN block
+        and additional card data using the block cipher-based MAC algorithm called CMAC (NIST SP
+        800-38B).</p>
+<p>Notes:</p>
+<ol>
+<li>This service does not test for weak PINs.</li>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+</ol>
+    </section>
+  </refbody>
+</reference>

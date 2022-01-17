@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<reference id="ccatok_init" xml:lang="en-us">
+<title>Initializing the token</title><?Pub Caret -2?>
+<titlealts>
+<navtitle>Initializing the token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Initializing the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>After the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> library
+and the global configuration file are set up and the <cmdname>pkcsslotd</cmdname> daemon
+is started, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword> must
+be initialized. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>pkcsconf</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword><indexterm>SO
+PIN</indexterm><indexterm>standard PIN</indexterm></indexterm>
+<indexterm>security officer (SO)<indexterm>login PIN</indexterm></indexterm>
+<indexterm>SO<indexterm>login PIN</indexterm></indexterm><indexterm>standard user (User)<indexterm>login PIN</indexterm></indexterm><indexterm>User<indexterm>login PIN</indexterm></indexterm><indexterm>PIN</indexterm><indexterm>login PIN</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>                         <p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/>
+defines two users for each token: a security officer (SO) whose responsibility is the administration
+of the token, and a standard user (User) who wants to use the token to perform cryptographic
+operations. <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> requires that for
+both the SO and the User a login PIN is defined as part of the token initialization.</p><p>The following command provides
+some useful slot information:<screen># pkcsconf -s
+Slot #1 Info
+        Description: OCK ICA Token
+        Manufacturer: IBM
+        Flags: 0x1 (TOKEN_PRESENT)
+        Hardware Version: 0.0
+        Firmware Version: 0.0
+Slot #2 Info
+        Description: OCK CCA Token
+        Manufacturer: IBM
+        Flags: 0x1 (TOKEN_PRESENT)
+        Hardware Version: 0.0
+        Firmware Version: 0.0
+Slot #3 Info
+        Description: Software Token
+        Manufacturer: IBM
+        Flags: 0x1 (TOKEN_PRESENT)
+        Hardware Version: 0.0
+        Firmware Version: 0.0</screen></p><p>Find your preferred token
+in the details list and select the correct slot number. This number
+is used in the next initialization steps to identify your        
+                        token:<screen>
+$ pkcsconf -I -c &lt;slot> // Initialize the Token and setup a Token Label
+
+$ pkcsconf -P -c &lt;slot> // change the SO PIN (recommended)
+
+$ pkcsconf -u -c &lt;slot> // Initialize the User PIN (SO PIN required)
+
+$ pkcsconf -p -c &lt;slot> // change the User PIN (optional)</screen></p> 
+                       <dl><dlentry>
+<dt><codeph>pkcsconf -I</codeph></dt>
+<dd>During token initialization, you are asked for a token label.
+Provide a meaningful name that helps you later to identify the token.</dd>
+</dlentry><dlentry>
+<dt><codeph>pkcsconf -P</codeph></dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> security practices require that you
+change the default SO PIN (<codeph>87654321</codeph>) to a different value. Use the <codeph>pkcsconf
+-P</codeph> option to change the SO PIN.</dd>
+</dlentry><dlentry>
+<dt><codeph>pkcsconf -u</codeph></dt>
+<dd>When you enter the user PIN initialization, you are asked for the newly set SO PIN. The length
+of the user PIN must be 4 - 8 characters.</dd>
+</dlentry><dlentry>
+<dt><codeph>pkcsconf -p</codeph></dt>
+<dd><ph><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> security practices
+require that you change the user PIN at least once with <codeph>pkcsconf -p</codeph> option.</ph>
+The length of the user PIN must be 4 - 8 characters. After you completed the PIN setup, the token is
+prepared and ready for use.<note>Specify a user PIN that is different from
+<userinput>12345678</userinput> because this pattern is checked internally and marked as default
+PIN. A login attempt with this user PIN is recognized as <term>not initialized</term>. </note></dd>
+</dlentry></dl></section>
+</refbody>
+</reference>
+<?Pub *0000004998?>

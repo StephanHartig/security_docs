@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp3keylab">
+<title>Key label</title>
+<titlealts>
+<navtitle>Key label</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key label</searchtitle>
+</titlealts><shortdesc>If the first byte of the key identifier is greater than X'20' but less than X'FF', the
+field is considered to be holding a <b>key label</b>. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>key label</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The contents of a key label are interpreted as the <ph>identifier
+of a key entry in the PKA storage file</ph>. The key label is an indirect
+reference to an internal key token.</p>
+<p>If the first byte of the key identifier is X'FF', the identifier is not valid. If the first byte
+is less than X'20', the identifier is treated as a key token as described below.</p>
+<p>A key label is specified on verbs with the <parmname>key_identifier</parmname> parameter as a
+64-byte character string, left-aligned, and padded on the right with blanks. In most cases, the verb
+does not check the syntax of the key label other than the first byte.</p>
+<p>A key label has the following form:</p>
+<table pgwide="0" frame="none">
+<tgroup cols="3" colsep="0" rowsep="0">
+<colspec colname="col1" colwidth="63*"/>
+<colspec colname="col2" colwidth="74*"/>
+<colspec colname="col3" colwidth="115*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Data</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>00 - 63</entry>
+<entry>64</entry>
+<entry>Key label name</entry></row>
+</tbody>
+</tgroup>
+</table>
+</conbody></concept>

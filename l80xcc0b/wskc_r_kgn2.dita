@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></searchtitle>
+</titlealts>
+<shortdesc rev="sh16">Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>
+verb to randomly generate a keyed hash message authentication code (HMAC) key or an AES key.
+Depending on the key form specified, the verb returns either one or two enciphered copies of the
+key, each in a variable-length symmetric key-token. Key tokens can be returned to either application
+storage or AES key storage. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)</indexterm></indexterm>
+<indexterm>HMAC key</indexterm>
+<indexterm>AES master key</indexterm>
+<indexterm>AES key-encrypting key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>To generate keys that are returned in a fixed-length symmetric key-token, see <xref
+href="wskc_r_kgn.dita#l0wskc02_kgn"/>.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> verb selectively
+returns one or two copies of an AES or an HMAC key enciphered under the AES master key or an AES
+key-encrypting key. Keys enciphered under the master key are immediately usable at the local
+node.</p>
+<p>The verb can create default key tokens, update the key in existing key tokens, or complete
+skeleton key tokens. You can use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb to build a skeleton key token
+(see <xref href="wskc_r_ktb2.dita#l0wskc02_ktb2"/>.</p>
+<note>Variable-length symmetric key tokens have an associated data section that contains clear data.
+This section is hashed and the hash value is cryptographically bound to its enciphered payload. See
+<xref href="wskc_varlensym_ktokens.dita#l0wskc02_varlensym"/>.</note>
+<p>To use this verb, specify the following:</p>
+<ul>
+<li>Two required rule array keywords:<ul>
+<li>a required token algorithm keyword that selects the type of algorithm that the key can be used
+for (either AES or HMAC)</li>
+<li>a required key form keyword that selects the number of keys to return, either one or two, and
+the token type for each key, either internal or external.</li>
+</ul></li>
+<li>The number of bits of clear-key data to randomly generate and return encrypted in the generated
+key or keys<ul>
+<li>AES keys can be 128, 192, or 256 bits</li>
+<li>HMAC keys can be 80 - 2048 bits</li>
+</ul><p>Any generated key will have the specified key length.</p></li>
+<li>The key types of each AES or HMAC key to be returned. A key type of TOKEN indicates that the
+generated key token provided as input is to be updated.<note>
+<ol>
+<li>When generating only one copy of the key, use eight space characters for the second key-type
+variable.</li>
+<li>To update an existing key token with a copy of the randomly generated key, specify keyword TOKEN
+as the key type and identify the key token to be updated using the
+<parmname>generated_key_identifier</parmname><varname>_n</varname> parameter.</li>
+<li>If the key type is not TOKEN, the
+<parmname>generated_key_identifier</parmname><varname>_n</varname> parameter must have a length of
+zero or point to a null key-token. This results in a key token with default key-usage and
+key-management fields.</li>
+</ol>
+</note></li>
+<li>The optional key name (label), 64 bytes, of one or both keys that is to be placed in the
+associated data of the key token; if provided, this data overrides any label in the input generated
+key token.</li>
+<li>The optional user-defined associated data, up to 255 bytes, of one or both keys that is to be
+placed in the associated data of the key token; if provided, this data overrides any user-defined
+associated data in the input generated key token. <note>A
+<parmname>user_associated_data</parmname><varname>_n</varname> variable that contains data overrides
+any user-defined associated data contained in a key token to be updated.</note></li>
+<li>A key-encrypting key (KEK) identifier of key type EXPORTER or IMPORTER, contained in an internal
+variable-length symmetric key-token, for wrapping each external key to be returned.</li>
+<li>The key identifier for each key to be generated.</li>
+</ul>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>

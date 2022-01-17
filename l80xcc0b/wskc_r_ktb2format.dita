@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktb2format">
+<title>Format</title>
+  <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></searchtitle>
+  </titlealts><shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="396*"/>
+<tbody>
+<row>
+<entry valign="top" align="left">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>clear_key_bit_length</var></synph>,
+             <synph><var>clear_key_value</var></synph>,
+             <synph><var>key_name_length</var></synph>,
+             <synph><var>key_name</var></synph>,
+             <synph><var>user_associated_data_length</var></synph>,
+             <synph><var>user_associated_data</var></synph>,
+             <synph><var>token_data_length</var></synph>,
+             <synph><var>token_data</var></synph>,
+             <synph><var rev="sh15">verb_data_length</var></synph>,
+             <synph><var rev="sh15">verb_data</var></synph>, 
+             <synph><var>target_key_token_length</var></synph>,
+             <synph><var>target_key_token</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

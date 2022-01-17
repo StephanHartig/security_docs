@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="mvr2required" rev="sh15">
+  <title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/>)<indexterm>required
+            commands</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/> verb requires
+the commands listed in <xref href="#mvr2required/mvr2required_table" format="dita"/> to be enabled
+in the active role.</p>
+      <table frame="all" id="mvr2required_table">
+        <title>Required commands for <keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></title>
+        <desc>
+          <p outputclass="summary">Table Required commands for <keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/> with three columns Hash
+            method, Offset, and Access control point.</p>
+        </desc>
+        <tgroup cols="3">
+          <colspec colname="col1" colwidth="2*"/>
+          <colspec colname="col2" colwidth="1*"/>
+          <colspec colname="col3" colwidth="2*"/>
+          <thead>
+            <row>
+              <entry>Hash method/Rule-array keword</entry>
+              <entry>Offset</entry>
+              <entry>Command</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>AES</entry>
+              <entry>X'0337'</entry>
+              <entry><cmdname>MAC Verify2 - AES CMAC</cmdname></entry>
+            </row>
+            <row>
+              <entry>SHA-1</entry>
+              <entry>X'00F7' <sup>1)</sup></entry>
+              <entry><cmdname>HMAC Verify - SHA-1</cmdname></entry>
+            </row>
+            <row>
+              <entry>SHA-224</entry>
+              <entry>X'00F8'<sup>1)</sup></entry>
+              <entry><cmdname>HMAC Verify - SHA-224</cmdname></entry>
+            </row>
+            <row>
+              <entry>SHA-256</entry>
+              <entry>X'00F9'<sup>1)</sup></entry>
+              <entry><cmdname>HMAC Verify - SHA-256</cmdname></entry>
+            </row>
+            <row>
+              <entry>SHA-384</entry>
+              <entry>X'00FA'<sup>1)</sup></entry>
+              <entry><cmdname>HMAC Verify - SHA-384</cmdname></entry>
+            </row>
+            <row>
+              <entry>SHA-512</entry>
+              <entry>X'00FB'<sup>1)</sup></entry>
+              <entry><cmdname>HMAC Verify - SHA-512</cmdname></entry>
+            </row>
+            <row>
+              <entry namest="col1" nameend="col3"><sup>1)</sup> A role with this offset enabled can
+                also use the<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/>
+                verb.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    <p rev="sh21i1">When a clear HMAC key token is specified, these access controls are not used.</p>
+    </section>
+  </refbody>
+</reference>

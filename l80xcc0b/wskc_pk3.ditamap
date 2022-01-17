@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Using digital signatures</title>
+<topicref href="wskc_r_pk3.dita">
+<topicref href="wskc_r_dsg.dita">
+<topicmeta>
+<retrievalKeys><retkey>Digital Signature Generate (CSNDDSG)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dsgformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsgparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsgrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsgrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsgusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc211.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_dsv.dita">
+<topicmeta>
+<retrievalKeys><retkey>Digital Signature Verify (CSNDDSV)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dsvformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsvparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsvrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc105.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsvusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_dsvrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc106.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

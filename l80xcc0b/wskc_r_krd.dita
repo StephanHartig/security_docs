@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_krd">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> <ph>verb</ph> to <ph>perform one of the following
+tasks in the DES key storage file.</ph></shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrd"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUDESDS</indexterm></indexterm>
+<indexterm>CSUDESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<ul>
+<li>Replace the token in a key record with a null key token</li>
+<li>Delete an entire key record, including the key label, from the
+key storage file</li>
+</ul></p></section>
+<section><p>DES key records are stored in the external key-storage file defined
+by the CSUDESDS environment variable.</p></section>
+</refbody></reference>

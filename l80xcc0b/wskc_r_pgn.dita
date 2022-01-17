@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pgn">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> <ph>verb</ph> to generate a clear PIN, a PIN
+validation value (PVV), or an offset according to an algorithm. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>generating</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>algorithms</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>PIN validation value (PVV)</indexterm>
+<indexterm>IBM 3624</indexterm>
+<indexterm>VISA PVV</indexterm>
+<indexterm>Interbank PIN</indexterm>
+<indexterm>INBK PIN</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>You supply the algorithm or process rule using the <synph><var>rule_array</var></synph> parameter.
+<ul>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 (IBM-PIN or IBM-PINO) </li>
+<li>VISA PIN validation value (VISA-PVV)</li>
+<li>Interbank PIN (INBK-PIN) </li>
+</ul></p></section>
+<section><p>For guidance information about VISA, see their appropriate publications.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="cca_pdf" xml:lang="en-us">
+<title>PDF file</title>
+<titlealts>
+<navtitle>PDF file</navtitle><?Pub Caret -1?>
+</titlealts><abstract><shortdesc>You can view and print a PDF of this
+information.</shortdesc><p><xref href="../pdf/l73xcc0a.pdf" format="pdf"
+scope="external">--> PDF file</xref></p></abstract>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/><indexterm>PDF for
+printing</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>You need <tm tmtype="tm" trademark="Adobe">Adobe</tm> Reader installed on your system to view or
+print the PDF. You can download a free copy from the <tm tmtype="tm" trademark="Adobe">Adobe</tm>
+Web site at <codeblock><xref conref="lxcommon.dita#links/getadobe"/></codeblock></p>
+</conbody>
+</concept>
+<?Pub *0000001697?>

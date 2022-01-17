@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc97">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for CSNDEDH.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul>
+<li>
+<p>The NIST security strength requirements are enforced, with respect to ECC curve type (input) and
+derived key-length. See <xref href="wskc_r_vbecdhvb_req_cmd.dita#vbecdhvb_req_cmd"/> about how you
+can override this enforcement.</p>
+<p><xref href="#l0wskc97/keybit" format="dita"/> lists the valid key bit lengths and the minimum
+curve size required for each of the supported output key types: </p>
+<table pgwide="0" id="keybit">
+<title>Valid key bit lengths and minimum curve size</title>
+<desc>
+<p outputclass="summary">Valid key bit lengths and the minimum curve size required for each of the
+supported output key types of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb. Note that this is a complex
+table: Column one has more than one row.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Output key ID type</entry>
+<entry colname="col2">Valid key bit lengths</entry>
+<entry colname="col3">Minimum curve required</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="2">DES</entry>
+<entry colname="col2">64</entry>
+<entry colname="col3">P160</entry>
+</row>
+<row>
+<entry colname="col2">128</entry>
+<entry colname="col3">P160</entry>
+</row>
+<row>
+<entry colname="col2">192</entry>
+<entry colname="col3">P224</entry>
+</row>
+<row>
+<entry colname="col1" morerows="2">AES</entry>
+<entry colname="col2">128</entry>
+<entry colname="col3">P256</entry>
+</row>
+<row>
+<entry colname="col2">192</entry>
+<entry colname="col3">P384</entry>
+</row>
+<row>
+<entry colname="col2">256</entry>
+<entry colname="col3">P512</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</li>
+<li>A clear private key is only allowed when rule-array keyword DERIV01 is specified.</li>
+<li rev="sh20i1"><b>TRIPLE</b>, <b>TRIPLE-O</b>, <b>ZEROCV24</b>, and <b>WRAPENH2</b> rule array
+keywords are not supported in releases before Release 5.4 and Release 6.2.</li>
+<li rev="sh20i1">Support for three-key Triple-DES keys is not available in releases before Release
+5.4 and Release 6.2. Beginning with Release 5.4 and Release 6.2, this verb supports triple-length
+TDES keys. For a list of supported three-key Triple-DES key types see <xref
+href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</li>
+</ul></section>
+</refbody></reference>

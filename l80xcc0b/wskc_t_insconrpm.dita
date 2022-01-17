@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_insconrpm" xml:lang="en-us">
+<title>Install and configure the <ph rev="sh16a">RPM or DEB</ph></title>
+ <titlealts>
+    <navtitle>Install and configure the RPM</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Install and configure the
+RPM</searchtitle>
+  </titlealts>
+<shortdesc>Use the following steps to install and configure the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh16a">RPM or DEB</ph>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM<indexterm>install
+and configure</indexterm></indexterm>
+<indexterm>RPM<indexterm>install and configure</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>Copy the <ph rev="sh16a">RPM or DEB</ph> to the host where it will be installed. For example,
+<codeph>/root</codeph> on your host image.</cmd>
+</step>
+<step>
+<cmd>Login to the host as root. Change to the directory where the installation package is located by
+issuing these commands:</cmd>
+<info>
+<codeblock>&lt;login to host&gt;
+cd /root/</codeblock>
+</info>
+</step>
+<step>
+<cmd rev="sh16a">Install either the RPM or DEB by issuing one of the following commands:</cmd>
+<info>
+<codeblock rev="sh16a">
+rpm -i &lt;<synph><var>rpm_name</var></synph>&gt;   /* for RPM */           
+dpkg -i &lt;<synph><var>deb_name</var></synph>&gt;  /* for DEB */</codeblock>
+<note>
+<ol>
+<li>For compatibility reasons a softlink is created from <filepath>/opt/IBM/CCA</filepath> to
+<filepath>/opt/IBM/CEX3C</filepath>. <ph rev="sh16a">This is not valid when installing the DEB
+package.</ph></li>
+<li rev="sh16a">If this is an upgrade, you can use this command:
+<codeblock>
+rpm -Uvh &lt;<synph><var>rpm_name</var></synph>>   /* for RPM */
+dpkg -i &lt;<synph><var>deb_name</var></synph>&gt;    /* for DEB, same as for installation */</codeblock></li>
+<li>If you are installing the RPM on a SUSE <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distribution, you might receive the
+following warning messages because of an unsupported <synph><kwd>groupadd</kwd></synph> option.
+<codeblock>groupadd: You are using an undocumented option (-f)!
+groupadd: You are using an undocumented option (-f)!
+groupadd: You are using an undocumented option (-f)!
+groupadd: You are using an undocumented option (-f)!
+groupadd: You are using an undocumented option (-f)!</codeblock>No
+action on your part is needed. The installation proceeds with another call if this happens.</li>
+</ol>
+</note>
+</info>
+</step>
+<step>
+<cmd>Reboot the host by issuing the following command: <cmdname>shutdown -r now</cmdname></cmd>
+<info>This is necessary because of the defaults added to <codeph>/etc/profile.d/csulcca.sh</codeph>
+and <codeph>/etc/profile.d/csulcca.csh</codeph> for using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> must be propagated to all user login
+sessions. <p>If all users that use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> logout and then login again, and if all
+applications that use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> are
+re-started, then a reboot may be avoided. It is always recommended to reboot to ensure for new users
+or new system administrators that the updated profiles are actually in force after the install
+procedure is completed.</p></info>
+</step>
+<step>
+<cmd>Login to the host as root. Change to the directory where the RPM or DEB binaries are installed
+by issuing the following command:</cmd>
+<info>
+<codeblock>&lt;login as root to host&gt;
+	cd /opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/</codeblock>
+</info>
+</step>
+<step><cmd>Verify that at least one card is present and active:</cmd>
+<info>
+<note>Starting with kernel 4.10, the cryptographic device driver (zcrypt) is statically built into
+the kernel. So there is no need to load the <cmdname>ap</cmdname> module any longer.</note>
+</info>
+<substeps>
+<substep rev="sh18i2">
+<cmd>If required, you can use the <cmdname>lszcrypt</cmdname> command to check if the zcrypt device
+driver is available: </cmd>
+<info><screen>$ lszcrypt</screen> If the command displays the message <msgph>Crypto device driver
+not available</msgph>, the zcrypt device driver is not loaded. To load zcrypt, issue the following
+command: <screen>$ modprobe ap</screen> or on older kernels, issue: <screen>$ modprobe z90crypt</screen>
+<p>With the zcrypt device driver loaded, you can use <cmdname>lszcrypt</cmdname> to see the
+installed and configured crypto adapters for your LPAR or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> guest:</p>
+<screen>
+CARD.DOMAIN TYPE  MODE        STATUS REQUEST_CNT
+------------------------------------------------
+00          CEX6A Accelerator online        2174  &lt;- Adapter 0 
+00.0005     CEX6A Accelerator online        1347   &lt;- Domain 5 on adapter 0
+00.001f     CEX6A Accelerator online         827   &lt;- Domain 31 (X'1F') 
+01          CEX6C CCA-Coproc  online       15635  &lt;- Adapter 1 
+01.0005     CEX6C CCA-Coproc  online        9187
+01.001f     CEX6C CCA-Coproc  online        6448
+05          CEX6P EP11-Coproc online          17  &lt;- Adapter 5 
+05.0005     CEX6P EP11-Coproc online          10
+05.001f     CEX6P EP11-Coproc online           7
+</screen>
+<p>The latest version of the zcrypt device driver can deal with more than one domain. The previous
+screen shot shows two domains (with IDs 5 and 31). By default the device driver uses the domain with
+the lowest ID. You can change this by setting a new default domain value using the command
+<screen>
+$ chzcrypt --default-domain=x
+</screen> or with a kernel boot parameter
+<codeph>ap.domain=x</codeph>
+<ph rev="sh18i2">(where x must be in hexadecimal notation)</ph>. </p><p>For <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> applications, an adapter in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor mode is needed. So the
+<cmdname>lszcrypt</cmdname> output should show some CEX*C cards, for example, CEX6C.</p>
+</info>
+</substep>
+<substep>
+<cmd>When you are sure that the device driver is loaded, you can display details of all the
+available <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>  coprocessors and verify
+their accessibility by running one of the RPM or DEB installed utilities: </cmd>
+<info>
+<ol>
+<li>
+<codeblock>/opt/IBM/CCA/bin/ivp.e</codeblock>
+<p>This command performs a health check for all active cards.</p>
+</li>
+<li>
+<codeblock rev="sh18i2">/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -status</codeblock>
+<p>This command shows the serial numbers and master key register states of all active cards running
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> that are visible to this <tm
+tmtype="tm" trademark="Linux">Linux</tm> host. The total number of active cards and any errors are
+also reported. You also see the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+numbering of the CEXnC adapters and the default card is shown.</p>
+</li>
+</ol>
+<note>
+<ol>
+<li>To be able to use <codeph>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/panel.exe</codeph> the user must be either
+root or a member of the <synph><kwd>cca_admin</kwd></synph> group, that is, the owner of
+<codeblock rev="sh16a">
+/usr/lib64/libcsulccamk.so  /* for RPM */
+/usr/lib/libcsulccamk.so    /* for DEB */
+</codeblock></li>
+<li>If there is not at least one active card at this point, double check earlier steps and, if
+necessary, involve <tm tmtype="reg" trademark="IBM">IBM</tm> service because the rest of the setup
+is designed around having active cards.</li>
+<li>Unloading the device driver requires killing the <synph><kwd>catcher.exe</kwd></synph> program,
+and then restarting it when the driver is reloaded. See the note in <xref
+href="wskc_c_setupilzdd.dita#l0wskc02_setupilzdd"/> for specific instructions. <note rev="sh18i2"
+>Unloading the device driver is not possible with the <cmdname>ap</cmdname> module being statically
+in the kernel.</note></li>
+</ol>
+</note>
+</info>
+</substep>
+</substeps>
+</step>
+<step id="l0wskc02_install_rpm_mkl">
+				<cmd><b>Master key load</b> - This procedure is for using the <keyword
+						conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> native API or
+					the utility (<cmdname>panel.exe</cmdname>) to load the master keys for the active cards.</cmd>
+				<info>
+<p>There are several methods available to load the master keys, and it is important to choose the
+correct method for your production environment. For more information, see <xref
+href="wskc_mkey_admin.dita#wsck_ccamkey"/>.</p>
+<p>If you want to use TKE <ph>instead of the <cmdname>panel.exe</cmdname> utility</ph>, refer to a
+TKE manual, such as the <tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="Redbooks">Redbooks</tm> publication <cite>Exploiting <tm tmtype="reg"
+trademark="S/390">S/390</tm> Hardware Cryptography with Trusted Key Entry</cite> for proper use.
+After completing this step using the TKE procedure, go to Step <xref
+href="#l0wskc02_insconrpm/l0wskc02_install_rpm_s8"/>.</p>
+<ol>
+<li id="l0wskc02_mkls7aaa">Setup the groups for the users who will be loading the master keys to the
+cards. Each part of the load process is owned by a different <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> group created by the RPM or DEB install
+procedure, and verified in the host library implementing the API allowing master key processing. To
+complete a specific step the user must have membership in the proper group. There are a couple ways
+to change group membership depending on your <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distribution. A third option is to create
+the users specifically for these roles. <p>If a user does not have the proper group membership for a
+particular master key operation, the error <ph>X'0008005a'</ph> is returned and an error message is
+printed to the system log.</p><note>To be able to use <synph><var>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/panel.exe</var></synph>, the user must be
+either root or a member of the <synph><kwd>cca_admin</kwd></synph> group, that is, the owner of
+<codeblock>
+/usr/lib64/libcsulccamk.so /* for RPM */
+/usr/lib/libcsulccamk.so   /* for DEB */</codeblock></note><ol>
+<li>Group membership for Red Hat and Ubuntu based <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions: <ol>
+<li>Use the <synph><kwd>groups</kwd></synph> command to see a list of the user's current group
+membership:
+<codeblock>groups &lt;user name&gt;
+				---output is
+					&lt;user name&gt; : &lt;grouplist&gt;
+					&lt;grouplist&gt; is a single-space separated list</codeblock></li>
+<li>&lt;grouplist&gt; must be passed along with the new group to the
+<synph><kwd>usermod</kwd></synph> command as a comma-separated list, followed by the &lt;user
+name&gt;. For example, if you wanted to add <b>cca_lfmkp</b> membership to user named
+<synph><kwd>admin</kwd></synph>, you would use the following commands:
+<codeblock>groups admin
+				---output:
+					admin : admin bin daemon sys wheel
+				usermod -G admin,bin,daemon,sys,wheel,cca_lfmkp admin
+				---output:
+					[none if successful]</codeblock><note>Ensure
+the user logs out and logs back in, otherwise the group membership in the active session will not be
+updated.</note></li>
+</ol></li>
+<li>Group membership for SUSE-based <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions: <p>Use the
+<synph><kwd>usermod</kwd></synph> command to add membership for a specific group for a specific
+user. For example, if you wanted to add <synph><kwd>cca_lfmkp</kwd></synph> membership to user
+<synph><kwd>admin</kwd></synph>, you would use the following commands:
+<codeblock>usermod -A cca_lfmkp admin</codeblock></p><note>Ensure the user logs out and logs back
+in, otherwise the group membership in the active session will not be updated.</note></li>
+<li id="l0wskc02_mkls7a3">Create users for each role with correct group memberships (Same commands
+for Red Hat, SUSE, <ph rev="sh16a">and Ubuntu</ph>): <ol>
+<li>Create user <synph><kwd>cca_user</kwd></synph>, which will own default key storage by issuing
+the following commands: <ol>
+<li>
+<codeblock>useradd -g cca_admin -d /home/cca_user -m cca_user</codeblock>This command creates the
+user with primary group <b>cca_admin</b> and a new home directory.</li>
+<li>
+<codeblock>passwd cca_user</codeblock>This command sets the new user's password.</li>
+</ol></li>
+<li>Create user <synph><kwd>cca_lfmkp</kwd></synph> by issuing the following commands: <ol>
+<li>
+<codeblock>
+useradd -g cca_admin -d /home/cca_lfmkp 
+        -G cca_admin,cca_lfmkp -m cca_lfmkp</codeblock>This
+command creates the user with primary group <b>cca_admin</b>, secondary group <b>cca_lfmkp</b>, and
+a new home directory.</li>
+<li>
+<codeblock>passwd cca_lfmkp</codeblock>This command sets the new user's password.</li>
+</ol></li>
+<li>Create user <synph><kwd>cca_cmkp</kwd></synph> by issuing the following commands: <ol>
+<li>
+<codeblock>
+useradd -g cca_admin -d /home/cca_cmkp 
+        -G cca_admin,cca_cmkp -m cca_cmkp</codeblock>This
+command creates the user with primary group <b>cca_admin</b>, secondary group <b>cca_cmkp</b>, and a
+new home directory.</li>
+<li>
+<codeblock>passwd cca_cmkp</codeblock>This command sets the new user's password.</li>
+</ol></li>
+<li>Create user <synph><kwd>cca_clrmk</kwd></synph> by issuing the following commands: <ol>
+<li>
+<codeblock>
+useradd -g cca_admin -d /home/cca_clrmk 
+        -G cca_admin,cca_clrmk -m cca_clrmk</codeblock>This
+command creates the user with primary group <b>cca_admin</b>, secondary group <b>cca_clrmk</b>, and
+a new home directory.</li>
+<li>
+<codeblock>passwd cca_clrmk</codeblock>This command sets the new user's password.</li>
+</ol></li>
+<li>Create user <synph><kwd>cca_setmk</kwd></synph> by issuing the following commands: <ol>
+<li>
+<codeblock>useradd -g cca_admin -d /home/cca_setmk 
+                 -G cca_admin,cca_setmk -m cca_setmk</codeblock>This
+command creates the user with primary group <b>cca_admin</b>, secondary group <b>cca_setmk</b>, and
+a new home directory.</li>
+<li>
+<codeblock>passwd cca_setmk</codeblock>This command sets the new user's password.</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li id="l0wskc02_mkls7bbb">Add group membership privileges to users based on their required
+function. <table id="l0wskc02_ccagrp" pgwide="1">
+<title>CCA groups</title>
+<desc>
+<p outputclass="summary">CCA groups</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Group Name</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>cca_admin</kwd></synph></entry>
+<entry>All users who will run part of the master key load process must be in this group because the
+library itself is owned by <synph><kwd>root.cca_admin</kwd></synph>, with no permissions for 'world'
+as a protective measure. Reasons for this separate group also include allowing one owner of
+<codeph>/usr/lib64/libcsulccamk.so</codeph>
+<ph rev="sh16a">and of <codeph>/usr/lib/libcsulccamk.so</codeph> for DEB,</ph> and allowing use of
+<synph><kwd>panel.exe</kwd></synph> without allowing any of the master key processing calls.</entry>
+</row>
+<row>
+<entry><synph><kwd>cca_lfmkp</kwd></synph></entry>
+<entry>The user to LOAD the first key part must be in this group.</entry>
+</row>
+<row>
+<entry><synph><kwd>cca_cmkp</kwd></synph></entry>
+<entry>The users to LOAD the middle and last key parts must be in this group.</entry>
+</row>
+<row>
+<entry><synph><kwd>cca_clrmk</kwd></synph></entry>
+<entry>The new master-key register can be CLEARed using the same <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> call in case a mistake was made
+entering a key part (use the key verification patterns to check for this). To perform the clear, the
+user must be a member of this group.</entry>
+</row>
+<row>
+<entry><synph><kwd>cca_setmk</kwd></synph></entry>
+<entry>The user to call SET after the last key part has been successfully loaded must be a member of
+this <tm tmtype="tm" trademark="Linux">Linux</tm> group.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>Load FIRST, MIDDLE (optional), and LAST key parts for the AES, SYM, ASYM, and APKA master keys
+and then call SET for each master key. This step can be done using the
+<synph><kwd>panel.exe</kwd></synph> utility provided or by writing your own application to call the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb directly. The application must
+link with the correct library (installed to <codeph>/usr/lib64/libcsulccamk.so</codeph> by <ph
+rev="sh16a">RPM and to <codeph>/usr/lib/libcsulccamk.so</codeph> by DEB</ph>), and must be executed
+at each step by a user with the appropriate group memberships. The utility supports scripted as well
+as prompt-driven access. <p>Repeat this step for each configured adapter. See <xref
+href="wskc_c_fhk_chmk.dita#l0wskc02_fhk_chmk"/>.</p><p>For details about
+<synph><kwd>panel.exe</kwd></synph>, see <xref href="wskc_c_panelexe.dita#l0wskc02_panelexe"
+/>.</p><p>See <xref href="wskc_r_mkp.dita#l0wskc02_mkp"/> about parity requirements for master key
+parts.</p><note>Loading master key parts modifies state information inside the card. For example you
+cannot load a 'FIRST' master key part twice in a row without clearing the new master-key register in
+between attempts. The same goes for setting the 'LAST' register. Any number of 'MIDDLE' parts can be
+loaded - with each call changing the contents of the new master-key register. Similarly a 'SET'
+operation changes the state of the 'new' register back to 'empty', while updating the 'current'
+register.</note></li>
+</ol>
+</info>
+			</step>
+<step id="l0wskc02_install_rpm_s8">
+<cmd><synph><kwd>Key storage initialization</kwd></synph> - To perform this step, see <xref
+href="wskc_c_install_rpm_ksi.dita#l0wskc02_install_rpm_ksi"/>.</cmd>
+</step>
+<step id="l0wskc02_install_rpm_s9"><cmd><synph><kwd>Key storage re-encipher
+when changing the master key</kwd></synph> - To perform this step,
+see <xref
+href="wskc_c_install_rpm_ksreen.dita#l0wskc02_install_rpm_ksreen"></xref>.</cmd>
+</step>
+<step><cmd>If you are going to be using Central Processor Assist for
+Cryptographic Functions (CPACF), it must be configured. See <xref
+href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"></xref>.</cmd></step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000016648?>

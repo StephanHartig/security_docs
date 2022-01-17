@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="symmetric_key_tokens" rev="sh20i1">
+<title>Fixed-length symmetric key tokens</title>
+<titlealts>
+<navtitle>Fixed-length symmetric key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Fixed-length symmetric key
+tokens</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports fixed-length
+symmetric key-tokens. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>fixed-length</indexterm></indexterm>
+<indexterm> key token<indexterm>symmetric, fixed-lenght</indexterm></indexterm>
+<indexterm>symmetric key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody/>
+</reference>

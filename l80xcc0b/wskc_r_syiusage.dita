@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syiusage">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The hardware configuration sets the limit on the modulus size of
+keys for key management; thus, this verb will fail if the RSA key
+modulus bit length exceeds this limit.</p></section>
+<section><p>Use of <synph><kwd>PKA92</kwd></synph> with an input NOCV key-encrypting key token
+is not supported.</p></section>
+<section><p>During initialization of a <ph><keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>, an Environment
+        Identifier (EID) of zero will be set in the coprocessor. This will be interpreted by the
+          <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb to mean that
+        environment identification checking is to be bypassed. Thus it is possible on a <keyword
+          conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> system for a key-encrypting
+        key RSA-enciphered at a node (EID) to be imported at the same node.</p></section>
+</refbody></reference>

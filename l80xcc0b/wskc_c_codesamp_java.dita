@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_codesamp_java" xml:lang="en-us">
+<title>Sample program in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/></title>
+  <titlealts>
+    <navtitle>Sample program in Java</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Sample program in Java</searchtitle>
+  </titlealts>
+<shortdesc>Before running this program, review the information about
+the JNI interface.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> sample
+program<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"
+/></indexterm></indexterm>
+<indexterm>sample verb calls</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>You can find this information in <xref
+href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"></xref>.</p>
+<p>This sample code consists of a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/>
+program named <synph><kwd>mac.java</kwd></synph>. For reference, a copy of the sample routine is
+shown in <xref href="#l0wskc02_codesamp_java/l0wskc02_code_java"/>. Another sample program named
+RNG.java is included with the distribution at the same location, but is not copied here because it
+is a very simple JNI reference exercise to call the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> verb.</p>
+<p>The default distribution location of the  sample code is: <dl>
+<dlentry>
+<dt>SUSE <tm tmtype="tm" trademark="Linux">Linux</tm></dt>
+<dd>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/samples</dd>
+</dlentry><dlentry>
+<dt>Red Hat <tm tmtype="tm" trademark="Linux">Linux</tm></dt>
+<dd>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/samples</dd>
+</dlentry></dl></p>
+<p>Invoke the following command from the directory that contains the sample source code to compile
+the program:
+<codeblock>   javac -classpath /opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/cnm/HIKM.zip mac.java</codeblock></p>
+<note><ol>
+<li>The classpath option points to the <synph><kwd>HIKM.zip</kwd></synph> file because the
+<b><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></b> class is in this file.</li>
+<li>The path shown for the <synph><kwd>HIKM.zip</kwd></synph> file
+is the default distribution location of that file.</li>
+</ol> </note>
+<p>When it is compiled, you can run the sample <tm tmtype="tm"
+trademark="Java">Java</tm> program from the directory that contains
+the compiled output, with these commands.</p>
+<p><synph><kwd>For a Red Hat Linux system:</kwd></synph>
+<codeblock>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+/opt/ibm/java-i386-60/jre/bin/java -classpath /opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/cnm/HIKM.zip:. mac</codeblock></p>
+<p><synph><kwd>For a SUSE Linux system:</kwd></synph>
+<codeblock>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+java -classpath /opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/cnm/HIKM.zip:. mac</codeblock><?Pub Caret 78?></p>
+<note><ol>
+<li>The path shown for the <synph><kwd>HIKM.zip</kwd></synph> file
+is the default distribution location of that file.</li>
+<li>The <synph><kwd>libcsulcca.so</kwd></synph> library for <tm
+tmtype="tm" trademark="Linux">Linux</tm> also contains the C support
+for the CCA <tm tmtype="tm" trademark="Java">Java</tm> Native Interface
+(JNI).</li>
+</ol> </note>
+<fig id="l0wskc02_code_java" rev="sh18i2">
+<title>Syntax, sample routine in <tm tmtype="tm" trademark="Java">Java</tm></title>
+</fig>
+<codeblock expanse="page">
+/*********************************************************************/
+/*                                                                   */
+/* Module Name: mac.java                                             */
+/*                                                                   */
+/* DESCRIPTIVE NAME: Cryptographic Coprocessor Support Program       */
+/*                   JNI example code                                */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/* Licensed Materials - Property of IBM                              */
+/*                                                                   */
+/* Copyright IBM Corp. 2008, 2011 All Rights Reserved                */
+/*                                                                   */
+/* US Government Users Restricted Rights - Use duplication or        */
+/* disclosure restricted by GSA ADP Schedule Contract with IBM Corp. */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*        NOTICE TO USERS OF THE SOURCE CODE EXAMPLES                */
+/*                                                                   */
+/* The source code examples provided by IBM are only intended to     */
+/* assist in the development of a working software program. The      */
+/* source code examples do not function as written: additional       */
+/* code is required. In addition, the source code examples may       */
+/* not compile and/or bind successfully as written.                  */
+/*                                                                   */
+/* International Business Machines Corporation provides the source   */
+/* code examples, both individually and as one or more groups,       */
+/* "as is" without warranty of any kind, either expressed or         */
+/* implied, including, but not limited to the implied warranties of  */
+/* merchantability and fitness for a particular purpose. The entire  */
+/* risk as to the quality and performance of the source code         */
+/* examples, both individually and as one or more groups, is with    */
+/* you. Should any part of the source code examples prove defective, */
+/* you (and not IBM or an authorized dealer) assume the entire cost  */
+/* of all necessary servicing, repair or correction.                 */
+/*                                                                   */
+/* IBM does not warrant that the contents of the source code         */
+/* examples, whether individually or as one or more groups, will     */
+/* meet your requirements or that the source code examples are       */
+/* error-free.                                                       */
+/*                                                                   */
+/* IBM may make improvements and/or changes in the source code       */
+/* examples at any time.                                             */
+/*                                                                   */
+/* Changes may be made periodically to the information in the        */
+/* source code examples; these changes may be reported, for the      */
+/* sample code included herein, in new editions of the examples.     */
+/*                                                                   */
+/* References in the source code examples to IBM products, programs, */
+/* or services do not imply that IBM intends to make these           */
+/* available in all countries in which IBM operates. Any reference   */
+/* to the IBM licensed program in the source code examples is not    */
+/* intended to state or imply that IBM's licensed program must be    */
+/* used. Any functionally equivalent program may be used.            */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/* This example program:                                             */
+/*                                                                   */
+/* 1) Calls the Key_Generate verb (CSNBKGN) to create a MAC (message */
+/*    authentication code) key token and a MACVER key token.         */
+/*                                                                   */
+/* 2) Calls the MAC_Generate verb (CSNBMGN) using the MAC key token  */
+/*    from step 1 to generate a MAC on the supplied text string      */
+/*    (INPUT_TEXT).                                                  */
+/*                                                                   */
+/* 3) Calls the MAC_Verify verb (CSNBMVR) to verify the MAC for the  */
+/*    same text string, using the MACVER key token created in        */
+/*    step 1.                                                        */
+/*                                                                   */
+/*********************************************************************/
+import java.io.*;
+import com.ibm.crypto.cca.jni.*;
+
+public class mac
+{
+  static final String KEY_FORM            = "OPOP";
+  static final String KEY_LENGTH          = "SINGLE  ";
+  static final String KEY_TYPE_1          = "MAC     ";
+  static final String KEY_TYPE_2          = "MACVER  ";
+  static final String INPUT_TEXT          = "abcdefhgijklmnopqrstuvwx";
+  static final String MAC_PROCESSING_RULE = "X9.9-1  ";
+  static final String SEGMENT_FLAG        = "ONLY    ";
+  static final String MAC_LENGTH          = "HEX-9   ";
+
+  public static void main (String args[])
+  {
+    byte [] ByteExitData         = new byte [4];
+    byte [] Byte_key_form        = new byte [4];
+    byte [] Byte_key_length      = new byte [8];
+    byte [] Byte_mac_key_type    = new byte [8];
+    byte [] Byte_macver_key_type = new byte [8];
+    byte [] Byte_mac_value       = new byte [10];
+    byte [] Byte_chaining_vector = new byte [18];
+    byte [] Byte_rule_array      = new byte [24];
+    byte [] Byte_text            = new byte [26];
+    byte [] Byte_kek_key_id_1    = new byte [64];
+    byte [] Byte_kek_key_id_2    = new byte [64];
+    byte [] Byte_mac_key_id      = new byte [64];
+    byte [] Byte_macver_key_id   = new byte [64];
+
+    try
+    {
+      //setup to pause on non-zero return/reason code
+      //and require enter key to continue
+      BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+
+      hikmNativeLong IntReturncode     = new hikmNativeLong(0);
+      hikmNativeLong IntReasoncode     = new hikmNativeLong(0);
+      hikmNativeLong IntExitDataLength = new hikmNativeLong(0);
+
+      /* Print beginning banner */
+      System.out.println("\nCryptographic Coprocessor Support Program JAVA example program.\n");
+
+      /* Set up initial values for Key_Generate call */
+      Byte_key_form        = new String(KEY_FORM).getBytes();  /* OPOP key pair              */
+      Byte_key_length      = new String(KEY_LENGTH).getBytes();/* Single-length keys         */
+      Byte_mac_key_type    = new String(KEY_TYPE_1).getBytes();/* 1st token, MAC key type    */
+      Byte_macver_key_type = new String(KEY_TYPE_2).getBytes();/* 2nd token, MACVER key type */
+
+      /* Generate a MAC/MACVER operational key pair */
+      new HIKM().CSNBKGNJ (IntReturncode,
+                           IntReasoncode,
+                           IntExitDataLength,
+                           ByteExitData,
+                           Byte_key_form,
+                           Byte_key_length,
+                           Byte_mac_key_type,
+                           Byte_macver_key_type,
+                           Byte_kek_key_id_1,
+                           Byte_kek_key_id_2,
+                           Byte_mac_key_id,
+                           Byte_macver_key_id);
+
+      if ( 0 != IntReturncode.getValue() || 0 != IntReasoncode.getValue() )
+      {
+        System.out.println ("\nKey Generate Failed");                     /* Print failing verb.      */
+        System.out.println ("Return_code = " + IntReturncode.getValue()); /* Print return code.       */
+        System.out.println ("Reason_code = " + IntReasoncode.getValue()); /* Print reason code.       */
+        System.out.println ("Press ENTER to continue...");                /* Print Pause message      */
+        stdin.readLine();
+      }
+      else
+      {
+        System.out.println ("Key_Generate successful.");
+      }
+
+      /* Set up initial values for MAC_Generate call */
+      IntReturncode     = new hikmNativeLong(0);
+      IntReasoncode     = new hikmNativeLong(0);
+      IntExitDataLength = new hikmNativeLong(0);
+
+      hikmNativeLong Int_rule_array_count = new hikmNativeLong(3);
+      hikmNativeLong Int_text_length      = new hikmNativeLong(24);
+
+      Byte_text          = new String (INPUT_TEXT).getBytes();                 /* Define MAC input text   */
+      byte [] temp_array = new String (MAC_PROCESSING_RULE).getBytes();        /* 1st rule array element  */
+      System.arraycopy( temp_array, 0, Byte_rule_array, 0, temp_array.length); /* 1st rule array element  */
+
+      temp_array = new String(SEGMENT_FLAG).getBytes();                        /* 2nd rule array element  */
+      System.arraycopy( temp_array, 0, Byte_rule_array, 8, temp_array.length); /* 2nd rule array element  */
+
+      temp_array = new String(MAC_LENGTH).getBytes();                          /* 3rd rule array element  */
+      System.arraycopy( temp_array, 0, Byte_rule_array, 16, temp_array.length);/* 3rd rule array element  */
+
+      /* Generate a MAC based on input text */
+      new HIKM().CSNBMGNJ (IntReturncode,
+                           IntReasoncode,
+                           IntExitDataLength,
+                           ByteExitData,
+                           Byte_mac_key_id,
+                           Int_text_length,
+                           Byte_text,
+                           Int_rule_array_count,
+                           Byte_rule_array,
+                           Byte_chaining_vector,
+                           Byte_mac_value);
+
+      if ( 0 != IntReturncode.getValue() || 0 != IntReasoncode.getValue() )
+      {
+        System.out.println ("\nMAC Generate Failed");                     /* Print failing verb.      */
+        System.out.println ("Return_code = " + IntReturncode.getValue()); /* Print return code.       */
+        System.out.println ("Reason_code = " + IntReasoncode.getValue()); /* Print reason code.       */
+        System.out.println ("Press ENTER to continue...");                /* Print Pause message      */
+        stdin.readLine();
+      }
+      else
+      {
+        System.out.println ("MAC_Generate successful.");
+        System.out.println ("MAC_value = [" + new String(Byte_mac_value) + "]");
+      }
+
+      /* Set up initial values for MAC_Verify call */
+      IntReturncode     = new hikmNativeLong(0);
+      IntReasoncode     = new hikmNativeLong(0);
+      IntExitDataLength = new hikmNativeLong(0);
+
+      Byte_rule_array  = new String (MAC_LENGTH).getBytes();       /* Rule array element         */
+      Int_rule_array_count = new hikmNativeLong(1);
+
+      new HIKM().CSNBMVRJ (IntReturncode,
+                           IntReasoncode,
+                           IntExitDataLength,
+                           ByteExitData,
+                           Byte_macver_key_id,
+                           Int_text_length,
+                           Byte_text,
+                           Int_rule_array_count,
+                           Byte_rule_array,
+                           Byte_chaining_vector,
+                           Byte_mac_value);
+
+      if ( 0 != IntReturncode.getValue() || 0 != IntReasoncode.getValue() )
+      {
+        System.out.println ("\nMAC_Verify Failed");                       /* Print failing verb.      */
+        System.out.println ("Return_code = " + IntReturncode.getValue()); /* Print return code.       */
+        System.out.println ("Reason_code = " + IntReasoncode.getValue()); /* Print reason code.       */
+        System.out.println ("Press ENTER to continue...");                /* Print Pause message      */
+        stdin.readLine();
+      }
+      else
+      {
+        System.out.println ("MAC_Verify successful.");
+      }
+    }
+    catch (Exception anException)
+    {
+      System.out.println(anException);
+    }
+
+    /* Print ending banner */
+    System.out.println("\nCryptographic Coprocessor Support Program JAVA example program finished.\n");
+  }//end main
+}//end mac class
+
+</codeblock>
+</conbody>
+</concept>
+<?Pub *0000016165?>

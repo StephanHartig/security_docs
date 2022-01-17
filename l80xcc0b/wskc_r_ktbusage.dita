@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ktbusage" xml:lang="en-us">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/></searchtitle>
+</titlealts>
+<shortdesc>The usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)<indexterm>usage
+notes</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Because 24-byte (TRIPLE) DES keys can only be generated
+as <synph><kwd>DATA</kwd></synph> keys, capability to create 24-byte
+DES tokens (with keywords <synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>KEYLN24</kwd></synph> has
+not been added to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>).
+Instead, call <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword>)
+directly.</p></section><?Pub Caret -1?>
+</refbody>
+</reference>
+<?Pub *0000001368?>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="tr31_optional_block_data" xml:lang="en-us">
+<title>TR-31 optional block data</title>
+<titlealts>
+<navtitle>TR-31 optional block data</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): TR-31 optional block data</searchtitle>
+</titlealts>
+<shortdesc>A TR-31 key block can contain an optional block
+with IBM-defined data.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>See <synph><var>X9 TR-31 2010: Interoperable Secure Key
+Exchange Block Specification for Symmetric Algorithms</var></synph> for
+the definition of a TR-31 key block. As defined by X9 TR-31, a TR-31
+key block can contain one or more optional blocks. A TR-31 key block
+contains at least one optional block when byte number 12 - 13 is a
+value other than ASCII string "00".</p></section>
+<section><p>The data of an IBM-defined optional block contains ASCII
+string <term>10</term> (<ph>X'3130'</ph>) in the first two bytes,
+and contains ASCII string <term>IBMC</term> (<ph>X'49424D43'</ph>)
+beginning at offset 4 of the data. CCA treats an optional block with
+these characteristics as a proprietary container for a CCA control
+vector. See <xref href="#tr31_optional_block_data/tr31_ibm_opt_bl_tab1"></xref>.
+An optional block with different characteristics is ignored by CCA.</p></section>
+<section><p>If a TR-31 key block contains an optional block as defined
+by <xref href="#tr31_optional_block_data/tr31_ibm_opt_bl_tab1"></xref>,
+the data contains a copy of the 8-byte or 16-byte DES control vector
+that was in the CCA key-token of the key being exported. The copied
+control vector is in hex-ASCII format.</p></section>
+<section><p>The control vector is only copied from the CCA key-token
+when the user of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"></keyword> verb
+specifies a control vector transport control keyword (<synph><kwd>INCL-CV</kwd></synph> or <synph><kwd>ATTR-CV</kwd></synph>): <ol>
+<li>If the optional block contains a control vector as the result
+of specifying the <synph><kwd>INCL-CV</kwd></synph> keyword during
+export, the key usage and mode of use fields indicate the key attributes,
+and these attributes are verified during export to be compatible with
+the ones in the included control vector.</li>
+<li>If the optional block contains a control vector as the result
+of specifying the <synph><kwd>ATTR-CV</kwd></synph> keyword during
+export, the key usage field (byte number 5 - 6 of the TR-31 key block)
+is set to the proprietary value <term>10</term> (<ph>X'3130'</ph>),
+and the mode of use field (byte number 8) is set to the proprietary
+value <term>1</term> (<ph>X'31'</ph>). These proprietary values indicate
+that the key attributes are specified in the included control vector.</li>
+</ol></p></section>
+<section><p>See <xref
+href="wskc_c_l0wskc03_zapgtr31.dita#l0wskc03_zapgtr31"></xref> for
+additional information on how CCA uses an IBM-defined optional block
+in a TR-31 key block.</p></section>
+<section><p> <table id="tr31_ibm_opt_bl_tab1" pgwide="0"><title><tm
+tmtype="reg" trademark="IBM">IBM</tm> optional block data in a TR-31
+key block</title><desc><p outputclass="summary"><ph><tm tmtype="reg"
+trademark="IBM">IBM</tm> optional block data in a TR-31 key block</ph></p></desc>
+<tgroup cols="3"><colspec colname="col1" colwidth="2*"/><colspec
+colname="col2" colwidth="2*"/><colspec colname="col3" colwidth="14*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Offset (bytes)</entry>
+<entry colname="col2">Length (bytes)</entry>
+<entry colname="col3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">00</entry>
+<entry colname="col2">02</entry>
+<entry colname="col3">Proprietary ID of  TR-31 optional block (alphanumeric-ASCII): <dl
+compact="yes"><dlentry>
+<dt><ph>X'3130'</ph></dt>
+<dd><tm tmtype="reg" trademark="IBM">IBM</tm> proprietary optional
+block (ASCII string <term>10</term>)</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry colname="col1">02</entry>
+<entry colname="col2">02</entry>
+<entry colname="col3">Length of optional block (hex-ASCII): <p>For
+TLV valued to <term>01</term>: <dl compact="yes"><dlentry>
+<dt><ph>X'3143'</ph></dt>
+<dd>"1C" for 8-byte (single-length) control vector</dd>
+</dlentry><dlentry>
+<dt><ph>X'3243'</ph></dt>
+<dd>"2C" for 16-byte (double-length) control vector</dd>
+</dlentry></dl></p></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">Beginning of optional block data</entry>
+</row>
+<row>
+<entry colname="col1">04</entry>
+<entry colname="col2">04</entry>
+<entry colname="col3">Magic value (alphanumeric-ASCII): <dl compact="yes">
+<dlentry>
+<dt><ph>X'49424D43'</ph></dt>
+<dd>A constant value ("IBMC") used to reduce ambiguity and the chance
+for false interpretation of the proprietary optional blocks of non-IBM
+vendors. <p>An optional block that uses the same proprietary ID but
+does not include this magic value will be ignored.</p></dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry colname="col1">08</entry>
+<entry colname="col2">02</entry>
+<entry colname="col3">Tag-length-value (TLV) ID (numeric-ASCII): <dl
+compact="yes"><dlentry>
+<dt><ph>X'3031'</ph></dt>
+<dd><tm tmtype="reg" trademark="IBM">IBM</tm> CCA control vector (<term>01</term>)</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry colname="col1">10</entry>
+<entry colname="col2">02</entry>
+<entry colname="col3">Length of TLV (hex-ASCII) <p>For TLV valued
+to <term>01</term>: <dl compact="yes"><dlentry>
+<dt><ph>X'3134'</ph></dt>
+<dd>"14" (decimal 20) TLV of 8-byte control vector</dd>
+</dlentry><dlentry>
+<dt><ph>X'3234'</ph></dt>
+<dd><term>24</term> (decimal 36) TLV of 16-byte control vector</dd>
+</dlentry></dl></p></entry>
+</row>
+<row>
+<entry colname="col1">12</entry>
+<entry colname="col2">16 or 32</entry>
+<entry colname="col3">Control vector (hex-ASCII)</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody>
+</reference>
+<?Pub *0000006107?>

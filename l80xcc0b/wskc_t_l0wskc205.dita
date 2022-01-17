@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc205" xml:lang="en-us">
+<title>Running the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> byte
+code</title>
+<titlealts>
+<navtitle>Running the Java byte code</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Running the Java byte code for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Perform these steps to run a compiled <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> program.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>Java byte code<indexterm>running</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>Change to the directory that contains the compiled <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> program you want to run.</cmd>
+</step>
+<step><cmd>Issue this command to run a program <filepath><varname>&lt;program&gt;</varname>.class</filepath>: </cmd>
+<info><codeblock>java -classpath <synph><var>&lt;fullpath&gt;</var></synph>/CNM.jar:. <synph><var>&lt;program&gt;</var></synph>.class</codeblock>where
+<filepath><varname>&lt;fullpath&gt;</varname></filepath> is the location of
+<filepath>CNM.jar</filepath>. The period (.) at the end of the class path ensures that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> can find
+<filepath><varname>&lt;program&gt;</varname>.class</filepath> in the current directory. <p>The
+following example uses the default path and the compiled sample program of <xref
+href="wskc_c_codesamp_java.dita#l0wskc02_codesamp_java"/>:
+<codeblock>javac -classpath /opt/IBM/CCA/cnm/CNM.jar:. RNGpk.class</codeblock><?Pub Caret 0?></p><p>If
+the program uses the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb in addition to other verbs, you
+must also include <filepath>CNMMK.jar</filepath> in the class path (see <xref
+href="wskc_c_ccajni_over_mk.dita#ccajni_over_mk"/>). Issue this command to run such programs:
+<codeblock>java -classpath <synph><var>&lt;fullpath&gt;</var></synph>/CNM.jar:<synph><var>&lt;fullpath&gt;</var></synph>/CNMMK.jar:. <synph><var>&lt;program&gt;</var></synph>.class</codeblock></p><note
+othertype="Tip" type="other">Instead of using the <cmdname>-classpath</cmdname> option, you can set
+the CLASSPATH variable to point to <filepath>CNM.jar</filepath> and, if required,
+<filepath>CNMMK.jar</filepath>.</note></info></step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000002433?>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syxrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the
+key-formatting method and the algorithm: </p>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="colspec3" colwidth="5*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="20*"/>
+<thead>
+<row>
+<entry>Key-formatting method</entry>
+<entry>Algorithm</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AESKW</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry><ph>X'0327'</ph></entry>
+<entry rev="shr2"><cmdname>Symmetric Key Export - AESKW</cmdname></entry>
+</row>
+<row rev="shr2">
+<entry><synph><kwd>AESKWCV</kwd></synph> (Release 4.4 or
+later)</entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>X'02B3'</entry>
+<entry><cmdname>Symmetric Key Export - AESKWCV</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKOAEP2</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry><ph>X'00FC'</ph></entry>
+<entry><cmdname>Symmetric Key Export - AES, PKOAEP2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKOAEP2</kwd></synph></entry>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry><ph>X'00F5'</ph></entry>
+<entry><cmdname>Symmetric Key Export - HMAC, PKOAEP2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph> or
+<synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph>
+</entry>
+<entry><ph>X'0130'</ph>
+</entry>
+<entry><cmdname>Symmetric Key Export - AES, PKCSOAEP, PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph> or
+<synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'0105'</ph></entry>
+<entry><cmdname>Symmetric Key Export - DES, PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph>
+</entry>
+<entry><ph>X'0131'</ph></entry>
+<entry><cmdname>Symmetric Key Export - AES, ZERO-PAD</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'023E'</ph></entry>
+<entry><cmdname>Symmetric Key Export - DES, ZERO-PAD</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>To disallow the wrapping of a key with a weaker key-encrypting key, enable the <cmdname>Prohibit
+weak wrapping - Transport keys</cmdname> command (offset <ph>X'0328'</ph>) in the active role. This
+command affects multiple verbs. See <xref href="wskc_r_apn.dita#l0wskc02_apn"/>.</p></section>
+<section><p>To receive a warning when wrapping a key with a weaker key-encrypting key, enable the
+<cmdname>Warn when weak wrap - Transport keys</cmdname> command (offset <ph>X'032C'</ph>) in the
+active role. The <cmdname>Prohibit weak wrapping - Transport keys</cmdname> command (offset
+<ph>X'0328'</ph>) overrides this command.</p></section>
+</refbody></reference>

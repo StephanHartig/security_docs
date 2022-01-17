@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ap1me" xml:lang="en-us">
+<title>Control vectors and changing control vectors with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb</title>
+<titlealts>
+<navtitle>Control vectors with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb</navtitle><?Pub
+Caret 16?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Control vectors and changing control vectors with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb</searchtitle>
+</titlealts>
+<shortdesc>A control vector table shows the default value
+of the control vector associated with each type of key.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>This information unit also describes how to change control vectors with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb.</p>
+</conbody>
+</concept>
+<?Pub *0000002928?>

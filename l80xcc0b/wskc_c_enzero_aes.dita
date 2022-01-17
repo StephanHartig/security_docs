@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_enzero_aes">
+<title>Encrypt zeros AES-key verification algorithm</title>
+  <titlealts>
+    <navtitle>Encrypt zeros AES-key verification algorithm</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Encrypt zeros AES-key verification
+algorithm</searchtitle>
+  </titlealts><shortdesc>The cryptographic engine provides a method for verifying the value
+of an AES cryptographic key or key part without revealing information
+about the value of the key or key part.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>encrypt zeros AES-key verification</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In this method, the AES key data encryption algorithm encodes a
+128-bit value that is all zero bits. The leftmost 32 bits of the result
+are compared to the trial input value or returned from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb
+in an 8-byte variable that is padded with bits valued to zero.</p>
+</conbody></concept>

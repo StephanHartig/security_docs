@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_vercvv">
+<title>Verifying credit card data</title>
+<titlealts>
+<navtitle>Verifying credit card data</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verifying credit card data</searchtitle>
+</titlealts><shortdesc>The Visa International Service Association (VISA) and MasterCard
+International, Incorporated have specified a cryptographic method
+to calculate a value that relates to the personal account number (PAN),
+the card expiration date, and the service code. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal account number (PAN)</indexterm>
+<indexterm>VISA card-verification value (CVV) </indexterm>
+<indexterm>MasterCard card-verification code (CVC)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The VISA card-verification value (CVV) and the MasterCard card-verification
+code (CVC) can be encoded on either track 1 or track 2 of a magnetic
+striped card and are used to detect forged cards. Because most online
+transactions use track-2, the CCA <ph>verbs</ph> generate and verify
+the CVV<xref href="#l0wskc02_vercvv/l0wskc02_cvvcvc1"/> by the track-2 method. <fn id="l0wskc02_cvvcvc1">The VISA CVV and the MasterCard CVC refer to
+the same value. CVV is used here to mean both CVV and CVC.</fn></p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> <ph>verb</ph> calculates a 1 - 5-byte value through
+the DES-encryption of the PAN, the card expiration date, and the service
+code using two data-encrypting keys or two MAC keys. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> <ph>verb</ph> calculates
+the CVV by the same method, compares it to the CVV supplied by the
+application (which reads the credit card's magnetic stripe) in the <synph><var>CVV_value</var></synph>,
+and issues a return code that indicates whether the card is authentic.</p>
+<p>The following verbs are used to process and verify credit card
+data:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/>)</li>
+</ul></p>
+</conbody></concept>

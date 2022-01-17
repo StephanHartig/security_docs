@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkdrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>PKA Decrypt</cmdname> command (offset <ph>X'011F'</ph>) to be
+enabled in the active role.</p>
+<p rev="shd3">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb also
+requires the following commands to be enabled in the active role to disallow the unwrapping of an
+encrypted key that has been formatted: </p>
+<table rev="shd3">
+<desc>
+<p outputclass="summary">Required commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry>X'020A'</entry>
+<entry><cmdname>PKA Decipher - Key Data Disallow PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry>X'020B'</entry>
+<entry><cmdname>PKA Decipher - Key Data Disallow ZERO-PAD</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph></entry>
+<entry>X'020C'</entry>
+<entry><cmdname>PKA Decipher - Key Data Disallow PKCSOAEP</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody></reference>

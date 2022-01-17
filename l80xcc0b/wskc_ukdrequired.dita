@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_ukdrequired">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> verb requires the
+<cmdname rev="shr2">Unique Key Derive</cmdname> command (offset X'01C8') to be enabled in the active
+role. </p>
+<p>In addition, these commands are required to be enabled in the active role, depending on the
+rule-array keyword or keywords: </p>
+<table id="ukd_required_table" pgwide="0" frame="all">
+<title>Required commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"
+/> verb</title>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><parmname>K3IPEK</parmname></entry>
+<entry>X'0335'</entry>
+<entry><cmdname rev="shr2">Unique Key Derive - K3IPEK</cmdname></entry>
+</row>
+<row>
+<entry><parmname>PIN-DATA</parmname></entry>
+<entry>X'01C9'</entry>
+<entry><cmdname rev="shr2">Unique Key Derive - Allow PIN-DATA processing</cmdname></entry>
+</row>
+<row>
+<entry><parmname>WRAP-ECB</parmname> or <parmname>WRAP-ENH</parmname> and default key-wrapping
+method setting does not match keyword </entry>
+<entry>X'01CA'</entry>
+<entry><cmdname rev="shr2">Unique Key Derive - Override default wrapping</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following access control points control the use of weak transport keys: </p>
+<ul>
+<li>To disallow the import of a key wrapped with a weaker transport key, the <cmdname rev="shr2"
+>Symmetric Key Import2 - disallow weak import</cmdname> command (offset X'032B') must be enabled in
+the active role.</li>
+<li>To receive a warning against the wrapping of a key with a weaker key, the <cmdname rev="shr2"
+>Warn when weak wrap - Transport keys</cmdname> command (offset X'032C') must be enabled in the
+active role. The <cmdname rev="shr2">Symmetric Key Import2 - disallow weak import</cmdname> command
+overrides this command.</li>
+</ul>
+<p>The following access control points control the use of weak master keys:</p>
+<ul>
+<li>To disable the wrapping of a key with a weaker master key, the <cmdname rev="shr2">Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</li>
+<li>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname
+rev="shr2">Warn when weak wrap - Master Keys</cmdname> command (offset X'0332') in the active role.
+The <cmdname rev="shr2">Prohibit weak wrapping - Master keys</cmdname> command overrides this
+command.</li>
+</ul>
+</section>
+</refbody>
+</reference>

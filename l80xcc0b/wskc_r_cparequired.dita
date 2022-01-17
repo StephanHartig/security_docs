@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_cparequired" xml:lang="en-us">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"></keyword>)<indexterm>required
+commands</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>This verb requires the commands shown in the following table to be enabled in the active role
+based on the keyword specified for the PIN-calculation method: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="9*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>IBM-PINO</kwd></synph></entry>
+<entry>X'00A4'</entry>
+<entry><cmdname>Clear PIN Generate Alternate - 3624 Offset</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>VISA-PVV</kwd></synph></entry>
+<entry>X'00BB'</entry>
+<entry><cmdname>Clear PIN Generate Alternate - VISA PVV</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>An enhanced PIN security mode, on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> is available for extracting PINs from
+encrypted PIN blocks. This mode only applies when specifying a PIN-extraction method for an <tm
+tmtype="reg" trademark="IBM">IBM</tm>  3624 PIN-block. To do this, you must enable the
+<cmdname>Enhanced PIN Security</cmdname> (offset X'0313') access control point in the default role.
+When activated, this mode limits checking of the PIN to decimal digits and a PIN length minimum of 4
+is enforced. No other PIN-block consistency checking will occur.</p></section>
+<section><p>An enhanced PIN security mode is available to implement restrictions required by the ANSI X9.8
+PIN standard. The restrictions are to accept only a <synph><var>PIN_profile</var></synph> variable
+that contains a PIN-block format of ISO-0 or ISO-3. To enforce these restrictions, you must enable
+the following access control points in the default role: <ul>
+<li><cmdname>ANSI X9.8 PIN - Enforce PIN block restrictions</cmdname> (<ph>X'0350'</ph>)</li>
+</ul></p><?Pub Caret 45?></section>
+<section><p>For more information, see <xref
+href="wskc_c_x98_rest.dita#l0wskc02_x98_rest"></xref>. <note>A role
+with offset X'0350' enabled also affects access control of
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword> and
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"></keyword> verbs.</note></p></section>
+<section><p>Whenever the <cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname> command
+(offset X'0356') is enabled in the active role, the <parmname>Decimalization_table</parmname>
+element of the <synph><var>data_array</var></synph> value must match one of the PIN decimalization
+tables that are in the active state on the coprocessor. Use of this command provides improved
+security and control for PIN decimalization tables. The <synph><kwd>VISA-PVV</kwd></synph>
+PIN-calculation method does not have a <parmname>Decimalization_table</parmname> element and is
+therefore not affected by this command.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is
+enabled in the domain role, the PIN block format in the <parmname>PIN_profile</parmname> parameter
+is not allowed to be <synph><var>ISO-1</var></synph>.</p></section>
+</refbody>
+</reference>
+<?Pub *0000004029?>

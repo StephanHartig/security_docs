@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="understand_symas" rev="sh16">
+<title>Symmetric and asymmetric master keys</title>
+<titlealts>
+<navtitle>Symmetric and asymmetric master keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Symmetric and asymmetric master
+keys</searchtitle>
+</titlealts>
+<shortdesc>Read the contained information on how <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> handles symmetric and asymmetric master
+keys.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>master key<indexterm>symmetric</indexterm><indexterm>asymmetric</indexterm></indexterm>
+<indexterm>symmetric master key</indexterm>
+<indexterm>asymmetric master key</indexterm>
+<indexterm>AES-MK</indexterm>
+<indexterm>APKA-MK</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>ASYM-MK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p rev="sh21i1">Currently a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node
+has four master keys, namely AES, APKA, DES, and PKA. The master key sizes and their wrapping
+methods are as shown in <xref href="#understand_symas/cca_master_keys" format="dita"/>.</p> 
+<table rev="sh21i1" id="cca_master_keys" pgwide="0" frame="all"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node wrapping methods</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node
+wrapping methods with three columns describing the master key, the key size and the wrapping
+method</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="*"/>
+<thead>
+<row>
+<entry>Master key</entry>
+<entry>Key size</entry>
+<entry>Wrapping method</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>AES</b></entry>
+<entry>32 bytes (256 bits)</entry>
+<entry>AESKW</entry>
+</row>
+<row>
+<entry><b>APKA</b></entry>
+<entry>32 bytes
+(256 bits)</entry>
+<entry>AESKW</entry>
+</row>
+<row>
+<entry><b>DES</b></entry>
+<entry>24 bytes (168 bits)</entry>
+<entry>Triple-DES</entry>
+</row>
+<row>
+<entry><b>PKA</b></entry>
+<entry>24 bytes (168 bits)</entry>
+<entry>Triple-DES</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p rev="sh21i1">The AES master key and the APKA master key are both 32-byte, 256-bit AES keys that wrap 
+or unwrap keys using the ANS X9.102:2020 AESKW algorithm.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> incorporates the following sets
+of master-key registers:</p>
+<ul>
+<li>The DES master-key register set is used to wrap and unwrap DES (symmetric) working keys.</li>
+<li>The PKA master-key register set is used to wrap and unwrap RSA (asymmetric) private working
+keys, or the object protection keys (OPKs) of the RSA working keys that have an OPK defined,
+excluding private key sections X'30' and X'31', which have their OPKs wrapped and unwrapped by the
+APKA master key.</li>
+<li>The AES master-key register set is used to wrap and unwrap AES (symmetric) fixed-length, and AES
+and HMAC variable-length, symmetric working keys.</li>
+<li>The APKA master-key register set is used to wrap and unwrap the Object Protection Key (OPK) that
+is itself used to wrap the key material of an Elliptic Curve Cryptography (ECC) key or the OPK of
+RSA private key sections X'30' and X'31'. ECC keys are asymmetric.</li>
+</ul>
+<p>The verbs that operate on the master keys permit you to specify a register set (with keywords
+AES-MK, APKA-MK, SYM-MK and ASYM-MK). For DES and PKA master keys, if applications that modify these
+master-key registers never explicitly select a register set, the master keys in the two register
+sets are modified in the same way and contain the same keys. However, if at any time you modify only
+one of the DES or PKA register sets, applications thereafter need to manage the two register sets
+independently. </p>
+</conbody>
+</concept>

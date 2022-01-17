@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdcpgacs" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> verb</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword></navtitle><?Pub
+Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb</searchtitle>
+</titlealts>
+<shortdesc>This verb extracts the customer-entered PIN from the input
+PIN block.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"></keyword>)<indexterm>extraction
+            rules</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>It extracts the PIN from the input PIN block according to the following
+rules:  <ul>
+<li>This verb supports the specification of a PIN extraction method
+for the 3624 and 3621 PIN block formats through the use of the <synph><var>rule_array</var></synph> keyword.
+The <synph><var>rule_array</var></synph>  points to an array of one
+or two 8-byte elements. The first element in the <i>rule_array</i> specifies
+the PIN calculation method. The second element in the <i>rule_array</i> (if
+specified)  indicates the PIN extraction method. Refer to the <xref
+href="wskc_r_cpa.dita#l0wskc02_cpa"></xref> for an explanation of
+PIN extraction method keywords.</li>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000001625?>

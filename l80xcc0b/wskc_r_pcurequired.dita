@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pcurequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the
+active role based on the permissible key-type, <synph><kwd>IPINENC</kwd></synph> or <synph><kwd>OPINENC</kwd></synph>,
+used in the decryption of the input PIN blocks.
+<table><desc><p outputclass="summary">Required
+commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</p></desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="8*"/>
+<colspec colname="col4" colwidth="15*"/>
+<thead>
+<row>
+<entry>PIN-block encrypting key-type</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+<entry>Comment</entry></row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>OPINENC</kwd></synph></entry>
+<entry><ph>X'00BC'</ph></entry>
+<entry><cmdname>PIN Change/Unblock - change EMV PIN with OPINENC</cmdname></entry>
+<entry>Required if either the <synph><var>new_reference_PIN_key</var></synph> or
+the <synph><var>current_reference_PIN_key</var></synph> are permitted to be an <synph><kwd>OPINENC</kwd></synph> key
+type.</entry></row>
+<row>
+<entry><synph><kwd>IPINENC</kwd></synph></entry>
+<entry><ph>X'00BD'</ph></entry>
+<entry><cmdname>PIN Change/Unblock - change EMV PIN with IPINENC</cmdname></entry>
+<entry>Required if either the <synph><var>new_reference_PIN_key</var></synph> or
+the <synph><var>current_reference_PIN_key</var></synph> are permitted to be an <synph><kwd>IPINENC</kwd></synph> key
+type.</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+<section><p>When a MAC-MDK or an ENC-MDK of key type <synph><kwd>DKYGENKY</kwd></synph> is specified with
+control vector bits (19 - 22) of <ph>B'1111'</ph>, the <cmdname>Diversified Key Generate - DKYGENKY
+- DALL</cmdname> command (offset <ph>X'0290'</ph>) must also be enabled in the active role.</p></section><section>
+<note>A role with offset <ph>X'0290'</ph> enabled can also
+use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb with a <synph><kwd>DALL</kwd></synph> key.</note></section>
+<section><p>An enhanced PIN security mode is available for extracting PINs from an  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3624 encrypted PIN-block using the
+<synph><kwd>PADDIGIT</kwd></synph> PIN-extraction method. This mode limits checking of the PIN to
+decimal digits, and a minimum PIN length of 4 is enforced; no other PIN-block consistency checking
+will occur. To activate this mode, enable the <cmdname>Enhanced PIN Security</cmdname> command
+(offset <ph>X'0313'</ph>) in the active role.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is
+enabled in the domain role, the PIN block format in the
+<parmname>new_reference_PIN_profile</parmname>, <parmname>current_reference_PIN_profile</parmname>,
+and <parmname>output_PIN_profile</parmname> parameters is not allowed to be ISO-1.</p></section>
+</refbody></reference>

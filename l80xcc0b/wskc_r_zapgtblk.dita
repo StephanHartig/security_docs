@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_zapgtblk">
+<title>Trusted blocks</title>
+ <titlealts>
+    <navtitle>Trusted blocks</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted blocks</searchtitle>
+  </titlealts>
+<shortdesc>A <i>key token</i> is a data structure that contains
+information about a key and usually contains a key or keys.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>trusted block</indexterm>
+<indexterm>external key token</indexterm>
+<indexterm>external key token</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>transport key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>A trusted block is an extension of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key tokens using new section identifiers.
+Trusted blocks are an integral part of a remote key-loading process. See <xref
+href="wskc_c_rkload.dita#l0wskc02_rkload"/>.</p></section>
+<section><p>In general, a key that is available to an application program or held in key storage is
+multiply-enciphered by some other key. When a key is enciphered by the CCA node's master key, the
+key is designated an internal key and is held in an internal key-token structure. Therefore, an
+<i>internal key token</i> or <i>internal trusted block</i> is used to hold a key and its related
+information for use at a specific <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+node.</p></section>
+<section><p>An <term>external key token</term> or <term>external trusted block</term> is used to communicate
+a key between nodes, or to hold a key in a form not enciphered by a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key. DES keys and PKA private-keys
+contained in an external key-token or external trusted block are multiply-enciphered by a
+<i>transport key</i>. In a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node, a
+transport key is a double-length DES key encrypting key <ph>(KEK)</ph>.</p></section>
+<section><p>Trusted blocks contain various items, some of which are optional, and some of which can be
+present in different forms. Tokens are composed of concatenated sections that, unlike <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> PKA key tokens, occur in no prescribed
+order.</p></section>
+<section><p>As with other <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key-tokens, both
+internal and external forms are defined: <ul>
+<li>An external trusted block contains a randomly generated confounder and a triple-length MAC key
+enciphered under a DES IMP-PKA transport key. The MAC key is used to calculate an ISO 16609 CBC mode
+TDES MAC of the trusted block contents. An external trusted block is created by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb. This verb can: <ol>
+<li>Create an inactive external trusted block</li>
+<li>Change an external trusted block from inactive to active</li>
+</ol>
+</li>
+<li>An internal trusted block contains a confounder and triple-length MAC key enciphered under a
+variant of the PKA master key. The MAC key is used to calculate a TDES MAC of the trusted block
+contents. A PKA master-key verification pattern is also included to enable determination that the
+proper master key is available to process the key. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> verb only operates on trusted blocks
+that are internal. An internal trusted block must be imported from an external trusted block that is
+active using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb.</li>
+</ul><note>Trusted blocks do not contain a private key section.</note></p></section>
+</refbody></reference>

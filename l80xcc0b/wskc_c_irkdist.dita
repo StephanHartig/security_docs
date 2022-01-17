@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc01_irkdist">
+<title>Improved remote key distribution</title>
+<titlealts>
+<navtitle>Improved remote key distribution</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Improved remote key
+distribution</searchtitle>
+</titlealts><shortdesc>New methods have been added for securely transferring symmetric
+encryption keys to remote devices, such as Automated Teller Machines
+(ATMs), PIN-entry devices, and point of sale terminals. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>remote key distribution</indexterm>
+<indexterm>key management</indexterm>
+<indexterm>symmetric key</indexterm>
+<indexterm>Automated Teller Machine (ATM)</indexterm>
+<indexterm>Hardware Security Module (HSM)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>These methods can also be used to transfer symmetric keys to another cryptographic system of any
+type, such as a different kind of Hardware Security Module (HSM) in an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> or non <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> computer server. </p>
+<p>This change replaces expensive human operations with network transactions
+that can be processed quickly and inexpensively. This method makes
+significant interoperability improvements to related cryptographic
+key-management functions.</p>
+<p>In <xref href="wskc_c_rkload.dita#l0wskc02_rkload"/>, an ATM scenario illustrates the operation
+of the new methods. Other uses of this method are also possible.</p>
+</conbody></concept>

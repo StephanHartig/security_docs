@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc140">
+<title>JNI version</title>
+  <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtpj"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)<indexterm>JNI version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtpj"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section rev="sh15">
+      <title>Format</title>
+      <codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtpj"/>(
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_token</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_type</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>rule_array_count</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>rule_array</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_value</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>master_key_verification_pattern_v03</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>reserved_2</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>reserved_3</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>control_vector</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>reserved_4</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>reserved_5</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>reserved_6</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>master_key_verification_pattern_v00</var></synph>);</codeblock>
+    </section>
+</refbody></reference>

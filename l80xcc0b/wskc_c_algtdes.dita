@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_algtdes" xml:lang="en-us">
+<title>Triple-DES ciphering algorithms</title>
+<titlealts>
+<navtitle>Triple-DES algorithms</navtitle><?Pub Caret 11?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Triple-DES ciphering
+algorithms</searchtitle>
+</titlealts>
+<shortdesc>A triple-DES (TDES) algorithm is used to encrypt keys,
+PIN blocks, and general data. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>triple-DES</indexterm><indexterm>TDES</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>Several techniques are employed: <dl>
+<dlentry>
+<dt>TDES ECB</dt>
+<dd>DES keys, when triple encrypted under a double-length DES key, are ciphered using an e-d-e
+scheme without feedback.</dd>
+</dlentry>
+<dlentry>
+<dt>TDES CBC</dt>
+<dd>Encryption of general data, and RSA section type <ph>X'08'</ph> CRT-format private keys and OPK
+keys, employs the scheme depicted in <xref href="#l0wskc02_algtdes/l0wskc02_tdescbc"/> and <xref
+href="#l0wskc02_algtdes/l0wskc02_tdescbd"/>. This is often referred to as <q>outer CBC mode.</q>
+<p>This CCA supports double-length DES keys for triple-DES data encryption using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs. The triple-length asymmetric
+master key is used to CBC encrypt CRT-format OPK keys.</p></dd>
+</dlentry>
+<dlentry>
+<dt>EDE<i>x</i> / DEDx</dt>
+<dd>CCA employs EDE<i>x</i> processes for encrypting several of the RSA private key formats (section
+types <ph>X'02'</ph>, <ph>X'05'</ph>, and <ph>X'06'</ph>) and the OPK key in section type
+<ph>X'06'</ph>. The EDE<i>x</i> processes make successive use of single-key DES CBC processes. EDE2,
+EDE3, and EDE5 processes have been defined, based on the number of keys and initialization vectors
+used in the process. See <xref href="#l0wskc02_algtdes/l0wskc02_figede"/> and <xref
+href="#l0wskc02_algtdes/l0wskc02_figded"/>. K1, K2, and K3 are true keys while <q>K4</q> and
+<q>K5</q> are initialization vectors. See <xref href="#l0wskc02_algtdes/l0wskc02_figede"/> and <xref
+href="#l0wskc02_algtdes/l0wskc02_figded"/>.</dd>
+</dlentry>
+</dl><fig expanse="column" id="l0wskc02_tdescbc"><title>Triple-DES CBC encryption process</title>
+<image href="wskc_algtdes1.jpg" width="550"><alt>Triple-DES CBC encryption process</alt></image>
+</fig><fig expanse="column" id="l0wskc02_tdescbd"><title>Triple-DES CBC decryption process</title>
+<image href="wskc_algtdes2.jpg" width="550"><alt>Triple-DES CBC decryption process</alt></image>
+</fig><fig expanse="column" id="l0wskc02_figede"><title>EDE algorithm</title>
+<image href="wskc_algtdes3.jpg" width="550"><alt>EDE algorithm</alt></image>
+</fig><fig expanse="column" id="l0wskc02_figded"><title>DED process</title>
+<image href="wskc_algtdes4.jpg" width="550"><alt>DED algorithm</alt></image>
+</fig>
+</p>
+</conbody>
+</concept>
+<?Pub *0000024547?>

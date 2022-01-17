@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_epg1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/></searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> <ph>verb</ph> formats a PIN and encrypts the PIN
+block. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>To generate the PIN, the verb uses one of the following PIN calculation methods: </p>
+<ul rev="sh18i2">
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN (IBM-PIN)</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> German Bank Pool Institution PIN (GBP-PIN)</li>
+<li>Interbank PIN (NL-PIN-1)</li>
+</ul></section>
+<section><p>To format the PIN, the verb uses one of the following PIN block
+formats: 
+<ul>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3621 format</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624 format</li>
+<li>ISO-0 format (same as the ANSI X9.8, VISA-1, and ECI-1 formats)</li>
+<li>ISO-1 format (same as the ECI-4 format)</li>
+<li>ISO-2 format</li>
+<li>ISO-3 format</li>
+<li rev="sh21i1">ISO-4 format</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 4704 encrypting PINPAD
+(<synph><kwd>4704-EPP</kwd></synph>) format</li>
+<li>VISA 2 format</li>
+<li>VISA 3 format</li>
+<li>VISA 4 format</li>
+<li>ECI-2 format</li>
+<li>ECI-3 format</li>
+</ul></p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="panexe_epoc_cert" xml:lang="en-us" rev="sh18i1">
+<title>Using panel.exe for verifying <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> epoch certificates</title>
+<titlealts>
+<navtitle><ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>: verify <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch certificates</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): panel.exe: verifying epoch
+certificates</searchtitle>
+</titlealts>
+<shortdesc>Using the <parmname>--epoc-cert-validate</parmname> parameter, the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility allows you to verify a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch certificate.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utilities<indexterm>panel.exe<indexterm>verifying <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch
+certificate</indexterm></indexterm></indexterm>
+<indexterm>panel.exe<indexterm>verifying <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch certificate</indexterm></indexterm>
+<indexterm>verifying <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch
+certificate<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>validating <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> epoch
+certificate<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>epoch certificate<indexterm>panel.exe</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This command pulls the certificates from the adapter down to the root certificate created at the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> factory, that validate the
+firmware levels, and then validates each certificate using the public key from the certificate below
+that one in the trust chain. The results are output to the command line. Here is an example of a
+successful run:</p>
+<screen><b>panel.exe --epoc-cert-validate</b>
+
+Epoch Cert Subject Name:
+[07C8F43AD7854F599EB21EE9DC3651CAAC44DF745886CF3D83A6487F4616E455] 32
+Signer Name:
+[55EB692CE3368F3DD1CCCA9115B6B50B51EDCF0BCB6B21F69734E44438DF991A] 32
+Named Cert Subject Name:
+[55EB692CE3368F3DD1CCCA9115B6B50B51EDCF0BCB6B21F69734E44438DF991A] 32
+Signer Name:
+[94A2D4FEC9A07AD42DF550BC64E43DE8273C1416A13C8DA0973D1B1ACB3F1C26] 32
+Named Cert Subject Name:
+[94A2D4FEC9A07AD42DF550BC64E43DE8273C1416A13C8DA0973D1B1ACB3F1C26] 32
+Signer Name:
+[A4CCE18EF3A923CD0D7480A51498DC567AB5B3323E38A3877F44F12248BBF8AD] 32
+Named Cert Subject Name:
+[A4CCE18EF3A923CD0D7480A51498DC567AB5B3323E38A3877F44F12248BBF8AD] 32
+Signer Name:
+[57004C966B69D1DE63F3B0F2E85C8115AC7557385C6B23605FA963E0D1EFAA81] 32
+Root cert has unused Cert section in do_DPK_work. (Expected).
+Named Cert Subject Name:
+[57004C966B69D1DE63F3B0F2E85C8115AC7557385C6B23605FA963E0D1EFAA81] 32
+Signer Name:
+[5F4717480B75B8BCBC224C62DFBD7A3B8987E54193D40A1A664FA221E5387123] 32
+
+Root cert has unused Cert section in getCert_pubTok. (Expected).
+./TKE_utils/panel.cpp:8518 pCertMeta->root_ca: [0x02]
+./TKE_utils/panel.cpp:8521 pCertMeta->issuing_segment: [0x00]
+./TKE_utils/panel.cpp:8522 pCertMeta->subject_segment: [0x00]
+Calling verifySig with Prod key.
+./TKE_utils/panel.cpp:8571 trustbits: [0x00] issuing_segment: [0x00] subject_segment: 
+                                      [0x00] root_ca: [2].
+---->> SUCCESS!! Chain of 5 certs VERIFIED rc [00000000] &lt;&lt;----
+</screen>
+</conbody>
+</concept>
+<?Pub *0000002489?>

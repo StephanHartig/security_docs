@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktb2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></searchtitle>
+</titlealts><shortdesc rev="sh18i2">Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb to assemble an external or internal AES or HMAC variable-length
+symmetric key-token in application storage from information that you supply. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)</indexterm>
+<indexterm>HMAC<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"
+/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"
+/><indexterm>HMAC</indexterm><indexterm>AES</indexterm></indexterm>
+<indexterm>AES<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"
+/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb assembles the information as a skeleton <ph rev="sh18i2">HMAC or AES key token.</ph>
+This skeleton token can be supplied to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb, which then provides a completed
+key token with the attributes of the skeleton along with a randomly generated key. These attributes
+become cryptographically bound to the key when it is enciphered.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb cannot assemble a
+usable key-token that contains an enciphered key. It can assemble an internal <ph rev="sh18i2">HMAC
+or AES key token</ph> that has either a clear key, usable for a limited number of services, or no
+key, which is only usable for passing to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb in order to receive an enciphered
+key.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb is a host-only verb and it does not use the
+cryptographic coprocessor. This verb does not perform cryptographic
+services on any key value. You cannot use this verb to change a key
+or to change the control vector related to a key.</p></section>
+</refbody></reference>

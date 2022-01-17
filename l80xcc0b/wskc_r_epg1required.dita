@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_epg1required">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/></searchtitle>
+</titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the commands, as shown in the following table, to be enabled in the active
+role based on the keyword specified for the PIN-calculation methods. </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>IBM-PIN</kwd></synph></entry>
+<entry><ph>X'00B0'</ph></entry>
+<entry><cmdname>Encrypted PIN Generate - 3624</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>GBP-PIN</kwd></synph></entry>
+<entry><ph>X'00B1'</ph></entry>
+<entry><cmdname>Encrypted PIN Generate - GBP</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>INBK-PIN</kwd></synph></entry>
+<entry><ph>X'00B2'</ph></entry>
+<entry><cmdname>Encrypted PIN Generate - Interbank</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+<section><p>An enhanced PIN security mode is available for formatting an encrypted PIN block into <tm
+trademark="IBM" tmtype="reg">IBM</tm>  3624 format using the <synph><kwd>PADDIGIT</kwd></synph>
+PIN-extraction method. This mode limits checking of the PIN to decimal digits, and a minimum PIN
+length of 4 is enforced; no other PIN-block consistency checking will occur. To activate this mode,
+enable the <cmdname>Enhanced PIN Security</cmdname> command (offset <ph>X'0313'</ph>) in the active
+role.</p></section>
+<section><p>Whenever the <cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname> command
+(offset <ph>X'0356'</ph>) command is enabled in the active role, the
+<parmname>Decimalization_table</parmname> element of the <synph><var>data_array</var></synph> value
+must match one of the PIN decimalization tables that are in the active state on the coprocessor. Use
+of this command provides improved security and control for PIN decimalization tables. The
+<synph><kwd>INBK-PIN</kwd></synph> PIN-calculation method does not have a
+<parmname>Decimalization_table</parmname> element and is therefore not affected by this command.</p>
+<p rev="sh21i1">When the <cmdname>Disallow translation from DES wrapping to weaker DES
+wrapping</cmdname> access control point (X'01C7') is enabled in the domain role, this service fails
+if the <parmname>outbound_PIN_encrypting_key_identifier</parmname> is stronger than the
+<parmname>PIN_generating_key_identifier</parmname>. </p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control point
+(X'032F') is enabled in the domain role, the PIN block format in the
+<parmname>PIN_profile</parmname> parameter is not allowed to be ISO-1.</p></section>
+</refbody></reference>

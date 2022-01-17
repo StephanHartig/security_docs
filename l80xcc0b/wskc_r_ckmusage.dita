@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ckmusage" xml:lang="en-us">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></searchtitle>
+</titlealts>
+<shortdesc>Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"></keyword>)<indexterm>usage
+notes</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>This verb produces an internal DATA token with a control
+ vector which is usable on the Cryptographic Coprocessor Feature.
+If a valid internal token is supplied as input to the verb in the <synph><var>target_key_identifier</var></synph> field, that token's
+ control vector will not be used in the encryption of the clear key
+value.</p><?Pub Caret 191?></section>
+</refbody>
+</reference>
+<?Pub *0000001119?>

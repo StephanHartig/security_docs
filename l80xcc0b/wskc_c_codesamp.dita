@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_codesamp" xml:lang="en-us">
+<title>Sample verb call routines</title>
+<titlealts>
+<navtitle>Sample verb call routines</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Sample verb call routines</searchtitle>
+</titlealts>
+<shortdesc>This appendix contains sample verb call routines for both
+C and <tm tmtype="tm" trademark="Java">Java</tm>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CCA sample program</indexterm><indexterm>sample
+verb calls</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<section>
+<note type="other" othertype="Important">The user must load the Symmetric Master Key before the verb
+calls complete successfully. Otherwise return code 12 and reason code 764 is returned.</note><p>To illustrate the practical application of CCA verb
+calls, this appendix describes the sample routines included with the
+RPM. A sample in C, and one in <tm tmtype="tm" trademark="Java">Java</tm> is
+included.</p></section>
+<section><p>The sample routines generate a Message Authentication
+Code (MAC) on a text string, and then verifies the MAC. To accomplish
+this, the routine: <ul>
+<li>Calls the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword>J)
+verb to create a MAC/MACVER key pair.</li>
+<li>Calls the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"></keyword>J)
+verb to generate a MAC on a text string with the MAC key.</li>
+<li>Calls the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"></keyword>J)
+verb to verify the text string MAC with the MACVER key.</li>
+</ul></p></section>
+<section><p>As you review the sample routines shown in <xref
+href="wskc_c_codesamp_c.dita#l0wskc02_codesamp_c/l0wskc02_code"></xref> and <xref
+href="wskc_c_codesamp_java.dita#l0wskc02_codesamp_java/l0wskc02_code_java"></xref>,
+refer to the chapters in this book for descriptions of the called
+verbs and their parameters. These verbs are listed in <xref
+href="#l0wskc02_codesamp/l0wskc02_codetab"></xref>. <table
+id="l0wskc02_codetab"><title>Verbs called by the sample routines</title>
+<desc><p outputclass="summary">Verbs called by the sample routines</p></desc>
+<tgroup cols="2"><colspec colname="col1"/><colspec colname="col2"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Verb</entry>
+<entry colname="col2">Entry point name for C and <tm tmtype="tm"
+trademark="Java">Java</tm> versions</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"></keyword></entry>
+<entry colname="col2"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword>J</entry>
+</row>
+<row>
+<entry colname="col1"> <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"></keyword></entry>
+<entry colname="col2"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"></keyword>J</entry>
+</row>
+<row>
+<entry colname="col1"> <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"></keyword></entry>
+<entry colname="col2"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"></keyword>J</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</conbody>
+</concept>
+<?Pub *0000004045?>

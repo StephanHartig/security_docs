@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_role_structs" xml:lang="en-us" rev="sh16">
+<title>Role structures</title>
+<titlealts>
+<navtitle>Role structures</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Role structures</searchtitle>
+</titlealts>
+<shortdesc>Read the description of  the data structures of a role, which controls the permitted
+operations a user can perform, and when those operations can be performed.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>role structures</indexterm></indexterm>
+<indexterm>role structures</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You can also use a defined default role. Its characteristics are described in <xref
+href="wskc_acodas_defrole_conts.dita#acodas_defrole_conts"/>.</p>
+</conbody>
+</concept>
+<?Pub *0000003873?>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_retcode">
+<title>Return codes</title>
+ <titlealts>
+    <navtitle>Return codes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Return codes</searchtitle>
+  </titlealts>
+<shortdesc>A return code provides a general indication of the results of verb
+processing. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>return code</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>A return code can have the values shown in <xref href="#l0wskc02_retcode/l0wskc02_rtcds2"/>.</p></section>
+<table id="l0wskc02_rtcds2">
+<title>Return code values</title><desc><p outputclass="summary">Return
+code values</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="21*"/>
+<thead>
+<row rowsep="1">
+<entry>Hex value</entry>
+<entry>Decimal value</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>00</entry>
+<entry>This return code indicates a normal completion
+of verb processing. To provide additional information, there are also
+nonzero reason codes associated with this return code.</entry></row>
+<row>
+<entry>04</entry>
+<entry>04</entry>
+<entry>This return code is a warning indicating the verb
+completed processing; however, an unusual event occurred. The event
+is most likely related to a problem created by the user or is a normal
+occurrence based on the data supplied to the verb.</entry></row>
+<row>
+<entry>08</entry>
+<entry>08</entry>
+<entry>This return code indicates the verb prematurely
+stopped processing. Generally, the application programmer needs to
+investigate the significance of the associated reason code to determine
+the origin of the problem. In some cases, due to transient conditions,
+retrying the verb might produce different results.</entry></row>
+<row>
+<entry>0C</entry>
+<entry>12</entry>
+<entry>This return code indicates the verb prematurely
+stopped processing. Either a coprocessor is not available or a processing
+error occurred. The reason is most likely related to a problem in
+the set up of the hardware or in the configuration of the software.</entry></row>
+<row>
+<entry>10</entry>
+<entry>16</entry>
+<entry>This return code indicates the verb prematurely
+stopped processing. A processing error occurred. If these errors persist,
+a repair of the coprocessor hardware or a correction to the coprocessor
+software might be required.</entry></row>
+</tbody>
+</tgroup>
+</table><section>
+<note>If an application receives a return code greater than
+4, an error occurred. In the case of an error, assume any output variables
+other than the return code and reason code are not valid, <ph>unless
+otherwise indicated in the description of verb processing.</ph></note></section>
+</refbody></reference>

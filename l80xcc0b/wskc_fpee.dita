@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbfpee">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/> verb is used
+to encrypt payment card data for the Visa Data Secure Platform (VDSP) processing.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/>)</indexterm></indexterm>
+<indexterm>Visa Data Secure Platform<indexterm>VSDP</indexterm></indexterm>
+<indexterm>VSDP<indexterm>Visa Data Secure Platform</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<refsyn><p rev="sh21i1">This service supports two options:</p>
+<ul rev="sh21i1">
+<li>The standard encryption option.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vfpe"/> (VFPE) option.</li>
+</ul>
+<p rev="sh21i1">To use this service, you must specify the following:</p>
+<ul rev="sh21i1">
+<li>The processing method Visa Data Secure Platform (Visa DSP).</li>
+<li>The key management method, either STATIC or DUKPT.</li>
+<li>The algorithm, which is limited to TDES.</li>
+<li>The mode, either CBC (for the standard encryption option) or Visa Format Preserving Encryption
+(VFPE).</li>
+<li>The plaintext to be encrypted.</li>
+<li>The character set of each field to be encrypted using rule-array keywords.</li>
+<li>The base derivation key and either the key serial number for DES-DUKPT or the AES-DUKPT
+derivation data for AES-DUKPT, or a double-length TDES key if STATIC key management is used. </li>
+<li>A compliance or non-compliance indicator for the check digit of the PAN to be processed. </li>
+</ul>
+<p rev="sh21i1">The service returns the encrypted fields and optionally, the DUKPT PIN key, if the DUKPT key
+management is selected and the PINKEY rule is specified.
+</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</refsyn>
+</refbody>
+</reference>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pki">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></searchtitle>
+  </titlealts>
+<shortdesc rev="sh20i2">Use this service to import an RSA, ECC, or QSA public-private key pair. A private key must be
+accompanied by the associated public key. The source PKA private-key either can be in the clear or it can
+be enciphered.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm><indexterm>QSA</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh20i2"><p>To import a PKA public-private key pair:</p><ul>
+<li>Identify the external RSA, ECC, or QSA key token to be imported using the source_key_identifier
+parameter. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> service to
+obtain the token or, if the key originates in a non-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> service.</li>
+<li>Use the <parmname>transport_key_identifier</parmname> parameter to identify the key used to
+encipher the source key token:<ul>
+<li>For an enciphered ECC key token, provide an AES key-encrypting key in a variable-length
+symmetric key-token. </li>
+<li>For an enciphered RSA key token, provide a key-encrypting key that can be used for import,
+either in a fixed-length DES key-token or a variable-length AES key token. The transport key must
+have its key usage set to allow IMPORT. A variable-length key must also allow wrapping of an RSA
+key.</li>
+<li>For a clear key token, provide a null transport key token. </li>
+</ul></li>
+</ul> 
+<p>If an RSA source key token that does not have an AES-enciphered Object Protection Key (OPK)
+contains an enciphered private key or its OPK data, the target key is protected by the RSA
+master-key. When an RSA private-key token contains a private-key section with a section identifier
+of X'30' or X'31', its AES OPK is used to encipher the private key and the ECC master key is used,
+in turn, to AES-encipher the OPK and its data. Likewise, if an ECC key token contains an enciphered
+private key, its AES OPK is used to encipher the private key and the ECC master key is used to
+encipher the OPK and its data.</p>
+<p>The result is returned in an internal PKA key-token identified by
+the <parmname>target_key_identifier</parmname> parameter. The verb also updates the
+<parmname>target_key_identifier_length</parmname> variable to the length of data returned in the
+<parmname>target_key_identifier</parmname> variable. </p><p>This service can also be used to import
+an active external trusted block. A trusted block does not contain a private key. Instead, it
+contains an encrypted confounder and triple-length MAC key. The MAC key is used to calculate an ISO
+16609 CBC-mode Triple-DES MAC of the trusted block contents. In an external trusted block, the MAC
+key is encrypted under a DES IMP-PKA key. </p><p>To import an external trusted block so that it can
+be used as input by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/>
+verb:</p><ul>
+<li>Identify the active external trusted block to be imported using the
+<parmname>source_key_identifer</parmname> parameter. Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> service with the ACTIVATE rule-array
+keyword to obtain the token.</li>
+<li>Use the <parmname>transport_key_identifier</parmname> parameter to identify the operational DES
+IMP-PKA key used to encipher the confounder and triple-length MAC key contained within the trusted
+block. This is an IMPORTER key-encrypting key with only its IMPORT key-usage bit on (CV bit 21 =
+B'1').</li>
+</ul><p>The confounder and MAC key are enciphered under the RSA master key and returned along with
+the updated MAC value in an internal trusted block identified by the
+<parmname>target_key_identifier</parmname> parameter. The service also updates the
+<parmname>target_key_identifier_length</parmname> variable to the length of the returned token or
+key label. </p>
+</section>
+</refbody></reference>

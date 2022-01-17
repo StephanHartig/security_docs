@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc257">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname rev="shr2">Remote Key Export - Gen or export a non-CCA node
+key</cmdname> command (offset X'0312') to be enabled in the active role.</p></section>
+<section>
+<p>The verb also requires the <cmdname>Key Generate - SINGLE-R</cmdname> command (offset X'00DB') to
+be enabled to replicate a single-length source key (either from a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES key-token or an RKX key-token). If
+authorized, key replication occurs if all of the following are true: </p>
+<ol>
+<li>The key token returned using the <synph><var>sym_encrypted_key_identifier</var></synph>
+parameter is a CCA DES key-token, as defined in the rule section identified by the
+<synph><var>rule_id</var></synph> parameter.</li>
+<li>The rule section identified by the <synph><var>rule_id</var></synph> parameter has a common
+export key parameters subsection defined, and the control vector in the subsection is 16 bytes in
+length with key-form bits of <ph>B'010'</ph> for the left half and <ph>B'001'</ph> for the right
+half.</li>
+<li>The token identified by the <synph><var>source_key_identifier</var></synph> parameter is single
+length, and is either a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES
+key-token or an RKX key-token.</li>
+</ol>
+<note>A role with X'00DB' enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb with the SINGLE-R key-length
+keyword.</note>
+<p>To enable the use of key-encrypting-keys with the NOCV option for export, this verb requires the
+<cmdname>NOCV KEK usage for export-related functions</cmdname> command (offset X'0300') to be
+enabled in the active role.</p>
+<p>To enable the use of key-encrypting-keys with the NOCV option for import, this verb requires the
+<cmdname>NOCV KEK usage for import-related functions</cmdname> command (offset X'030A') to be
+enabled in the active role.</p>
+</section>
+<section>
+<p>This verb also requires the following commands to be enabled in the active role:</p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="15*"/>
+<colspec colname="col2" colwidth="5*"/>
+<colspec colname="col3" colwidth="20*"/>
+<thead>
+<row valign="bottom">
+<entry>Rule-array keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>
+<lines>
+<synph><kwd>USECONFG</kwd></synph>
+<synph><kwd>WRAP-ECB</kwd></synph>
+<synph><kwd>WRAP-ENH</kwd></synph>
+<synph><kwd>ENH-ONLY</kwd></synph>
+</lines></entry>
+<entry>X'013F'</entry>
+<entry><cmdname>Remote Key Export - include RKX in default wrap config</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph><synph> or
+<kwd>WRAP-ENH</kwd></synph> and default key-wrapping method setting does not
+match keyword</entry>
+<entry>X'02BA'</entry>
+<entry><cmdname>Remote Key Export - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>Commands related to wrapping DES keys coincide with the addition of rule array keywords to
+specify key-wrapping method and translation control: </p>
+<ul>
+<li><cmdname>Remote Key Export - include RKX in default wrap config</cmdname> (offset
+X'013F')<p>Enable this command in the active role to allow any rule array keywords to be specified
+or, in the absence of a key-wrapping method keyword, to have the verb wrap the DES key using the
+default key-wrapping configuration (USECONFG) setting. Enabling X'013F' makes the verb behave in the
+same manner as other verbs that accept key-wrapping method and translation control
+keywords.</p><note>The purpose of offset X'013F' is to provide a way to maintain backward
+compatibility with the key-wrapping method used in releases before Release 4.4. To maintain backward
+compatibility with releases that do not accept key-wrapping method keywords, do not enable X'013F'
+in the active role.</note></li>
+<li><cmdname>Remote Key Export - Allow wrapping override keywords</cmdname> (offset X'02BA')<p>This
+command requires offset X'013F' to be enabled in the active role. Enable offset X'02BA' in the
+active role to allow a key-wrapping keyword to be specified that overrides the default key-wrapping
+configuration.</p></li>
+</ul>
+</section>
+<section>
+<p>When an existing key is exported into a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> fixed-length DES key-token (that is, offset
+18 in the selected trusted block rule section is X'01') and the <cmdname rev="shr2">Remote Key
+Export - include RKX in default wrap config</cmdname> command (offset X'013F') is not enabled in the
+active role (or the release is before Release 4.4), the DES key identified by the
+<parmname>sym_encrypted_key_identifier</parmname> parameter is wrapped based on the following
+criteria depending on whether the source key is an RKX key-token or a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> fixed-length DES key-token:</p>
+<ul>
+<li>Source key is an RKX key-token:<table><desc>
+<p outputclass="summary">Table with three columns describing if Source key is an RKX key-token</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="*"/>
+<thead>
+<row>
+<entry>Configuration setting of default wrapping method</entry>
+<entry>CV bit 56 of rule subsection X'0003' of selected trusted block rule section</entry>
+<entry>Wrapping method (and CV bit 56) of exported DES key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">WRAP-ECB (legacy)</entry>
+<entry>No CV (CV length = 0)</entry>
+<entry>WRAP-ECB (B'0')</entry>
+</row>
+<row>
+<entry>B'0' (not ENH-ONLY)</entry>
+<entry>WRAP-ECB (B'0')</entry>
+</row>
+<row>
+<entry>B'1' (ENH-ONLY)</entry>
+<entry>Error</entry>
+</row>
+<row>
+<entry morerows="2">WRAP-ENH (enhanced)</entry>
+<entry>No CV</entry>
+<entry>WRAP-ENH (B'0')</entry>
+</row>
+<row>
+<entry>B'0'</entry>
+<entry>WRAP-ENH (B'0')</entry>
+</row>
+<row>
+<entry>B'1'</entry>
+<entry>WRAP-ENH (B'1')</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>Source key is a CCA fixed-length DES key-token:<table><desc>
+<p outputclass="summary">Table with four columns describing if Source key is a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> fixed-length DES key-token</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="17*"/>
+<colspec colname="col3" colwidth="20*"/>
+<colspec colname="col4" colwidth="17*"/>
+<thead>
+<row>
+<entry>Source key wrapping method</entry>
+<entry>CV bit 56 of source key</entry>
+<entry>CV bit 56 of rule subsection X'0003' of selected trusted block rule section</entry>
+<entry>Wrapping method (and CV bit 56) of exported DES key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">WRAP-ECB (legacy)</entry>
+<entry morerows="2">B'0' (not ENH-ONLY)</entry>
+<entry>No CV (CV length = 0)</entry>
+<entry>WRAP-ECB (B'0')</entry>
+</row>
+<row>
+<entry>B'0' (not ENH-ONLY)</entry>
+<entry>WRAP-ECB (B'0')</entry>
+</row>
+<row>
+<entry>B'1' (ENH-ONLY)</entry>
+<entry>Error</entry>
+</row>
+<row>
+<entry morerows="5">WRAP-ENH (enhanced)</entry>
+<entry morerows="2">B'0'</entry>
+<entry>No CV</entry>
+<entry>WRAP-ENH (B'0')</entry>
+</row>
+<row>
+<entry>B'0'</entry>
+<entry>WRAP-ENH (B'0')</entry>
+</row>
+<row>
+<entry>B'1'</entry>
+<entry>WRAP-ENH (B'1')</entry>
+</row>
+<row>
+<entry morerows="2">B'1' (ENH-ONLY)</entry>
+<entry>No CV</entry>
+<entry>WRAP-ENH (B'0')</entry>
+</row>
+<row>
+<entry>B'0'</entry>
+<entry>Error</entry>
+</row>
+<row>
+<entry>B'1'</entry>
+<entry>WRAP-ENH (B'1')</entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+</ul>
+</section>
+</refbody></reference>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2exopimsldltlkeytwo">
+<title>Examples of OPIM single-length, double-length, and triple-length
+keys in two forms</title>
+  <titlealts>
+    <navtitle>Examples of OPIM single-length, double-length, and triple-length
+keys in two forms</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Examples of OPIM single-length,
+double-length, and triple-length keys in two forms</searchtitle>
+  </titlealts><shortdesc>The first two letters of the key form indicate the form that key
+type 1 parameter is in, and the second two letters indicate the form
+that key type 2 parameter is in.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>single-length key<indexterm>purpose</indexterm></indexterm>
+<indexterm>key<indexterm>single-length</indexterm></indexterm>
+<indexterm>key<indexterm>pair</indexterm></indexterm>
+<indexterm>pair of keys</indexterm>
+<indexterm>key type 1</indexterm>
+<indexterm>key type 2</indexterm>
+<indexterm>OPIM key form</indexterm>
+<indexterm>OPOP key form</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<codeblock> Key   Type Type   
+ Form   1    2
+
+ OPIM  DATA DATA  Use the OP form in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>. Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> with the
+                  OP form to communicate ciphertext and key with
+                  another cryptographic partner. Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> at a
+                  later time to use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> with the same
+                  key again.
+ OPIM  MAC  MAC   Single-length <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> key. Use the OP form in
+                  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/>. You have no corresponding <ph>verb</ph> MACVER key,
+                  but you can call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb with
+                  the MAC key directly. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> <ph>verb</ph>
+                  and then compute the MAC again using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> 
+                  verb, which compares the MAC
+                  it generates with the MAC supplied with the message
+                  and issues a return code indicating whether they
+                  compare.</codeblock>
+</conbody></concept>

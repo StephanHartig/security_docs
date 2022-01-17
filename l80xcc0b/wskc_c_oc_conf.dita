@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<concept id="ocryptoki_conf" xml:lang="en-us">
+<title>Configuring <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> support</title>
+<titlealts>
+<navtitle>Configuration</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Configuring <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> support</searchtitle>
+</titlealts>
+<shortdesc>After installing <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>,
+you must configure tokens, start a daemon, and then initialize the tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/><indexterm>configuring</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/><indexterm>configuring</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> can handle several tokens
+with support for different hardware devices or software solutions. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> interacts with the host part of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccalib"/>.</p>
+<p otherprops="pdf">Perform the following tasks to configure the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> enablement:<ul otherprops="pdf">
+<li><xref href="wskc_r_oc_conf_file.dita#ocryptoki_conffile"/></li>
+<li><xref href="wskc_t_oc_strt_deamon.dita#oc_strt_deamon"/></li>
+<li><xref href="wskc_r_oc_ccatok_init.dita#ccatok_init"/></li>
+<?Pub Caret 1?>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000001931?>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="understand_estabmks" xml:lang="en-us" rev="sh16">
+<title>Establishing master keys</title>
+<titlealts>
+<navtitle>Establishing master keys</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Establishing master keys </searchtitle>
+</titlealts>
+<shortdesc rev="sh16i1">The preferred and most secure method of establishing master keys in the
+coprocessor is to use a Trusted Key Entry (TKE) workstation. The TKE leverages user smart cards to
+establish a secure connection all the way to the firmware in the coprocessor, with a unique session
+key. Your key parts are secured from the smart card all the way to the target coprocessor with this
+solution.</shortdesc>
+<?Pub Caret 7?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>establishing master keys</indexterm>
+<indexterm>master keys<indexterm>establishing</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>An AES master key is established from clear key parts (components). An APKA master key is also
+established from clear key parts.</p>
+<p>DES and PKA master keys, on the other hand, are established in one of these ways:</p>
+<ul>
+<li>from clear key parts</li>
+<li>through random generation internal to the coprocessor</li>
+</ul>
+<section>
+<title>Establishing a master key from clear information</title>
+<p>Individual key parts are supplied as clear information, and the parts are exclusive-ORed within
+the cryptographic engine. Knowledge of a single part gives no information about the final key when
+multiple, random-valued parts are exclusive-ORed.</p>
+<p>A common technique is to record the values of the parts (typically on paper or diskette) and
+independently store these values in locked safes. When installing the master key, individuals
+trusted to not share the key-part information, retrieve the parts and enter the information into the
+cryptographic engine. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/>
+verb for this operation.</p>
+<p>Entering the first and subsequent parts is authorized by two different control points so that a
+cryptographic engine, the coprocessor, can enforce that two different roles, and thus profiles, are
+activated to install the master-key parts. This requires that roles exist that enforce this
+separation of responsibility.</p>
+<p>Setting the master key uses a unique command with its own control point. You can set up the
+access-control system to require the participation of at least three individuals or three groups of
+individuals.</p>
+<p>You can check the contents of any of the master-key registers, and the key parts as they are
+entered into the new-master-key register, using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb. The verb performs a one-way
+function on the key-of-interest, the result of which is either returned or compared to a known
+correct result.</p>
+</section>
+<section><title>Establishing a DES or PKA master key from an internally generated random
+value</title><indexterm>random generation of a new master-key</indexterm><indexterm>master
+key<indexterm>random generation of a new master-key</indexterm></indexterm><p>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb can be used to randomly generate a
+new DES or PKA master key within the cryptographic engine. The value of the new master-key is not
+available outside of the cryptographic engine. The verb does not support random generation of an AES
+master key.</p><p>This random method, which is a separately authorized command invoked through use
+of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb, ensures that no
+one has access to the value of the master key. <ph rev="sh16i1">Randomly generating a master key is
+useful when keys shared with other nodes are distributed using public key techniques, or when DES
+transport keys are established between nodes. In these cases, there is no need to reestablish a
+master key with the same value. In general, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> does not recommend to use a random master
+key, because workload sharing and backup solutions become very difficult.</ph></p></section>
+</conbody>
+</concept>
+<?Pub *0000002065?>

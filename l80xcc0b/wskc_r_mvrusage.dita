@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mvrusage">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>To verify a MAC in one call, specify the <synph><kwd>ONLY</kwd></synph> keyword
+on the segmenting rule keyword for the <synph><var>rule_array</var></synph> parameter.
+For two or more calls, specify the <synph><kwd>FIRST</kwd></synph> keyword for the
+first input block, <synph><kwd>MIDDLE</kwd></synph> for intermediate blocks (if any),
+and <synph><kwd>LAST</kwd></synph> for the last block.</p></section>
+<section><p>For a given text string, the MAC resulting from the verification
+process is the same regardless of how the text is segmented or how
+it was segmented when the original MAC was generated.</p></section>
+</refbody></reference>

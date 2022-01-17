@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="weak_pin_table" rev="sh15">
+  <title>Weak PIN table</title>
+  <titlealts>
+    <navtitle>Weak PIN table</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Weak PIN table</searchtitle>
+  </titlealts>
+  <shortdesc>The DK PIN methods support the use of a table of weak PINs.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>weak PIN table<indexterm>TKE workstation</indexterm></indexterm>
+        <indexterm>control vector</indexterm>
+<indexterm>TKE workstation<indexterm>for administering weak PIN tables</indexterm></indexterm>
+<indexterm>manage weak PIN tables</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>Services that generate PINs compare the generated PIN against the table and if the PIN is in
+      the table, the service generates a different PIN. Services that change PINs compare the new
+      PIN against the table and if the new PIN is in the table, the service fails. </p>
+    <p>Weak PIN tables can be stored in the cryptographic coprocessors for use by callable services.
+      Only tables that have been activated can be used. A TKE Workstation is required to manage the
+      tables in the coprocessors.</p>
+<p>A Trusted Key Entry workstation (TKE) is required to administer the weak PIN tables for each
+adapter. In the TKE documentation and user interface, each domain has a restricted PIN table. The
+corresponding tab is called <uicontrol>Domain Restricted PINs</uicontrol>. The user may activate,
+load, and remove PINs from the weak PIN tables on a per-domain basis. </p>
+    <note>All coprocessors must have installed the same table of weak PINs.</note>
+  </conbody>
+</concept>

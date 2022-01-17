@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_aboutdoc" xml:lang="en-us">
+<title>About this document</title>
+<shortdesc>The presented information describes how to use a variety of services for cryptography and
+data-security provided in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>).</shortdesc><?Pub Caret 148?>
+<prolog><metadata>
+<keywords><indexterm>Crypto Express5 feature</indexterm>
+<indexterm>Crypto Express6 feature</indexterm>
+<indexterm>Crypto Express7 feature</indexterm>
+<indexterm>CEX5C</indexterm>
+<indexterm>CEX6C</indexterm>
+<indexterm>CEX7C</indexterm>
+<indexterm>coprocessor mode</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor
+mode</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services perform
+cryptographic operations using the following adapters in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor mode: <ul>
+<li rev="sh20i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Crypto Express7
+(CEX7C),  Feature Code 0898 or 0899</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Crypto Express6 (CEX6C),
+Feature Code 0893</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Crypto Express5 (CEX5C),
+Feature Code 0890</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Crypto Express4 (CEX4C),
+Feature Code 0865</li>
+</ul> See <xref href="wskc_c_ch1concur.dita#l0wskc02_ch1concur"/> for details.</p>
+<p>This publication is for planning and programming purposes only.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host software provides an
+application programming interface through which applications request secure, high-speed
+cryptographic services from the hardware cryptographic features.</p>
+<p>Applications linked with prior <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+host software will continue to function if the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host software is upgraded in place.
+However, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> always recommends full
+testing of upgrades before implementing production roll-out. </p>
+<p>For the supported environments and product ordering information, see:
+<codeblock><xref conref="wskc_conref-l0wskc04.dita#links/cardsite"/></codeblock></p>
+</conbody>
+</concept>
+<?Pub *0000002258?>

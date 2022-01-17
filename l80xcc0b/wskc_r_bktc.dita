@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_bktc" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> verb to
+re-encipher a DES or AES key from encryption under the old master-key to
+encryption under the current master-key and to update the keys in internal DES or AES
+key-tokens.</shortdesc><?Pub
+Caret 182?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section> <note><ol>
+<li>An application system is responsible for keeping all of its keys
+in a usable form. When the master key is changed, the <ph><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></ph> implementations
+can use an internal key that is enciphered by either the current or
+the old master-key. Before the master key is changed a second time,
+it is important to have a key re-enciphered under the current master-key
+for continued use of the key. Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"></keyword> verb
+to re-encipher such a keys.</li>
+<li>Previous implementations of <tm tmtype="reg" trademark="IBM">IBM</tm> CCA
+products had additional capabilities with this verb such as deleting
+key records and key tokens in key storage. Also, use of a wild card
+(*) was supported in those implementations. </li>
+</ol> </note></section>
+</refbody>
+</reference>
+<?Pub *0000002365?>

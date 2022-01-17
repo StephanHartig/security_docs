@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc99">
+<title>JNI version</title>
+ <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdhJ"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)<indexterm>JNI version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdhJ"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section><title>Format</title>
+<codeblock>public native void  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdhJ"/>(
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>rule_array_count</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>rule_array</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>private_key_identifier_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>private_key_identifier</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>private_KEK_key_identifier_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>private_KEK_key_identifier</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>public_key_identifier_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>public_key_identifier</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>chaining_vector_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>chaining_vector</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>party_info_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>party_info</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>key_bit_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_1_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>reserved_1</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_2_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>reserved_2</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_3_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>reserved_3</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_4_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>reserved_4</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>reserved_5_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>reserved_5</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>output_KEK_key_identifier_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>output_KEK_key_identifier</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>   <synph><var>output_key_identifier_length</var></synph>,
+          	<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>             <synph><var>output_key_identifier</var></synph>);
+</codeblock></section>
+</refbody></reference>

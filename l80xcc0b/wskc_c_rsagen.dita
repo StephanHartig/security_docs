@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_rsagen">
+<title>RSA key-pair generation</title>
+<titlealts>
+<navtitle>RSA key-pair generation</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA key-pair generation</searchtitle>
+</titlealts><shortdesc>RSA key-pair generation is determined based on user input of the
+modulus bit length, public exponent, and key type. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RSA key-pair generation</indexterm>
+<indexterm>key pair generation</indexterm>
+<indexterm>RSA key generation</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The output is based on creating primes <i>p</i> and <i>q</i> in conformance with ANSI X9.31 requirements
+as follows: 
+<ul>
+<li>prime <i>p</i> bit length = ((modulus_bit_length
++1)/2)</li>
+<li>prime <i>q</i> bit length = modulus_bit_length
+- <i>p</i>_bit_length</li>
+<li><i>p</i> and <i>q</i> are randomly
+chosen prime numbers</li>
+<li><i>p</i> &gt; <i>q</i></li>
+<li>The Rabin-Miller Probabilistic Primality Test is iterated 8 times
+for each prime. This test determines that a false prime is produced
+with probability no greater then 1/4<sup>c</sup>,
+where <i>c</i> is the number of iterations. Refer
+to the ANSI X9.31 standard and see the section entitled <q>Miller-Rabin
+Probabilistic Primality Test.</q></li>
+<li>Primes <i>p</i> and <i>q</i> are
+relatively prime with the public exponent.</li>
+<li>Primes <i>p</i> and <i>q</i> are
+different in at least one of the first 100 most significant bits,
+that is, |<i>p</i>-<i>q</i>| &gt; 2<sup>(prime bit length - 100)</sup>. For example,
+when the modulus bit length is 1024, then both primes bit length are
+512 bits and the difference of the two primes is |<i>p</i>-<i>q</i>| &gt; 2<sup>412</sup>.</li>
+</ul></p>
+<p>
+<ol>
+<li>For each key generation, and for any size of key, the PKA manager
+seeds an internal FIPS-approved, SHA-1 based psuedo random number
+generator (PRNG) with the first 24 bytes of information that it receives
+from three successive calls to the random number generator (RNG) manager's
+PRNG interface.  </li>
+<li>The RNG manager can supply random number in two ways, but with
+the CCA Support Program only one way is used, namely, the PRNG method.
+ The PKA manager seeds an internal FIPS-approved, SHA-1 based PRNG
+with 24 bytes obtained.  
+<p>The RNG manager can respond to requests
+for random numbers from other processes with such responses interspersed
+between responses to PKA manager requests.  An RSA key is generated
+from random information obtained from two cascaded SHA-1 PRNGs.</p>  </li>
+<li>An RSA key is based on one or more 24-byte seeds from the RNG
+manager source, depending on the dynamic mix of tasks running inside
+the coprocessor.</li>
+</ol> </p>
+<p>There exists a system RNG manager (ANSI X9.31 compliant) that is
+used as the source for pseudo random numbers.  The PKA manager also
+has a PRNG that is DSA compliant for generating primes.  The PKA manager
+PRNG is re-seeded from the system RNG manager, for every new key pair
+generation, which is for every generation of a public/private key
+pair.</p>
+</conbody></concept>

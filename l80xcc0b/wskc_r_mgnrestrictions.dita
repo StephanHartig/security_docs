@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mgnrestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>It might seem intuitive that a <synph><kwd>DATAM</kwd></synph> key should also be
+usable for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb, and a <synph><kwd>DATAMV</kwd></synph> key for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb,
+with the CPACF exploitation layer.  However, this would violate the
+security restrictions imposed by the user when the user creates a
+key of type <synph><kwd>DATAM</kwd></synph> or <synph><kwd>DATAMV</kwd></synph>. A DES key that has
+been translated for use with the CPACF (see <xref href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"/>) can be used with CPACF DES encrypt and
+decrypt operations, an operation that is by definition not allowed
+for a <synph><kwd>DATAM</kwd></synph> or <synph><kwd>DATAMV</kwd></synph> key type. Also note that by
+definition both through <tm trademark="z/OS" tmtype="reg">z/OS</tm> CCA-ICSF
+and in this S390 <tm trademark="Linux" tmtype="tm">Linux</tm> CCA
+access layer, a <synph><kwd>DATA</kwd></synph> key of 16 bytes or 24 bytes in length
+is restricted from use with the <synph><kwd>X9.19OPT</kwd></synph> and <synph><kwd>EMVMACD</kwd></synph> <synph><var>rule_array</var></synph> keyword
+specified MAC algorithms.  The only available MAC algorithm for a
+16-byte or 24-byte <synph><kwd>DATA</kwd></synph> key is the TDES-MAC algorithm.</p></section>
+<section>
+<p>Also note that the CPACF exploitation layer is activated only for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> calls that specify the
+<synph><kwd>ONLY</kwd></synph>
+<synph><var>rule_array</var></synph> keyword for segmenting control (this is the default segmenting
+control if no segmenting control <synph><var>rule_array</var></synph> keyword is specified). The
+reason for this is that the intermediate MAC context for normal <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> calls to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> is protected by the adapter Master Key.
+Because the same security cannot be provided for intermediate results from the host-based CPACF
+exploitation layer (they are returned in the clear by the CPACF) the
+<synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>, and
+<synph><kwd>LAST</kwd></synph> segmenting control keywords will direct operations to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>.</p>
+<note rev="sh20i1">Support for three-key Triple-DES keys is not available in releases before Release
+5.4 and Release 6.2. Beginning with Release 5.4 and Release 6.2, this verb supports triple-length
+DES keys. For a list of supported three-key Triple-DES key types beginning with Release 5.4 and
+Release 6.2, see <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"
+/>.</note>
+</section>
+</refbody></reference>

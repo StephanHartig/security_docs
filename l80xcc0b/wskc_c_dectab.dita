@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_dectab">
+<title>Decimalization tables</title>
+<titlealts>
+<navtitle>Decimalization tables</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Decimalization tables</searchtitle>
+</titlealts><shortdesc>Decimalization tables can be loaded in the coprocessors to restrict
+attacks using modified tables. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>Decimalization tables</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The management of the tables requires a TKE workstation.</p>
+<p>These verbs make use of the stored decimalization tables:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)</li>
+</ul></p>
+<p>The <cmdname>ANSI X9.8 PIN - Use stored decimalization table only</cmdname> (offset
+<ph>X'0356'</ph>) access control point is used to restrict the use of the stored decimalization
+tables. When the access control point is enabled, the table supplied by the verb will be compared
+against the active tables stored in the coprocessor. If the supplied table does not match any of the
+active tables, the request will fail.</p>
+<p>A TKE workstation (Version 7.1 or later) is required to manage
+the PIN decimalization tables. The tables must be loaded and then
+activated. Only active tables are checked when the access control
+point is enabled.</p>
+<note>CCA routes work to all active coprocessors based on
+workload. All coprocessors must have the same set of decimalization
+tables for the decimalization table access control point to be effective.</note>
+</conbody></concept>

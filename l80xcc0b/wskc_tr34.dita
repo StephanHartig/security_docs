@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_ch10" xml:lang="en-us">
+<title>TR-34 symmetric key management</title>
+<titlealts>
+<navtitle>TR-34 symmetric key management</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 symmetric key
+management</searchtitle>
+</titlealts>
+<shortdesc>This section provides information on verbs for the ANSI TR-34 protocol for key
+distribution.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34 symmetric keys<indexterm>management</indexterm></indexterm>
+<indexterm>managing TR-34 symmetric keys</indexterm>
+<indexterm>ANSI TR-34 protocol</indexterm>
+<indexterm>TR-34 protocol</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The verbs that support the TR-34 key distribution protocol are: <ul>
+<li><xref href="wskc_tr34_BindBegin.dita"/></li>
+<li><xref href="wskc_tr34_BindComplete.dita"/></li>
+<li><xref href="wskc_tr34_Distribution.dita"/></li>
+<li><xref href="wskc_tr34_Receive.dita"/></li>
+</ul></p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000003278?>

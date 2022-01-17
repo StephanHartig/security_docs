@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpi2required">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/></searchtitle>
+</titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="8*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="14*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph> and <synph><kwd>MIN3PART</kwd></synph></entry>
+<entry><ph>X'0297'</ph></entry>
+<entry><cmdname>Key Part Import2 - Load first key part,  require 3 key parts</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph> and <synph><kwd>MIN2PART</kwd></synph></entry>
+<entry><ph>X'0298'</ph></entry>
+<entry><cmdname>Key Part Import2 - Load first key part,  require 2 key parts</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph> and <synph><kwd>MIN1PART</kwd></synph></entry>
+<entry><ph>X'0299'</ph></entry>
+<entry><cmdname>Key Part Import2 - Load first key part,  require 1 key parts</cmdname></entry>
+</row>
+<row>
+<entry morerows="2"><synph><kwd>ADD-PART</kwd></synph></entry>
+<entry><ph>X'029A'</ph></entry>
+<entry><cmdname>Key Part Import2 - Add second of 3 or more key parts</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'029B'</ph></entry>
+<entry><cmdname>Key Part Import2 - Add last required key part</cmdname></entry>
+</row>
+<row>
+<entry><ph>X'029C'</ph></entry>
+<entry><cmdname>Key Part Import2 - Add optional key part</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>COMPLETE</kwd></synph></entry>
+<entry><ph>X'029D'</ph></entry>
+<entry><cmdname>Key Part Import2 - Complete key</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="shr2">To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p rev="shr2">To receive a warning when wrapping a key with a weaker master key, enable the
+<cmdname>Warn when weak wrap - Master keys</cmdname> command (offset X'0332') in the active role.
+The <cmdname>Prohibit weak wrapping - Master keys</cmdname> command overrides this command.</p></section>
+</refbody></reference>

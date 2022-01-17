@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_install_rpm_ksi" xml:lang="en-us">
+<title>Using panel.exe for key storage initialization</title>
+<titlealts>
+<navtitle>Using panel.exe for key storage initialization </navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using panel.exe for key storage
+initialization</searchtitle>
+</titlealts>
+<shortdesc>Each application using <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+typically creates key objects that are stored in the host, protected by the master key stored inside
+the card. Perform the steps described in this topic for key storage initialization.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<ol>
+<li>The default locations for the files are setup by the <ph rev="sh18i2"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> package</ph> in environment variables added
+in the new profile files <codeph>/etc/profile.d/csulcca.sh</codeph> and
+<codeph>/etc/profile.d/csulcca.csh</codeph> during installation. Key storage is unsupported without
+a master key loaded, so <synph><kwd>Master key load</kwd></synph> (Step <xref
+href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_install_rpm_mkl"/>) must be completed before
+this step. The utility <cmdname>panel.exe</cmdname> can be used to initialize both the default key
+storage and any separate key storage you might want to set up. The full topic is too lengthy for
+this explanation (see the key storage topics elsewhere in this manual, including the verb <xref
+href="wskc_r_ksi.dita#l0wskc02_ksi"/>). In brief, an application can specify a particular key
+storage location. That non-default key storage can be initialized now (or later) by using
+<cmdname>panel.exe</cmdname> or with a program using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/> verb. <?Pub Caret 63?></li>
+<li>The key storage environment variables in the default user profile
+(<codeph>/etc/profile.d/csulcca.sh</codeph>) are changed at installation time to point to the
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/keys/ path. There is one
+set of environment variables for a profile. <ph rev="sh18i2">Users can override this by setting a
+local profile in their home <codeph> .profile</codeph> file that sets the environment variables
+differently.</ph></li>
+<li>Key storage ownership <p>The default key storage files are actually partially created (but not
+fully initialized) during the master key load process. This means the ownership and permissions of
+those files might have to be changed for them to be fully initialized by the user associated with
+the application that uses the key storage files.</p><p>Because of the mutually exclusive nature of
+the master key administrator groups, there can be some harmless access errors reported to the system
+log during master key load. The example users created previously in <synph><kwd>Master key
+load</kwd></synph> Step <xref href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_mkls7a3"
+>7.3)a)</xref> avoids this. You do not need to fix key storage ownership because they were all
+created with the primary group set to <codeph>cca_admin</codeph> (the -g argument to
+<cmdname>useradd</cmdname>). By doing this, the first master key load creates the key storage files
+with group set to <codeph>cca_admin</codeph> and subsequent users all have membership in that group.
+You still might want to fix the owner of default key storage at the end to be the
+<codeph>root</codeph> user, but the group membership solves the access issue.</p>
+<p>Typically, the <codeph>root</codeph> user needs to fix the ownership and permissions. We
+recommend that the owner of key storage should be the <codeph>root</codeph> user, and that the group
+be <codeph>cca_admin</codeph> (<codeph>cca_admin</codeph> group is created during the <ph
+rev="sh18i2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> package</ph> install
+process). We recommend that the permissions be set to 660, which is <codeph>rw</codeph> for owner
+(<codeph>root</codeph>), <codeph>rw</codeph> for group (<codeph>cca_admin</codeph>), and
+<codeph>&lt;none&gt;</codeph> for everyone else, for security. Then add the application user to the
+group <codeph>cca_admin</codeph> with the appropriate procedure detailed in <synph><kwd>Master key
+load</kwd></synph> Step <xref href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_mkls7aaa"
+/>.</p><p>To be able to use <filepath>/opt/IBM/</filepath><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/<cmdname>panel.exe</cmdname>, the user must
+be either root OR a member of the <codeph>cca_admin</codeph> group (the owner.group of
+<codeph>/usr/lib64/libcsulccamk.so</codeph>). The reasons for the separate
+<codeph>cca_admin</codeph> group are to allow one owner of
+<codeph>/usr/lib64/libcsulccamk.so</codeph>, and to allow use of <cmdname>panel.exe</cmdname>
+without allowing any of the master key processing calls.</p></li>
+<li>Key storage initialization with <cmdname>panel.exe</cmdname>. This is the default. <ol>
+<li>Ensure that the permissions to the default location (<filepath>/opt/IBM/</filepath><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/keys/) allow your user to perform
+key storage initialization.</li>
+<li>Initialize key storage (DES is where DES key tokens are kept, AES is where AES key tokens are
+kept, and PKA is for all the RSA public/private internal key tokens). <p rev="sh18i2"
+><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen>
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=AES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=DES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=PKA --ks-init
+</screen></p><p
+rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy
+syntax</b></p><screen>
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t AES -i
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t DES -i
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe -t PKA -i
+</screen></li>
+</ol></li>
+<li>Key storage initialization with <cmdname>panel.exe</cmdname> (non-default) <ol>
+<li>Ensure that you are using the account that uses the key storage. If you are not, you must fix
+its ownership and permissions later.</li>
+<li>Initialize all types of key storage (DES is where DES key tokens will be kept, AES is where AES
+key tokens will be kept, PKA is for all the RSA public/private internal key tokens). Use a different
+name for AES, DES, and PKA, because the second initialization would overwrite the first if different
+names are not used. Export new environment variables in the session where you will initialize the
+key storage (and where you sill use it), then initialize key storage again: <p rev="sh18i2"
+><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen>
+export CSUAESDS=&lt;AES file name&gt;
+export CSUDESDS=&lt;DES file name&gt;
+export CSUPKADS=&lt;PKA file name&gt;
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=AES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=DES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=PKA --ks-init
+</screen></p><p
+rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy
+syntax</b></p><screen>
+export CSUAESDS=&lt;AES file name&gt;
+export CSUDESDS=&lt;DES file name&gt;
+export CSUPKADS=&lt;PKA file name&gt;
+/opt/IBM/CCA/bin/panel.exe -t AES -i
+/opt/IBM/CCA/bin/panel.exe -t DES -i
+/opt/IBM/CCA/bin/panel.exe -t PKA -i
+</screen><p
+rev="sh18i2">For example, if you entered the following commands in default syntax:
+<screen>
+export CSUAESDS=/tmp/a
+export CSUDESDS=/tmp/d
+export CSUPKADS=/tmp/p
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=AES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=DES --ks-init
+/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe --ks-type=PKA --ks-init
+</screen></p><p>these
+files would be created:</p><pre>
+/tmp/a
+/tmp/a.NDX
+/tmp/d
+/tmp/d.NDX
+/tmp/p
+/tmp/p.NDX</pre></li>
+</ol></li>
+</ol>
+</conbody>
+</concept>
+<?Pub *0000008042?>

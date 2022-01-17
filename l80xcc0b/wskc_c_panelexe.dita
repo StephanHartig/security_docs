@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_panelexe" xml:lang="en-us">
+<title>The panel.exe utility</title>
+<titlealts>
+<navtitle>The panel.exe utility</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): The panel.exe utility</searchtitle>
+</titlealts>
+<shortdesc>The <cmdname>panel.exe</cmdname> utility is installed by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> install package or RPM. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm><indexterm>master key</indexterm>
+<indexterm>key storage file</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>It is installed to this path in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> system:
+<codeblock>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe</codeblock><?Pub Caret 10?></p>
+<p>The <cmdname>panel.exe</cmdname> utility numbers cards from card0 to card63, while
+verbs such as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"></keyword> number
+cards from CRP01 to CRP64, and therefore card0 corresponds to CRP01,
+card1 corresponds to CRP02, and so forth.</p>
+</conbody>
+</concept>
+<?Pub *0000001573?>

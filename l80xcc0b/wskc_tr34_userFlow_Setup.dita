@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_userFlow_Setup" xml:lang="en-us">
+<title>Setup</title>
+<titlealts>
+<navtitle>Setup</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow setup</searchtitle>
+</titlealts>
+<shortdesc>These are the setup steps at each party: the Key Receiving Device (KRD) and the Key
+Distribution Host (KDH).</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34<indexterm>user flow setup</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<title>On the KDH (Key Distribution Host)</title>
+<ol>
+<li>Create the KDH administrative RSA key pair for TR-34 use with target (or set of targets):<ul>
+<li><b>Overview:</b> Generate RSA private key token (D-kdh-T).</li>
+<li>Use CCA service: CSNDPKG<dl>
+<dlentry>
+<dt>INPUT:</dt>
+<dd>Key strength and type (RSA 2048, SIGN-ONLY).</dd>
+</dlentry>
+<dlentry>
+<dt>OUTPUT:</dt>
+<dd>The private key token (D-kdh-T) contains the private key (D-kdh) and the public key
+(E-kdh).</dd>
+</dlentry>
+<dlentry>
+<dt>KEY STORAGE:</dt>
+<dd>Store the output private key token (D-kdh-T) in the PKDS.</dd>
+</dlentry>
+</dl></li>
+</ul></li>
+<li>Create PKCS #10 certificate signing request for the public key of the administrative key pair:<ul>
+<li><b>Overview:</b> Extract public key E-kdh into PKCS #10 certificate signing request
+(CSR-KDH).</li>
+<li>Use CCA service: CSNDPIC<dl>
+<dlentry>
+<dt>INPUT:</dt>
+<dd>Private key token (D-kdh-T).</dd>
+</dlentry>
+<dlentry>
+<dt>OUTPUT:</dt>
+<dd>PKCS #10 certificate signing request (CSR-KDH).</dd>
+</dlentry>
+<dlentry>
+<dt>KEY STORAGE:</dt>
+<dd>Store the signing request (CSR-KDH) in the application space or key ring until the certificate
+can be generated.<note>The signing request (CSR-KDH) is an intermediate object, but might be useful
+to have stored if the same private key is to be used with multiple ATM vendors or as a backup. It is
+recommended to have a unique private key for each group of receiving devices.</note></dd>
+</dlentry>
+</dl></li>
+</ul></li>
+<li>Create the KDH credential (CredKDH) from the certificate signing request (CSR-KDH):<ul>
+<li><b>Overview:</b> KDH sends the CSR-KDH to a Certificate Authority (CA) trusted by all parties to
+be turned into a certificate CredKDH under the agreed CA.<ul>
+<li>Application step or manual step such as loading the CSR-KDH to a web portal.</li>
+</ul></li>
+<li>KDH receives from the CA the following TR-34 objects:<dl>
+<dlentry>
+<dt>CredKDH</dt>
+<dd>Certificate holding E-kdh. Store certificate for use with all devices during BIND.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>Store the CredKDH in application space or key ring.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>CRL-CA</dt>
+<dd>Current Certificate Revocation List. Store for use until not considered fresh any longer.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>Store the CRL-CA in application space or key ring.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>CredCA</dt>
+<dd>A certificate for CA. Install this in the CCA HSM PKI manually from the TKE workstation for each
+domain that will perform the TR-34 protocol. Also keep this available for new HSM provisioning.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>Store the (CredCA) in application space or key ring.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl></li>
+</ul></li>
+<li>At the TKE workstation: Install the CA credential (CredCA) to the HSM domains that will perform
+TR-34 operations.<ul>
+<li><b>Overview:</b> The KDH administrator saves the CredCA in the internal PKI of the appropriate
+domains of the HSM as a trust root, using the TKE workstation.</li>
+</ul></li>
+</ol>
+</section>
+<section>
+<title>On the KRD (Key Receiving Device)</title>
+<ol>
+<li>Create the RSA key pair for TR-34 key management use. Each KRD will have an RSA key pair.<ul>
+<li><b>Overview:</b> Generate RSA private key token (D-kdh-T).<ul>
+<li>For peer-to-peer exchange, use CCA service: CSNDPKG.<dl>
+<dlentry>
+<dt>INPUT:</dt>
+<dd>Key strength and type (RSA 2048, KEY-MGT).</dd>
+</dlentry>
+<dlentry>
+<dt>OUTPUT:</dt>
+<dd>The private key (D-krd-T) token contains the private key (D-krd) and the public key
+(E-krd).</dd>
+</dlentry>
+<dlentry>
+<dt>KEY STORAGE:</dt>
+<dd>Store the output private key token (D-krd-T) in the PKDS.</dd>
+</dlentry>
+</dl></li>
+<li>For one host to many devices, typically the RSA key is generated and installed in the device at
+the factory.<ul>
+<li>The private key (D-krd) is installed on the device.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Create PKCS #10 certificate signing request for the public key E-krd:<ul>
+<li><b>Overview:</b> Extract public key E-kdh into PKCS #10 certificate signing request (CSR-KRD).<ul>
+<li>For peer-to-peer exchange, use CCA service: CSNDPIC.<dl>
+<dlentry>
+<dt>INPUT:</dt>
+<dd>Private key token (D-krd-T).</dd>
+</dlentry>
+<dlentry>
+<dt>OUTPUT:</dt>
+<dd>PKCS #10 certificate signing request (CSR-KRD).</dd>
+</dlentry>
+<dlentry>
+<dt>KEY STORAGE:</dt>
+<dd>Store the signing request (CSR-KRD) in application space or key ring until the certificate can
+be generated.</dd>
+</dlentry>
+</dl></li>
+<li>For one host to many devices, generate the CSR-KRD for each device with the devices public key
+E-krd.</li>
+</ul></li>
+</ul></li>
+<li>Create the KRD credential (CredKRD) from the certificate signing request (CSR-KRD):<ul>
+<li><b>Overview:</b> KRD sends the CSR-KRD to a Certificate Authority (CA) trusted by all parties to
+be turned into a certificate CredKRD under the agreed CA.<ul>
+<li>Application step or manual step such as loading the (CSR-KRD) to a web portal.</li>
+</ul></li>
+<li>KRD receives from the CA the following TR-34 objects:<dl>
+<dlentry>
+<dt>CredKRD</dt>
+<dd>Certificate holding (E-kdh). Store certificate for use to BIND with the KDH.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>
+<ul>
+<li>Peer-to-peer exchange: Store the (CredKRD) in application space or key ring.</li>
+<li>One host to many devices: Typically, installed on device at the factory.</li>
+</ul>
+</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>CRL-CA</dt>
+<dd>Current Certificate Revocation List. Store for use until not considered fresh any longer.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>Store the (CRL-CA) in application space or key ring.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>CredCA</dt>
+<dd>A certificate for CA. Install this in the KRD.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>
+<ul>
+<li>Peer-to-peer exchange: Store the (CredKRD) in application space or key ring.</li>
+<li>One host to many devices: Typically, installed on device at the factory.</li>
+</ul>
+</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl></li>
+</ul></li>
+<li>Install the KRD credential holding the KRD public key (CredKRD):<ul>
+<li>For one host to many devices: This is typically installed on device at the factory.</li>
+<li>For peer-to-peer exchange: The CredKRD might be stored in application space for the TR-34 implementation.<dl>
+<dlentry>
+<dt>KEY STORAGE</dt>
+<dd>
+<ul>
+<li>Store the (CredCA, CredKRD) in application space or key ring.</li>
+<li>Store the KRD private key token (D-krd-T) in the PKDS.</li>
+</ul>
+</dd>
+</dlentry>
+</dl></li>
+</ul>
+</li>
+<li>Install the CA credential (CredCA) (primary, secondary, ‘higher’ primary/secondary, and so on):<ul>
+<li>Peer-to-peer exchange: The CredCA is installed in the CCA HSM PKI manually from the TKE
+workstation, for each domain that will use the TR-34 protocol. Also, keep the CredCA available for
+new HSM provisioning.</li>
+<li>One host to many devices: This is typically installed on the device at the factory.</li>
+</ul></li>
+</ol>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

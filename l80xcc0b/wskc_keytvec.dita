@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="keytvec" xml:lang="en-us" rev="hw20i1">
+<title>Key type vectors</title>
+<shortdesc>The values of the keys that are calculated while diversification depend on their intended
+key usage. Therefore, a DK <i>key type vector</i> (KTV) is being introduced to define how to
+generate or derive (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/>) the
+intended AES variable-length symmetric key. The KTV is a parameter that defines the rules for the
+key to be generated or derived. It also contains information that is needed by the HSM to restrict
+the usage of the key to be generated or derived.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>Key type vectors</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>
+<xref href="#keytvec/keytform"/> defines the layout of the KTV. <table frame="all" rowsep="1"
+colsep="1" id="keytform"><title>Key type vector format</title><desc>
+<p outputclass="summary">Key type vector format in three table columns: offset, length, and
+description. The final table row contains notes across the table columns.</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="5.6*"/>
+<thead>
+<row valign="bottom">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Structure version number:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>Version 0 structure format</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>2</entry>
+<entry>Key type of the key to be derived or generated:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>MAC</dd>
+</dlentry>
+<dlentry>
+<dt>X'0001'</dt>
+<dd>Data encryption (cipher)</dd>
+</dlentry>
+<dlentry>
+<dt>X'0003'</dt>
+<dd>PIN encryption</dd>
+</dlentry>
+<dlentry>
+<dt>X'0004'</dt>
+<dd>Key wrapping</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>2</entry>
+<entry>Underlying algorithm:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>AES</dd>
+</dlentry>
+<dlentry>
+<dt>X'0003'</dt>
+<dd>HMAC (only valid with key type indicator MAC, that is, value at offset 2 = X’0000’) – currently
+not supported.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>2</entry>
+<entry>Length of key in bits to be derived or generated:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0080'</dt>
+<dd>128 (for example, AES-128) – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'00C0'</dt>
+<dd>192 (for example, AES-192) – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0100'</dt>
+<dd>256 (for example, AES-256)</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>2</entry>
+<entry><b>Key usage restriction 1</b> of the key to be derived or generated, based on the key type
+field (value at offset 2).<p>For MAC key type (value at offset 2 = X'0000'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0001'</dt>
+<dd>Key can derive or generate a CMAC mode key only.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>Key can derive or generate an HMAC mode key only – currently not supported.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>For data encryption (cipher) key type (value
+at offset 2 = X'0001'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>Key can derive or generate any mode key – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0001'</dt>
+<dd>Key can derive or generate an ECB mode key only – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>Key can derive or generate a CBC mode key only.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0003'</dt>
+<dd>Key can derive or generate a CTR mode key only – currently not supported.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>For PIN encryption key type (value at offset
+2 = X'0003'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>Key can derive or generate an ISO-4 format PIN block.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>For key wrap key type (value at offset 2 =
+X'0004'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0001'</dt>
+<dd>Key can derive or generate a VARDRV-D key only, where "D" stands for DK Key Block Protection
+according to ISO TC 68/SC 2 Nxxxx, 2016-08-17, ISO DIS 20038 to wrap AES and TDES keys in CBC
+mode.</dd>
+</dlentry>
+</dl></p><p>For all other key types not listed above:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>No key usage restriction 1.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>2</entry>
+<entry><b>Key usage restriction 2</b> of the key to be derived or generated, depending on the key
+type (offset 2) and key usage restriction 1 (offset 8):<p>For MAC key type and HMAC mode (value at
+offset 2 = X'0000' and offset 8 = X'0001'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0002'</dt>
+<dd>SHA-256</dd>
+</dlentry>
+<dlentry>
+<dt>X'0003'</dt>
+<dd>SHA-384</dd>
+</dlentry>
+<dlentry>
+<dt>X'0004'</dt>
+<dd>SHA-512</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>Key-wrap key type and VARDRV-D mode (value
+at offset 2 = X'0004' and offset 8 = X'0001'):<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0080'</dt>
+<dd>Maximum key length of the protected keys is 128 bits – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'00C0'</dt>
+<dd>Maximum key length of the protected keys is 192 bits – currently not supported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'0100'</dt>
+<dd>Maximum key length of the protected keys is 256 bits.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>For all other values at offset 2 and offset
+8:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>Undefined.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p><p>For all other key types and key usage
+restriction 1 combinations that are not listed above:<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'0000'</dt>
+<dd>No key usage restriction 2.</dd>
+</dlentry>
+</dl>All other values are reserved and undefined.</p></entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>3</entry>
+<entry>Reserved, must be binary zeros.</entry>
+</row>
+<row>
+<entry>15</entry>
+<entry>1</entry>
+<entry>Key direction variant indicator. <p>Diversifies the key to be derived or generated depending
+on the permitted use of direction.</p><p>The HSM has to restrict the usage of the key depending on
+this value and the type of entity (A or B) which is an additional parameter in the process of
+deriving or generating the key.</p><p>Thus this value affects a key usage attribute of the key to be
+derived or generated.<dl compact="yes">
+<dlentry>
+<dt>Value</dt>
+<dd><b>Meaning</b></dd>
+</dlentry>
+<dlentry>
+<dt>X'00'</dt>
+<dd>A↔B (undirected use of key). This is defined but unsupported.</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>A→B (A active, B passive use of key).</dd>
+</dlentry>
+<dlentry>
+<dt>X'10'</dt>
+<dd>A←B or equivalent (A passive, B active use of key).</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>X'FF'</dt>
+<dd>System is to determine key direction from entity usage of the
+KDKGENKY and rule array keywords.
+<dl  compact="yes">
+<dlentry>
+<dt>KDK-A + GENERATE rule array keyword</dt>
+<dd>Direction set to X'01' (A→B).</dd>
+</dlentry>
+<dlentry>
+<dt>KDK-B + GENERATE rule array keyword</dt>
+<dd>Direction set to X'10' (A←B).</dd>
+</dlentry>
+<dlentry>
+<dt>KDK-A + DERIVE rule array keyword</dt>
+<dd>Direction set to X'10' (A←B).</dd>
+</dlentry>
+<dlentry>
+<dt>KDK-B + DERIVE rule array keyword</dt>
+<dd>Direction set to X'01' (A→B).</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+</dl></p>All other values are reserved and undefined. </entry>
+</row>
+<row>
+<entry namest="c1" nameend="c3">
+<note othertype="Note" type="other">
+<ol compact="yes">
+<li>All numbers are in big endian format.</li>
+<li>In addition to a key type that can be requested, there is also the option to return the key
+wrapped using the key wrapping method specified in ISO 20038. ISO 20038 defines a key-wrapping
+method for banking and related financial services.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p>For each of the four key types that are defined at KTV offset 2 (MAC, data encryption, PIN
+encryption, and key wrapping), two KTVs are defined. The only difference between them is the key
+direction variant indicator (KTV offset 15). Either entity Type A is active and Type B is passive
+(A→B), or Type B is active and Type A is passive (A←B). See <xref href="#keytvec"/>.</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="table_gqh_jp2_dfb"><title>Summary of KTV tables</title><desc>
+<p outputclass="summary">The second and third header column of this table are subdivided into two
+columns each: KTM vector and reference to table with details.</p>
+</desc><tgroup cols="5">
+<colspec colname="c1" colnum="1" colwidth="2.8*"/>
+<colspec colname="c2" colnum="2" colwidth="0.6*"/>
+<colspec colname="c3" colnum="3" colwidth="1.6*"/>
+<colspec colname="c4" colnum="4" colwidth="0.6*"/>
+<colspec colname="c5" colnum="5" colwidth="1.6*"/>
+<thead>
+<row>
+<entry valign="bottom">Key type of key to be derived</entry>
+<entry align="center" namest="c2" nameend="c3" valign="middle">A→B (A active)</entry>
+<entry namest="c4" nameend="c5" align="center" valign="middle">A←B (B active)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>MAC (generate/verify)</b></entry>
+<entry>KTV<sub>M1</sub></entry>
+<entry>See <xref href="#keytvec/macgenab"/>.</entry>
+<entry>KTV<sub>M2</sub></entry>
+<entry>See <xref href="#keytvec/macgenba"/>.</entry>
+</row>
+<row>
+<entry><b>Data encryption (encipher/decipher)</b></entry>
+<entry>KTV<sub>C1</sub></entry>
+<entry>See <xref href="#keytvec/dataencab"/>.</entry>
+<entry>KTV<sub>C2</sub></entry>
+<entry>See <xref href="#keytvec/dataencba"/>.</entry>
+</row>
+<row>
+<entry><b>PIN encryption (encipher/decipher)</b></entry>
+<entry>KTV<sub>P1</sub></entry>
+<entry>See <xref href="#keytvec/pinencab"/>.</entry>
+<entry>KTV<sub>P2</sub></entry>
+<entry>See <xref href="#keytvec/pinencba"/>.</entry>
+</row>
+<row>
+<entry><b>Key wrapping (wrap/unwrap)</b></entry>
+<entry>KTV<sub>W1</sub></entry>
+<entry>See <xref href="#keytvec/keywrpab"/>.</entry>
+<entry>KTV<sub>W2</sub></entry>
+<entry>See <xref href="#keytvec/keywrpba"/>.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p/>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="macgenab"><title>KTV for MAC generate/verify, Type A
+active and Type B passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>MAC</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>CMAC</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A→B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 00</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 01</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>01</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8" align="left">KTV<sub>M1</sub> = X'00 00 00 00 00 02 01 00 00 01 00
+00 00 00 00 01'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="macgenba"><title>KTV for MAC generate/verify, Type B
+active and Type A passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>MAC</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>CMAC</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A←B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 00</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 01</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>10</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8" align="left">KTV<sub>M2</sub> = X'00 00 00 00 00 02 01 00 00 01 00
+00 00 00 00 10'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="dataencab"><title>KTV for data encryption (cipher),
+Type A active and Type B passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>Cipher</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>CBC</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A→B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 01</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 02</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>01</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>C1</sub> = X'00 00 00 01 00 02 01 00 00 02 00 00 00 00 00
+01'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="dataencba"><title>KTV for data encryption (cipher),
+Type B active and Type A passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>Cipher</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>CBC</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A←B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 01</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 02</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>10</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>C2</sub> = X'00 00 00 01 00 02 01 00 00 02 00 00 00 00 00
+10'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="pinencab"><title>KTV for PIN encryption, Type A active
+and Type B passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>PIN-Enc</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>ISO-4</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A→B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 03</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 02</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>01</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>P1</sub> = X'00 00 00 03 00 02 01 00 00 02 00 00 00 00 00
+01'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="pinencba"><title>KTV for PIN encryption, Type B active
+and Type A passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>PIN-Enc</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>ISO-4</entry>
+<entry>'else'</entry>
+<entry align="center">-</entry>
+<entry>A←B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 03</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 02</entry>
+<entry>00 00</entry>
+<entry>00 00 00</entry>
+<entry>10</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>P2</sub> = X'00 00 00 03 00 02 01 00 00 02 00 00 00 00 00
+01'</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>Entity Type A must use an AES EXPORTER key with usage of EXPTT31D. Entity Type B must use an
+IMPORTER key with usage of IMPTT31D. Key wrapping with key block protection (ISO TC 68/SC 2 Nxxxx,
+2016-08-17, ISO DIS 20038). <table frame="all" rowsep="1" colsep="1" id="keywrpab"><title>KTV for
+key wrapping, Type A active and Type B passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>Key wrap</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>VARDRV-D</entry>
+<entry>Maximum bit length of the protected keys</entry>
+<entry align="center">-</entry>
+<entry>A→B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 04</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 01</entry>
+<entry>01 00</entry>
+<entry>00 00 00</entry>
+<entry>01</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>W1</sub> = X'00 00 00 04 00 02 01 00 00 01 01 00 00 00 00
+01'</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p>Entity Type B must use an AES EXPORTER key with usage of EXPTT31D. Entity Type A must use an
+IMPORTER key with usage of IMPTT31D. <table frame="all" rowsep="1" colsep="1" id="keywrpba"
+><title>KTV for key wrapping, Type B active and Type A passive</title><desc>
+<p outputclass="summary">The final table row extends across the table columns and specifies the
+KTV.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="0.75*"/>
+<colspec colname="c2" colnum="2" colwidth="0.75*"/>
+<colspec colname="c3" colnum="3" colwidth="0.80*"/>
+<colspec colname="c4" colnum="4" colwidth="0.85*"/>
+<colspec colname="c5" colnum="5" colwidth="0.90*"/>
+<colspec colname="c6" colnum="6" colwidth="1.00*"/>
+<colspec colname="c7" colnum="7" colwidth="0.85*"/>
+<colspec colname="c8" colnum="8" colwidth="1.10*"/>
+<thead>
+<row valign="bottom">
+<entry>Version (offset 0) </entry>
+<entry>Key type indicator (offset 2)</entry>
+<entry>Algorithm indicator (offset 4)</entry>
+<entry>Key length (offset 6)</entry>
+<entry>Key usage indicator 1 (offset 8)</entry>
+<entry>Key usage restriction 2 (offset 10)</entry>
+<entry>RFU (offset 12)</entry>
+<entry>Key direction variant indicator (offset 15)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>Key wrap</entry>
+<entry>AES</entry>
+<entry>AES-256</entry>
+<entry>VARDRV-D</entry>
+<entry>Maximum bit length of the protected keys</entry>
+<entry align="center">-</entry>
+<entry>A←B</entry>
+</row>
+<row>
+<entry>00 00</entry>
+<entry>00 04</entry>
+<entry>00 02</entry>
+<entry>01 00</entry>
+<entry>00 01</entry>
+<entry>01 00</entry>
+<entry>00 00 00</entry>
+<entry>10</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c8">KTV<sub>W2</sub> = X'00 00 00 04 00 02 01 00 00 01 01 00 00 00 00
+10'</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p><xref href="#keytvec/ktvcca"/> shows the key usage mapping of the output key from <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/>, based on the KTV input to that
+verb.<table frame="all" rowsep="1" colsep="1" id="ktvcca" scale="100"><title>KTV to CCA key type and
+usage mapping</title><desc>
+<p outputclass="summary">This table contains eight columns: KTV key type, KTV key direction variant
+indicator, Algorithm (offset 4 = X’0002’), KDKGENKY KUF1 HOB (entity type), CCA AES key type, KUF1
+HOB, KUF2 HOB. Entries in the first column span 4 rows, entries in the 3rd, forth, and eighth column
+span 2 rows.</p>
+</desc><tgroup cols="8">
+<colspec colname="c1" colnum="1" colwidth="1.1*"/>
+<colspec colname="c2" colnum="2" colwidth="0.6*"/>
+<colspec colname="c3" colnum="3" colwidth="0.9*"/>
+<colspec colname="c4" colnum="4" colwidth="0.8*"/>
+<colspec colname="c5" colnum="5" colwidth="0.93*"/>
+<colspec colname="c6" colnum="6" colwidth="0.9*"/>
+<colspec colname="c7" colnum="7" colwidth="0.9*"/>
+<colspec colname="c8" colnum="8" colwidth="0.87*"/>
+<thead>
+<row valign="bottom">
+<entry>KTV key type</entry>
+<entry>KTV</entry>
+<entry>KTV key direction variant indicator</entry>
+<entry>Algorithm (offset 4 = X’0002’) </entry>
+<entry>KDKGENKY KUF1 HOB (entity type)</entry>
+<entry>CCA AES key type</entry>
+<entry>KUF1 HOB</entry>
+<entry>KUF2 HOB</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="3">MAC (offset 2 = X’0000’) </entry>
+<entry>KTV<sub>M1</sub></entry>
+<entry morerows="1">
+<lines>A→B
+(offset 15
+= X'01')
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+<entry morerows="1">CMAC</entry>
+</row>
+<row>
+<entry>KTV<sub>M2</sub></entry>
+<entry>B</entry>
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+</row>
+<row>
+<entry>KTV<sub>M2</sub></entry>
+<entry morerows="1">
+<lines>A←B
+(offset 15
+= X'10')
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>MAC</entry>
+<entry>VERIFY</entry>
+<entry morerows="1">CMAC</entry>
+</row>
+<row>
+<entry>KTV<sub>M1</sub></entry>
+<entry>B</entry>
+<entry>MAC</entry>
+<entry>GENONLY</entry>
+</row>
+<row>
+<entry morerows="3">Cipher (offset 2 = X’0001’) </entry>
+<entry>KTV<sub>C1</sub></entry>
+<entry morerows="1">
+<lines>A→B
+(offset 15
+= X'01')
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>CIPHER</entry>
+<entry>ENCRYPT</entry>
+<entry morerows="1">CBC</entry>
+</row>
+<row>
+<entry>KTV<sub>C2</sub></entry>
+<entry>B</entry>
+<entry>CIPHER</entry>
+<entry>DECRYPT</entry>
+</row>
+<row>
+<entry>KTV<sub>C2</sub></entry>
+<entry morerows="1">
+<lines>A←B
+(offset 15
+= X'10')
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>CIPHER</entry>
+<entry>DECRYPT</entry>
+<entry morerows="1">CBC</entry>
+</row>
+<row>
+<entry>KTV<sub>C1</sub></entry>
+<entry>B</entry>
+<entry>CIPHER</entry>
+<entry>ENCRYPT</entry>
+</row>
+<row>
+<entry morerows="3">PIN encryption (offset 2 = X'0003') </entry>
+<entry>KTV<sub>P1</sub></entry>
+<entry morerows="1">
+<lines>A→B
+(offset 15
+= X’01’)
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+<entry morerows="1">CBC</entry>
+</row>
+<row>
+<entry>KTV<sub>P2</sub></entry>
+<entry>B</entry>
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+</row>
+<row>
+<entry>KTV<sub>P2</sub></entry>
+<entry morerows="1">
+<lines>A←B
+(offset 15
+= X’10’)
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>PINPROT</entry>
+<entry>DECRYPT</entry>
+<entry morerows="1">CBC</entry>
+</row>
+<row>
+<entry>KTV<sub>P1</sub></entry>
+<entry>B</entry>
+<entry>PINPROT</entry>
+<entry>ENCRYPT</entry>
+</row>
+<row>
+<entry morerows="3">Key wrapping (offset 2 = X’0004’) </entry>
+<entry> KTV<sub>W1</sub></entry>
+<entry morerows="1">
+<lines>A→B
+(offset 15
+= X’01’)
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>EXPORTER</entry>
+<entry>EXPTT31D</entry>
+<entry morerows="1">N/A</entry>
+</row>
+<row>
+<entry> KTV<sub>W2</sub></entry>
+<entry>B</entry>
+<entry>IMPORTER</entry>
+<entry>IMPTT31D</entry>
+</row>
+<row>
+<entry> KTV<sub>W2</sub></entry>
+<entry morerows="1">
+<lines>A←B
+(KTV offset
+15 = X’10’)
+</lines>
+</entry>
+<entry morerows="1">AES</entry>
+<entry>A</entry>
+<entry>IMPORTER</entry>
+<entry>IMPTT31D</entry>
+<entry morerows="1">N/A</entry>
+</row>
+<row>
+<entry> KTV<sub>W1</sub></entry>
+<entry>B</entry>
+<entry>EXPORTER</entry>
+<entry>EXPTT31D</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000212848?>

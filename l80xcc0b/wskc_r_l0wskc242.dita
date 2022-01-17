@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc242">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the commands, as shown in the following table, to be enabled in the active
+role based on the keyword specified for the PIN-calculation methods. </p>
+<table pgwide="1">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="colspec1" colwidth="9*"/>
+<colspec colname="colspec0" colwidth="10*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="17*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="colspec1">Input profile format control keyword</entry>
+<entry colname="colspec0">Output profile format control keyword</entry>
+<entry colname="col2">Offset </entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>TRANSLAT</kwd></synph></entry>
+<entry colname="colspec1">NONE</entry>
+<entry colname="colspec0">NONE</entry>
+<entry colname="col2">X'00B3'</entry>
+<entry colname="col3"><cmdname>Encrypted PIN Translate - Translate</cmdname></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>REFORMAT</kwd></synph></entry>
+<entry colname="colspec1">NONE</entry>
+<entry colname="colspec0">NONE</entry>
+<entry colname="col2">X'00B7'</entry>
+<entry colname="col3"><cmdname>Encrypted PIN Translate - Reformat</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>This verb also requires the <cmdname>UKPT - PIN Verify, PIN Translate</cmdname> command (offset
+X'00E1') to be enabled if you employ UKPT processing.</p></section><section>
+<note>A role with offset <ph>X'00E1'</ph> enabled can also
+use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb with UKPT processing.</note></section>
+<section><p>An enhanced PIN security mode is available for extracting PINs from an <tm trademark="IBM"
+tmtype="reg">IBM</tm> 3624 encrypted PIN-block and formatting an encrypted PIN block into <tm
+trademark="IBM" tmtype="reg">IBM</tm> 3624 format using the <synph><kwd>PADDIGIT</kwd></synph>
+PIN-extraction method. This mode limits checking of the PIN to decimal digits, and a minimum PIN
+length of 4 is enforced; no other PIN-block consistency checking will occur. To activate this mode,
+enable the <cmdname>Enhanced PIN Security</cmdname> command (offset X'0313') in the active role.</p></section>
+<section><p>The verb returns an error indicating that the PAD digit is not
+valid if all of these conditions are met:
+<ol>
+<li>The <cmdname>Enhanced PIN Security</cmdname> command is enabled in the active role.</li>
+<li>The output PIN profile specifies 3624 as the PIN-block format.</li>
+<li>The output PIN profile specifies a decimal digit (0 - 9) as the
+PAD digit.</li>
+</ol></p></section>
+<section><p>The following commands affect the PIN processing:</p>
+<ol>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Enforce PIN block restrictions</cmdname> command (offset
+X'0350') in the active role to apply additional restrictions to PIN processing implemented in CCA
+4.1.0, as follows: <ul>
+<li>Do not translate or reformat a non-ISO PIN block into an ISO PIN block. Specifically, do not
+allow an <tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN-block format in the
+<parmname>output_PIN_profile</parmname> variable when the PIN-block format in the
+<parmname>input_PIN_profile</parmname> variable is not <tm trademark="IBM" tmtype="reg">IBM</tm>
+3624.</li>
+<li>Constrain use of ISO-2 PIN blocks to offline PIN verification and PIN change operations in
+integrated circuit card environments only. Specifically, do not allow ISO-2 input or output PIN
+blocks.</li>
+<li>Do not translate or reformat a PIN-block format that includes a PAN into a PIN-block format that
+does not include a PAN. Specifically, do not allow an ISO-1 PIN-block format in the
+<synph><var>output_PIN_profile</var></synph> variable when the PIN-block format in the
+<synph><var>input_PIN_profile</var></synph> variable is <synph><kwd>ISO-0</kwd></synph> or
+<synph><kwd>ISO-3</kwd></synph>.</li>
+<li>Do not allow a change of PAN data. Specifically, when performing translations between PIN block
+formats that both include PAN data, do not allow the <synph><var>input_PAN_data</var></synph> and
+<synph><var>output_PAN_data</var></synph> variables to be different from the PAN data enciphered in
+the input PIN block.</li>
+</ul>
+<note>A role with offset <ph>X'0350'</ph> enabled also affects access control of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs.</note></li>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Allow modification of PAN</cmdname> command (offset
+<ph>X'0351'</ph>) in the active role to override the restriction to not allow a change of PAN data.
+This override is applicable only when either the ANSI X9.8 PIN - Enforce PIN block restrictions
+command (offset <ph>X'0350'</ph>) or the <cmdname>ANSI X9.8 PIN - Allow only ANSI PIN
+blocks</cmdname> command (offset <ph>X'0352'</ph>) or both are enabled in the active role. This
+override is to support account number changes in issuing environments. Offset <ph>X'0351'</ph> has
+no effect if neither offset <ph>X'0350'</ph> nor offset <ph>X'0352'</ph> is enabled in the active
+role. <note>A role with offset <ph>X'0351'</ph> enabled also affects access control of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs.</note></li>
+<li>Enable the <cmdname>ANSI X9.8 PIN - Allow only ANSI PIN blocks</cmdname> command (offset
+<ph>X'0352'</ph>) in the active role to apply a more restrictive variation of the <cmdname>ANSI X9.8
+PIN - Enforce PIN block restrictions</cmdname> command (offset <ph>X'0350'</ph>). In addition to the
+previously described restrictions of offset <ph>X'0350'</ph>, this command also restricts the
+<synph><var>input_PIN_profile</var></synph> and the <synph><var>output_PIN_profile</var></synph> to
+contain only ISO-0, ISO-1, and <synph><kwd>ISO-3</kwd></synph> PIN block formats. Specifically, the
+<tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN-block format is not allowed with this command.
+Offset <ph>X'0352'</ph> overrides offset <ph>X'0350'</ph>. <note>A role with offset <ph>X'0352'</ph>
+enabled also affects access control of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs.</note></li>
+</ol>
+<p rev="sh21i1">When the <cmdname>Disallow translation from DES wrapping to weaker DES wrapping</cmdname> 
+access control point (X'01C7') is
+enabled in the domain role, this service fails if the <parmname>input_PIN_encrypting_key_identifier</parmname> is stronger than
+the <parmname>output_PIN_encrypting_key_identifier</parmname>.
+</p>
+<p rev="sh21i1"> When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control point
+(X'032F') is enabled in the domain role, the PIN block format in the
+<parmname>input_PIN_profile</parmname> and <parmname>output_PIN_profile</parmname> parameters is not
+allowed to be ISO-1.</p>
+<p>For more information, see <xref href="wskc_c_x98_rest.dita#l0wskc02_x98_rest"/>.</p></section>
+<section>
+<p rev="sh20i1">In releases before Release 5.4 and Release 6.2, triple-length TDES keys are not
+supported, thus limiting a generated TDES key to double length. Beginning with Release 5.4 and
+Release 6.2, triple-length TDES keys are supported,  and a generated TDES key can be double-length
+or triple-length.</p></section>
+</refbody></reference>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="domnums" rev="sh20i2">
+<title><b>DOM-NUMS</b></title>
+<titlealts>
+<navtitle>DOM-NUMS</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): DOM-NUMS data format</searchtitle>
+</titlealts>
+<shortdesc>This <synph><var>rule_array</var></synph> keyword returns the total number of domains
+allocated for the system in the <parmname>verb_data</parmname> variable.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>DOM-NUMS</indexterm>
+<indexterm>DOM-NUMS operational key parts<indexterm>output data format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<table id="staticsc_table" pgwide="1"><title>Output data format for DOM-NUMS operational key
+parts</title><desc>
+<p outputclass="summary">Output data format for DOM-NUMS operational key parts</p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="10*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<colspec colname="col4" colwidth="24*"/>
+<thead>
+<row>
+<entry>Field name</entry>
+<entry>Length in bytes</entry>
+<entry>Field value</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>DOMAIN_NUMBER</entry>
+<entry>4</entry>
+<entry>variable</entry>
+<entry>Four byte big endian word in the <parmname>verb_data</parmname>. Represents the number of
+domains in the system.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>

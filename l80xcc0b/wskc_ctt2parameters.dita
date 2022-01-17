@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_ctt2parameters" rev="sh15">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/></indexterm></indexterm>
+<indexterm>IKEY-DES</indexterm>
+<indexterm>IKEY-AES</indexterm>
+<indexterm>OKEY-DES</indexterm>
+<indexterm>OKEY-AES</indexterm>
+<indexterm>I-CBC</indexterm>
+<indexterm>I-ECB</indexterm>
+<indexterm>IPKCSPAD</indexterm>
+<indexterm>I-X923</indexterm>
+<indexterm>I-CUSP :390-only</indexterm>
+<indexterm>I-IPS :390-only</indexterm>
+<indexterm>O-CBC</indexterm>
+<indexterm>O-ECB</indexterm>
+<indexterm>OPKCSPAD</indexterm>
+<indexterm>O-X923</indexterm>
+<indexterm>O-CUSP :390-only</indexterm>
+<indexterm>O-IPS :390-only</indexterm>
+<indexterm>INITIAL</indexterm>
+<indexterm>CONTINUE</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be 4 or 5.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keyword that provides control information to the verb. The processing method is the
+algorithm used to create the generated key. The keyword is left-aligned and padded on the right with
+blanks. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#wskc_ctt2parameters/table_ctt2" format="dita"/>. <table id="table_ctt2" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Inbound Processing Rule</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>I-CBC</kwd></synph></entry>
+<entry>Specifies encryption using CBC mode for the inbound ciphertext. The text length must be a
+multiple of the block size. The DES block size is 8 bytes. The AES block size is 16 bytes.</entry>
+</row>
+<row>
+<entry><synph><kwd>I-CUSP</kwd></synph></entry>
+<entry>Specifies that CBC with CUSP processing for the inbound ciphertext. The ciphertext may be
+any length. The ciphertext is the same length as the plaintext. This keyword is only valid with
+DES.</entry>
+</row>
+<row>
+<entry><synph><kwd>I-ECB</kwd></synph></entry>
+<entry>Specifies encryption using ECB mode for the inbound ciphertext. The text must be a multiple
+of the block size. This keyword is only valid for AES encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>I-IPS</kwd></synph></entry>
+<entry>Specifies that CBC with IPS processing has been used for the inbound ciphertext. The ciphertext
+may be any length. The ciphertext is the same length as the plaintext. This keyword is only
+valid with DES.</entry>
+</row>
+<row>
+<entry><synph><kwd>IPKCSPAD</kwd></synph></entry>
+<entry>Specifies that CBC with PKCS padding was used for the inbound ciphertext. The text was
+padded on the right with 1 - 16 bytes of pad characters, making the padded text a multiple of the
+AES block size, before the data was enciphered. Each pad character is valued to the number of pad
+characters added. This keyword is only valid for AES encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>I-X923</kwd></synph></entry>
+<entry>Specifies that CBC with X9.24 padding was used for the inbound ciphertext. This is
+compatible with the requirements in ANSI Standard X9.23. This keyword is only valid for DES
+encryption.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Outbound processing rule</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>O-CBC</kwd></synph></entry>
+<entry>Specifies that encryption in CBC mode is used for the outbound ciphertext. The text length
+must be a multiple of the block size. The DES block size is 8 bytes. The AES block size is 16
+bytes.</entry>
+</row>
+<row>
+<entry><synph><kwd>O-CUSP</kwd></synph></entry>
+<entry>Specifies that CBC with CUSP processing is used for the outbound text. The outbound
+ciphertext has the same length as the plaintext. This keyword is only valid with DES.</entry>
+</row>
+<row>
+<entry><synph><kwd>O-ECB</kwd></synph></entry>
+<entry>Specifies that encryption using ECB mode is used for the outbound ciphertext. The text must
+be a multiple of the block size. This keyword is only valid for AES encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>O-IPS</kwd></synph></entry>
+<entry>Specifies that CBC with IPS processing is used for the outbound text. The outbound
+ciphertext has the same length as the plaintext. This keyword is only valid with DES.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPKCSPAD</kwd></synph></entry>
+<entry>Specifies that CBC with PKCS padding is used for the outbound text. The outbound text
+is padded on the right with 1 - 16 bytes of pad characters, making the padded text a multiple
+of the AES block size, before the data was enciphered. Each pad character is valued to the number of
+pad characters added. This keyword is only valid for AES encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>O-X923</kwd></synph></entry>
+<entry>Specifies that CBC with X9.24 padding is used for the outbound text. This is compatible
+with the requirements in ANSI Standard X9.23. This keyword option is only valid for DES
+encryption.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Segmenting control</i></b> (One optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>CONTINUE</kwd></synph></entry>
+<entry>Specifies the initialization vectors are taken from the chaining vector. The chaining vector
+is updated and must not be modified between calls. This keyword is ignored for I-ECB and O-ECB
+processing rules. The CONTINUE keyword is not valid with the I-X923 or O-X923 keywords.</entry>
+</row><row>
+<entry><synph><kwd>INITIAL</kwd></synph></entry>
+<entry>Specifies that the initialization vectors are taken from the
+<parmname>init_vector_in</parmname> and <parmname>init_vector_out</parmname> parameters. This is the
+default. This keyword is ignored for I-ECB and O-ECB processing rules.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Inbound key identifier</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEY-DES</kwd></synph></entry>
+<entry>Specifies that the inbound key identifier is a DES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>IKEY-AES</kwd></synph></entry>
+<entry>Specifies that the inbound key identifier is an AES key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Outbound key identifier</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>OKEY-DES</kwd></synph></entry>
+<entry>Specifies that the outbound key identifier is a DES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>OKEY-AES</kwd></synph></entry>
+<entry>Specifies that the outbound key identifier is an AES key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>key_identifier_in_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>key_identifier_in</parmname> in bytes. The value is 64 when a label
+is supplied. When the key identifier is a key token, the value is the length of the token. The
+maximum value is 725.</pd>
+</plentry>
+<plentry>
+<pt>key_identifier_in</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal key token or the label of an AES or DES key storage record containing
+the cipher translation key for the inbound ciphertext. <p>Acceptable DES key types are
+DATA, CIPHER, CIPHERXI, CIPHERXL, and DECIPHER. The keys must have bit 19 for DECIPHER set on in the
+control vector. The key may be a single-, double-, or triple-length key. If the <cmdname>Cipher Text
+translate2 - Allow only cipher text translate types</cmdname> access control point is enabled, only
+CIPHERXI and CIPHERXL are allowed.</p><p>Acceptable AES key types include the 64-byte AES DATA key
+and the variable length token CIPHER key with the DECRYPT bit on in the key usage field. The C-XLATE
+bit can optionally be on. If the <cmdname>Cipher Text translate2 - Allow only cipher text translate
+types</cmdname> access control point is enabled, the C-XLATE bit must be turned on in the key usage
+field.</p></pd>
+</plentry>
+<plentry>
+<pt>init_vector_in_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>init_vector_in</parmname> field in bytes. For AES keys, the length
+is 16. For DES keys, the length is 8. When the initialization vector is not required (segmenting
+rule CONTINUE, processing rule I-ECB), the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>init_vector_in</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The initialization vector that is used to decipher the input data. This parameter is the
+initialization vector used at the previous cryptographic node. This parameter is required for
+segmenting rule INITIAL.</pd>
+</plentry>
+<plentry>
+<pt>cipher_text_in_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the ciphertext to be processed. See the table of ciphertext length
+restrictions in <xref href="wskc_ctt2usage.dita#wskc_ctt2usage"/>. </pd>
+</plentry>
+<plentry>
+<pt>cipher_text_in</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The text that is to be translated. The text is enciphered under the cipher key specified in
+the <parmname>key_identifier_in</parmname> parameter.</pd>
+</plentry>
+<plentry>
+<pt>chaining_vector_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>chaining_vector</parmname> parameter in bytes. The
+<parmname>chaining_vector</parmname> field must be 128 bytes long.</pd>
+</plentry>
+<plentry>
+<pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>chaining_vector</parmname> parameter is a work area used by the service to
+carry segmented data between procedure calls. This area must not be modified between calls to the
+service.</pd>
+</plentry>
+<plentry>
+<pt>key_identifier_out_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>key_identifier_out</parmname> parameter in bytes. This value is
+64 when a label is supplied. When the key identifier is a key token, the value is the length of the
+token. The maximum value is 725.</pd>
+</plentry>
+<plentry>
+<pt>key_identifier_out</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal key token or the label of an AES or DES key storage record containing the cipher
+translation key for the outbound ciphertext. <p>Acceptable DES key types are
+DATA, CIPHER, CIPHERXL, CIPHERXO, and ENCIPHER. The key may be a double- or triple-length key. If
+the <cmdname>Cipher Text translate2 – Allow only cipher text translate types</cmdname> access
+control point is enabled, only CIPHERXO and CIPHERXL are allowed. Acceptable DES key types are DATA,
+CIPHER, CIPHERXL, CIPHERXO, and ENCIPHER. The keys must have bit 18 for ENCIPHER set on in the
+control vector. The key may be a double- or triple-length key. If the <cmdname>Cipher Text
+translate2 - Allow only cipher text translate types</cmdname> access control point is enabled, only
+CIPHERXO and CIPHERXL are allowed. </p><p>Acceptable AES key types include the 64-byte AES DATA key
+and the variable length token CIPHER key with the ENCRYPT bit on in the key usage field. </p><p>The
+C-XLATE bit can optionally be on. If the <cmdname>Cipher Text translate2 – Allow only cipher text
+translate types</cmdname> access control point is enabled, the C-XLATE bit must be turned on in the
+key usage field.</p></pd>
+</plentry>
+<plentry>
+<pt>init_vector_out_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>init_vector_out</parmname> parameter in bytes. For AES keys, the
+length is 16. For DES keys, the length is 8. When the initialization vector is not required
+(segmenting rule CONTINUE, processing rule O-ECB), the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>init_vector_out</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> The initialization vector that is used to encipher the input data. This is the new
+initialization vector used when the callable service enciphers the plaintext. This parameter is
+required for segmenting rule INITIAL.</pd>
+</plentry>
+<plentry>
+<pt>cipher_text_out_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>cipher_text_out</parmname> parameter in bytes. This parameter is
+updated with the actual length of the data in the <parmname>cipher_text_out</parmname> parameter.
+Note that padding may require this value to be larger than the
+<parmname>cipher_text_in_length</parmname> parameter (see <xref
+href="wskc_ctt2usage.dita#wskc_ctt2usage/ctt2_usage_table1"/>).</pd>
+</plentry>
+<plentry>
+<pt>cipher_text_out</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The field where the callable service returns the translated text. </pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>reserved1</parmname> parameter in bytes. The value must be
+zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>reserved2</parmname> parameter in bytes. The value must be
+zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_keyverm" xml:lang="en-us">
+<title>Cryptographic key-verification techniques</title>
+<titlealts>
+<navtitle>Cryptographic key-verification techniques</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Cryptographic key-verification
+techniques</searchtitle>
+</titlealts>
+<shortdesc>The key-verification implementations described in this
+document employ several mechanisms for assuring the integrity and
+value of the key. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key-verification</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p otherprops="pdf">Information is presented about these topics:  </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_c_algomkn.dita#l0wskc02_algomkn"/></li>
+<?Pub Caret -2?>
+<li><xref href="wskc_c_algover.dita#l0wskc02_algover"/></li>
+<li><xref href="wskc_c_enzero_aes.dita#l0wskc02_enzero_aes"/></li>
+<li><xref href="wskc_c_enzero.dita#l0wskc02_enzero"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000001007?>

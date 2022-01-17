@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pin">
+<title>Processing personal identification numbers</title>
+<titlealts>
+<navtitle>Processing PINs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Processing personal identification
+numbers</searchtitle>
+</titlealts><shortdesc>The process of validating personal identities in a financial transaction
+system is called <i>personal authentication</i>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>definition</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>managing</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>algorithms</indexterm></indexterm>
+<indexterm>algorithm<indexterm>PIN, general</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>formats</indexterm></indexterm>
+<indexterm>formats<indexterm>PIN</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The personal identification number (PIN) is the basis for verifying
+the identity of a customer across the financial industry networks.
+The financial industry needs functions to generate, translate, and
+verify PINs. These functions prevent unauthorized disclosures when
+organizations handle personal identification numbers.</p>
+<p>The coprocessor supports the following algorithms for generating
+and verifying personal identification numbers:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3624</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3624 PIN offset</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> German Bank Pool</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> German Bank Pool PIN Offset
+(GBP-PINO)</li>
+<li>VISA PIN validation value</li>
+<li>Interbank</li>
+</ul></p>
+<p>You can translate PIN blocks from one format to another without the PIN being exposed in
+cleartext form. The coprocessor supports the following formats: </p>
+<ul>
+<li>ANSI X9.8</li>
+<li rev="sh20i2">ISO formats 0, 1, 2, 3, 4</li>
+<li>VISA formats 1, 2, 3, 4</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 4704 Encrypting PINPAD
+format</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3624 formats</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3621 formats</li>
+<li>ECI formats 1, 2, 3</li>
+</ul>
+<p>With the capability to translate personal identification numbers
+into different PIN block formats, you can use personal identification
+numbers on different systems.</p>
+</conbody></concept>

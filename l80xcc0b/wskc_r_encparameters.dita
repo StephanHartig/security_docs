@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_encparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>text_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>clear_text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>initialization_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>processing rule<indexterm>recommendations
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>recommendations for Encipher processing rule</indexterm>
+<indexterm>processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></indexterm></indexterm>
+<indexterm>processing rule<indexterm>CBC</indexterm></indexterm>
+<indexterm>CBC processing rule</indexterm>
+<indexterm>CUSP processing rule</indexterm>
+<indexterm>processing rule<indexterm>CUSP</indexterm></indexterm>
+<indexterm>IPS processing rule</indexterm>
+<indexterm>processing rule<indexterm>IPS</indexterm></indexterm>
+<indexterm>processing rule<indexterm>ANS X9.23</indexterm></indexterm>
+<indexterm>ANSI X9.23 processing rule</indexterm>
+<indexterm>ICV selection processing rule<indexterm>continue</indexterm></indexterm>
+<indexterm>continue processing rule</indexterm>
+<indexterm>ICV selection processing rule<indexterm>initial </indexterm></indexterm>
+<indexterm>initial processing rule</indexterm>
+<indexterm>encryption algorithm processing rule<indexterm>DES</indexterm></indexterm>
+<indexterm>DES encryption algorithm processing rule</indexterm>
+<indexterm>pad_character parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+<indexterm>cipher_text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string that is the internal key token containing the data-encrypting key or the
+label of a <ph>DES key storage</ph> record containing the data-encrypting key, to be used for
+encrypting the data. If the key token or key label contains a single-length key, single-DES
+encryption is performed. If the key token or key label contains a double-length or triple-length
+key, triple-DES encryption is performed.<p>Single and double-length CIPHER and ENCIPHER keys are
+also supported.</p></pd></plentry>
+<plentry><pt>text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On entry, the length of the plaintext (<synph><var>clear_text</var></synph> parameter) you
+supply. The maximum length of text is 214,783,647 bytes. A zero value for the
+<synph><var>text_length</var></synph> parameter is not valid. If the returned enciphered text
+(<synph><var>cipher_text</var></synph> parameter) is a different length because of the addition of
+padding bytes, the value is updated to the length of the ciphertext.<p>The application program
+passes the length of the plaintext to the <ph>verb</ph>. This <ph>verb</ph> returns the length of
+the ciphertext to the application program. </p></pd></plentry>
+<plentry><pt>clear_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The text that is to be enciphered.</pd></plentry>
+<plentry><pt>initialization_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 8-byte supplied string for the cipher block chaining. The first eight bytes (or less)
+block of the data is XORed with the ICV and then enciphered. The input block is enciphered and the
+next ICV is created. You must use the same ICV to decipher the data.</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An array of 8-byte keywords providing the processing control information. The array is
+positional. The first keyword in the array is the processing rule. You choose the processing rule
+you want the <ph>verb</ph> to use for enciphering the data. The second keyword is the ICV selection
+keyword. The third keyword (or the second if the ICV selection keyword is allowed to default to
+INITIAL) is the encryption algorithm to use. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#l0wskc02_encparameters/l0wskc02_pcbc2"/>.<table id="l0wskc02_pcbc2"
+pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="32*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Processing Rule</i></b> (1,
+required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CBC</kwd></synph></entry>
+<entry valign="top" align="left">Performs ANSI X3.102 cipher block chaining. The data must be a
+multiple of 8 bytes. An OCV is produced and placed in the <synph><var>chaining_vector</var></synph>
+parameter. If the ICV selection keyword <synph><kwd/></synph>CONTINUE is specified, the CBC OCV from
+the previous call is used as the ICV for this call.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>CUSP</kwd></synph></entry>
+<entry colname="col2">Performs Cryptographic Unit Support Program (CUSP) cipher block
+chaining.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>IPS</kwd></synph></entry>
+<entry colname="col2">Performs Information Protection System (IPS) cipher block chaining.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>X9.23</kwd></synph></entry>
+<entry valign="top" align="left">Performs cipher block chaining with 1 - 8 bytes of padding. This is
+compatible with the requirements in ANSI X9.23. If the data is not in exact multiples of eight
+bytes, X9.23 pads the plaintext so the ciphertext produced is an exact multiple of 8 bytes. The
+plaintext is padded to the next multiple eight bytes, even if 8 bytes are added. An OCV is
+produced.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>ICV Selection</i></b> (1,
+optional) </entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CONTINUE</kwd></synph></entry>
+<entry valign="top" align="left">Specifies to take the initialization vector from the output
+chaining vector (OCV) contained in the work area to which the
+<synph><var>chaining_vector</var></synph> parameter points. <synph><kwd>CONTINUE</kwd></synph> is
+valid only for <ph>the CBC processing rule</ph>.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>INITIAL</kwd></synph></entry>
+<entry valign="top" align="left">Specifies to take the initialization vector from the
+<synph><var>initialization_vector</var></synph> parameter. <synph><kwd>INITIAL</kwd></synph> is the
+default value.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Encryption Algorithm</i></b>
+(Optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DES</kwd></synph></entry>
+<entry valign="top" align="left">Specifies to use the data encryption standard and to ignore the
+token marking.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>
+<xref href="wskc_c_apxcipm.dita#l0wskc02_apxcipm"/> describes the cipher processing rules in detail.
+</p></pd></plentry>
+<plentry><pt>pad_character</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An integer between 0 and 255 that is used as a padding character for the <ph>X9.23</ph>
+process rule (<synph><var>rule_array</var></synph> parameter).</pd></plentry>
+<plentry><pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 18-byte field <ph>CCA</ph> uses as a system work area. Your application program must not
+change the data in this string. The chaining vector holds the output chaining vector (OCV) from the
+caller. The OCV is the first eight bytes in the 18-byte string.<p>The direction is Output if the ICV
+selection keyword of the <synph><var>rule_array</var></synph> parameter is
+<synph><kwd>INITIAL</kwd></synph>.</p><p>The direction is Input/Output if the ICV selection keyword
+of the <synph><var>rule_array</var></synph> parameter is
+<synph><kwd>CONTINUE</kwd></synph>.</p></pd></plentry>
+<plentry><pt>cipher_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The enciphered text the <ph>verb</ph> returns. The length of the ciphertext is returned in
+the <synph><var>text_length</var></synph> parameter. The <synph><var>cipher_text</var></synph> could
+be eight bytes longer than the length of the <synph><var>clear_text</var></synph> field because of
+the padding that is required for some processing rules.</pd></plentry>
+</parml></section>
+</refbody></reference>

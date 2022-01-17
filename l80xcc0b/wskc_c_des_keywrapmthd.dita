@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_des_keywrapmthd" xml:lang="en-us">
+<title>DES key wrapping</title>
+<titlealts>
+<navtitle>DES key</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): DES key wrapping for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>The key value in DES key tokens are wrapped using one of several possible
+methods.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key wrapping<indexterm>DES</indexterm><indexterm>AES</indexterm></indexterm>
+<indexterm>DES key wrapping<indexterm>original method</indexterm><indexterm>enhanced
+method</indexterm><indexterm>compliant-tagged method</indexterm></indexterm>
+<indexterm>AES key wrapping</indexterm>
+<indexterm>key wrapping<indexterm>electronic code book</indexterm><indexterm>ECB wrapping of DES
+keys</indexterm><indexterm>double length key</indexterm><indexterm>enhanced
+CBC</indexterm></indexterm>
+<indexterm>ECB wrapping of DES keys</indexterm>
+<indexterm>key<indexterm>double length</indexterm></indexterm>
+<indexterm>double length key</indexterm>
+<indexterm>CBC wrapping of DES keys<indexterm>enhanced CBC</indexterm></indexterm>
+<indexterm>key<indexterm>triple length DES</indexterm></indexterm>
+<indexterm>double length key</indexterm>
+<indexterm>key wrapping<indexterm>wrapping key derivation</indexterm></indexterm>
+<indexterm>key derivation wrapping</indexterm><indexterm>key token</indexterm>
+<indexterm>KDF in counter mode</indexterm>
+<indexterm>Key Derivation Function (KDF)</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>NIST standard SP 800-108</indexterm>
+<indexterm>HMAC algorithm</indexterm>
+<indexterm>NIST standard SP 800-108</indexterm>
+<indexterm>binding key halves</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The  methods are:</p>
+<dl>
+<dlentry>
+<dt rev="sh21i2">WRAP-ECB (Original method)</dt>
+<dd>The key value in DES tokens are encrypted using triple-DES encryption, and key parts are
+encrypted separately. The original method is the default on CEX*C before CEX6C.</dd>
+</dlentry>
+<dlentry>
+<dt rev="sh21i2">WRAP-ENH (Enhanced method)</dt>
+<dd>The key value for keys is bundled with other token data and encrypted using triple-DES
+encryption and cipher block chaining mode. The enhanced method applies only to DES key tokens. The
+enhanced method of symmetric key wrapping is designed to be ANSI X9.24 and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant. The enhanced method is
+the default as of CEX6C. <p rev="sh21i2">The wrapping key is derived using a NIST counter-mode key
+derivation function (KDF). SHA-1 HMAC is used in the KDF. For this method, the key value is bundled
+with other token data and encrypted using triple DES encryption and cipher block chaining mode. This
+enhanced method requires an <tm tmtype="reg" trademark="IBM">IBM</tm>
+<ph conref="lxcommon.dita#phrases/ph_z196"/>, <ph conref="lxcommon.dita#phrases/ph_zEnterprise"/>
+114, or later with a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> 
+that is a CEX3C or later.
+</p></dd>
+</dlentry>
+<dlentry rev="sh21i2">
+<dt>WRAPENH2 (Enhanced Method 2)</dt>
+<dd>This method, which uses the enhanced wrapping method (WRAP-ENH) with the difference of using the
+SHA-256 HMAC KDF, was introduced in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> 5.4 and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2. For this method,
+the key value is bundled with other token data and encrypted using triple DES encryption and cipher
+block chaining mode. This method is the same as the compliant-tagged method except a different label
+is used in the KDF, resulting in a different wrapping key. This method applies only to triple-length
+key tokens, and triple-length keys are always wrapped with this method with the exception of DATA
+keys with a zero control vector. The SHA-256 enhanced method is available on the <ph
+conref="lxcommon.dita#phrases/ph_z13"/> or <ph conref="lxcommon.dita#phrases/ph_z13s"/> servers with
+the July 2019 licensed internal code or the <ph conref="lxcommon.dita#phrases/ph_z14"/> or later
+servers with the December 2018 licensed internal code.</dd>
+</dlentry>
+<dlentry rev="sh21i2">
+<dt>WRAPENH3 (Enhanced Method 3)</dt>
+<dd>This method is based on the WRAPENH2 method with the addition of an authentication code. The
+wrapping and MAC keys are derived using the NIST KDF with SHA-256 HMAC and labels that are unique to
+the WRAPENH3 process. A TDESCMAC authentication code is generated over the complete key token. The
+authentication code is stored in the token where the right control vector was stored. There will
+always be three key parts encrypted and placed in the key token to obfuscate the key length. All
+keys with the exception of DATA keys with a zero control vector can be wrapped with this method. The
+method is available on <ph conref="lxcommon.dita#phrases/ph_z13"/> or <ph
+conref="lxcommon.dita#phrases/ph_z13s"/> servers with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.7 - the May 2021 licensed internal code
+(LIC), on z14 or z14 ZR1 servers with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.6 - the May 2021 licensed internal code
+(LIC), or on z15 or z15 TO2 and later servers with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.3 - the May 2021 licensed internal code
+(LIC). <p rev="sh21i1">Use the environment variable CSU_WRAP_OVERRIDE to specify the enhanced
+wrapping method WRAPENH3. This is only applicable to DES and TDES keys. If set to
+<keyword>WRAPENH3</keyword>, then the <keyword>WRAPENH3</keyword> method is used regardless of what
+is specified in environment variable DEFAULTWRAP, or what rule array keywords are provided to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> interface call. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host library changes any wrapping keywords
+originally passed so that WRAPENH3 keyword is passed. This allows applications to use WRAPENH3 as
+their default wrapping method on legacy platforms without changing the application code. Migration
+of existing keys should be carefully planned. Other values for CSU_WRAP_OVERRIDE are not allowed
+besides WRAPENH3. Set CSU_WRAP_OVERRIDE with this command: </p><p><cmdname>export
+CSU_WRAP_OVERRIDE=WRAPENH3</cmdname>.</p></dd>
+</dlentry>
+<dlentry>
+<dt>Compliant-tagged method</dt>
+<dd>This method is the same as <ph rev="sh21i2">WRAPENH3 (enhanced method 3), as of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.6 and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.3 - the May 2021 licensed internal code
+(LIC),</ph> except for an important difference:<ul>
+<li rev="sh21i2">The master-key-to-wrapping-key derivation process uses different input strings,
+giving a different wrapping key and a different CMAC key. This method is exclusive to
+compliant-tagged DES keys.</li>
+</ul></dd>
+</dlentry>
+</dl>
+<p>When the <cmdname>Allow weak wrapping of compliance-tagged keys by DES MK</cmdname> (X'02EB')
+access control point is enabled, any service which attempts to wrap a compliant-tagged key token
+with a weaker DES master key in terms of effective key strength (1 or more 56 bit key parts are
+repeated) will succeed.</p>
+<section rev="sh21i2">
+<title>Impacts of WRAPENH3 protected TDES tokens in customer applications</title>
+<p>Read some notes about potential application use case impacts due to the implementation of
+WRAPENH3 protected TDES tokens. </p>
+<p><b>Use case 1:</b></p>
+<p> When WRAPENH3 is used to protect a TDES key in a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token, one or more 8-byte strings of
+0x00 values at the end of the key material is used to indicate a lack of key material. For any cases
+where customer key material has 8 bytes of 0x00 bytes as Key-3 part, or Key-3 and Key-2 parts, the
+key length determined by the firmware will not include those sections. <note>A key value with one or
+more 8 byte strings of value 0x00 is a known weak key case and should be avoided anyway. </note></p>
+<p><b><i>Issue with Use case 1:</i></b></p>
+<p> If the user key has 1 or more 8-byte sections with a 0x00 value at the end, then <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> calculates the key length from just the
+non-0x00 byte sections. For example, a key with value
+0x123456781234567812345678123456780000000000000000 is calculated as a 16-byte key. A key with value
+0x123456781234567800000000000000000000000000000000 is considered as an 8-byte key.</p>
+<p><b><i>Firmware handling of Use case 1:</i></b></p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> returns an error (return code
+8, reason code 1085) when detecting these cases: </p>
+<ol>
+<li>When <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> firmware detects that
+re-wrap of a key from a legacy key wrap to a WRAPENH3-protected TDES token would result in the key
+being considered shorter than it was before, this error is returned.</li>
+<li>When <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> firmware detects that
+import of a key (by key part or from an external form) to a WRAPENH3-protected TDES token would
+result in a key that is considered shorter than it was before, the this error (return code 8, reason
+code 1085) is also returned. </li>
+</ol>
+<p><b><i>Workaround for Use case 1:</i></b></p>
+<ol>
+<li>When importing a key by parts, do not start with a part that has 8 byte sections of 0x00 bytes
+at the end.</li>
+<li>When the new error (return code 8, reason code 1085) is seen for changing or importing a key to
+a form that is WRAPENH3, create a new key that is the required strength and migrate the data
+protected by the weaker key to be protected by the new key.  </li>
+</ol>
+<p><b>Use case 2:</b></p>
+<p>When WRAPENH3 is used to protect a TDES key in a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token, the length of the clear key
+cannot be determined by inspecting the encrypted key token.</p>
+<p><b><i>Issues with Use case 2:</i></b></p>
+<ol>
+<li>Use cases where a WRAPENH3 protected TDES token with a key in it is passed for some key
+management, or where key derivation services are not possible. A legacy application may expect to
+use a key token with a key in it, instead of a key skeleton, which has no key. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> cannot tell the key length needed when
+presented with a WRAPENH3 token, because the length is hidden. </li>
+<li> For these legacy use cases, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+does not decrypt the input key, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+uses the control vector (CV) to determine key attributes needed for the key to be created or
+derived. For a new WRAPENH3-protected key token, this is not possible. The key must be decrypted to
+determine the length.</li>
+<li>Skeletons which have the 'KEY' flag set to binary 1 but do not have key material will also be
+impacted by this use case. These skeletons are malformed as they indicate a key is contained but do
+not contain a key and will result in the same error.</li>
+</ol>
+<p><b><i>Handling of Use case 2:</i></b></p>
+<p>When this case is detected, an error (return code 8, reason code 1083) is returned, which
+indicates that a skeleton token is needed.</p>
+<p> Examples:</p>
+<p>
+<b>a)</b>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/>, parameter<parmname>
+DUKPT_PIN_key_identifier</parmname>: If the derived key is to be WRAPENH3 protected, the input
+parameter must be a key skeleton to properly indicate the needed key length.</p>
+<p><b>b)</b>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>, parameters
+<parmname>generated_key_identifier_1</parmname>, <parmname>generated_key_identifier_2</parmname>: If
+the generated key(s) are passed as complete WRAPENH3-protected TDES tokens, it is not possible to
+determine the desired key length based on an encrypted input token. Some users may have a practice
+of using legacy keys for these parameters, or external keys, for which the wrapping key has passed
+out of use. For this reason, a skeleton with the same control vector (CV) is needed instead of a
+complete encrypted token. </p>
+<p><b>Use case 3:</b></p>
+<p>Legacy <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/> does not support WRAPENH3 tokens. </p>
+<p><b><i>Issue with Use case 3:</i></b></p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/> service involves
+manipulating the encrypted and decrypted sections of key tokens in ways that rely on the key token
+being wrapped with TDES-ECB encryption. The integrity checking inherent to the WRAPENH3 method does
+not allow manipulation of encrypted portions of the key token.</p>
+<p><b><i>Handling of Use case 3:</i></b></p>
+<p>An error (return code 8, reason code 2161) is returned when a WRAPENH3-protected TDES token is
+presented for any <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>
+<parmname>key_identifier</parmname> parameter. </p>
+<p><b>Use case 4:</b></p>
+<p>When using the host-based wrapping keyword override to specify WRAPENH3 to key management
+services, such as the CSU_WRAP_OVERRIDE environment variable, there is an extra access control check
+triggered in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> firmware. </p>
+<p><b><i>Issue with Use case 4:</i></b></p>
+<p>When the host-based wrapping method override control indicates to add the WRAPENH3 keyword where
+no wrapping keyword was indicated, this will trigger checking of the verb-unique wrapping override
+access control point (ACP). </p>
+<p> Example:</p>
+<p> The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukdj"/> service override ACP
+is at offset 0x01CA. When using the host-based wrapping method override, this ACP must be set to ON
+for the use of WRAPENH3 keyword to succeed.</p>
+<p><b><i>Workaround for Use case 4:</i></b></p>
+<ol>
+<li>All wrapping control override ACPs have ON as their default setting in the <ph
+conref="lxcommon.dita#phrases/ph_ibmz"/> default role for each domain, allowing this use case. </li>
+<li>A configuration that has been migrated forward across several HSM levels may not be carrying ON
+values for these ACPs. A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> needs to
+be used to set these ACPs to allow the behavior. </li>
+</ol>
+<p><b>Use case 5:</b></p>
+<p> When using the host-based wrapping keyword override to specify WRAPENH3 to key management
+services, such as the CSU_WRAP_OVERRIDE environment variable, note that wrapping method WRAPENH3 is
+not usable for a control vector (CV) with all 8 bytes set to value 0x00. </p>
+<p><b><i>Issue with Use case 5:</i></b></p>
+<p>All <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services that make keys
+with a zero CV (with all bytes of 0x00) will return error (return code 8, reason code 175) if the
+token is also requested to be wrapped with WRAPENH3. </p>
+<p><b><i>Workaround for Use case 5:</i></b></p>
+<p>Migrate legacy key tokens that use CV with all bytes set to 0x00 to a key type that uses a
+non-zero CV before migrating them to WRAPENH3.</p>
+</section>
+<section><title>ECB wrapping of DES keys (original method)</title>In ECB wrapping, a double length
+key (*K) is wrapped using a double-length key-encrypting key (*KEK).<p>The definition is as follows:
+<codeblock>e<sub>*KEK</sub>(KL) || e<sub>*KEK</sub>(KR) = e<sub>KEKL</sub>(d<sub>KEKR</sub>(e<sub>KEKL</sub>(KL))) || e<sub>KEKL</sub>(d<sub>KEKR</sub>(e<sub>KEKL</sub>(KR)))</codeblock></p><p>where: </p><dl>
+<dlentry>
+<dt>KL</dt>
+<dd>is the left 64 bits of *K</dd>
+</dlentry>
+<dlentry>
+<dt>KR</dt>
+<dd>is the right 64 bits of *K</dd>
+</dlentry>
+<dlentry>
+<dt>KEKL</dt>
+<dd>is the left 64 bits of *KEK</dd>
+</dlentry>
+<dlentry>
+<dt>KEKR</dt>
+<dd>is the right 64 bits of *KEK</dd>
+</dlentry>
+<dlentry>
+<dt>||</dt>
+<dd>means concatenation</dd>
+</dlentry>
+<dlentry>
+<dt>d<sub>*k</sub>(m) or e<sub>*k</sub>(m)</dt>
+<dd>means that message <parmname>m</parmname> is decrypted (<parmname>d</parmname>) or encrypted
+(<parmname>e</parmname>) with key <parmname>*k</parmname>.</dd>
+</dlentry>
+</dl></section>
+<section><title>Enhanced CBC wrapping of DES keys</title>The enhanced CBC wrapping method uses
+triple-DES encryption, an internal chaining of the key value, and CBC mode.<p>The enhanced wrapping
+of a double-length key (*K) using a double-length key-encrypting key (*KEK) is defined as:
+<codeblock>e*KEK(*KL) = ecbcKEKL(dcbcKEKR(ecbcKEKL(KLPRIME || KR)))
+KLPRIME = KL XOR SHA1(KR)</codeblock></p><p>Where: <dl>
+<dlentry>
+<dt>KL</dt>
+<dd>is the left 64 bits of *K</dd>
+</dlentry>
+<dlentry>
+<dt>KR</dt>
+<dd>is the right 64 bits of *K</dd>
+</dlentry>
+<dlentry>
+<dt>KLPRIME</dt>
+<dd>is the 64-bit modified value of KL</dd>
+</dlentry>
+<dlentry>
+<dt>KEKL</dt>
+<dd>is the left 64 bits of *KEK</dd>
+</dlentry>
+<dlentry>
+<dt>KEKR</dt>
+<dd>is the right 64 bits of *KEK</dd>
+</dlentry>
+<dlentry>
+<dt>SHA1(X)</dt>
+<dd>is the 160-bit SHA-1 hash of X</dd>
+</dlentry>
+<dlentry>
+<dt>||</dt>
+<dd>means concatenation</dd>
+</dlentry>
+<dlentry>
+<dt>XOR</dt>
+<dd>means bitwise exclusive OR</dd>
+</dlentry>
+<dlentry>
+<dt>ecbc</dt>
+<dd>means encryption using cipher block chaining mode</dd>
+</dlentry>
+<dlentry>
+<dt>dcbc</dt>
+<dd>means decryption using cipher block chaining mode.</dd>
+</dlentry>
+</dl></p></section>
+<section>
+<title>Wrapping key derivation for enhanced wrapping of DES keys</title>
+<p>The wrapping key is exactly the same key that is used by the legacy wrapping method (the only
+method used by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.0.0), with one
+exception.</p>
+<p>Instead of using the base key itself (master key or key-encrypting key), a key that is derived
+from that base key is used. The derived key will have the control vector applied to it in the
+standard <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> manner, and then use the
+resulting key to wrap the new-format target key token.</p>
+<p>The reason for using a derived key is to ensure that no attacks against this wrapping scheme are
+possible using the existing <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+functions. For example, it was observed that an attack was possible by copying the wrapped key into
+an ECB <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token, if the wrapping
+key was used instead of a derivative of that key.</p>
+<p>The key will be derived using a method defined in the U.S. National Institute of Standards and
+Technology (NIST) standard SP 800-108, <synph><var>Recommendation for Key Derivation Using
+Pseudorandom Functions</var></synph> (October, 2009). Derivation will use the method <synph><var>KDF
+in counter mode</var></synph> using pseudo-random function (PRF) HMAC-SHA256. This method provides
+sufficient strength for deriving keys for any algorithm used.</p>
+<p>The HMAC algorithm is defined as:
+<codeblock>HMAC(K, text) = H((K0 XOR opad ) || H((K0 XOR ipad) || text))</codeblock></p>
+<p>where: <dl>
+<dlentry>
+<dt>H</dt>
+<dd>Is an approved hash function.</dd>
+</dlentry>
+<dlentry>
+<dt>K</dt>
+<dd>Is a secret key shared between the originator and the intended receivers.</dd>
+</dlentry>
+<dlentry>
+<dt>K0</dt>
+<dd>The key K after any necessary preprocessing to form a key of the proper length.</dd>
+</dlentry>
+<dlentry>
+<dt>ipad</dt>
+<dd>Is the constant X'36' repeated to form a string the same length as K0</dd>
+</dlentry>
+<dlentry>
+<dt>opad</dt>
+<dd>Is the constant X'5C' repeated to form a string the same length as K0</dd>
+</dlentry>
+<dlentry>
+<dt>text</dt>
+<dd>Is the text to be hashed.</dd>
+</dlentry>
+<dlentry>
+<dt>||</dt>
+<dd>Means concatenation</dd>
+</dlentry>
+<dlentry>
+<dt>XOR</dt>
+<dd>Means bitwise exclusive OR</dd>
+</dlentry>
+</dl></p>
+<p>If the key K is equal in length to the input block size of the hash function (512 bits for
+SHA-256), K0 is set to the value of K. Otherwise, K0 is formed from K by hashing or padding.</p>
+<p>The Key Derivation Function (KDF) specification calls for inputs optionally including two byte
+strings, Label and Context. The Context will not be used. The Label will contain information on the
+usage of this key, to distinguish it from other derivations that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> may use in the future for different
+purposes. Because the security of the derivation process is rooted in the security of the derivation
+key and in the HMAC and Key Derivation Functions (KDF) themselves, it is not necessary for this
+label string to be of any particular minimum size. The separation indicator byte of X'00' specified
+in the NIST document will follow the label.</p>
+<p>The label value will be defined so that it is unique to derivation for this key wrapping process.
+This means that any future designs that use the same KDF must use a different value for the label.
+The label will be the 16 byte value consisting of the following ASCII characters:
+<codeblock>ENHANCEDWRAP2010 (X'454E4841 4E434544 57524150 32303130’)</codeblock></p>
+<p>The parameters for the counter mode KDF defined in NIST standard SP 800-108 are: <dl>
+<dlentry>
+<dt>Fixed values:</dt>
+<dd>
+<dl>
+<dlentry>
+<dt>h</dt>
+<dd>Length of output of PRF, 256 bits</dd>
+</dlentry>
+<dlentry>
+<dt>r</dt>
+<dd>Length of the counter, in bits, 32. The counter is an unsigned 4-byte value.</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Inputs:</dt>
+<dd>
+<ul>
+<li>KI (input key) - The key we are deriving from.</li>
+<li>Label - The value shown above (ASCII ENHANCEDWRAP2010).</li>
+<li>Separator byte - X'00' following the label value.</li>
+<li>Context - A null string. No context is used.</li>
+<li>L - The length of the derived key to be produced, rounded up to the next multiple of 256.</li>
+<li>PRF - HMAC-SHA256.</li>
+</ul>
+</dd>
+</dlentry>
+</dl></p>
+</section>
+</conbody>
+</concept>
+<?Pub *0000001645?>

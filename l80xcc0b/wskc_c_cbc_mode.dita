@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_cbc_mode">
+<title>Cipher Block Chaining (CBC) mode</title>
+  <titlealts>
+    <navtitle>Cipher Block Chaining (CBC) mode</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Cipher Block Chaining (CBC)
+mode</searchtitle>
+  </titlealts><shortdesc>The CBC mode uses an initial chaining vector (ICV) in its processing. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>cipher block chaining (CBC)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The CBC mode processes blocks of data only in exact multiples of
+the blocksize. The ICV is exclusive ORed with the first block of plaintext
+prior to the encryption step. The block of ciphertext just produced
+is exclusive-ORed with the next block of plaintext, and so on. You
+must use the same ICV to decipher the data. This disguises any pattern
+that may exist in the plaintext. CBC mode is the default for encrypting
+and decrypting data using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs. <xref href="wskc_c_apxcipm.dita#l0wskc02_apxcipm"/> describes the cipher processing
+rules in detail.</p>
+</conbody></concept>

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsvparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/></indexterm></indexterm>
+<indexterm>control information<indexterm>for Digital
+Signature Verify</indexterm></indexterm>
+<indexterm>ISO 9796</indexterm>
+<indexterm>PKCS 1.0</indexterm>
+<indexterm>PKCS 1.1</indexterm>
+<indexterm>ZERO-PAD</indexterm>
+<indexterm>X9.31</indexterm>
+<indexterm>ANSI X9.31</indexterm>
+<indexterm>TPK-ONLY</indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>Elliptic Curve Digital Signature Algorithm (ECDSA)</indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>RSA</indexterm>
+<indexterm>PKA_public_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>PKA_public_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>data_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>signature_field_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+<indexterm>signature_field parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. A keyword specifies the
+method to use to verify the digital signature. Each keyword is left-aligned in an 8-byte field and
+padded on the right with blanks. All keywords must be in contiguous storage. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_dsvparameters/l0wskc02_dsvary"/>.<table id="l0wskc02_dsvary" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Signature algorithm</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>ECDSA</kwd></synph></entry>
+<entry>Verify an ECC digital signature. When specified, this is the only keyword permitted in the
+<synph><var>rule_array</var></synph>.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSA</kwd></synph></entry>
+<entry>Verify an RSA digital signature. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>EDDSA</kwd></synph></entry>
+<entry>Specifies to verify an EC Edwards digital signature. 
+<p rev="sh21i1">The Signature Algorithm keyword EDDSA must be used with the MESSAGE keyword and the 
+length of the message passed in the <parmname>data_length</parmname> parameter must be less than or equal to 8 KB.</p>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>CRDL-DSA</kwd></synph></entry>
+<entry>Specifies to verify a signature in the CRYSTALS-Dilithium digital signature scheme. 
+<ph rev="sh21i1">This keyword is only supported with the MESSAGE input type and <parmname>data_length</parmname> 
+up to 6000 bytes.</ph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Digital signature formatting
+method</i></b> (Optional and not valid with <synph><kwd>ECDSA</kwd></synph> keyword.)</entry>
+</row>
+<row>
+<entry><synph><kwd>ISO-9796</kwd></synph></entry>
+<entry>Verify the digital signature on the <parmname>data</parmname> according to ISO-9796-1. Any
+hash method is allowed. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS-1.0</kwd></synph></entry>
+<entry>Verify the digital signature on the BER-encoded ASN.1 value of the
+type DigestInfo as specified in the RSA Data Security, Inc. Public Key Cryptography Standards #1
+block type 00. The text must specify BER encoded hash text.</entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS-1.1</kwd></synph></entry>
+<entry>Verify the digital signature on the BER-encoded ASN.1 value of the
+type DigestInfo as specified in the RSA Data Security, Inc. Public Key Cryptography Standards #1
+block type 01. The text must specify BER encoded hash text.</entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS-PSS</kwd></synph></entry>
+<entry>Verify the digital signature on the string supplied in the <parmname>data</parmname> variable
+as defined in the RSA PKCS #1 v2.2 standard for the RSASSA-PSS signature scheme.</entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry>Format the <parmname>data</parmname> by padding it on the left with binary zeros to the
+length of the PKA key modulus. Any supported hash function is allowed.</entry>
+</row>
+<row>
+<entry><synph><kwd>X9.31</kwd></synph></entry>
+<entry>Format according to ANSI X9.31 standard.</entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col2"><b><i>Data input type</i></b> (One, optional).</entry>
+</row>
+<row>
+<entry><synph><kwd>HASH</kwd></synph></entry>
+<entry>Process the text supplied in the <parmname>data</parmname> variable as a hash digest that is
+to be digitally signed by the verb. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>MESSAGE</kwd></synph></entry>
+<entry>Process the text supplied in the <parmname>data</parmname> variable as a message. This means,
+that the text is first hashed using the specified hashing-method to produce a hash digest. Then the
+resulting hash digest is used to produce a digital signature. The text to be hashed, identified by
+the <parmname>data</parmname> parameter, must be a multiple of eight bits and byte-aligned. 
+This keyword is required with EDDSA and CRDL-DSA keywords.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Hash method specification</i></b> 
+(One required: 
+(1) when the MESSAGE keyword is specified, (2) when the HASH keyword is specified and the hash formatting method 
+is PKCS-PSS or X9.31, (3) when the signature algorithm keyword EDDSA or CRDL-DSA is specified. 
+Otherwise such a specification is not allowed.)</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>ED-HASH</kwd></synph></entry>
+<entry>Process the text supplied in the <parmname>data</parmname> variable using the hash method for
+the Edwards curve of the key passed in the <parmname>PKA_public_key_identifier</parmname> parameter.
+For Ed25519, this is SHA-512. For Ed448, this is SHAKE-256. This keyword is required with the EDDSA
+keyword.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>CRDLHASH</kwd></synph></entry>
+<entry>Process the text supplied in the <parmname>data</parmname> variable using the hash method
+appropriate for the CRYSTALS-Dilithium algorithm. This is SHAKE-256. Required for CRDL-DSA.</entry>
+</row>
+
+
+<row>
+<entry><synph><kwd>RPMD-160</kwd></synph></entry>
+<entry>The input value supplied in the <parmname>data</parmname> parameter is generated using the
+RIPEMD-160 hash method. Not valid with the PKCS-1.0, PKCS-1.1, or PKCS-PSS signature methods. </entry>
+</row>
+
+<row>
+<entry><synph><kwd>SHA-1</kwd></synph></entry> 
+<entry>The input value supplied in the <parmname>data</parmname> parameter is generated using the
+SHA-1 hash method.</entry> 
+</row>
+
+<row>
+<entry><synph><kwd>224</kwd></synph></entry> 
+<entry>The input value supplied in the <parmname>data</parmname> parameter is generated using the
+224 hash method. Not valid with the X9.31 signature method.</entry> 
+</row>
+
+<row>
+<entry><synph><kwd>SHA-256</kwd></synph></entry> 
+<entry>The input value supplied in the <parmname>data</parmname> parameter is generated using the
+SHA-256 hash method.</entry> 
+</row>
+
+<row>
+<entry><synph><kwd>SHA-384</kwd></synph></entry> 
+<entry>The input value supplied in the <parmname>data</parmname>a parameter is generated using the
+SHA-384 hash method.</entry> 
+</row>
+<row>
+<entry><synph><kwd>SHA-512</kwd></synph></entry> 
+<entry>The input value supplied in the <parmname>data</parmname> parameter is generated using the
+SHA-512 hash method.</entry> 
+</row>
+
+<row>
+<entry namest="col1" nameend="col2"><b><i>Signature checking rule</i></b> (One optional. 
+Valid only with the PKCS-PSS digital signature hash formatting method.)</entry>
+</row>
+<row>
+<entry><synph><kwd>EXMATCH</kwd></synph></entry> 
+<entry>Specifies that the 4-byte salt length prepended to the data identified by the
+<parmname>data</parmname> parameter must be an exact match to the salt length derived from the
+signature. This is the default.</entry> 
+</row>
+<row>
+<entry><synph><kwd>NEXMATCH</kwd></synph></entry> 
+<entry>Specifies that the 4-byte salt length prepended to the data identified by the
+<parmname>data</parmname> parameter does not have to be an exact match to the salt length derived
+from the signature. <note>The derived salt length cannot be less than the prepended
+length.</note></entry> 
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh20i1"><b><i>Trusted public key
+restriction</i></b> (Optional. Not valid with <synph><kwd>ECDSA</kwd></synph>, 
+<synph><kwd>EDDSA</kwd></synph>, or <synph><kwd>CRDL-DSA</kwd></synph> keywords. Valid only
+with trusted blocks. See <xref href="wskc_r_zapgtblk.dita#l0wskc02_zapgtblk"/>.)</entry>
+</row>
+<row>
+<entry><synph><kwd>TPK-ONLY</kwd></synph></entry>
+<entry>Permits the use of only public keys contained in trusted blocks. By
+specifying this keyword, the use of regular CCA RSA key tokens is rejected and only the use of a
+(trusted) public key supplied by the <synph><var>PKA_public_key_identifier</var></synph> parameter
+can be used to verify the digital signature, thus assuring a sensitive signature verification
+operation is limited to trusted public keys. <p>If <synph><kwd>TPK-ONLY</kwd></synph> is specified,
+the <synph><var>PKA_public_key_identifier</var></synph> parameter must identify a trusted block that
+contains two sections after the trusted block token header: (1) trusted block trusted RSA public key
+(section <ph>X'11'</ph>), and (2) trusted block information (section <ph>X'14'</ph>). Section
+<ph>X'14'</ph> is required for all trusted blocks. Section <ph>X'11'</ph> contains the trusted
+public key, and its usage rules must indicate it can be used in digital signature
+operations.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Certificate validation method</i></b> (One required 
+if the token or label in <parmname>PKA_public_key_identifier</parmname> is a certificate. 
+Otherwise, a validation method must not be specified.)</entry>
+</row>
+<row>
+<entry><synph><kwd>RFC-2459</kwd></synph></entry>
+<entry>Validate the certificate using the semantics of RFC-2459.</entry>
+</row>
+<row>
+<entry><synph><kwd>RFC-3280</kwd></synph></entry>
+<entry>Validate the certificate using the semantics of RFC-3280.</entry>
+</row>
+<row>
+<entry><synph><kwd>RFC-5280</kwd></synph></entry>
+<entry>Validate the certificate using the semantics of RFC-5280.</entry>
+</row>
+<row>
+<entry><synph><kwd>RFC-ANY</kwd></synph></entry>
+<entry>Attempt to validate the certificate by first using the semantics of
+RFC-2459, then the semantics of RFC-3280, and finally, the
+semantics of RFC-5280.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Public key infrastructure usage</i></b> 
+(One optional when the input is an X.509 certificate. Otherwise, must not be specified.)</entry>
+</row>
+<row>
+<entry><synph>PKI-CHK<kwd></kwd></synph></entry>
+<entry>Specifies that the X.509 certificate is to be validated against the trust chain of the PKI
+hosted in the adapter. This requires that the CA credentials have been installed into all
+coprocessors using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/>. This is
+the default.</entry>
+</row>
+<row>
+<entry><synph>PKI-NONE<kwd></kwd></synph></entry>
+<entry>Specifies that the X.509 certificate is not to be validated against the trust chain of the PKI hosted 
+in the adapter. This is suitable if the certificate has been validated using host-based PKI services or if using a 
+self-signed certificate.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p><note type="tip">
+<ul>
+<li>Use the SHA-1, SHA-224, SHA-256, SHA-384, or SHA-512 hashing method to create the hash digest
+for PKCS-1.0 or PKCS-1.1. <p>Also, use one of these hashing methods to create the hash digest for
+ECDSA and PKCS-PSS.</p></li>
+<li>Use any hashing method to create the hash digest for ISO-9796 and ZERO-PAD.</li>
+<li>Use RIPEMD-160, SHA-1, SHA-256, SHA-384, or SHA-512 hashing method to create the hash
+digest for X9.31.</li>
+<li>Refer to <xref href="wskc_c_fhk.dita#l0wskc02_fhk"/> for a discussion of hash formatting 
+methods.</li>
+</ul>
+</note>
+</p>
+</pd></plentry>
+<plentry><pt>PKA_public_key_identifier_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>PKA_public_key_identifier</parmname> parameter containing the
+public key token or label. <ph rev="sh21i1">If the <parmname>PKA_public_key_identifier</parmname>
+contains a label, the value must be 64. Otherwise, the value must be between the actual length of
+the token and 6500. For QSA <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"
+/> public keys, the value may be up to 8000.</ph></pd></plentry>
+<plentry><pt>PKA_public_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the public key to verify the signature. The key identifier is an RSA, EC,
+or CRYSTALS-Dilithium public key token, an internal trusted block, an X.509 certificate, or the
+label of such a public key identifier in key storage. <p>If this parameter contains a token or the
+label of an internal trusted block, the <synph><var>rule_array</var></synph> parameter must specify
+<synph><kwd>TPK-ONLY</kwd></synph>. If the signature algorithm is <synph><kwd>ECDSA</kwd></synph>,
+this must be a token label or an ECC public key.</p></pd></plentry>
+<plentry><pt>data_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>data</parmname> parameter in bytes. It must be the exact length
+of the text to sign. If you specify <synph><kwd>ZERO-PAD</kwd></synph> in the
+<parmname>rule_array</parmname> parameter, the length is restricted to 36 bytes unless the RSA key
+is a signature-only key. In this case, the maximum length is 512 bytes. <p>The data length limit is
+controlled by an access control point. Only RSA key management keys are affected by this access
+control point. The limit for RSA signature-only keys is 512 bytes. This access control point is
+always disabled in the default role. You must have a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> to enable it.</p>
+<p>If you specify <synph><kwd>PKCS-PSS</kwd></synph>, the first four bytes must contain the salt
+length. The remaining bytes of the parameter must contain the hash or message. The value will be 4 +
+length of the hash or message.</p>
+<p>If MESSAGE is not specified, the maximum length is 68 bytes. If MESSAGE is specified, the value
+is the length of the message to be hashed. The maximum value is 2147483647 bytes. When the signature
+algorithm keyword is EDDSA, the maximum length is 8192. When CRDL-DSA is specified, the maximum
+<parmname>data_length</parmname>
+<ph rev="sh21i2">depends on whether you use a private key (which includes the public-private pair)
+or only the public key </ph>. A hash method rule array keyword must be specified.</p><note
+rev="sh21i2"> If a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+private key token (which contains the public key) is passed in the
+<parmname>PKA_public_key_identifier</parmname> parameter, the maximum data length is reduced to 3000
+bytes.</note><p rev="sh21i1">When HASH is specified (this is the default), the value must be the
+exact length of the hash to be signed. The maximum value is 512 bytes. The length of the hash for
+the supported hashing method is 16 for MD5, 20 for SHA-1 and RPMD-160, 28 for SHA-224, 32 for
+SHA-256, 48 for SHA-384, and 64 for SHA-512. You can use either the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> service or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> service to generate the hash.</p><p>See
+<xref href="wskc_r_dsvusage.dita"/> for more information on the allowed length of the text to be
+verified according to the applied digital signature formatting method.</p></pd></plentry>
+<plentry><pt>data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to a string variable containing the text to be signed. This variable can identify the
+hash to be verified or the message to be hashed and verified, depending on whether the HASH or
+MESSAGE input type keyword specified. If MESSAGE is specified, the input data is treated as data
+that must be hashed by the verb and then verified, otherwise the input data is treated as hash
+information that is to be signed. </p>
+<p>If PKCS-PSS is specified, the <parmname>data</parmname> variable includes an additional 4 byte
+field that contains the salt length in big endian format. This length must be prefixed to the hash
+or message. To allow use of a salt length less than the hash length, but not zero, enable the
+<cmdname>Allow Small Salt</cmdname> command (offset X'033C') in the active role. A salt length value
+can be 0 and 20 through the size allowed by the RSA modulus in bytes. Please note that the size of
+the data to be signed is still governed by the size of the RSA modulus. Currently, the salt length
+cannot exceed 490 bytes. The modulus size and hash length affect the maximum salt length for a given
+key modulus size and specified hash. The maximum salt length equals <codeph>modulus_size/8 –
+hash_length - 2</codeph>. For example, with a 4096 bit modulus key and SHA-1 hash, the maximum salt
+length becomes <codeph>(4096/8) – 20 - 2 = 490</codeph>. </p>
+<p>If PKCS-PSS is specified for verification with normal processing, the salt length derived from 
+the signature must be an exact match (keyword EXMATCH, the default) for the 4-byte salt length 
+that is prepended in big endian format to the beginning of this parameter. 
+With the <cmdname>Allow Not Exact Salt Length</cmdname> command (offset X'033B') 
+enabled in the active role, keyword NEXMATCH can be specified to
+allow signature verification when the salt length derived from the signature is not an 
+exact match for the salt length specified with the data parameter. 
+Salt lengths derived from the signature are not
+allowed to be less than the value specified with the data parameter. Specifying the keyword and
+enabling the access control point in the active role will allow an additional level of checking.
+Currently, the salt length cannot exceed 490 bytes.</p>
+</pd></plentry>
+<plentry><pt>signature_field_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length in bytes of the <synph><var>signature_field</var></synph> parameter. 
+The maximum size for RSA is 512. The maximum size for ECC is 132. <ph rev="sh21i1">The maximum size for
+CRYSTALS-Dilithium is 5000.</ph></pd></plentry>
+<plentry><pt>signature_field </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the digital signature to verify. The digital signature is in the
+low-order bits (right-aligned) of a string whose length is the minimum number of bytes that can
+contain the digital signature. This string is left-aligned within the
+<synph><var>signature_field</var></synph>.</pd></plentry>
+</parml></section>
+</refbody></reference>

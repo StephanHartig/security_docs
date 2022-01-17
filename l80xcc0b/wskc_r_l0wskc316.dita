@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc316">
+<title>JNI version</title>
+ <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kpj"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>)<indexterm>JNI
+version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kpj"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section><title>Format</title>
+<codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kpj"/>(
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>rule_array_count</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>rule_array</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>tr31_key_length</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>tr31_key</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_block_version</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>key_block_length</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_usage</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>algorithm</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>mode</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>key_version_number</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>           <synph><var>exportability</var></synph>,
+              <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/> <synph><var>num_opt_blocks</var></synph>);               </codeblock></section>
+</refbody></reference>

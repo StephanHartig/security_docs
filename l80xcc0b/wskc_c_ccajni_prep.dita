@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="ccajni_prep">
+<title>Preparing your <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/>
+environment</title>
+<titlealts>
+<navtitle>Preparing your Java environment</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Preparing your Java environment for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts><shortdesc>Before you can compile and run <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> applications that use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Java Native Interface (JNI), you must
+install a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> version that is
+supported by your distribution. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>Java<indexterm>tested versions</indexterm><indexterm>environment</indexterm></indexterm>
+<indexterm>environment variable<indexterm>PATH</indexterm></indexterm>
+<indexterm>PATH</indexterm>
+<indexterm>JNI<indexterm>Java Native Interface</indexterm></indexterm>
+<indexterm>Java Native Interface<indexterm>JNI</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Install <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> from the distribution
+installation media or from other authorized sources for that distribution.</p>
+<p rev="sh18i2">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI has been
+tested with IBM Java version 1.8.0 for the following distributions:  </p>
+<ul rev="sh18i2">
+<li>Red Hat Enterprise <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> 7.4</li>
+<li>Red Hat Enterprise <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> 6.9</li>
+<li>SUSE <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> Enterprise Server 11
+SP4</li>
+<li>SUSE <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> Enterprise Server 12
+SP3</li>
+<li>Ubuntu 16.04.4</li>
+</ul>
+<p>Later versions of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/>, as provided
+with a distribution, might work, although they have not been tested.</p>
+<p>For compiling and running applications that use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI, you need access to the
+<cmdname>java</cmdname> and <cmdname>javac</cmdname> executables. Use one of the following methods
+to ensure that you can call the command without preconditions: </p>
+<ul>
+<li>Add the path to the <cmdname>java</cmdname> and <cmdname>javac</cmdname> executable to your PATH
+environment variable.</li>
+<li>Create soft links from the <cmdname>java</cmdname> and <cmdname>javac</cmdname> executables from
+wherever they are located to a directory that is in your PATH environment variable by default, such
+as <filepath>/usr/bin</filepath>.</li>
+</ul>
+<note rev="shfin"><b>IBM Java 1.7.0 interaction</b><p>Some users reported an issue with IBM Java,
+<xref href="http://www-01.ibm.com/support/docview.wss?uid=swg1IV52646" format="html"
+scope="external">support item IV52646</xref>. The following exception
+occurs:</p><codeblock>
+Exception in thread "main" java.lang.UnsatisfiedLinkError: nio
+(/usr/lib64/jvm/java-1.7.0-ibm-1.7.0/jre/lib/s390x/libnio.so:
+symbol NET_Bind, version SUNWprivate_1.1 not defined in file libnet.so
+with link time reference)
+</codeblock><p>This
+occurs because the s390x version of the <filepath>libnio.so</filepath> library is being loaded when
+a<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> program is run. The correct
+version
+is:</p><codeblock>/usr/lib64/jvm/java-1.7.0-ibm-1.7.0/jre/lib/s390/libnio.so</codeblock><p>To ensure
+that the application uses the correct version, do the following in the application environment as a
+test, and then add an appropriate adjustment to the application environment file (such as .bashrc or
+.bash_profile):
+</p><codeblock scale="90">
+export LD_LIBRARY_PATH=/usr/lib64/jvm/java-1.7.0-ibm-1.7.0/jre/lib/s390x:$LD_LIBRARY_PATH
+</codeblock></note>
+</conbody></concept>

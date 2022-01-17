@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdeptcs" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword> verb</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword></navtitle><?Pub
+Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb</searchtitle>
+</titlealts>
+<shortdesc>This verb extracts the customer-entered PIN from the input
+PIN block.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"></keyword>)<indexterm>extraction
+rules</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>It extracts the PIN from the input PIN block according to the following
+rules:  <ul>
+<li>If the input PIN block format is ANSI X9.8, ISO format 0, VISA format 1, VISA format 4, ECI
+format 1, ISO format 1, ISO format 2,  ISO format 3, <ph rev="sh20i1">ISO format 4</ph>, VISA format
+2, <tm tmtype="reg" trademark="IBM">IBM</tm> Encrypting PINPAD format, or ECI format 3 and, if the
+specified PIN length is less than 4, the verb sets a reason code to reject the operation. If the
+specified PIN length is greater than 12, the operation proceeds to normal completion with
+unpredictable contents in the output PIN block. Otherwise, the verb extracts the PIN according to
+the specified length.</li>
+<li>If the input PIN block format is VISA format 3,  the specified
+delimiter (padding) determines the PIN length. The search starts at
+the leftmost digit in the PIN block. If the input  PIN block format
+is 3624, the specification of a PIN extraction method for the 3624
+is supported through <i>rule_array</i> keywords.  If no PIN extraction
+method is specified in the <i>rule_array</i>, the specified delimiter
+(padding) determines the PIN length.</li>
+<li>If the input PIN block format is 3621,  the specification of a
+PIN extraction method for the 3621 is supported through <i>rule_array</i> keywords.
+If no PIN extraction method is  specified in the <i>rule_array</i>,
+the specified delimiter (padding) determines the PIN length.</li>
+<li>If the input block format is ECI format 2, the PIN is always the
+leftmost 4 digits.</li>
+</ul></p>
+<p>If the maximum PIN length allowed by the output PIN block is shorter
+than the extracted PIN, only the leftmost digits of the extracted
+PIN that form the allowable maximum length are placed in the output
+PIN block. The PIN length field in the output PIN block, it if exists,
+specifies the allowable maximum length.</p>
+</conbody>
+</concept>
+<?Pub *0000002767?>

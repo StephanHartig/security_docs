@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_appctargkeytoknull" xml:lang="en-us">
+<title>When the target key-token CV is null</title>
+<titlealts>
+<navtitle>Null target key-token CV</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): When the target key-token CV is
+null</searchtitle>
+</titlealts>
+<shortdesc>When you use any of the <synph><kwd>LEFT</kwd></synph>, <synph><kwd>BOTH</kwd></synph>,
+or <synph><kwd>RIGHT</kwd></synph> keywords, and when the control
+vector in the target key token is null (all <ph>B'0'</ph>), bit 3
+in byte 59 will be set to <ph>B'1'</ph> to indicate this is a double-length
+DATA key.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody></conbody>
+</concept>
+<?Pub *0000000867?>

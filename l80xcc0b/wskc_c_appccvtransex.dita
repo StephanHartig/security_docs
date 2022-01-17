@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appccvtransex" xml:lang="en-us">
+<title>Control vector translate example</title>
+<titlealts>
+<navtitle>Example</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Control vector translate
+example</searchtitle>
+</titlealts>
+<shortdesc>As an example, consider the case of receiving a single-length
+PIN-block encrypting key from a non-CCA system. </shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>Often such a key will be encrypted by an unmodified transport key
+(no control vector or variant is used). In a CCA system, an inbound
+PIN encrypting key is double-length.</p>
+<p>First use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> <ph>verb</ph> to
+insert the single-length key value into the left-half key-space in
+a key token. Specify <synph><kwd>USE-CV</kwd></synph> as a key type
+and a control vector value set to 16 bytes of <ph>X'00'</ph>. Also
+specify <synph><kwd>EXTERNAL</kwd></synph>, <synph><kwd>KEY</kwd></synph>,
+and <synph><kwd>CV</kwd></synph> keywords in the <i>rule_array</i>.
+This key token will be the source key key-token.</p>
+<p>Second, the target key token can also be created using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> <ph>verb</ph>.
+Specify a key type of <synph><kwd>IPINENC</kwd></synph> and the <synph><kwd>NO-EXPORT</kwd></synph> <i>rule_array</i> keyword.</p>
+<p>Then call the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph> and
+specify a <i>rule_array</i> keyword of <synph><kwd>LEFT</kwd></synph>.
+The mask arrays can be constructed as follows:  <ul>
+<li>A<sub>1</sub> is set to the value of the KEK's control vector,
+most likely the value of an IMPORTER key, perhaps with the NO-EXPORT
+bit set. B<sub>1</sub> is set to eight bytes of <ph>X'FF'</ph> so
+all bits of the KEK's control vector will be tested. </li>
+<li>A<sub>2</sub> is set to eight bytes of <ph>X'00'</ph>, the (null)
+value of the source key control vector. B<sub>2</sub> is set to eight
+bytes of <ph>X'FF'</ph> so all bits of the source-key <q>control vector</q> will
+be tested.</li>
+<li>A<sub>3</sub> is set to the value of the target key's left-half
+control vector. B<sub>3</sub> is set to <ph>X'FFFF FFFF FF9F FFFF'</ph>.
+This will cause all bits of the control vector to be tested except
+for the two (<q>fff</q>) bits used to distinguish between the left-half
+and right-half target-key control vector.</li>
+<li>B<sub>4</sub> is set to eight bytes of <ph>X'00'</ph> so no comparison
+is made between the source and target control vectors.</li>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000002867?>

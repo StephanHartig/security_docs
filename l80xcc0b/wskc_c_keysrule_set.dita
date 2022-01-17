@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_keysrule_set" xml:lang="en-us">
+<title>SET command</title>
+<titlealts>
+<navtitle>SET command</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): SET command</searchtitle>
+</titlealts>
+<shortdesc>The SET command transfers the current master-key
+to the old master-key register, and the new master-key to the current
+master-key register. It then clears the new master-key register.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>SET command</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The SET command is invoked with <xref
+href="wskc_r_mkp.dita#l0wskc02_mkp"></xref>, and performs these commands: <ol>
+<li>The master key from the CMK register is copied to the OMK register.</li>
+<li>The master key from the FULL NMK register is copied to the CMK
+register.</li>
+<li>The NMK register status is changed to EMPTY.</li>
+</ol></p>
+</conbody>
+</concept>
+<?Pub *0000001089?>

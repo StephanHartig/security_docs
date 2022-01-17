@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syiparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/></indexterm></indexterm>
+<indexterm>AES</indexterm>
+<indexterm>DES</indexterm>
+<indexterm>PKA92</indexterm>
+<indexterm>PKCSOAEP</indexterm>
+<indexterm>PKCS-1.2</indexterm>
+<indexterm>ZERO-PAD</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>RSA_enciphered_key parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</indexterm></indexterm>
+<indexterm>RSA_private_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</indexterm></indexterm>
+<indexterm>target_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 - 5.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keyword that provides control information to the <ph>verb</ph>. The recovery method is
+the method to use to recover the symmetric key. The keyword is left-aligned in an 8-byte field and
+padded on the right with blanks. The <synph><var>rule_array</var></synph> keywords are described in
+<xref href="#l0wskc02_syiparameters/l0wskc02_syiary"/>.<table id="l0wskc02_syiary" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="8*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Algorithm</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>AES</kwd></synph></entry>
+<entry valign="top" align="left">Export an AES key.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DES</kwd></synph></entry>
+<entry valign="top" align="left">Export a DES key. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Recovery method</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PKA92</kwd></synph></entry>
+<entry valign="top" align="left">Specifies the key-encrypting key is encrypted under a PKA96 RSA
+public key according to the PKA92 formatting structure.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PKCSOAEP</kwd></synph></entry>
+<entry valign="top" align="left">Specifies to use the method found in RSA DSI PKCS #1V2 OAEP.
+Supported by the DES and AES algorithms. The default hash method is SHA-1. Use the
+<synph><kwd>SHA-256</kwd></synph> keyword for the SHA-256 hash method.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry valign="top" align="left">Specifies the method found in RSA DSI PKCS #1 block type 02. <ph>In
+the RSA PKCS #1 v2.0 standard, RSA terminology describes this as the RSAES-PKCS1-v1_5
+format.</ph></entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry valign="top" align="left">The clear key is right-aligned in the field provided, and the field
+is padded to the left with zeros up to the size of the RSA encryption block (which is the modulus
+length).</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key-wrapping method</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry rev="shd3">This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method. This keyword is ignored for AES
+keys. </entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method. Valid only for DES
+keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Translation control</i></b> (Optional) This is valid only
+with key-wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with
+<synph><kwd>USECONFG</kwd></synph> when the default wrapping method is
+<synph><kwd>WRAP-ENH</kwd></synph>. This option cannot be used on a key with a control vector valued
+to binary zeros.</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy wrapping method after it has
+been wrapped with the enhanced wrapping method. Sets bit 56 (ENH-ONLY) of the control vector to
+<ph>B'1'</ph>. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Hash method</i></b> (Optional). Valid only with keyword
+<synph><kwd>PKCSOAEP</kwd></synph>.<!--Keyword PKCSOAEP makes reference to these choices, so any change here should be reflected above also.--></entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-1</kwd></synph></entry>
+<entry>Specifies to use the SHA-1 hash method to calculate the OAEP message hash. This is the
+default.</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-256</kwd></synph></entry>
+<entry>Specifies to use the SHA-256 hash method to calculate the OAEP message hash.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>RSA_enciphered_key_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>RSA_enciphered_key</var></synph> parameter. The maximum size
+is 3500 bytes.</pd></plentry>
+<plentry><pt>RSA_enciphered_key </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The key to import, protected under an RSA public key. The encrypted key is in the low-order
+bits (right-aligned) of a string whose length is the minimum number of bytes that can contain the
+encrypted key. This string is left-aligned within the <synph><var>RSA_enciphered_key</var></synph>
+parameter.</pd></plentry>
+<plentry><pt>RSA_private_key_identifier_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>RSA_private_key_identifier</var></synph> parameter. When the
+<synph><var>RSA_private_key_identifier</var></synph> parameter is a key label, this field specifies
+the length of the label. The maximum size is 3500 bytes.</pd></plentry>
+<plentry><pt>RSA_private_key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal RSA private key token or label whose corresponding public key protects the
+symmetric key.</pd></plentry>
+<plentry><pt>target_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>target_key_identifier</var></synph> parameter. This field is
+updated with the actual length of the <synph><var>target_key_identifier</var></synph> that is
+generated. The maximum length is 3500 bytes.</pd></plentry>
+<plentry><pt>target_key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the internal token of the imported symmetric key. <p>Except for
+<synph><kwd>PKA92</kwd></synph> processing, this verb produces a DATA key token with a key of the
+same length as that contained in the imported token.</p>
+<p rev="sh20i1">When the <synph><var>RSA_private_key_identifier</var></synph> is compliant-tagged, the key is imported as a compliant-tagged
+key token.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

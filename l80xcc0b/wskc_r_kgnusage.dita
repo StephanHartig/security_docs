@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgnusage">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage noes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/></searchtitle>
+</titlealts><shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)<indexterm>usage notes</indexterm></indexterm>
+<indexterm>key form<indexterm>combinations with key
+type</indexterm></indexterm>
+<indexterm>key form<indexterm>combinations for a key
+pair</indexterm></indexterm>
+<indexterm>key pair</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_kgnusage/l0wskc02_keygnt1"/> shows the valid key type and key
+form combinations for a single key. Key types marked with an '*'
+must be requested through the specification of a proper control vector
+in a key token and through the use of the <synph><kwd>TOKEN</kwd></synph> keyword.
+See also <xref href="wskc_c_kegekf.dita#l0wskc02_kegekf"/>.
+<note>Not all key
+types are valid on all hardware. See <xref href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</note></p></section>
+<section><p>For AES keys, only key form <synph><kwd>OP</kwd></synph> is supported. AES keys
+cannot be generated in pairs.</p></section>
+<table id="l0wskc02_keygnt1" pgwide="0" frame="all">
+<title>Keywords
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, valid key types and key forms for a single key</title><desc><p outputclass="summary">Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, valid key types and key forms for
+a single key</p></desc>
+<tgroup cols="5" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="80*"/>
+<colspec colname="col2" colwidth="137*"/>
+<colspec colname="col3" colwidth="61*"/>
+<colspec colname="col4" colwidth="60*"/>
+<colspec colname="col5" colwidth="58*"/>
+<thead>
+<row>
+<entry>Key Type 1</entry>
+<entry>Key Type 2</entry>
+<entry align="center">OP</entry>
+<entry align="center">IM</entry>
+<entry align="center">EX</entry></row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AESDATA</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center"/>
+<entry align="center"/></row>
+<row>
+<entry><synph><kwd>AESTOKEN</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center"/>
+<entry align="center"/></row>
+<row>
+<entry><synph><kwd>DATA</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>DATAC</kwd></synph>*</entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>DATAM</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>DKYGENKY</kwd></synph>*</entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>KEYGENKY</kwd></synph>*</entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>MAC</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+<row>
+<entry><synph><kwd>PINGEN</kwd></synph></entry>
+<entry>Not applicable</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry></row>
+</tbody>
+</tgroup>
+</table>
+<section><p><xref href="#l0wskc02_kgnusage/l0wskc02_keygnt"/> shows the valid key type and key
+form combinations for a key pair. </p></section>
+<table id="l0wskc02_keygnt" pgwide="0" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>,
+valid key types and key forms for a key pair</title><desc><p outputclass="summary">Keywords
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, valid key types and key forms for a key pair</p></desc>
+<tgroup cols="6" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="91*"/>
+<colspec colname="col2" colwidth="90*"/>
+<colspec colname="col3" colwidth="55*"/>
+<colspec colname="col4" colwidth="57*"/>
+<colspec colname="col5" colwidth="53*"/>
+<colspec colname="col6" colwidth="50*"/>
+<thead>
+<row>
+<entry valign="top" align="left">Key Type 1</entry>
+<entry valign="top" align="left">Key Type 2</entry>
+<entry valign="top" align="center">OPEX</entry>
+<entry valign="top" align="center">EXEX</entry>
+<entry valign="top" align="center">OPIM, OPOP, IMIM</entry>
+<entry valign="top" align="center">IMEX</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DECIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>ENCIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARDEC</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARDEC</kwd></synph>C*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARPINE</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARDEC</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARXCVL</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARXCVR</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARXCVL</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARXCVR</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARENC</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CVARPINE</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>CVARDEC</kwd></synph>*</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">E</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATA</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DATA</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATA</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DATAXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATAC</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>DATAC</kwd></synph>*</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATAM</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DATAM</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATAM</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DATAMV</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DATAXLAT</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DATAXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DECIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DECIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>ENCIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>DKYGENKY</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>DKYGENKY</kwd></synph>*</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ENCIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>CIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ENCIPHER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>DECIPHER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IPINENC</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>OPINENC</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>KEYGENKY</kwd></synph>*</entry>
+<entry valign="top" align="left"><synph><kwd>KEYGENKY</kwd></synph>*</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MAC</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>MAC</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MAC</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>MACVER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>IKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>OKEYXLAT</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>OPINENC</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>IPINENC</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">E</entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>OPINENC</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>OPINENC</kwd></synph></entry>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center"/>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"/></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PINVER</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>PINGEN</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PINGEN</kwd></synph></entry>
+<entry valign="top" align="left"><synph><kwd>PINVER</kwd></synph></entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center">X</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">X</entry></row>
+<row>
+<entry namest="col1" nameend="col6">
+<note><ol>
+<li>AES keys cannot be generated in pairs.</li>
+<li>An 'X' indicates a permissible key type combination
+for a given key form. An 'E' indicates that a special (Extended)
+command is required as those keys require special handling.</li>
+<li>The key types marked with an '*' must be requested through
+the specification of a proper control-vector in a key token and the
+use of the <synph><kwd>TOKEN</kwd></synph> keyword.</li></ol>
+</note></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

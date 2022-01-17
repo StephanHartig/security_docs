@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_appdansix931hf" xml:lang="en-us">
+<title>ANSI X9.31 hash format</title>
+<titlealts>
+<navtitle>ANSI X9.31 hash format</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.31 hash format</searchtitle>
+</titlealts>
+<shortdesc>With ANSI X9.31, the string that is processed by the RSA
+algorithm is formatted by the concatenation of a header, padding,
+the hash value and a trailer, from the most significant bit to the
+least significant bit, so that the resulting string is the same length
+as the modulus of the key. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ANSI X9.31 hash format</indexterm><indexterm>X9.31
+hash format</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>For CCA, the modulus length must be a multiple of 8 bits.  <ul>
+<li>The header consists of the value <ph>X'6B'</ph>.</li>
+<li>The padding consists of the value <ph>X'BB'</ph>, repeated as
+many times as required, and ended with <ph>X'BA'</ph>.</li>
+<li>The hash value follows the padding.</li>
+<li>The trailer consists of a hashing mechanism specifier and final
+byte. The hashing mechanism specifier is defined as one of the following
+values:  <dl><dlentry>
+<dt><ph>X'31'</ph></dt>
+<dd>RIPEMD-160</dd>
+</dlentry><dlentry>
+<dt><ph>X'32'</ph></dt>
+<dd>RIPEMD-128</dd>
+</dlentry><dlentry>
+<dt><ph>X'33'</ph></dt>
+<dd>SHA-1</dd>
+</dlentry><dlentry>
+<dt><ph>X'34'</ph></dt>
+<dd>SHA-256</dd>
+</dlentry></dl></li>
+<li>The final byte is <ph>X'CC'</ph>.</li>
+</ul> </p>
+</conbody>
+</concept>
+<?Pub *0000001669?>

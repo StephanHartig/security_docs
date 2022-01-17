@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdmuldecslkey" xml:lang="en-us">
+<title>Multiple decipherment of single-length keys</title>
+<titlealts>
+<navtitle>Single-length key decipherment</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Multiple decipherment of single-length
+keys</searchtitle>
+</titlealts>
+<shortdesc>Definition of the multiple encipherment of an encrypted
+single-length key (Y = e*KEK(K)) using a double-length *KEK.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>single-length key<indexterm>multiple decipherment</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The multiple encipherment of an encrypted single-length key (Y
+= e*KEK(K)) using a double-length *KEK is defined as follows:  <codeblock>    d*KEK(Y) = dKEKL(eKEKR(dKEKL(Y)))
+             = d*KEK(e*KEK(K))
+             = K</codeblock> where KEKL is the left 64 bits of *KEK
+and KEKR is the right 64 bits of *KEK.</p>
+<p><xref href="#l0wskc02_appdmuldecslkey/l0wskc02_tds"></xref> illustrates
+the definition.</p>
+<fig expanse="column" id="l0wskc02_tds"><title>Multiple decipherment
+of single-length keys</title>
+<image href="l0wskc02_fig9.jpg" placement="break" width="100"><alt>Multiple
+decipherment of single-length keys</alt></image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000001420?>

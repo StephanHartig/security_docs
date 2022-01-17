@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><val>
+<prop action="include" att="otherprops" val="pdf"/>
+<revprop action="include" changebar="|" val="sh16"/>
+<revprop action="include" changebar="|" val="shr2"/>
+<revprop action="include" changebar="|" val="shd3"/>
+<revprop action="include" changebar="|" val="shfin"/>
+<prop action="exclude" att="otherprops" val="NOTpdf"/>
+<prop action="exclude" att="otherprops" val="xhac"/>
+<prop action="include" att="otherprops" val="NOTxhac"/>
+<revprop action="include" val="sh15"/>
+<revprop action="include" changebar="|" val="sh16i1"/>
+<revprop action="include" val="sh16a"/>
+<revprop action="include" val="sh18i1"/>
+<revprop action="include" changebar="|" val="sh18i2"/>
+<revprop action="include" val="sh20i1" changebar="|"/>
+<revprop action="include" val="sh20i2" changebar="|"/>
+<revprop action="include" val="hw20i1" changebar="|"/>
+<revprop action="include" val="sh21i1" changebar="|"/>
+<revprop action="include" val="sh21i2" changebar="|"/>
+<revprop action="include" val="sh21i3" changebar="|"/>
+<revprop action="flag" val="sh22i1" changebar="|"/>
+</val>

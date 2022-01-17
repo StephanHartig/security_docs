@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_setup" xml:lang="en-us">
+<title>Initial system set-up tips</title>
+<titlealts>
+<navtitle>Initial system set-up tips</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Initial system set up tips</searchtitle>
+</titlealts>
+<shortdesc>Use these tips to help you set up your system
+for the first time. </shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system
+setup</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The name of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> package  is: </p>
+<codeblock>
+csulcca-&lt;<i>version</i>>.&lt;<i>release</i>>.&lt;<i>maintenanceLevel</i>>-&lt;<i>fixLevel</i>>.s390x.rpm
+<ph rev="sh18i1">csulcca_&lt;<i>version</i>>.&lt;<i>release</i>>.&lt;<i>maintenanceLevel</i>>-&lt;<i>fixLevel</i>>_s390x.deb</ph>
+</codeblock>
+<p>where:</p>
+<parml>
+<plentry>
+<pt>version</pt>
+<pd>represents the major version, typically the same for an adapter life</pd>
+</plentry>
+<plentry>
+<pt>release</pt>
+<pd>represents the function release available, updated to add function</pd>
+</plentry>
+<plentry>
+<pt>maintenanceLevel</pt>
+<pd>represents the level of increment on top of the function release for small functional
+changes</pd>
+</plentry>
+<plentry>
+<pt>fixLevel</pt>
+<pd>represents a level of fix applied, typically incremented during internal package
+development.</pd>
+</plentry>
+</parml>
+<p><b>Examples:</b></p>
+<codeblock rev="sh18i1">
+csulcca-6.0.9-11.s390x.rpm
+csulcca_6.0.9-11_s390x.deb
+</codeblock>
+<p>In order to use the full set of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+functions, <ph rev="sh18i1">a CEX*C feature in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>  coprocessor mode</ph> is required. This
+feature must have a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> code level
+appropriate for the desired function provided by the RPM or DEB package.</p>
+<p>Consult the <codeph>README.txt</codeph> file in the <codeph>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc/</codeph> directory for this
+information: <ul>
+<li>Release-specific information, if there is any</li>
+<li>Pointers to helpful tools</li>
+</ul></p>
+<note rev="sh18i1">If the version and release level of the coprocessor feature is lower than the
+version and release level of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+package (RPM or DEB), then only the functions supported by the feature are supported by the
+package.</note>
+</conbody>
+</concept>
+<?Pub *0000001995?>

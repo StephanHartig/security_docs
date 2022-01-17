@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="appendix_part" xml:lang="en-us">
+<title>Reference information</title>
+<titlealts>
+<navtitle>Reference information</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reference information</searchtitle>
+</titlealts>
+<shortdesc>The provided reference information informs about key formats, cryptographic
+algorithms, as well as return and reason codes when you program with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>miscellaneous information</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section otherprops="pdf">
+<p>You can find the following reference information: </p>
+<ul>
+<li><xref href="wskc_r_aprec.dita"/></li>
+<li><xref href="wskc_r_aptkn.dita#l0wskc02_aptkn"/></li>
+<li><xref href="wskc_c_kegekf.dita"/></li>
+<li><xref href="wskc_c_ap1me.dita"/></li>
+<li><xref href="wskc_r_ap2me.dita"/></li>
+<li><xref href="wskc_c_zapgapd2.dita"/></li>
+<li><xref href="wskc_r_apn.dita"/></li>
+<li><xref href="wskc_acodas_intro.dita#acodas_intro"/></li>
+<li rev="sh18i2"><xref href="wskc_pci_hsm_intro.dita#wskc_pci_hsm_intro"/></li>
+<li><xref href="wskc_c_codesamp.dita"/></li>
+<li><xref href="wskc_c_setup.dita"/></li>
+<li><xref href="wskc_c_install.dita"/></li>
+<li><xref href="wskc_c_coexist.dita"/></li>
+<li><xref href="wskc_c_utilities.dita"/></li>
+<li rev="sh18i2"><xref href="wskc_alpha_security_api.dita#alpa_security_api"/></li>
+<li rev="sh18i2"><xref href="wskc_c_oc_opencryptoki.dita#opencryptoki"/></li>
+<li><xref href="wskc_r_l0wskc03_abbrev.dita#l0wskc03_abbrev"/></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001361?>

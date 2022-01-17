@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc118" xml:lang="en-us" rev="sh16a">
+<title>Uninstall the RPM or DEB</title>
+<titlealts>
+<navtitle>Uninstall the RPM or DEB</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Uninstall the RPM or DEB</searchtitle>
+</titlealts>
+<shortdesc>Use the following steps to uninstall the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM or DEB.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+RPM<indexterm>uninstall</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+DEB<indexterm>uninstall</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>Uninstall any RPMs or DEBs that depend on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM or DEB packages. If you try to
+uninstall the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM or DEB and
+dependent RPMs or DEBs are still installed, the uninstall RPM or DEB command will fail and list the
+names of dependent packages. Therefore, you can skip to Step <xref href="#l0wskc118/l0wskc02_urpms2"
+/> and come back to this step if Step <xref href="#l0wskc118/l0wskc02_urpms2"/> fails for that
+reason.</cmd>
+</step>
+<step id="l0wskc02_urpms2">
+<cmd>Uninstall the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM or
+DEB.</cmd>
+<info>
+<ol rev="sh16a">
+<li>Login as root. You must be root to uninstall the RPM or DEB.</li>
+<li>You must use the full name. You can find the name by issuing one of the following commands:
+<codeblock>
+rpm -qa | grep csulcca /* for RPM */
+dpkg -l | grep csulcca /* for DEB */
+</codeblock></li>
+<li>Uninstall the <ph rev="sh16a">RPM or DEB</ph> with the following command:
+<codeblock>
+rpm -e &lt;<synph><var>rpm_name</var></synph>&gt;                              /* for RPM */
+dpkg -P &lt;<synph rev="sh18i2"><var>deb_name</var></synph>&gt; or dpkg --purge &lt;<synph><var>deb_name</var></synph>&gt;  /* for DEB */
+</codeblock></li>
+</ol>
+<note>
+<ol>
+<li>Groups are no longer deleted during the uninstall of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph rev="sh16a">RPM or DEB</ph>. If you created any users with one of the groups created by the <ph
+rev="sh16a">package</ph> install as their primary (note that the <ph rev="sh16a">package</ph>
+install does NOT create any users, just groups), you can delete those users/groups yourself after
+uninstall, or remove such users before the uninstall of the <ph rev="sh16a">RPM or DEB</ph>. This
+will remove any potential security holes.</li>
+<?Pub Caret 0?>
+<li>Card master keys (and other state information) are untouched by the host-side uninstall of the
+<ph rev="sh16a">RPM or DEB</ph>.</li>
+<li>Key storage files are not deleted by the uninstall. All default and non-default key storage
+files are left as is. If you reinstall or install an upgraded package and load any new cards with
+the same master keys, you still can use your old key storage (old cards still have the old keys, see
+step <xref href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_mkls7bbb"/> of <xref
+href="wskc_t_insconrpm.dita#l0wskc02_insconrpm"/>).</li>
+</ol>
+</note>
+</info>
+</step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000002434?>

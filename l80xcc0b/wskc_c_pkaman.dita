@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_pkaman" xml:lang="en-us">
+<title>PKA key management</title>
+<titlealts>
+<navtitle>PKA key management</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA key management</searchtitle>
+</titlealts>
+<shortdesc>You can generate RSA and ECC keys using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>), or a comparable product from another
+vendor.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>PKA key management</indexterm><indexterm>key
+management<indexterm>PKA</indexterm></indexterm><indexterm>key token<indexterm>Elliptic
+Curve Cryptography (ECC)</indexterm></indexterm><indexterm>Elliptic
+Curve Cryptography (ECC)<indexterm>key token</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<fig expanse="column" id="l0wskc02_keyma"><title>PKA key management</title>
+<image href="l0wskc02_fig12.jpg" placement="break" width="500"><alt>PKA
+key management</alt></image>
+</fig><?Pub Caret -1?>
+<p>You can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb to
+generate internal and external PKA tokens. You can also generate RSA keys on another system and then
+import them to the cryptographic coprocessor. To input a clear RSA key, create the token with the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb and import it using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb. To input an encrypted
+RSA key, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb.</p>
+<p>In either case, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/>
+verb to create a skeleton key token as input (see <xref href="wskc_r_pkb.dita#l0wskc02_pkb"/>).</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb uses the clear
+token from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb or a clear
+or encrypted token from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system
+to securely import the key token into operational form for the coprocessor to use. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> does not permit the export of the imported
+PKA key.</p>
+<p>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"></keyword> <ph>verb</ph> builds
+a public key token from a private key token.</p>
+<p>Application RSA public and private keys can be stored in the PKA
+key storage file.</p>
+<section><title>Verbs for PKA key management</title><indexterm>verb<indexterm>PKA key
+management</indexterm></indexterm><indexterm>PKA key management verb</indexterm><p><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides the following verbs for PKA key
+management:</p><ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</li>
+</ul></section>
+</conbody>
+</concept>
+<?Pub *0000002702?>

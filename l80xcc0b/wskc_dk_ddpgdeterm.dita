@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbddpgdeterm" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> service
+    to generate a PIN and PIN reference value or word (PRW) using an AES PIN calculation key. The
+    PIN reference value is used to verify the PIN in other services.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/> (<keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/>)</indexterm></indexterm>
+        <indexterm>PIN reference word/value (PRW)</indexterm>
+        <indexterm>PRW (PIN reference word/value)</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <note>The PIN generation process uses the account information to calculate the PIN. If the
+        process generates a PIN that appears in the weak PIN table, it rejects that PIN, increments
+        the rightmost byte of the account information by 1, and generates another PIN. The PIN
+        generation process continues to increment the byte until an acceptable PIN is generated. For
+        additional information, see <xref href="wskc_dk_weak_pin_table.dita#weak_pin_table"
+        />.</note>
+      <p>You can use this service to perform the following tasks:</p>
+      <ul>
+        <li>Generate an encrypted PIN block in PBF-1 format with a PIN print key to be printed on a
+          PIN mailer.</li>
+        <li>Generate a PRW which can be used to verify the PIN.</li>
+        <li>Optionally, generate an encrypted PIN block in PBF-1 format to be stored for later use
+          in personalizing replacement cards.</li>
+      </ul>
+<p><b>Weak PINs:</b> The PIN generation process uses the account information to calculate the PIN.
+During the PIN generation process, if a generated PIN is found in the weak PIN table, it is
+rejected; the process increments the rightmost byte of the account information by 1 and generates
+another PIN. The process repeats itself until a suitable PIN is generated.</p>
+<note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note>
+</section>
+  </refbody>
+</reference>

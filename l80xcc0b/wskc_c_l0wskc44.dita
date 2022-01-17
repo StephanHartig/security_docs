@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc44">
+<title>panel.exe functions</title>
+<titlealts>
+<navtitle>panel.exe functions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): panel.exe functions</searchtitle>
+</titlealts><shortdesc>Read about the different uses for the <cmdname>panel.exe</cmdname> utility.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utilities</indexterm></indexterm>
+<indexterm>functions<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>functions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The <cmdname>panel.exe</cmdname> utility can be used to: </p>
+<ul>
+<li rev="sh18i1">show the compliance state of the current domain.
+<p><b>Example:</b><screen>#  panel.exe --qcomp</screen></p></li>
+<li rev="sh18i1">show and verify the outbound authentication (OA) certificate chain that represents
+the chain of trust for the adapter
+firmware.<p><b>Example:</b><screen># panel.exe --epoc-cert-validate</screen></p></li>
+<li>determine if a TKE is currently able to administer a specific active coprocessor.<p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --query-tke</screen></p></li>
+<li>list the labels and key types for all the keys in a designated key storage file.<p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --ks-list --ks-type=DES
+# panel.exe --ks-list --ks-type=AES
+# panel.exe --ks-list --ks-type=PKA
+</screen></p></li>
+<li>list the labels for all of the retained keys (RSA private keys stored in the adapter) in the
+current domain of the CEX*C.<p rev="sh18i2"
+><b>Example:</b><screen>#   panel.exe --ks-list-retained</screen></p></li>
+<li>list the coprocessors currently active in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> system and their master key status.<p
+rev="sh18i2"><b>Example:</b><screen># panel.exe -x or # panel.exe --status</screen></p></li>
+<li>load master key parts to the coprocessor.<p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --mk-load-interactive</screen></p></li>
+<li>set a master key that was loaded to the coprocessor. Note that <cmdname>panel.exe</cmdname> is
+not designed to change the master keys for all the cards in a group <ph rev="sh18i2">at the same
+time</ph>, because this is a more sophisticated operation. <p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --mk-set-interactive</screen></p></li>
+<li>clear master key parts which were previously loaded to the coprocessor but not yet set or
+confirmed (used for when a mistake in entering master key parts has been detected).<p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --mk-clear-interactive</screen></p></li>
+<li>list serial numbers and master key register states of all active cards running <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> that are visible to this <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> host. The total number of active cards
+and any errors will also be reported.<p rev="sh18i2"
+><b>Example:</b><screen># panel.exe -x or # panel.exe --status </screen></p></li>
+<li>query the master key verification pattern for any master-key register in the current domain.<p
+rev="sh18i2"
+><b>Example:</b><screen># panel.exe --mk-query --mktype=AES --mkregister=CURRENT</screen></p></li>
+<li>initialize a local host key storage file. For an example, see <xref
+href="wskc_c_install_rpm_ksi.dita#l0wskc02_install_rpm_ksi"/>.</li>
+<li>re-encipher a local host key storage file (use this when the master key has been changed to
+ensure currency with key storage). For an example, see <xref
+href="wskc_c_install_rpm_ksreen.dita#l0wskc02_install_rpm_ksreen"/>.</li>
+<li>list available <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> functions,
+and whether they are supported in the current system image. <p rev="sh18i2"
+><b>Example:</b><screen># panel.exe --list-cpacf</screen></p></li>
+<li>check ACP settings and tracking of ACP usage.<ph rev="sh18i2">For an example, see <xref
+href="wskc_panexe_role_acps.dita#panexe_role_acps"/></ph>.</li>
+<li>get SYSLOG or CCALOG information.<p rev="sh18i2"
+><b>Example:</b><screen>
+# panel.exe -y    or  # panel.exe --card-log-info 
+# panel.exe -yc   or  # panel.exe --show-cca-log
+</screen></p></li>
+</ul>
+<p>The <cmdname>panel.exe</cmdname> utility does not support access control point manipulation or
+more sophisticated administration. Refer to <xref href="wskc_c_tke1.dita#l0wskc02_tke1"/> for that
+functionality.</p>
+<note rev="sh18i1">You cannot perform all of the above functions using the legacy <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> syntax. Especially the new CEX6C-related
+functions are only available with the default syntax.</note>
+</conbody></concept>

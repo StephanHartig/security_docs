@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktxlrestrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)<indexterm>restrictions</indexterm></indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>CCA RSA Modulus-Exponent tokens will not be translated to the <synph><kwd>SCCOMCRT</kwd></synph> format.
+CCA RSA Chinese Remainder Theorem tokens will not be translated to
+the <synph><kwd>SCCOMME</kwd></synph> format. SCVISA supports only Modulus-Exponent
+(ME) keys.</p>
+<note rev="sh20i1">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key
+TDES keys. As a key management service this includes three-key TDES key encrypting keys
+(KEKs).</note></section>
+</refbody></reference>

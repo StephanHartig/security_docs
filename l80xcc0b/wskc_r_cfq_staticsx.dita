@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_staticsx">
+<title>STATICSX</title>
+<titlealts>
+<navtitle>STATICSX</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATICSX</searchtitle>
+</titlealts><shortdesc>This <synph><var>rule_array</var></synph> keyword returns the indicated master key hash
+and verification patterns for the master keys loaded in the current domain. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>STATICSX</indexterm>
+<indexterm>STATICSX operational key parts<indexterm>output
+data format</indexterm></indexterm>
+<indexterm>hash pattern</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>The status variables for the various master key registers returned in the
+<synph><var>rule_array</var></synph> will indicate which of these verification pattern structures
+returned contain useful data. An empty master key register cannot have a meaningful verification
+pattern. However, the data structures are returned for all registers indicated, so that
+interpretation is reliable.</p>
+<p>The output data format for STATICSX operational key parts is given in <xref
+href="#l0wskc02_cfq_staticsx/l0wskc02_cfq_vdras390_od_tab4"/>.</p>
+<note><ol>
+<li>The fields will be returned in the order given, however the *_ID
+fields should be used for verification.</li>
+<li>The <synph><var>verb_data_length</var></synph> parameter will indicate the total
+size at the bottom of the table describing the <synph><var>verb_data</var></synph>.</li>
+<li>Multiple byte fields are stored in Big-Endian format, as is typical
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> communication.</li></ol>
+</note>
+<table id="l0wskc02_cfq_vdras390_od_tab4" pgwide="1">
+<title>Output data format for STATICSX operational key parts</title>
+<desc>
+<p outputclass="summary">Output data format for STATICSX operational key parts</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="colspec4" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<colspec colname="col4" colwidth="24*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col2">Field name</entry>
+<entry colname="colspec4">Length in bytes</entry>
+<entry colname="col3">Field value</entry>
+<entry colname="col4">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col2">SYM_OMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Hash pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_OMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F02'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_OMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Symmetric Key old master-key register, calculated using
+the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Hash pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F01'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Symmetric Key current master-key register, calculated
+using the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Hash pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F00'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Symmetric Key new master-key register, calculated using
+the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_OMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Hash pattern).</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_OMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F05'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_OMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Asymmetric Key old master-key register, calculated using
+the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_CMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Hash pattern).</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_CMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F04'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_CMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Asymmetric Key current master-key register, calculated
+using the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_NMK_MDC4_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">20</entry>
+<entry colname="col4">Length in bytes of this Hash pattern block in the <synph><var>verb_data
+</var></synph> (comprising this length field, the following ID field, and the field for the Hash
+pattern).</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_NMK_MDC4_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F03'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Hash pattern
+field.</entry>
+</row>
+<row>
+<entry colname="col2">ASYM_NMK_MDC4_HP</entry>
+<entry colname="colspec4">16</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Hash pattern over the Asymmetric Key new master-key register, calculated using
+the MDC4 algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_OMK_VP_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">12</entry>
+<entry colname="col4">Length in bytes of this Verification pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Verification pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_OMK_VP_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F08'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Verification
+pattern field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_OMK_VP</entry>
+<entry colname="colspec4">8</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Verification pattern over the Symmetric Key old master-key register calculated
+using the default algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_VP_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">12</entry>
+<entry colname="col4">Length in bytes of this Verification pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Verification pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_VP_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F07'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Verification
+pattern field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_CMK_VP</entry>
+<entry colname="colspec4">8</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Verification pattern over the Symmetric Key current master-key register,
+calculated using the default algorithm.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_VP_LEN</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3">12</entry>
+<entry colname="col4">Length in bytes of this Verification pattern block in the
+<synph><var>verb_data</var></synph> (comprising this length field, the following ID field, and the
+field for the Verification pattern).</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_VP_ID</entry>
+<entry colname="colspec4">2</entry>
+<entry colname="col3"><ph>X'0F06'</ph></entry>
+<entry colname="col4">Hexadecimal identifier indicating the contents of the following Verification
+pattern field.</entry>
+</row>
+<row>
+<entry colname="col2">SYM_NMK_VP</entry>
+<entry colname="colspec4">8</entry>
+<entry colname="col3">variable</entry>
+<entry colname="col4">Verification pattern over the Symmetric Key new master-key register,
+calculated using the default algorithm.</entry>
+</row>
+<row>
+<entry colname="col2" valign="bottom" colsep="1">Total byte count</entry>
+<entry namest="colspec4" nameend="col4" colsep="1">156</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

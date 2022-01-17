@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_cpanv" xml:lang="en-us">
+<title>Commonly encountered parameters</title>
+<titlealts>
+<navtitle>Common parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Commonly encountered parameters for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Some parameters are common to all verbs and other parameters are used with many
+of the verbs.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>common parameters</indexterm></indexterm>
+<indexterm>common parameters</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p> <ul otherprops="pdf">
+<li><xref href="wskc_c_vparms.dita#l0wskc02_vparms"></xref></li><?Pub
+Caret -2?>
+<li><xref href="wskc_c_raaokp.dita#l0wskc02_raaokp"></xref></li>
+<li><xref href="wskc_c_keytli.dita#l0wskc02_keytli"></xref></li>
+</ul> </p>
+</conbody>
+</concept>
+<?Pub *0000000936?>

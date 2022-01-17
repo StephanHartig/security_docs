@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpvformat" rev="sh15">
+<title>Format</title><titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"
+    />.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"
+            />)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<tbody>
+<row>
+<entry valign="top">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>PAN_data_length</var></synph>,
+             <synph><var>PAN_data</var></synph>,
+             <synph><var>card_data_length</var></synph>,
+             <synph><var>card_data</var></synph>,
+             <synph><var>PIN_reference_value_length</var></synph>,
+             <synph><var>PIN_reference_value</var></synph>,
+             <synph><var>PRW_random_number_length</var></synph>,
+             <synph><var>PRW_random_number</var></synph>,
+             <synph><var>ISO_encrypted_PIN_block_length</var></synph>,
+             <synph><var>ISO_encrypted_PIN_block</var></synph>,
+             <synph><var>PRW_key_identifier_length</var></synph>,
+             <synph><var>PRW_key_identifier</var></synph>,
+             <synph><var>IPIN_encryption_key_identifier_length</var></synph>,
+             <synph><var>IPIN_encryption_key_identifier</var></synph>)</codeblock></entry></row>
+</tbody></tgroup></table>
+</refbody></reference>

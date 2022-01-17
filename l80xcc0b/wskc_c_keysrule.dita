@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_keysrule">
+<title>Key storage with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>, in
+contrast to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/>
+</title>
+  <titlealts>
+    <navtitle>Key storage with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"
+/>, in contrast to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> on <ph
+conref="lxcommon.dita#phrases/ph_ibmz"/></navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key storage with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>, in contrast to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> on <ph
+conref="lxcommon.dita#phrases/ph_ibmz"/></searchtitle>
+  </titlealts><shortdesc>Key storage for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> and for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> on the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> platforms other than <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>, diverged in design at their very
+inception.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key storage<indexterm><keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+</conbody></concept>

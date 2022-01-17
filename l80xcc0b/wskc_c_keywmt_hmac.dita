@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_keywmt_hmac" xml:lang="en-us">
+<title>Variable length token (AESKW method)</title>
+<titlealts>
+<navtitle>AESKW method</navtitle><?Pub Caret -1?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Variable length token (AESKW method)</searchtitle>
+</titlealts>
+<shortdesc>The wrapping method for the variable-length key tokens
+with AESKW is defined in standard ANSI X9.102.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>AESKW wrapping</indexterm><indexterm>variable
+length token</indexterm><indexterm>ANSI X9.102</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The wrapping of the payload of a variable length key (*K) using
+an AES *MK is defined as: <codeblock>e*MK(*K) = eAESKW*MK(P)
+P = ICV || Pad length || Hash length || Hash options || Data hash || *K || Padding</codeblock></p>
+<p>Where: <dl><dlentry>
+<dt>ICV</dt>
+<dd>Is the 6 byte constant <ph>X'A6A6A6A6A6A6'</ph>.</dd>
+</dlentry><dlentry>
+<dt>Pad length</dt>
+<dd>Is the length of the padding in bits.</dd>
+</dlentry><dlentry>
+<dt>Hash length</dt>
+<dd>Is the length of the Data Hash in bytes.</dd>
+</dlentry><dlentry>
+<dt>Hash options</dt>
+<dd>Is a 4-byte field.</dd>
+</dlentry><dlentry>
+<dt>Data hash</dt>
+<dd>Is the hash of the associated data block.</dd>
+</dlentry><dlentry>
+<dt>Padding</dt>
+<dd rev="sh20i1">Is the number of bytes of X'00' used to make the overall length of P a multiple of 8.</dd>
+</dlentry><dlentry>
+<dt>eAESKW</dt>
+<dd>Means encryption using the AESKW method.</dd>
+</dlentry></dl></p>
+</conbody>
+</concept>
+<?Pub *0000001866?>

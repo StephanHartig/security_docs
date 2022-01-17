@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2keyform">
+<title>Key forms</title>
+<titlealts>
+<navtitle>Key forms</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key forms</searchtitle>
+</titlealts><shortdesc>A key that is protected under the master key is in <term>operational form</term>, which
+means the coprocessor can use it in cryptographic functions on the system.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>transport key</indexterm>
+<indexterm>key
+form<indexterm>importable</indexterm><indexterm>operational</indexterm><indexterm>exportable</indexterm></indexterm>
+<indexterm>operational key form</indexterm>
+<indexterm>exportable key form</indexterm>
+<indexterm>importable key form</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>When you store a key with a file or send it to another system, the key is enciphered under a
+transport key rather than the master key. The transport key is a key shared by your system and
+another system for the purpose of securely exchanging other keys. When CCA enciphers a key under a
+transport key, the key is not in operational form and cannot be used to perform cryptographic
+functions.</p>
+<p>When a key is enciphered under a transport key, the sending system
+considers the key in <i>exportable form</i>. The
+receiving system considers the key in <i>importable
+form</i>. When a key is re-enciphered from under a transport key
+to under a system's master key, it is in operational form again. </p>
+<p>Enciphered keys appear in three forms. The form you need depends
+on how and when you use a key.
+<ul>
+<li><b>Operational</b> key form is used at the local system. Many verbs can use an operational key
+form. <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> verbs can create an operational key
+form.</p></li>
+<li><b>Exportable</b> key form is transported to another cryptographic system. It can be passed only
+to another system. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<ph>verbs</ph> cannot use it for cryptographic functions. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>
+<ph>verbs</ph> produce the exportable key form.</li>
+<li><b>Importable</b> key form can be transformed into
+operational form on the local system. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> <ph>verb</ph> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)
+and the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/> <ph>verb</ph> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkm"/>) can <i>use</i> an
+importable key form. Only the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> <ph>verb</ph> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)
+can <i>create</i> an importable key form.</li>
+</ul></p>
+<p>For more information about the key types, see <xref href="wskc_c_crypkey.dita#l0wskc02_crypkey"/>. See <xref href="wskc_c_kegekf.dita#l0wskc02_kegekf"/> for
+more information about key form.</p>
+<section><title>Symmetric key (DES, AES) flow</title><indexterm>DES key flow</indexterm><p>The
+conversion from one key to another key is considered to be a one-way flow. An operational key form
+cannot be turned back into an importable key form. An exportable key form cannot be turned back into
+an operational or importable key form. The flow of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key forms can be in only one
+direction:</p><codeblock>IMPORTABLE &mdash;to&rarr; OPERATIONAL &mdash;to&rarr; EXPORTABLE</codeblock></section>
+</conbody></concept>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Ctrcsfb4-gen217_usage" xml:lang="en-us" rev="hw20i1">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/></searchtitle>
+</titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34c"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/>)<indexterm>usage
+notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>None.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000037185?>

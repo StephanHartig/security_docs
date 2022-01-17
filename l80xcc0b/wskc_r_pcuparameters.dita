@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pcuparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/></indexterm></indexterm>
+<indexterm>TDES-XOR</indexterm>
+<indexterm>TDESEMV2</indexterm>
+<indexterm>TDESEMV4</indexterm>
+<indexterm>VISAPCU1</indexterm>
+<indexterm>VISAPCU2</indexterm>
+<indexterm>authentication_master_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>encryption_master_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>key_generation_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>new_reference_PIN_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>new_reference_PIN_block parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>new_reference_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>new_reference_PAN_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>current_reference_PIN_key parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>current_reference_PIN_block parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>current_reference_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>current_reference_PAN_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>output_PIN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>output_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+<indexterm>output_PIN_message parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. The keywords are
+left-aligned in an 8-byte field and padded on the right with blanks. The keywords must be in
+contiguous storage. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_pcuparameters/l0wskc02_pcu_tab1"/>.<table id="l0wskc02_pcu_tab1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Algorithm</i></b> (One, optional)</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>AES-EMV1</kwd></synph></entry>
+<entry>The ICC master key is derived according to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/> verb with option MK-OPTC. The EMV
+common session key is derived according to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/> verb with option SESS-ENC. The
+<parmname>encryption_master_key</parmname> parameter must refer to an AES key. Only valid with the
+<keyword>EMV-PCU1PIN</keyword> processing method.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-XOR</kwd></synph></entry>
+<entry>TDES encipher clear data to generate the intermediate (card-unique) key, followed by XOR of
+the final two bytes of each key with the ATC counter. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDESEMV2</kwd></synph></entry>
+<entry>Same processing as in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"
+/> verb.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDESEMV4</kwd></synph></entry>
+<entry>Same processing as in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"
+/> verb.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN processing method</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AMEXPCU1</kwd></synph></entry>
+<entry>Form the new PIN from the new reference PIN, the smart-card-unique, intermediate key, and the
+current reference PIN.</entry>
+</row>
+<row>
+<entry><synph><kwd>AMEXPCU2</kwd></synph></entry>
+<entry>Form the new PIN from the new reference PIN and the smart-card-unique, intermediate
+key.</entry>
+</row>
+<row>
+<entry><synph><kwd>VISAPCU1</kwd></synph></entry>
+<entry>Form the new PIN from the new reference PIN and the intermediate (card-unique) key
+only.</entry>
+</row>
+<row>
+<entry><synph><kwd>VISAPCU2</kwd></synph></entry>
+<entry>Form the new PIN from the new reference PIN, the intermediate (card-unique) key and the
+current reference PIN.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>EMV-PCU1</kwd></synph></entry>
+<entry>The new PIN is passed in the <parmname>new_reference_PIN_*</parmname> set of parameters. The
+contents of the five <parmname>current_reference_PIN_*</parmname> variables are ignored. <p>The PIN
+block is formatted according to EMV v4.3 Book 2 Format 1 and detailed in EMV Common Payment
+Application (2011) as updated by SB165. TDES-CBC or AES encryption over the PIN block is done
+according to the issuer master key passed in and EMV v4.3 Book 2. </p>
+<note>The <parmname>authentication_master_key</parmname> parameter is ignored. The EMV PIN-change
+command creation process calculates a MAC over the full message using a derived session key and
+recommends MAC chaining across EMV commands which is outside the scope of this service.</note>
+<p>Valid with the AES-EMV1, TDES-XOR, TDESEMV2, and TDESEMV4 algorithm keywords.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>authentication_master_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>authentication_master_key</parmname> parameter. For PIN processing method
+<keyword>EMV-PCU1</keyword>, the <parmname>authentication_master_key_length</parmname> must be 0 for 
+future compatibility. Otherwise, the value must be 64.</pd></plentry>
+<plentry><pt>authentication_master_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label name or internal token of a <synph><kwd>DKYGENKY</kwd></synph> key type that is to
+be used to generate the card-unique diversified key. The control vector of this key must be a
+<synph><kwd>DKYL0</kwd></synph> key that permits the generation of a double-length
+<synph><kwd>MAC</kwd></synph> key (<synph><kwd>DMAC</kwd></synph>). This
+<synph><kwd>DKYGENKY</kwd></synph> must not have replicated key halves. <p rev="sh21i1">For PIN
+processing method EMV-PCU1, the <parmname>authentication_master_key</parmname> must be a NULL token
+(64 bytes of X'00').</p>
+</pd></plentry>
+<plentry><pt>encryption_master_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>encryption_master_key</parmname> parameter. 
+<p rev="sh21i1">For TDES-XOR, TDESEMV2, and TDESEMV4, the value must be 64. 
+For AES-EMV1, the value must be between the actual length of the token and 725.</p>
+</pd></plentry>
+<plentry><pt>encryption_master_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label name or internal token of a <synph><kwd>DKYGENKY</kwd></synph> key type that is to
+be used to generate the card-unique diversified key. <ph rev="sh21i1">The key may be a DES key
+(TDES-XOR, TDESEMV2, or TDESEMV4) or an AES key (AES-EMV1).</ph>
+<p rev="sh21i1">For a DES key, the control vector of this key must be a DKYL0 key that permits the
+generation of a double-length PIN encryption key (DMPIN). This DKYGENKY must not have replicated key
+halves. </p>
+<p rev="sh21i1">For an AES key, the variable-length symmetric key token must have a token algorithm
+of AES and a key type of DKYGENKY, sequence level of DKYL0 or DKYL1, and key type to diversify of
+D-PPROT or D-ALL. For an AES D-PPROT key, the key usage fields must indicate that the derived key
+can be used for encryption (ENCRYPT), the encryption mode must be Cipher Block Chaining (CBC),
+common usage control must be NOFLDFMT, PIN block format usage must be ISO-4, and PIN services
+control must include PINXLATE or REFORMAT.</p>
+</pd>
+</plentry>
+<plentry><pt>key_generation_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>key_generation_data</parmname> parameter. 
+<ph rev="sh21i1">For TDES-XOR, TDESEMV2, or TDESEMV4, this
+value must be 10, 18, 26, or 34 bytes. For AES-EMV1, this value must be 32.</ph></pd></plentry>
+<plentry><pt>key_generation_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The data provided to generate the card-unique session key. <dl>
+<dlentry>
+<dt>TDES key generation:</dt>
+<dd>For <keyword>TDES-XOR</keyword>, this consists of 8 or 16 bytes of data to be processed by TDES to generate the
+card-unique diversified key followed by a 16 bit ATC counter to offset the card-unique diversified
+key to form the session key. For<synph><kwd>TDESEMV2</kwd></synph> and
+<synph><kwd>TDESEMV4</kwd></synph>, this can be 10, 18, 26 or 34 bytes. See <xref
+href="wskc_r_dkg.dita#l0wskc02_dkg"/> for more information.</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>AES key generation:</dt>
+<dd>For <keyword>AES-EMV1</keyword>, this parameter consists of 2 sections of 16 bytes each, holding
+first the derivation data for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/> service MK-OPTC and second the
+derivation data for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>
+service SESS-ENC. The MK-OPTC derivation data is specified in <cite>EMV v4.3 Book 2 section A1.4.3
+'Option C' (PAN and PAN sequence number, padded)</cite>. The SESS-ENC derivation data should be as
+specified in <cite>EMV v4.3 Book 2 section A1.3.1 'Common Session Key Derivation Option'
+(Application Cryptogram,
+padded)</cite>.<codeblock>Derivation data :: [ 16-byte MK-OPTC data || 16-byte SESS-ENC data ]</codeblock></dd>
+</dlentry>
+</dl>
+</pd></plentry>
+<plentry><pt>new_reference_PIN_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>new_reference_PIN_key</parmname> parameter. 
+<ph rev="sh21i1">The key may be a DES key (all <parmname>new_reference_PIN_profile</parmname> 
+PIN block formats except ISO-4) or an AES key (<parmname>new_reference_PIN_profile</parmname> PIN block format ISO-4).
+</ph>
+<p rev="sh21i1">For DES keys, the value must be 64.</p>
+<p rev="sh21i1">For AES keys, the value must be between the actual length of the token and 725.</p>
+</pd></plentry>
+<plentry><pt>new_reference_PIN_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label name or internal token of a PIN encrypting key that is to be used to decrypt the
+<synph><var>new_reference_PIN_block</var></synph>. <p rev="sh21i1">If the label name is supplied,
+the name must be unique in the CKDS. The key may be a DES key (all
+<parmname>new_reference_PIN_profile</parmname> PIN block formats except ISO-4) or an AES key
+(<parmname>new_reference_PIN_profile</parmname> PIN block format ISO-4).</p>
+<p rev="sh21i1">For DES keys, the control vector in the fixed-length token must specify an
+<synph><kwd>IPINENC</kwd></synph> or <synph><kwd>OPINENC</kwd></synph> key.</p>
+<p rev="sh21i1">For AES keys, the variable-length symmetric key-token must have a token algorithm of
+AES and a key type of PINPROT. In addition, the key usage fields must indicate that the key can be
+used for encryption (<synph><kwd>ENCRYPT</kwd></synph>) or decryption
+(<synph><kwd>DECRYPT</kwd></synph>), the encryption mode must be Cipher Block Chaining (CBC), common
+usage control must be <synph><kwd>NOFLDFMT</kwd></synph>. The PIN block format usage must be ISO-4,
+and PIN services control must include <synph><kwd>PINXLATE</kwd></synph> or
+<synph><kwd>REFORMAT</kwd></synph>.</p>
+</pd></plentry>
+<plentry><pt>new_reference_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">This field contains the enciphered PIN block of the new PIN. 
+When the <parmname>new_reference_PIN_profile</parmname> specifies ISO-4, the 
+<parmname>new_reference_PIN_block</parmname> is 16 bytes long. For all other formats, the
+<parmname>new_reference_PIN_block</parmname> is 8 bytes long.</ph></pd></plentry>
+<plentry><pt>new_reference_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This is a 24-byte field that contains three 8-byte elements with a PIN block format keyword,
+a format control keyword (NONE), and a pad digit as required by certain formats.</pd></plentry>
+<plentry><pt>new_reference_PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">A primary account number (PAN) in character format. The service uses this parameter
+if the PIN profile specifies the <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>,
+<synph><kwd>ISO-4</kwd></synph>, or <synph><kwd>VISA-4</kwd></synph> keyword for the
+<parmname>input_PIN_profile</parmname> PIN block format. Otherwise, ensure that this parameter is a
+12-byte value in application storage. The information in this parameter is ignored, but the
+parameter must be specified.</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, or
+<synph><kwd>VISA-4</kwd></synph> keyword, the value is 12 bytes long. Use the 12 rightmost digits of
+the PAN data, excluding the check digit.</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-4</kwd></synph> keyword, the value is 21 bytes long.
+The PAN data is 10 – 19 bytes long. The length of the PAN data and the PAN data are contained in the
+structure below padded to 21 bytes with characters that is ignored.</p>
+<table rev="sh21i1" id="pan_data_struc_pcu" pgwide="1" frame="all">
+<title>PAN data structure</title>
+<desc>
+<p outputclass="summary">PAN data structure for the PIN Change Unblock verb</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of the PAN data field, p.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>p</entry>
+<entry>10 to 19 bytes of PAN data.</entry>
+</row>
+<row>
+<entry>2+p</entry>
+<entry>0-9</entry>
+<entry>Padding.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd></plentry>
+<plentry><pt>current_reference_PIN_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>current_reference_PIN_key</parmname> parameter. <ph rev="sh21i1"
+>The key may be a DES key (all <parmname>current_reference_PIN_profile</parmname> PIN block formats
+except ISO-4) or an AES key (<parmname>current_reference_PIN_profile</parmname> PIN block format
+ISO-4).</ph>
+<p rev="sh21i1">For DES keys, the value must be 64.</p>
+<p rev="sh21i1">For AES keys, the value must be between the actual length of the token and 725.</p>
+</pd></plentry>
+<plentry><pt>current_reference_PIN_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The label name or internal token of a PIN encrypting key that is to be used to decrypt the
+<parmname>current_reference_PIN_block</parmname>. <ph rev="sh21i1">If the label name is supplied,
+the name must be unique on the CKDS. The key may be a DES key (all
+<parmname>current_reference_PIN_profile</parmname> PIN block formats except ISO-4) or an AES key
+(<parmname>current_reference_PIN_profile</parmname> PIN block format ISO-4).</ph>
+<p rev="sh21i1">For DES keys, the control vector in the fixed-length token must specify an
+<synph><kwd>IPINENC</kwd></synph> or <synph><kwd>OPINENC</kwd></synph> key.</p>
+<p rev="sh21i1">For AES keys, the variable-length symmetric key-token must have a token algorithm of
+AES and a key type of PINPROT. In addition, the key usage fields must indicate that the key can be
+used for encryption (<synph><kwd>ENCRYPT</kwd></synph>) or decryption
+(<synph><kwd>DECRYPT</kwd></synph>), the encryption mode must be Cipher Block Chaining (CBC), common
+usage control must be <synph><kwd>NOFLDFMT</kwd></synph>, PIN block format usage must be ISO-4, and
+PIN services control must include <synph><kwd>PINXLATE</kwd></synph> or
+<synph><kwd>REFORMAT</kwd></synph>.</p>
+</pd></plentry>
+<plentry><pt>current_reference_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the enciphered PIN block of the new PIN. <ph rev="sh21i1">When the
+<parmname>current_reference_PIN_profile</parmname> specifies ISO-4, the
+<parmname>current_reference_PIN_block</parmname> is 16 bytes long. For all other formats, the
+<parmname>current_reference_PIN_block</parmname> is 8 bytes long.</ph></pd></plentry>
+<plentry><pt>current_reference_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This is a 24-byte field that contains three 8-byte elements with a PIN block format keyword,
+a format control keyword (NONE), and a pad digit as required by certain formats. If the
+<parmname>rule_array</parmname> contains <synph><kwd>VISAPCU1</kwd></synph>, this value is
+ignored.</pd></plentry>
+<plentry><pt>current_reference_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">A primary account number (PAN) in character format. The service uses this parameter if the PIN
+profile specifies the <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, 
+<synph><kwd>ISO-4</kwd></synph>, or <synph><kwd>VISA-4</kwd></synph> keyword for the 
+<parmname>input_PIN_profile</parmname> PIN block format. 
+Otherwise, ensure that this parameter is a 12-byte value in application storage. The
+information in this parameter is ignored, but the parameter must be specified.
+</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, 
+or <synph><kwd>VISA-4</kwd></synph> keyword, the value is 12 bytes long. Use the 12 rightmost
+digits of the PAN data, excluding the check digit.</p>
+<p rev="sh21i1">When using the <synph><kwd>ISO-4</kwd></synph> keyword, the value is 21 bytes long.
+The PAN data is 10 – 19 bytes long. The length of the PAN data and the PAN data are contained in the
+structure shown in <xref href="#l0wskc02_pcuparameters/pan_data_struc2_pcu" format="dita"/>  padded
+to 21 bytes with characters that are ignored.</p>
+<table rev="sh21i1" id="pan_data_struc2_pcu" pgwide="1" frame="all">
+<title>PAN data structure</title>
+<desc>
+<p outputclass="summary">PAN data structure for the PIN Change Unblock verb</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of the PAN data field, p.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>p</entry>
+<entry>10 to 19 bytes of PAN data.</entry>
+</row>
+<row>
+<entry>2+p</entry>
+<entry>0-9</entry>
+<entry>Padding.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd></plentry>
+<plentry><pt>output_PIN_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Currently this field is reserved. This value must be 0.</pd></plentry>
+<plentry><pt>output_PIN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry><pt>output_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">This is a 24-byte field that contains three 8-byte elements with a PIN
+block format keyword (<synph><kwd>VISAPCU1</kwd></synph>,  <synph><kwd>VISCPU2</kwd></synph>,
+<synph><kwd>AMEXPCU1</kwd></synph>, <synph><kwd>AMEXPCU2</kwd></synph>, or
+<synph><kwd>EMV-PCU1</kwd></synph>), a format control keyword (NONE, left aligned and padded on the
+right with space characters), and eight bytes of spaces.</ph></pd></plentry>
+<plentry><pt>output_PIN_message_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>output_PIN_message</parmname> field. 
+<ph rev="sh21i1">The value must be at least 16 for EMV-PCU1, VISAPCU1,
+and VISAPCU2 and at least 8 for AMEXPCU1 and AMEXPCU2.</ph></pd></plentry>
+<plentry><pt>output_PIN_message</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The reformatted PIN block with the new reference PIN enciphered under the SMPIN session
+key.</pd></plentry>
+</parml></section>
+</refbody></reference>

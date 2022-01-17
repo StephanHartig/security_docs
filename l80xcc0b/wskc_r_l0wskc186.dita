@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc186">
+<title>JNI version</title>
+ <titlealts>
+    <navtitle>JNI version</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb has a <tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface (JNI) version, which is named <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcuj"/>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)<indexterm>JNI version</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcuj"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/>.</p></section>
+<section><title>Format</title>
+<codeblock>public native void <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcuj"/>(
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>rule_array_count</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>rule_array</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>authentication_master_key_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>authentication_master_key</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>encryption_master_key_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>encryption_master_key</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>key_generation_data_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>key_generation_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>new_reference_PIN_key_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>new_reference_PIN_key</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>nnew_reference_PIN_block</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>new_reference_PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>new_reference_PAN_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>current_reference_PIN_key_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>current_reference_PIN_key</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>current_reference_PIN_block</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>current_reference_PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>current_reference_PAN__data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>output_PIN_data_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>output_PIN_data</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>output_PIN_profile</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/>  <synph><var>output_PIN_message_length</var></synph>,
+           <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/blr"/>            <synph><var>output_PIN_message</var></synph>);</codeblock></section>
+</refbody></reference>

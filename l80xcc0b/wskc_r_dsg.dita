@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dsg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/></searchtitle>
+</titlealts><shortdesc rev="sh21i1">This verb generates a digital signature from hashed input data using an RSA,
+ECC, <ph rev="sh21i1">or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"
+/></ph> private key, contained in a PKA key token. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/>)</indexterm></indexterm>
+<indexterm>digital signature<indexterm>using</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>RSA key</indexterm>
+<indexterm>ECC key</indexterm>
+<indexterm>ANSI X9.30</indexterm>
+<indexterm>ANSI X9.31</indexterm>
+<indexterm>ISO 9796-1</indexterm>
+<indexterm>PKCS 1.0</indexterm>
+<indexterm>PKCS 1.1</indexterm>
+<indexterm>RSA PKCS-PSS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><ph rev="sh21i2">If the input text is a message, it</ph> should have been previously hashed using either the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/>
+<ph>verb</ph> or the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/>
+<ph>verb</ph>. If the signature formatting algorithm specifies ANSI X9.31, you must specify the hash
+algorithm used to hash the text (<synph><kwd>SHA-1</kwd></synph> or
+<synph><kwd>RPMD-160</kwd></synph>). See <xref href="wskc_c_fhk.dita#l0wskc02_fhk"/>.</p></section>
+<section><p>You select the method of formatting the text through the <synph><var>rule_array</var></synph> parameter.</p></section>
+<section><p>If the <synph><var>PKA_private_key_identifier</var></synph> specifies an RSA private
+key, you select the method of formatting the text through the <synph><var>rule_array</var></synph> parameter.
+If the <synph><var>PKA_private_key_identifier</var></synph> specifies an ECC private
+key, the ECC signature generated is according to ANSI X9.30.</p></section><section>
+<note>For PKCS the message digest and the message-digest algorithm identifier are combined into an
+ASN.1 value of type DigestInfo, which is BER-encoded to give an octet string D (see <xref
+href="wskc_r_dsgparameters.dita#l0wskc02_dsgparameters/l0wskc02_dsgary"/>). D is the text string
+supplied in the <synph><var>hash</var></synph> variable.</note>
+
+<p rev="sh21i1">This service generates a digital signature using an RSA, ECC, or CRYSTALS-Dilithium private key. It
+supports these methods of signature generation:</p>
+<ul rev="sh21i1">
+<li rev="sh21i1">ANSI X9.62 (ECC using ECDSA: Brainpool, NIST prime, and Koblitz curve secp256k1)<ul>
+<li>Recommended hash methods: SHA-1, SHA-224, SHA-256, SHA-384, or SHA-512.</li>
+</ul></li>
+<li rev="sh21i1">Edwards-curve digital signature algorithm (ECC using EdDSA)<ul>
+<li>Required hash method for Ed25519: SHA-512.</li>
+<li>Required hash method for Ed448: SHAKE-256.</li>
+</ul></li>
+<li>ANSI X9.31 (RSA)</li>
+<li>ISO 9796-1 (RSA)</li>
+<li>RSA DSI PKCS #1 v1.5 and v2.1 (RSA)</li>
+<li>Padding on the left with zeros (RSA)</li>
+<li>CRYSTALS-Dilithium Digital Signature Algorithm (QSA)</li>
+</ul>
+<p rev="sh21i1">The input text can be hashed using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb, or the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/> verb.</p>
+<ul>
+<li>For <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys, when the
+<synph><var>PKA_private_key_identifier</var></synph> parameter specifies: <dl>
+<dlentry>
+<dt>An RSA private key </dt>
+<dd>Select the method of formatting the text by specifying a <b><i>Digital signature formatting
+method</i></b> rule array keyword.</dd>
+</dlentry>
+<dlentry>
+<dt>An ECC private key</dt>
+<dd>Select the ECDSA or EDDSA <b><i>Signature algorithm</i></b> rule array keyword.</dd>
+</dlentry>
+<dlentry>
+<dt>A CRYSTALS-Dilithium private key</dt>
+<dd>Select the CRDL-DSA <b><i>Signature algorithm</i></b> rule array keyword. </dd>
+</dlentry>
+</dl></li>
+<li>For secure PKCS #11 keys, when the <synph><var>PKA_private_key_identifier</var></synph>
+parameter specifies:<dl>
+<dlentry>
+<dt> An RSA private key </dt>
+<dd>Select the PKCS-1.1 <b><i>Digital signature formatting method</i></b> keyword.</dd>
+</dlentry>
+<dlentry>
+<dt>An ECC private key</dt>
+<dd>Select the ECDSA or EDDSA <b><i>Signature algorithm</i></b> keyword.</dd>
+</dlentry>
+</dl></li>
+</ul>
+<p rev="sh20i1">If keyword ECDSA is specified in the rule array, the Elliptic Curve Digital
+Signature algorithm is used as the digital-signature hash formatting method. If keyword EDDSA is
+specified, the EdDSA algorithm and hashing method appropriate for Edwards curves is used. Otherwise,
+specify the optional digital-signature hash formatting method keyword in the rule array for the
+method used to generate the RSA digital signature.</p>
+</section>
+<section>
+<p><b>Notes:</b></p>
+<ol>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+<li>The maximum signature length is 512 bytes (4096 bits).</li>
+</ol>
+</section>
+</refbody></reference>

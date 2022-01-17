@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb is used to retrieve information about the coprocessor
+and the CCA application program in that coprocessor. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This information includes the following: 
+<ul>
+<li>General information about the coprocessor, its operating system,
+and CCA application</li>
+<li>The Environment Identifier (EID)</li>
+<li>Diagnostic information from the coprocessor</li>
+<li>Export-control information from the coprocessor</li>
+<li>Time and date information from the coprocessor</li>
+<li>The contents and size of the authorized PIN decimalization tables
+loaded onto the coprocessor</li>
+</ul></p></section>
+<section><p>On input, you specify: 
+<ul compact="yes">
+<li>A <synph><var>rule_array_count</var></synph> of 1 or 2 </li>
+<li>Optionally, a <synph><var>rule_array</var></synph> keyword of <synph><kwd>ADAPTER1</kwd></synph> (for
+backward compatibility)</li>
+<li>The class of information queried with a <synph><var>rule_array</var></synph> keyword</li>
+</ul></p>
+<p>This verb returns information elements in the <synph><var>rule_array</var></synph> and sets the
+<i>rule_array_count</i> variable to the number of returned elements.</p></section>
+</refbody></reference>

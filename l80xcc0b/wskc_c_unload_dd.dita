@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_unload_dd">
+<title>Unloading the cryptographic device driver</title>
+  <titlealts>
+    <navtitle>Unloading the cryptographic device driver</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Unloading the cryptographic device
+driver</searchtitle>
+  </titlealts><shortdesc>You might need to unload the cryptographic device driver, for example, to change the
+domain setting. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>unloading the device driver</indexterm>
+<indexterm>device driver unloading</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Unloading the device driver is somehow complicated because the <apiname>catcher.exe</apiname>
+daemon is always running, to be ready to receive <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> requests. To unload the device driver, for
+example, in preparation for a reload, you must stop the catcher.exe daemon. This can be done with
+the service management script <codeph>/etc/init.d/CSUTKEcat</codeph> using the
+<synph><kwd>stop</kwd></synph> argument, <ph rev="sh21i3">or on newer distributions providing
+<cmdname>systemd</cmdname> with <cmdname>systemctl stop CSUTKEcat</cmdname>. Only when the
+<apiname>catcher.exe</apiname> daemon is still shown by <cmdname>ps aux | grep catcher</cmdname>,
+use the <cmdname>ps</cmdname> command to find the PID for the daemon. Then use the <cmdname>kill
+&lt;PID></cmdname> command, or as a last method, use the  <cmdname>kill -9 &lt;PID></cmdname>
+command to kill it.</ph></p>
+<p>Unloading of the device driver is only successful, if you stop all applications that access the
+main <cmdname>ap</cmdname> module and any of the running sub-modules before the unload. Unloading
+fails, if you miss to stop an involved application. In this case, the device driver requires a
+restart to be able to function as desired. </p>
+<p>After reloading the device driver, you can restart the catcher.exe
+daemon (restarting TKE access) using the <synph><kwd>/etc/init.d/CSUTKEcat
+start</kwd></synph> command. See <xref href="wskc_c_inst_rpm_files.dita#inst_rpm_files"/> for more details.</p>
+<note rev="sh18i2">If the cryptographic device driver is part of the kernel, you cannot unload it. In
+this case, you can directly edit domain settings via <filepath>sysfs</filepath> (see <xref
+href="wskc_c_l0wskc112.dita#l0wskc112"/>). </note>
+</conbody></concept>

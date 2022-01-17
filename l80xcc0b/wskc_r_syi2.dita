@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syi2" rev="shd3">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb to
+import a symmetric key that is contained in an external variable-length symmetric key-token, and
+that has been exported by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/>
+verb or the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb, into an
+internal variable-length symmetric key-token, or into an internal fixed-length DES key-token. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/>)</indexterm></indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>RSA key</indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The enciphered input key to be imported can be one of the following, depending on what release is
+used:</p>
+<ul>
+<li>In all releases, the input key cant be an <b>HMAC</b> key that has been previously formatted
+using key-formatting method <b>PKOAEP2</b>.</li>
+<li>AES keys are supported along with support for the AES token algorithm. With this support, the
+input key can also be an HMAC key that has been previously formatted using key-formatting method
+<b>AESKW</b>, provided that the operational AES key-encrypting key used to encipher the key is
+provided. Likewise, an AES key can either be in an external AES variable-length symmetric key-token
+enciphered under an AES key-encrypting key (<b>AESKW</b>), or an RSA public-key
+(<b>PKOAEP2</b>).</li>
+<li>DES keys are supported, along with support for the DES token algorithm. With this support, the
+input key must have a key type of DESUSECV. A DESUSECV key contains the control vector and other
+information necessary to recreate the original internal fixed-length DES key-token.<p>When importing
+a DES key, the verb must decide whether to use the legacy ECB mode or the enhanced CBC mode when
+wrapping the key in the target key-token. New optional key-wrapping method keywords are added to
+select which key-wrapping method to use. </p><p>Also when importing a DES key, a new optional
+translation control keyword allows the target key to be restricted to being wrapped only with the
+enhanced CBC method once it has been wrapped with the enhanced method.</p></li>
+</ul>
+<p>Before importing a DES key (Release 4.4 or later), the verb must determine whether to wrap the
+target key in legacy ECB mode or in enhanced CBC mode. These factors influence the key-wrapping
+method used for the imported target key-token:</p>
+<ol>
+<li>The first is the default internal key-token key-wrapping preference of the receiving system
+where the target key token will be created. The receiving system can be set to a preference to wrap
+internal key tokens in either ECB or Enhanced modes.</li>
+<li>The second is the key-wrapping method used to wrap the original key which was exported from the
+originating system.</li>
+<li>The third is the key-wrapping method used by the verb which is specified by an optional
+key-wrapping method keyword or by default.</li>
+</ol>
+<note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note>
+<p><xref href="#l0wskc02_syi2/ecbl" format="dita"/> and <xref href="#l0wskc02_syi2/enhanl"
+format="dita"/> show how the key-wrapping method will be determined for the target key, based on the
+previously explained factors.</p>
+<table frame="all" id="ecbl" outputclass="pagebreak" pgwide="0">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> key-wrapping method of
+target key when system default is ECB (Legacy)</title>
+<desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/>
+key-wrapping method of target key when system default is ECB (Legacy)</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="45*"/>
+<thead>
+<row>
+<entry>Wrap method of original key that was exported</entry>
+<entry>Key-wrapping method keyword</entry>
+<entry>Key-wrapping method used for the imported target key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">ECB (Legacy)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>ECB (Legacy).</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>Under control of command <cmdname>Symmetric Key Import2 - Allow wrapping override
+keywords</cmdname> (offset X'02B9'): <ul>
+<li>If X'02B9' is enabled, ECB (Legacy).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, Enhanced. In addition, if <b>ENH-ONLY</b> keyword, CV bit 56 is set to
+B'1' (ENH-ONLY).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry morerows="2">Enhanced with CV bit 56 = B'0' (not ENH-ONLY)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>ECB (Legacy).</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry> Under control of command offset X'02B9': <ul>
+<li>If X'02B9' is enabled, ECB (Legacy).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, Enhanced. In addition, if <b>ENH-ONLY</b> keyword, CV bit 56 is set to
+B'1' (ENH-ONLY).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry morerows="2">Enhanced with CV bit 56 = B'1' (ENH-ONLY)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>Control information in the key token conflicts with that in the rule array error is
+returned.</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, control information in the key token conflicts with that in the rule
+array error is returned.</li>
+</ul>
+<ul>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, Enhanced and CV bit 56 is set to B'1' (ENH-ONLY).</li>
+<li>If X'02B9' is not enabled, error not authorized is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">
+<note>Conversion of an original key-token wrapped in Enhanced mode to an imported target key-token
+wrapped in ECB mode reduces security for that key. In this case, a command to override the system
+key-wrapping default is required.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table frame="all" id="enhanl" outputclass="pagebreak" pgwide="0">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> key-wrapping method of
+target key when system default is CBC (Enhanced)</title>
+<desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/>
+key-wrapping method of target key when system default is CBC (Enhanced)</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="11*"/>
+<colspec colname="col2" colwidth="10*"/>
+<colspec colname="col3" colwidth="45*"/>
+<thead>
+<row>
+<entry>Wrap method of original key that was exported</entry>
+<entry>Key-wrapping method keyword</entry>
+<entry>Key-wrapping method used for the imported target key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">ECB (Legacy)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>Enhanced. In addition, if <b>ENH-ONLY</b> keyword, CV bit 56 is set to B'1'
+(ENH-ONLY).</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, ECB (Legacy).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Enhanced. In addition, if <b>ENH-ONLY</b> keyword, CV bit 56 is set to B'1'
+(ENH-ONLY).</entry>
+</row>
+<row>
+<entry morerows="2">Enhanced with CV bit 56 = B'0' (not ENH-ONLY)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>Enhanced. If <b>ENH-ONLY</b> keyword, CV bit 56 is set to B''1' (ENH-ONLY).</entry>
+</row>
+<row>
+<entry><b>WRAP-ECB</b></entry>
+<entry>Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, ECB (Legacy).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry><b>WRAP-ENH</b></entry>
+<entry>Enhanced. In addition, if <b>ENH-ONLY</b> keyword, CV bit 56 is set to B'1'
+(ENH-ONLY).</entry>
+</row>
+<row>
+<entry morerows="2">Enhanced with CV bit 56 = B'1' (ENH-ONLY)</entry>
+<entry><b>USECONFG</b></entry>
+<entry>Enhanced and CV bit 56 is set to B'1' (ENH-ONLY).</entry>
+</row>
+<row>
+<entry colname="col2"><b>WRAP-ECB</b></entry>
+<entry colname="col3">Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, control information in the key token conflicts with that in the rule
+array error is returned.</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry colname="col2"><b>WRAP-ENH</b></entry>
+<entry colname="col3">Under control of offset X'02B9': <ul>
+<li>If X'02B9' is enabled, enhanced and CV bit 56 is set to B'1' (ENH-ONLY).</li>
+<li>If X'02B9' is not enabled, not authorized error is returned.</li>
+</ul></entry>
+</row>
+<row>
+<entry nameend="col3" namest="col1">
+<note>Conversion of an original key-token wrapped in ECB (Legacy) mode to an imported target
+key-token wrapped in Enhanced (CBC) mode improves security for that key.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

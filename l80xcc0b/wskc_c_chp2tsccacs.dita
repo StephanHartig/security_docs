@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2tsccacs">
+<title>Typical sequences of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs
+sequences</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Typical sequences of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs</searchtitle>
+</titlealts><shortdesc>View some sample sequences in which  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs might be called.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm>sequence</indexterm></indexterm>
+<indexterm>sequences of verbs</indexterm>
+<indexterm>combinations of verbs</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<dl>
+<dlentry>
+<dt>Combination A (DATA keys only)</dt>
+<dd>
+<ol>
+<li>Random number generate</li>
+<li>Clear key import or multiple clear key import</li>
+<li>Encipher/decipher</li>
+<li>Data key export or key export (optional step)</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination B</dt>
+<dd>
+<ol>
+<li>Random number generate</li>
+<li>Secure key import or multiple secure key import</li>
+<li>Any service</li>
+<li>Data key export for DATA keys, or key export in the general case (optional step)</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination C</dt>
+<dd>
+<ol>
+<li>Key generate (OP form only)</li>
+<li>Any service </li>
+<li>Key export (optional)</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination D</dt>
+<dd>
+<ol>
+<li>Key generate (OPEX form)</li>
+<li>Any service</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination E</dt>
+<dd>
+<ol>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (IM form only)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></li>
+<li>Any service</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (optional)</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination F</dt>
+<dd>
+<ol>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (IMEX form)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></li>
+<li>Any service</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination G</dt>
+<dd>
+<ol>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/></li>
+<li>AES or DES Key Record Create</li>
+<li>AES or DES Key Record Write</li>
+<li>Any service (passing label of the key just generated)</li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Combination H</dt>
+<dd>
+<ol>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>
+</li>
+<li>AES or DES Key Record Create </li>
+<li>AES or DES Key Record Write </li>
+<li>Any service (passing label of the key just generated)</li>
+</ol>
+</dd>
+</dlentry>
+</dl>
+</section>
+<section><title>Notes</title>
+<ol>
+<li>An example of  <term>Any service</term> is <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>.</li>
+<li>These combinations exclude verbs that can be used on their own;
+for example, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> or encode, or using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb to generate
+an exportable key.</li>
+<li>These combinations do not show key communication, or the transmission of any output from an
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb.</li>
+</ol></section>
+<section><p>The key forms are described in <xref href="wskc_c_kegekf.dita#l0wskc02_kegekf"/> and <xref href="wskc_r_kgn.dita#l0wskc02_kgn"/>.</p></section>
+</conbody></concept>

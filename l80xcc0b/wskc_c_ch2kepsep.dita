@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ch2kepsep">
+<title>Key separation</title>
+  <titlealts>
+    <navtitle>Key separation</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>
+        (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key
+      separation</searchtitle>
+  </titlealts><shortdesc>The cryptographic coprocessor controls the use of keys by separating
+them into unique types, allowing you to use a specific type of key
+only for its intended purpose. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key separation</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>For example, a key used to protect data cannot be used to protect
+a key.</p>
+<p>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system has only one DES or
+AES master key. However, to provide for key separation, the cryptographic coprocessor automatically
+encrypts each type of key in a fixed-length token under a unique variation of the master key. Each
+variation of the master key encrypts a different type of key. Although you enter only one master
+key, you have a unique master key to encrypt all other keys of a certain type.</p>
+</conbody></concept>

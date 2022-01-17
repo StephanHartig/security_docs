@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_varlensym" rev="shr2">
+<title>Variable-length symmetric key tokens</title>
+<titlealts>
+<navtitle>Variable-length symmetric key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Variable-length symmetric key
+tokens</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports a
+variable-length symmetric key-token. This key token has a version number of X'05' (offset 4). Use
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) verb to build skeleton
+variable-length symmetric key tokens used as input by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>) verbs, which return these key tokens
+with encrypted keys in the key-token payload.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>variable-length</indexterm></indexterm>
+<indexterm> key token<indexterm>symmetric</indexterm></indexterm>
+<indexterm>variable-length key token</indexterm>
+<indexterm>symmetric key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p><xref href="wskc_general_vlskt.dita#l0wskc02_general_varlen/table_general_vlskt"/> shows the
+general format of the token version number X'05' key token.</p>
+<p><xref href="wskc_aes_cipher_vlskt.dita#l0wskc02_aes_cipher/aes_cipher_vlskt"/> shows the format
+of the CIPHER variable-length symmetric key-token that can be used with the AES algorithm. An AES
+CIPHER key-token is used by the Symmetric_Algorithm_Decipher (CSNBSAD) and
+Symmetric_Algorithm_Encipher (CSNBSAE) verbs to decipher or encipher data with the AES
+algorithm.</p>
+<p><xref href="wskc_aes_mac_vlskt.dita#l0wskc02_aes_mac/aes_cipher_vlskt"/> shows the format of the
+MAC variable-length symmetric key-token that can be used with the AES algorithm.</p>
+<p><xref href="wskc_r_hvlsktok.dita#l0wskc02_hvlsktok/l0wskc01_hmvlskt_tab1"/> shows the format of
+the MAC variable-length symmetric key-token that can be used with the HMAC algorithm. An HMAC MAC
+key-token is used by the HMAC_Generate (CSNBHMG) and HMAC_Verify (CSNBHMV) verbs to generate or
+verify keyed hash message authentication codes.</p>
+<p><xref href="wskc_aes_eximporter_vlskt.dita#l0wskc02_aes_eximporter/aes_eximporter_vlskt"/> shows
+the format of the EXPORTER and IMPORTER variable-length symmetric key tokens that can be used with
+the AES algorithm. An EXPORTER operational key-token is used by the Symmetric_Key_Export (CSNDSYX)
+verb to export an internal AES or HMAC variable-length symmetric key-token into an external
+variable-length symmetric key-token, either into an AESKW or PKOAEP2 wrapped payload. An IMPORTER
+operational key-token is used by the Symmetric_Key_Import2 (CSNDSYI2) verb to import an external AES
+or HMAC variable-length symmetric key-token, containing either an AESKW or PKOAEP2 wrapped payload,
+into an internal variable-length symmetric key-token.</p>
+<p><xref href="wskc_aes_pinpcp_vlskt.dita#l0wskc02_aes_pinpcp/aes_pinpcp_vlskt"/> shows the format
+of the PINPROT, PINCALC, and PINPRW variable-length symmetric key tokens that can be used with the
+AES algorithm.</p>
+<p><xref href="wskc_aes_desusecv_vlskt.dita#l0wskc02_aes_desusecv/aes_desusecv_vlskt"/> shows the
+format of the DESUSECV variable-length symmetric key tokens that can be used with the AES
+algorithm.</p>
+<p><xref href="wskc_aes_dkygenky_vlskt.dita#l0wskc02_aes_dkygenky"/> shows the format of the
+DKYGENKY variable-length symmetric key tokens that can be used with the AES algorithm.</p>
+<p><xref href="wskc_aes_secmsg_vlskt.dita#l0wskc02_aes_secmsg/aes_secmsg_vlskt"/> shows the format
+of the SECMSG variable-length symmetric key tokens that can be used with the AES algorithm.</p>
+</section>
+</refbody>
+</reference>

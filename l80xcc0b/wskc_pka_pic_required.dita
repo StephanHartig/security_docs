@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_pka_pic_required" rev="sh18i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>)<indexterm>required
+commands</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/><indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="12*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+<entry>Function control</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>n/a</entry>
+<entry>X'0070'</entry>
+<entry><cmdname>Public Infrastructure Certificate</cmdname></entry>
+<entry>Allows the service to be used.</entry>
+</row>
+<row>
+<entry>PK10SNRQ</entry>
+<entry>X'007C'</entry>
+<entry><cmdname>Public Infrastructure Certificate - PK10SNRQ</cmdname></entry>
+<entry>Allows the PK10SNRQ keyword to be used with the service.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody></reference>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc43" rev="sh18i1">
+<title>panel.exe default syntax as of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0</title>
+<titlealts>
+<navtitle>panel.exe default syntax</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): panel.exe default syntax as of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0</searchtitle>
+</titlealts>
+<shortdesc>Precise usage information can be obtained by running the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility with no arguments on the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> shell command line. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>panel.exe<indexterm>functions</indexterm></indexterm>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>authorization</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<codeblock rev="sh20i1">
+&gt;&gt;&gt; You must specify an operation &lt;&lt;&lt;
+New panel command-line arguments:
+GENERAL
+ [Services]
+   -?,   --help                  Usage
+         --usage                 Usage
+   -v,   --version               Print CCA host library version
+   -x,   --status                List ALL crypto resources and basic status
+         --statcrd2              show STATCARD2 data for specific card
+   -k,   --query-tke             Query whether TKE can use the card
+         --list-cpacf            List CPACF (local CPU crypto) resources
+ [Options]
+   -a=CARD#, --adapter=CARD#     Specify target device (default is '0') for single device services
+   -o,   --disable-stdout        Limit output to STDOUT to critical errors
+         --acps=0xAAAA,0xBBBB,0xCCCC...
+                                 List of hex access-control points
+
+COMPLIANCE
+ [Options]
+         --vsig                  Optionally validate signature on reply
+                                 This will verify the compliance info
+                                 signature using CCA's epoch key
+         --nonce="NON"           32-byte hexadecimal nonce entered as 64 characters ASCII
+         --output-file="outputfile"
+                                 Specify output file for health information
+ [Services]
+         --qcomp  [--vsig]       Query compliance info for the current domain
+         --qoahl  [--output-file] [--vsig] (requires --nonce)
+                                 Query OA health information from adapter
+
+CERTIFICATE
+ [Options]
+         --cert=&lt;value>   &lt;value>="NAME" Quoted name of certificate to process
+ [Services]
+         --epoc-cert-quick       Briefly display CCA epoch certificate
+         --epoc-cert-validate    Verify CCA epoch certificate
+         --epoc-cert-dump        Hex dump CCA epoch certificate
+         --epoc-cert-show        Display fully-parsed CCA epoch certificate
+         --oa-cert-quick --cert=&lt;value> Briefly display the specified OA/MB certificate
+         --oa-cert-dump  --cert=&lt;value> Hex dump of the specified OA/MB certificate
+         --oa-cert-show  --cert=&lt;value> Display fully-parsed OA/MB certificate
+
+ROLE
+ [Options]
+         --role="ROLEID"[,"ROLEID","ROLEID"...]
+                                 (whether one &lt;1R> or multiple roles &lt;MR> are accepted depends
+                                 on the operation being performed)
+         --all                   Perform action for all roles, valid where noted below
+ [Services]
+   -mrl, --list-roles
+         --show-role             (requires --role=&lt;1R>)
+         --query-acps            (requires --role=&lt;1R>, --acps)  Query specified ACP bit(s)
+   -uts, --show-tracking-state   Show ACP tracking state for role (requires either 
+                                 [--role=&lt;MR>] or [--all])
+   -utr, --dump-tracking-state   Dump ACP tracking state for role (requires either 
+                                 [--role=&lt;MR>] or [--all])
+   -uis, --show-interval-track   Show ACP interval tracking state for role (requires either 
+                                 [--role=&lt;MR>] or [--all])
+   -uir, --dump-interval-track   Dump ACP interval tracking state for role (requires either 
+                                 [--role=&lt;MR>] or [--all])
+
+   The following also require either [--role=&lt;MR>] or [--all]:
+         --enable-tracking       Enable  ACP-tracking for role
+         --disable-tracking      Disable ACP-tracking for role
+         --clear-tracking        Clear   ACP-tracking for role
+         --tracking-size         ACP tracking data size for role
+         --show-tracking         Show ACP tracking data for role
+         --dump-tracking         Raw dump ACP tracking data for role
+
+SYSLOG/CCALOG
+ [Services]
+   -y,   --card-log-info         Get sizes of all card logs and log level
+         --card-log-level=[4|8|12] Set card logging level
+   -yc,  --show-cca-log          Dump card's CCA log to stdout
+         --show-syslog=[0|1|2|3|4] Dump card's syslog to stdout
+                                 (0 is most recent boot cycle)
+
+MASTER KEY
+ [Options]
+         --mktype=[ASYM|SYM|AES|APKA]
+         --mkregister=[NEW|CURRENT|OLD]
+         --mkpart=[FIRST|MIDDLE|LAST]
+ [Services]
+         --mk-load-interactive   Interactively load a master key part
+         --mk-set-interactive    Interactively set a master key
+         --mk-clear-interactive  Interactively clear a master key
+         --mk-query-interactive  Interactively query a master key verification pattern
+         --mk-load="KEYPART"     Load a master key part (requires --mktype, --mkpart)
+                                 where "KEYPART" is a hexadecimal key value entered as text
+         --mk-set                Set  a master key      (requires --mktype)
+         --mk-clear              Clear a master key     (requires --mktype)
+         --mk-query              Query master key verification pattern
+                                 (requires --mktype, --mkregister)
+
+KEY STORAGE
+ [Options]
+         --ks-type=[AES|DES|PKA]
+ [Services]
+         --ks-init               Initialize key storage file (requires --ks-type)
+         --ks-reenc              Re-encipher key storage     (requires --ks-type)
+         --ks-list               List key storage            (requires --ks-type)
+         --ks-list-retained      List all retained keys for this domain
+</codeblock>
+<note>For security reasons, only a root user with correct group membership (real user ID equal to
+'0') is allowed to use <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> to load
+master key parts or to clear previously loaded master key parts. This is enforced at the shared
+library level in the implementation of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb, not in the utility itself.
+Additionally, only the user who created a set of key storage files or the root user is able to take
+actions with respect to those key storage files, based on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> file system permissions. </note>
+</conbody>
+</concept>

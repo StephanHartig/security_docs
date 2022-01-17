@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pbf">
+<title>PIN block format</title>
+<titlealts>
+<navtitle>PIN block format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PIN block format</searchtitle>
+</titlealts><shortdesc>This keyword specifies the format of the PIN block. The 8-byte
+value must be left-aligned and padded with blanks. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>values</indexterm></indexterm>
+<indexterm>ISO-0 PIN block format</indexterm>
+<indexterm>ISO-1 PIN block format</indexterm>
+<indexterm>ISO-2 PIN block format</indexterm>
+<indexterm>ISO-3 PIN block format</indexterm>
+<indexterm>ISO-4 PIN block format</indexterm>
+<indexterm>VISA-2 PIN block format</indexterm>
+<indexterm>VISA-3 PIN block format</indexterm>
+<indexterm>VISA-4 PIN block format</indexterm>
+<indexterm>4704-EPP PIN block format</indexterm>
+<indexterm>3624 PIN block format</indexterm>
+<indexterm>3621 PIN block format</indexterm>
+<indexterm>ECI-2 PIN block format</indexterm>
+<indexterm>ECI-3 PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Refer to <xref href="#l0wskc02_pbf/l0wskc02_pincpa"/> for a list of valid values. </p>
+<table id="l0wskc02_pincpa" pgwide="0" frame="all">
+<title>Format values
+of PIN blocks</title><desc><p outputclass="summary">Format values of PIN blocks</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Format value</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>ECI-2</entry>
+<entry>Eurocheque International format 2</entry></row>
+<row>
+<entry>ECI-3</entry>
+<entry>Eurocheque International format 3</entry></row>
+<row>
+<entry>ISO-0</entry>
+<entry>ISO format 0, ANSI X9.8, VISA 1,
+and ECI 1</entry></row>
+<row>
+<entry>ISO-1</entry>
+<entry>ISO format 1 and ECI 4</entry></row>
+<row>
+<entry>ISO-2</entry>
+<entry>ISO format 2</entry></row>
+<row>
+<entry>ISO-3</entry>
+<entry>ISO format 3</entry></row>
+<row rev="sh20i1">
+<entry>ISO-4</entry>
+<entry>ISO format 4</entry></row>
+<row>
+<entry>VISA-2</entry>
+<entry>VISA format 2</entry></row>
+<row>
+<entry>VISA-3</entry>
+<entry>VISA format 3</entry></row>
+<row>
+<entry>VISA-4</entry>
+<entry>VISA format 4</entry></row>
+<row>
+<entry>3621</entry>
+<entry><tm trademark="IBM" tmtype="reg">IBM</tm> 3621
+and 5906</entry></row>
+<row>
+<entry>3624</entry>
+<entry><tm trademark="IBM" tmtype="reg">IBM</tm> 3624</entry></row>
+<row>
+<entry>4704-EPP</entry>
+<entry><tm trademark="IBM" tmtype="reg">IBM</tm> 4704
+encrypting PIN pad</entry></row>
+</tbody>
+</tgroup>
+</table>
+<section id="pbfandpem"><title>PIN extraction methods</title><indexterm>PIN block
+format<indexterm>PIN extraction method keywords</indexterm></indexterm><indexterm>PINLEN04 PIN
+extraction method keyword</indexterm><indexterm>PINBLOCK PIN extraction method
+keyword</indexterm><indexterm>PADDIGIT PIN extraction method keyword</indexterm><indexterm>HEXDIGIT
+PIN extraction method keyword</indexterm><indexterm>PINLEN12 PIN extraction method
+keyword</indexterm><indexterm>PADEXIST PIN extraction method keyword</indexterm>
+<p rev="sh21i1">Before a verb can process a formatted and encrypted PIN, the verb must decrypt the
+PIN block and extract the PIN from the PIN block. The PIN verbs can use multiple PIN-extraction
+methods. The valid PIN-extraction method depends on the PIN-block format. You can specify a
+PIN-extraction method or use the default method for the PIN-block format. To specify a
+PIN-extraction method, use a keyword in the <parmname>rule_array</parmname> variable for the verb.
+<xref href="#l0wskc02_pbf/l0wskc02_newtb2" format="dita"/> shows the keywords for the PIN-extraction
+methods that are valid for each PIN-block format. When only one PIN-extraction method is valid, the
+keyword is the default value. When more than one method is valid, the first keyword is the default
+value.</p>
+<p>You can specify a PIN extraction keyword for a given PIN-block format in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verbs.</p>
+<table id="l0wskc02_newtb2" pgwide="1" frame="all"><title>PIN block format and PIN extraction method
+keywords</title><desc>
+<p outputclass="summary">PIN block format and PIN extraction method keywords</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="12*"/>
+<thead>
+<row>
+<entry>PIN block format</entry>
+<entry>PIN extraction method keywords</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ECI-2</entry>
+<entry><synph><kwd>PINLEN04</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINLEN04
+format.</entry>
+</row>
+<row>
+<entry>ECI-3</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>ISO-0</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>ISO-1</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>ISO-2</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>ISO-3</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>VISA-2</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>VISA-3</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>VISA-4</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+<row>
+<entry>3621</entry>
+<entry><synph><kwd>PADDIGIT</kwd></synph>, <synph><kwd>HEXDIGIT</kwd></synph>,
+<synph><kwd>PINLEN04</kwd></synph> - <synph><kwd>PINLEN12</kwd></synph>,
+<synph><kwd>PADEXIST</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for an <tm trademark="IBM"
+tmtype="reg">IBM</tm> 3621 PIN block format. The first keyword, <synph><kwd>PADDIGIT</kwd></synph>,
+is the default PIN extraction method for the PIN block format.</entry>
+</row>
+<row>
+<entry>3624</entry>
+<entry><synph><kwd>PADDIGIT</kwd></synph>, <synph><kwd>HEXDIGIT</kwd></synph>,
+<synph><kwd>PINLEN04</kwd></synph> - <synph><kwd>PINLEN16</kwd></synph>,
+<synph><kwd>PADEXIST</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for an <tm trademark="IBM"
+tmtype="reg">IBM</tm> 3624 PIN block format. The first keyword, <synph><kwd>PADDIGIT</kwd></synph>,
+is the default PIN extraction method for the PIN block format.</entry>
+</row>
+<row>
+<entry>4704-EPP</entry>
+<entry><synph><kwd>PINBLOCK</kwd></synph></entry>
+<entry>The PIN extraction method keywords specify a PIN extraction method for a PINBLOCK
+format.</entry>
+</row>
+</tbody>
+</tgroup></table><p>The PIN extraction methods operate as follows: <dl>
+<dlentry>
+<dt>PINBLOCK</dt>
+<dd>Specifies that the service verb use one of these: <ul compact="yes">
+<li>The PIN length, if the PIN block contains a PIN length field</li>
+<li>The PIN delimiter character, if the PIN block contains a PIN delimiter character.</li>
+</ul></dd>
+</dlentry>
+<dlentry>
+<dt>PADDIGIT</dt>
+<dd>Specifies that the verb use the pad value in the PIN profile to identify the end of the
+PIN.</dd>
+</dlentry>
+<dlentry>
+<dt>HEXDIGIT</dt>
+<dd>Specifies that the verb use the first occurrence of a digit in the range from <ph>X'A'</ph> to
+<ph>X'F'</ph> as the pad value to determine the PIN length</dd>
+</dlentry>
+<dlentry>
+<dt>PINLEN<synph><var>nn</var></synph></dt>
+<dd>Specifies that the verb use the length specified in the keyword, where
+<synph><var>nn</var></synph> can range from 04 - 16, the number of digits used to identify the
+PIN.</dd>
+</dlentry>
+<dlentry>
+<dt>PADEXIST</dt>
+<dd>Specifies that the verb use the character in the 16th position of the PIN block as the value of
+the pad value.</dd>
+</dlentry>
+</dl></p></section>
+<section><title>Enhanced PIN security mode</title><indexterm>PIN security
+mode</indexterm><indexterm>enhanced PIN security mode</indexterm><p>An enhanced PIN security mode is
+available. This optional mode is selected by enabling the <cmdname>Enhanced PIN Security</cmdname>
+(offset X'0313') access control point in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> default role.</p><p>When active, this
+control point affects all PIN verbs that extract or format a PIN using a PIN-block format of IBM
+3624 with a PIN-extraction method of <synph><kwd>PADDIGIT</kwd></synph> .</p><p><xref
+href="#l0wskc02_pbf/l0wsck02_epsm_tab1" format="dita"/> summarizes the verbs affected by the
+enhanced PIN security mode, and describes the effect that the mode has when the access control point
+is enabled. </p><table id="l0wsck02_epsm_tab1" pgwide="1">
+<title rev="sh18i2">Verbs affected when the enhanced PIN security mode is enabled</title>
+<desc>
+<p outputclass="summary">Verbs affected when the enhanced PIN security mode is enabled</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="7*"/>
+<thead>
+<row>
+<entry>PIN-block format and PIN-extraction method</entry>
+<entry>Affected verbs</entry>
+<entry>PIN processing changes when Enhanced PIN Security Mode enabled</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ECI-2, 3621, or 3624 formats AND <b>PINLEN<synph><var>nn</var></synph></b></entry>
+<entry>
+<lines>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>
+</lines>
+</entry>
+<entry>The <b>PINLEN<synph><var>nn</var></synph></b> keyword in the
+<synph><var>rule_array</var></synph> parameter for PIN extraction method is not allowed if the
+Enhanced PIN Security Mode is enabled. <note>The verb will fail with return code 8 and reason code
+<ph>X'7E0'</ph>.</note></entry>
+</row>
+<row>
+<entry rev="sh18i2">IBM 3624 format and <synph><kwd>HEXDIGIT</kwd></synph>,
+<synph><kwd>PADDIGIT</kwd></synph>, or <synph><kwd>PADEXIST</kwd></synph>
+</entry>
+<entry>
+<lines>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/>
+</lines>
+</entry>
+<entry>PIN extraction determines the PIN length by scanning from right to left until a digit, not
+equal to the PAD digit, is found. The minimum PIN length is set at four digits, so scanning ceases
+one digit past the position of the fourth PIN digit in the block.</entry>
+</row>
+<row>
+<entry rev="sh18i2">IBM 3624 format and <synph><kwd>HEXDIGIT</kwd></synph>,
+<synph><kwd>PADDIGIT</kwd></synph>, or <synph><kwd>PADEXIST</kwd></synph>
+</entry>
+<entry>
+<lines>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>
+</lines>
+</entry>
+<entry>PIN formatting does not examine the PIN in the output PIN block to see if it contains the
+PAD digit.</entry>
+</row>
+<row>
+<entry rev="sh18i2">IBM 3624 format and <synph><kwd>HEXDIGIT</kwd></synph>,
+<synph><kwd>PADDIGIT</kwd></synph>, or <synph><kwd>PADEXIST</kwd></synph>
+</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/></entry>
+<entry>Restricted to non-decimal digit for <synph><kwd>PADDIGIT</kwd></synph>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section rev="sh21i1" id="pan_number"><title>Primary account number</title><indexterm>Primary account
+number<indexterm>PAN</indexterm></indexterm><indexterm>PAN<indexterm>Primary account
+number</indexterm></indexterm>
+<p>A primary account number (PAN) identifies an individual and associates that individual to an account at
+the financial institution. The PAN consists of the following data:</p>
+<ul>
+<li>Issuer identification number</li>
+<li>Customer account number</li>
+<li>One check digit</li>
+</ul>
+<p>For the ISO-0, ISO-3, and ISO-4 PIN-block formats, the PIN verbs use a PAN
+to format and extract a PIN. You specify the PAN with a parameter for the verb. Each digit in the
+PAN must be from 0 – 9. You must specify the PAN in character format.</p>
+<p>For ISO-0 and ISO-3, specify the PAN in a 12-byte field. The actual PAN might be more than 12 digits, but
+the PIN verbs use only 12 digits for the PAN. Depending on the PIN-block format, the verbs use the
+rightmost 12 digits or the leftmost 12 digits.
+</p>
+<p>For the ISO-4 format, the verbs use all the digits of the PAN including the check digit.
+Note: When using the ISO-0 or ISO-3 PIN-block format, use the rightmost 12 digits of the PAN, excluding
+the check digit. When using the ISO-4 PIN-block format, use all digits of the PAN, including the check
+digit.</p></section>
+</conbody></concept>

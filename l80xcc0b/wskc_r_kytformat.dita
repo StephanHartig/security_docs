@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kytformat">
+<title>Format</title>
+  <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="468*"/>
+<tbody>
+<row>
+<entry valign="top" align="left">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>key_identifier</var></synph>,
+             <synph><var>value_1</var></synph>,
+             <synph><var>value_2</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+<section><p>This document uses new names for two of the parameters. The former
+names were misleading because they no longer reflected the use of
+these parameters. The header file, <filepath>csulincl.h</filepath>,
+continues to use the former names. See <xref href="wskc_r_kyt.dita#l0wskc02_kyt/kyt_parm_change"/>.</p></section>
+</refbody></reference>

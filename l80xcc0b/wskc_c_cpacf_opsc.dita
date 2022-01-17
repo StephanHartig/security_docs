@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_cpacf_opsc" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> operation (protected
+key)</title>
+<titlealts>
+<navtitle>CPACF operation (protected key)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> operation (protected key) for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>These are details for Central Processor Assist for Cryptographic Functions (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>) usage by the host library.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+<indexterm>protected key</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+<indexterm>clear key</indexterm></indexterm><indexterm>security
+server</indexterm><indexterm>key encrypting
+key<indexterm>new</indexterm></indexterm><indexterm>CPACF <indexterm>illustration</indexterm></indexterm><indexterm>hash algorithm</indexterm>
+<indexterm>protected key</indexterm><indexterm>key<indexterm>translated</indexterm></indexterm>
+<indexterm>translated key</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm>
+<indexterm>protected key</indexterm>
+<indexterm>translated key</indexterm>
+<indexterm>wrapping key</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+<indexterm>SIGSEGV error</indexterm>
+<indexterm>key translation cache</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> service
+action</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>At system power-on, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+generates a new Key Encryption Key (KEK, kek-t) for wrapping translated keys.</p>
+<p><xref href="#l0wskc02_cpacf_opsc/l0wskc02_cpacffig"/> illustrates the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> layer as it relates to the security
+access API and cryptographic engine. The CPACF exploitation layer examines commands received by the
+security server to see if they can be redirected to the CPACF. If so, this layer makes preparations
+(including translating secure keys to protected keys), and then call the CPACF directly. If all
+preparations and the CPACF operations are successful, the results are returned as a normal return
+through the security server. For any errors, the command is redirected back through the security
+server to the normal path, using the allocated <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> for the thread making the call.</p>
+<p> <fig expanse="column" id="l0wskc02_cpacffig"><title>CPACF</title>
+<image href="l0wskc02_fig22.jpg" placement="break" width="350">
+<alt>CPACF sits alongside the Cryptographic engine.</alt>
+</image>
+</fig><?Pub Caret -1?></p>
+<p><synph><kwd>Clear key or No key</kwd></synph>: For operations that do not use keys (such as hash
+algorithms) or operations that use keys that are not encrypted under the card master key, (called
+<synph><var>clear keys</var></synph>), no translation is necessary and the CPACF is used
+immediately. <ph rev="sh20i1">However, the generation of clear keys requires an available <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> feature.</ph></p>
+<p><synph><kwd>Protected key</kwd></synph>: The device driver and
+the other layers are used for protected key support, for translating
+keys.  This relationship is similar to the 'directory server' relationship:
+a translation layer invisible to the customer.  After translation
+the 'translated-key' is stored in an invisible runtime cache so that
+the next use of the key can avoid the translation step. For protected
+key usage, a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword> feature
+must be available and allocated for use by the thread.</p>
+<p><synph><kwd>CPACF service actions and running applications</kwd></synph>: The CPACF is an
+independent hardware unit, like the CEX*C itself, and can be independently configured available or
+unavailable while a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> instance is
+running by service technicians performing service actions. If the CPACF is cycled it will generate a
+new wrapping key for translated keys, invalidating all of the keys in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library key translation cache. Therefore,
+it is never advisable to attempt such a service action while there are system instances with
+applications running that use the CPACF.</p>
+<p>If such an action is undertaken, applications should be stopped and restarted so that the
+<synph><kwd>libcsulcca.so</kwd></synph> is unloaded from memory and reloaded. This will cause the
+key cache to be cycled. A more complete measure would be to reboot system images. If these
+precautions are disregarded and a CPACF service action is undertaken as described, application
+crashes may ensue with a SIGSEGV error. This could occur due to translated keys wrapped under
+outdated CPACF wrapping keys being used.</p>
+<p>A normal system-wide power cycle will cause the CPACF to generate a new wrapping key by design,
+however, this action also of course cycles all of the hosted system LPARs and VM system images so
+there is no problem; translated keys are not cached in permanent storage.</p>
+</conbody>
+</concept>
+<?Pub *0000003441?>

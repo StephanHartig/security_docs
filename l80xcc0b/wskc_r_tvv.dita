@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tvv">
+<title>Token validation value and record-validation value</title>
+ <titlealts>
+    <navtitle>Token validation value</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Token validation value</searchtitle>
+  </titlealts><abstract>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses the <term>token
+validation value (TVV)</term> to verify that a token is valid. </shortdesc>
+<p>When a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb generates a key
+token, it generates a TVV and stores the TVV in bytes 60-63 of the key token. When an application
+program passes a key token to a verb, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> checks the TVV. To generate the TVV,
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> performs a twos complement ADD
+operation (ignoring carries and overflow) on the key token, operating on four bytes at a time,
+starting with bytes 0-3 and ending with bytes 56-59.</p>
+</abstract>
+<prolog><metadata><keywords>
+
+<indexterm>token validation value (TVV)</indexterm>
+<indexterm>TVV<indexterm>token validation value (TVV)</indexterm></indexterm>
+<indexterm>record validation value (RVV)</indexterm>
+<indexterm>RVV<indexterm>record validation value (TVV)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh20i1">
+<p/>
+<p>The token-validation value (TVV) is a checksum that helps ensure that an application-program provided
+fixed-length AES or DES key-token is valid. A TVV is the sum (two’s complement ADD), ignoring carries
+and overflow, of the key token by operating on 4 bytes at a time, starting with bytes 0 – 3 and ending
+with bytes 56 – 59. The 4-byte strings are treated as big-endian binary numbers with the high-order byte
+stored in the lower address. Fixed-length AES and DES key-token bytes 60 – 63 contain the TVV.
+When an application program supplies a fixed-length AES or DES key-token, the CCA node checks the
+TVV. When a CCA verb builds a fixed-length AES or DES key-token, it calculates and stores a TVV in the
+key token.</p>
+<p>The record-validation value (RVV) used in AES, DES, and PKA key-storage records is calculated in the
+same manner as the AES or DES TVV, except that for PKA the last bytes added are always treated as a 4-
+byte integer. The RVV is the sum of each sequential 4-byte value in the record, except for the four bytes
+where the RVV itself is stored.</p>
+</section>
+</refbody></reference>

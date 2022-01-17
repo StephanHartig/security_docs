@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc156">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p rev="sh18i2">In order to access key storage, this verb requires the <cmdname>Compute Verification
+Pattern</cmdname> command (offset X'001D') to be enabled in the active role.</p>
+<p>To enable warning for the case when the rule-array keyword is inconsistent with the key length,
+enable the command <cmdname>Key Test - Warn when keyword inconsistent with key length</cmdname>
+(offset X'01CB').</p></section>
+</refbody></reference>

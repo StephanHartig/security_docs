@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pka_pim_parameters" xml:lang="en-us" rev="sh18i1">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/></searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"
+/><indexterm>parameters</indexterm></indexterm>
+<indexterm>hashing method</indexterm>
+</keywords>
+<?Pub Caret 115?>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be 1, 2, 3 or 4. </pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length and must be left-aligned and padded on the right with space characters. The
+<parmname>rule_array</parmname> keywords are described in <xref
+href="#wskc_pka_pim_parameters/pka_pim_keywords" format="dita"/>. <table id="pka_pim_keywords"
+pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="7*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Requested action</i></b> (One, required)</entry>
+</row>
+<row>
+<entry>RNW-CERT</entry>
+<entry>Specifies to load the input certificate in place of a previously imported certificate. The
+new certificate must have the same public key, subject name, and subject key identifier as the old
+certificate to be a valid replacement. This operation is expected for expiration updates or other
+operations that change certificate parameters without changing the subject public key.<p>Input:</p><dl>
+<dlentry>
+<dt>label</dt>
+<dd>64-byte label</dd>
+</dlentry>
+<dlentry>
+<dt>certificate</dt>
+<dd>X.509 certificate, binary DER encoded, or in PEM format</dd>
+</dlentry>
+<dlentry>
+<dt>rule array</dt>
+<dd>Hashing method keyword (optional). For available methods (keywords) see section <b><i>Hashing
+method</i></b> later in this table. If not passed, then no hash is returned.</dd>
+</dlentry>
+</dl><p>Output:</p><ul>
+<li>A status indication is returned.</li>
+<li>If a hashing method had been specified, on success, the hash of the certificate is returned for
+verification with a tool. The size of the hash is determined by the hashing method.</li>
+</ul></entry>
+</row>
+<row>
+<entry>CHGLABEL</entry>
+<entry>Specifies to change the label for a previously imported certificate. This might be used after
+RNW-CERT to update the label in some matching updated certificate characteristics. This command does
+not change any security aspects for the referenced certificate or the certificates that depend on
+it.<p>Input:</p><dl>
+<dlentry>
+<dt>label</dt>
+<dd>current 64-byte label</dd>
+</dlentry>
+<dlentry>
+<dt>input_data</dt>
+<dd>new 64-byte label</dd>
+</dlentry>
+</dl><p>As output, a status indication is returned.</p></entry>
+</row>
+<row>
+<entry>VAL-CERT</entry>
+<entry>Specifies to validate the input certificate against the public key infrastructure stored in
+the HSM. This is a method of testing the certificate to see if an operational request with the
+certificate will succeed.<p>Input:</p><dl>
+<dlentry>
+<dt>certificate</dt>
+<dd>X.509 certificate, binary DER encoded or PEM format</dd>
+</dlentry>
+</dl><p>Output:</p><dl>
+<dlentry>
+<dt>status indication</dt>
+<dd>Either a success indication is returned or an informational error about why the certificate
+validation failed (for example, <msgph>issuer not found</msgph>). The returned status indicates only
+one error, while there may be more than one issues with a particular certificate.</dd>
+</dlentry>
+<dlentry>
+<dt>output_data</dt>
+<dd>The 64-byte label is returned for the certificate in the adapter that is used to validate the
+input operational certificate. This returned label may be used as input with the LSTISSUR keyword to
+obtain the issuer of the validating certificate. It can also be used with GET-CERT to obtain the
+full certificate for the validating certificate. This allows the user to re-construct the validation
+certificate chain used for their operational certificate. This is necessary if a user needs to pass
+a certification chain to a partner.</dd>
+</dlentry>
+</dl><note>This keyword does not require a signature on a Connectivity Programming Request/Reply
+Block (CPRB) of type T2 (T2 CPRB).</note></entry>
+</row>
+<row>
+<entry>GET-CERT</entry>
+<entry>Given an input 64-byte label for a particular certificate, this keword returns the full X.509
+certificate for that certificate and the HSM-internal state of the certificate. Optionally the
+HSM-computed hash of the certificate is also returned.<p>Input:</p><dl>
+<dlentry>
+<dt>label</dt>
+<dd>64-byte label</dd>
+</dlentry>
+<dlentry>
+<dt>rule array</dt>
+<dd>Hashing method keyword (optional). For available methods (keywords) see section <b><i>Hashing
+method</i></b> later in this table. If not passed, then no hash is returned.</dd>
+</dlentry>
+</dl><p>Output:</p><p>On success, the following output is returned. On failure, only an error
+indication is returned.</p><dl>
+<dlentry>
+<dt>output_data</dt>
+<dd>X.509 certificate, binary DER encoded, or in PEM format, matching the input 64-byte label<ul>
+<li>See the SIZEDATA keyword definition for alternate output.</li>
+<li>See the <b><i>Output format indicator</i></b> section later in this table.</li>
+</ul></dd>
+</dlentry>
+<dlentry>
+<dt>hash</dt>
+<dd>If a hashing method had been specified, the hash of the certificate referred to by the input
+label is returned. </dd>
+</dlentry>
+<dlentry>
+<dt>rule array</dt>
+<dd>State of the certificate, specified as a single 8-byte rule-array keyword, to be interpreted as follows:<ol>
+<li>The first left-most byte <codeph>X’BBxxxxxxxxxxxxxx’</codeph> is reserved.</li>
+<li>The second left-most byte <codeph>X’xxBBxxxxxxxxxxxx’</codeph> indicates the activity status of
+a certificate. Valid values are: <ul>
+<li><codeph>X’xx30xxxxxxxxxxxx’</codeph>: The certificate is not active. <ul>
+<li>For a root certificate this could mean that the certificate has only been loaded, but not
+activated.</li>
+<li>For any certificates (root or non-root) this could mean the certificate has expired (check other
+bytes).</li>
+</ul></li>
+<li><codeph>X’xx31xxxxxxxxxxxx’</codeph>: The certificate is active.<ul>
+<li>An active installed certificate is used by the HSM to validate other certificates.</li>
+</ul></li>
+</ul></li>
+<li>The third left-most byte <codeph>X’xxxxBBxxxxxxxxxx’</codeph> indicates the expiration status of
+a certificate. Valid values are: <ul>
+<li><codeph>X’xxxx30xxxxxxxxxx’</codeph>: The certificate is not expired. </li>
+<li><codeph>X’xxxx31xxxxxxxxxx’</codeph>: The certificate is expired.</li>
+</ul></li>
+<li>The fourth left-most byte <codeph>X’xxxxxxBBxxxxxxxx’</codeph> is reserved.</li>
+<li>The fifth left-most byte <codeph>X’xxxxxxxxBBxxxxxx’</codeph>indicates the hash method specified
+when a certificate was loaded. Valid values are: <ul>
+<li><codeph>X’xxxxxxxx32xxxxxx’</codeph>: The SHA-256 method was used to load the certificate. </li>
+<li><codeph>X’xxxxxxxx34xxxxxx’</codeph>: The SHA-384 method was used to load the certificate.</li>
+<li><codeph>X’xxxxxxxx38xxxxxx’</codeph>: The SHA-512 method was used to load the certificate.</li>
+</ul></li>
+</ol></dd>
+</dlentry>
+</dl><note>This keyword does not require a signature on a Connectivity Programming Request/Reply
+Block (CPRB) of type T2 (T2 CPRB).</note></entry>
+</row>
+<row rev="sh20i1">
+<entry>VAL-TR34</entry>
+<entry>Specifies to validate the certificate using the semantics of TR-34 sample certificates - device vendor certificates.</entry>
+</row>
+<row>
+<entry>LSTROOTS</entry>
+<entry>Returns a list of 64-byte labels for installed trust parent certificates. <p>There is no
+input.</p><p>Output:</p><dl>
+<dlentry>
+<dt>status indication</dt>
+<dd>A status indication is returned.</dd>
+</dlentry>
+<dlentry>
+<dt>output_data</dt>
+<dd>On success, an array of 64 byte labels representing all the loaded root certificates is
+returned. The returned buffer size indicates the count of certificates (as a multiple of 64).<ul>
+<li>See the SIZEDATA keyword definition for alternate output.</li>
+</ul></dd>
+</dlentry>
+</dl><note>This keyword does not require a signature on a Connectivity Programming Request/Reply
+Block (CPRB) of type T2 (T2 CPRB).</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Action modifier</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry>SIZEDATA</entry>
+<entry>Specifies to return only the size of the data returned by the requested action. Used with
+VAL-CERT, GET-CERT, and LSTROOTS keywords.<p>The size returned is placed in the
+<parmname>output_data_length</parmname> parameter. It refers to the data that would have been placed
+in the <parmname>output_data </parmname> parameter if the SIZEDATA keyword was not
+passed.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Certificate validation method</i></b> (One, required for
+VAL-CERT) </entry>
+</row>
+<row>
+<entry>RFC-2459</entry>
+<entry>Attempt to validate the certificate using the semantics of RFC-2459.</entry>
+</row>
+<row>
+<entry>RFC-3280</entry>
+<entry>Attempt to validate the certificate using the semantics of RFC-3280</entry>
+</row>
+<row>
+<entry>RFC-5280</entry>
+<entry>Attempt to validate the certificate using the semantics of RFC-5280</entry>
+</row>
+<row>
+<entry>RFC-ANY</entry>
+<entry>Attempt to validate the certificate using first the semantics of RFC-2459, then RFC-3280, and
+then RFC-5280. If the certificate is not compliant with any RFC, the first error encountered (from
+RFC-2459 processing) is returned.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Hashing method</i></b> (One, optional with RNW-CERT and
+GET-CERT) </entry>
+</row>
+<row>
+<entry>SHA-256</entry>
+<entry>The hash variable (either input or output, depending on the action) is calculated with the
+SHA-256 hash method. The size of the variable is 32 bytes.</entry>
+</row>
+<row>
+<entry>SHA-384</entry>
+<entry>The hash variable (either input or output, depending on the action) is calculated with the
+SHA-384 hash method. Size of the variable is 48 bytes.</entry>
+</row>
+<row>
+<entry>SHA-512</entry>
+<entry>The hash variable (either input or output, depending on the action) is calculated with the
+SHA-512 hash method. Size of the variable is 64 bytes.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Output format indicator</i></b> (one, required with
+GET-CERT and not allowed otherwise) (One, optional with RNW-CERT and GET-CERT) </entry>
+</row>
+<row>
+<entry>DER-FMT</entry>
+<entry>Specifies that the output data object should be DER encoded</entry>
+</row>
+<row>
+<entry>PEM-FMT</entry>
+<entry>Specifies that the output data object should be PEM (Base64) encoded.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>certificate_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Pointer to an integer variable containing the number of bytes of data in the certificate
+variable. The maximum length is 3500. </pd>
+</plentry>
+<plentry>
+<pt>certificate</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an X.509 certificate. The data must be DER or PEM
+encoded. </pd>
+</plentry>
+<plentry>
+<pt>label_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the label
+variable. This value must be 64 or 0 if no label processing is expected. </pd>
+</plentry>
+<plentry>
+<pt>label</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing a label for the input certificate specified with
+the <parmname>certificate</parmname> parameter. The label is 64-byte ASCII data buffer, with the
+following format characteristics: <ul>
+<li>If the label is less than 64 characters, it must be left-justified in the 64 character buffer,
+and it must be padded on the right with spaces.</li>
+<li>The first character must be either alphanumeric, or one member from the following set:
+<codeph>@</codeph>, <codeph>$</codeph>, or <codeph>#</codeph>. </li>
+<li>All other characters must be either alphanumeric, a period, or one of the set:
+<codeph>@</codeph>, <codeph>$</codeph>, or <codeph>#</codeph>.</li>
+<li>The input string is not null-terminated. It is a fixed length string (64 characters) with no
+special terminators. </li>
+</ul>
+</pd>
+</plentry>
+<plentry>
+<pt>hash_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of bytes of data in the hash
+variable. This value depends on the specified hashing method keyword. It must be 32 for SHA-256, 48
+for SHA-384, and 64 for SHA-512. </pd>
+</plentry>
+<plentry>
+<pt>hash</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a hash of the referenced X.509 certificate. The
+hash is either input or output, depending on the requested action keyword. The format of the hash
+data is raw binary data of the size indicated by the hashing method keyword. </pd>
+</plentry>
+<plentry>
+<pt>input_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_data</parmname> variable. The maximum length depends on the usage.</pd>
+</plentry>
+<plentry>
+<pt>input_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable with contents that depend on the rule array keyword for the
+requested action: <dl>
+<dlentry>
+<dt>CHGLABEL</dt>
+<dd>Parameter <parmname>input_data</parmname> shall contain the new 64-byte label for the internally
+stored certificate.</dd>
+</dlentry>
+<dlentry>
+<dt>all others</dt>
+<dd>Parameter <parmname>input_data_length</parmname> should be zero and this parameter should be
+NULL.</dd>
+</dlentry>
+</dl>
+</pd>
+</plentry>
+<plentry>
+<pt>output_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_data</parmname> variable. On input, it must indicate the size of the buffer
+available. On output, if the size is sufficient, the variable contains the actual length of the data
+returned by the service. If the SIZEDATA keyword is passed, the size returned refers to the amount
+of data that is returned if the SIZEDATA keyword is not passed. </pd>
+</plentry>
+<plentry>
+<pt>output_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing the output data from the service, with contents
+that depends on the rule array keyword for the requested action: <dl>
+<dlentry>
+<dt>LSTROOTS</dt>
+<dd>Paramter <parmname>output_data</parmname> contains the array of 64 byte labels returned.</dd>
+</dlentry>
+<dlentry>
+<dt>GET-CERT</dt>
+<dd>Paramter <parmname>output_data</parmname> contains the returned X.509 certificate corresponding
+to the input label.</dd>
+</dlentry>
+<dlentry>
+<dt>VAL-CERT</dt>
+<dd>Paramter <parmname>output_data</parmname> contains the returned label from the validating
+certificate for the input certificate.</dd>
+</dlentry>
+<dlentry>
+<dt>all others</dt>
+<dd>Paramter <parmname>output_data_length</parmname> is zero and this parameter is NULL.</dd>
+</dlentry>
+</dl>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>reserved1</parmname> variable. This parameter must be a null pointer or point to a value
+of 0. </pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable reserved for this verb. </pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000011608?>

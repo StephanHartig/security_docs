@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ansix99mac" xml:lang="en-us">
+<title>ANSI X9.9 MAC</title>
+<titlealts>
+<navtitle>ANSI X9.9 MAC</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.9 MAC</searchtitle>
+</titlealts>
+<shortdesc>The Financial Institution (Wholesale) Message Authentication
+Standard (ANSI X9.9-1986) defines a process for the authentication
+of messages from originator to recipient, and this process is called
+the Message Authentication Code (MAC) calculation method.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ANSI X9.9 MAC</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The ANSI X9.9 standard defines five options. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs implement option 1, binary
+data.</p>
+<p><xref href="wskc_c_emvmac.dita#l0wskc02_emvmac/l0wskc02_fig21"></xref> shows
+the MAC calculation for binary data. In this figure, KEY is a 64-bit
+key, and T<sub>1</sub> - T<sub><i>n</i></sub> are 64-bit data blocks
+of text. If T<sub><i>n</i></sub> is less than 64 bits long, binary
+zeros are appended to the right of T<sub><i>n</i></sub>. Data blocks
+T<sub>1</sub>&mldr;T<sub>n</sub> are DES CBC-encrypted with all output
+discarded except for the final output block, O<sub>n</sub>.</p>
+</conbody>
+</concept>
+<?Pub *0000001575?>

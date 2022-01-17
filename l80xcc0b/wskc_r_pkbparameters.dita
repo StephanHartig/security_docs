@@ -1,0 +1,1594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pkbparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/></indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>ECC-PAIR</indexterm>
+<indexterm>ECC-PUBL</indexterm>
+<indexterm>RSA-CRT</indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+<indexterm>RSA-PRIV</indexterm>
+<indexterm>RSA-PUBL</indexterm>
+<indexterm>RSAMEVAR</indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>KEY-MGMT</indexterm>
+<indexterm>KM-ONLY</indexterm>
+<indexterm>SIG-ONLY</indexterm>
+<indexterm>NO-XLATE</indexterm>
+<indexterm>XLATE-OK</indexterm>
+<indexterm>ECC-VER0</indexterm>
+<indexterm>ECC-VER1</indexterm>
+<indexterm>key_value_structure_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>key_value_structure parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>ECC-PAIR</indexterm>
+<indexterm>ECC-PUBL</indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+<indexterm>RSA-CRT</indexterm>
+<indexterm>private_key_name_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>private_key_name parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>user_definable_associated_data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>user_definable_associated_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+<indexterm>key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be in the range 1 - 5.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords for the verb. The keywords
+must be in contiguous storage with each of the keywords left-aligned in its own 8-byte location and
+padded on the right with blanks. The <synph><var>rule_array</var></synph> keywords are described in
+<xref href="#l0wskc02_pkbparameters/l0wskc02_keypkax"/>.<table id="l0wskc02_keypkax" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token type</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>ECC-PAIR</kwd></synph></entry>
+<entry>This keyword indicates building a token containing both public and private ECC key
+information. The parameter <synph><var>key_value_structure</var></synph> identifies the input key
+values, if supplied.</entry>
+</row>
+<row>
+<entry><synph><kwd>ECC-PUBL</kwd></synph></entry>
+<entry>This keyword indicates building a token containing public ECC key information. The parameter
+<synph><var>key_value_structure</var></synph> identifies the input values, if supplied.</entry>
+</row>
+
+<row>
+<entry><synph><kwd>QSA-PAIR</kwd></synph></entry>
+<entry>This keyword indicates building a token containing both public and
+private QSA key information. The parameter <parmname>key_value_structure</parmname>
+identifies the input values. This includes CRYSTALS-Dilithium key pairs.</entry>
+</row>
+<row>
+<entry><synph><kwd>QSA-PUBL</kwd></synph></entry>
+<entry>This keyword indicates building a token containing public QSA key information. 
+The parameter <parmname>key_value_structure</parmname>
+identifies the input values. This includes CRYSTALS-Dilithium public keys.</entry>
+</row>
+
+<row>
+<entry><synph><kwd>RSA-AESC </kwd></synph></entry>
+<entry>Create a key token for an RSA public key and an RSA private key in Chinese-Remainder Theorem
+(CRT) format with an AES-encrypted OPK. 
+<p>Starting with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0, 
+specify a format restriction keyword to restrict the private key to a particular digital-signature hash formatting method, or none (the
+default, see <b><i>Format restriction</i></b> section later in this table). </p></entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-AESM </kwd></synph></entry>
+<entry>Create a key token for an RSA public key and an RSA private key in Modulus-Exponent format
+with an AES-encrypted OPK. <p>Starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0, specify a format restriction keyword
+to restrict the private key to a particular digital-signature hash formatting method, or none (the
+default, see <b><i>Format restriction</i></b> section later in this table). </p></entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-CRT</kwd></synph></entry>
+<entry>This keyword indicates building a token containing an RSA private key in the optimized
+Chinese Remainder Theorem (CRT) format. The parameter <synph><var>key_value_structure</var></synph>
+identifies the input key values, if supplied.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-PRIV</kwd></synph></entry>
+<entry>This keyword indicates building a token containing both public and private RSA key
+information. The parameter <synph><var>key_value_structure</var></synph> identifies the input key
+values, if supplied.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-PUBL</kwd></synph></entry>
+<entry>This keyword indicates building a token containing public RSA key information. The parameter
+<synph><var>key_value_structure</var></synph> identifies the input values, if supplied.</entry>
+</row>
+
+<row rev="sh20i1">
+<entry><synph><kwd>RSAAESC2</kwd></synph></entry>
+<entry>This keyword is for creating a key token for an RSA public and private
+key in Chinese-Remainder Theorem format with a version X'05' private
+key associated data section. The object protection key is an AES key.
+Either RSAAESC2 or RSAAESM2 is required when using the COMP-TAG
+or the PKA Key Usage Control group.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>RSAAESM2</kwd></synph></entry>
+<entry>This keyword is for creating a key token for an RSA public and private
+key in modulus-exponent format with a version X'04' private key
+associated data section. The object protection key is an AES key. Either
+RSAAESC2 or RSAAESM2 is required when using the COMP-TAG or the
+PKA Key Usage Control group.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSAMEVAR</kwd></synph></entry>
+<entry>This keyword indicates RSA-Modulus Exponent-Variant (RSAMEVAR), a type <ph>X'09'</ph> key
+token for RSA, named VAR_OPK. <note>Key tokens created with this key type
+<synph><kwd>cannot</kwd></synph> be passed to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb for creating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> (retained) keys.</note></entry>
+</row>
+<row  rev="sh20i1">
+<entry namest="col1" nameend="col2"><b>Compliance</b> (Optional)</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>COMP-TAG</kwd></synph></entry>
+<entry>Build a compliant-tagged key token. Only valid with RSAAESC2 or RSAAESM2.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>NOCMPTAG</kwd></synph></entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>RSA key usage control</i></b> (One, optional). 
+Not valid with type ECC-PUBL, RSAAESC2, RSAAESM2, RSAPUBL, QSA-PAIR, or QSA-PUBL.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-MGMT</kwd></synph></entry>
+<entry>Indicates that an RSA or ECC private key can be used in both the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/>
+<ph>verbs</ph>. <note>Key tokens created with this key usage <synph><kwd>cannot</kwd></synph> be
+passed to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb for
+creating <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> (retained)
+keys.</note></entry>
+</row>
+<row>
+<entry><synph><kwd>KM-ONLY</kwd></synph></entry>
+<entry>Indicates that an RSA or ECC private key can be used only in symmetric key distribution.
+<note>Key tokens created with this key usage <synph><kwd>cannot</kwd></synph> be passed to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb for creating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> (retained) keys.</note></entry>
+</row>
+<row>
+<entry><synph><kwd>SIG-ONLY</kwd></synph></entry>
+<entry>Indicates that an RSA or ECC private key cannot be used in symmetric key distribution. This
+is the default. <p rev="sh20i1">This keyword is required when building type ECC-PAIR token with an
+Edwards curve.</p><note>Only a skeleton key-token created from <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> with this key usage type can be passed
+to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> to create a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> (retained) key. </note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Translate control</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>NO-XLATE</kwd></synph></entry>
+<entry>The RSA or ECC key cannot be used as a key-encrypting-key for <xref
+href="wskc_r_zapgkxlate.dita#l0wskc02_zapgkxlate"/>. <note>Use of this keyword does not matter when
+creating a skeleton key-token for a later retained key generation operation. It is redundant to the
+necessary <synph><kwd>SIG-ONLY</kwd></synph> keyword.</note></entry>
+</row>
+<row>
+<entry><synph><kwd>XLATE-OK</kwd></synph></entry>
+<entry>The RSA or ECC key can be used as a key-encrypting-key for <xref
+href="wskc_r_zapgkxlate.dita#l0wskc02_zapgkxlate"/>. <note>Key tokens created with this keyword
+<synph><kwd>cannot</kwd></synph> be passed to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb for creating <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/retain"/> (retained) keys.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Format restriction</i></b> (One, optional). As of 
+release 6.0, only valid with token type keyword <synph><kwd>RSA-AESC</kwd></synph> or 
+<synph><kwd>RSA-AESM</kwd></synph>. 
+</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-NONE</kwd></synph></entry>
+<entry>Specifies to not restrict the private key to be used by a particular digital-signature hash
+formatting method. The key is usable for any method. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-I9796</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash 
+formatting method ISO-9796.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-X9.31</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method X9.31.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-ZPAD</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method ZERO-PAD.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-PK10</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-1.0.</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><kwd>FR-PK11</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-1.1.</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><kwd>FR-PSS</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-PSS.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>ECC token version</i></b> (One, optional). 
+Release 5.2 or later. Only valid with token type <synph><kwd>ECC-PAIR</kwd></synph>. 
+</entry>
+</row>
+<row>
+<entry><synph><kwd>ECC-VER0</kwd></synph></entry>
+<entry>Build an ECC private-key section (X'20') using the format section version 
+number X'00'. This is the default. 
+<note>Use of this option is provided for backward compatibility and its use is discouraged. The
+preferred format is Version X'01'.</note>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>ECC-VER1</kwd></synph></entry>
+<entry>Build an ECC private-key section (X'20') using the format section version number X'01'. This
+keyword is required if key derivation data is provided. <p>Version X'01' key token enhancements
+include a pedigree field, a section hash tag-length-value (TLV) object (X'60') that gets included in
+the IBM extended associated data (IEAD) with a hash digest of all optional sections up to the IEAD.
+The Version 1 key token also supports the ECC key-derivation information section (X'23') that is
+required by the  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ecdh"/> verb to derive
+one element of any key pair using the ANSI-X963-KDF key derivation function.</p>
+</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2"><b><i>CPACF export</i></b> (One, optional). 
+Valid with <synph><kwd>ECC-PAIR</kwd></synph> only. Not valid with ECC Koblitz curves.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry>NOEXCPAC</entry>
+<entry>Prohibit export to CPACF protected key format. This is the default.</entry>
+</row>
+<row rev="sh21i1">
+<entry>XPRTCPAC</entry>
+<entry>Allow export to CPACF protected key format. Valid for ECC curves P256, P384, P521, Ed25519,
+and Ed448.</entry>
+</row>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2"><b><i>AES export</i></b> (One, optional). <ph rev="sh21i1">Only
+valid with token type ECC-PAIR or QSA-PAIR.</ph></entry>
+</row>
+<row rev="sh21i1">
+<entry>AES1ECOK</entry>
+<entry>Enable export of the ECC or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+<!-- or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>--> private key
+under an AES key encrypting key of similar strength or stronger. An ECC private key must have bit 5
+in the single byte field at offset 9 of the ECC private key section set in the skeleton key token to
+allow this. A QSA private key must have bit 5 in the single byte field at offset 14 of the QSA
+private key section set in the skeleton key token to allow this. This keyword causes the indicated
+bit to be set in the output skeleton key token.</entry>
+</row>
+<row rev="sh21i1">
+<entry>NOAES1EC</entry>
+<entry>Do not allow export of the ECC private key. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PKA Key Usage Control</i></b> (Required with RSAAESC2,
+RSAAESM2, QSA-PAIR, or QSA-PUBL. Not valid otherwise. <ph rev="sh21i1">For QSA-PAIR, or QSA-PUBL,
+refer to allowed usages for the key algorithm).</ph>
+</entry>
+</row>
+<row>
+<entry>U-DIGSIG</entry>
+<entry>Digital Signature usage is allowed. When COMP-TAG is specified,
+cannot be combined with U-KEYENC, U-DATENC, or U-KEYAGR. This
+rule is required when QSA-PAIR or QSA-PUBL is specified.</entry>
+</row>
+<row>
+<entry>U-NONRPD</entry>
+<entry>Non-Repudiation usage is allowed. When COMP-TAG is specified,
+cannot be combined with U-KEYENC, U-DATENC, or U-KEYAGR.</entry>
+</row>
+<row>
+<entry>U-KCRTSN</entry>
+<entry>keyCertSign usage is allowed. When COMP-TAG is specified, cannot be
+combined with U-KEYENC, U-DATENC, or U-KEYAGR.</entry>
+</row>
+<row>
+<entry>U-CRLSN</entry>
+<entry>Certificate Revocation List Sign usage is allowed. When COMP-TAG is
+specified, cannot be combined with U-KEYENC, U-DATENC, or UKEYAGR.</entry>
+</row>
+<row>
+<entry>U-KEYENC</entry>
+<entry>Key Encipherment usage is allowed. When COMP-TAG is specified,
+cannot be combined with any other keyword from this group.</entry>
+</row>
+<row>
+<entry>U-DATENC</entry>
+<entry>Data Encipherment usage is allowed. When COMP-TAG is specified,
+cannot be combined with any other keyword from this group.</entry>
+</row>
+<row>
+<entry>U-KEYAGR</entry>
+<entry>Key agreement usage is allowed. When COMP-TAG is specified, cannot
+be combined with any other keyword from this group.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_value_structure_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>key_value_structure</parmname> variable. The length depends on the key type parameter in
+the <parmname>rule_array</parmname> and on the actual values input. The length is in bytes. For
+maximum values, see <xref href="#l0wskc02_pkbparameters/l0wskc02_dl2dss"/>. <table
+id="l0wskc02_dl2dss" pgwide="0" frame="all"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key value structure length maximum
+values</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key
+value structure length maximum values</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="65*"/>
+<colspec colname="col2" colwidth="25*"/>
+<thead>
+<row>
+<entry>Key type</entry>
+<entry>Key value structure maximum value</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>ECC-PAIR</kwd></synph></entry>
+<entry>207</entry>
+</row>
+<row>
+<entry><synph><kwd>ECC-PUBL</kwd></synph></entry>
+<entry>139</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>RSA-AESC</kwd></synph>, <synph><kwd>RSA-AESM</kwd></synph>, <synph rev="sh21i1"
+><kwd>RSAAESC2</kwd></synph>, <synph rev="sh21i1"><kwd>RSAAESM2</kwd></synph>,
+<synph><kwd>RSA-CRT</kwd></synph>, <synph><kwd>RSAMEVAR</kwd></synph></entry>
+<entry>3500</entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-PRIV</kwd></synph></entry>
+<entry>648</entry>
+</row>
+<row>
+<entry><synph><kwd>RSA-PUBL</kwd></synph></entry>
+<entry>520</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>QSA-PAIR</kwd></synph></entry>
+<entry>5624</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>QSA-PUBL</kwd></synph></entry>
+<entry>1768</entry>
+</row>
+</tbody>
+</tgroup></table></pd></plentry>
+<plentry><pt>key_value_structure</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This is a segment of contiguous storage containing a variable number of input clear key
+values and the lengths of these values in bits or bytes, as specified. The structure elements are
+ordered, of variable length, and the input key values must be right-aligned within their respective
+structure elements and padded on the left with binary zeros. If the leading bits of the modulus are
+zeros, do not count them in the length. <ph rev="sh16i1"><xref
+href="#l0wskc02_pkbparameters/l0wskc02_pkaelx"/> and <xref
+href="#l0wskc02_pkbparameters/tab2_rsa_keys" format="dita"/> define the structure and contents as a
+function of key type.</ph><table id="l0wskc02_pkaelx" pgwide="1" frame="all"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key value structure elements, ECC
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key
+value structure elements, ECC keys</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="35*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3"><b><i>Key value structure</i></b>
+(<synph><kwd>ECC-PAIR</kwd></synph>)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Curve type: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Prime curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>Brainpool curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>Edwards curve</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt><ph>X'03'</ph></dt>
+<dd>Koblitz curve</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col1">001</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Reserved <ph>X'00'</ph></entry>
+</row>
+<row>
+<entry colname="col1">002</entry>
+<entry colname="col2">002</entry>
+<entry colname="col3">Length of <synph><var>p</var></synph> in bits <dl compact="yes">
+<dlentry>
+<dt><ph>X'00A0'</ph></dt>
+<dd>Brainpool P-160</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00C0'</ph></dt>
+<dd>Prime P-192, Brainpool P-192</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00E0'</ph></dt>
+<dd>Prime P-224, Brainpool P-224</dd>
+</dlentry>
+<dlentry rev="sh20i1">
+<dt><ph>X'00FF'</ph></dt>
+<dd>255 (Edwards curve25519, id-Ed25519, OID = 1.3.101.112). See also  <xref
+href="wskc_r_ecckt.dita#l0wskc02_ecckt/ecc_edward_curves"/>. </dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0100'</ph></dt>
+<dd rev="sh21i1">Prime P-256, Brainpool P-256, Koblitz</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0140'</ph></dt>
+<dd>Brainpool P-320</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0180'</ph></dt>
+<dd>Prime P-384, Brainpool P-384</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01C0'</ph></dt>
+<dd>448 (Edwards curve448, id-Ed448, OID = 1.3.101.113). See also <xref
+href="wskc_r_ecckt.dita#l0wskc02_ecckt/ecc_edward_curves"/>. </dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0200'</ph></dt>
+<dd>Brainpool P-512</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0209'</ph></dt>
+<dd>Prime P-521</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry><synph><var>ddd</var></synph> - this field is the length of the private key
+<synph><var>d</var></synph> in bytes. This value can be zero if the key token is used as a skeleton
+key-token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. The
+maximum value is 66 bytes.</entry>
+</row>
+<row>
+<entry colname="col1">006</entry>
+<entry colname="col2">002</entry>
+<entry colname="col3"><synph><var>xxx</var></synph> - this field is the length of the public key
+<synph><var>Q</var></synph> in bytes. This value can be zero if the key token is used as a skeleton
+key-token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. The
+maximum value is 133 bytes, which includes one byte to indicate if the value is compressed.</entry>
+</row>
+<row>
+<entry colname="col1">008</entry>
+<entry colname="col2"><synph><var>ddd</var></synph></entry>
+<entry colname="col3">Private key, <synph><var>d</var></synph></entry>
+</row>
+<row>
+<entry colname="col1">008 + <synph><var>ddd</var></synph></entry>
+<entry colname="col2"><synph><var>xxx</var></synph></entry>
+<entry colname="col3">Public key, <synph><var>Q</var></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b><i>Key value structure</i></b>
+(<synph><kwd>ECC-PUBL</kwd></synph>)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Curve type: <dl compact="yes">
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>Prime curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>Brainpool curve</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>Edwards curve</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt><ph>X'03'</ph></dt>
+<dd>Koblitz curve</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col1">001</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Reserved <ph>X'00'</ph></entry>
+</row>
+<row>
+<entry colname="col1">002</entry>
+<entry colname="col2">002</entry>
+<entry colname="col3">Length of <synph><var>p</var></synph> in bits <dl compact="yes">
+<dlentry>
+<dt><ph>X'00A0'</ph></dt>
+<dd>Brainpool p-160</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00C0'</ph></dt>
+<dd>Prime P-192, Brainpool P-192</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00E0'</ph></dt>
+<dd>Prime P-224, Brainpool P-224</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'00FF'</ph></dt>
+<dd>255 (Edwards curve25519, id-Ed25519, OID = 1.3.101.112). See also  <xref
+href="wskc_r_ecckt.dita#l0wskc02_ecckt/ecc_edward_curves"/>. </dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0100'</ph></dt>
+<dd rev="sh21i1">Prime P-256, Brainpool P-256, Koblitz</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0140'</ph></dt>
+<dd>Brainpool P-320</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0180'</ph></dt>
+<dd>Prime P-384, Brainpool P-384</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01C0'</ph></dt>
+<dd>448 (Edwards curve448, id-Ed448, OID = 1.3.101.113). See also  <xref
+href="wskc_r_ecckt.dita#l0wskc02_ecckt/ecc_edward_curves"/>. </dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0200'</ph></dt>
+<dd>Brainpool P-512</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0209'</ph></dt>
+<dd>Prime P-521</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry><synph><var>xxx</var></synph> - this field is the length of the public key
+<synph><var>Q</var></synph> in bytes. This value can be zero if the key token is used as a skeleton
+key-token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. The
+maximum value is 133 bytes, which includes one byte to indicate if the value is compressed.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry><synph><var>xxx</var></synph></entry>
+<entry>Public key, <synph><var>Q</var></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b><i>Key value structure</i></b> (Optimized RSA, Chinese
+Remainder Theorem format, RSA-CRT)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>002</entry>
+<entry>Modulus length in bits (512 - 2048). This is required.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Modulus field length in bytes, <synph><var>nnn</var></synph>. This value can be zero if the
+key token is used as a skeleton key-token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. This value must not exceed
+256.</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Public exponent field length in bytes, <synph><var>eee</var></synph>. This value can be zero
+if the key token is used as a skeleton key-token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>002</entry>
+<entry>Length of the prime number <synph><var>p</var></synph>, in bytes,
+<synph><var>ppp</var></synph>. This value can be zero if the key token is used as a skeleton
+key-token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. Maximum
+size of <synph><var>p</var></synph> + <synph><var>q</var></synph> is 256 bytes.</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>Length of the prime number <synph><var>q</var></synph>, in bytes,
+<synph><var>qqq</var></synph>. This value can be zero if the key token is used as a skeleton
+key-token in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. Maximum
+size of <synph><var>p</var></synph> + <synph><var>q</var></synph> is 256 bytes.</entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>Length of d<sub>p</sub>, in bytes, <synph><var>rrr</var></synph>. This value can be zero if
+the key token is used as a skeleton key-token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. Maximum size of
+<synph><var>d</var></synph><sub>p</sub> +
+<synph><var>d</var></synph><sub><synph><var>q</var></synph></sub> is 256 bytes. </entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>002</entry>
+<entry>Length of d<sub>q</sub>, in bytes, <synph><var>sss</var></synph>. This value can be zero if
+the key token is used as a skeleton key-token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. Maximum size of
+<synph><var>d</var></synph><sub><synph><var>p</var></synph></sub> +
+<synph><var>d</var></synph><sub><synph><var>q</var></synph></sub> is 256 bytes.</entry>
+</row>
+<row>
+<entry>016</entry>
+<entry>002</entry>
+<entry>Length of <synph><var>U</var></synph>, in bytes, <synph><var>uuu</var></synph>. This value
+can be zero if the key token is used as a <synph><var>skeleton_key_token</var></synph> in the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. Maximum size of U is 256
+bytes.</entry>
+</row>
+<row>
+<entry>018</entry>
+<entry><synph><var>nnn</var></synph></entry>
+<entry>Modulus, <synph><var>n</var></synph>.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph></entry>
+<entry><synph><var>eee</var></synph></entry>
+<entry>Public exponent, <synph><var>e</var></synph>. This is an integer such that 1 &lt;
+<synph><var>e</var></synph> &lt; <synph><var>n</var></synph>. <synph><var>e</var></synph> must be
+odd. When you are building a skeleton key-token to control the generation of an RSA key pair, the
+public key exponent can be one of the following values: 3, 65537 (2<sup>16</sup> + 1), or 0 to
+indicate that a full random exponent should be generated. The exponent field can be a null-length
+field if the exponent value is 0.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph></entry>
+<entry><synph><var>ppp</var></synph></entry>
+<entry>Prime number <synph><var>p</var></synph>.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph></entry>
+<entry><synph><var>qqq</var></synph></entry>
+<entry>Prime number <synph><var>q</var></synph>.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph></entry>
+<entry><synph><var>rrr</var></synph></entry>
+<entry><synph><var>d</var></synph><sub><synph><var>p</var></synph></sub> =
+<synph><var>d</var></synph> mod(<synph><var>p</var></synph>-1).</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph> +
+<synph><var>rrr</var></synph></entry>
+<entry><synph><var>sss</var></synph></entry>
+<entry><synph><var>d</var></synph><sub><synph><var>q</var></synph></sub> =
+<synph><var>d</var></synph> mod(<synph><var>q</var></synph>-1).</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph> + <synph><var>rrr</var></synph> +
+<synph><var>sss</var></synph></entry>
+<entry><synph><var>uuu</var></synph></entry>
+<entry><synph><var>U</var></synph> =
+<synph><var>q</var></synph><sup>-1</sup>mod(<synph><var>p</var></synph>).</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3"><b><i>Key value structure</i></b> (RSA private, RSA private
+variable, or RSA public)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>002</entry>
+<entry>Modulus length in bits. This is required. When building a skeleton key-token, the modulus
+length in bits must be greater than or equal to 512 bits.</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Modulus field length in bytes, <synph><var>XXX</var></synph>. This value can be zero if you
+are using the key token as a skeleton in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. This value must not exceed 256
+when the <synph><kwd>RSA-PUBL</kwd></synph> keyword is used and must not exceed 128 when the
+<synph><kwd>RSA-PRIV</kwd></synph> keyword is used. <p>This verb can build a key token for a public
+RSA key with a 2048-bit modulus length or it can build a key token for a 1024-bit modulus length
+private key.</p>
+</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Public exponent field length in bytes, <synph><var>YYY</var></synph>. This value must not
+exceed 256 when the <synph><kwd>RSA-PUBL</kwd></synph> keyword is used and must not exceed 128 when
+the <synph><kwd>RSA-PRIV</kwd></synph> keyword is used. This value can be zero if you are using the
+key token as a skeleton key-token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. In this case, a random exponent
+is generated. To obtain a fixed, predetermined public key exponent, you can supply this field and
+the public exponent as input to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Private exponent field length in bytes, <synph><var>ZZZ</var></synph>. This field can be
+zero, indicating that private key information is not provided. This value must not exceed 128 bytes.
+This value can be zero if you are using the key token as a skeleton in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><synph><var>XXX</var></synph></entry>
+<entry>Modulus, <synph><var>n</var></synph>. This is an integer such that 1 &lt;
+<synph><var>n</var></synph> &lt; 2<sup>2048</sup>. The <synph><var>n</var></synph> is the product of
+<synph><var>p</var></synph> and <synph><var>q</var></synph> for primes <synph><var>p</var></synph>
+and <synph><var>q</var></synph>.</entry>
+</row>
+<row>
+<entry>008 + <synph><var>XXX</var></synph></entry>
+<entry><synph><var>YYY</var></synph></entry>
+<entry>RSA public exponent, <synph><var>e</var></synph>. This is an integer such that 1 &lt;
+<synph><var>e</var></synph> &lt; <synph><var>n</var></synph>. <synph><var>e</var></synph> must be
+odd. When you are building a <synph><var>skeleton_key_token</var></synph> to control the generation
+of an RSA key pair, the public key exponent can be one of the following values: 3, 65537
+(2<sup>16</sup> + 1), or 0 to indicate that a full random exponent should be generated. The exponent
+field can be a null-length field if the exponent value is 0.</entry>
+</row>
+<row>
+<entry>008 + <synph><var>XXX</var></synph> + <synph><var>YYY</var></synph></entry>
+<entry><synph><var>ZZZ</var></synph></entry>
+<entry>RSA secret exponent <synph><var>d</var></synph>. This is an integer such that 1 &lt;
+<synph><var>d</var></synph> &lt; <synph><var>n</var></synph>. The value of
+<synph><var>d</var></synph> is <synph><var>e</var></synph><sup>-1</sup>
+mod(<synph><var>p</var></synph>-1)(<synph><var>q</var></synph>-1). You need not specify this value
+if you specify <synph><kwd>RSA-PUBL</kwd></synph> in the <parmname>rule_array</parmname>
+parameter.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table pgwide="1" frame="all" id="tab2_rsa_keys"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key value structure elements, RSA
+keys</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> - Key
+value structure elements, RSA keys</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="34*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>002</entry>
+<entry>Length of the modulus in bits <dl compact="yes">
+<dlentry>
+<dt>RSA-AESM (section X'30')</dt>
+<dd>512 - 4096</dd>
+</dlentry>
+<dlentry>
+<dt>RSA-PRIV (section X'02')</dt>
+<dd>512 - 1024</dd>
+</dlentry>
+<dlentry>
+<dt>RSA-PUBL (section X'04')</dt>
+<dd>512 - 4096</dd>
+</dlentry>
+<dlentry>
+<dt>RSAMEVAR (section X'09')</dt>
+<dd>512 - 4096</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the modulus field <synph><var>n</var></synph>, in bytes:
+<synph><var>nnn</var></synph>. This value must not exceed 512 for a 4096-bit-length key. <p>This
+value should be zero when preparing a skeleton key-token for use with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb.</p>
+</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Length of the public exponent field <synph><var>e</var></synph>, in bytes:
+<synph><var>eee</var></synph>. <p>This value should be zero when preparing a skeleton key-token to
+generate a random-exponent public key in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. This value must not exceed
+512.</p>
+</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Private exponent field length in bytes, <synph><var>ddd</var></synph>. This value can be zero
+indicating that private key information is not provided. This value must not exceed 512.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><synph><var>nnn</var></synph></entry>
+<entry>Modulus <synph><var>n</var></synph>, integer value, <codeph>1 &lt; n &lt;
+2<sup>4096</sup></codeph>; <codeph>n = pq</codeph> for prime <synph><var/>p</synph> and prime
+<synph><var/>q</synph>. </entry>
+</row>
+<row>
+<entry>8 + <synph><var>nnn</var></synph></entry>
+<entry><synph><var>eee</var></synph></entry>
+<entry>Public exponent field <synph><var>e</var></synph>, integer value, <codeph>1 &lt; e &lt;
+n</codeph>, <synph><var>e</var></synph> must be odd. When you are building a
+<parmname>skeleton_key_token</parmname> to control the generation of an RSA key pair, the public key
+exponent must be one of the following values: 0 (full-random), 3, or 65537. Beginning with Release
+5.2, you can also specify a value of 5, 17, or 257. The exponent field can be a null-length field
+when preparing a skeleton_key_token.</entry>
+</row>
+<row>
+<entry>8 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph></entry>
+<entry><synph><var>ddd</var></synph></entry>
+<entry>Private exponent <synph><var>d</var></synph>, integer value, <codeph>1 &lt; d &lt;
+n</codeph>, <codeph>d = e<sup>-1</sup>mod(p-1)(q-1)</codeph>. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">RSA key-values structure, Chinese-Remainder Theorem format
+(<b>RSA-AESC</b> or <b>RSA-CRT</b>)</entry>
+</row>
+<row>
+<entry>000</entry>
+<entry>002</entry>
+<entry>Length of the modulus in bits: <dl compact="yes">
+<dlentry>
+<dt>RSA-AESC (section X'31')</dt>
+<dd>512 - 4096</dd>
+</dlentry>
+<dlentry>
+<dt>RSA-CRT (section X'30')</dt>
+<dd>512 - 4096</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the modulus field <synph><var>n</var></synph>, in bytes:
+<synph><var>nnn</var></synph>. This value must not exceed <codeph>4096/8 = 512</codeph>. <p>This
+value should be zero when preparing a skeleton_key_token for use with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb.</p>
+</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Length of the public exponent field <synph><var>e</var></synph>, in bytes:
+<synph><var>eee</var></synph>. <p>This value should be zero when preparing a skeleton key-token to
+generate a random-exponent public key in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb. This value must not exceed
+512.</p></entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>002</entry>
+<entry>Length of the prime number field <synph><var>p</var></synph>, in bytes:
+<synph><var>ppp</var></synph>. Should be zero in a skeleton key-token. The maximum value of
+<synph><var>ppp+qqq</var></synph> is 512 bytes.</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>Length of the prime number field <synph><var>q</var></synph>, in bytes:
+<synph><var>qqq</var></synph>. Should be zero in a skeleton key-token. The maximum value of
+<synph><var>ppp+qqq</var></synph> is 512 bytes.</entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>002</entry>
+<entry>Length of the <synph><var>d</var></synph><sub>p</sub> field, in bytes:
+<synph><var>rrr</var></synph>. Should be zero in a skeleton key-token. The maximum value of
+<synph><var>rrr + sss</var></synph> is 512 bytes.</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>002</entry>
+<entry>Length of the <synph><var>d</var></synph><sub>q</sub> field, in bytes:
+<synph><var>sss</var></synph>. Should be zero in a skeleton key-token. The maximum value of
+<synph><var>rrr + sss</var></synph> is 512 bytes.</entry>
+</row>
+<row>
+<entry>016</entry>
+<entry>002</entry>
+<entry>Length of the <synph><var>U</var></synph> field, in bytes: <synph><var>uuu</var></synph>.
+Should be zero in a skeleton key-token. The maximum length of <synph><var>U</var></synph> is 256
+bytes.</entry>
+</row>
+<row>
+<entry>018</entry>
+<entry><synph><var>nnn</var></synph></entry>
+<entry>Modulus n.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph></entry>
+<entry><synph><var>eee</var></synph></entry>
+<entry>Public exponent field <synph><var>e</var></synph>, integer value, <codeph>1 &lt; e &lt;
+n</codeph>, <synph><var>e</var></synph> must be odd. When you are building a skeleton key-token to
+control the generation of an RSA key pair, the public key exponent must be one of the following
+values: 0 (full-random), 3, or 65537. Beginning with Release 5.2, you can also specify a value of 5,
+17, or 257. The exponent field can be a null-length field when preparing a skeleton key-token.
+</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph></entry>
+<entry><synph><var>ppp</var></synph></entry>
+<entry>Prime number <synph><var>p</var></synph>.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph>
+</entry>
+<entry><synph><var>qqq</var></synph></entry>
+<entry>Prime number <synph><var>q</var></synph>.</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph>
+</entry>
+<entry><synph><var>rrr</var></synph></entry>
+<entry><synph><var>d</var></synph><sub><synph><var>p</var></synph></sub> =
+<synph><var>d</var></synph> mod(<synph><var>p</var></synph>-1).</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph> + <synph><var>rrr</var></synph>
+</entry>
+<entry><synph><var>sss</var></synph></entry>
+<entry><synph><var>d</var></synph><sub><synph><var>q</var></synph></sub> =
+<synph><var>d</var></synph> mod(<synph><var>q</var></synph>-1).</entry>
+</row>
+<row>
+<entry>018 + <synph><var>nnn</var></synph> + <synph><var>eee</var></synph> +
+<synph><var>ppp</var></synph> + <synph><var>qqq</var></synph> + <synph><var>rrr</var></synph> +
+<synph><var>sss</var></synph>
+</entry>
+<entry><synph><var>uuu</var></synph></entry>
+<entry><synph><var>U</var></synph> = <synph><var>q</var></synph><sup>-1</sup>
+mod(<synph><var>p</var></synph>). </entry>
+</row>
+</tbody>
+</tgroup></table>
+
+<table pgwide="1" frame="all" id="tab_qsa_key_structure"><title>QSA Private/public key pair form (QSA-PAIR) and QSA Public key form (QSA-PUBL)</title>
+<desc>
+<p outputclass="summary">QSA Private/public key pair form (QSA-PAIR) and QSA Public key form (QSA-PUBL)</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="6*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="34*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row rev="sh20i1">
+<entry>000</entry>
+<entry>001</entry>
+<entry>Algorithm identifier: <dl>
+<dlentry rev="sh21i1">
+<dt>X'00'</dt>
+<dd>No algorithm</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>CRYSTALS-Dilithium</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col1">001</entry>
+<entry colname="col2">001</entry>
+<entry colname="col3">Clear key format:<dl>
+<dlentry>
+<dt>X'00'</dt>
+<dd>No Clear key</dd>
+</dlentry>
+<dlentry>
+<dt>X'01'</dt>
+<dd>Clear private and public key pair in 'KAT format' (Known Answer Test format)</dd>
+</dlentry>
+<dlentry>
+<dt>X'02'</dt>
+<dd>Clear private and public key pair in 'parameterized format'</dd>
+</dlentry>
+<dlentry>
+<dt>X'03'</dt>
+<dd>Clear Public key only. Must be specified with QSA-PUBL.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Algorithm parameters<p>When Algorithm identifier is X'01', allowed values are:<dl>
+<dlentry>
+<dt>X'0605'</dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (6 x 5, OID =
+1.3.6.1.4.1.2.267.1.6.5). See also <xref
+href="wskc_qsa_key_token.dita#l0wskc02_qsa_key_token/crystal_strangths"/>. </dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>X'0807'</dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (8,7, OID =
+1.3.6.1.4.1.2.267.1.8.7). See also <xref
+href="wskc_qsa_key_token.dita#l0wskc02_qsa_key_token/crystal_strangths"/>.</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row rev="sh20i1">
+<entry colname="col1">004</entry>
+<entry colname="col2">002</entry>
+<entry colname="col3">Clear key length <dl>
+<dlentry>
+<dt><i>ppp</i></dt>
+<dd>This field is the length of the QSA key value in bytes. This value can be zero if the key token
+is used as a skeleton key token in the PKA Key Generate callable service.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry>006</entry>
+<entry>002</entry>
+<entry>Reserved X'00'</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry><i>ppp</i></entry>
+<entry>QSA private/public key pair or QSA public key value<p>When Algorithm
+Parameters is X'0605', allowed values are:<dl>
+<dlentry>
+<dt>KAT format, Clear key format X'01':</dt>
+<dd>
+<p> Known Answer Test CRYSTALS-Dilithium (6,5) private key 'sk' followed by the public key 'pk'</p>
+<p>---sk---<dl>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>rho</dd>
+</dlentry>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>key D, also known as 'seed'</dd>
+</dlentry>
+<dlentry>
+<dt>48 bytes</dt>
+<dd>tr T, also known as 'tr'</dd>
+</dlentry>
+<dlentry>
+<dt>480 bytes</dt>
+<dd>s1</dd>
+</dlentry>
+<dlentry>
+<dt>576 bytes</dt>
+<dd>s2</dd>
+</dlentry>
+<dlentry>
+<dt>2688 bytes</dt>
+<dd>t0</dd>
+</dlentry>
+</dl></p>
+<p>
+<dl>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>rho</dd>
+</dlentry>
+<dlentry>
+<dt>1728 bytes</dt>
+<dd>t1</dd>
+</dlentry>
+</dl>
+</p>
+</dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>Parameterized format, Clear key format X'02':</dt>
+<dd>
+<p> Parameterized format - rho is not repeated</p>
+<dl>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>rho</dd>
+</dlentry>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>key D, also known as 'seed'</dd>
+</dlentry>
+<dlentry>
+<dt>48 bytes</dt>
+<dd>tr T, also known as 'tr'</dd>
+</dlentry>
+<dlentry>
+<dt>480 bytes</dt>
+<dd>s1</dd>
+</dlentry>
+<dlentry>
+<dt>576 bytes</dt>
+<dd>s2</dd>
+</dlentry>
+<dlentry>
+<dt>2688 bytes</dt>
+<dd>t0</dd>
+</dlentry>
+<dlentry>
+<dt>1728 bytes</dt>
+<dd>t1</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+</dl></p></entry>
+</row>
+<row rev="sh20i1">
+<entry colname="col1">008</entry>
+<entry colname="col2"><i>ppp</i></entry>
+<entry colname="col3">
+<dl>
+<dlentry>
+<dt>Public key format only, Clear key format X'03':</dt>
+<dd>
+<p> Known Answer Test CRYSTALS-Dilithium (6,5) public key</p>
+<dl>
+<dlentry>
+<dt>32 bytes</dt>
+<dd>rho</dd>
+</dlentry>
+<dlentry>
+<dt>1728 bytes</dt>
+<dd>t1</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<note>
+<ol>
+<li>All length fields are in binary.</li>
+<li>All binary fields (exponent, lengths, modulus, and so on) are stored with the high-order byte
+field first (big-endian format). This integer number is right-aligned within the key structure element field.</li>
+<li>You must supply all values in the structure to create a token containing an RSA or ECC private
+key for input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/>
+verb.</li>
+</ol>
+</note></pd></plentry>
+<plentry><pt>private_key_name_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length can be 0 or 64. <ph rev="sh20i1">This
+parameter is ignored with key type RSA-PUBL, ECC-PUBL, or QSA-PUBL.</ph></pd></plentry>
+<plentry><pt>private_key_name </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the name of a private key. The name must conform to CCA key label syntax
+rules. That is, allowed characters are alphanumeric, national (@, #, $) or period (.). The first
+character must be alphabetic or national. The name is folded to upper case and converted to ASCII
+characters. ASCII is the permanent form of the name because the name should be independent of the
+platform. The name is then cryptographically coupled with clear private key data before encryption
+of the private key. Because of this coupling, the name can never change after the key token is
+imported. <ph rev="sh21i1">This parameter is ignored with key type <synph><kwd>RSA-PUBL</kwd></synph>, 
+<synph><kwd>ECC-PUBL</kwd></synph>, or <synph><kwd>QSAPUBL</kwd></synph>. 
+For RSA and QSA keys, the private-key name is stored in the PKA private-key name section of the token.</ph>
+</pd>
+</plentry>
+<plentry><pt>user_definable_associated_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of the <synph><var>user_definable_associated_data</var></synph> parameter.
+<ph rev="sh21i1">This parameter is valid only for a key type of <synph><kwd>ECC-PAIR</kwd></synph>
+with a maximum value of 100 and is ignored for all other key types. </ph></pd></plentry>
+<plentry><pt>user_definable_associated_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>user_definable_associated_data</parmname> parameter identifies a string
+variable containing the associated data that will be placed following the <tm trademark="IBM"
+tmtype="reg">IBM</tm> associated data in the token. The associated data is data whose integrity, but
+not whose confidentiality, is protected by a key wrap mechanism. The
+<parmname>user_definable_associated_data</parmname> can be used to bind usage control
+information.<p>This parameter is valid only for a key type of
+<synph><kwd>ECC-PAIR</kwd></synph>.</p></pd></plentry>
+<plentry><pt>reserved_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of a reserved parameter. You must set this variable to 0.</pd></plentry>
+<plentry><pt>reserved_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_2</parmname> parameter identifies a string that is reserved. The verb
+ignores it.</pd></plentry>
+<plentry><pt>reserved_3_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of a reserved parameter. You must set this variable to 0.</pd></plentry>
+<plentry><pt>reserved_3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_3</parmname> parameter identifies a string that is reserved. The verb
+ignores it.</pd></plentry>
+<plentry><pt>reserved_4_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of a reserved parameter. You must set this variable to 0.</pd></plentry>
+<plentry><pt>reserved_4</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_4</parmname> parameter identifies a string that is reserved. The verb
+ignores it.</pd></plentry>
+<plentry><pt>reserved_5_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of a reserved parameter. You must set this variable to 0.</pd></plentry>
+<plentry><pt>reserved_5</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved_5</parmname> parameter identifies a string that is reserved. The verb
+ignores it.</pd></plentry>
+<plentry><pt>key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the returned key token. The verb checks the field to ensure that it is at least
+equal to the size of the token to return. On return from this verb, this field is updated with the
+exact length of the <parmname>key_token</parmname> created. On input, a size of <ph rev="sh20i1">6500</ph> bytes is
+sufficient to contain the largest <parmname>key_token</parmname> created.</pd></plentry>
+<plentry><pt>key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The returned key token containing an unenciphered private or public key. The private key is
+in an external form that can be exchanged with different <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> PKA systems. You can use the public key
+token directly in appropriate <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+signature verification or key management services.</pd></plentry>
+</parml></section>
+</refbody></reference>

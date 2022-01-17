@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc312">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb requires the following commands to be enabled
+in the active role:</p>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb, according to the rule-array
+wrap keyword</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col3" colwidth="3*"/>
+<colspec colname="col4" colwidth="20*"/>
+<thead>
+<row>
+<entry><b>Rule-array keyword</b></entry>
+<entry><b>Offset</b></entry>
+<entry><b>Command</b></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph> or
+<synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry><ph>X'0153'</ph></entry>
+<entry><cmdname>TR31 Import - Permit Override of default wrapping method</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb, according to the TR-31 key
+block version ID</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col3" colwidth="3*"/>
+<colspec colname="col4" colwidth="20*"/>
+<thead>
+<row>
+<entry><b>TR-31 key block version ID</b></entry>
+<entry><b>Offset</b></entry>
+<entry><b>Command</b></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>"A" (<ph>X'41'</ph>)</entry>
+<entry><ph>X'0150'</ph></entry>
+<entry><cmdname>TR-31 Import - Permit version A TR-31 key blocks</cmdname></entry>
+</row>
+<row>
+<entry>"B" (<ph>X'42'</ph>)</entry>
+<entry><ph>X'0151'</ph></entry>
+<entry><cmdname>TR-31 Import - Permit version B TR-31 key blocks</cmdname></entry>
+</row>
+<row>
+<entry>"C" (X'43')</entry>
+<entry>X'0152'</entry>
+<entry><cmdname>TR-31 Import - Permit version C TR-31 key blocks</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>Be aware of access-control point X'017C' (TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER) for
+import of PINGEN or PINVER keys to wrapping method "A", usage "V0", "V1", or "V2", and mode "N".
+TR-31 key blocks with legacy key usage "A" (key block protected using the Key Variant Binding Method
+2005 Edition) use the same mode "N" for PINGEN as well as PINVER keys. For usage "A" keys only,
+enabling a PINGEN and PINVER access-control point while enabling offset X'017C' (for mode "N") is
+NOT recommended. Failure to comply with this recommendation allows changing PINVER keys into PINGEN,
+and the other way around.</p></section>
+<section><p>In addition to the required commands, the verb needs these additional commands to be enabled in
+the active role depending on the rule-array keyword provided: </p>
+<table id="kimp_tr31_rest_tab2" pgwide="1">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb, according to the rule-array
+keyword. Please note that this is a complex table not containing any blank cells.</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="9*"/>
+<colspec colname="col4" colwidth="3*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+<entry>Specific key usage, version ID, and mode values</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col4">"C0": TR-31 CVK card verification keys</entry>
+</row>
+<row>
+<entry><synph><kwd>CVK-CSC</kwd></synph></entry>
+<entry>X'015B'</entry>
+<entry><cmdname>TR31 Import - Permit C0 to MAC/MACVER:AMEXCSC</cmdname></entry>
+<entry colname="col4" morerows="1">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab2"
+/>.</entry>
+</row>
+<row>
+<entry><synph><kwd>CVK-CVV</kwd></synph></entry>
+<entry>X'015A'</entry>
+<entry><cmdname>TR31 Import - Permit C0 to MAC/MACVER:CVKEY-A</cmdname></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">"K0" and "K1": TR-31 key encryption or wrapping, or key block
+protection keys</entry>
+</row>
+<row>
+<entry colname="col1" morerows="3"><synph><kwd>OKEYXLAT</kwd></synph> or
+<synph><kwd>EXPORTER</kwd></synph></entry>
+<entry>X'015C'</entry>
+<entry><cmdname>TR31 Import - Permit K0:E to EXPORTER/ OKEYXLAT</cmdname></entry>
+<entry colname="col4" morerows="7">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab4"
+/>.</entry>
+</row>
+<row>
+<entry>X'015E'</entry>
+<entry><cmdname>TR31 Import - Permit K0:B to EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry>X'0160'</entry>
+<entry><cmdname>TR31 Import - Permit K1:E to EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry>X'0162'</entry>
+<entry><cmdname>TR31 Import - Permit K1:B to EXPORTER/OKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="3"><synph><kwd>IKEYXLAT</kwd></synph> or
+<synph><kwd>IMPORTER</kwd></synph></entry>
+<entry>X'015D'</entry>
+<entry><cmdname>TR31 Import - Permit K0:D to IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry>X'015F'</entry>
+<entry><cmdname>TR31 Import - Permit K0:B to IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry>X'0161'</entry>
+<entry><cmdname>TR31 Import - Permit K1:D to IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry>X'0163'</entry>
+<entry><cmdname>TR31 Import - Permit K1:B to IMPORTER/IKEYXLAT</cmdname></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">"M0", "M1", and "M3": TR-31 ISO MAC algorithm keys</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">N/A</entry>
+<entry>X'0164'</entry>
+<entry><cmdname>TR31 Import - Permit M0/M1/M3 to MAC/MACVER:ANY-MAC</cmdname></entry>
+<entry colname="col4" morerows="1">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab5"
+/>.</entry>
+</row>
+<row>
+<entry>X'018C'</entry>
+<entry><cmdname>TR31 Export - Permit MACVER/DATAMV to M0:V</cmdname></entry>
+</row>
+
+<row rev="sh20i1">
+<entry namest="col1" nameend="col4">"M7": TR-31 HMAC keys</entry>
+</row>
+<row rev="sh20i1">
+<entry>N/A</entry>
+<entry><cmdname>T31I - Permit M7:G/V/C to HMAC MAC: GENERATE/VERIFY</cmdname></entry>
+<entry>X'017D'</entry>
+<entry>See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_usagem7"/>.</entry>
+</row>
+
+
+<row>
+<entry namest="col1" nameend="col4">"P0", "V0", "V1": TR-31 PIN encryption or PIN verification
+keys</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">N/A</entry>
+<entry>X'0165'</entry>
+<entry><cmdname>TR31 Import - Permit P0:E to OPINENC</cmdname></entry>
+<entry colname="col4" morerows="9">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab6"
+/>.</entry>
+</row>
+<row>
+<entry>X'0166'</entry>
+<entry><cmdname>TR31 Import - Permit P0:D to IPINENC</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="3"><synph><kwd>PINGEN</kwd></synph></entry>
+<entry>X'0167'</entry>
+<entry><cmdname>TR31 Import - Permit V0 to PINGEN:NO-SPEC</cmdname></entry>
+</row>
+<row>
+<entry>X'0169'</entry>
+<entry><cmdname>TR31 Import - Permit V1 to PINGEN:IBM-PIN/IBMPINO</cmdname></entry>
+</row>
+<row>
+<entry>X'016B'</entry>
+<entry><cmdname>TR31 Import - Permit V2 to PINGEN:VISA-PVV</cmdname></entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry><cmdname>TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="3"><synph><kwd>PINVER</kwd></synph></entry>
+<entry>X'0168'</entry>
+<entry><cmdname>TR31 Import - Permit V0 to PINVER:NO-SPEC</cmdname></entry>
+</row>
+<row>
+<entry>X'016A'</entry>
+<entry><cmdname>TR31 Import - Permit V1 to PINVER:IBM-PIN/IBMPINO</cmdname></entry>
+</row>
+<row>
+<entry>X'016C'</entry>
+<entry><cmdname>TR31 Import - Permit V2 to PINVER:VISA-PVV</cmdname></entry>
+</row>
+<row>
+<entry>X'017C'</entry>
+<entry><cmdname>TR31 Import - Permit V0/V1/V2:N to PINGEN/PINVER</cmdname></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">"E0", "E1", "E2", "E3", "E4", and "E5": TR-31 EMC/chip issuer
+master-key keys</entry>
+</row>
+<row>
+<entry colname="col1" morerows="7"><synph><kwd>DKYL0</kwd></synph></entry>
+<entry>X'016D'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL0+DMAC</cmdname></entry>
+<entry colname="col4" morerows="7">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"
+/>.</entry>
+</row>
+<row>
+<entry>X'016E'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL0+DMV</cmdname></entry>
+</row>
+<row>
+<entry>X'0171'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL0+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry>X'0172'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry>X'0175'</entry>
+<entry><cmdname>TR31 Import - Permit E2 to DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry>X'0179'</entry>
+<entry><cmdname>TR31 Export - Permit DKYGENKY:DKYL1+DALL to E0</cmdname></entry>
+</row>
+<row>
+<entry>X'017A'</entry>
+<entry><cmdname>TR31 Import - Permit E5 to DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry>X'017B'</entry>
+<entry><cmdname>TR31 Import - Permit E5 to DKYGENKY:DKYL0+DEXP</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="4"><synph><kwd>DKYL1</kwd></synph></entry>
+<entry>X'016F'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL1+DMAC</cmdname></entry>
+<entry colname="col4" morerows="4">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"
+/>.</entry>
+</row>
+<row>
+<entry>X'0170'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL1+DMV</cmdname></entry>
+</row>
+<row>
+<entry>X'0173'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL1+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry>X'0174'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL1+DDATA</cmdname></entry>
+</row>
+<row>
+<entry>X'0176'</entry>
+<entry><cmdname>TR31 Import - Permit E2 to DKYGENKY:DKYL1+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="4"><synph><kwd>DMAC</kwd></synph></entry>
+<entry>X'016D'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL0+DMAC</cmdname></entry>
+<entry colname="col4" morerows="4">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"
+/>.</entry>
+</row>
+<row>
+<entry>X'016F'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL1+DMAC</cmdname></entry>
+</row>
+<row>
+<entry>X'0175'</entry>
+<entry><cmdname>TR31 Import - Permit E2 to DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry>X'0176'</entry>
+<entry><cmdname>TR31 Import - Permit E2 to DKYGENKY:DKYL1+DMAC</cmdname></entry>
+</row>
+<row>
+<entry>X'0179'</entry>
+<entry><cmdname>TR31 Import - Permit E5 to DKYGENKY:DKYL0+DMAC</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="1"><synph><kwd>DMV</kwd></synph></entry>
+<entry>X'016E'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL0+DMV</cmdname></entry>
+<entry colname="col4" morerows="3">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"/>.</entry>
+</row>
+<row>
+<entry>X'0170'</entry>
+<entry><cmdname>TR31 Import - Permit E0 to DKYGENKY:DKYL1+DMV</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="1"><synph><kwd>DMPIN</kwd></synph></entry>
+<entry>X'0171'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL0+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry>X'0173'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL1+DMPIN</cmdname></entry>
+</row>
+<row>
+<entry colname="col1" morerows="2"><synph><kwd>DDATA</kwd></synph></entry>
+<entry>X'0172'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL0+DDATA</cmdname></entry>
+<entry colname="col4" morerows="2">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"
+/>.</entry>
+</row>
+<row>
+<entry>X'0174'</entry>
+<entry><cmdname>TR31 Import - Permit E1 to DKYGENKY:DKYL1+DDATA</cmdname></entry>
+</row>
+<row>
+<entry>X'017A'</entry>
+<entry><cmdname>TR31 Import - Permit E5 to DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>DEXP</kwd></synph></entry>
+<entry>X'017B'</entry>
+<entry><cmdname>TR31 Import - Permit E5 to DKYGENKY:DKYL0+DEXP</cmdname></entry>
+<entry colname="col4" morerows="2">See <xref href="wskc_r_l0wskc310.dita#l0wskc310/kimptr31_tab7"/>.</entry>
+</row>
+<row>
+<entry colname="col1" morerows="1">N/A</entry>
+<entry>X'0177'</entry>
+<entry><cmdname>TR31 Import - Permit E3 to ENCIPHER</cmdname></entry>
+</row>
+<row>
+<entry>X'0178'</entry>
+<entry><cmdname>TR31 Import - Permit E4 to DKYGENKY:DKYL0+DDATA</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

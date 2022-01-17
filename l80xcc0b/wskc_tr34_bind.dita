@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_bind" xml:lang="en-us">
+<title>BIND</title>
+<titlealts>
+<navtitle>BIND</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow: BIND</searchtitle>
+</titlealts>
+<abstract><shortdesc>Bind a Key Receiving Device (KRD) to a Key Distribution Host (KDH).
+</shortdesc>These are the steps, in sequence, with the CCA service APIs identified:</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>BIND</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>
+<ol>
+<li><b><u>On KDH </u></b><ul>
+<li>The KDH TR-34 application requests the CredKRD from the KRD. </li>
+</ul></li>
+<li><b><u>On KRD</u></b><ol>
+<li>The CredKRD request is received and processed by the TR-34 application.</li>
+<li>Create the token that contains the CredKRD.<ol>
+<li><b>Overview: </b>Call CCA service CSNDT34C: "BINDKRDC" to create the TR-34 token that contains
+CredKRD for the KDH.</li>
+<li><b>INPUT</b>:<ul>
+<li>CredKRD: KRD credential with ID and public key. <ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+</ul></li>
+<li><b>OUTPUT</b>:<ul>
+<li>CT-KRD: Credential token for KRD, containing CredKRD.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until sending. This is an opaque blob useable
+only in this protocol step.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li>TR-34 application sends CT-KRD to KDH.</li>
+</ol></li>
+<li><b><u>On KDH</u></b><ul>
+<li>Refresh CRL-CA if needed:<ul>
+<li>If CRL-CA held by the KDH, representing the CA shared between the KRD and KDH, is not fresh any
+longer, the KDH should obtain a new CRL-CA before doing the next step. </li>
+</ul></li>
+<li>Create the ‘BIND’ token needed for the next protocol step:<ul>
+<li><b>Overview: </b>Call CCA service CSNDT34B: "BINDCR"</li>
+<li><b>INPUT</b>: <ul>
+<li>CT-KRD: Credential token received from KRD, containing CredKRD.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until calling into the service.</li>
+</ul></li>
+<li>CRL-CA: Certificate Revocation List from CA <ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>CredKDH: KDH credential with ID and public key.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+</ul></li>
+<li><b>OUTPUT</b>: <ol>
+<li>CredKRD: KRD credential needed for future key distribution calls.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>CT-KRD: BIND token.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until send to KRD</li>
+</ul></li>
+</ol></li>
+</ul></li>
+<li>KDH TR-34 application sends the CT-KRD token to the KRD.</li>
+</ul></li>
+<li><b><u>On KRD</u></b><ul>
+<li>The KRD receives the CT-KRD token from the KDH and processes it to complete the BIND.<ol>
+<li><b>Overview: </b>Call CCA service CSNDT34C: "BINDRV".</li>
+<li><b>INPUT</b>: <ul>
+<li>CT-KDH: Token BIND token received from KDH.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until processed in the service call.</li>
+</ul></li>
+</ul></li>
+<li><b>OUTPUT</b>:<ul>
+<li>CredKDH: Credential for the KDH, needs to be stored in the KRD. <ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+</ul></li>
+</ol>
+</p>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

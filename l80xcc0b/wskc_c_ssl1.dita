@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ssl1">
+<title>Verbs supporting Secure Sockets Layer (SSL)</title>
+  <titlealts>
+    <navtitle>Verbs supporting Secure Sockets Layer (SSL)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs supporting Secure Sockets
+Layer (SSL)</searchtitle>
+  </titlealts><shortdesc>The Secure Sockets Layer (SSL) protocol, developed by Netscape
+Development Corporation, provides communications privacy over the
+Internet. Client/server applications can use the SSL protocol to provide
+secure communications and prevent eavesdropping, tampering, or message
+forgery.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>Secure Sockets Layer (SSL)</indexterm>
+<indexterm>SSL support</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides verbs that support the
+RSA encryption and decryption of PKCS 1.2-formatted symmetric key data to produce symmetric session
+keys. These session keys can then be used to establish an SSL session between the sender and
+receiver. The verbs provide SSL support: <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</li>
+</ul></p>
+</conbody></concept>

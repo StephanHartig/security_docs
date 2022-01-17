@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc322">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Paramters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>tr31_key_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>tr31_key parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>opt_block_id parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>num_opt_blocks parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>opt_block_ids parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>opt_block_lengths parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>opt_block_data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+<indexterm>opt_block_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<synph><var>rule_array</var></synph> variable. The value must be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length and must be left-aligned and padded on the right with space characters. The following
+<synph><var>rule_array</var></synph> keywords are defined for this verb: <table pgwide="0">
+<desc>
+<p outputclass="summary">Keywords for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Operation</var></synph> (one required)</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>INFO</kwd></synph></entry>
+<entry colname="col2">Return information about the optional blocks in the TR-31 key block.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>DATA</kwd></synph></entry>
+<entry colname="col2">Return the data contained in a specified optional block in the TR-31 key
+block.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>tr31_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>tr31_key</var></synph> variable. Specify a length that is greater than or equal to the
+size of the key block. The verb determines the actual length of the key by parsing its
+contents.</pd></plentry>
+<plentry><pt>tr31_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the TR-31 key block to be disassembled.</pd></plentry>
+<plentry><pt>opt_block_id</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>DATA</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>DATA</kwd></synph>, this parameter is a pointer to
+a string variable that identifies the 2-byte ID of the optional block to obtain from the TR-31 key
+block.</pd></plentry>
+<plentry><pt>num_opt_blocks</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>INFO</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>INFO</kwd></synph>, this parameter is a pointer to
+an integer variable that specifies the number of 2-byte optional block IDs that are allocated for
+(1) the <synph><var>opt_block_id</var></synph>s variable and (2) the number of 2-byte integers that
+are allocated for the <synph><var>opt_block_lengths</var></synph> variable. This the value must
+specify the <synph><var>exact</var></synph> number of optional blocks that are in the header of the
+TR-31 key block. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/>
+verb to determine the number of optional blocks IDs in a TR-31 key block before calling this
+verb.</pd></plentry>
+<plentry><pt>opt_block_ids</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>INFO</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>INFO</kwd></synph>, this parameter is a pointer to
+a string array of 2-byte values that lists the identifiers of each optional block contained in the
+header of the TR-31 key block. Each ID must be unique, that is, no duplicates are allowed. The IDs,
+along with the associated lengths listed in the <synph><var>opt_block_lengths</var></synph>
+variable, are returned in the order that the optional blocks appear in the header of the TR-31 key
+block. The size of the variable must be at least two times the value of the
+<synph><var>num_opts_blocks</var></synph> variable.</pd></plentry>
+<plentry><pt>opt_block_lengths</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>INFO</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>INFO</kwd></synph>, this parameter is a pointer to
+an integer array of 2-byte values that are 16-bit unsigned integers corresponding to the associated
+length of the optional block identified in the <synph><var>opt_block_ids</var></synph> variable. The
+lengths, along with the associated IDs listed in the <synph><var>opt_block_ids</var></synph>
+variable, are returned in the order that the optional blocks appear in the header of the TR-31 key
+block. The size of the variable must be at least two times the value of the
+<synph><var>num_opts_blocks</var></synph> variable.</pd></plentry>
+<plentry><pt>opt_block_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>DATA</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>DATA</kwd></synph>, this parameter is a pointer to
+an integer variable containing the length of the <synph><var>opt_block_data</var></synph> parameter.
+On input, this variable specifies the maximum permissible length of the result. On output, the verb
+updates the value to length of the returned optional block data.</pd></plentry>
+<plentry><pt>opt_block_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when operation keyword <synph><kwd>DATA</kwd></synph> is specified,
+otherwise it is ignored. For keyword <synph><kwd>DATA</kwd></synph>, this parameter is a pointer to
+a string variable. If the TR-31 key block is found to be valid and the TR-31 key block contains an
+optional block specified by the <synph><var>optional_block_ID</var></synph> variable, the optional
+block is copied into this variable if it is large enough. The
+<synph><var>opt_block_data_length</var></synph> variable is updated with the length of the data
+returned in the variable.</pd></plentry>
+</parml></section>
+</refbody></reference>

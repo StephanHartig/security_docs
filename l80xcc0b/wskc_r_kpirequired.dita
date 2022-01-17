@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kpirequired">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/></searchtitle>
+</titlealts><shortdesc>The required commands for CSNBKPI.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="8*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>FIRST</kwd></synph></entry>
+<entry><ph>X'001B'</ph></entry>
+<entry><cmdname>Key Part Import - first key part</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ADD-PART</kwd></synph></entry>
+<entry><ph>X'0278'</ph></entry>
+<entry><cmdname>Key Part Import - ADD-PART</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>COMPLETE</kwd></synph></entry>
+<entry><ph>X'0279'</ph></entry>
+<entry><cmdname>Key Part Import - COMPLETE</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>MIDDLE</kwd></synph> or <synph><kwd>LAST</kwd></synph></entry>
+<entry><ph>X'001C'</ph></entry>
+<entry><cmdname>Key Part Import - middle and last</cmdname></entry>
+</row>
+<row>
+<entry rev="shr2"><synph><kwd>MIDDLE</kwd></synph> or
+<synph><kwd>LAST</kwd></synph></entry>
+<entry><ph>X'001C'</ph></entry>
+<entry><cmdname>Key Part Import - middle and last</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph> used,
+and default key-wrapping method setting does not match keyword</entry>
+<entry><ph>X'0140'</ph></entry>
+<entry><cmdname>Key Part Import - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> verb
+enforces the key-halves restriction when the <cmdname>Key Part Import - Unrestricted</cmdname>
+command (offset X'027A') is disabled in the active role. Enabling this command results in less
+secure operation and is not recommended.</p>
+<p rev="shr2">To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</p>
+<p rev="shr2">To receive a warning when wrapping a key with a weaker master key, enable the
+<cmdname>Warn when weak wrap - Master keys</cmdname> command (offset X'0332') in the active role.
+The <cmdname>Prohibit weak wrapping - Master keys</cmdname> command overrides this command.</p>
+</section>
+</refbody></reference>

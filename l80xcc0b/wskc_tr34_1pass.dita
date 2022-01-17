@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_1pass" xml:lang="en-us">
+<title>1-pass key transport</title>
+<titlealts>
+<navtitle>1-pass key transport</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow: 1-pass key
+transport</searchtitle>
+</titlealts>
+<shortdesc>This key transport typically installs a Terminal Master Key (TMK) at the Key Receiving
+Device (KRD). '1-pass' indicates that the KRD is not expected to be online.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>1-pass key transport</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>Another name for the key is the TR-31 wrapping key name: Key Block Protection Key (KBPK). These
+represent the same key, a key-encrypting key (KEK), that is shared by the KDH and KRD so that more
+keys can be shared without going through the entire TR-34 protocol again. However, the type of key
+transported can be any type of key supported by the TR-31 key block that is carried in the TR-34
+protocol token. For this flow, the assumption is that a typical KEK is being exchanged.</p>
+<p>The protocol includes a timestamp (or other monotonic increasing number) to be sent by the KDH so
+that the KRD can defend against replay attacks.</p>
+</section>
+<section>
+<title>Setup steps for key transport</title>
+<p><b><u>On KDH </u></b><ol>
+<li>Refresh CRL-CA if needed:<ul>
+<li>If CRL-CA held by the KDH, representing that the CA shared between the KRD and KDH is not fresh
+any longer, the KDH should obtain a new CRL-CA before doing the next step.</li>
+</ul></li>
+<li>Create TMK/KBPK: The KEK to be shared with the other party.<ul>
+<li>CCA has restrictions on the type of key that can be used to wrap another key for TR-31 export
+(the CSNBT31X <i>wrap_kek_identier</i>). Therefore, one of these key types should be generated for exchange:<dl>
+<dlentry>
+<dt>DES:</dt>
+<dd>
+<ol>
+<li>KDH-Wrapping-KEK:<ol>
+<li>This is an known or random value EXPORTER KEK created using the TKE workstation (required for
+comp-tag keys) or CSNBKPI.</li>
+<li>This key is used with CSNBKGN to create the KRD-Import-KEK, which must be generated in external
+form under a KEK according to CSNBKGN processing restrictions. </li>
+<li><b>KEY STORAGE</b>: Stored in CKDS.</li>
+</ol></li>
+<li>KDH-Export-KEK: <ol>
+<li>This is the KDH copy of the TMK key that will be used later to wrap keys being exported to the
+ATM. </li>
+<li>Type: DES EXPORTER key for wrapping output TR-31 key blocks. </li>
+<li><b>KEY STORAGE</b>: Stored in CKDS.</li>
+</ol></li>
+<li>KRD-Import-KEK: <ol>
+<li>This is the KRD copy of the TMK key that will be used later by the ATM to unwrap TR-31 key
+blocks for key distribution completion.</li>
+<li>Type: DES IMPORTER or IKEYXLAT key for unwrapping input TR-31 key blocks.</li>
+<li>This is the key (Kn) to be exported using TR-34. Because the key is in a CCA token, the notation
+(Kn-T) is used.</li>
+<li><b>KEY STORAGE</b>: Stored in CKDS until export.</li>
+</ol></li>
+<li>CCA services: <ol>
+<li>Use the CSNBKTB service to create skeleton tokens for the EXPORTER/IMPORTER copies of the
+key.</li>
+<li>Use the CSNBKGN service to generate a new DES key and populate to each token.</li>
+</ol></li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>AES:</dt>
+<dd>
+<ol>
+<li>KDH-Wrapping-KEK:<ol>
+<li>This is an known or random value EXPORTER KEK created using the TKE workstation (required for
+comp-tag keys) or CSNBKPI2.</li>
+<li>This key is used with CSNBKGN2 to create the KRD Import KEK, which must be generated in external
+form under a KEK according to CSNBKGN2 processing restrictions. </li>
+<li><b>KEY STORAGE</b>: Stored in CKDS.</li>
+</ol></li>
+<li>KDH-Export-KEK: <ol>
+<li>This is the KDH copy of the TMK key that will be used later to wrap keys being exported to the
+ATM. </li>
+<li>Type: AES EXPORTER key with usage EXPTT31D for wrapping output TR-31 key blocks. </li>
+<li><b>KEY STORAGE</b>: Stored in CKDS.</li>
+</ol></li>
+<li>KRD-Import-KEK: <ol>
+<li>This is the KRD copy of the TMK key that will be used later by the ATM to unwrap TR-31 key
+blocks for key distribution completion.</li>
+<li>Type: AES IMPORTER key with usage IMPTT31D for unwrapping input TR-31 key blocks.</li>
+<li>This is the key (Kn) to be exported using TR-34. Since the key is in a CCA token, the notation
+(Kn-T) is used.</li>
+<li><b>KEY STORAGE</b>: Stored in CKDS until export.</li>
+</ol></li>
+<li>CCA services: <ul>
+<li>Use the CSNBKTB2 service to create skeleton tokens for the EXPORTER/IMPORTER copies of the
+key.</li>
+<li>Use the CSNBKGN2 service to generate a new AES key and populate each token. Note that the key
+strength must be 128 bit if key strength rules are to be followed for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> and other standards. The maximum
+TR-34 wrapping key strength is AES 128-bit.</li>
+</ul></li>
+</ol>
+</dd>
+</dlentry>
+</dl></li>
+</ul></li>
+</ol></p>
+</section>
+<section>
+<title>Protocol steps for key transport</title>
+<p>
+<ol>
+<li><b><u>On KDH</u></b><ol>
+<li>TR-34 application creates a Timestamp. This is the freshness test that will be used by the
+KRD.</li>
+<li>Create the Key Transport token:<ol>
+<li><b>Overview: </b>Call CCA service CSNDT34D: "1PASSCRE".</li>
+<li><b>INPUT</b>: <ol>
+<li>Kn-T: CCA key token to be exported to the KRD.<ul>
+<li><b>KEY STORAGE</b>: Stored in CKDS.</li>
+</ul></li>
+<li>Timestamp freshness indicator to defend against replay attacks.</li>
+<li>CRL-CA: Certificate Revocation List from CA.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>CredKRD: KRD credential with ID and public key. The public key from this is used to RSA-encipher
+the RSA-encrypted part of the key block.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>CredKDH: KDH credential with ID and public key.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>D-kdh: Private key to sign data block.<ul>
+<li><b>KEY STORAGE</b>: Stored in PKDS.</li>
+</ul></li>
+<li><b>KBH inputs:</b> TR-31 KBH for a terminal master key is not actually variable, but a
+peer-to-peer exchange will have more inputs to describe keys.</li>
+</ol></li>
+<li><b>OUTPUT</b>: <ul>
+<li>KT-KDH: Key transport (1-pass) token.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until sent to KRD.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li>KDH TR-34 application sends the KT-KDH token to the KRD.</li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>The KRD receives the KT-KDH token from the KDH and must process it to complete the Key
+Transport.</li>
+<li>Create key token to hold output TMK (CCA / peer-to-peer step).<ul>
+<li>Use CCA service CSNBKTB or CSNBKTB2 to create Kn-TS, a skeleton CCA key token appropriate for a
+importing the TMK/KBPK.</li>
+</ul></li>
+<li>Process the KT-KDH token received from the KDH.<ol>
+<li><b>Overview: </b>Call CCA service CSNDT34R: "1PASSRCV".</li>
+<li><b>INPUT</b>: <ol>
+<li>KT-KDH: Key transport (1-pass) token received from KDH.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until this call occurs.</li>
+</ul></li>
+<li>CredKDH: KDH credential with ID and public key.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>Timestamp-min: Minimum timestamp value allowed. It could be the last timestamp received or a
+bootstrap value. If passed, card validates that the KT-KDH contains a newer timestamp than
+Timestamp-min.</li>
+<li>D-krd: The private key matching the public key in CredKRD. D-krd is stored in the KRD (but not
+in the HSM). Used to RSA-decipher part of the KT-KDH key block. <ul>
+<li><b>KEY STORAGE</b>: Stored in PKDS for peer-to-peer / CCA TR-34.</li>
+</ul></li>
+</ol></li>
+<li><b>OUTPUT</b>:<ul>
+<li>Kn-T: CCA key token containing the transported TMK/KBPK.<ul>
+<li><b>KEY STORAGE</b>: Stored in CKDS on KRD.</li>
+</ul></li>
+<li>Timestamp-rcv: Timestamp value received from the KDH in the KT-KDH.<ul>
+<li><b>STORAGE</b>: Stored in application space as the next minimum.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li>If necessary, the application validates Timestamp-rcv in a customized fashion.</li>
+</ol></li>
+<li><b><u>On KRD </u></b><ul>
+<li>Key Check Value generated and returned to KDH.<ul>
+<li>The KRD generates a Key Check Value (KCV) for Kn-T using CCA service CSNBKYT2: "GENERATE" and
+"ENC-ZERO" or "CMACZERO" service depending on the key algorithm. KRD sends this to the KDH. There is
+no special encoding for the KCV.</li>
+</ul></li>
+</ul></li>
+<li><b><u>On KDH</u></b><ul>
+<li>Key Check Value verified by KDH:<ul>
+<li>KDH verifies the KCV against the original Kn-T that was sent for export using TR-34. The CCA
+service CSNBKYT2: "VERIFY" and "ENC-ZERO" or "CMACZERO" service depending on the key algorithm can
+be used for this value.</li>
+</ul></li>
+</ul></li>
+</ol>
+</p>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

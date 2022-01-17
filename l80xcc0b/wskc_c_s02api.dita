@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_s02api" xml:lang="en-us">
+<title>Security API programming fundamentals</title>
+<titlealts>
+<navtitle>Security API fundamentals</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Security API programming fundamentals for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You obtain <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+cryptographic services from the coprocessor through procedure calls to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security application programming interface
+(API). </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>security API programming</indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> programming</indexterm><indexterm>access control</indexterm><indexterm>verb<indexterm>definition</indexterm></indexterm>
+<indexterm>callable service</indexterm><indexterm>procedure call</indexterm>
+<indexterm>entry-point names</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Most of the services provided are considered an implementation of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>). Most of the extensions that differ from
+other <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> implementations are in the area of
+the access-control services. If your application program is used with other <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> products, compare the product literature
+for differences.</p>
+<p>Your application program requests a service through the security API by using a procedure call
+for a verb. The term <i>verb</i> implies an action that an application program can initiate. Other
+publications might use the term <term>callable service</term> instead. The procedure call for a verb
+uses the standard syntax of a programming language, including the entry-point name of the verb and
+the parameters of the verb. Each verb has an entry-point name and a fixed-length parameter list.</p>
+<p>The security API is designed for use with high-level languages,
+such as C, COBOL, or RPG and for low-level languages, such as assembler
+language. It is also designed to enable you to use the same verb entry-point
+names and variables in the various supported environments. Therefore,
+application code you write for use in one environment generally can
+be ported to additional environments with minimal change.</p>
+</conbody>
+</concept>
+<?Pub *0000002516?>

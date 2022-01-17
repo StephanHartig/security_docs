@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_peex">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to modify an exportable external fixed-length <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES key-token so that its key can no longer
+be exported. That is, this verb sets CV bit 17 = B'0' (NO-XPORT).</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</indexterm></indexterm>
+<indexterm>key token</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>key encrypting key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb performs the following functions:
+<ul>
+<li>Multiply deciphers the source key under a key formed by the XOR
+of the source key’s control vector and the specified key-encrypting
+key (KEK).</li>
+<li>Turns from on to off the XPORT-OK bit in the source key’s
+control vector (bit 17).</li>
+<li>Multiply enciphers the key under a key formed by the XOR of the
+KEK key and the source key’s modified control vector. The encrypted
+key and the modified control vector are stored in the source-key key
+token, and the TVV is updated.</li>
+</ul></p>
+<note type="other" othertype="Notes">
+<ul>
+<li>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</li>
+<li rev="sh21i1">This service has been deprecated. New applications should use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/> service that is described in <xref
+href="wskc_r_rkat.dita"/>.</li>
+</ul>
+</note></section>
+</refbody></reference>

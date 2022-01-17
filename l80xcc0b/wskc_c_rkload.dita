@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_rkload" xml:lang="en-us">
+<title>Remote key loading</title>
+<titlealts>
+<navtitle>Remote key loading</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Remote key loading</searchtitle>
+</titlealts>
+<shortdesc><term>Remote key loading</term> is the process of installing symmetric encryption keys
+into a remotely located device from a central administrative site. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>trusted block</indexterm>
+<indexterm>remote key loading<indexterm>old example</indexterm><indexterm>new
+example</indexterm><indexterm>definition</indexterm></indexterm>
+<indexterm>key encrypting key<indexterm>distribution</indexterm></indexterm>
+<indexterm>operational key<indexterm>distribution</indexterm></indexterm>
+<indexterm>remote key loading<indexterm>ACP</indexterm></indexterm>
+<indexterm>ACP<indexterm>remote key loading</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>This encompasses two phases of key distributions: <ul>
+<li>Distribution of initial key encrypting keys (KEKs) to a newly
+installed device. A KEK is a type of symmetric encryption key that
+is used to encrypt other keys so that they can be securely transmitted
+over unprotected paths.</li>
+<li>Distribution of operational keys or replacement KEKs, enciphered
+under a KEK currently installed in the device.</li>
+</ul></p>
+<p>Access control points are assigned to roles to control keyword usage in the services provided for
+ATM remote key loading. <xref href="#l0wskc02_rkload/l0wsck02_rkltab1"/> lists the access control
+points used by the ATM remote key loading function. <table id="l0wsck02_rkltab1" pgwide="1">
+<title>Access control points used by ATM remote key loading</title>
+<desc>
+<p outputclass="summary">Access control points used by ATM remote key loading</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="11*"/>
+<colspec colname="col3" colwidth="12*"/>
+<colspec colname="col4" colwidth="51*"/>
+<thead>
+<row>
+<entry colname="col1">Verb name</entry>
+<entry colname="col2">Entry point</entry>
+<entry colname="col3">Offset</entry>
+<entry colname="col4">Access Control Point name and comments</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></entry>
+<entry><ph>X'030F'</ph></entry>
+<entry rev="shr2">Trusted Block Create - Create Block in inactive form </entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></entry>
+<entry><ph>X'0310'</ph></entry>
+<entry rev="shr2">Trusted Block Create - Activate an inactive block</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></entry>
+<entry><ph>X'0311'</ph></entry>
+<entry rev="shr2">PKA Key Import - Import an external trusted block <p>Convert a trusted block from
+external to internal format</p></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></entry>
+<entry><ph>X'0104'</ph></entry>
+<?Pub Caret 8?>
+<entry>PKA Key Import</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></entry>
+<entry><ph>X'0312'</ph></entry>
+<entry rev="shr2">Remote Key Export - Gen or export a non-CCA node key</entry>
+</row>
+<row>
+<entry>
+<lines><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/></lines>
+</entry>
+<entry>
+<lines><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></lines>
+</entry>
+<entry><ph>X'00DB'</ph></entry>
+<entry>Key Generate - SINGLE-R <p>Replication of a single-length source key (which is either an RKX
+token or a CCA token) if the output symmetric encryption result is to be a CCA token, and the CV in
+the trusted block's Common Export Key Parameters TLV Object is 16 bytes with key form bits 'fff' set
+to <ph>X'010'</ph> for the left half and <ph>X'001'</ph> for the right half.</p></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></entry>
+<entry><ph>X'027B'</ph></entry>
+<entry>Key Import - Unrestricted <p>The importer key identifier in the initial code release must
+have unique halves.</p></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/></entry>
+<entry><ph>X'0276'</ph></entry>
+<entry>Key Export - Unrestricted <p>The transport key identifier in the initial code release must
+have unique halves.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+<section>
+<title>Remote key loading methods</title>
+<p>New remote key loading methods have been developed to overcome some of the shortcomings of the
+old manual key loading methods. </p>
+<p>These new methods define acceptable techniques using public key cryptography to load keys
+remotely. Using these new methods, initial KEKs can be loaded without sending people to the remote
+device. This will reduce labor costs, be more reliable, and be much less expensive to install and
+change keys. </p>
+<p>The new cryptographic features provide new methods for the creation and use of the special key
+forms needed for remote key distribution of this type. In addition, the new cryptographic features
+provide ways to solve long-standing barriers to secure key exchange with non-IBM cryptographic
+systems.</p>
+<p>After an ATM is in operation, new keys can be installed as needed, by sending them enciphered
+under a KEK installed previously. This is straightforward in concept, but the cryptographic
+architecture in ATMs is often different from that of the host system that is sending the keys, and
+it is difficult to export the keys in a form understood by the ATM. For example, cryptographic
+architectures often enforce key-usage restrictions in which a key is bound to data describing
+limitations on how it can be used (for encrypting data, for encrypting keys, for operating on
+Message Authentication Codes (MACs), and so forth). The encoding of these restrictions and the
+method used to bind them to the key itself differs among cryptographic architectures, and it is
+often necessary to translate the format to that understood by the target device prior to a key being
+transmitted. It is difficult to do this without reducing security in the system; typically it is
+done by making it possible to arbitrarily change key-usage restrictions.</p>
+<p>The methods described here provide a mechanism through which the system owner can securely
+control these translations, preventing the majority of attacks that could be mounted by modifying
+usage restrictions.</p>
+<p>A data structure called a <term>trusted block</term> is defined to facilitate the remote key
+loading methods. The trusted block is the primary vehicle supporting these new methods. See <xref
+href="wskc_r_zapgtblk.dita#l0wskc02_zapgtblk"/>.</p>
+</section>
+</conbody>
+</concept>
+<?Pub *0000005942?>

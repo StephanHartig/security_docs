@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_compil_link" xml:lang="en-us">
+<title>How to compile and link <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+application programs</title>
+<titlealts>
+<navtitle>Compile and link <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+programs</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>: How to compile
+and link <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application programs for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM includes C
+libraries that you can use to build <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> C applications. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CCA application<indexterm>compile</indexterm><indexterm>link</indexterm></indexterm>
+<indexterm>csulincl.h</indexterm>
+<indexterm>libcsulcca.so</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>One of these libraries also supports a <tm tmtype="tm" trademark="Java">Java</tm> Native
+Interface (JNI) that you can use to build <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> applications. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM also includes <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> libraries with front end classes for the
+JNI.</p>
+<p>The C libraries and their default distribution locations are:</p>
+<dl><dlentry>
+<dt><filepath>/usr/lib64/libcsulcca.so.*</filepath></dt>
+<dd rev="sh16">The <synph><kwd>libcsulcca.so</kwd></synph> library is the main interface library  to
+most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> interface calls. It contains
+all <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs apart from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb. The names of the verbs and their
+parameters are listed in the C header file <filepath>csulincl.h</filepath>.<p>This library also
+contains the C support for the JNI.</p>
+</dd>
+</dlentry><dlentry>
+<dt><filepath>/usr/lib64/libcsulccamk.so.*</filepath></dt>
+<dd>This library contains the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"></keyword>)
+verb and is required for applications that use the master key process
+(see <xref href="wskc_c_ccajni_over_mk.dita#ccajni_over_mk"></xref>).</dd>
+</dlentry></dl>
+<p><ph rev="shd3"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.0</ph>
+includes two versions of the <tm tmtype="tm" trademark="Java">Java</tm> libraries:</p>
+<dl><dlentry>
+<dt>New version introduced with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+4.2</dt>
+<dd> <p>As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.2, new <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> libraries that use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> package infrastructure are included. These
+<tm tmtype="tm" trademark="Java">Java</tm> libraries and their default distribution locations are: <dl>
+<dlentry>
+<dt><filepath>/opt/IBM/CCA/cnm/CNM.jar</filepath></dt>
+<dd>This library contains the data classes used by the JNI (see <xref
+href="wskc_c_ccajni_over_types.dita#ccajni_over_types"/>) and most JNI verb front end classes.</dd>
+</dlentry>
+<dlentry>
+<dt><filepath>/opt/IBM/CCA/cnm/CNMMK.jar</filepath></dt>
+<dd>This library contains the JNI front end class for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb.</dd>
+</dlentry>
+</dl></p></dd>
+</dlentry><dlentry>
+<dt rev="shd3">Deprecated version - removed starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.0</dt>
+<dd> <p>Note that the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.0 rpm no
+longer contains the files mentioned in this section. However, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.2 still includes the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> libraries of earlier <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> versions to support your existing
+applications. These libraries contain all verbs available with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.2 but future additions will not be
+available in these libraries. The default distribution locations of these deprecated libraries are: </p>
+<dl>
+<dlentry>
+<dt><filepath>/opt/IBM/CCA/cnm/HIKM.zip</filepath></dt>
+<dd>This library contains the data classes used by the JNI (see <xref
+href="wskc_c_ccajni_over_types.dita#ccajni_over_types"/>) and most JNI verb front end classes.</dd>
+</dlentry>
+<dlentry>
+<dt><filepath>/opt/IBM/CCA/cnm/HIKMMK.zip</filepath></dt>
+<dd>This library contains the JNI front end class for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb.</dd>
+</dlentry>
+</dl></dd>
+</dlentry></dl>
+<p>See <xref href="wskc_c_ccajni_over_meths.dita#ccajni_over_meths"/> for more information about the
+two versions of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/>
+libraries.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM also includes C and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> sample programs that help you
+develop your application (see <xref href="wskc_t_cca_capps.dita#cca_capps"/> and <xref
+href="wskc_c_ccajni_over_xmp.dita#ccajni_over_xmp"/>).</p>
+</conbody>
+</concept>
+<?Pub *0000004530?>

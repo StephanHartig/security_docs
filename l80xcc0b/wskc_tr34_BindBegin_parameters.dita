@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="trcsfb4-gen215_parameters" xml:lang="en-us" rev="hw20i1">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-34 Bind-Begin (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>input_token_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>input_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>crl_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>crl parameter<indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm>
+verb</indexterm></indexterm>
+<indexterm>cred_kdh_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>cred_kdh parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>old_cred_kdh_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>old_cred_kdh parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>cred_krd_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>cred_krd parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>private_key_identifier_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>private_key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>output_token_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>output_token parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>reserved_data_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+<indexterm>reserved_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt> rule_array_count </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <i>rule_array</i> parameter. The value must be 1
+- 2.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Character</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The <synph><var>rule_array</var></synph> contains keywords that provide control information to
+the callable service. The keywords must be 8 bytes of contiguous storage with the keyword
+left-justified in its 8-byte location and padded on the right with blanks. <table frame="all"
+pgwide="0" id="table_vls_n3m_dlb"><title>Keywords for TR-34 Bind-Begin</title><desc>
+<p outputclass="summary">Keywords for TR-34 Bind-Begin. This table contains two columns: Keyword and
+Meaning, and it contains rows for Requested action (one, required) and Public Key Infrastructure
+Usage (one, optional).</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="128*"/>
+<colspec colname="col2" colwidth="268*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Requested action (one,
+required).</i></b></entry>
+</row>
+<row>
+<entry>BINDCR</entry>
+<entry>TR34 BIND token (CTKDH) CREATE service. Creates the token sent by
+the KDH to the KRD to accomplish the BIND action in the TR-34 protocol. This binds the KRD to the
+KDH for a later key distribution action.</entry>
+</row>
+<row>
+<entry>UNBINDCR</entry>
+<entry>TR34 UNBIND token (UBTKDH) CREATE service. Creates the token sent
+by the KDH to the KRD to accomplish the UNBIND action in the TR-34 protocol. This frees the KRD from
+the currently bound KDH and causes the KRD to remove all keys received while bound to this
+KDH.</entry>
+</row>
+<row>
+<entry>REBINDCR</entry>
+<entry>TR34 REBIND token (RBTKDH) CREATE service. Creates the token sent
+by the KDH to the KRD to accomplish the REBIND action in the TR-34 protocol. This frees the KRD from
+the current binding key of the KDH and binds the KRD to a new binding key from the KDH. This also
+causes the KRD to remove all keys received while bound to the KDH under the prior binding
+key.</entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><b><i>Public Key Infrastructure Usage
+(one, optional).</i></b></entry>
+</row>
+<row>
+<entry>PKI-CHK</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is
+to be validated against the trust chain of the PKI hosted in the adapter. This requires that the CA
+credentials have been installed using the Trusted Key Entry (TKE) workstation. This is required for
+compliance-tagged key token export with TR-34 services. This is the default.</entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>Specifies that the X.509 certificate for the other party (KRD) is
+not to be validated against the trust chain of the PKI hosted in the adapter. This is suitable if
+the certificate has been validated using host-based PKI services.</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>input_token</i> parameter in bytes. The maximum length is 3500
+bytes.</pd>
+</plentry>
+<plentry>
+<pt>input_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The DER encoded TR-34 token object. When the requested action keyword is BINDCR, the object
+is the TR-34 credential token from KRD (the CT-KRD). When the request action keyword is UNBINDCR or
+REBINDCR, the object is the TR-34 random number token from the KRD (the RT-KRD).</pd>
+</plentry>
+<plentry>
+<pt>crl_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>crl</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>crl</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The certificate revocation list (CRL) from the certificate authority the is in common with
+the KRD for the requested service. The CRL may be in DER or PEM format.<note>The CSNDT34B service is
+acting as the KDH so the <i>crl</i> is not expected to validate against the internal PKI of the
+adapter.</note></pd>
+</plentry>
+<plentry>
+<pt>cred_kdh_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_kdh</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>cred_kdh</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KDH for the requested service. The
+certificate may be in DER or PEM format.<p> The meaning is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>BINDCR and UNBINDCR</dt>
+<dd>This parameter must contain the X.509 certificate which is the TR-34 credential for the KDH (the
+CredKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>REBINDCR</dt>
+<dd>This parameter must contain the new X.509 certificate which is the TR-34 credential for the KDH
+(the CredKDH-NEW).</dd>
+</dlentry>
+</dl><note>This service is acting as the KDH so the <i>cred_kdh</i> is not expected to validate
+against the internal PKI of the adapter.</note></p></pd>
+</plentry>
+<plentry>
+<pt>old_cred_kdh_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>old_cred_kdh</i> parameter in bytes. The maximum length is 3500 bytes.
+When the requested action keyword is BINDCR or UNBINDCR, the value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>old_cred_kdh</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KDH for the requested service. The
+certificate may be in DER or PEM format.<p>When the <i>old_cred_kdh_length</i> is zero, this
+parameter is ignored.</p><p>The meaning is determined by the requested action keyword:<dl>
+<dlentry>
+<dt>REBINDCR</dt>
+<dd>This parameter must contain the old X.509 certificate which is the TR-34 credential for the KDH
+(the CredKDH-OLD). The identifier and serial number are needed for the creation of the Rebind
+Token.</dd>
+</dlentry>
+</dl><note>This service is acting as the KDH so the <i>old_cred_kdh</i> is not expected to validate
+against the internal PKI of the adapter.</note></p></pd>
+</plentry>
+<plentry>
+<pt>cred_krd_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>cred_krd</i> parameter in bytes. The maximum length is 3500 bytes.</pd>
+</plentry>
+<plentry>
+<pt>cred_krd</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The X.509 certificate that is the credential of the KRD for the requested service (the
+CredKRD). The certificate may be in DER or PEM format. <p>The meaning is determined by the requested
+action keyword:<dl>
+<dlentry>
+<dt>BINDCR</dt>
+<dd>On input, this parameter must be an empty buffer of size <i>cred_krd_length</i>. On output, this
+parameter will contain the CredKRD extracted from the CT-KRD.</dd>
+</dlentry>
+<dlentry>
+<dt>UNBINDCR, REBINDCR</dt>
+<dd>This parameter must contain the CredKRD extracted by a previous BINDCR service.</dd>
+</dlentry>
+</dl><note>This service is acting as the KDH so the <i>cred_krd</i> is normally expected to validate
+against the internal PKI of the adapter. Use the PKI-NONE keyword to override this
+validation,</note></p></pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>private_key_identifier</var></synph> parameter. When the
+requested action keyword is BINDCR, the value must be zero. When the keyword is UNBINDCR or
+REBINDCR, the value is the length of the key token or label. If the <i>private_key_identifier</i>
+contains a label, the value must be 64. Otherwise, the value must be between the actual length of
+the token and 3500.</pd>
+</plentry>
+<plentry>
+<pt>private_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the private key used to sign the output token. The key identifier is an
+operational RSA secure token or the label of such a token in key storage. When the
+<i>private_key_identifier_length</i> is zero, this parameter is ignored. <p>The key usage of the
+token must allow digital signature. Retained private keys are not supported in this
+service.</p></pd>
+</plentry>
+<plentry>
+<pt>output_token_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <i>output_token</i> parameter in bytes. The maximum length is 3500 bytes.
+On input, the value is the size of the buffer to receive the <i>output_token</i>. On output, the
+value is the actual size of the data returned in the <i>output_token</i> parameter.</pd>
+</plentry>
+<plentry>
+<pt>output_token</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The generated DER encoded TR-34 token.<dl>
+<dlentry>
+<dt>BINDCR</dt>
+<dd>This parameter will contain the TR-34 BIND token (CTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>UNBINDCR</dt>
+<dd>This parameter will contain the TR-34 UNBIND token (UBTKDH).</dd>
+</dlentry>
+<dlentry>
+<dt>REBINDCR</dt>
+<dd>This parameter will contain the TR-34 REBIND token (RBTKDH).</dd>
+</dlentry>
+</dl></pd>
+</plentry>
+<plentry>
+<pt>reserved_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is reserved. The value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Direction</entry>
+<entry colname="col2">Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Input/Output</entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000037185?>

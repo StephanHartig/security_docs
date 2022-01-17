@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="ccajni_over_meths">
+<title>Calling the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> package infrastructure</title>
+  <titlealts>
+    <navtitle>Calling the CCA JNI</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>: Calling the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+  </titlealts><shortdesc rev="sh18i1">Starting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.0, there is only one method for calling
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI. Deprecated methods are no
+  longer available, and therefore documented only in prior editions of this publication.</shortdesc>
+<prolog><metadata><keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+            JNI<indexterm>calling</indexterm></indexterm>
+      </keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>For more information, see topic <xref href="wskc_c_ccajni_over_xmp.dita#ccajni_over_xmp"/> about
+available sample programs.</p>
+<p>When calling the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI, you need
+<codeph>import</codeph> statements in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> source files. The JNI JAR files used by
+this method are <filepath>CNM.jar</filepath> and, for the master key process,
+<filepath>CNMMK.jar</filepath>.</p>
+<p>See <xref href="wskc_t_bjbc.dita#l0wskc02_bjbc"/> for details about compiling and running
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> applications with this
+method.</p>
+</conbody></concept>

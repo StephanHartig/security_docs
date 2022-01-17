@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ktn2">
+<title>Key token</title>
+  <titlealts>
+    <navtitle>Key token</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): key token</searchtitle>
+  </titlealts><shortdesc>A key token is a variable length (maximum allowed size is <ph rev="sh21i1">6500</ph>
+bytes) field composed of key value and control information. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RSA key token sections</indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>PKA keys can be either public or private RSA, <ph rev="sh21i1">ECC, or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+</ph> keys. Each key token can be either an internal key token (the first byte of the key identifier
+is X'1F'), an external key token (the first byte of the key identifier is X'1E'), or a null PKA
+private key token (the first byte of the key identifier is X'00').</p>
+<p>For descriptions of the PKA key tokens and for debugging information, see <xref
+href="wskc_r_aptkn.dita#l0wskc02_aptkn"/> .</p>
+<section><title>Internal key token</title><indexterm>PKA internal key
+token</indexterm><indexterm>key token<indexterm>internal</indexterm></indexterm><indexterm>key
+token<indexterm>Elliptic Curve Cryptography (ECC)</indexterm></indexterm><indexterm>Elliptic Curve
+Cryptography (ECC)<indexterm>key token</indexterm></indexterm><p>An <term>internal key token</term>
+is a token that can be used only on the system that created it or another system with the same PKA
+master key.</p><p>It contains a key that is encrypted under the PKA master key.</p><p>An application
+obtains an internal key token by using one of the <ph>verbs</ph> such as those listed below. The
+<ph>verbs</ph> are described in detail in <xref href="wskc_r_pk4.dita#l0wskc02_pk4"/>. <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/></li>
+</ul></p><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> verb can
+re-encipher private internal tokens from encryption under the old ASYM-MK to encryption under the
+current ASYM-MK. PKA key storage Re-encipher/Activate options are available to
+re-encipher RSA and ECC internal tokens in the PKA key storage when the
+SYM-MK/ASYM-MK (or APKA-MK) keys are changed.</p><p>PKA master keys cannot be changed
+dynamically.</p></section>
+<section><title>External key token</title><indexterm>PKA external key
+token</indexterm><indexterm>PKA key token<indexterm>external</indexterm></indexterm><indexterm>key
+token<indexterm>PKA external</indexterm></indexterm><p>If the first byte of the key identifier is
+X'1E', the key identifier is interpreted as an <term>external key token</term>. </p><p>An external
+PKA key token contains key (possibly encrypted) and control information. By using the external key
+token, you can exchange keys between systems.</p><p>An application obtains the external key token by
+using one of the verbs such as those listed below. They are described in detail in <xref
+href="wskc_r_pk4.dita#l0wskc02_pk4"/>. </p><ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/></li>
+</ul></section>
+<section><title>Null key token</title><indexterm>null key token</indexterm><indexterm>key
+token<indexterm>null key token</indexterm></indexterm><p>If the first byte of the key identifier is
+X'00', the key identifier is interpreted as a <term>null key token</term>. </p></section>
+<section id="pka_comp_tagged" rev="sh20i1">
+<title>Compliant-tagged key tokens</title><indexterm>key
+token<indexterm>compliant-tagged</indexterm></indexterm><indexterm>RSA key
+token<indexterm>compliant-tagged</indexterm></indexterm><indexterm>RSA key
+token<indexterm>compliant-tagged</indexterm></indexterm><indexterm>compliant-tagged key
+tokens</indexterm> A compliant-tagged key token must adhere to the requirements of the PCI-HSM 2016
+compliance mode. A coprocessor in compliance mode must be available to use compliant-tagged key
+tokens. For additional information, read <xref href="wskc_pci_hsm_intro.dita"/>.
+<p><b>RSA</b></p><p>The compliant-tag is indicated by a flag in the private key section of the key
+token. For more information about the compliant-tag, see <xref href="wskc_r_aptkn.dita"/>. </p><p>To
+generate a compliant-tagged key token, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>) must first be used to build a skeleton
+token with the compliant-tag flag on. This skeleton token can then be passed to any callable service
+that generates RSA key tokens and supports compliant-tagged key tokens, for example <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>). A list of services that support
+compliant-tagged key tokens can be found in <xref href="wskc_pci_hsm_keys.dita"/>. </p><p>The
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>) service is the exception because it
+does not support skeleton tokens as input. When importing a PKA key, if the key encrypting key is
+compliant-tagged, the resulting key is also compliant-tagged. For more information, see the verb
+description.</p>
+</section>
+</conbody></concept>

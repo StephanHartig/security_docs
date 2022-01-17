@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_e">
+<title> PIN formats and algorithms</title>
+<topicref href="wskc_r_ap2me.dita">
+<topicref href="wskc_r_appdpinnot.dita"/>
+<topicref href="wskc_r_pinbf.dita">
+<topicref href="wskc_r_appdansix98.dita" toc="no"/>
+<topicref href="wskc_r_appdiso1.dita" toc="no"/>
+<topicref href="wskc_r_appdiso2.dita" toc="no"/>
+<topicref href="wskc_r_appdiso3.dita" toc="no"/>
+<topicref href="wskc_r_appdiso4.dita" toc="no"/>
+<topicref href="wskc_r_appdvisa2.dita" toc="no"/>
+<topicref href="wskc_r_appdvisa3.dita" toc="no"/>
+<topicref href="wskc_ibm_4700_pinpad.dita" toc="no"/>
+<topicref href="wskc_r_appd3624form.dita" toc="no"/>
+<topicref href="wskc_r_appd3621form.dita" toc="no"/>
+<topicref href="wskc_r_appdexi2.dita" toc="no"/>
+<topicref href="wskc_r_appdexi3.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_c_appdpinextrules.dita">
+<topicref href="wskc_c_appdepvcs.dita" toc="no"/>
+<topicref href="wskc_c_appdcpgacs.dita" toc="no"/>
+<topicref href="wskc_c_appdeptcs.dita" toc="no"/>
+<topicref href="wskc_pin_change_unblock.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_c_appdpinalg.dita">
+<topicref href="wskc_c_appd3624pingenalg.dita" toc="no"/>
+<topicref href="wskc_c_appdgbppgalg.dita" toc="no"/>
+<topicref href="wskc_c_appdpinoffgenalg.dita" toc="no"/>
+<topicref href="wskc_c_appd3624pinveralg.dita" toc="no"/>
+<topicref href="wskc_c_appdgbpveralg.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_c_appdvisapinalg.dita">
+<topicref href="wskc_c_appdpvvgenalg.dita" toc="no"/>
+<topicref href="wskc_c_appdpvvveralg.dita" toc="no"/>
+<topicref href="wskc_c_inbkal.dita" toc="no"/>
+</topicref>
+</topicref>
+</map>

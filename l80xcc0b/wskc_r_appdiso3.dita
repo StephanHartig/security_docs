@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc02_appdiso3" xml:lang="en-us">
+<title>ISO Format 3</title>
+<titlealts>
+<navtitle>ISO Format 3</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ISO Format 3</searchtitle>
+</titlealts>
+<shortdesc>The formats of the intermediate PIN-block, the PAN block,
+and the ISO-3 PIN-block.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ISO-3 PIN block format</indexterm><indexterm>ISO
+format 3</indexterm><indexterm>intermediate PIN-block (IPB)</indexterm>
+<indexterm>IPB (intermediate PIN-block)</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>An ISO-3 PIN-block format is equivalent to the ANSI X9.8,
+VISA-1, and ECI-1 PIN-block formats in length. A PIN that is longer
+than 12 digits is truncated on the right.</p><?Pub Caret 100?>
+<fig expanse="column" id="fa005"><title>ISO-3 PIN-block format</title><image
+href="wskc_appdiso3.jpg" width="500">
+<alt>ISO-3 PIN-block format</alt></image></fig></section>
+<section><p>where:  <dl><dlentry>
+<dt>3</dt>
+<dd>Is the value <ph>X'3'</ph> for ISO-3.</dd>
+</dlentry><dlentry>
+<dt>L</dt>
+<dd>Is the length of the PIN, which is a 4-bit value from <ph>X'4'</ph> - <ph>X'C'</ph>.</dd>
+</dlentry><dlentry>
+<dt>P</dt>
+<dd>Is a PIN digit, which is a 4-bit value from <ph>X'0'</ph> - <ph>X'9'</ph>.
+The values of the PIN digits are independent.</dd>
+</dlentry><dlentry>
+<dt>P/R</dt>
+<dd>Is a PIN digit or pad value. A PIN digit has a 4-bit value from <ph>X'0'</ph> - <ph>X'9'</ph>.
+A pad value has a random 4-bit value of <ph>X'A'</ph> - <ph>X'F'</ph>.
+The number of pad values in the intermediate PIN block (IPB) is from
+2 - 10.</dd>
+</dlentry><dlentry>
+<dt>R</dt>
+<dd>Is the random value <ph>X'A'</ph> - <ph>X'F'</ph> for the pad
+value.</dd>
+</dlentry><dlentry>
+<dt>PAN</dt>
+<dd>Is twelve 4-bit digits that represent one of the following:  <ul>
+<li>The rightmost 12 digits of the primary account-number (excluding
+the check digit) if the format of the PIN block is ISO-3, ANSI X9.8,
+VISA-1, or ECI-1.</li>
+<li>The leftmost 12 digits of the primary account-number (excluding
+the check digit) if the format of the PIN block is VISA-4. </li>
+</ul> <p>Each PAN digit has a value from <ph>X'0'</ph> - <ph>X'9'</ph>.</p></dd>
+</dlentry></dl></p></section>
+<section><p>The PIN block is the result of XORing the 64-bit IPB with
+the 64-bit PAN block.</p></section>
+<section><p>Example:  <codeblock>     L = 6, PIN = 123456, Personal Account Number = 111222333444555
+     36123456AFBECDDC : IPB
+     0000222333444555 : PAN block for ISO-3 (ANSI X9.8, VISA-1, ECI-1) format
+     361216759CFA8889 : PIN block for ISO-3 (ANSI X9.8, VISA-1, ECI-1) format</codeblock> </p></section>
+</refbody>
+</reference>
+<?Pub *0000003608?>

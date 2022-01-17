@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ffxeformat" rev="sh21i1">
+<title>Format</title>
+<titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of </searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<tbody>
+<row>
+<entry>
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxe"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>key_identifier_length</var></synph>,
+             <synph><var>key_identifier</var></synph>,
+             <synph><var>tweak_length</var></synph>,
+             <synph><var>tweak</var></synph>,
+             <synph><var>tweak_alphabet_length</var></synph>,
+             <synph><var>tweak_alphabet</var></synph>,
+             <synph><var>alphabet_length</var></synph>,
+             <synph><var>alphabet</var></synph>,
+             <synph><var>plaintext_length</var></synph>,
+             <synph><var>plaintext</var></synph>,
+             <synph><var>reserved1_length</var></synph>,
+             <synph><var>reserved1</var></synph>,
+             <synph><var>reserved2_length</var></synph>,
+             <synph><var>reserved2</var></synph>,
+             <synph><var>ciphertext_length</var></synph>,
+             <synph><var>ciphertext</var></synph>)</codeblock>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>

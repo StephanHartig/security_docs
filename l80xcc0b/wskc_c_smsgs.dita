@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_smsgs">
+<title>Secure messaging</title>
+  <titlealts>
+    <navtitle>Secure messaging</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Secure messaging</searchtitle>
+  </titlealts><shortdesc>The following verbs assist applications in encrypting secret information such as clear
+keys and PIN blocks in a secure message.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>secure messaging</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>These verbs execute within the secure boundary of the cryptographic coprocessor: </p>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsky"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</li>
+</ul>
+</conbody></concept>

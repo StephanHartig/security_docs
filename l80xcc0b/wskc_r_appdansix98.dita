@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdansix98">
+<title>ANSI X9.8</title>
+  <titlealts>
+    <navtitle>ANSI X9.8</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.8</searchtitle>
+  </titlealts><shortdesc>This format is also named ISO format 0, VISA format 1, VISA format
+4, and ECI format 1.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>ANS X9.8</indexterm></indexterm>
+<indexterm>ANSI X9.8 PIN block format</indexterm>
+<indexterm>ISO format 0</indexterm>
+<indexterm>ISO-0  PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><example>
+<codeblock>   P1 = CLPPPPffffffffFF
+
+   P2 = ZZZZAAAAAAAAAAAA
+
+   PIN Block = P1 XOR P2
+
+where C = X'0'
+      L = X'4' to X'C'
+ </codeblock></example><section>
+<note type="other" othertype="Programming Note">The rightmost 12 digits
+(excluding the check digit) in P2 are the rightmost 12 digits of the
+account number for all formats except VISA format 4. For VISA format
+4, the rightmost 12 digits (excluding the check digit) in P2 are the
+leftmost 12 digits of the account number.</note></section>
+</refbody></reference>

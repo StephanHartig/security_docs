@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbs11">
+<title>Trusted block section <ph>X'11'</ph></title>
+ <titlealts>
+    <navtitle>Trusted block section <ph><ph>X'11'</ph></ph></navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section
+<ph>X'11'</ph></searchtitle>
+  </titlealts>
+<shortdesc>Trusted block section <ph>X'11'</ph> contains the trusted RSA public
+key in addition to a key-usage flag indicating whether the public
+key is usable in key-management operations, digital signature operations,
+or both. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>trusted block section X'11'</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Section <ph>X'11'</ph> is optional. No multiple sections are allowed.
+It has no subsections defined. </p>
+<table id="l0wskc02_srsas04" pgwide="1" frame="all">
+<title>Trusted block trusted RSA public key section (<ph><ph>X'11'</ph></ph>)</title>
+<desc>
+<p outputclass="summary">Trusted block trusted RSA public key section</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'11'</ph></dt>
+<dd>Trusted block trusted RSA public key</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length (16 + <i>xxx</i> + <i>yyy</i>). </entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Reserved, must be binary zero.</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>RSA public key exponent field length in bytes, <i>xxx</i>.</entry>
+</row>
+<row>
+<entry>008</entry>
+<entry>002</entry>
+<entry>RSA public key modulus length in bits.</entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>002</entry>
+<entry>RSA publickey modulus field length in bytes, <i>yyy</i>. </entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>xxx</entry>
+<entry>Public key exponent, <i>e</i> (this field length is typically 1, 3, or 64 - 512
+bytes). <i>e</i> must be odd and 1 ≤ <i>e</i> &lt; <i>n</i>. (<i>e</i> is frequently valued to 3 or
+2<sup>16</sup>+1 (=65537), otherwise <i>e</i> is of the same order of magnitude as the modulus). </entry>
+</row>
+<row>
+<entry>012 + <i>xxx</i></entry>
+<entry><i>yyy</i></entry>
+<entry>RSA public key modulus, <i>n</i>. <i>n</i>=<i>pq</i>, where <i>p</i> and
+<i>q</i> are prime and 2<sup>512</sup> ≤ <i>n</i> &lt; 2<sup>4096</sup>. The field length is 64 -
+512 bytes. </entry>
+</row>
+<row>
+<entry colname="col1">012 + <i>xxx</i> + <i>yyy</i></entry>
+<entry colname="col2">004</entry>
+<entry colname="col3">Flags: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'00000000'</ph></dt>
+<dd>Trusted block public key can be used in digital signature operations only</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'80000000'</ph></dt>
+<dd>Trusted block public key can be used in both digital signature and key management
+operations</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'C0000000'</ph></dt>
+<dd>Trusted block public key can be used in key management operations only</dd>
+</dlentry>
+</dl></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

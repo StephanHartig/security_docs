@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_howuse" xml:lang="en-us">
+<title>How to use this document</title>
+<titlealts>
+<navtitle>How to use this document</navtitle>
+<searchtitle/>
+</titlealts>
+<shortdesc>Read an overview of the information in each section of this document.</shortdesc>
+<prolog><metadata>
+<keywords/>
+</metadata></prolog>
+<conbody>
+<p>For encryption, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports
+Advanced Encryption Standard (AES), Data Encryption Standard (DES), public key cryptography <ph>(PKA
+or RSA)</ph>, and Elliptic Curve Cryptography (ECC). These are very different cryptographic systems.
+<ph>Additionally, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides APIs
+for generating and verifying Message Authentication Codes (MACs), Hashed Message Authentication
+Codes (HMACs), hashes, and PINS, as well as other cryptographic functions.</ph></p>
+<p><xref href="wskc_c_pt1.dita#l0wskc02_pt1"/> includes the following chapters: <ul>
+<li><xref href="wskc_c_appgm.dita#l0wskc02_appgm"/> describes the programming considerations for
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs. It also explains
+the syntax and parameter definitions used in <ph>verbs</ph>. Information about concurrency is also
+provided.</li>
+<li><xref href="wskc_pci_hsm_compliance.dita#wskc_pci_hsm_compliance"/> describes the
+support for compliance-tagged tokens introduced with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0 It gives links to further related
+information in this document, and discusses the new warning mode to aid installations in detecting
+migration concerns. </li>
+<li><xref href="wskc_c_apint.dita#l0wskc02_apint"/> gives an overview of AES, DES, and HMAC
+cryptography, and provides general guidance information on how these verbs use different key types
+and key forms.</li>
+<li><xref href="wskc_c_pkaint.dita#l0wskc02_pkaint"/> introduces Public Key Algorithm (PKA) support
+and describes programming considerations for using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> PKA and ECC verbs, such as the PKA key
+token structure and key management.</li>
+<li><xref href="wskc_c_l0wskc03_zapgtr31.dita#l0wskc03_zapgtr31"/> introduces TR-31 support and how
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses an IBM-defined optional block
+in a TR-31 key block.</li>
+<li><xref href="wskc_understand_mkeys.dita#understand_mkeys"/> provides information about master key
+management.</li>
+</ul></p>
+<p><xref href="wskc_r_pt2a.dita#l0wskc02_pt2a"/> includes the following topics: </p>
+<ul>
+<li><xref href="wskc_r_acc.dita#l0wskc02_acc"/> describes using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> resource control verbs.</li>
+<li><xref href="wskc_r_apmky.dita#l0wskc02_apmky"/> describes the verbs for generating and
+maintaining DES and AES cryptographic keys, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> verb (which generates 8-byte random
+numbers), the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> verb (which
+generates up to 8192 bytes of random content), and the Secure Sockets Layer (SSL) security protocol.
+This chapter also describes utilities to build DES and AES tokens, generate and translate control
+vectors, and describes the PKA verbs that support DES and AES key distribution.</li>
+<li><xref href="wskc_c_apenc.dita#l0wskc02_apenc"/> describes the <ph>verbs</ph> for enciphering and
+deciphering data. </li>
+<li><xref href="wskc_c_apmac.dita#l0wskc02_apmac"/> describes the <ph>verbs</ph> for generating and
+verifying Message Authentication Codes (MACs), generating and verifying Hashed Message
+Authentication Codes (HMACs), generating Modification Detection Codes (MDCs), and generating hashes
+(SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, MD5, RIPEMD-160).</li>
+<li><xref href="wskc_c_zapgkyst.dita#l0wskc02_zapgkyst"/> describes the use of key storage, key
+tokens, and associated verbs.</li>
+<li><xref href="wskc_c_appin.dita#l0wskc02_appin"/> describes the <ph>verbs</ph> for use in support
+of finance-industry applications. This includes several categories. <ul>
+<li>Verbs for generating, verifying, and translating personal identification numbers (PINS).</li>
+<li>Verbs that generate and verify VISA card verification values and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"/> card security codes.</li>
+<li>Verbs to support smart card applications using the EMV (Europay MasterCard Visa) standards.</li>
+</ul></li>
+<li><xref href="wskc_c_appin_dk.dita#wskc_appin_dk"/> describes the verbs for PIN methods and
+requirements for financial services specified by the German Banking Industry Committee,
+<term>Deutsche Kreditwirtschaft</term> (DK).</li>
+<li><xref href="wskc_tr34.dita"/>  describes the verbs used to manage TR-34 key blocks
+and TR-34 functions.</li>
+<li><xref href="wskc_r_l0wskc03_zapgtr31v.dita#l0wskc03_zapgtr31v"/> describes the verbs used to
+manage TR-31 key blocks and TR-31 functions.</li>
+<li><xref href="wskc_r_pk3.dita#l0wskc02_pk3"/> describes the <ph>verbs</ph> that support using
+digital signatures to authenticate messages.</li>
+<li><xref href="wskc_r_pk4.dita#l0wskc02_pk4"/> describes the <ph>verbs</ph> that generate and
+manage PKA keys.</li>
+<li><xref href="wskc_utility_verbs.dita#utility_verbs"/>  describes the utility verb
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/> which is provided for code
+conversion.</li>
+</ul>
+<p><xref href="wskc_appendix_part.dita#appendix_part"/> includes the following information: </p>
+<ul>
+<li><xref href="wskc_r_aprec.dita#l0wskc02_aprec"/> explains the return and reason codes returned by
+the <ph>verbs</ph>.</li>
+<li><xref href="wskc_r_aptkn.dita#l0wskc02_aptkn"/> describes the formats for AES, DES internal,
+external, and null key tokens, for PKA public, private external, and private internal key tokens
+containing Rivest-Shamir-Adleman (RSA) information, PKA null key tokens, ECC key tokens, HMAC key
+tokens, Transaction Validation Values (TVVs), and trusted blocks.</li>
+<li><xref href="wskc_c_kegekf.dita#l0wskc02_kegekf"/> describes the key forms and types used by the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb.</li>
+<li><xref href="wskc_c_ap1me.dita#l0wskc02_ap1me"/> contains a table of the default control vector
+values that are associated with each key type and describes the control information for testing
+control vectors, mask array preparation, selecting the key-half processing mode, and an example of
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> verb.</li>
+<li><xref href="wskc_keytvec.dita"/> introduces a DK key type vector (KTV) which is
+used to define how to generate or derive the intended AES variable-length symmetric key.</li>
+<li><xref href="wskc_r_ap2me.dita#l0wskc02_ap2me"/> describes the PIN notation, formats, extraction
+rules, and algorithms.</li>
+<li><xref href="wskc_c_zapgapd2.dita#l0wskc02_zapgapd2"/> describes various ciphering and key
+verification algorithms, as well as the formatting of hashes and keys.</li>
+<li><xref href="wskc_r_apn.dita#l0wskc02_apn"/> lists the access control points and their
+corresponding verbs.</li>
+<li><xref href="wskc_acodas_intro.dita#acodas_intro"/> documents the data structures that are used
+in the access control system.</li>
+<li><xref href="wskc_pci_hsm_intro.dita#wskc_pci_hsm_intro"/> informs about how to
+manage keys, verbs and applications that should apply the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>compliance standard.</li>
+<li rev="sh21i1"><xref href="wskc_aes_dukpt.dita"/> presents information about the use of AES keys with derived unique key per transaction 
+(DUKPT) processing.
+</li>
+<li><xref href="wskc_c_codesamp.dita#l0wskc02_codesamp"/> contains sample verb call routines, both
+in C and <tm tmtype="tm" trademark="Java">Java</tm>, that illustrates the practical application of
+CCA verb calls.</li>
+<li><xref href="wskc_c_setup.dita#l0wskc02_setup"/> includes tips to help you set up your system for
+the first time.</li>
+<li><xref href="wskc_c_install.dita#l0wskc02_install"/> includes RPM installation, configuration,
+and uninstallation instructions.</li>
+<li><xref href="wskc_c_coexist.dita#l0wskc02_coexist"/> includes information about using various
+versions of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features in the
+same system, and other restrictions.</li>
+<li><xref href="wskc_c_utilities.dita#l0wskc02_utilities"/> describes the <cmdname>ivp.e</cmdname>
+and <cmdname>panel.exe</cmdname> utilities.</li>
+<li><xref href="wskc_alpha_security_api.dita#alpa_security_api"/> contains an alphabetical list of
+security API command and sub-command codes returned by the output <parmname>rule-array</parmname>
+for option STATDIAG of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/>
+verb.</li>
+<li><xref href="wskc_c_oc_opencryptoki.dita#opencryptoki"/> provides information about <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> which is an open source implementation
+of the <term>Cryptoki</term> API as defined by the industry-wide <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> Cryptographic Token Interface
+Standard.</li>
+<li><xref href="wskc_r_l0wskc03_abbrev.dita#l0wskc03_abbrev"/> contains definitions of abbreviations
+used.</li>
+<?Pub Caret 1?>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000007387?>

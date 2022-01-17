@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc315">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>tr31_key_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>tr31_key parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>key_block_version parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>key_block_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>key_usage parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>algorithm parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>mode parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>key_version_number parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>exportability parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+<indexterm>num_opt_blocks parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>. </p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be 0.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>No rule array keywords are defined for this verb.</pd></plentry>
+<plentry><pt>tr31_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>tr31_key</var></synph> variable. Specify a length that is greater than or equal to the
+size of the key block. The verb determines the actual length of the key by parsing its
+contents.</pd></plentry>
+<plentry><pt>tr31_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the TR-31 key block to be disassembled.</pd></plentry>
+<plentry><pt>key_block_version</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. The verb copies the one byte found in the key block version
+ID field of the input key block to this variable.<p>Note that if the verb finds a proprietary key
+block version ID, the verb treats it as an invalid value, because the verb is not capable of
+disassembling a key block that has a proprietary ID. This variable is not updated if a processing
+error occurs.</p></pd></plentry>
+<plentry><pt>key_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable. The verb parses the 2-byte numeric ASCII key block length
+field from the input key block, converts the string value into an integer, and returns the integer
+in this variable. This value must be less than or equal to the
+<synph><var>tr31_key_length</var></synph> input variable.</pd></plentry>
+<plentry><pt>key_usage</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. The verb copies the two bytes found in the key usage field
+of the input key block to this variable.</pd></plentry>
+<plentry><pt>algorithm</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="sh20i1">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a one-byte string identifying the cryptographic algorithm the wrapped key is to
+be used with. The value is read from the TR-31 key block header. The verb does not treat a
+proprietary algorithm value as an error.  </pd></plentry>
+<plentry><pt>mode</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a one-byte string variable containing the TR-31 mode of use for the key
+contained in the block. The value is obtained from the TR-31 header. The mode of use describes what
+operations the key can perform, within the limitations specified with the key usage value. For
+example, a key with usage for data encryption can have a mode to indicate that it can be used only
+for encryption, decryption, or both.<p>This pointer must be non-NULL and point to application
+storage with at least the size given by the byte count noted. The storage is updated with the noted
+value on a successful return from this verb, and unchanged otherwise.</p></pd></plentry>
+<plentry><pt>key_version_number</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a 2-byte string variable obtained from the TR-31 header, which can be used for
+one of three purposes, or can be unused. <ul>
+<li>If both bytes are <ph>X'30'</ph> ("0"), then key versioning is unused for this key. In this
+case, the second byte is not examined and can contain any value.</li>
+<li>If the first byte is <ph>X'63'</ph> ("c"), then the block contains a component of a key which
+must be combined with other components in order to form the complete key. TR-31 does not define the
+method through which the components are combined. TR-31 specifies that local rules are used for that
+purpose. <p>In this case, the second byte is not examined and can contain any value.</p></li>
+<li>If the first byte is anything other than the two values above, then the 2-byte key version value
+is an identifier of the version of the key that is carried in the block. This key version value can
+be used by an application, for example, to ensure that an old version of a key is not reentered into
+the system.</li>
+</ul><p>This pointer must be non-NULL and point to application storage with at least the size given
+by the byte count noted. The storage is updated with the noted value on a successful return from
+this verb, and unchanged otherwise.</p></pd></plentry>
+<plentry><pt>exportability</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a one-byte string variable containing the key exportability value from the
+TR-31 header. This value indicates whether the key can be exported from this system, and if so
+specifies conditions under which export is permitted. The following three values are possible: <ul>
+<li>If the value is <ph>X'4E'</ph> ("N"), then the key is not exportable.</li>
+<li>If the value is <ph>X'53'</ph> ("S"), then the key is exportable under any key-encrypting
+key.</li>
+<li>If the value is <ph>X'45'</ph> ("E"), then the key is exportable only under a trusted
+key-encrypting key. TR 31 defines such a trusted key as either one that is encrypted under the HSM
+master key or one that is itself contained in a TR-31 key block. CCA does not support KEKs that are
+wrapped in TR-31 key blocks.</li>
+</ul><p>This pointer must be non-NULL and point to application storage with at least the size given
+by the byte count noted. The storage is updated with the noted value on a successful return from
+this verb, and unchanged otherwise.</p></pd></plentry>
+<plentry><pt>num_opt_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer value containing the number of optional blocks that are part of the
+TR-31 key block. Information about each optional block can be obtained using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb. In this verb, use the number
+of optional blocks acquired with this verb to obtain a list of the IDs and lengths for each optional
+block. Then, use those lists to read the data from each desired block.</pd></plentry>
+</parml></section>
+</refbody></reference>

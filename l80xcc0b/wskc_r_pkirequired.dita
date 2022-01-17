@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pkirequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>PKA Key Import</cmdname> command (offset <ph>X'0104'</ph>) to be
+enabled in the active role. If the <synph><var>source_key_token</var></synph> parameter points to a
+trusted block, also enable the <cmdname>PKA Key Import - Import an external trusted block</cmdname>
+command (offset <ph>X'0311'</ph>).</p>
+<p rev="shr2">To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role. </p>
+<p rev="shr2">To receive a warning when wrapping a key with a weaker master key, enable the
+<cmdname>Warn when weak wrap - Master keys</cmdname> command (offset X'0332') in the active role.
+The <cmdname>Prohibit weak wrapping - Master keys</cmdname> command overrides this command.</p></section>
+</refbody></reference>

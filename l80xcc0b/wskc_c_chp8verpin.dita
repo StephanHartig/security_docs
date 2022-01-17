@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8verpin">
+<title>Verifying a PIN</title>
+  <titlealts>
+    <navtitle>Verifying a PIN</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verifying a PIN</searchtitle>
+  </titlealts><shortdesc>To verify a supplied PIN, call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> <ph>verb</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>verifying</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You supply the enciphered PIN, the PIN-encrypting key that enciphers
+the PIN, and other data. You must also specify the PIN verification
+key and PIN verification algorithm. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> <ph>verb</ph> generates
+a verification PIN. This verb compares the two personal identification
+numbers and if they are the same, it verifies the supplied PIN.</p>
+</conbody></concept>

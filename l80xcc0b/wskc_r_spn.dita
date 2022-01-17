@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spn">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> <ph>verb</ph> will encrypt a text block including
+a clear PIN block recovered from an encrypted PIN block. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The input PIN block  will be reformatted if the block format in
+the <synph><var>input_PIN_profile</var></synph> is different from the block format
+in the <synph><var>output_PIN_profile</var></synph>. The clear PIN block will only
+be self encrypted if the <synph><kwd>SELFENC</kwd></synph> keyword is specified in
+the <synph><var>rule_array</var></synph>. The text block is normally a "Value" field
+of a secure message TLV (Tag/Length/Value) element of a secure message.
+TLV is defined in ISO/IEC 7816-4.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

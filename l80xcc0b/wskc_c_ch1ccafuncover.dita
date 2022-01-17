@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ch1ccafuncover" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> functional
+overview</title>
+<titlealts>
+<navtitle>Overview </navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) functional overview for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security
+API to access a common cryptographic architecture. </shortdesc><?Pub
+Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>functional overview <indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<indexterm>functional overview</indexterm><indexterm>software support</indexterm></indexterm>
+<indexterm>cryptographic engine</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> access
+control</indexterm><indexterm>coprocessor certification</indexterm>
+<indexterm>device key</indexterm><indexterm>master key</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key</indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security
+API</indexterm><indexterm>master key<indexterm>establishing</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb
+description</indexterm><indexterm>TKE workstation</indexterm><indexterm>role<indexterm>DEFAULT</indexterm></indexterm>
+<indexterm>profile</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p><xref href="#l0wskc02_ch1ccafuncover/l0wskc02_fg12"/> provides a conceptual framework for
+positioning the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API,
+which you use to access a common cryptographic architecture. Application programs make procedure
+calls to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API to
+obtain cryptographic and related I/O services. You can issue a call to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API from essentially any
+high-level programming language. The call, or request, is forwarded to the cryptographic services
+access layer and receives a synchronous response. Your application program loses control until the
+access layer returns a response after processing your request. <fig expanse="column"
+id="l0wskc02_fg12">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API, access layer,
+and cryptographic engine</title>
+<image href="l0wskc02_fig7.jpg" placement="break" width="400">
+<alt>Diagram of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API,
+access layer, and cryptographic engine</alt>
+</image>
+</fig></p>
+<p>The products that implement the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+support consist of both hardware and software components. </p>
+<p><b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software support:</i></b>
+The software consists of application development and runtime software components.</p>
+<ul>
+<li>The application development software primarily consists of language
+bindings that can be included in new applications to assist in accessing
+services available at the API. Language bindings are provided for
+the C and <tm tmtype="tm" trademark="Java">Java</tm> programming languages.</li>
+<li>The runtime software can be divided into the following categories:
+ <ul>
+<li>Service-requesting programs, including application and utility
+programs.</li>
+<li>The security API, an agent function that is logically part of
+the calling application program or utility. </li>
+<li>The cryptographic services access layer: an environment-dependent
+request routing function, key-storage support services, and device
+driver to access one or more hardware cryptographic engines.</li>
+<li>The cryptographic engine software that gives access to the cryptographic engine hardware. <p>The
+cryptographic engine is implemented in the hardware of the <ph><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> coprocessor</ph>. Security-sensitive
+portions of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> are implemented in the
+cryptographic engine software running in the protected coprocessor environment.</p></li>
+<li>Utility programs and tools provide support for administering <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> secret keys, interacting with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> managed symmetric and public key
+cryptography key storage, and configuring the software support.</li>
+</ul></li>
+</ul>
+<p>You can create application programs that employ the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API or you can purchase
+applications from <tm tmtype="reg" trademark="IBM">IBM</tm> or other sources that use the products.
+This document is the primary source of information for designing systems and application programs
+that use the CCA security API with the cryptographic coprocessors.</p>
+<p><b><i>Cryptographic engine:</i></b> The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> architecture defines a cryptographic
+subsystem that contains a cryptographic engine operating within a protected boundary. The
+coprocessor's tamper-resistant, tamper-responding environment provides physical security for this
+boundary and the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> architecture
+provides the logical security needed for the full protection of critical information.</p>
+<p><b><i>CEX4C Coprocessor:</i></b> The coprocessor provides a secure programming and hardware
+environment wherein AES, DES, RSA, Elliptic Curve, and HMAC processes are performed. Each
+cryptographic coprocessor includes a general-purpose processor, non-volatile storage, and
+specialized cryptographic electronics. These components are encapsulated in a protective environment
+to enhance security. The <tm tmtype="reg" trademark="IBM">IBM</tm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Support Program enables
+applications to employ a set of AES, DES, RSA, Elliptic Curve, and HMAC-based cryptographic services
+utilizing the coprocessor hardware. Services include:</p>
+<ul>
+<li>DES, AES, RSA, Elliptic Curve, and HMAC key-pair generation</li>
+<li>DES, AES, RSA, Elliptic Curve, and HMAC host-based key record management </li>
+<li>Digital signature generation and verification</li>
+<li>Cryptographic key wrapping and unwrapping</li>
+<li>Data encryption, decryption and MAC generation/verification</li>
+<li>PIN processing for the financial services industry</li>
+<li>Other services, including DES key-management based on control-vector-enforced key
+separation.</li>
+</ul>
+<p><b><i>CEX5C Coprocessor:</i></b> The coprocessor provides the same functions as the
+CEX4C coprocessor with more algorithms moved from hardware-enhanced to fully hardware-accelerated.
+CMAC, VFPE, AESKW, and other algorithms are added.</p>
+<p rev="sh18i2"><b><i>CEX6C Coprocessor:</i></b> The coprocessor provides domain support for up to
+85 logical partitions. When configured as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor, it includes secure key
+functions with emphasis on the specialized functions required for banking and payment card systems.
+It is optionally programmable to add custom functions and algorithms by using User Defined
+Extensions (UDX). A new mode, called Payment Card Industry (PCI) PIN Transaction Security (PTS)
+Hardware Security Module (HSM), shortened to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>, is available exclusively for
+Crypto Express6S in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> mode.
+Exploitation of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> mode with
+compliance-tagged secure key tokens simplifies compliance with PCI requirements for hardware
+security modules.</p>
+<p rev="sh20i2"><b><i>CEX7C Coprocessor:</i></b> This coprocessor provides domain support for up to
+85 logical partitions. When configured as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor, it includes secure key
+functions with emphasis on the specialized functions required for banking and payment card systems.
+It is optionally programmable to add custom functions and algorithms by using user defined
+extensions (UDX). The special <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> is also available for Crypto
+Express7S in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> mode. The CEX7S
+begins introduction of Quantum Safe algorithms with CRYSTALS-Dilithium key management and digital
+signature availability.</p>
+<p><b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>:</i></b>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) is the basis for a consistent
+cryptographic product family. Applications employ the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API to obtain services from, and
+to manage the operation of, a cryptographic system that meets <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> specifications.</p>
+<p><b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> access control:</i></b>
+Each <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node has an access-control
+system enforced by the hardware and protected software. The robust <tm tmtype="tm" trademark="UNIX"
+>UNIX</tm> style access controls integrated into the <tm tmtype="tm" trademark="Linux">Linux</tm>
+operating system are used to protect the integrity of the underlying <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> hardware environment. The specialized
+processing environment provided by the cryptographic engine can be kept secure because selected
+services are provided only when certain requirements are met or a Trusted Key-Entry console is used
+to enable access. The access-control decisions are performed within the secured environment of the
+cryptographic engine and cannot be subverted by rogue code that might run on the main computing
+platform.</p>
+<p><b><i>Coprocessor certification:</i></b> After quality checking a newly manufactured coprocessor,
+<tm tmtype="reg" trademark="IBM">IBM</tm> loads and certifies the embedded software. Following the
+loading of basic, authenticated software, the coprocessor generates an RSA key-pair and retains the
+private key within the cryptographic engine. The associated public key is signed by a certification
+key securely held at the manufacturing facility and then the certified device key is stored within
+the coprocessor. The manufacturing facility key has itself been certified by a securely held key
+unique to the <ph><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>
+product line.</p>
+<p>The private key within the coprocessor, known as the device private
+key, is retained in the coprocessor.  From this time on, if tampering
+is detected or if the coprocessor batteries are removed or lose power
+in the absence of bus power, the coprocessor sets all security-relevant
+keys and data items to zero. This process is irreversible and results
+in the permanent loss of the factory-certified device key, the device
+private key, and all other data stored in battery-protected memory.
+Security-sensitive data stored in the coprocessor flash memory is
+encrypted. The key used to encrypt such data is itself retained in
+the battery-protected memory.</p>
+<p><b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key:</i></b> When
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> architecture, working
+keys, including session keys and the RSA <ph>and ECC</ph> private keys used at a node to form
+digital signatures or to unwrap other keys, are generally stored outside the cryptographic-engine
+protected environment. These working keys are wrapped (DES triple-encrypted or AES encrypted) by the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key. The master key is held
+in the clear (not enciphered) within the cryptographic engine.</p>
+<p>The number of keys usable with a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> subsystem is thus restricted only by the host server storage, not by the finite amount of storage
+within the coprocessor secure module. In addition, the working keys can be used by additional
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> cryptographic engines which have
+the same master key. This <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+characteristic is useful in high-availability and high-throughput environments where multiple
+cryptographic processors must function in parallel.</p>
+<p><b><i>Establishing a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master
+key:</i></b> To protect working keys, the master key must be generated and initialized in a secure
+manner. One method uses the internal random-number generator for the source of the master key. In
+this case, the master key is never external to the node as an entity and no other node has the same
+master key unless master-key cloning is authorized and in use (unless, out of all the possible
+values, another node randomly generates the same master-key). If an uncloned coprocessor loses its
+master key - for example, the coprocessor detects tampering and destroys the master key, - there is
+no way to recover the working keys that it wrapped. <ph rev="sh21i3">As a consequence the protected
+information is lost and not recoverable in such an event.</ph></p>
+<p rev="sh21i3">To be able to restore a lost master key, you could generate a master key on smart
+cards and load it from there. <xref
+href="https://www-01.ibm.com/servers/resourcelink/svc00100.nsf/pages/zosv2r3izst100/$file/izst100_v2r3.pdf"
+format="pdf" scope="external">Checklist for loading a TKE machine - smart card</xref> in the
+<cite>z/OS Trusted Key Entry Workstation (TKE)</cite> describes how to load a master key with a
+smart card. This would be the ideal method of loading a master key across multiple <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> adapters.</p>
+<p>The number of possible key values is: <ul>
+<li>For DES and RSA master keys, 2<sup>168</sup></li>
+<li>For AES and APKA master keys, 2<sup>256</sup></li>
+</ul></p>
+<p>Another master-key-establishment method enables authorized users
+to enter multiple, separate key parts into the cryptographic engine.
+As each part is entered, that part is XORed with the contents of the
+new master-key register. When all parts have been accumulated, a separate
+command is issued to promote the contents of the current master-key
+register to the old master-key register and to promote the contents
+of the new master-key register to the current master-key register.
+The length of the key parts is: <ul>
+<li>For DES and RSA master keys, 168 bits</li>
+<li>For AES and APKA master keys, 256 bits</li>
+</ul></p>
+<p><b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs:</i></b> An
+application or utility program obtains service from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Support Program by issuing service requests
+(verb calls or procedure calls) to the runtime subsystem (see <xref
+href="wskc_c_codesamp.dita#l0wskc02_codesamp"/>). To fulfill these requests, the Support Program in
+turn obtains service from the coprocessor software and hardware.</p>
+<p>The available services are collectively described as the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API. All the software and hardware
+accessed through the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> security API
+should be considered an integrated subsystem. A command processor performs the verb request within
+the cryptographic engine. </p>
+<p><b><i>Commands and access control, roles, profiles:</i></b> In
+order to ensure that only designated individuals (or programs) can
+run commands such as master-key loading, each command processor that
+performs sensitive processing interrogates one or more <i>control-point</i> values
+within the cryptographic engine access-control system for permission
+to perform the request.</p>
+<p>The access-control system includes one or more roles. Each role defines the permissible control
+points for users of that role. In the <ph conref="lxcommon.dita#phrases/ph_ibmz"/> environment, all
+application programs run using the permissions defined in the default role for their domain. The
+default role can only be modified using the TKE workstation. For a description of the functions that
+are permitted by the default version of the default role, see <xref
+conref="wskc_conref-l0wskc04.dita#links/icsf_tke_ug"/>.</p>
+</conbody>
+</concept>
+<?Pub *0000015856?>

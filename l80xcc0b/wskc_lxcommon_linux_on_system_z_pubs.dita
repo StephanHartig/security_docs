@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<topic xml:lang="en-us" id="lxcommon_linux_on_system_z_pubs">
+<title>Other <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+publications</title><shortdesc>You can find <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+publications on <tm trademark="developerWorks" tmtype="reg">developerWorks</tm> and on the IBM
+Information Center for Linux.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<body>
+<p>These publications are available on <tm trademark="developerWorks" tmtype="reg">developerWorks</tm> at
+<codeblock><xref keyref="devstreamdoc">www.ibm.com/developerworks/linux/linux390/documentation_dev.html</xref></codeblock></p>
+<p>
+<ul compact="no">
+<li><cite keyref="cit-zl-dd">Device Drivers, Features, and Commands, SC33-8411</cite></li>
+<li><cite keyref="cit-zl-dump-tools">Using the Dump Tools, SC33-8412</cite></li>
+<li><cite keyref="cit-zfcp-howto">How to use FC-attached SCSI devices with <tm trademark="Linux"
+tmtype="reg">Linux</tm> on <tm trademark="System z" tmtype="reg">System z</tm>,
+<ph>SC33-8413</ph></cite></li>
+<li><cite keyref="cit-zl-pav-howto">How to Improve Performance with PAV,
+<ph>SC33-8414</ph></cite></li>
+<li><cite keyref="cit-zl-eip-howto">How to use Execute-in-Place Technology with <tm
+trademark="Linux" tmtype="reg">Linux</tm> on <tm trademark="z/VM" tmtype="reg">z/VM</tm>,
+<ph>SC34-2594</ph></cite></li>
+<li><cite keyref="cit-zl-ts-howto">How to Set up a Terminal Server Environment on z/VM,
+<ph>SC34-2596</ph></cite></li>
+<li><cite keyref="cit-zl-kmsg">Kernel Messages</cite></li>
+<li><cite keyref="cit-zl-libica-ref">libica Programmer’s Reference, <ph>SC34-2602</ph></cite></li>
+</ul></p>
+<p>
+<ul compact="no">
+<li><cite keyref="cit-zl-srv">Linux on System z Troubleshooting</cite></li>
+<li><cite keyref="cit-zl-lhc-ug">Linux Health Checker User's Guide, <ph>SC34-2609</ph></cite></li>
+<li><cite keyref="cit-zl-kmsg">Kernel Messages</cite></li>
+</ul></p>
+</body></topic>

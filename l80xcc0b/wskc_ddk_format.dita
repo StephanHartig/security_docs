@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ddk_format" rev="hw20i1">
+<title>Format</title>
+<titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"
+/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>kdk_identifier_length</var></synph>,
+             <synph><var>kdk_identifier</var></synph>,
+             <synph><var>key_type_vector_length</var></synph>,
+             <synph><var>key_type_vector</var></synph>,
+             <synph><var>additional_derivation_data_length</var></synph>,
+             <synph><var>additional_derivation_data</var></synph>,
+             <synph><var>random_data_length</var></synph>,
+             <synph><var>random_data</var></synph>,
+             <synph><var>output_key_identifier_length</var></synph>,
+             <synph><var>output_key_identifier</var></synph>)</codeblock>
+</section>
+</refbody>
+</reference>

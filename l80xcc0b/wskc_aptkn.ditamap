@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_b">
+<title>Key token formats</title>
+<topicref href="wskc_r_aptkn.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key token formats</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_mk_verification.dita"/>
+<topicref href="wskc_r_tvv.dita"/>
+<topicref href="wskc_r_appbdesnulkeytok.dita"/>
+<topicref href="wskc_symmetric_key_tokens.dita">
+<topicref href="wskc_r_zapgaeskt.dita">
+<topicref href="wskc_r_aktfb.dita"/></topicref>
+<topicref href="wskc_r_kt.dita"/>
+<topicref href="wskc_r_appbdesextkeytok.dita"/>
+<topicref href="wskc_r_l0wskc03_xrkx_des.dita"/>
+</topicref>
+<topicref href="wskc_varlensym_ktokens.dita">
+<topicref href="wskc_general_vlskt.dita"/>
+<topicref href="wskc_aes_cipher_vlskt.dita"/>
+<topicref href="wskc_aes_mac_vlskt.dita"/>
+<topicref href="wskc_r_hvlsktok.dita"/>
+<topicref href="wskc_aes_eximporter_vlskt.dita"/>
+<topicref href="wskc_aes_pinpcp_vlskt.dita"/>
+<topicref href="wskc_aes_desusecv_vlskt.dita"/>
+<topicref href="wskc_aes_dkygenky_vlskt.dita"/>
+<topicref href="wskc_aes_secmsg_vlskt.dita"/>
+</topicref>
+<topicref href="wskc_c_pkatok.dita">
+<topicref href="wskc_r_pnt.dita"/>
+<topicref href="wskc_c_pkatok_secs.dita"/>
+<topicref href="wskc_c_pkatok_integrity.dita"/>
+<topicref href="wskc_c_pkatok_numrep.dita">
+<topicref href="wskc_pka_pubkcert.dita"/>
+</topicref>
+</topicref>
+<topicref href="wskc_r_rsapbe.dita"/>
+<topicref href="wskc_rsa_priv_intextkeytok.dita">
+<topicref href="wskc_r_ex.dita"/>
+<topicref href="wskc_r_int.dita"></topicref>
+<topicref href="wskc_r_rsamee_intext.dita"/>
+<topicref href="wskc_r_rsamee_opk.dita"/>
+<topicref href="wskc_rsamef_intext.dita"/>
+<topicref format="dita" href="wskc_rsopk1_intext.dita"/>
+<topicref format="dita" href="wskc_rropk1_intext.dita"/>
+<topicref format="dita" href="wskc_rsapk_chin_remtheo_2048.dita"/>
+<topicref format="dita" href="wskc_rsapkt_crt_intext.dita"/>
+<topicref href="wskc_r_rsame2.dita"/>
+<topicref href="wskc_r_varmetf.dita"/>
+</topicref>
+<topicref href="wskc_r_ecckt.dita"/>
+<topicref href="wskc_qsa_key_token.dita"/>
+<topicref href="wskc_r_hmac_key_tokens.dita"/>
+<topicref href="wskc_aeskw_structure.dita"/>
+<topicref href="wskc_tr31_key_header_opt_data.dita">
+<topicref href="wskc_tr31_key_block_header.dita"/>
+<topicref href="wskc_tr31_optional_block_data.dita"/>
+</topicref>
+<topicref href="wskc_r_zapgtblk.dita">
+<topicref href="wskc_r_l0wskc297.dita"/>
+<topicref href="wskc_r_l0wskc298.dita"/>
+<topicref href="wskc_r_stoknbin.dita"/>
+<topicref href="wskc_r_tblocksec.dita">
+<topicref href="wskc_r_tbs11.dita"/>
+<topicref href="wskc_r_tbs12.dita">
+<topicref href="wskc_r_tbs12_sss.dita"/>
+</topicref>
+<topicref href="wskc_r_tbs13.dita"/>
+<topicref href="wskc_r_tbs14.dita">
+<topicref href="wskc_r_tbs14sss.dita"/>
+</topicref>
+<topicref href="wskc_r_tbs15.dita"/>
+</topicref>
+</topicref>
+</topicref>
+</map>
+<?Pub *0000005132?>

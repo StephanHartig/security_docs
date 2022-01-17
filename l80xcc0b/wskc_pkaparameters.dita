@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pkaparameters" xml:lang="en-us" rev="sh15">
+<title>Parameters</title>
+<titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"
+/>)<indexterm>parameters</indexterm></indexterm>
+</keywords>
+<?Pub Caret 115?>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be 2.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are eight bytes
+in length and must be left-aligned and padded on the right with space characters. The
+<parmname>rule_array</parmname> keywords are described in <xref
+href="#wskc_pkaparameters/csndxd_table" format="dita"/>. <table id="csndxd_table" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Keyword</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Algorithm</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>The key specified in <parmname>source_key_identifier</parmname> is an AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>The key specified in <parmname>source_key_identifier</parmname> is a DES key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top"><b><i>Key Formatting method</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS–EXT</kwd></synph></entry>
+<entry>Copy the clear key data (length determined by the key length in the source key token) into
+the provided data field at the offset specified in the <parmname>data_offset</parmname> parameter.
+Then encrypt the key using the PKCS-1.5 block type 2 formatting algorithm.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>source_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<parmname>source_key_identifier</parmname> variable. This value is 64 when a label is supplied. When
+the key identifier is a key token, the value is the length of the token. For DES keys, the value
+must be 64. For AES keys, the maximum value is 725.</pd>
+</plentry>
+<plentry>
+<pt>source_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An internal key token, or the label of an operational symmetric key-token
+record in AES or DES key storage containing an operational AES or DES key token that is to be
+exported. If the key is a DES key, bit 17 of the control vector must be equal to '1'b (XPORT-OK).
+The key must have a control vector of DATAC or DKYGENKY with subtype DKYL0, unless the
+<cmdname>Allow Symmetric Key Export with Data Special</cmdname> access control point is enabled.
+<p>If the AES key is in a fixed length key token, no control vector checking is needed. If the AES
+key is in a variable length token, the key type must be CIPHER. If the key type is not CIPHER, an
+access control point <cmdname>Allow Symmetric Key Export with Data Special</cmdname> must be
+enabled. If the key is an AES key, the key management field in the key must allow export by RSA keys
+and by unauthenticated asymmetric keys. </p><p>If the token supplied was encrypted under the old
+master key, the token is returned encrypted under the current master key.</p></pd>
+</plentry>
+<plentry>
+<pt>data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>data</parmname> parameter in bytes. The maximum value is the
+length of the modulus (in bytes) of the <parmname>RSA_public_key_identifier</parmname> minus 11. The
+overall maximum value is 501.</pd>
+</plentry>
+<plentry>
+<pt>data_offset</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The offset in bytes from the start of the clear data (<parmname>data</parmname>) where the
+clear DES or AES key is to be copied. The maximum value is <parmname>data_length</parmname> minus
+the key length of the clear source key.</pd>
+</plentry>
+<plentry>
+<pt>data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The clear data. The deciphered key from parameter <parmname>source_key_identifier</parmname>
+is copied into this data at the specified offset, and then encrypted with the key from parameter
+<parmname>RSA_public_key_identifier</parmname>.</pd>
+</plentry>
+<plentry>
+<pt>RSA_public_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>RSA_public_key_identifier</parmname> field in bytes. This value
+is 64 when a label is supplied. When the key identifier is a key token, the value is the length of
+the token. The maximum value is 3500.</pd>
+</plentry>
+<plentry>
+<pt>RSA_public_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A PKA96 RSA internal or external key-token with the RSA public key of the remote node that
+imports the exported key.</pd>
+</plentry>
+<plentry>
+<pt>RSA_enciphered_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>RSA_enciphered_key</parmname> field in bytes. On output, the
+variable is updated with the actual length of the <parmname>RSA_enciphered_key</parmname> parameter.
+The maximum length is 512.</pd>
+</plentry>
+<plentry>
+<pt>RSA_enciphered_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The exported RSA-enciphered key.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000011608?>

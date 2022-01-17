@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<reference id="mechanisms" xml:lang="en-us">
+<title>Supported mechanisms for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword></title><?Pub
+Caret -2?>
+<titlealts>
+<navtitle>Mechanisms for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/></navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the <cmdname>pkcsconf</cmdname>
+command to list the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>
+mechanisms</searchtitle>
+</titlealts>
+<shortdesc>Use the <cmdname>pkcsconf</cmdname> command to list the mechanisms (algorithms), that are
+supported by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword>   
+            <indexterm>supported mechanisms</indexterm></indexterm>
+<indexterm>mechanisms<indexterm>supported for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword></indexterm></indexterm>
+<indexterm>algorithms<indexterm>supported for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"></keyword></indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>          <p>Issue the <cmdname>pkcsconf</cmdname> command with the <option>-m</option> parameter to
+display mechanisms. Use the <option>-c</option> parameter to specify the slot number for the token
+of interest. The following example assumes that this slot number is
+<codeph>2</codeph>:<screen># pkcsconf -m -c2
+...
+Mechanism #11
+        Mechanism: 0x1080 (CKM_AES_KEY_GEN)
+        Key Size: 16-32
+        Flags: 0x8001 (CKF_HW|CKF_GENERATE)
+Mechanism #12
+        Mechanism: 0x1081 (CKM_AES_ECB)
+        Key Size: 16-32
+        Flags: 0x60301 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT)
+Mechanism #13
+        Mechanism: 0x1082 (CKM_AES_CBC)
+        Key Size: 16-32
+        Flags: 0x60301 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT)
+...
+</screen></p>          <p>The command output lists all mechanisms
+that are supported by the token in the specified slot. The mechanism
+ID and name correspond to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"></keyword> specification.</p> <p>Each entry includes the minimum and maximum supported key size and other
+properties, like hardware support and mechanism information flags. These flags provide information
+about the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> functions that can use the
+mechanism. For some mechanisms, the flags show further attributes that describe the supported
+variants of the mechanism.</p>       </section>
+<section>          <p>The supported Crypto Express coprocessors together with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.9 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> support these <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> mechanisms:</p>
+<table id="table_mechanisms">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> mechanisms supported by
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/></title>
+<desc>
+<p outputclass="summary">Table with 3 columns that contain information about supported mechanisms by
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="18*"/>
+<colspec colname="col2" colwidth="5*"/>
+<colspec colname="col3" colwidth="16*"/>
+<thead>
+<row>
+<entry>Mechanism</entry>
+<entry>Key sizes</entry>
+<entry>Properties</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CKM_AES_CBC</entry>
+<entry>16-32</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_AES_CBC_PAD</entry>
+<entry>16-32</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_AES_ECB</entry>
+<entry>16-32</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_AES_KEY_GEN</entry>
+<entry>16-32</entry>
+<entry>GENERATE</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC</entry>
+<entry>24-24</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC_PAD</entry>
+<entry>24-24</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_DES3_KEY_GEN</entry>
+<entry>24-24</entry>
+<entry>GENERATE</entry>
+</row>
+<row>
+<entry>CKM_DES_CBC</entry>
+<entry>8-8</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_DES_CBC_PAD</entry>
+<entry>8-8</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+</row>
+<row>
+<entry>CKM_DES_KEY_GEN</entry>
+<entry>8-8</entry>
+<entry>GENERATE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_KEY_PAIR_GEN</entry>
+<entry>160-521</entry>
+<entry>GENERATE_KEY_PAIR, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA1</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA224</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA256</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA384</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA512</entry>
+<entry>160-521</entry>
+<entry>SIGN, VERIFY, EC_F_P, EC_NAMEDCURVE</entry>
+</row>
+<row>
+<entry>CKM_GENERIC_SECRET_KEY_GEN</entry>
+<entry>80-2048</entry>
+<entry>GENERATE</entry>
+</row>
+<row>
+<entry>CKM_MD5</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_MD5_HMAC</entry>
+<entry>0-0</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_MD5_HMAC_GENERAL</entry>
+<entry>0-0</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_MD5_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>ENCRYPT, DECRYPT, SIGN, VERIFY, WRAP, UNWRAP</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_RSA_PKCS_OAEP</entry>
+<entry>512-4096</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS_KEY_PAIR_GEN</entry>
+<entry>512-4096</entry>
+<entry>GENERATE_KEY_PAIR</entry>
+</row>
+<row>
+<entry>CKM_SHA_1</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_SHA_1_HMAC</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA_1_HMAC_GENERAL</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA1_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA224</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_SHA224_HMAC</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA224_HMAC_GENERAL</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA224_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA224_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA256</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_SHA256_HMAC</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA256_HMAC_GENERAL</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA256_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA256_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA384</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_SHA384_HMAC</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA384_HMAC_GENERAL</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA384_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA384_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA512</entry>
+<entry>0-0</entry>
+<entry>DIGEST</entry>
+</row>
+<row>
+<entry>CKM_SHA512_HMAC</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row>
+<entry>CKM_SHA512_HMAC_GENERAL</entry>
+<entry>80-2048</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA512_RSA_PKCS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+<row rev="sh21i1">
+<entry>CKM_SHA512_RSA_PKCS_PSS</entry>
+<entry>512-4096</entry>
+<entry>SIGN, VERIFY</entry>
+</row>
+</tbody>
+</tgroup>
+</table>          
+<p>For explanations of the key object properties, see the 
+<xref conref="wskc_conref-l0wskc04.dita#links/pkcs11_standard_url"></xref>.</p> 
+</section>
+</refbody>
+</reference>
+<?Pub *0000007190?>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<reference id="ocryptoki_conffile" xml:lang="en-us">
+<title>Confirming the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> configuration
+file</title>
+<titlealts>
+<navtitle>Confirming the configuration file</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Confirming the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> configuration file for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> support on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle><?Pub
+Caret -1?>
+</titlealts>
+<abstract><shortdesc rev="sh16i1">For <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> versions higher than 3.0, the global
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> configuration file must define
+a slot entry for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"
+/>.</shortdesc> As a minimum requirement, a slot entry must specify the library that implements the
+token. Most <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions
+provide a default configuration file with a valid slot entry for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.</abstract>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/><indexterm>token
+library</indexterm><indexterm>configuration file</indexterm></indexterm>
+<indexterm>slot manager<indexterm>starting</indexterm></indexterm><indexterm>opencryptoki.conf</indexterm><indexterm>slot manager</indexterm>
+<indexterm>slot entry</indexterm><indexterm>pkcsconf command</indexterm><indexterm>configuration file<indexterm>opencryptoki.conf</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section> <p>
+<xref format="dita" href="#ocryptoki_conffile/tab_openclibs"/> lists the libraries that might be in
+place after you successfully installed <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>.
+The actual list for your installation depends on your distribution and on the installed RPM
+packages. </p> <table id="tab_openclibs"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> libraries</title>
+<desc> <p outputclass="summary">The table lists the libraries in the
+first column and holds an explanation in the second column.</p> </desc>
+<tgroup cols="2"><colspec colname="col1" colwidth="56*"/><colspec
+colname="col2" colwidth="41*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Library</entry>
+<entry colname="col2">Explanation</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/libopencryptoki.so </filepath></entry>
+<entry colname="col2"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> base
+library</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_ica.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> libica
+token library</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_sw.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> software
+token library</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_tpm.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> TPM
+token library (not supported by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"
+/>)</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_cca.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> library</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_ep11.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> EP11
+token library</entry>
+</row>
+<row>
+<entry colname="col1"><filepath>/usr/lib64/opencryptoki/stdll/libpkcs11_icsf.so</filepath></entry>
+<entry colname="col2"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> ICSF
+token library</entry>
+</row>
+</tbody>
+</tgroup>
+</table> <note>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> library is
+available only in 64-bit mode.</note> <p>The <filepath>/etc/opencryptoki/opencryptoki.conf</filepath> file must exist and it must contain
+an entry for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> to make the
+token available. By default, this entry is available after installing the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>. See the <codeph>slot 2</codeph> entry
+in the following sample
+configuration:<screen>-------------- content of opencryptoki.conf ---------
+version opencryptoki-3.<ph rev="sh16">4</ph>
+# The following defaults are defined:
+#       hwversion = 0.0
+#       firmwareversion = 0.0
+#       description = Linux
+#       manufacturer = IBM
+#
+# The slot definitions below may be overriden and/or customized.
+# For example:
+#       slot 0
+#       {
+#          stdll = libpkcs11_cca.so
+#          description = "OCK CCA Token"
+#          manufacturer = "MyCompany Inc."
+#          hwversion = 2.32
+#          firmwareversion = 1.0
+#       }
+# See man(5) opencryptoki.conf for further information.
+#
+slot 0
+{
+stdll = libpkcs11_ica.so
+}
+
+slot 1
+{
+stdll = libpkcs11_cca.so
+}
+
+slot 2
+{
+stdll = libpkcs11_sw.so
+}
+
+slot 3
+{
+stdll = libpkcs11_ep11.so
+confname = ep11tok.conf
+}
+---------------------------- end ----------------------------------</screen></p> <note>The default path for slot token dynamic link libraries (STDLLs)
+is <filepath>/usr/lib64/opencryptoki/stdll/</filepath>.</note>
+<p>Normally, a token is available only if the token library is installed and the software and
+hardware support that is required by the token is also installed. For example, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> is available only if all parts of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccalib"/> software are installed and a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor is detected. <ph
+rev="sh18i2">After having started the slot daemon as described in <xref
+href="wskc_t_oc_strt_deamon.dita#oc_strt_deamon"/>, you can use</ph> the following command to
+display the list of available tokens: <screen>$ pkcsconf -t</screen>
+</p> </section>
+</refbody>
+</reference>
+<?Pub *0000006176?>

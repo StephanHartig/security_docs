@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_cpacf_opsc_ukclear" xml:lang="en-us">
+<title>Using keys with CPACF, clear key or no key</title>
+<titlealts>
+<navtitle>Using keys with CPACF, clear key or no key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using keys with CPACF, clear key or no
+key for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Follow the steps in this procedure to use keys with CPACF,
+clear key or no key.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CPACF</indexterm><indexterm>key<indexterm>clear</indexterm></indexterm>
+<indexterm>clear key</indexterm></keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>An eligible <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb call (see
+lists in <xref href="wskc_c_cpacf_conopt.dita#l0wskc02_cpacf_conopt"/>) comes into the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library.</cmd>
+</step>
+<step>
+<cmd>No <ph rev="shd3"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>
+is necessary, so no check for availability or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>) call will be implied.</cmd>
+</step><?Pub Caret 3?>
+<step>
+<cmd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library prepares an
+appropriate CPACF clear key (key-c) structure using the clear key passed to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb (key-v).</cmd>
+</step>
+<step>
+<cmd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library directs the
+operation to the CPACF using the key-c.</cmd>
+</step>
+</steps>
+</taskbody>
+</task>
+<?Pub *0000001374?>

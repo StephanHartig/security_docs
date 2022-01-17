@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkdformat">
+<title>Format</title>
+ <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="396*"/>
+<tbody>
+<row>
+<entry valign="top" align="left">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>(
+              <synph><var>return_code</var></synph>,
+              <synph><var>reason_code</var></synph>,
+              <synph><var>exit_data_length</var></synph>,
+              <synph><var>exit_data</var></synph>,
+              <synph><var>rule_array_count</var></synph>,
+              <synph><var>rule_array</var></synph>,
+              <synph><var>PKA_enciphered_keyvalue_length</var></synph>,
+              <synph><var>PKA_enciphered_keyvalue</var></synph>,
+              <synph><var>data_structure_length</var></synph>,
+              <synph><var>data_structure</var></synph>,
+              <synph><var>PKA_key_identifier_length</var></synph>,
+              <synph><var>PKA_key_identifier</var></synph>,
+              <synph><var>target_keyvalue_length</var></synph>,
+              <synph><var>target_keyvalue</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

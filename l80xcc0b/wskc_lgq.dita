@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_lgq" rev="sh15">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>
+</searchtitle>
+</titlealts>
+<shortdesc> Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> verb to
+retrieve system log (SYSLOG) message data and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log message data from the coprocessor.
+Syslog data is available for one of the five latest boot cycles (current boot cycle and up to four
+previous boot cycles). <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log message
+data is optionally available during the current boot cycle. The verb supports service personnel and
+developers in testing and debugging issues.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The SYSLOG for a boot cycle is initially populated with operating system messages and other
+startup messages, but more messages are written as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> encounters errors at log level 12 or above.
+A log level of 12 means, that if an error at return code value 12 or higher occurs during the
+processing of an operation or during general system processing, then a descriptive message is sent
+to the SYSLOG. The log level is configurable, with a default value of 12. If configured to be
+logged, messages for return code 4 and return code 8 are saved in volatile memory (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log) separately from messages in the
+SYSLOG. This keeps these messages from overwhelming more important errors and system messages. Each
+new boot cycle wipes out any previous <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log, while the current SYSLOG and up to
+four previous boot cycle SYSLOGs are maintained. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> log is a circular log. When the log is
+full, the oldest messages are replaced as needed with any new messages.</p>
+</section>
+</refbody>
+</reference>

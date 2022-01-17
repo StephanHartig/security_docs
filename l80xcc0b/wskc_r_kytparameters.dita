@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kytparameters">
+<title>Parameters</title>
+  <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for Key Test</indexterm></indexterm>
+<indexterm>key rule</indexterm>
+<indexterm>master key verification</indexterm>
+<indexterm>KEY-CLR</indexterm>
+<indexterm>KEY-CLRD</indexterm>
+<indexterm>KEY-ENC</indexterm>
+<indexterm>KEY-ENCD</indexterm>
+<indexterm>KEY-KM</indexterm>
+<indexterm>KEY-NKM</indexterm>
+<indexterm>KEY-OKM</indexterm>
+<indexterm>CLR-A128</indexterm>
+<indexterm>CLR-A192</indexterm>
+<indexterm>CLR-A256</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>AES-MK</indexterm>
+<indexterm>APKA-MK</indexterm>
+<indexterm>ASYM-MK</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>GENERATE</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>ADJUST</indexterm>
+<indexterm>NOADJUST</indexterm>
+<indexterm>ENC-ZERO</indexterm>
+<indexterm>MDC-4</indexterm>
+<indexterm>SHA-1</indexterm>
+<indexterm>SHA-256</indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb</indexterm></indexterm>
+<indexterm>value_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb</indexterm></indexterm>
+<indexterm>value_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 2, 3, 4, or 5.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Two to <ph>five keywords</ph> provide control information to the <ph>verb</ph>. The keywords
+must be in contiguous storage with each of the keywords left-aligned in its own 8-byte location and
+padded on the right with blanks. The <synph><var>rule_array</var></synph> keywords are described in
+<xref href="#l0wskc02_kytparameters/l0wskc02_kytary"/> .<table id="l0wskc02_kytary" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="4*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key rule</i></b> (One,
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-CLR</kwd></synph></entry>
+<entry>Specifies the key supplied in
+<synph><var>key_identifier</var></synph> is a single-length clear key.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-CLRD</kwd></synph></entry>
+<entry>Specifies the key supplied in
+<synph><var>key_identifier</var></synph> is a double-length clear key.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>KEY-CLRT</kwd></synph></entry>
+<entry>Process a triple-length Triple-DES clear key or clear key-part.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-ENC</kwd></synph></entry>
+<entry>Specifies the key supplied in
+<synph><var>key_identifier</var></synph> is a single-length encrypted key.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-ENCD</kwd></synph></entry>
+<entry>Specifies the key supplied in <synph><var>key_identifier</var></synph> is a double-length
+encrypted key.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>KEY-ENCT</kwd></synph></entry>
+<entry>Process a triple-length Triple-DES enciphered key or enciphered key-part supplied in a key token.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-KM</kwd></synph></entry>
+<entry>Specifies that the target is the master key register.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-NKM</kwd></synph></entry>
+<entry>Specifies that the target is the new master-key register.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-OKM</kwd></synph></entry>
+<entry>Specifies that the target is the old master-key register.</entry>
+</row>
+<row>
+<entry><synph><kwd>CLR-A128</kwd></synph></entry>
+<entry>Process a 128-bit AES clear-key or clear-key part.</entry>
+</row>
+<row>
+<entry><synph><kwd>CLR-A192</kwd></synph></entry>
+<entry>Process a 192-bit AES clear-key or clear-key part.</entry>
+</row>
+<row>
+<entry><synph><kwd>CLR-A256</kwd></synph></entry>
+<entry>Process a 256-bit AES clear-key or clear-key part.</entry>
+</row>
+<row>
+<entry><synph><kwd>TOKEN</kwd></synph></entry>
+<entry>Process an AES clear or encrypted key contained in an AES key-token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Master-key selector</i></b> (One, optional). Use only with
+<synph><kwd>KEY-KM</kwd></synph>, <synph><kwd>KEY-NKM</kwd></synph>, or
+<synph><kwd>KEY-OKM</kwd></synph> keywords.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>AES-MK</kwd></synph></entry>
+<entry colname="col2">Process one of the AES master-key registers.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>APKA-MK</kwd></synph></entry>
+<entry colname="col2">Process one of the APKA master-key registers.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ASYM-MK</kwd></synph></entry>
+<entry colname="col2">Specifies use of only the asymmetric master-key registers.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>SYM-MK</kwd></synph></entry>
+<entry colname="col2">Specifies use of only the symmetric master-key registers.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Process rule</i></b> (One,
+required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>GENERATE</kwd></synph></entry>
+<entry valign="top" align="left">Generate a verification pattern for the key supplied in
+<synph><var>key_identifier</var></synph>.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>VERIFY</kwd></synph></entry>
+<entry valign="top" align="left">Verify a verification pattern for the key supplied in
+<synph><var>key_identifier</var></synph>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Parity adjustment</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ADJUST</kwd></synph></entry>
+<entry valign="top" align="left">Adjust the parity of test key to odd before generating or verifying
+the verification pattern. The <synph><var>key_identifier</var></synph> field itself is not
+adjusted.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>NOADJUST</kwd></synph></entry>
+<entry valign="top" align="left">Do not adjust the parity of test key to odd before generating or
+verifying the verification pattern. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Verification process
+rule</i></b> (One, optional). See <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"/>.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ENC-ZERO</kwd></synph></entry>
+<entry valign="top" align="left">Specifies use of the "encrypted zeros" method. Use only with
+<synph><kwd>KEY-CLR</kwd></synph>, <synph><kwd>KEY-CLRD</kwd></synph>,
+<synph><kwd>KEY-ENC</kwd></synph>, or <synph><kwd>KEY-ENCD</kwd></synph> keywords. <p rev="sh20i1"
+>The optional ENC-ZERO algorithm can be used with any key. A 4-byte verification pattern is
+generated for non-compliant-tagged tokens. A 3-byte verification pattern is generated for
+compliant-tagged tokens. </p></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>MDC-4</kwd></synph></entry>
+<entry colname="col2">Specifies use of the MDC-4 master key verification method. Use only with the
+<synph><kwd>KEY-KM</kwd></synph>, <synph><kwd>KEY-NKM</kwd></synph>, or
+<synph><kwd>KEY-OKM</kwd></synph> keywords. You must specify one master-key selector keyword to use
+this keyword.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>SHA-1</kwd></synph></entry>
+<entry colname="col2">Specifies use of the SHA-1 master-key-verification method. Use only with
+<synph><kwd>KEY-KM</kwd></synph>, <synph><kwd>KEY-NKM</kwd></synph>, or
+<synph><kwd>KEY-OKM</kwd></synph> keywords. You must specify one master-key selector keyword to use
+this keyword.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>SHA-256</kwd></synph></entry>
+<entry colname="col2">Specifies use of the SHA-256 master-key-verification method.</entry>
+</row>
+<row>
+<entry colname="col1">No keyword, and first and third parts of the master key have different
+values.</entry>
+<entry colname="col2">Defaults to the use of the SHA-1 master-key verification method when the
+<synph><kwd>ASYM-MK</kwd></synph> or <synph><kwd>SYM-MK</kwd></synph> master-key selector keyword is
+specified.</entry>
+</row>
+<row>
+<entry colname="col1">No keyword, and first and third parts of the master key have the same
+value.</entry>
+<entry colname="col2">Defaults to the use of the <tm trademark="IBM" tmtype="reg">IBM</tm>
+z/OS-based master-key verification method when the <synph><kwd>ASYM-MK</kwd></synph> or
+<synph><kwd>SYM-MK</kwd></synph> master-key selector keyword is specified.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_identifier </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The key for which to generate or verify the verification pattern. The parameter is a 64-byte
+string of an internal token, key label, or a clear key value left-aligned.<note>If you supply a key
+label for this parameter, it must be unique <ph>in the key storage file</ph>.</note></pd></plentry>
+<plentry><pt>value_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. See <xref
+href="wskc_r_kyt.dita#l0wskc02_kyt/l0wskc02_kyt_tab1"/> for how this variable is used. For process
+rule <synph><kwd>GENERATE</kwd></synph> this parameter is output only, and for process rule
+<synph><kwd>VERIFY</kwd></synph> it is input only. This variable must be specified, even if it is
+not used. With the <synph><kwd>ENC-ZERO</kwd></synph> method, this parameter is not used.</pd></plentry>
+<plentry><pt>value_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. See <xref
+href="wskc_r_kyt.dita#l0wskc02_kyt/l0wskc02_kyt_tab1"/> for how this variable is used. For process
+rule <synph><kwd>GENERATE</kwd></synph> this parameter is output only, and for process rule
+<synph><kwd>VERIFY</kwd></synph> it is input only. This variable must be specified, even if it is
+not used. With the <synph><kwd>ENC-ZERO</kwd></synph> method, the high-order four bytes contain the
+verification data. For more detail, see <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"/>.</pd></plentry>
+</parml></section>
+</refbody></reference>

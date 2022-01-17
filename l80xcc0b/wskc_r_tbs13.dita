@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbs13">
+<title>Trusted block section X'13'</title>
+ <titlealts>
+    <navtitle>Trusted block section <ph><ph>X'13'</ph></ph></navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section X'13'</searchtitle>
+  </titlealts>
+<shortdesc>Trusted block section X'13' contains the name (key label). </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>trusted block section X'13'</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The trusted block name section provides a 64-byte variable to identify
+the trusted block, just as key labels are used to identify other CCA
+keys. This name, or label, enables a host access-control system such
+as <tm trademark="RACF" tmtype="reg">RACF</tm> to use the name to
+verify that the application has authority to use the trusted block. </p></section>
+<section><p>Section X'13' is optional. No multiple sections are allowed. It has no subsections defined. </p>
+<table id="l0wskc02_srsas08" pgwide="1" frame="all">
+<title>Trusted block key label (name) section X'13'</title>
+<desc>
+<p outputclass="summary">Trusted block key label (name) section </p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section identifier: <dl compact="yes">
+<dlentry>
+<dt><ph>X'13'</ph></dt>
+<dd>Trusted block name (key label) </dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry valign="top">001</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Section length in bytes (68).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">064</entry>
+<entry valign="top">Name (key label).</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

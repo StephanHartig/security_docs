@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_fc">
+<title>Format control</title>
+  <titlealts>
+    <navtitle>Format control</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format control</searchtitle>
+  </titlealts><shortdesc>This keyword specifies whether there is any control on the user-supplied
+PIN format. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>format control</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The 8-byte value must be left-aligned and padded with blanks. <ph>The
+only permitted value is NONE, which indicates no format control will
+be used.</ph></p>
+</conbody></concept>

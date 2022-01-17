@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkdrestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul rev="shd3">
+<li>The exponent of the RSA public key must be odd.</li>
+<li>Rule array keywords PKCSOAEP, SHA-1, and SHA-256 are not supported in releases before Release
+4.4. </li>
+<li>The <cmdname>PKA Decipher - Key Data Disallow PKCS-1.2</cmdname> command (offset X'020A'), the
+<cmdname>PKA Decipher - Key Data Disallow ZERO-PAD</cmdname> command (offset X'020B'), and the
+<cmdname>PKA Decipher - Key Data Disallow PKCSOAEP</cmdname> command (offset X'020C') are not
+defined in releases before Release 4.4.</li>
+</ul></section>
+</refbody></reference>

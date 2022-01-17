@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktr1required">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/></searchtitle>
+  </titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>DATA</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the <cmdname>Key Translate</cmdname> command (offset X'001F') to be enabled in
+the active role.</p></section>
+<section rev="sh20i1">
+<p>In releases before Release 5.4 and Release 6.2, triple-length TDES keys are not supported, thus
+limiting an outbound TDES key to double length. Beginning with Release 5.4, triple-length TDES keys
+are supported, and an outbound TDES key can be double-length or triple-length. This makes it
+possible for data that is encrypted using a triple-length key to be translated to data encrypted
+using a weaker double-length key. Such a translation reduces the security of the data and causes a
+security exposure, and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> normally
+restricts such a translation from occurring. To override this restriction, the <cmdname>Translate
+from DES Key to Weaker DES Key</cmdname> command (offset X’01C3’) must be enabled in the active
+role.</p>
+<note>This command affects multiple verbs. See <xref href="wskc_r_apn.dita#l0wskc02_apn"/>.</note>
+<p rev="sh20i1">Also, beginning with Release 5.4 and Release 6.2, it is possible to do a translation
+using an output key that is weaker than the input key. To disallow this, set the command shown in
+<xref href="#l0wskc02_ktr1required/kek_algo_table" format="dita"/>: <table id="kek_algo_table"
+><title>Disallow translation to a weaker key</title><tgroup cols="4">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="3*"/>
+<colspec colname="col4" colwidth="4*"/>
+<thead>
+<row>
+<entry>Algorithm of input KEK key</entry>
+<entry>Algorithm of output KEK key</entry>
+<entry>Command offset (Release 5.4 or later)</entry>
+<entry>Command to disallow translation using a weaker key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>DES</entry>
+<entry>DES</entry>
+<entry>X'01C7'</entry>
+<entry>Disallow Translation from a DES Key to a Weaker DES Key</entry>
+</row>
+</tbody>
+</tgroup></table><note>This command affects multiple verbs. See <xref
+href="wskc_r_apn.dita#l0wskc02_apn"/>.</note></p>
+</section>
+</refbody></reference>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ckmrequired">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the algorithm
+or key-wrapping method: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="10*"/>
+<thead>
+<row>
+<entry colname="col1">Algorithm or method</entry>
+<entry colname="col2">Offset </entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>AES</entry>
+<entry><ph>X'0129'</ph></entry>
+<entry><cmdname>Multiple Clear Key Import/Multiple Secure Key Import - AES</cmdname></entry>
+</row>
+<row>
+<entry>DES</entry>
+<entry><ph>X'00C3'</ph></entry>
+<entry><cmdname>Clear Key Import/Multiple Clear Key Import - DES</cmdname></entry>
+</row>
+<row>
+<entry>WRAP-ECB or WRAP-ENH used, and default key-wrapping method setting does not
+match keyword</entry>
+<entry><ph>X'0141'</ph></entry>
+<entry><cmdname>Multiple Clear Key Import - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<note>Note: A role with offset X'00C3' can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> verb.</note></section>
+</refbody></reference>

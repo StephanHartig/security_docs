@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_aptkn" xml:lang="en-us">
+<title>Key token formats</title>
+<titlealts>
+<navtitle>Key token formats</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Key token formats</searchtitle>
+</titlealts>
+<shortdesc>The key token formats can be useful for debugging
+purposes.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>internal key token<indexterm>DES</indexterm></indexterm>
+<indexterm>internal key token<indexterm>AES</indexterm></indexterm>
+<indexterm>DES internal key token format</indexterm><indexterm>key
+token<indexterm>DES<indexterm>internal</indexterm></indexterm></indexterm>
+<indexterm>key token<indexterm>DES<indexterm>external</indexterm></indexterm></indexterm>
+<indexterm>key token<indexterm>DES<indexterm>null</indexterm></indexterm></indexterm>
+<indexterm>key formats</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p otherprops="pdf">This information unit provides the formats for: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_r_zapgaeskt.dita#l0wskc02_zapgaeskt"/></li>
+<li><xref href="wskc_r_kt.dita#l0wskc02_kt"/></li>
+<li><xref href="wskc_r_appbdesextkeytok.dita#l0wskc02_appbdesextkeytok"/></li>
+<li><xref href="wskc_r_l0wskc03_xrkx_des.dita#l0wskc03_xrkx_des"/></li>
+<li><xref href="wskc_r_appbdesnulkeytok.dita#l0wskc02_appbdesnulkeytok"/></li>
+<li><xref href="wskc_r_rsapbe.dita#l0wskc02_rsapbe"/></li>
+<li><xref href="wskc_rsa_priv_intextkeytok.dita#wskc_rsa_priv_intextkeytok"/></li>
+<li><xref href="wskc_r_ecckt.dita#l0wskc02_ecckt"/></li>
+<li><xref href="wskc_c_pkatok.dita#l0wskc02_pkatok"/></li>
+<li><xref href="wskc_r_hmac_key_tokens.dita#l0wskc01_hmac_key_tokens"/></li>
+<li><xref href="wskc_varlensym_ktokens.dita#l0wskc02_varlensym"/></li>
+<li rev="sh20i1"><xref href="wskc_tr31_key_header_opt_data.dita"/></li>
+<li><xref href="wskc_r_zapgtblk.dita#l0wskc02_zapgtblk"/></li>
+</ul></section>
+</refbody>
+</reference>
+<?Pub *0000005570?>

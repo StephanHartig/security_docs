@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_ctt2" rev="sh15" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></searchtitle>
+</titlealts>
+<shortdesc>This callable service deciphers encrypted data (ciphertext) under one ciphertext
+translation key and re-enciphers it under another ciphertext translation key without having the
+data appear in the clear outside the cryptographic coprocessor.  Such a function is useful in a
+multiple node network, where sensitive data is passed through multiple nodes prior to it reaching
+its final destination.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>       <p>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"></keyword> verb
+to decipher text under an input key and then to encipher the
+text under an output key. Both AES and DES algorithms are supported.
+Translation between AES and DES is allowed with restrictions controlled by access control points.</p>
+<p>The encryption modes supported are: </p>       <ul>
+<li>DES &ndash; CBC, CUSP and IPS</li>
+<li>AES &ndash; CBC and ECB</li>
+</ul>       <p>The padding methods supported are:</p>       <ul>
+<li>DES &ndash; X9.23</li>
+<li>AES &ndash; PKCSPAD</li>
+</ul>     </section>
+<section>
+<title>Scenario for using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>
+verb</title>
+<p>This scenario uses the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>), and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>) callable services with four network
+nodes: A, B, C, and D. You want to send data from your network node A to a destination node D. You
+cannot communicate directly with node D, because nodes B and C are situated between A and D. You do
+not want nodes B and C to decipher your data. </p>
+<?Pub Caret 18?>
+<p>At node A, you use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/>
+service. Node D uses the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>
+service. Node B and C will use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> service. </p>
+<p>Consider the keys that are needed to support this process:</p>
+<ol>
+<li>At your node, generate one key in two forms: OPEX CIPHER CIPHERXI.</li>
+<li>Send the exportable CIPHERXI key to node B.</li>
+<li>Node B and C need to share a key, so generate a different key in two forms: EXEX CIPHERX0
+CIPHERXI.</li>
+<li>Send the exportable CIPHERX0 key to node B.</li>
+<li>Send the exportable CIPHERXI key to node C.</li>
+<li>Node C and node D need to share a CIPHERX0 key and a CIPHER key. Node D can generate one key in
+two forms: OPEX CIPHERX0 CIPHERXI.</li>
+<li>Node D sends the exportable CIPHERX0 key to node C.</li>
+</ol>
+<p>The communication process is shown as: </p>
+<codeblock>
+Node:         A              B                     C                 D
+
+Service:   CSNBENC        CSNBCTT2             CSNBCTT2            CSNBDEC
+
+Keys:      CIPHER     CIPHERXI CIPHERX0    CIPHERXI  CIPHERXI      CIPHER
+
+Key pairs:   |____ = ____|        |____ = ____|          |____ = ____|
+</codeblock>
+<p>Therefore, you need three keys, each in two different forms. You can generate two of the keys at
+node A, and node D can generate the third key. Note that the key used in the decipher callable
+service at node D is not the same key used in the encipher callable service at node A.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000005374?>

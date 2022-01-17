@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_x509_certificates" rev="sh20i1">
+<title>X.509 certificates</title>
+<titlealts>
+<navtitle>X.509 certificates</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): X.509 certificates</searchtitle>
+</titlealts>
+<shortdesc>An X.509 certificate couples an identity to an RSA or ECC public key. This certificate
+can be used in PKA services in lieu of a PKA public key token. An X.509 certificate may only be used
+in verbs consistent with its usage attributes.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>X.509 certificates<indexterm>PKA</indexterm></indexterm>
+<indexterm>PKA cryptography<indexterm>X.509 certificates</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<note>Only the 31-bit verbs are listed, but this also applies to the 64-bit equivalent
+services.</note>
+<ul>
+<li>digitalSignature -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"
+/>.</li>
+<li>nonRepudiation -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"
+/>.</li>
+<li>keyEncipherment -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>,
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>.</li>
+<li>dataEncipherment -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"
+/>. </li>
+<li>keyAgreement -- Verbs: None.</li>
+<li>keyCertSign -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"
+/>.</li>
+<li>cRLSign -- Verbs: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/>.</li>
+<li>encipherOnly -- Verbs: N/A.</li>
+<li>decipherOnly -- Verbs: N/A.</li>
+</ul>
+<p>Certificates may also be used in the ANSI TR-34 verbs (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>). See the verb descriptions for
+information on what usage is required, if any, for each input certificate. If no key usage attribute
+is present in the certificate, the certificate may be used in any service. </p>
+<p>One way to create a certificate with specific key usage attributes is to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>) callable service to create a
+certificate signing request (CSR) with the desired key usage attributes. This CSR can then be signed
+by a Certificate Authority (CA) to create a certificate with the desired key usage attributes.</p>
+<p>When using operational certificates that are to be validated against an issuer CA root
+certificate, the root certificate of the issuer CA must be loaded on all CEX6C and higher
+coprocessors using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) workstation before the
+operational certificate can be used successfully.</p>
+</conbody>
+</concept>

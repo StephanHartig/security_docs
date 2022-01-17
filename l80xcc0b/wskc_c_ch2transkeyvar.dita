@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ch2transkeyvar">
+<title>Transport key variant for fixed-length tokens</title>
+  <titlealts>
+    <navtitle>Transport key variant for fixed-length tokens</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Transport key variant
+      for fixed-length tokens</searchtitle>
+  </titlealts><shortdesc>Like the master key, the coprocessor creates variations of a transport
+key to encrypt a key according to its type. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>transport key variant<indexterm>definition</indexterm></indexterm>
+<indexterm>key encrypting key variant<indexterm>definition</indexterm></indexterm>
+<indexterm>transport key</indexterm>
+<indexterm>NOCV</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This allows for key separation when a key is transported off the system. A <term>transport key
+variant</term>, also called <term>key-encrypting key variant</term>, is created the same way a
+master key variant is created. The transport key's clear value is XORed with a control vector
+associated with the key type of the key it protects.</p>
+<note>To exchange keys with systems that do not recognize
+transport key variants, the coprocessor allows you to encrypt selected
+keys under a transport key itself, not under the transport key variant.
+For more information, see NOCV Importers and Exporters on page <xref href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_nnocv"/>.</note>
+</conbody></concept>

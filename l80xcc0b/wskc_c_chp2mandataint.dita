@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2mandataint">
+<title>Managing data integrity and message authentication</title>
+<titlealts>
+<navtitle>Data integrity and message authentication</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Managing data integrity and message
+authentication</searchtitle>
+</titlealts><shortdesc>To ensure the integrity of transmitted messages and stored data, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides DES-based Message Authentication
+Code (MAC) functions and several hashing functions, including Modification Detection Code (MDC),
+SHA-1, RIPEMD-160 and MD5.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>data integrity<indexterm>managing</indexterm></indexterm>
+<indexterm>authentication</indexterm>
+<indexterm>Message Authentication Code (MAC)</indexterm>
+<indexterm>Modification Detection Code (MDC)</indexterm>
+<indexterm>SHA-1</indexterm>
+<indexterm>RIPEMD-160</indexterm>
+<indexterm>MD5</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>See <xref href="wskc_r_pk3.dita#l0wskc02_pk3"/> for an alternate
+method of message authentication using digital signatures.</p>
+<p>The choice of verb depends on the security requirements of the environment in which you are
+operating. If you need to ensure the authenticity of the sender and also the integrity of the data,
+consider Message Authentication Code processing. If you need to ensure the integrity of transmitted
+data in an environment where it is not possible for the sender and the receiver to share a secret
+cryptographic key, consider hashing functions.</p>
+</conbody></concept>

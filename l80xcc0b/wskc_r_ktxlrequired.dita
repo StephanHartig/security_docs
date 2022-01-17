@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktxlrequired">
+<title>Required commands</title>  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the keyword: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="19*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>EMVCRT</kwd></synph></entry>
+<entry><ph>X'033A'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA CRT to EMV CRT
+format</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>EMVDDA</kwd></synph></entry>
+<entry><ph>X'0338'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA CRT to EMV DDA
+format</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>EMVDDAE</kwd></synph></entry>
+<entry><ph>X'0339'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA CRT to EMV DDAE
+format</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>EXTDWAKW</kwd></synph></entry>
+<entry><ph>X'00FF'</ph></entry>
+<entry><cmdname>PKA Key Translate - Translate external key
+token</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>INTDWAKW</kwd></synph></entry>
+<entry><ph>X'00FE'</ph></entry>
+<entry><cmdname>PKA Key Translate - Translate internal key
+token</cmdname></entry>
+</row>
+
+<row>
+<entry><synph><kwd>SCVISA</kwd></synph></entry>
+<entry><ph>X'0318'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA to SC Visa
+Format</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>SCCOMME</kwd></synph></entry>
+<entry><ph>X'0319'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA to SC ME
+Format</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>SCCOMCRT</kwd></synph></entry>
+<entry><ph>X'031A'</ph></entry>
+<entry><cmdname>PKA Key Translate - from CCA RSA to SC CRT
+Format</cmdname></entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>ECC-AES1</kwd></synph></entry>
+<entry><ph>X'00EF'</ph></entry>
+<entry><cmdname>Allow ECC Private Key Export</cmdname></entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>QSA-AES1</kwd></synph></entry>
+<entry><ph>X'020F'</ph></entry>
+<entry><cmdname>PKT - Allow QSA Private Key Export</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>These commands must also be enabled to allow the key type combinations shown in this table: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> verb, key type combinations</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="25*"/>
+<colspec colname="col2" colwidth="25*"/>
+<colspec colname="col3" colwidth="18*"/>
+<colspec colname="col4" colwidth="90*"/>
+<thead>
+<row valign="bottom">
+<entry>Source transport key type</entry>
+<entry>Target transport key type</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry><ph>X'031B'</ph></entry>
+<entry><cmdname>PKA Key Translate - from source EXP KEK to target EXP
+KEK</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry><ph>X'031C'</ph></entry>
+<entry><cmdname>PKA Key Translate - from source IMP KEK to target EXP
+KEK</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry><ph>X'031D'</ph></entry>
+<entry><cmdname>PKA Key Translate - from source IMP KEK to target IMP
+KEK</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry>N/A</entry>
+<entry>This key type combination is not allowed.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following access control points control the use of weak transport keys:</p>
+<ul>
+<li>To disable the wrapping of a key with a weaker transport key, the <cmdname>Prohibit
+weak wrapping - Transport keys</cmdname> command (offset X'0328') must be enabled in the active
+role.</li>
+<li>To receive an informational message when wrapping a key with a weaker key-encrypting key, enable
+the <cmdname>Warn when weak wrap - Transport keys</cmdname> command (offset X'032C') in
+the active role. The <cmdname>Prohibit weak wrapping - Transport keys</cmdname> command
+overrides this command.</li>
+</ul>
+<p>The following access control points control the use of weak master keys: </p>
+<ul>
+<li>To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak
+wrapping - Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</li>
+<li>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</li>
+</ul></section>
+<section rev="sh20i1">
+<p>In releases before Release 5.4 and Release 6.2, triple-length TDES keys are not supported, thus
+limiting an outbound TDES key to double length. Beginning with Release 5.4 and Release 6.2,
+Triple-length TDES keys are supported, and an outbound TDES key can be double-length or
+triple-length. This makes it possible for data that is encrypted using a triple-length key to be
+translated to data encrypted using a weaker double-length key. Such a translation reduces the
+security of the data and causes a security exposure, and CCA normally restricts such a translation
+from occurring. To override this restriction, the <cmdname>Translate from DES Key to Weaker DES
+Key</cmdname> command (offset X’01C3’) must be enabled in the active role.</p>
+<note rev="sh20i1">This command affects multiple verbs. See <xref href="wskc_r_apn.dita"/>.</note>
+</section>
+</refbody></reference>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc03_abbrev">
+<title>List of abbreviations</title>
+  <titlealts>
+    <navtitle>List of abbreviations</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): List of abbreviations</searchtitle>
+  </titlealts>
+<shortdesc>A list of abbreviations used in this document.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>function control vector<indexterm>FCV</indexterm></indexterm>
+<indexterm>FCV<indexterm>function control vector</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<dl>
+<dlentry>
+<dt>ADB</dt>
+<dd>Actual Data Block</dd>
+</dlentry>
+<dlentry><dt>AES</dt>
+<dd>Advanced Encryption Standard</dd></dlentry>
+<dlentry>
+<dt>AESKW</dt>
+<dd>AES Key Wrap (ANS X9.102)</dd>
+</dlentry>
+<dlentry><dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/aix"/></dt>
+<dd>Advanced
+Interactive Executive operating system</dd></dlentry>
+<dlentry><dt>ANS</dt>
+<dd>American National Standards</dd></dlentry>
+<dlentry><dt>ANSI</dt>
+<dd>American National Standards Institute</dd></dlentry>
+<dlentry><dt>API </dt>
+<dd>Application Programming Interface </dd></dlentry>
+<dlentry>
+<dt>APAR </dt>
+<dd>
+<p>Authorized Problem Analysis Report</p>
+</dd>
+</dlentry>
+<dlentry><dt>ASCII</dt>
+<dd>American National Standard Code for
+Information Interchange</dd></dlentry>
+<dlentry><dt>ASN</dt>
+<dd>Abstract Syntax Notation</dd></dlentry>
+<dlentry><dt>ATC</dt>
+<dd>Application Transaction Counter</dd></dlentry>
+<dlentry><dt>ATM</dt>
+<dd>Automated Teller Machine</dd></dlentry>
+<dlentry><dt>BC</dt>
+<dd>Block Contents</dd></dlentry>
+<dlentry><dt>BDK</dt>
+<dd>Base Derivation Key</dd></dlentry>
+<dlentry><dt>BER</dt>
+<dd>ASN.1 Basic Encoding Rules</dd></dlentry>
+<dlentry><dt>CA</dt>
+<dd>Certification Authority</dd></dlentry>
+<dlentry><dt>CBC</dt>
+<dd>Cipher block chaining</dd></dlentry>
+<dlentry><dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/></dd></dlentry>
+<dlentry>
+<dt>CEX4C</dt>
+<dd>Crypto Express4 Coprocessor</dd>
+</dlentry>
+<dlentry>
+<dt>CEX5C</dt>
+<dd>Crypto Express5 Coprocessor</dd>
+</dlentry>
+<dlentry rev="sh18i1">
+<dt>CEX6C</dt>
+<dd>Crypto Express6 Coprocessor</dd>
+</dlentry>
+<dlentry><dt>CKDS</dt>
+<dd>Cryptographic Key Data Set.</dd></dlentry>
+<dlentry><dt>CKSN</dt>
+<dd>Current-Key Serial Number</dd></dlentry>
+<dlentry>
+<dt>CMAC</dt>
+<dd>Block Cipher-based Message Authentication Code Algorithm (analogous to HMAC), NIST SP
+800-38B</dd>
+</dlentry>
+<dlentry><dt>CMK</dt>
+<dd>Current Master Key</dd></dlentry>
+<dlentry><dt>CMS</dt>
+<dd>Cryptographic Message Syntax</dd></dlentry>
+<dlentry><dt>CNI</dt>
+<dd>Coprocessor Node Initialization</dd></dlentry>
+<dlentry><dt>CNM</dt>
+<dd>Cryptographic Node Management (utility)</dd></dlentry>
+<dlentry><dt>CPACF</dt>
+<dd>Central Processor Assist for Cryptographic
+Functions</dd></dlentry>
+<dlentry rev="sh21i1"><dt>CRDL-DSA</dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> Digital Signature
+Algorithm</dd></dlentry>
+<dlentry>
+<dt>CRT</dt>
+<dd>Chinese Remainder Theorem.</dd>
+</dlentry>
+<dlentry><dt>CSC</dt>
+<dd>Card Security Code</dd></dlentry>
+<dlentry><dt>CV</dt>
+<dd>Control Vector</dd></dlentry>
+<dlentry><dt>CVC</dt>
+<dd>Card verification code used by MasterCard.</dd></dlentry>
+<dlentry><dt>CVK</dt>
+<dd>Card Verification Key</dd></dlentry>
+<dlentry><dt>CVV</dt>
+<dd>Card verification value used by VISA.</dd></dlentry>
+<dlentry><dt>DEA</dt>
+<dd>Data encryption algorithm</dd></dlentry>
+<dlentry><dt>DES</dt>
+<dd>Data Encryption Standard</dd></dlentry>
+<dlentry>
+<dt>DK</dt>
+<dd>Deutsche Kreditwirtschaft (German Banking Industry Committee). Formerly known as ZKA.</dd>
+</dlentry>
+<dlentry><dt>DMA</dt>
+<dd>Direct Memory Access</dd></dlentry>
+<dlentry><dt>DOW</dt>
+<dd>Day of the Week</dd></dlentry>
+<dlentry>
+<dt>DRBG</dt>
+<dd>Deterministic Random Bit Generator</dd>
+</dlentry>
+<dlentry>
+<dt>DRBGVS</dt>
+<dd>Deterministic Random Bit Generator Validation System (NIST SP 800-90A)</dd>
+</dlentry>
+<dlentry><dt>DSA</dt>
+<dd>Digital Signature Algorithm.</dd></dlentry>
+<dlentry><dt>DSS</dt>
+<dd>Digital Signature Standard.</dd></dlentry>
+<dlentry><dt>DUKPT</dt>
+<dd>Derived Unique Key Per Transaction</dd></dlentry>
+<dlentry>
+<dt>EBCDIC</dt>
+<dd>Extended Binary Coded Decimal Interchange Code</dd>
+</dlentry>
+<dlentry><dt>EC</dt>
+<dd>Elliptic Curve</dd></dlentry>
+<dlentry><dt>ECB</dt>
+<dd>Electronic codebook.</dd></dlentry>
+<dlentry><dt>ECC</dt>
+<dd>Elliptic Curve Cryptography</dd></dlentry>
+<dlentry><dt>ECDH</dt>
+<dd>Elliptic Curve Diffie-Hellman</dd></dlentry>
+<dlentry><dt>ECDSA</dt>
+<dd>Elliptic Curve Digital Signature
+Algorithm</dd></dlentry>
+<dlentry><dt>ECI</dt>
+<dd>Eurocheque International</dd></dlentry>
+<dlentry>
+<dt>EDE</dt>
+<dd>Encipher-Decipher-Encipher</dd>
+</dlentry>
+<dlentry>
+<dt>EEPROM</dt>
+<dd>Electrically Erasable, Programmable Read-Only Memory</dd>
+</dlentry>
+<dlentry><dt>EID</dt>
+<dd>Environment Identification.</dd></dlentry>
+<dlentry><dt>EPP</dt>
+<dd>Encrypting PIN PAD</dd></dlentry>
+<dlentry><dt>FCV</dt>
+<dd>function control vector</dd></dlentry>
+<dlentry><dt>FIPS</dt>
+<dd>Federal Information Processing Standards</dd></dlentry>
+<dlentry rev="shr2">
+<dt>FPE</dt>
+<dd>Format Preserving Encryption</dd>
+</dlentry>
+<dlentry><dt>GBP</dt>
+<dd>German Bank Pool.</dd></dlentry>
+<dlentry><dt>HMAC</dt>
+<dd>Keyed Hash MAC</dd></dlentry>
+<dlentry><dt>HSM</dt>
+<dd>Hardware Security Module</dd></dlentry>
+<dlentry><dt><tm trademark="IBM" tmtype="reg">IBM</tm></dt>
+<dd>International
+Business Machines</dd></dlentry>
+<dlentry><dt>ICSF</dt>
+<dd>Integrated Cryptographic Service Facility. </dd></dlentry>
+<dlentry><dt>ICV</dt>
+<dd>Initial Chaining Value</dd></dlentry>
+<dlentry><dt>IEC</dt>
+<dd>International Electrotechnical Commission</dd></dlentry>
+<dlentry>
+<dt>IETF</dt>
+<dd>Internet Engineering Task Force</dd>
+</dlentry>
+<dlentry><dt>I/O</dt>
+<dd>Input/Output</dd></dlentry>
+<dlentry><dt>IPEK</dt>
+<dd>Initial PIN Encryption Key</dd></dlentry>
+<dlentry>
+<dt>IPL</dt>
+<dd>initial program load</dd>
+</dlentry>
+<dlentry><dt>ISO</dt>
+<dd>International Organization for Standardization. </dd></dlentry>
+<dlentry><dt>ISO/DIS</dt>
+<dd>International Organization for
+Standardization/Draft International Standard</dd></dlentry>
+<dlentry><dt>ISO/FDIS</dt>
+<dd>International Organization for
+Standardization/Final Draft International Standard</dd></dlentry>
+<dlentry><dt>JNI</dt>
+<dd><tm trademark="Java" tmtype="tm">Java</tm> Native
+Interface</dd></dlentry>
+<dlentry><dt>KC</dt>
+<dd>Key Confirmation</dd></dlentry>
+<dlentry><dt>KDF</dt>
+<dd>Key Derivation Function</dd></dlentry>
+<dlentry><dt>KEK</dt>
+<dd>Key-Encrypting Key</dd></dlentry>
+<dlentry><dt>KVP</dt>
+<dd>key verification pattern</dd></dlentry>
+<dlentry><dt>LRC</dt>
+<dd>longitudinal redundancy check</dd></dlentry>
+<dlentry><dt>LSB</dt>
+<dd>least significant bit</dd></dlentry>
+<dlentry><dt>MAC</dt>
+<dd>Message Authentication Code</dd></dlentry>
+<dlentry><dt>MD5</dt>
+<dd>Message Digest-5 Hash Algorithm</dd></dlentry>
+<dlentry><dt>MDC</dt>
+<dd>Modification Detection Code</dd></dlentry>
+<dlentry><dt>MDK</dt>
+<dd>Master-Derivation Key</dd></dlentry>
+<dlentry><dt>MFK</dt>
+<dd>Master File Key</dd></dlentry>
+<dlentry><dt>MK</dt>
+<dd>Master Key</dd></dlentry>
+<dlentry><dt>MKVP</dt>
+<dd>Master-Key Verification Pattern</dd></dlentry>
+<dlentry><dt>MSB</dt>
+<dd>Most significant bit</dd></dlentry>
+<dlentry><dt>NIST</dt>
+<dd>US National Institute of Science and Technology.</dd></dlentry>
+<dlentry><dt>NMK</dt>
+<dd>New Master Key</dd></dlentry>
+<dlentry><dt>OAEP</dt>
+<dd>Optimal asymmetric encryption padding.</dd></dlentry>
+<dlentry><dt>OCSP</dt>
+<dd>Open Certificate Status Protocol</dd></dlentry>
+<dlentry><dt>OEM</dt>
+<dd>Original Equipment Manufacturer</dd></dlentry>
+<dlentry><dt>OID</dt>
+<dd>Object Identifier</dd></dlentry>
+<dlentry><dt>OMK</dt>
+<dd>Old Master Key</dd></dlentry>
+<dlentry><dt>OPK</dt>
+<dd>Object Protection Key</dd></dlentry>
+<dlentry><dt>PAN</dt>
+<dd>Personal Account Number</dd></dlentry>
+<dlentry>
+<dt>PBF</dt>
+<dd>PIN Block Format</dd>
+</dlentry>
+<dlentry><dt>PCI</dt>
+<dd>Peripheral Component Interconnect</dd></dlentry>
+<dlentry><dt>PCIe</dt>
+<dd>PCI Express</dd></dlentry>
+<dlentry><dt>PCI-X</dt>
+<dd>PCI Extended</dd></dlentry>
+<dlentry><dt>PCICA</dt>
+<dd>PCI Cryptographic Accelerator.</dd></dlentry>
+<dlentry>
+<dt>PCICC</dt>
+<dd>PCI Cryptographic Coprocessor.</dd>
+</dlentry>
+<dlentry><dt>PCIXCC</dt>
+<dd><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcix"/>.</dd></dlentry>
+<dlentry>
+<dt>PIN</dt>
+<dd>Personal Identification Number</dd>
+</dlentry>
+<dlentry><dt>PKA</dt>
+<dd>public key algorithm</dd></dlentry>
+<dlentry><dt>PKCS</dt>
+<dd>Public Key Cryptographic Standards
+(RSA Data Security, Inc.)</dd></dlentry>
+<dlentry><dt>PKDS</dt>
+<dd>Public key data set (PKA cryptographic key data set)</dd></dlentry>
+<dlentry rev="sh18i1">
+<dt>PKI</dt>
+<dd>public key infrastructure</dd>
+</dlentry>
+<dlentry><dt>POST</dt>
+<dd>Power-On Self Test</dd></dlentry>
+<dlentry><dt>PRNG</dt>
+<dd>Pseudo Random Number Generator</dd></dlentry>
+<dlentry><dt>PROM</dt>
+<dd>Programmable Read-Only Memory</dd></dlentry>
+<dlentry>
+<dt>PRW</dt>
+<dd>PIN reference word/value</dd>
+</dlentry>
+<dlentry><dt>PVV</dt>
+<dd>PIN Validation Value</dd></dlentry>
+<dlentry><dt>RA</dt>
+<dd>Registration Authority</dd></dlentry>
+<dlentry><dt><tm trademark="RACF" tmtype="reg">RACF</tm></dt>
+<dd>Resource
+Access Control Facility</dd></dlentry>
+<dlentry><dt>RAM</dt>
+<dd>Random Access Memory</dd></dlentry>
+<dlentry><dt>RFC</dt>
+<dd>Request for Comments</dd></dlentry>
+<dlentry><dt>RHEL</dt>
+<dd>Red Hat Enterprise <tm trademark="Linux" tmtype="tm">Linux</tm></dd></dlentry>
+<dlentry><dt>RNG</dt>
+<dd>Random Number Generator</dd></dlentry>
+<dlentry><dt>ROM</dt>
+<dd>Read-Only Memory</dd></dlentry>
+<dlentry rev="sh15">
+<dt>RPM</dt>
+<dd>RPM Package Manager (originally: Red Hat Package Manager)</dd>
+</dlentry>
+<dlentry><dt>RSA</dt>
+<dd>Rivest, Shamir, and Adleman</dd></dlentry>
+<dlentry><dt>SEC 2</dt>
+<dd>Standards for Efficient Cryptography
+2</dd></dlentry>
+<dlentry><dt>SECG</dt>
+<dd>Standards for Efficient Cryptography
+Group</dd></dlentry>
+<dlentry><dt>SET</dt>
+<dd>Secure Electronic Transaction.</dd></dlentry>
+<dlentry><dt>SHA</dt>
+<dd>Secure Hash Algorithm</dd></dlentry>
+<dlentry><dt>SLES</dt>
+<dd>SUSE <tm trademark="Linux" tmtype="tm">Linux</tm> Enterprise
+Server</dd></dlentry>
+<dlentry><dt>SNA</dt>
+<dd>Systems Network Architecture</dd></dlentry>
+<dlentry><dt>SSL</dt>
+<dd>Secure Sockets Layer.</dd></dlentry>
+<dlentry><dt>TDEA</dt>
+<dd rev="sh15">Triple Data Encryption Algorithm (see also TDES).</dd></dlentry>
+<dlentry rev="sh15">
+<dt>TDES</dt>
+<dd>Triple DES (Data Encryption Standard) or TDEA.</dd>
+</dlentry>
+<dlentry><dt>TKE</dt>
+<dd>Trusted key entry.</dd></dlentry>
+<dlentry><dt>TLV</dt>
+<dd>Tag, Length, Value</dd></dlentry>
+<dlentry>
+<dt>TMK</dt>
+<dd>Terminal Master Key</dd>
+</dlentry>
+<dlentry><dt>TVV</dt>
+<dd>Token-validation value</dd></dlentry>
+<dlentry><dt>UAT</dt>
+<dd>UDX Authority Table.</dd></dlentry>
+<dlentry><dt>UDF</dt>
+<dd>User-defined function.</dd></dlentry>
+<dlentry><dt>UDK</dt>
+<dd>User-derived key.</dd></dlentry>
+<dlentry><dt>UDP</dt>
+<dd>User Developed Program.</dd></dlentry>
+<dlentry><dt>UDX</dt>
+<dd>User Defined Extension.</dd></dlentry>
+<dlentry><dt>UKPT</dt>
+<dd>Unique Key Per Transaction</dd></dlentry>
+<dlentry><dt>UTC</dt>
+<dd>Coordinated Universal Time</dd></dlentry>
+<dlentry><dt>VIS</dt>
+<dd>Visa Integrated Circuit Card Specification</dd></dlentry>
+<dlentry><dt>XOR</dt>
+<dd>Exlusive-OR</dd></dlentry>
+</dl></section>
+</refbody></reference>

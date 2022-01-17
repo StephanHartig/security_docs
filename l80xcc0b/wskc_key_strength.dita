@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="key_strength" rev="sh21i1">
+<title>Key strength and key wrapping</title>
+<titlealts>
+<navtitle>Key strength and wrapping</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key strength and key
+wrapping</searchtitle>
+</titlealts>
+<shortdesc>Key strength is measured as <term>bits of security</term> as described in the
+documentation of NIST and other organizations. Each individual key will have its <term>bits of
+security</term> computed, then the different key types (AES, DES, ECC, RSA, HMAC) can have their
+relative strengths compared on a single scale. When the raw value of a particular key falls between
+discrete values of the NIST table, the lower value from the table is used as the <term>bits of
+security</term>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key strength</indexterm>
+<indexterm>key wrapping</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><xref href="#key_strength/key_strength_aes_exporter" format="dita"/> and <xref
+href="#key_strength/key_strength_min_RSA_modulus" format="dita"/> show some examples of the
+restrictions due to key strength.</p>
+<table id="key_strength_aes_exporter" frame="all" pgwide="0"><title>AES EXPORTER strength required
+for exporting an HMAC key under an AES EXPORTER key</title><desc>
+<p outputclass="summary">AES EXPORTER strength required for exporting an HMAC key under an AES
+EXPORTER key with two columns showing Key-usage field 2 in the HMAC key and Minimum strength of AES
+EXPORTER to adequately protect the HMAC key</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Key-usage field 2 in the HMAC key</entry>
+<entry>Minimum strength of AES EXPORTER key to adequately protect the HMAC key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>SHA-256, SHA-384, SHA-512</entry>
+<entry>256 bits</entry>
+</row>
+<row>
+<entry>SHA-224</entry>
+<entry>192 bits</entry>
+</row>
+<row>
+<entry>SHA-1</entry>
+<entry>128 bits</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table id="key_strength_min_RSA_modulus" frame="all" pgwide="0">
+<title>Minimum RSA modulus length to adequately protect an AES key</title><desc>
+<p outputclass="summary">Minimum RSA modulus length to adequately protect an AES key with two columns 
+showing Bit length of AES key to be exported and Minimum strength of RSA wrapping key to adequately protect the AES key</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="5*"/>
+<thead>
+<row>
+<entry>Bit length of AES key to be exported</entry>
+<entry>Minimum strength of RSA wrapping key to adequately protect the AES key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>128</entry>
+<entry>3072</entry>
+</row>
+<row>
+<entry>192</entry>
+<entry>7860</entry>
+</row>
+<row>
+<entry>256</entry>
+<entry>15360</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<note rev="sh21i2">At the time of writing, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports RSA keys up to 4096 bits.</note>
+</conbody>
+</concept>

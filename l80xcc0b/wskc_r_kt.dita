@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kt">
+<title>DES internal key token</title>
+<titlealts>
+<navtitle>DES internal key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): DES internal key token</searchtitle>
+</titlealts><shortdesc>The format for a DES internal key token. DES key tokens are almost always in a
+fixed-length token, except for a DESUSECV key type in a variable-length symmetric key
+token.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key token<indexterm>DES internal</indexterm></indexterm>
+<indexterm>internal key token<indexterm>DES</indexterm></indexterm>
+<indexterm>master key verification pattern</indexterm>
+<indexterm>MKVP<indexterm>master key verification pattern</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p rev="sh20i1">Fixed-length DES key tokens are 64 bytes and consist of a DES-enciphered key, a control vector, various
+flag bits, a token identifier and version number, reserved fields, and a token-validation value. An internal
+key-token also includes a master-key verification pattern or master-key version number, depending on
+the key-token version number.</p>
+<p rev="sh20i1">If an internal fixed-length DES key-token has a key present, it contains a key multiply-enciphered by a
+DES master key. If an external fixed-length DES key-token has a key present, it contains a key multiplyenciphered
+by a key-encrypting key.</p>
+<p rev="sh20i1">Version X'00' tokens are single-length, double-length, and triple-length keys for
+all key types. DATA key tokens with zero control vectors are version X'00' for single-length keys
+and version X'01' for double-length and triple-length keys.</p>
+<p><xref href="#l0wskc02_kt/l0wskc02_intky"/> shows the format for a DES internal
+key token.</p></section>
+<table id="l0wskc02_intky" pgwide="1" frame="all">
+<title>DES internal
+key token format</title><desc><p outputclass="summary">DES internal key token format</p></desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry><ph>X'01'</ph> (flag indicating this
+is an internal key token)</entry></row>
+<row>
+<entry>1 - 3</entry>
+<entry>Implementation-dependent bytes (<ph>X'000000'</ph> for
+ICSF)</entry></row>
+<row>
+<entry>4</entry>
+<entry>Key token version number (<ph>X'00'</ph> or <ph>X'01'</ph>)</entry></row>
+<row>
+<entry>5</entry>
+<entry>Reserved (<ph>X'00'</ph>)</entry></row>
+<row>
+<entry>6</entry>
+<entry>Flag byte 1 <dl compact="yes">
+<dlhead>
+<dthd>Bit</dthd>
+<ddhd>Meaning When Set On</ddhd>
+</dlhead>
+<dlentry>
+<dt>0</dt>
+<dd>Encrypted key and master key verification pattern (MKVP) are present.</dd>
+</dlentry>
+<dlentry>
+<dt>1</dt>
+<dd>Control vector (CV) value in this token has been applied to the key.</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>Key is used for no control vector (NOCV) processing. Valid for transport keys only.</dd>
+</dlentry>
+<dlentry>
+<dt>3</dt>
+<dd>Key is an ANSI key-encrypting key (AKEK).</dd>
+</dlentry>
+<dlentry>
+<dt>4</dt>
+<dd>AKEK is a double-length key (16 bytes). <note>When bit 3 is on and bit 4 is off, AKEK is a
+single-length key (eight bytes).</note></dd>
+</dlentry>
+<dlentry>
+<dt>5</dt>
+<dd>AKEK is partially notarized.</dd>
+</dlentry>
+<dlentry>
+<dt>6</dt>
+<dd>Key is an ANSI partial key.</dd>
+</dlentry>
+<dlentry>
+<dt>7</dt>
+<dd>Export prohibited.</dd>
+</dlentry>
+</dl></entry></row>
+<row rev="sh18i1">
+<entry>7</entry>
+<entry>Flag byte 2 <dl compact="yes">
+<dlhead>
+<dthd>Bit</dthd>
+<ddhd>Meaning When Set On</ddhd>
+</dlhead>
+<dlentry>
+<dt>0-2</dt>
+<dd><dl>
+<dlentry>
+<dt>B'000'</dt>
+<dd>The encrypted key, if present, is wrapped using the legacy (WRAP-ECB) method.</dd>
+</dlentry>
+<dlentry>
+<dt>B'001'</dt>
+<dd>The encrypted key is wrapped using the enhanced WRAP-ENH) method.</dd>
+</dlentry>
+<dlentry rev="sh20i1">
+<dt>B'010'</dt>
+<dd>The encrypted key is wrapped using the enhanced method and SHA-256 (WRAPENH2). Requires CV bit ENH-ONLY to be enabled. 
+Only valid with version X’00’ tokens.</dd>
+</dlentry>
+<dlentry rev="sh21i1">
+<dt>B'011'</dt>
+<dd>The encrypted key is wrapped using the enhanced method 3 and SHA-256 (WRAPENH3). Requires CV bit
+ENH-ONLY to be enabled. Only valid with version X’00’ tokens.</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+</dl><p>All other bit combinations are reserved and undefined and must be zero.</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry>8 - 15</entry>
+<entry>
+When the compliant-tag bit is off (bit 58 in the CV): Master Key Verification Pattern (MKVP).
+When the compliant-tag bit is on (bit 58 in the CV):
+<dl compact="yes">
+<dlhead>
+<dthd>Offset | Length</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>0 | 5</dt>
+<dd>Truncated MKVP.</dd>
+</dlentry>
+<dlentry>
+<dt>5 | 2</dt>
+<dd>Reserved.</dd>
+</dlentry>
+<dlentry>
+<dt>7 | 1</dt>
+<dd>Key Derivation Function (KDF).
+</dd>
+</dlentry>
+</dl>
+<p>
+When KDF is X'01', the token is not considered compliant-tagged. Throughout
+the publications, they are referred to as DES KDF 01 tokens. Only key tokens
+with a KDF higher than X'01' are referred to as compliant-tagged.</p>
+</entry></row>
+<row>
+<entry>16 - 23</entry>
+<entry>A single-length key, the left half
+of a double-length key, or Part A of a triple-length key. The value
+is encrypted under the master key.</entry></row>
+<row>
+<entry>24 - 31</entry>
+<entry><ph>X'0000000000000000'</ph> if a single-length key, the right half of a double-length
+operational key, or Part B of a triple-length operational key. The right half of the double-length
+key or Part B of the triple-length key is encrypted under the master key when flag bit 0 is on.
+Otherwise, it is in the clear. <ph rev="sh21i1">For WRAPENH3, this field always holds ciphertext in
+order to obfuscate the length of a single or double-length key. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor uses  the effective length
+(determined by the number of repeated 56-bit sections, if any) of the key to determine key strength
+for wrapping of other keys or other key strength comparisons.</ph></entry></row>
+<row>
+<entry>32 - 39</entry>
+<entry>The control vector (CV) for a single-length key or the left half of the control vector for a
+double-length key. <ph rev="sh21i2">For WRAPENH3, this field has an update to the key form bits
+(bits 41-42). These bits always have the value '11', which indicates a triple-length key. The
+guaranteed unique halves bit can be set. </ph></entry></row>
+<row >
+<entry>40 - 47</entry>
+<entry><ph>X'0000000000000000'</ph> if a single-length key or the right half of the control vector
+for a double-length operational key. <ph rev="sh21i1">For WRAPENH3, this field holds an 8 byte TDES-CMAC 
+over the entire key block, with this field set to 0x00 bytes before calculation of the TDES-CMAC.</ph>
+</entry>
+</row>
+<row>
+<entry>48 - 55</entry>
+<entry><ph>X'0000000000000000'</ph> if a single-length key or double-length key, or Part C of a
+triple-length operational key. Part C of a triple-length key is encrypted under the master key when
+flag bit 0 is on. Otherwise, it is in the clear. <ph rev="sh21i1">For WRAPENH3, this field always
+holds ciphertext in order to obfuscate the length of a single or double-length key. </ph>
+</entry>
+</row>
+<row>
+<entry>56 - 58</entry>
+<entry>Reserved (<ph>X'000000'</ph>)</entry>
+</row>
+<row rev="sh20i1">
+<entry>59</entry>
+<entry>
+Key length for zero CV DATA keys:
+<dl compact="yes"><dlhead><dthd>Value</dthd><ddhd>Description</ddhd></dlhead>
+<dlentry><dt>B'00000000'</dt>
+<dd>Single-length key (version 0 only).</dd></dlentry>
+<dlentry><dt>B'00010000'</dt>
+<dd>Double-length key (version 1 only).</dd></dlentry>
+<dlentry><dt>B'00100000'</dt>
+<dd>Triple-length key (version 1 only).</dd></dlentry>
+</dl>All other values are reserved and undefined.</entry>
+</row>
+<row>
+<entry>60 - 63</entry>
+<entry>Token validation value (TVV).</entry></row>
+</tbody>
+</tgroup>
+</table><section>
+<note>AKEKs are not supported by this version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. Key tokens from other <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> systems, however, could have the AKEK flag
+bits set in a key token.</note></section>
+</refbody></reference>

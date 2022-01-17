@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc302">
+<title>Format</title>
+ <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="468*"/>
+<tbody>
+<row>
+<entry valign="top" align="left">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>key_version_number</var></synph>,
+             <synph><var>key_field_length</var></synph>,
+             <synph><var>source_key_identifier_length</var></synph>,
+             <synph><var>source_key_identifier</var></synph>,
+             <synph><var>unwrap_kek_identifier_length</var></synph>,
+             <synph><var>unwrap_kek_identifier</var></synph>,
+             <synph><var>wrap_kek_identifier_length</var></synph>,
+             <synph><var>wrap_kek_identifier</var></synph>,
+             <synph><var>opt_blocks_length</var></synph>,
+             <synph><var>opt_blocks</var></synph>,
+             <synph><var>tr31_key_block_length</var></synph>,
+             <synph><var>tr31_key_block</var></synph>)
+             </codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

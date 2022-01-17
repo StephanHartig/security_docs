@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbfpet" rev="sh15">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)</title>
+  <titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> verb is used
+    to translate payment data from encryption under one key to encryption under another key with a
+    possibly different format.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+     <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/> (<keyword
+         conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/>)</indexterm>
+     <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+         conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)</indexterm>
+     <indexterm>verb<indexterm><keyword
+           conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+           conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)</indexterm></indexterm>
+   </keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>You should avoid having plaintext payment data in your environment. Translations can be
+performed with data that has been encrypted using the standard encryption option or with 
+data that has been encrypted using the VFPE option. However, the target translation uses 
+double length static TDES keys and the standard encryption option.</p>
+<p>This service can be used to translate one or all of the following fields:</p>
+<ul>
+<li>the primary account number (PAN),</li>
+<li>the cardholder name,</li>
+<li>the track 1 discretionary data,</li>
+<li>or the track 2 discretionary data.</li>
+</ul>
+<p>The following translation options are supported: </p>
+<ol>
+<li>Translate standard option with CBC mode TDES and DUKPT keys.</li>
+<li>Translate VFPE option with VFPE mode TDES andDUKPT keys.</li>
+<li>Translate standard option with CBC mode TDES and static TDES keys.</li>
+</ol>
+<p>To use this service, you must specify the following: </p>
+<ul>
+<li>the processing method, which is limited to Visa Data Secure Platform (VDSP)</li>
+<li>the key management method, either STATIC or DUKPT</li>
+<li>the algorithm, which is limited to TDES</li>
+<li>the mode, either CBC or Visa Format Preserving Encryption (VFPE) for the inbound data</li>
+<li>the ciphertext to be translated</li>
+<li>the character set of each field to be translated using rule-array keywords</li>
+<li rev="sh21i1">The base derivation key and either the key serial number for DES-DUKPT or 
+the AES-DUKPT derivation data for AES-DUKPT, or a double-length TDES key 
+if STATIC key management is used.</li>
+<li>the double length static TDES key used to re-encrypt the data</li>
+<li>Optionally, a check digit compliance indicator if VFPE is specified.</li>
+</ul>
+<p>The service returns the translated fields and optionally, the DUKPT PIN encryption key, if
+the DUKPT key management is selected and the PINKEY rule is specified.</p>
+<note rev="sh18i1">This verb supports 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.
+</note>
+    </section>
+  </refbody>
+</reference>

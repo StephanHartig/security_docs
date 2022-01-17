@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_setupilzdd" xml:lang="en-us">
+<title>Installing and loading the cryptographic device driver</title>
+<titlealts>
+<navtitle>Installing and loading the cryptographic device driver</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Installing and loading the cryptographic
+device driver</searchtitle>
+</titlealts>
+<shortdesc>The cryptographic device driver is included in the regular kernel package shipped with
+your <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distribution. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>cryptographic device driver<indexterm>installing</indexterm></indexterm>
+<indexterm>zcrypt<indexterm>installing</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>In earlier <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions, the
+cryptographic device driver is shipped as a single module called <cmdname>z90crypt</cmdname>. In
+more recent distributions, the cryptographic device driver is shipped as set of modules with the
+<cmdname>ap</cmdname> module being the main module that triggers loading all required sub-modules.
+There is, however, an alias name <cmdname>z90crypt</cmdname> that links to the <cmdname>ap</cmdname>
+main module.</p>
+<p rev="sh18i2">There might be distributions using kernel levels starting with 4.10, that have basic
+cryptographic device driver support as part of the kernel (that is, the <cmdname>ap</cmdname> module
+is already compiled in the kernel). In this case, the subsequently mentioned
+<cmdname>lsmod</cmdname> and <cmdname>modprobe</cmdname> commands do not work as described. In
+addition, the <parmname>domain</parmname> and <parmname>poll_thread</parmname> parameters are no
+longer module parameters, but kernel parameters. In this case, you can change the values directly
+via sysfs, or change as kernel parameters. Refer to the <cite>Device Drivers, Features, and
+Commands</cite> for kernel 4.12 or later on the <xref
+href="https://www.ibm.com/developerworks/linux/linux390/development_docu_rollback.html"
+format="html" scope="external">developerWorks</xref> website for further information.</p>
+<p>For installations with a loadable cryptographic device driver, use the <cmdname>lsmod</cmdname>
+command to find out if either the <cmdname>z90crypt</cmdname> or the <cmdname>ap</cmdname> module is
+already loaded.</p>
+<p>If required, use the <cmdname>modprobe</cmdname> command to load the <cmdname>z90crypt</cmdname>
+or <cmdname>ap</cmdname> module. When loading the <cmdname>z90crypt</cmdname> or
+<cmdname>ap</cmdname> module, you can use the following optional module parameters:<parml>
+<plentry>
+<pt><codeph>domain=</codeph></pt>
+<pd>specifies a particular cryptographic domain. By default, the device driver attempts to use the
+domain with the maximum number of devices. <ph rev="sh18i2">To use all <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0 functions, the domain must include at
+least one CEX6C feature.</ph><p>After loading the device driver, use the <cmdname>lszcrypt</cmdname>
+command with the <codeph>-b</codeph> option to confirm that the correct domain is used. If your
+distribution does not include this command, see the version of <cite>Device Drivers, Features, and
+Commands</cite> that applies to your distribution about how to use the sysfs interface to find out
+the domain. This publication also provides more information about loading and configuring the
+cryptographic device driver.</p><p>To change the domain, you must unload the <ph rev="shd3"
+><cmdname>z90crypt</cmdname> or <cmdname>ap</cmdname>
+</ph> module (see <xref href="wskc_c_unload_dd.dita#l0wskc02_unload_dd"/>) and reload it.</p><p
+rev="sh18i2">You should also read the information presented in <xref
+href="wskc_domain_selection.dita#wskc_domain_selection"/>.</p></pd>
+</plentry>
+<plentry>
+<pt><codeph>poll_thread=</codeph></pt>
+<pd>enables the polling thread for instances of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> and for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> instances that run in LPAR mode on an
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> mainframe earlier than <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z10"/>. <p>For <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> instances that run in LPAR mode on a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z10"/> or later mainframe, this setting
+is ignored and AP interrupts are used instead.</p></pd>
+</plentry>
+</parml><?Pub Caret 229?></p>
+<p>For more information about these module parameters, the polling thread, and AP interrupts, see
+the version of <cite>Device Drivers, Features, and Commands</cite> that applies to your
+distribution.</p>
+</conbody>
+</concept>
+<?Pub *0000003073?>

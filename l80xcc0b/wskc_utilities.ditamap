@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_l">
+<title>Utilities</title>
+<topicref href="wskc_c_utilities.dita">
+<topicref href="wskc_mkey_admin.dita"/>
+<topicref href="wskc_c_panelexe.dita">
+<topicref href="wskc_c_l0wskc43.dita"/>
+<topicref href="wskc_panelexe_legacy.dita"/>
+<topicref href="wskc_c_l0wskc44.dita"/>
+<topicref href="wskc_c_install_rpm_ksi.dita"/>
+<topicref href="wskc_c_install_rpm_ksreen.dita"/>
+<topicref href="wskc_panexe_role_acps.dita"/>
+<topicref href="wskc_panexe_track_acps.dita"/>
+<topicref href="wskc_panexe_epoc_cert.dita"/>
+<topicref href="wskc_panexe_query_compli_state.dita"/>
+</topicref>
+</topicref>
+</map>

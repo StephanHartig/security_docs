@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spnparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/></indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>TDES-CBC</indexterm>
+<indexterm>TDES-ECB</indexterm>
+<indexterm>CLEARPIN</indexterm>
+<indexterm>SELFENC</indexterm>
+<indexterm>input_PIN_block parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>PIN_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>input_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>input_PAN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>secmsg_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>output_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>output_PAN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>text_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>clear_text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>initialization_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>PIN_offset parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>PIN_offset_field_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>enciphered_text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+<indexterm>output_chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 0, 1, or 2.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. The processing method is the
+algorithm used to create the generated key. The keywords are left-aligned and padded on the right
+with blanks. The <synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_spnparameters/l0wskc02_smp_tab1"/>. <table id="l0wskc02_smp_tab1" pgwide="1"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="10*"/>
+<colspec colname="col2" colwidth="36*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Enciphering mode</i></b> (One,
+optional)</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>AES-CBC</kwd></synph></entry>
+<entry>Use CBC mode to encipher the message. The <parmname>secmsg_key_identifier</parmname>
+parameter must refer to an AES key.</entry>
+</row>
+<row rev="sh21i2">
+<entry><synph><kwd>AES-ECB</kwd></synph></entry>
+<entry>Use ECB mode to encipher the message. The <parmname>secmsg_key_identifier</parmname>
+parameter must refer to an AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-CBC</kwd></synph></entry>
+<entry>Use CBC mode to encipher the message. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-ECB</kwd></synph></entry>
+<entry>Use ECB mode to encipher the message. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN encryption</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>CLEARPIN</kwd></synph></entry>
+<entry>Recovered clear input PIN block (might be reformatted) is placed in
+the clear in the message for encryption with the secure message key. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>SELFENC</kwd></synph></entry>
+<entry>Recovered clear input PIN block (might be reformatted) is
+self-encrypted and then placed in the message for encryption with the secure message key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>input_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The input PIN block that is to be recovered in the clear and, perhaps, reformatted
+and then placed in the <parmname>clear_text</parmname> to be encrypted.
+<p rev="sh21i1">When the <parmname>input_PIN_profile</parmname> specifies ISO-4, 
+the <parmname>input_PIN_block</parmname> is 16 bytes long. For all other formats, 
+the <parmname>input_PIN_block</parmname> is 8 bytes long.</p></pd></plentry>
+<plentry><pt>PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The internal token or key label of the internal token of the PIN encrypting key used in
+encrypting the <parmname>input_PIN_block</parmname>. <ph rev="sh21i1">The key may be a DES key (all
+<parmname>input_PIN_profile</parmname> PIN block formats except <keyword>ISO-4</keyword>) or an AES
+key (<parmname>input_PIN_profile</parmname> PIN block format <keyword>ISO-4</keyword>). </ph>
+<p rev="sh21i1">For DES keys, the control vector in the fixed-length token must specify an
+<keyword>IPINENC</keyword> key type.</p>
+<p rev="sh21i1">For AES keys, the variable-length symmetric key token must have a token algorithm of
+AES and a key type of <keyword>PINPROT</keyword>. In addition, the key usage fields may indicate
+that the key can be used for decryption (DECRYPT) with PIN function usage
+<keyword>REFORMAT</keyword>, the encryption mode must be cipher block chaining (CBC), common usage
+control must be <keyword>NOFLDFMT</keyword>, and PIN block format usage must be
+<keyword>ISO-4</keyword>, and PIN function usage REFORMAT must be enabled.</p>
+</pd></plentry>
+<plentry><pt>input_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to extract the PIN
+from a formatted PIN block. The valid input PIN formats are <synph><kwd>ISO-0</kwd></synph>,
+<synph><kwd>ISO-1</kwd></synph>, <synph><kwd>ISO-2</kwd></synph>, <synph><kwd>ISO-3</kwd></synph>, 
+and <synph rev="sh21i1"><kwd>ISO-4</kwd></synph>. See <xref href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for
+additional information.</pd></plentry>
+<plentry><pt>input_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">A primary account number (PAN) in character format. The service uses this parameter if the PIN
+profile specifies the <keyword>ISO-0</keyword>, <keyword>ISO-3</keyword>, <keyword>ISO-4</keyword>, or 
+<keyword>VISA-4</keyword> keyword for the <parmname>input_PIN_profile</parmname> PIN block format. 
+Otherwise, ensure that this parameter is a 12-byte value in application storage. The
+information in this parameter is ignored, but the parameter must be specified.
+</p>
+<p rev="sh21i1">When using the <keyword>ISO-0</keyword>, <keyword>ISO-3</keyword>, or 
+<keyword>VISA-4</keyword> keyword, the value is 12 bytes long. Use the 12 rightmost
+digits of the PAN data, excluding the check digit.
+</p>
+<p rev="sh21i1">When using the <keyword>ISO-4</keyword> keyword, the value is 21 bytes long. The PAN
+data is 10 – 19 bytes long. The length of the PAN data and the PAN data are contained in the
+structure shown in <xref href="#l0wskc02_spnparameters/sec_message_pan_dat_structure" format="dita"
+/>, padded to 21 bytes with characters that are ignored.</p>
+<table rev="sh21i1" id="sec_message_pan_dat_structure" pgwide="1" frame="all">
+<title>PAN data structure</title>
+<desc>
+<p outputclass="summary">PAN data structure for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/> verb with offset, length, and
+description.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="6*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of the PAN data field, p.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>p</entry>
+<entry>10 to 19 bytes of PAN data.</entry>
+</row>
+<row>
+<entry>2+p</entry>
+<entry>0-9</entry>
+<entry>Padding.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd></plentry>
+<plentry><pt>secmsg_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The internal token or key label of an internal token of a secure message key for encrypting
+PINs. This key is used to encrypt the updated <synph><var>clear_text</var></synph>.<p rev="sh21i1"
+>The key may be a DES key or an AES key.</p>
+<p rev="sh21i1">For DES keys, the control vector in the fixed-length token must specify an SECMSG type key with the
+SMPIN control vector bit (CV bit 19) set to B'1'.</p>
+<p rev="sh21i1">For AES keys, the variable-length symmetric key token must have a token algorithm of AES and a
+key type of SECMSG. In addition, secure message encryption enablement must be <keyword>SMPIN</keyword> and verb
+restriction control must be <keyword>ANY-USE</keyword>.</p>
+</pd></plentry>
+<plentry><pt>output_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to create a formatted
+PIN block. If reformatting is not required, the <synph><var>input_PIN_profile</var></synph> and the
+<synph><var>output_PIN_profile</var></synph> must specify the same PIN block format. Output PIN
+block formats supported are <synph><kwd>ISO-0</kwd></synph>, <synph><kwd>ISO-1</kwd></synph>,
+<synph><kwd>ISO-2</kwd></synph>, and <synph><kwd>ISO-3</kwd></synph>.</pd></plentry>
+<plentry><pt>output_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 12 digit personal account number (PAN) if the output PIN format is
+<synph><kwd>ISO-0</kwd></synph> or <synph><kwd>ISO-3</kwd></synph>. Otherwise, this parameter is
+ignored.<p>For <synph><kwd>ISO-0</kwd></synph> or <synph><kwd>ISO-3</kwd></synph>, use the rightmost
+12 digits of the PAN, excluding the check digit.</p></pd></plentry>
+<plentry><pt>text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>clear_text</var></synph> parameter that follows. Length must
+be a multiple of eight. Maximum length is 4096.</pd></plentry>
+<plentry><pt>clear_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Cleartext that contains the recovered and/or reformatted/encrypted PIN at offset specified
+and then encrypted. Any padding or formatting of the message must be done by the caller on
+input.</pd></plentry>
+<plentry><pt>initialization_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The supplied string for the TDES-CBC or AES-CBC mode of encryption. For TDES-CBC mode, the
+<parmname>initialization_vector</parmname> must be 8 bytes. For AES-CBC mode, the <parmname>initialization_vector</parmname> 
+must be 16 bytes.</p>
+<p rev="sh21i1">The <parmname>initialization_vector</parmname> is XORed with the first block of 
+<parmname>clear_text</parmname> prior to encryption. This field is ignored for <keyword>TDES-ECB</keyword> and 
+<keyword>AES-ECB</keyword> mode.</p>
+</pd></plentry>
+<plentry><pt>PIN_offset</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The offset within the <synph><var>clear_text</var></synph> parameter where the reformatted
+PIN block is to be placed. The first byte of the <synph><var>clear_text</var></synph> field is
+offset 0.</pd></plentry>
+<plentry><pt>PIN_offset_field_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the field within <synph><var>clear_text</var></synph> parameter at
+<synph><var>PIN_offset</var></synph> where the recovered clear
+<synph><var>input_PIN_block</var></synph> value is to be placed. The PIN block might be
+self-encrypted if requested by the <i>rule_array</i>. Length must be eight. The PIN block must fit
+entirely within the <synph><var>clear_text</var></synph>.</pd></plentry>
+<plentry><pt>enciphered_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The field where the ciphertext is returned. The length of this field must be at least
+as long as the <synph><var>clear_text</var></synph> field.</pd></plentry>
+<plentry><pt>output_chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the last 8 or 16 bytes of ciphertext and is used as the
+<parmname>initialization_vector</parmname> for the next encryption call if data needs to be chained.
+<ph rev="sh21i1">For TDES-CBC mode, 8 bytes are returned. For AES-CBC mode, 16 bytes are returned.
+No data is returned for <keyword>TDES-ECB</keyword> or <keyword>AES-ECB</keyword>.</ph>
+</pd></plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_algomkn" xml:lang="en-us">
+<title>Master-key verification algorithms</title>
+<titlealts>
+<navtitle>Master-key verification</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Master-key verification
+algorithms</searchtitle>
+</titlealts>
+<shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword> implementations
+employ triple-length DES and PKA master keys (three DES keys) that
+are internally represented in 24 bytes (168 bits). </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>master-key verification</indexterm><indexterm>verification
+pattern</indexterm>
+<indexterm>APKA master key</indexterm>
+<indexterm>master key<indexterm>APKA</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Beginning with <ph rev="shd3">Release 4.1.0, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph> employs an <ph rev="shd3"
+>APKA</ph> master key represented in 32 bytes (256 bits). Verification patterns on the contents of
+the new, current, and old master-key registers can be generated and verified when the selected
+register is not in the empty state. For the AES master key, the SHA-256 verification method is
+used.</p>
+<p>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword> employ
+several verification pattern generation methods. </p>
+</conbody>
+</concept>
+<?Pub *0000001465?>

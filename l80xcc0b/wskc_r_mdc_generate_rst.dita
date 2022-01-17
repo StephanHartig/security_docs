@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mdc_generate_rst">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<ul>
+<li>When padding is requested (by specifying an algorithm mode keyword
+of <synph><kwd>PADMDC-2</kwd></synph> or <synph><kwd>PADMDC-4</kwd></synph>), a text length of zero
+is valid for any segment-control keyword specified in the <synph><var>rule_array</var></synph> variable <synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>, <synph><kwd>LAST</kwd></synph>,
+or <synph><kwd>ONLY</kwd></synph>). When <synph><kwd>LAST</kwd></synph> or <synph><kwd>ONLY</kwd></synph> is specified,
+the supplied text is padded with <ph>X'FF'</ph> bytes and a padding
+count in the last byte to bring the total text length to the next
+multiple of 8 that is greater than or equal to 16.</li>
+<li>When no padding is requested (by specifying an algorithm mode
+keyword of <synph><kwd>MDC-2</kwd></synph> or <synph><kwd>MDC-4</kwd></synph>), the total length of
+text provided (over a single or segmented calls) must be a minimum
+of 16 bytes and a multiple of eight bytes. For segmented calls (that
+is, segmenting and key control keyword is not <synph><kwd>ONLY</kwd></synph>), a text
+length of zero is valid on any of the calls.</li>
+</ul></p></section>
+</refbody></reference>

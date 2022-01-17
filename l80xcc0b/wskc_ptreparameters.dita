@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptreparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>
+</searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"
+/>)<indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. The value must be in the range 6 – 10.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length, and are left-aligned and padded on the right with space characters. The returned rule array
+keywords express the contents of the token.<table id="ptre_table" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="10*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Processing method</i></b> (required) </entry>
+</row>
+<row>
+<entry><synph><kwd>VMDS</kwd></synph></entry>
+<entry>Specifies that the VDSP method (Visa Data Secure Platform method, formally known as the Visa
+Merchant Data Secure (VMDS) method) is to be used for processing.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Mode</i></b> (required) </entry>
+</row>
+<row>
+<entry><synph><kwd>REFORMAT</kwd></synph></entry>
+<entry>Specifies that either the PIN-block format and the PIN-block encryption, or both, are to be
+changed. If the PIN-extraction method is not chosen by default, another element in the rule array
+must specify one of the keywords that indicates a PIN-extraction method.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Input PAN data key management method</i></b> (one,
+required). <ph rev="sh21i1">These keywords are used to define the PAN-encrypting key used to decrypt the
+<parmname>PAN_data</parmname> parameter.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>IN-DUKPT</kwd></synph></entry>
+<entry>Specifies that the key to be used to decrypt the PAN data is to be derived using the key
+specified in the <parmname>input_PIN_encrypting_key_identifier</parmname>. See the description of
+the <parmname>input_PIN_encrypting_key_identifier</parmname> for the requirements of the key. The
+DUKPT-BH, DUKPT-IP, <ph rev="sh21i1">ADUKPTBH, or  ADUKPTIP</ph> keyword is required. </entry>
+</row>
+<row>
+<entry><synph><kwd>OUTDUKPT</kwd></synph></entry>
+<entry>Specifies that the key to be used to decrypt the PAN data is to be derived using the key
+specified in the <parmname>output_PIN_encrypting_key_identifier</parmname>. See the description of
+the <parmname>output_PIN_encrypting_key_identifier</parmname> for the requirements of the key. The
+DUKPT-BH,  DUKPT-OP, <ph rev="sh21i1">ADUKPTBH, or  ADUKPTOP</ph> keyword is required. </entry>
+</row>
+<row>
+<entry><synph><kwd>STATIC</kwd></synph></entry>
+<entry>Specifies the use of static double length (2-key) Triple-DES symmetric keys for the
+PAN.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Input data algorithm</i></b> (one, required) </entry>
+</row>
+<row>
+<entry><synph><kwd>TDES</kwd></synph></entry>
+<entry>Specifies that Triple-DES encryption was used for the PAN.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Input data mode</i></b> (one, required) </entry>
+</row>
+<row>
+<entry><synph><kwd>CBC</kwd></synph></entry>
+<entry>Specifies that CBC mode encryption was used for the PAN. This is the mode for the Standard
+Encryption option.</entry>
+</row>
+<row>
+<entry><synph><kwd>VFPE</kwd></synph></entry>
+<entry>Specifies that Visa format preserving encryption was used for the PAN.</entry>
+</row>
+<row rev="sh16i1">
+<entry namest="col1" nameend="col2"><b><i>PAN input character set</i></b> (one, required) </entry>
+</row>
+<row>
+<entry><synph><kwd>PAN4BITX</kwd></synph></entry>
+<entry>Specifies that the PAN data character set is 4-bit hex. Two digits per byte. Not valid with
+the CBC rule.</entry>
+</row>
+<row>
+<entry><synph><kwd>PAN8BITA</kwd></synph></entry>
+<entry>Specifies that the PAN data character set is normal ASCII, represented in binary format. Not
+valid with CBC rule.</entry>
+</row>
+<row>
+<entry><synph><kwd>PAN-EBLK</kwd></synph></entry>
+<entry>Specifies that the PAN data is in a CBC encrypted block. Valid only with CBC rule.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PAN check digit compliance</i></b> (one required if mode
+VFPE and PAN input character set keyword are present, otherwise not allowed)</entry>
+</row>
+<row>
+<entry><synph><kwd>CMPCKDGT</kwd></synph></entry>
+<entry>Last digit of the PAN contains a compliant check digit per ISO/IEC 7812-1.</entry>
+</row>
+<row>
+<entry><synph><kwd>NONCKDGIT</kwd></synph></entry>
+<entry>Last digit of the PAN does not contain a compliant check digit per ISO/IEC 7812-1.</entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>DES DUKPT</b></i> (one, optional). These keywords are for PIN-encrypting keys. 
+See <xref href="wskc_ptr2_usage.dita#ptr2_usage/ptr2_usag2"/> for valid DUKPT keyword combinations.</entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-BH</kwd></synph></entry>
+<entry>Specifies that the input and output PIN-encrypting keys are to be derived using
+the key-generating key specified in the respective parameters. See the descriptions of the
+<parmname>input_PIN_encrypting_key_identifier</parmname> and
+<parmname>output_PIN_encrypting_key_identifier</parmname> parameters for the requirements of the keys. 
+<ph rev="sh21i1">This keyword cannot be specified with any of the
+keywords in the AES DUKPT group.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-IP</kwd></synph></entry>
+<entry>Specifies the use of DUKPT input-key derivation and PIN-block decryption,
+Triple-DES method. Specifies that the input PIN-encrypting key is to be derived using the
+key-generating key specified in the <parmname>input_PIN_encrypting_key_identifier</parmname>
+parameter. See the description of the <parmname>input_PIN_encrypting_key_identifier</parmname>
+parameter for the requirements of the key. <ph rev="sh21i1">This keyword cannot
+be specified with ADUKPTBH or ADUKPTIP.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-OP</kwd></synph></entry>
+<entry>Specifies that the output PIN-encrypting key is to be derived using the
+key-generating key specified in the <parmname>output_PIN_encrypting_key_identifier</parmname>
+parameter. See the description of the <parmname>output_PIN_encrypting_key_identifier</parmname>
+parameter for the requirements of the key. <ph rev="sh21i1">This keyword cannot
+be specified with ADUKPTBH or ADUKPTOP.</ph></entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>AES DUKPT</b></i> (one, optional). 
+See <xref href="wskc_ptr2_usage.dita#ptr2_usage/ptr2_usag2"/> for valid DUKPT keyword combinations.</entry>
+</row>
+<row rev="sh21i1">
+<entry>ADUKPTBH</entry>
+<entry>Specifies that the input and output PIN-encrypting keys are to be
+derived with the AES DUKPT algorithm using the key-generating
+key specified in the respective parameters. See the descriptions of
+the <parmname>input_PIN_encrypting_key_identifier</parmname> and <parmname>output_PIN_encrypting_key_identifier</parmname>
+parameters for the requirements of the keys. This keyword cannot be specified with any of the keywords in the DES DUKPT group.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry>ADUKPTIP</entry>
+<entry>Specifies the use of DUKPT input-key derivation and PIN-block
+decryption. AES DUKPT method. Specifies that the input PIN-encrypting
+key is to be derived using the key-generating key
+specified in the <parmname>input_PIN_encrypting_key_identifier</parmname> parameter. See the
+description of this parameter for the requirements of the key. This keyword cannot be specified with
+DUKPT-BH or DUKPT-IP.</entry>
+</row>
+<row rev="sh21i1">
+<entry>ADUKPTOP</entry>
+<entry>Specifies that the output PIN-encrypting key is to be derived with the AES DUKPT algorithm using the key-generating 
+key specified in the <parmname>output_PIN_encrypting_key_identifier</parmname> parameter. See the description of
+this parameter for the requirements of the key. This keyword cannot be specified with DUKPT-BH or DUKPT-OP.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN-extraction method</i></b> (one, optional).<p>If the
+PIN block format is provided, one of the PIN extraction method keywords shown in <xref
+href="wskc_c_pbf.dita#l0wskc02_pbf/l0wskc02_newtb2"/> can be specified for the given PIN block
+format. </p><note>Specify the <parmname>PIN block format</parmname> keyword in the
+<parmname>PIN_profile</parmname> variable (see <xref href="wskc_c_pbf.dita#l0wskc02_pbf"
+/>).</note><p>The following PIN-block formats are supported:</p><sl>
+<sli>3624</sli>
+<sli>ISO-0</sli>
+<sli>ISO-1</sli>
+<sli>ISO-2</sli>
+<sli>ISO-3</sli>
+</sl><p>The following S390 formats are also supported: VISA-2, VISA-3, VISA-4, OEM-1, ECI-2,
+ECI-3.</p><p>See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/pbfandpem"/> for additional information.
+If the default extraction method for a PIN block format is desired, specify the
+<parmname>rule_array_count</parmname> value as 1.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PIN_encrypting_key_identifier</parmname> variable. <ph rev="sh21i1">Set this value
+to the length of the AES or DES key token or label. If the
+<parmname>input_PIN_encrypting_key_identifier</parmname> contains a label, the length must be 64.
+Otherwise, the value must be between the actual length of the token and 725.</ph></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The identifier of the key to decrypt the input PIN block or the base derivation key
+to be used to derive the key to decrypt the input PIN block. The base derivation key can optionally
+be used to derive the key to decrypt the PAN data. The key identifier is an operational fixed-length
+DES key-token, variable-length AES key-token, or the key label of such a record in DES key-storage
+or AES key-storage respectively.</p>
+<p rev="sh21i1">If you do not use the DUKPT process or you specify the ADUKPTOP rule array keyword, the key token
+must contain the PIN-encrypting key to be used to decipher the input PIN block. The key algorithm
+must be DES, the key type must be IPINENC, and the key usage REFORMAT bit must be enabled.
+</p>
+<p rev="sh21i1">If you use the DES-DUKPT process for the input PIN block by specifying the DUKPT-IP or DUKPT-BH
+rule array keyword, the key token must contain the base derivation key to derive the PIN-encrypting
+key. If you have also specified the IN-DUKPT keyword, the key will be used to derive the key to
+decrypt the PAN data. For DES-DUKPT, a DES KEYGENKY key with the UKPT key usage bit enabled
+must be supplied.
+</p>
+<p rev="sh21i1">If you use the AES-DUKPT process for the input PIN block by specifying the ADUKPTIP
+or ADUKPTBH rule array keywords, the key token must contain the base derivation key to derive the
+PIN-encrypting key. If you have also specified the IN-DUKPT keyword, the key will be used to derive
+the key to decrypt the PAN data. For AES-DUKPT, specify the base derivation key as a AES
+variable-length symmetric key-token, version X’ 05 AES DKYGENKY with Key-usage field 1, low-order
+byte, most significant bit set to 1 indicating this key is allowed to be used as BDK.</p>
+<p rev="sh21i1">If the token supplied was encrypted under the old master key, the token is returned encrypted
+under the current master key.</p></pd>
+</plentry>
+<plentry>
+<pt>output_PIN_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the <parmname>
+output_PIN_encrypting_key_identifier</parmname> variable. <ph rev="sh21i1">If the
+<parmname>output_PIN_encrypting_key_identifier</parmname> contains a label, the length must be 64.
+Otherwise, the value must be between the actual length of the AES or DES key token and
+725.</ph></pd>
+</plentry>
+<plentry>
+<pt>output_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">A pointer to a string variable containing an operationalfixed-length DES key-token,
+variable-length AES key-token, or the key label of such a record in DES key-storage or AES
+key-storage respectively.</p>
+<p rev="sh21i1">Tis is the identifier of the key to encrypt the output PIN block or the base
+derivation key to be used to derive the key to encrypt the output PIN block. The base derivation key
+can optionally be used to derive the key to encrypt the PAN data. The key identifier is an
+operational token or the key label of an operational token in key storage. </p>
+<p rev="sh21i1">If you do not use the DUKPT process or you specify the DUKPT-IP or ADUKPTIP rule array keyword,
+the key token must contain the PIN-encrypting key to be used to encipher the output PIN block. The
+key algorithm must be DES, the key type must be OPINENC, and the key usage REFORMAT bit must be
+enabled.
+</p>
+<p rev="sh21i1">If you use the DES DUKPT process for the output PIN block by specifying the DUKPT-OP or DUKPT-BH
+rule array keyword, the key token must contain the base derivation key to derive the PIN-encrypting
+key. If you have also specified the OUTDUKPT keyword, the key will be used to derive the key to
+encrypt the PAN data. For DES-DUKPT, a DES KEYGENKY key with the UKPT key usage bit enabled
+must be supplied.
+</p>
+<p rev="sh21i1">If you use the AES DUKPT process for the output PIN block by specifying the ADUKPTOP or
+ADUKPTBH rule array keyword, the key token must contain the base derivation key to derive the PINencrypting
+key. If you have also specified the OUTDUKPT keyword, the key will be used to derive the
+key to encrypt the PAN data. For AES-DUKPT, an AES DKYGENKY key with the A-DUKPT bit set to 1 in
+the low-order byte of key usage field 1 must be supplied.
+</p>
+<p rev="sh21i1">If the token supplied was encrypted under the old master key, the token is returned encrypted
+under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>PAN_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>PAN_key_identifier</parmname> variable. Set the value to 0 if the PAN key management
+method keyword specifies DUKPT. Set it to 64 if the PAN key management method specifies STATIC.</pd>
+</plentry>
+<plentry>
+<pt>PAN_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an internal fixed-length DES key-token or the key
+label of such a record in DES key-storage. This token contains a double-length data decryption key
+if the input PAN data key management method is STATIC. If the key token contains a double-length
+data encryption key (Zone Encryption Key in the VDSP specification), the token must have a key type
+of CIPHER or DECIPHER.<p>The key is used to decipher the input PAN data. If IN-DUKPT is specified as
+the input PAN data key management method, the base derivation key in the
+<parmname>input_PIN_encrypting_key_identifier</parmname> parameter is used to create the decryption
+key for the PAN. </p><p>If OUTDUKPT is specified as the input PAN data key management method, the
+base derivation key in the <parmname>output_PIN_encrypting_key_identifier</parmname> parameter is
+used to create the decryption key for the PAN. This parameter is not used if IN-DUKPT or OUTDUKPT is
+specified. </p><p>The key identifier is an operational token or the key label of an operational
+token in key storage. The key algorithm must be DES, the key type must be CIPHER or DECIPHER and the
+key must be a double-length key. </p><note>DATA keys with ENC or DEC bits on are not supported.
+Also, zero CV data keys are not supported.</note></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_profile_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PIN_profile</parmname> variable. Set the length according to the values shown in
+<xref href="#ptreparameters/profile_length_ptre" format="dita"/>.<table rev="sh21i1" frame="all"
+rowsep="1" colsep="1" id="profile_length_ptre"><title>Supported Encrypted PIN Translate2 PIN profile
+lengths</title><tgroup cols="2">
+<colspec colname="c1" colwidth="3*"/>
+<colspec colname="c2" colwidth="1*"/>
+<thead>
+<row>
+<entry>Pin profile</entry>
+<entry>Length</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>PIN-block format only.</entry>
+<entry>24</entry>
+</row>
+<row>
+<entry>PIN-block format and CKSN extension used for DES-DUKPT.</entry>
+<entry>48</entry>
+</row>
+<row>
+<entry>PIN-block format and single block of derivation data extension used for AES-DUKPT.</entry>
+<entry>44</entry>
+</row>
+</tbody>
+</tgroup></table></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">The 24, 44, or 48 byte input PIN profile. The profile consists of three 8-byte character strings with
+information defining the input PIN-block format.</p>
+<p rev="sh21i1">When the keywords DUKPT-BH, DUKPT-IP or IN-DUKPT are specified, additional bytes
+must be present containing CKSN. When the keywords ADUKPTBH, ADUKPTIP or IN-DUKPT are specified,
+additional bytes must be present containing Derivation Data structure. </p>
+<p rev="sh21i1">The CKSN extension is a 24-byte structure which specifies DES DUKPT input parameters
+and Derivation Data is 20-byte hex structure which specifies AES DUKPT input parameters. DES DUKPT
+algorithm will be used to derive the DUKPT key in the<parmname>
+input_PIN_encrypting_key_identifier</parmname> when CKSN extension is included and AES DUKPT
+algorithm will be used when Derived Data extension is included in the
+<parmname>input_PIN_profile</parmname> parameter.</p>
+<p rev="sh21i1">When specifying the AES DUKPT method, this parameter includes a pointer to a hex
+data structure containing the 20-byte Derivation Data structure. Bytes 4 and 5, Algorithm Indicator,
+must be set to 0x0000 (2-key TDEA) or 0x0001 (3-key TDEA). Bytes 2 and 3, key Usage Indicator, must
+be set to 0x1000 (PIN Encryption). See <xref href="wskc_aes_dukpt.dita#aes_dukpt/dukpt_ddata"/> for
+the layout of the AES-DUKPT derivation data extension. </p></pd>
+</plentry>
+<plentry>
+<pt>PAN_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>PAN_data</parmname> parameter if the mode is CBC. If the mode is VFPE, this variable
+contains the number of PAN digits. The value is in the range 15 - 19 for VFPE. It is 16 if the
+standard encryption option is selected.</pd>
+</plentry>
+<plentry>
+<pt>PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the PAN data. For VFPE mode, if the PAN contains
+an odd number of 4-bit hex digits, the data must be left justified in the PAN variable and the
+right-most 4 bits are ignored. The verb uses this data to recover the PIN from the PIN block if you
+specify the REFORMAT keyword and the input PIN profile specifies the ISO-0, VISA-4 or ISO-3 keyword
+for the PIN-block format. If the output PIN profile specifies the ISO-0, VISA-4, or ISO-3 keyword
+for the PIN-block format, the 12 rightmost digits of the (decrypted) PAN, excluding the check digit,
+are used to format the output PIN block.</pd>
+</plentry>
+<plentry>
+<pt>input_PIN_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the encrypted
+input PIN block. The value must be 8.</pd>
+</plentry>
+<plentry>
+<pt>input_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the encrypted PIN-block.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_profile_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_PIN_profile</parmname> variable. <ph rev="sh21i1">See <xref
+href="#ptreparameters/profile_length_ptre" format="dita"/> for the supported PIN profile
+lengths.</ph></pd>
+</plentry>
+<plentry>
+<pt>output_PIN_profile</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The 24, 44, or 48 byte output PIN profile. The profile contains three 8-byte
+character strings with information defining the PIN-block format and optionally followed by either
+an additional 24 bytes containing the input CKSN extension or an additional 20 bytes containing the
+input Derivation Data structure. See <xref href="wskc_c_pinppp.dita"/> for additional
+information.</p>
+<p rev="sh21i1">If the rule array keyword UKPTBOTH or UKPTOPIN is specified, CKSN extension must be
+included in the <parmname>output_PIN_profile</parmname>. Single-DES DUKPT algorithm will be used to
+derive the DUKPT key used to encrypt the output PIN block.</p>
+<p rev="sh21i1">If the rule array keyword DUKPT-BH or DUKPT-OP is specified, CKSN extension must be
+included in the <parmname>output_PIN_profile</parmname>. The Triple-DES DUKPT algorithm will be used
+to derive the DUKPT key used to encrypt the output PIN block.</p>
+<p rev="sh21i1">If the rule array keyword ADUKPTBH or ADUKPTOP is specified, the AES-DUKPT algorithm
+will be used to derive the DUKPT key used to encrypt the output PIN block when the Derivation Data
+extension is included in the <parmname>output_PIN_profile</parmname>. See <xref
+href="wskc_c_pinppp.dita"/> for the layout of the AES-DUKPT Derivation Data structure. The algorithm
+indicator must be set to X'0000' (2-key TDES), X'0001' (3-key TDES), X'0002' (AES-128), X'0003'
+(AES-192), or X'0004' (AES-256). The key usage indicator must be set to X'1000' (PIN
+Encryption).</p>
+</pd>
+</plentry>
+<plentry>
+<pt>sequence_number</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the sequence number. Ensure that the referenced
+integer variable is valued to 99999 if the output PIN block format is 3621 or 4704-EPP. Otherwise,
+this parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the re-enciphered
+PIN block. The value must be at least 8.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the re-enciphered and, optionally, reformatted
+PIN-block returned by the verb. The buffer can be larger on input. However, on output this field is
+updated to indicate the actual number of bytes returned by the card.</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>reserved1</parmname> variable. This value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry rev="sh16i1">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. This parameter is reserved for future use.</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2" rev="shd3">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>reserved2</parmname> variable. This value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. This parameter is reserved for future use.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

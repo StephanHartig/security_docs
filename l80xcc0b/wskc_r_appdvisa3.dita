@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdvisa3">
+<title>Visa Format 3</title>
+  <titlealts>
+    <navtitle>Visa Format 3</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Visa Format 3</searchtitle>
+  </titlealts><shortdesc>Example code for Visa Format 3.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>Visa-3</indexterm></indexterm>
+<indexterm>Visa-3 PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This format specifies that the PIN length can be in the range of 4 - 12 digits. The PIN starts
+        from the leftmost digit and ends by the delimiter (‘F’), and the remaining digits are
+        padding digits.</p></section>
+<section><p>An example of a 6-digit PIN: 
+<codeblock>   PIN Block = PPPPPPFXXXXXXXXX</codeblock></p></section>
+</refbody></reference>

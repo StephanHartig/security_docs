@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_xpkg" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword>)</title>
+ <titlealts>
+    <navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></searchtitle>
+  </titlealts>
+<shortdesc rev="sh20i1">Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"
+/> verb to generate an RSA public-private key-pair for use with the RSA algorithm, an ECC
+public-private key pair for use with the ECC algorithm, or a CRYSTALS-Dilithium key pair for use
+with the CRYSTALS-Dilithium algorithm.</shortdesc><?Pub
+Caret 137?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"></keyword>)</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography (ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key token</indexterm></indexterm>
+<indexterm>RSA key</indexterm><indexterm>key token<indexterm>Elliptic
+Curve Cryptography (ECC)</indexterm></indexterm><indexterm>Elliptic
+Curve Cryptography (ECC)<indexterm>key token</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p>Input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> verb is either
+a skeleton key token that has been built by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb, or a valid internal RSA token. In
+the case of a valid internal RSA token, the verb will generate a key with the same modulus length
+and the same exponent. </p>
+<p>In the case of a valid internal ECC token, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> generates a key based on the curve type
+and size. </p>
+<p rev="sh20i1">For CRYSTALS-Dilithium tokens, PKG will generate a key based on the algorithm
+identifier and algorithm parameter.</p>
+<p>Internal tokens with a <ph>X'09'</ph> section are not supported.</p>
+</section>
+<section rev="sh20i1">
+<p>RSA key generation requires this information in the input skeleton token:</p>
+<ul>
+<li>Size of the modulus in bits. The modulus for modulus-exponent form keys is between 512 and 1024.
+The CRT modulus is between 512 and 4096. The modulus for the variable-length-modulus-exponent
+form is between 512 and 4096.</li>
+</ul>
+<p>RSA key generation has these restrictions: For modulus-exponent, there are restrictions on
+modulus, public exponent, and private exponent. For CRT, there are restrictions on dp, dq, U, and
+public exponent. See the Key value structure in <xref href="wskc_r_pkbparameters.dita"/> for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> verb for more information.</p>
+</section>
+<section>
+<p>ECC key generation requires this information in the skeleton token:</p>
+<ul>
+<li>The key type: ECC.</li>
+<li rev="sh21i1">The type of curve: NIST Prime, Brainpool, Edwards, or Koblitz.</li>
+<li>The size of P in bits:<ul>
+<li>192, 224, 256, 384 or 521 for Prime curves.</li>
+<li>160, 192, 224, 256, 320, 384, or 512 for Brainpool curves.</li>
+<li>255 or 448 for Edwards curves.</li>
+<li rev="sh21i1">256 for Koblitz curves.</li>
+</ul></li>
+<li>Key usage information:<ul>
+<li rev="sh21i1">For Brainpool, Prime, and Koblitz curves, the key can be used for ECDSA and key
+agreement.</li>
+<li>For Edwards curve, the key can be used for EdDSA only.</li>
+</ul></li>
+<li>Optionally, application associated data.</li>
+</ul>
+<p>The generated ECC private key is returned in one of the following forms:</p>
+<ul>
+<li>Clear key.</li>
+<li>Encrypted key enciphered under the ECC master key.</li>
+<li>Encrypted key enciphered by an AES transport key.</li>
+</ul>
+</section>
+<section rev="sh20i1">
+<p>CRYSTALS-Dilithium key generation requires the following information in the skeleton token:</p>
+<ul>
+<li>The Algorithm identifier: CRYSTALS-Dilithium.</li>
+<li>The Algorithm parameter:<ul>
+<li>X'0605' CRYSTALS-Dilithium (6,5).</li>
+</ul></li>
+<li>PKA key usage information:<ul>
+<li>For CRYSTALS-Dilithium, U-DIGSIG is required.</li>
+</ul></li> 
+</ul>
+<p>The generated CRYSTALS-Dilithium private key is returned in one of the following forms:</p>
+<ul>
+<li>Clear key.</li>
+<li>Encrypted key enciphered under the ECC master key.</li>
+</ul>
+</section>
+<!--<section><p>The PKA input skeleton determines the following characteristics of the generated key-pair: </p><ul><li>the key type: RSA or ECC</li><li>the RSA key length (modulus size) or ECC Brainpool or Prime curve size of <synph><var>p</var></synph> in bits: 192, 224, 256, 384 or 521 for Prime curves and 160, 192, 224, 256, 320, 384, or 512 for Brainpool curves</li><li>The RSA public exponent: valued to 3, 65537, or random. Beginning with Release 5.2, a value of 5, 17, or 257 is valid. See <xref href="wskc_r_xpkgrestrictions.dita#l0wskc02_xpkgrestrictions"/>.<note>The value 3, 5, 17, 257, and 65537 are the first Fermat numbers. Fermat numbers take the form Fn = 2<sup>(2n)</sup> + 1, where n is a non-negative integer. The first five Fermat numbers are known to be prime.</note></li><li>any RSA private-key optimization (Modulus-Exponent versus Chinese-Remainder Theorem format)</li><li>any signatures and signature-information that should be associated with the public key.</li><li>for EXX key generation: Key usage information and optionally, application associated data</li></ul></section>-->
+<!--<section><p>An ECC key is always randomly generated by this verb. Normally an RSA key is randomly generated. However, an RSA key can be derived using regeneration data. By providing regeneration data for an RSA key, a seed can be supplied so that the same value of the generated key can be obtained in multiple instances. This can be useful in testing situations or where the regeneration data can be securely held for key generation. The process for generating a particular key pair from regeneration data might vary between products. Therefore, do not expect to obtain the same key pair for a given regeneration data string between products.</p></section>-->
+<section>The generated private-key can be returned in one of three forms for RSA and ECC: <dl>
+<dlentry>
+<dt>Unenciphered</dt>
+<dd>When rule-array keyword CLEAR is specified, the PKA private key is returned in cleartext form.
+The clear key is returned in an external PKA key-token.</dd>
+</dlentry>
+<dlentry>
+<dt>Enciphered using a master key</dt>
+<dd>When rule-array keyword MASTER is specified, a master key is used to protect the private key or
+its OPK if the private key has one. The enciphered key is returned in an internal PKA key-token. ECC
+keys (section X'20') and RSA keys in section X'30' and X'31' have an OPK that is enciphered by the
+APKA master key. All other RSA keys are enciphered by the PKA master key.</dd>
+</dlentry>
+<dlentry>
+<dt>Enciphered using a transport key</dt>
+<dd>When rule-array keyword XPORT is specified, a transport key (key-encrypting key) is used to
+protect the private key or its object protection key (OPK) if the private key has one. The
+enciphered key is returned in an external PKA key-token. By definition, an ECC private-key section
+always has an OPK, while an RSA private-key section either has an OPK or it does not, depending on
+the section identifier. v The OPK of an external ECC private-key is enciphered under a
+variable-length AES EXPORTER or IMPORTER key-encrypting key after the OPK is used to encipher the
+private key. Two private key sections are defined, X'30' and X'31'. When the key token is external,
+the OPK data contained in either private-key section X'30' or X'31' is enciphered under a
+variable-length AES EXPORTER or IMPORTER key-encrypting key after it is used to encipher the private
+key. An external RSA private-key that does not have a private-key section of X'30' or X'31' is
+enciphered under a fixed-length DES EXPORTER or IMPORTER key-encrypting key. <note>A private key
+enciphered by an EXPORTER key can be imported onto a node where the corresponding IMPORTER key is
+installed. In contrast, a private key enciphered by an IMPORTER key can be imported onto the
+generating node.</note></dd>
+</dlentry>
+</dl><p>With the exception of RSA private key sections X'30' and X'31', use the RETAIN rule-array
+keyword to cause an RSA private key to be retained within the coprocessor. Incorporate the key label
+to be used later to reference the newly generated key in the key name section of the skeleton
+key-token. Later, use this label to employ the key in verbs such as<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/>,<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsbd"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/>.</p><p> On output, the verb returns an
+external key-token containing the public key in the <parmname>generated_key_identifier</parmname>
+variable. This variable returned by the verb does not contain the private key. </p><note>When using
+the RETAIN private-key encryption option, the key label supplied in the skeleton key-token
+references the key storage within the coprocessor, and, in this case, must not reference a record in
+the host-system PKA key-storage.</note><p>The rule array keyword CLONE flags a generated and
+retained RSA private-key as usable in an engine cloning process. Cloning is a technique for copying
+sensitive coprocessor information from one coprocessor to another (see <xref
+href="wskc_understand_mkeys.dita#understand_mkeys"/>). ECC private keys and RSA keys in private key
+sections X'30' or X'31' are not usable in an engine cloning process. </p><p>If you include an RSA
+public-key certificate section within the PKA skeleton key-token, the cryptographic engine signs a
+certificate with the key that is designated in the RSA public-key certificate signature subsection.
+This technique causes the cryptographic engine to sign the newly generated RSA public key using
+another key that has been retained within the engine, including the newly generated key (producing a
+self-signature). You can obtain more than one signature on the public key when you include multiple
+signature subsections in the skeleton key token. See <xref
+href="wskc_pka_pubkcert.dita#pka_pubkcert"/>.</p><note type="other" othertype="Tip"> The verb
+returns a section X'06' RSA private-key token 1024-bit Modulus-Exponent with OPK format when you
+request a Modulus Exponent internal key even though you have specified a type X'02' RSA private-key
+1024-bit Modulus Exponent skeleton key token.</note></section>
+<section>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000003994?>

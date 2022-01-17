@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc03_zapgtr31" xml:lang="en-us">
+<title>TR-31 symmetric key management</title>
+<titlealts>
+<navtitle>TR-31 symmetric-key management</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): TR-31 symmetric key
+management</searchtitle>
+</titlealts>
+<shortdesc>X9 TR-31 is defined in X9 TR-31 2010: <i>Interoperable Secure Key Exchange Block
+Specification for Symmetric Algorithms</i>.</shortdesc><?Pub
+Caret -1?>
+<prolog><metadata>
+<keywords>
+<indexterm>TR-31 <indexterm>symmetric key management</indexterm></indexterm>
+<indexterm>symmetric key management<indexterm>TR-31</indexterm></indexterm>
+<indexterm>key bundling requirements</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p> The provided information is  an extension of <xref href="wskc_r_apmky.dita#l0wskc02_apmky"/>.
+For additional information on symmetric keys, including DES control vectors, see <xref
+href="wskc_r_apmky.dita#l0wskc02_apmky"/>.</p>
+<p>The TR-31 key block is a format defined by the ANSI Standards Committee
+to support interchange of symmetric keys in a secure manner and with
+key attributes included in the exchanged data. Currently, this format
+supports only DES keys. AES keys are not supported.</p>
+<p>TR-31 is a Technical Report. This is different from a standard,
+which is a mandatory set of rules that must be followed.  A Technical
+Report is not mandatory, but provides guidance to those who are using
+the standards. In this case, TR-31 is a companion to the standard
+X9.24-1, which defines requirements for key management performed using
+symmetric key techniques. TR-31 shows a method that complies with
+the various requirements that are defined in X9.24-1, and because
+no other specific method has been defined by the standards committee,
+the TR-31 method is becoming the apparent standard through which financial
+organizations will exchange keys.</p>
+<p>Prior to TR-31, there were problems with the interchange of symmetric keys. In the banking
+environment, it is very important that each symmetric key have a specific set of attributes attached
+to it, specifying such things as the cryptographic operations for which that key can be used.
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> implements these attributes in the
+form of the control vector (CV), but other vendors implement attributes in their own proprietary
+ways. Thus, if you are exchanging keys between <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> systems, you can securely pass the
+attributes using <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> functions and
+data structures. If, however, that same key were sent to a non-<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> system, there would be no secure way to do
+that. This is because the two cryptographic architectures have no common key format that could be
+used to pass both the key and its attributes. As a result, the normal approach has been to strip the
+attributes and send just the encrypted key, then attach attributes again at the receiving end.</p>
+<p>The above scenario has major security problems because it allows
+an insider to obtain the key without its designated attributes. The
+insider can then attach other attributes to it, thereby compromising
+the security of the system. For example, assume the exchanged key
+is a key-encrypting key (KEK). The attributes of a KEK should restrict
+its use to key management functions that are designed to prevent exposure
+of the keys that the KEK is used to encrypt. If that KEK is transmitted
+without any attributes, an attacker on the inside can turn the key
+into a type used for data decryption. Such a key can then be used
+to decipher all of the keys that were previously protected using the
+KEK. It is clearly very desirable to have a way of exchanging keys
+that prevents this modification of the attributes. TR-31 provides
+such a method.</p>
+<p>The TR-31 key block has a set of defined key attributes. These attributes are securely bound to
+the key so that they can be transported together between any two systems that both understand the
+TR-31 format. This is much of the reason for its gain in popularity. There are two supported
+cryptographic methods for protecting the key block. The original version of TR-31 defined a method
+that encrypted the key field in CBC mode and computed a TDES MAC over the header and key field. The
+encryption and MAC operations used different keys, created by applying predefined variants to the
+input key block protection key. This method is identified by a Key Block Version ID value of
+<codeph>A</codeph> (X'41'). An update to TR-31 adds a more modern method, identified by a Key Block
+Version ID value of <codeph>B</codeph> (X'42') or <codeph>C</codeph> (X'43'). The <codeph>B</codeph>
+method uses an authenticated encryption scheme and uses cryptographic key derivation methods to
+produce the encryption and MAC keys. The <codeph>C</codeph> method is exactly the same as the
+<codeph>A</codeph> method in terms of wrapping keys. However, the field values are expected to
+conform to the updated standard.</p>
+<p>Not surprisingly, TR-31 uses some key attributes that are different from those in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> control vector. In some cases, there is a
+one-to-one correspondence between CCA and TR-31 attributes. For these cases, conversion is simple
+and straightforward. In other cases, the correspondence is one-to-many or many-to-one and the
+application program must provide information to help the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs decide how to perform the translation
+between <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> and TR-31 attributes.
+There are also <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> attributes that
+simply cannot be represented using TR-31. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys with those attributes are not eligible
+for conversion to TR-31 format.</p>
+<p>The TR-31 key block has these two important features: <ol>
+<li>The key is protected in such a way that it meets the <term>key bundling</term> requirements of
+various standards. These standards state that the individual 8-byte blocks of a double-length or
+triple-length TDES key must be bound in such a way that they cannot be individually manipulated.
+TR-31 accomplishes this mainly by computation of a MAC across the entire structure, excluding the
+MAC value itself.</li>
+<li>Key usage attributes, defined to control how the key can be used,
+are securely bound to the key itself. This makes it possible for a
+key and its attributes to be securely transferred from one party to
+another while assuring that the attributes of the key cannot be modified
+to suit the needs of an attacker.</li>
+</ol></p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports the management of DES
+keys using TR-31. <xref href="#l0wskc03_zapgtr31/ch09vb"/> lists the verbs described in this book.
+See <xref href="wskc_r_l0wskc03_zapgtr31v.dita#l0wskc03_zapgtr31v"/> for a detailed description of
+the verbs.</p>
+<note rev="sh18i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0 introduces
+compliance-tagged key support for domains that enter compliance mode. Compliance-tagged DES keys may
+be converted to or from TR-31 key blocks. The wrapping key encrypting key (KEK) must be
+compliance-tagged as well as the key to be exported or imported. A compliance-tagged KEK cannot be
+used to import or export a key that is not compliance-tagged.</note>
+<table frame="all" id="ch09vb" pgwide="1">
+<title>TR-31 symmetric key management verbs</title>
+<desc>
+<p outputclass="summary">TR-31 symmetric key management verbs</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="3*"/>
+<colspec colname="col4" colwidth="*"/>
+<colspec colname="col5" colwidth="*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Page</entry>
+<entry>Service</entry>
+<entry>Entry point</entry>
+<entry>Service location</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/></entry>
+<entry><xref href="wskc_r_vbspkextr31.dita#vbspkextr31"/></entry>
+<entry>Exports a CCA external or internal fixed-length symmetric key-token, converting
+it into an external X9 TR-31 key block format.</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/></entry>
+<entry>cryptographic engine</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/></entry>
+<entry><xref href="wskc_r_vbtr31ki.dita#vbtr31ki"/></entry>
+<entry>Imports an external X9 TR-31 key block, converting it into a CCA external or
+internal fixed-length symmetric key-token.</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></entry>
+<entry>cryptographic engine</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/></entry>
+<entry><xref href="wskc_r_vbtr31kp.dita#vbtr31kp"/></entry>
+<entry>Parses the information from the standard predefined fields of the TR-31 key
+block header without importing the key.</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/></entry>
+<entry>security API host software</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/></entry>
+<entry><xref href="wskc_r_vbtr31ko.dita#vbtr31ko"/></entry>
+<entry>Constructs the optional blocks of a TR-31 key block, one block at a
+time.</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/></entry>
+<entry>security API host software</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/></entry>
+<entry><xref href="wskc_r_vbtr31kr.dita#vbtr31kr"/></entry>
+<entry>Obtains the contents of any optional fields of a TR-31 key block header.</entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kr"/></entry>
+<entry>security API host software</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>
+<?Pub *0000010101?>

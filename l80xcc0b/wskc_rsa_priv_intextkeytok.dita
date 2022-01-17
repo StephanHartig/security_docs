@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_rsa_priv_intextkeytok" xml:lang="en-us" rev="sh16i1">
+<title>RSA private key token </title>
+<titlealts>
+<navtitle>RSA private key token</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key token </searchtitle>
+</titlealts>
+<shortdesc>The contained subtopics describe the  RSA private key tokens for both the external and
+internal format combined into one table for each token type.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+<indexterm>RSA private token</indexterm>
+<indexterm>PKA key token<indexterm>record format</indexterm></indexterm>
+<indexterm>key token<indexterm>PKA<indexterm>RSA private</indexterm></indexterm></indexterm>
+<indexterm>PKA key token<indexterm>record format<indexterm>RSA private
+</indexterm></indexterm></indexterm>
+<indexterm>RSA private key token</indexterm>
+<indexterm>private key token<indexterm>RSA</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>First, the topics <xref href="wskc_r_ex.dita#l0wskc02_ex"/> and <xref
+href="wskc_r_int.dita#l0wskc_int"/> describe the general structure of private external and internal key
+tokens. The subsequent information units then present the detailed formats of the available key
+token types.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000007860?>

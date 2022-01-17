@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_role_acp" xml:lang="en-us">
+<title>Access control point list</title>
+<titlealts>
+<navtitle>Access control point list</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control point list</searchtitle>
+</titlealts>
+<abstract><shortdesc>The user's permissions (permitted or disallowed operations) are attached to
+each role in the form of an access control point list (ACP list).</shortdesc>This ACP list is a map
+of bits, and every bit is uniquely identified by its offset. A single bit for each primitive
+function can be independently controlled. Refer to <xref href="wskc_r_apn.dita#l0wskc02_apn"/> for a
+list of all ACP offsets that are defined, their command names, which verbs use a particular command,
+and recommendations on command usage.</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>ACP list</indexterm><indexterm>access control
+point list</indexterm></indexterm>
+<indexterm>access control point list<indexterm>data structures</indexterm></indexterm>
+<indexterm>data structures<indexterm>access control point list</indexterm></indexterm>
+<indexterm>ACP list</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The <cite><b>Required commands</b></cite> section of each verb defines which bits of the ACP
+list, if any, control the functions of that verb. Each offset that a verb defines has a mnemonic
+command name. If an offset in an ACP list is B'1', the command is enabled. Otherwise, the command is
+disabled. Typically, when a command is enabled, the function associated with the command is
+permitted, provided that all other access conditions are also satisfied. However, in some cases,
+enabling a command disallows the function associated with the command. An offset that disallows a
+function has <cmdname>Disallow</cmdname> as part of its mnemonic command name.</p>
+<p>Each ACP identifier (offset) is a two-byte integer (X'0000' - X'FFFF'). This allows
+addressability of 2<sup>16</sup> (64K) bits. Only a small fraction of these addressable bits are
+used, so storing the entire 64K bit (8K byte) table in each role would waste memory space. Instead,
+the table is stored as a sparse matrix, where only the necessary bits are included.</p>
+<p>To accomplish this, each bit map is stored as a series of one or more bit-map segments, where
+each can hold a variable number of bits. Each segment must start with a bit that is the high-order
+bit in a byte, and each must end with a bit that is the low order bit in a byte. This restriction
+results in segments that have no partial bytes at the beginning or end. Any bits that do not
+represent defined access control points must be set to zero, indicating that the corresponding
+function is not permitted.</p>
+<p>The bit-map portion of each segment is preceded by a header, providing information about the
+segment. The header contains the following fields:</p>
+<dl>
+<dlentry>
+<dt>Starting bit number</dt>
+<dd>The index of the first bit contained in the segment. The index of the first access control point
+in the table is zero (X'0000').</dd>
+</dlentry>
+<dlentry>
+<dt>Ending bit number</dt>
+<dd>The index of the last bit contained in the segment.</dd>
+</dlentry>
+<dlentry>
+<dt>Number of bytes in segment</dt>
+<dd>The number of bytes of bit-map data contained in this segment.</dd>
+</dlentry>
+</dl>
+<p>The entire access control point structure is comprised of a header, followed by one or more
+access control point segments. The header indicates how many segments are contained in the entire
+structure.</p>
+<p>The layout of this structure is illustrated in <xref href="#acodas_role_acp/acplist_struc"
+format="dita"/>.</p>
+<table pgwide="0" frame="all" id="acplist_struc"><title>Access-control-point list structure</title><desc>
+<p outputclass="summary">Table showing the access-control-point list structure with three columns,
+providing Offset, Length in bytes, and a description.</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3">Header</entry>
+</row>
+<row>
+<entry>00</entry>
+<entry>2</entry>
+<entry>Number of segments n in big endian format.</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>2</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Bit-map segment 1 (refer to <xref
+href="#acodas_role_acp/bitseg_struc" format="dita"/>)</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Bit-map segment 2 (optional)</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">...</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">Bit-map segment <codeph>n</codeph></entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>An ACP list contains one or more bit-map segments. <xref href="#acodas_role_acp/bitseg_struc"
+format="dita"/> defines the layout of a bit-map segment.</p>
+<table pgwide="0" frame="all" id="bitseg_struc"><title>Bit-map segment structure</title><desc>
+<p outputclass="summary">Table showing the bit-map segment structure with three columns, providing
+Offset, Length in bytes, and a description.</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>2</entry>
+<entry>Start bit number of bit-map segment in big endian format.</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>2</entry>
+<entry>End bit number of bit-map segment in big endian format.</entry>
+</row>
+<row>
+<entry>04</entry>
+<entry>2</entry>
+<entry>Number of bit-map bytes in big endian format.</entry>
+</row>
+<row>
+<entry>06</entry>
+<entry>2</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>08</entry>
+<entry>variable</entry>
+<entry>Bit-map data of segment.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p rev="sh18i2">For a specific role, you can display the ACP segments using the
+<cmdname>panel.exe</cmdname>, for example:</p>
+<screen rev="sh18i2">panel.exe --show-role --role=DEFALT02</screen>
+<p rev="sh18i2">As output, you receive the specific bit list of enabled/disabled ACPs:</p>
+<screen rev="sh18i2">
+Showing returned ROLE DATA:
+
+---------------------------
+API CALL details:
+CSUAACM [GET-ROLE ] card [DV73R354] ROLE [DEFALT02] size [215]
+---------------------------
+ version:    [0101]
+ comment:    [System default role ]
+ authstr:    [0000]
+ time range: [00:00] - [00:00]
+ DOW:        [fe]
+ ACP Segments for role: 5
+ ACP Segment [0] has [31] Bytes for bits [0x0008 - 0x00ff]
+  [ 03 f0 ] &lt;&lt; ACP bits [0x0008 - 0x0017]
+  [ ff 70 ] &lt;&lt; ACP bits [0x0018 - 0x0027]
+  [ 00 20 ] &lt;&lt; ACP bits [0x0028 - 0x0037]
+  [ 01 fe ] &lt;&lt; ACP bits [0x0038 - 0x0047]
+  [ 00 19 ] &lt;&lt; ACP bits [0x0048 - 0x0057]
+  [ 00 80 ] &lt;&lt; ACP bits [0x0058 - 0x0067]
+  ...
+  [ f8 fd ] &lt;&lt; ACP bits [0x00e8 - 0x00f7]
+  [ ff    ] &lt;&lt; ACP bits [0x00f8 - 0x00ff]
+
+ ACP Segment [1] has [31] Bytes for bits [0x0100 - 0x01f7]
+  [ fe 7c ] &lt;&lt; ACP bits [0x0100 - 0x010f]
+  [ 02 03 ] &lt;&lt; ACP bits [0x0110 - 0x011f]
+  ...
+  [ 00 00 ] &lt;&lt; ACP bits [0x01e0 - 0x01ef]
+  [ 00    ] &lt;&lt; ACP bits [0x01f0 - 0x01f7]
+
+ ACP Segment [2] has [32] Bytes for bits [0x0200 - 0x02ff]
+  [ 1c 00 ] &lt;&lt; ACP bits [0x0200 - 0x020f]
+  [ 00 00 ] &lt;&lt; ACP bits [0x0210 - 0x021f]
+  ...
+  [ 00 00 ] &lt;&lt; ACP bits [0x02e0 - 0x02ef]
+  [ 07 c0 ] &lt;&lt; ACP bits [0x02f0 - 0x02ff]
+
+ ACP Segment [3] has [16] Bytes for bits [0x0300 - 0x037f]
+  [ d0 67 ] &lt;&lt; ACP bits [0x0300 - 0x030f]
+  ...
+  [ 00 00 ] &lt;&lt; ACP bits [0x0370 - 0x037f]
+
+ ACP Segment [4] has [32] Bytes for bits [0x4000 - 0x40ff]
+  [ 00 00 ] &lt;&lt; ACP bits [0x4000 - 0x400f]
+  ...
+  [ 00 00 ] &lt;&lt; ACP bits [0x40f0 - 0x40ff]
+
+</screen>
+</conbody>
+</concept>
+<?Pub *0000003873?>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktp2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb to disassemble a variable-length symmetric
+key-token into separate pieces of information. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The verb can disassemble an external or internal variable-length symmetric key-token in
+application storage into separate pieces of information. To parse a fixed-length symmetric
+key-token, see <xref href="wskc_r_ktp.dita#l0wskc02_ktp"/>.</p></section>
+<section><p>The <parmname>key_token</parmname> input parameter specifies the external or internal key token
+to disassemble. The verb returns some of the key-token information in a set of variables identified
+by individual parameters, and returns the remaining information as keywords in the rule array.</p></section>
+<section><p>The key-usage field and key-management field information is returned in keywords found in the
+rule array when the verb can fully parse the fields. See <xref
+href="wskc_r_l0wskc142.dita#l0wskc142/ktp2_rarray_parm"/> for a table of supported keywords. If the
+token cannot be parsed successfully, the verb returns a warning using reason code 2039
+<ph>X'7F7'</ph>). If a warning or error occurs during processing, the verb updates all of the count
+and length variables with a value of zero.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb performs no cryptographic services.</p></section>
+<section><p>To use this verb, specify the following: </p>
+<ul>
+<li>An external or internal variable-length symmetric key-token (version <ph>X'05'</ph>) to be
+parsed. <p>This parameter does not accept a key label. The key token must be provided from
+application storage. If a key token located in key storage needs to be parsed, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> verb to retrieve it into application
+storage before calling this verb.</p><p>See <xref
+href="wskc_r_hmac_key_tokens.dita#l0wskc01_hmac_key_tokens"/> for the format of this key token. A
+review of this format information will greatly assist in understanding the output variables of this
+verb.</p></li>
+<li>A rule-array-count value large enough for the verb to return keywords about the input key-token
+in the rule-array buffer .<p>To determine the exact count required, and also the required lengths of
+the other string variables, specify a value of zero. This causes the verb to return all count and
+length values without updating any string variables.</p></li>
+<li>Adequate buffer sizes for all of the output variables using the length parameters.</li>
+</ul></section>
+</refbody></reference>

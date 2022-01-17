@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_sygusage">
+<title>Usage notes</title> <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes of<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The hardware configuration sets the limit on the modulus size of
+keys for key management; thus, this verb will fail if the RSA key
+modulus bit length exceeds this limit.</p></section>
+<section><p>Specification of <synph><kwd>PKA92</kwd></synph> with an input NOCV key-encrypting
+key token is not supported.</p></section>
+<section><p>Use the <synph><kwd>PKA92</kwd></synph> key-formatting method to generate a key-encrypting
+key. The verb enciphers one key copy using the key encipherment technique
+employed in the <tm trademark="IBM" tmtype="reg">IBM</tm> Transaction
+Security System (TSS) 4753, 4755, and <tm trademark="AS/400" tmtype="reg">AS/400</tm> cryptographic
+product PKA92 implementations (see <xref href="wskc_c_despk92.dita#l0wskc02_despk92"/>).
+The control vector for the RSA-enciphered copy of the key is taken
+from an internal (operational) DES key token that must be present
+on input in the <synph><var>RSA_enciphered_key</var></synph> variable.</p></section>
+<section><p>Only key-encrypting keys that conform to the rules for an OPEX
+case under the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb are permitted. The control vector for
+the local key is taken from a DES key token that must be present on
+input in the <synph><var>local_enciphered_key_identifier</var></synph> variable. The
+control vector for one key copy must be from the EXPORTER class, while
+the control vector for the other key copy must be from the IMPORTER
+class.</p></section>
+</refbody></reference>

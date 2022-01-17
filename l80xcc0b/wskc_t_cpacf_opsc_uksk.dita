@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="l0wskc02_cpacf_opsc_uksk" xml:lang="en-us">
+<title>Using keys with CPACF, protected key</title>
+<titlealts>
+<navtitle>Using keys with CPACF, protected key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using keys with CPACF, protected key for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Follow the steps in this procedure to use keys with CPACF,
+protected key.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CPACF<indexterm>using protected key</indexterm></indexterm>
+<indexterm>key token</indexterm><indexterm>key identifier</indexterm>
+<indexterm>key<indexterm>translated</indexterm></indexterm><indexterm>translated
+key</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe</indexterm><indexterm>CPACF functions</indexterm>
+<indexterm>key functions</indexterm><indexterm>CPACF</indexterm>
+</keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>An eligible <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb call (see
+lists in <xref href="wskc_c_cpacf_conopt.dita#l0wskc02_cpacf_conopt"/>) specifying a key token or
+key identifier for a key token that is a normal internal <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token, called key-e here, comes into
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library.</cmd>
+</step>
+<step>
+<cmd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library verifies that a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> is available for key
+translation. If not, then the standard <parmname>no-available-device</parmname> error is
+returned.</cmd>
+</step>
+<step>
+<cmd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library tries to find an
+already translated version (key-t) that matches the key-e passed into the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library.</cmd>
+<info>
+<ul>
+<li>The user application (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library
+in this case) must cache translated key-t objects in RAM, using the key-e tokens as references.</li>
+</ul>
+</info>
+</step>
+<step><cmd>If a key-t is not found for the key-e used:</cmd><info><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library translates the
+key-e to a key-t for use with the CPACF using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> secure services, then caches the key
+pair.</p></info></step>
+<step><cmd>At this point, either a fresh key-t has been obtained,
+or a key-t was found in RAM cache for the operation.</cmd></step>
+<step>
+<cmd>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library directs the
+operation to the CPACF using the key-t.</cmd>
+</step>
+</steps>
+<result><p>The  <cmdname rev="sh18i2">panel.exe --list-cpacf</cmdname> command displays all the supported
+CPACF functions. This is especially useful on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> system, to make sure that the protected key
+functions are available. For details, see <xref href="wskc_c_panelexe.dita#l0wskc02_panelexe"/>.</p></result>
+</taskbody>
+</task><?Pub Caret -3?>
+<?Pub *0000002682?>

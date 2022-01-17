@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_despk92">
+<title>PKA92 key format and encryption process</title>
+<titlealts>
+<navtitle>PKA92 key format and encryption process</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA92 key format and encryption
+process</searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> and the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> <ph>verbs</ph> optionally support
+a <synph><kwd>PKA92</kwd></synph> method of encrypting <ph>a DES key</ph> with an RSA
+public key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PKA92 key format and encryption process</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>This format is adapted from the <tm trademark="IBM" tmtype="reg">IBM</tm> Transaction Security
+System (TSS) 4753 and 4755 product's implementation of <synph><kwd>PKA92</kwd></synph>. The verbs do
+not create or accept the complete PKA92 AS key token as defined for the TSS products. Rather, the
+verbs support only the actual RSA-encrypted portion of a TSS PKA92 key token, the <i>AS External Key
+Block</i>.</p>
+<p><b>Forming an external key block</b> -  The PKA96
+implementation forms an AS External Key Block by RSA-encrypting a
+key block using a public key. The key block is formed by padding the
+key record detailed in <xref href="#l0wskc02_despk92/l0wskc02_pka92kr"/> with zero bits
+on the left, high-order end of the key record. The process completes
+the key block with three sub-processes: masking, overwriting, and
+RSA encrypting.</p>
+<table id="l0wskc02_pka92kr">
+<title>PKA96 clear DES key record</title><desc><p outputclass="summary">PKA96 clear DES key record</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="33*"/>
+<colspec colname="col2" colwidth="33*"/>
+<colspec colname="col3" colwidth="200*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3">Zero-bit padding to form a structure
+as long as the length of the public key modulus. The implementation
+constrains the public key modulus to a multiple of 64 bits in the
+range of 512 - 1024 bits. Note that government export or import regulations
+can impose limits on the modulus length. The maximum length is validated
+by a check against a value in the Function Control Vector.</entry></row>
+<row>
+<entry>000</entry>
+<entry>005</entry>
+<entry>Header and flags: <ph>X'01 0000 0000.'</ph></entry></row>
+<row>
+<entry>005</entry>
+<entry>016</entry>
+<entry>Environment Identifier (EID), encoded in ASCII.</entry></row>
+<row>
+<entry>021</entry>
+<entry>008</entry>
+<entry>Control vector base for the DES key.</entry></row>
+<row>
+<entry>029</entry>
+<entry>008</entry>
+<entry>Repeat of the CV data at offset 021.</entry></row>
+<row>
+<entry>037</entry>
+<entry>008</entry>
+<entry>The single-length DES key or the left half of
+a double-length DES key.</entry></row>
+<row>
+<entry>045</entry>
+<entry>008</entry>
+<entry>The right half of a double-length DES key or
+a random number. This value is locally designated "K."</entry></row>
+<row>
+<entry>053</entry>
+<entry>008</entry>
+<entry>Random number, "IV."</entry></row>
+<row>
+<entry>061</entry>
+<entry>001</entry>
+<entry>Ending byte, <ph>X'00.'</ph></entry></row>
+</tbody>
+</tgroup>
+</table>
+<p><i>Masking Sub-process</i> -  Create a mask by
+CBC encrypting a multiple of eight bytes of binary zeros using K as
+the key and IV as the initialization vector as defined in the key
+record at offsets 45 and 53. XOR the mask with the key record and
+call the result PKR.</p>
+<p><i>Overwriting Sub-process</i> -     Set the high-order
+bits of PKR to <ph>B'01'</ph> and set the low-order bits to <ph>B'0110'</ph>.</p>
+<p>XOR K and IV and write the result at offset 45 in PKR.</p>
+<p>Write IV at offset 53 in PKR. This causes the masked and overwritten
+PKR to have IV at its original position.</p>
+<p><i>Encrypting Sub-process</i> -  RSA encrypt the
+overwritten PKR masked key record using the public key of the receiving
+node.</p>
+<p><b>Recovering a key from an external key block</b> -
+ Recover the encrypted DES key from an AS External Key Block by performing
+decrypting, validating, unmasking, and extraction sub-processes.</p>
+<p><i>Decrypting Sub-process</i> -  RSA decrypt the
+AS External Key Block using an RSA private key and call the result
+of the decryption PKR. The private key must be usable for key management
+purposes.</p>
+<p><i>Validating Sub-process</i> -  Verify the high-order
+two bits of the PKR record are valued to <ph>B'01'</ph> and the low-order
+four bits of the PKR record are valued to <ph>B'0110'</ph>. </p>
+<p><i>Unmasking Sub-process</i> - Set IV to the value
+of the eight bytes at offset 53 of the PKR record. Note that there
+is a variable quantity of padding prior to offset 0. See <xref href="#l0wskc02_despk92/l0wskc02_pka92kr"/>.</p>
+<p>Set K to the XOR of IV and the value of the eight bytes at offset
+45 of the PKR record.</p>
+<p>Create a mask equal in length to the PKR record by CBC encrypting
+a multiple of eight bytes of binary zeros using K as the key and IV
+as the initialization vector. XOR the mask with PKR and call the result
+the key record.</p>
+<p>Copy K to offset 45 in the PKR record.</p>
+<p><i>Extraction Sub-process</i>.  Confirm that:
+<ul>
+<li>The four bytes at offset 1 in the key record are valued to <ph>X'0000 0000'</ph> .</li>
+<li>The two control vector fields at offsets 21 and 29 are identical.</li>
+<li>If the control vector is an IMPORTER or EXPORTER key class, the
+Environment Identifier (EID) in the key record is not the same as
+the EID stored in the cryptographic engine.</li>
+</ul></p>
+<p>The control vector base of the recovered key is the value at offset
+21. If the control vector base bits 40 - 42 are valued to <ph>B'010'</ph> or <ph>B'110'</ph>,
+the key is double length. Set the right half of the received key's
+control vector equal to the left half and reverse bits 41 and 42 in
+the right half.</p>
+<p>The recovered key is at offset 37 and is either 8 or 16 bytes long
+based on the control vector base bits 40 - 42. If these bits are valued
+to <ph>B'000'</ph>, the key is single length. If these bits are valued
+to <ph>B'010'</ph> or <ph>B'110'</ph>, the key is double length.</p>
+</conbody></concept>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbs14sss">
+<title>Trusted block section <ph>X'14'</ph> subsections</title>
+ <titlealts>
+    <navtitle>Trusted block section <ph>X'14'</ph> subsections</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block section <ph>X'14'</ph>
+subsections</searchtitle>
+  </titlealts>
+<shortdesc>Section <ph>X'14'</ph> has two information subsections (tag-length-value
+objects) defined.  </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These subsections are summarized in <xref href="#l0wskc02_tbs14sss/l0wskc02_tbs14_ss"/>. See also
+<xref href="wskc_r_stoknbin.dita#l0wskc02_stoknbin"/>. </p>
+<table id="l0wskc02_tbs14_ss" pgwide="1" frame="all">
+<title>Summary of trusted block information subsections</title>
+<desc>
+<p outputclass="summary">Summary of trusted block information subsections</p>
+</desc>
+<tgroup cols="4" colsep="1" rowsep="1" align="left">
+<colspec colname="col1" colwidth="41*"/>
+<colspec colname="colspec0" colwidth="43*"/>
+<colspec colname="col2" colwidth="46*"/>
+<colspec colname="col3" colwidth="198*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Rule subsection tag</entry>
+<entry colname="colspec0" valign="top">TLV object</entry>
+<entry valign="top">Optional or required</entry>
+<entry valign="top">Comments</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top"><ph>X'0001'</ph></entry>
+<entry colname="colspec0">Protection information</entry>
+<entry valign="top">Required</entry>
+<entry valign="top">Contains the encrypted 8-byte confounder and triple-length (24-byte) MAC key,
+the ISO-16609 TDES CBC MAC value, and the MKVP of the PKA master key (computed using MDC4).</entry>
+</row>
+<row>
+<entry valign="top"><ph>X'0002'</ph></entry>
+<entry colname="colspec0">Activation and expiration dates</entry>
+<entry valign="top">Optional</entry>
+<entry valign="top">Contains flags indicating whether or not the coprocessor is to validate dates,
+and contains the activation and expiration dates that are considered valid for the trusted
+block.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p><b>Trusted block section <ph>X'14'</ph> subsection <ph>X'0001'</ph></b></p></section>
+<section><p>Subsection <ph>X'0001'</ph> of the trusted block information section
+(<ph>X'14'</ph>) is the protection information TLV object. This subsection
+is required.  It contains the encrypted 8-byte confounder and triple-length
+(24-byte) MAC key, the ISO-16609 TDES CBC MAC value, and the MKVP
+of the PKA master key (computed using MDC4). </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs14sss/l0wskc02_tbs14_ss001"/>.  </p>
+<table id="l0wskc02_tbs14_ss001" pgwide="1" frame="all">
+<title><ph>Protection information subsection (<ph>X'0001'</ph>) of trusted block information section
+(<ph>X'14'</ph>)</ph></title>
+<desc>
+<p outputclass="summary">Protection information subsection of trusted block information section </p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag: <dl>
+<dlentry>
+<dt><ph>X'0001'</ph></dt>
+<dd>Trusted block information TLV object</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (62).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>.</entry>
+</row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Reserved, must be binary zero.</entry>
+</row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top">032</entry>
+<entry valign="top">Encrypted MAC key. <p>Contains the encrypted 8-byte confounder and triple-length
+(24-byte) MAC key in the following format:</p>
+<dl>
+<dlhead>
+<dthd>Offset</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>00 - 07</dt>
+<dd>Confounder</dd>
+</dlentry>
+<dlentry>
+<dt>08 - 15</dt>
+<dd>Left key</dd>
+</dlentry>
+<dlentry>
+<dt>16 - 23</dt>
+<dd>Middle key</dd>
+</dlentry>
+<dlentry>
+<dt>24 - 31</dt>
+<dd>Right key</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">038</entry>
+<entry valign="top">008</entry>
+<entry valign="top">MAC. <p>Contains the ISO-16609 TDES CBC Message Authentication Code
+value.</p></entry>
+</row>
+<row>
+<entry colname="col1">046</entry>
+<entry colname="col2">016</entry>
+<entry colname="col3">MKVP. <p>Contains the PKA master-key verification pattern, computed using
+MDC4, when the trusted block is in internal form, otherwise contains binary zero.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p><b>Trusted block section <ph>X'14'</ph> subsection <ph>X'0002'</ph></b></p></section>
+<section><p>Subsection <ph>X'0002'</ph> of the trusted block information section
+(<ph>X'14'</ph>) is the activation and expiration dates TLV object.
+This subsection is optional. It contains flags indicating whether
+or not the coprocessor is to validate dates, and contains the activation
+and expiration dates that are considered valid for the trusted block. </p></section>
+<section><p>This subsection is defined in <xref href="#l0wskc02_tbs14sss/l0wskc02_tbs14_ss002"/>.  </p>
+<table id="l0wskc02_tbs14_ss002" pgwide="1" frame="all">
+<title><ph>Activation and expiration dates subsection (<ph>X'0002'</ph>) of trusted block
+information section (<ph>X'14'</ph>)</ph></title>
+<desc>
+<p outputclass="summary">Activation and expiration dates subsection of trusted block information
+section </p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="30*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="220*"/>
+<thead>
+<row rowsep="1">
+<entry valign="top">Offset (bytes)</entry>
+<entry valign="top">Length (bytes)</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">000</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection tag: <dl compact="yes">
+<dlentry>
+<dt><ph>X'0002'</ph></dt>
+<dd>Activation and expiration dates TLV object</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">002</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Subsection length in bytes (16).</entry>
+</row>
+<row>
+<entry valign="top">004</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Subsection version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry valign="top">005</entry>
+<entry valign="top">001</entry>
+<entry valign="top">Reserved, must be binary zero.</entry>
+</row>
+<row>
+<entry valign="top">006</entry>
+<entry valign="top">002</entry>
+<entry valign="top">Flags: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'0000'</ph></dt>
+<dd>The coprocessor does not check dates.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'0001'</ph></dt>
+<dd>The coprocessor checks dates. <p>Compare the activation date (offset 008) and the expiration
+date (offset 012) to the coprocessor's internal real-time clock. Return an error if the coprocessor
+date is before the activation date or after the expiration date.</p></dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry valign="top">008</entry>
+<entry valign="top">004</entry>
+<entry valign="top">Activation date. <p>Contains the first date that the trusted block can be used
+for generating or exporting keys. Format of the date is YYMDD, where: <dl compact="yes">
+<dlentry>
+<dt>YY</dt>
+<dd>Big-endian year (return an error if greater than 9999)</dd>
+</dlentry>
+<dlentry>
+<dt>MM</dt>
+<dd>Month (return an error if any value other than <ph>X'01'</ph> - <ph>X'0C'</ph>)</dd>
+</dlentry>
+<dlentry>
+<dt>DD</dt>
+<dd>Day of month (return an error if any value other than <ph>X'01'</ph> - <ph>X'1F'</ph>. Day must
+be valid for given month and year, including leap years).</dd>
+</dlentry>
+</dl>
+</p>
+<p>Return an error if the activation date is after the expiration date or is not valid.</p></entry>
+</row>
+<row>
+<entry colname="col1">012</entry>
+<entry colname="col2">004</entry>
+<entry colname="col3">Expiration date. <p>Contains the last date that the trusted block can be used.
+Same format as activation date (offset 008). Return an error if date is not valid.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

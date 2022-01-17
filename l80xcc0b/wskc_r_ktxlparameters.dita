@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktxlparameters">
+<title>Parameters</title>
+  <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>SCVISA</indexterm>
+<indexterm>SCCOMME</indexterm>
+<indexterm>INTDWAKW</indexterm>
+<indexterm>EXTDWAKW</indexterm>
+<indexterm>EMVDDA</indexterm>
+<indexterm>EMVDDAE</indexterm>
+<indexterm>EMVCRT</indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>SCCOMCRT</indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule for the <ph>verb</ph>. The keyword must be in eight bytes of contiguous
+storage, left-aligned, and padded on the right with blanks. The <parmname>rule_array</parmname>
+keywords are described in <xref href="#l0wskc02_ktxlparameters/l0wskc02_zapgkxlate_tab1"/>. <table
+id="l0wskc02_zapgkxlate_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Conversion service</i></b></entry>
+</row>
+<row>
+<entry><synph><kwd>COMP-CHK</kwd></synph></entry>
+<entry>Check if the <parmname>source_key_identifier</parmname> can have the compliant tag.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>COMP-TAG</kwd></synph></entry>
+<entry>Convert the <parmname>source_key_identifier</parmname> into a compliant-tagged token.
+<p>When the input key type is not RSAAESC2 or RSAAESM2, the
+following rules apply:</p>
+<ul>
+<li>When key-usage KM-ONLY is enabled, the token will be
+converted to a compliant-tagged RSAAESC2 or RSAAESM2
+with key-usage U-KEYENC enabled.</li>
+<li>When key-usage SIG-ONLY is enabled, the token will be converted to a compliant-tagged RSAAESC2 
+or RSAAESM2 with key-usage U-DIGSIG enabled.</li>
+<li>For all other key-usages, use INTUSCHG to set the desired usage prior to using COMP-TAG.</li>
+</ul>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>ECC-AES1</kwd></synph></entry>
+<entry>Export an ECC key wrapped by an AES key-encrypting key. The AES key must be an EXPORTER with
+<synph><kwd>WR-ECC</kwd></synph> enabled in key usage field 3, high-order byte (bit 4). See also
+<xref href="wskc_aeskw_structure.dita"/>.</entry>
+</row>
+<row>
+<entry><synph><kwd>EMVCRT</kwd></synph></entry>
+<entry>This keyword indicates translating an external RSA CRT key into EMV CRT format
+and wrapping with TDES-ECB. <p>The XLATE bit (bit 22) must be set in the
+<parmname>target_transport_key</parmname> control vector.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>EMVDDA</kwd></synph></entry>
+<entry>This keyword indicates translating an external RSA CRT key into EMV DDA format
+and wrapping with TDES-CBC. <p>The XLATE bit (bit 22) must be set in the
+<parmname>target_transport_key</parmname> control vector.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>EMVDDAE</kwd></synph></entry>
+<entry>This keyword indicates translating an external RSA CRT key into EMV DDAE
+format and wrapping with TDES-ECB. <p>The XLATE bit (bit 22) must be set in the
+<parmname>target_transport_key</parmname> control vector.</p>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>EXTDWAKW</kwd></synph></entry>
+<entry>Specifies that the source key is an external DES wrapped token to be converted
+to an AESKW wrapped token.</entry>
+</row>
+<row>
+<entry><synph><kwd>INTDWAKW</kwd></synph></entry>
+<entry>Specifies that the source key is an internal DES wrapped token to be converted
+to an AESKW wrapped token.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>INTUSCHG</kwd></synph></entry>
+<entry>Change the usage attributes of the key. Requires keyword group
+PKA Key Usage Control.
+<p>Not valid if the input key is compliant-tagged.</p></entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>QSA-AES1</kwd></synph></entry>
+<entry>Export a QSA key, such as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>
+<!--or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_kyber"/>--> key, wrapped
+by an AES key-encrypting key. The AES key must be an EXPORTER with WR-QSA (bit 5) enabled in key
+usage field 3, high-order byte.</entry>
+</row>
+<row>
+<entry><synph><kwd>SCCOMCRT</kwd></synph></entry>
+<entry>This keyword indicates translating the key into the smart card Chinese
+Remainder Theorem format.</entry>
+</row>
+<row>
+<entry><synph><kwd>SCCOMME</kwd></synph></entry>
+<entry>This keyword indicates translating the key into the smart card
+Modulus-Exponent format.</entry>
+</row>
+<row>
+<entry><synph><kwd>SCVISA</kwd></synph></entry>
+<entry>This keyword indicates translating the key into the smart card Visa proprietary
+format.</entry>
+</row>
+
+
+
+
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2"><b><i>EMV DDA encrypted key part data format</i></b> (One, optional). 
+Only valid with output format keyword <synph><kwd>EMVDDA</kwd></synph> or <synph><kwd>EMVDDAE</kwd></synph>.
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>EMV1</kwd></synph></entry>
+<entry>Original EMV DDA output format. This is the default.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>EMVLENBT</kwd></synph></entry>
+<entry>Modified EMV DDA output format, which includes a length byte that becomes part of the encrypted 
+key part section. The length byte, which replaces a post-padding byte of X’00’ that EMV1 uses, is prefixed 
+to the clear key part. This length is valued to the number clear key-part bytes and does not include any pad bytes.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Format restriction</i></b> (One, optional). As of 
+release 6.0 or later, only valid with token type keyword <synph><kwd>EXTDWAKW</kwd></synph> or 
+<synph><kwd>INTDWAKW</kwd></synph>. 
+</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-NONE</kwd></synph></entry>
+<entry>Specifies to not restrict the private key to be used by a particular digital-signature hash
+formatting method. The key is usable for any method. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-I9796</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash 
+formatting method ISO-9796.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-X9.31</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method X9.31.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-ZPAD</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method ZERO-PAD.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-PK10</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-1.0.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-PK11</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-1.1.</entry>
+</row>
+<row>
+<entry><synph><kwd>FR-PSS</kwd></synph></entry>
+<entry>Specifies to render the private key usable only with the digital-signature hash formatting
+method PKCS-PSS.</entry>
+</row>
+
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2"><b><i>PKA key usage control</i></b> Only valid with INTUSCHG. 
+The keywords specified reflect the only usage attributes that will be enabled in the output key token. 
+All other usage attributes will be disabled. 
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-DIGSIG</kwd></synph></entry>
+<entry>Digital Signature usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U-DIGSIG flag is enabled in the input key token.</p>
+<p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or SIG-ONLY flag is enabled in the input key
+token.</p></entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-NONRPD</kwd></synph></entry>
+<entry>Non-Repudiation usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U-NONRPD flag is enabled in the input key token.
+</p><p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or SIG-ONLY flag is enabled in the input key
+token.</p></entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-KCRTSN</kwd></synph></entry>
+<entry>keyCertSign usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U- KCRTSN flag is enabled in the input key token.
+</p>
+<p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or SIG -ONLY flag is enabled in the input key token.
+</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-CRLSN</kwd></synph></entry>
+<entry>Certificate Revocation List Sign usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U-CRLSN flag is enabled in the input key token.
+</p>
+<p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or SIG -ONLY flag is enabled in the input key
+token.</p></entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-KEYENC</kwd></synph></entry>
+<entry>Key Encipherment usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U- KEYENC flag is enabled in the input key token.
+</p>
+<p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or KM -ONLY flag is enabled in the input key
+token.</p>
+</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-DATENC</kwd></synph></entry>
+<entry>Data Encipherment usage is allowed.
+><p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U- DATENC flag is enabled in the input key token.
+</p><p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or KM-ONLY flag is enabled in the input key
+token.</p></entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>U-KEYAGR</kwd></synph></entry>
+<entry>Key agreement usage is allowed.
+<p>When input key type is RSAAESC2 or RSAAESM2, requires that
+the U- KEYAGR flag is enabled in the input key token.
+</p>
+<p>When input key type is not RSAAESC2 or RSAAESM2, requires
+that the KEY-MGMT or KM -ONLY flag is enabled in the input key
+token.</p></entry>
+</row>
+
+
+<row rev="sh20i1">
+<entry namest="col1" nameend="col2"><b><i>Key agreement control</i></b> (One, Optional). Only valid with U-KEYAGR. 
+</entry>
+</row>
+<row  rev="sh20i1">
+<entry><synph><kwd>U-ENCONL</kwd></synph></entry>
+<entry><p>Only encipher operations are allowed during key agreement key
+establishment protocols.
+</p>
+<p>When input key type is RSAAESC2 or RSAAESM2, the U-DECONL
+must not be enabled in the input key token.</p></entry>
+</row>
+<row  rev="sh20i1">
+<entry><synph><kwd>U-DECONL</kwd></synph></entry>
+<entry><p>Only decipher operations are allowed during key agreement key
+establishment protocols.
+</p>
+<p>When input key type is RSAAESC2 or RSAAESM2, the U-ENCONL
+must not be enabled in the input key token.
+</p>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>source_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <parmname>source_key_identifier</parmname> parameter. The maximum size is 3500
+bytes.</pd></plentry>
+<plentry><pt>source_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i3">The key identifier of the RSA private key to be processed. For translation, the key
+is an external key token wrapped with a DES key-encrypting key. For OPK conversion, the token may be
+internal or external. External tokens are wrapped with a DES key-encrypting key. When an internal
+token is specified, the transport keys are not used. </p>
+<p rev="sh21i3">When keyword <keyword>COMP-CHK</keyword> is specified, this must be an internal RSA
+private key token. </p>
+<p rev="sh21i3">When keyword <keyword>COMP-CHK</keyword> or <keyword>INTUSCHG</keyword> is
+specified, this must be an internal RSA private key token with private key section X'08', X'30', or
+X'31'.</p>
+</pd></plentry>
+<plentry><pt>source_transport_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of the <parmname>source_transport_key_identifier</parmname> parameter. This value must
+be 64.</pd></plentry>
+<plentry><pt>source_transport_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains an internal token or label of a DES key-encrypting key. This key is used
+to unwrap the input RSA key token specified with parameter <parmname>source_key</parmname>. See
+<xref href="wskc_r_ktxlusage.dita#l0wskc02_ktxlusage"/> for details on the type of transport key
+that can be used.</pd></plentry>
+<plentry><pt>target_transport_key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of the <parmname>target_transport_key</parmname> parameter. This value must
+be 64.</pd></plentry>
+<plentry><pt>target_transport_key</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains an internal token or label of a DES key-encrypting key. This key is used
+to wrap the output RSA key returned with the <parmname>target_key_token</parmname> parameter. See
+<xref href="wskc_r_ktxlusage.dita#l0wskc02_ktxlusage"/> for details on the type of transport key
+that can be used.</pd></plentry>
+<plentry><pt>target_key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length in bytes of the <parmname>target_key_token</parmname> parameter. On output, the value
+in this variable is updated to contain the actual length of the
+<parmname>target_key_token</parmname> produced by the verb. The maximum length is 3500 bytes.</pd></plentry>
+<plentry><pt>target_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the RSA key in the smart card format specified in the
+<parmname>rule_array</parmname> parameter, and is protected by the key-encrypting key specified in
+the <parmname>target_transport_key</parmname> parameter. This is not a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>, and cannot be stored in the key
+storage. 
+<p rev="sh21i3">When the INTUSCHG keyword is specified, the output is an internal RSA private key token with
+private key section X'30' and associated data version X'04' (RSAAESM2) or an internal RSA private key
+token with private key section X'31' and associated data version X'05' (RSAAESC2).</p></pd></plentry>
+</parml></section>
+</refbody></reference>

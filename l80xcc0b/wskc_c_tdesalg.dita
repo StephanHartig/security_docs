@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_tdesalg" xml:lang="en-us">
+<title>Single-DES and Triple-DES encryption algorithms for general
+data</title>
+<titlealts>
+<navtitle>Single-DES and Triple-DES encryption algorithms for general
+data</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Single-DES and Triple-DES encryption
+algorithms for general data</searchtitle>
+</titlealts>
+<shortdesc>Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword>,
+you can use the triple-DES algorithm in addition to the classical
+single-DES algorithm. </shortdesc><?Pub Caret 12?>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>In the subsequent descriptions of the CBC method and ANSI X9.23 method, the actions of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs encompass both single-DES and
+triple-DES algorithms. The triple-DES processes are depicted in <xref
+href="#l0wskc02_tdesalg/l0wskc02_tdesprc"/> where <q>Left key</q> and <q>Right key</q> refer to the
+two halves of a double-length DES key. <fig id="l0wskc02_tdesprc" expanse="column">
+<title>Triple-DES data encryption and decryption</title>
+<image href="wskc_tdesalg.jpg" width="450"><alt>Triple-DES data encryption
+and decryption</alt></image>
+</fig>
+</p>
+</conbody>
+</concept>
+<?Pub *0000003375?>

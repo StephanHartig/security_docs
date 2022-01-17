@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dmprestrictions">
+<title>Restrictions</title>
+<titlealts>
+<navtitle>Restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/></searchtitle>
+</titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<note othertype="Notes" type="other">
+<ul>
+<li>A key identifier length must be at least 64 for a key label, and only the first 64 bytes of a
+key label are used.</li>
+<li rev="sh20i1">Beginning with Release 5.4 and Release 6.2, this verb supports triple-length TDES
+keys. For a list of supported triple-length TDES key types beginning with Release 5.4 and Release
+6.2, see <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</li>
+</ul>
+</note>
+</section>
+</refbody>
+</reference>

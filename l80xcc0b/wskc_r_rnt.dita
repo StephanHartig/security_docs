@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rnt">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> verb invokes the USA NIST FIPS PUB 140-1 specified
+cryptographic operational tests. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</indexterm></indexterm>
+<indexterm>NIST FIPS PUB 140-1</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These tests, selected by a <i>rule_array</i> keyword, consist of: </p>
+<ul compact="yes" rev="sh18i2">
+<li>Tests of the random-number generation output using procedures specified in <cite>The NIST SP 800-90A
+Deterministic Random Bit Generator Validation System (DRBGVS)</cite>.
+</li>
+<li>Known-answer tests for periodic testing of cryptographic functions of DES encryption and
+decryption, RSA encryption and decryption, HMAC and SHA-1 hashing.</li>
+<li>Known-answer tests for AES Galois/Counter Mode (GCM).</li>
+</ul>
+<p>The tests are performed three times. If there is any test failure, the verb returns return code 4
+and reason code 1. </p></section>
+</refbody></reference>

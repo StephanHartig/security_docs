@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpcformat" rev="sh15">
+<title>Format</title><titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"
+    />.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"
+            />)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<tbody>
+<row>
+<entry valign="top">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>PAN_data_length</var></synph>,
+             <synph><var>PAN_data</var></synph>,
+             <synph><var>card_p_data_length</var></synph>,
+             <synph><var>card_p_data</var></synph>,
+             <synph><var>card_t_data_length</var></synph>,
+             <synph><var>card_t_data</var></synph>,
+             <synph><var>cur_ISO_PIN_block_length</var></synph>,
+             <synph><var>cur_ISO_PIN_block</var></synph>,
+             <synph><var>new_ISO_PIN_block_length</var></synph>,
+             <synph><var>new_ISO_PIN_block</var></synph>,
+             <synph><var>card_script_data_length</var></synph>,
+             <synph><var>card_script_data</var></synph>,
+             <synph><var>script_offset</var></synph>,
+             <synph><var>script_offset_field_length</var></synph>,
+             <synph><var>script_initialization_vector_length</var></synph>,
+             <synph><var>script_initialization_vector</var></synph>,
+             <synph><var>output_PIN_profile</var></synph>,
+             <synph><var>PIN_reference_value_length</var></synph>,
+             <synph><var>PIN_reference_value</var></synph>,
+             <synph><var>PRW_random_number_length,</var></synph>
+             <synph><var>PRW_random_number</var></synph>,
+             <synph><var>PRW_key_identifier_length</var></synph>,
+             <synph><var>PRW_key_identifier</var></synph>,
+             <synph><var>cur_IPIN_encryption_key_identifier_length</var></synph>,
+             <synph><var>cur_IPIN_encryption_key_identifier</var></synph>,
+             <synph><var>new_IPIN_encryption_key_identifier_length</var></synph>,
+             <synph><var>new_IPIN_encryption_key_identifier</var></synph>,
+             <synph><var>script_key_identifier_length</var></synph>,
+             <synph><var>script_key_identifier</var></synph>,
+             <synph><var>script_MAC_key_identifier_length</var></synph>,
+             <synph><var>script_MAC_key_identifier</var></synph>,
+             <synph><var>new_PRW_key_identifier_length</var></synph>,
+             <synph><var>new_PRW_key_identifier</var></synph>,
+             <synph><var>OPIN_encryption_key_identifier_length</var></synph>,
+             <synph><var>OPIN_encryption_key_identifier</var></synph>,
+             <synph><var>OEPB_MAC_key_identifier_length</var></synph>,
+             <synph><var>OEPB_MAC_key_identifier</var></synph>,
+             <synph><var>script_length</var></synph>,
+             <synph><var>script</var></synph>,
+             <synph><var>script_MAC_length</var></synph>,
+             <synph><var>script_MAC</var></synph>,
+             <synph><var>new_PIN_reference_value_length</var></synph>,
+             <synph><var>new_PIN_reference_value</var></synph>,
+             <synph><var>new_PRW_random_number_length</var></synph>,
+             <synph><var>new_PRW_random_number</var></synph>,
+             <synph><var>output_encrypted_PIN_block_length</var></synph>,
+             <synph><var>output_encrypted_PIN_block</var></synph>,
+             <synph><var>PIN_block_MAC_length</var></synph>,
+             <synph><var>PIN_block_MAC</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptr2_restrictions" rev="sh20i1">
+<title>Restrictions</title>
+<titlealts>
+<navtitle>Restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</searchtitle>
+</titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+<indexterm>restrictions</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>
+<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul compact="yes">
+<li>An AES MAC key with key usage PTR2AUTH is not supported in releases before Release 5.5.</li>
+<li>Support for <term>authenticated PAN changes</term> only applies to ISO-4 to ISO-4 PIN-block
+format translations, and it is not supported in releases before Release 5.5.12.</li>
+<li>Beginning with Release 5.5, when keyword <b>PAN-CHG</b> is specified in the rule array and
+required command <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0395"/> (offset
+<ph>X'0395'</ph>) is enabled in the active role, the AES MAC key identified by the
+<parmname>authentication_key_identifier</parmname> parameter must have key usage PTR2AUTH. This is
+the key to be used to verify the CMAC in the authentication data for ISO-4 to ISO-4 PAN change.</li>
+<li>As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key TDES
+keys. As a key management service this includes triple-length TDES key encrypting keys (KEKs). For a
+list of supported triple-length TDES key types beginning with Release 5.4 and Release 6.2, see <xref
+href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>. </li>
+</ul>
+</section>
+</refbody>
+</reference>

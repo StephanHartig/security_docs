@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_pt1" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> programming</title>
+<titlealts>
+<navtitle> IBM CCA programming</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) programming for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Read the information in this part of the document which introduces programming for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, AES, DES, HMAC, and PKA
+cryptography. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></indexterm><indexterm>application
+programming</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/><indexterm>application
+programming</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/></indexterm></indexterm>
+</keywords><?Pub Caret -3?>
+</metadata></prolog>
+<conbody>
+<p otherprops="pdf">The topics in this part explain how to use <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and AES, DES, HMAC, and PKA verbs. </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_c_appgm.dita#l0wskc02_appgm"/> describes the programming considerations for
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs. It also explains
+the syntax and parameter definitions used in the verbs. Information about concurrency is also
+provided.</li>
+<li rev="sh18i2"><xref href="wskc_pci_hsm_compliance.dita#wskc_pci_hsm_compliance"/> describes the
+support for compliance-tagged tokens introduced with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0 It gives links to further related
+information in this document, and discusses the new warning mode to aid installations in detecting
+migration concerns. </li>
+<li><xref href="wskc_c_apint.dita#l0wskc02_apint"/> gives an overview of AES, DES, and ECC
+cryptography and provides general guidance information on how these verbs use different key types
+and key forms.</li>
+<li><xref href="wskc_c_pkaint.dita#l0wskc02_pkaint"/> introduces Public Key Algorithm (PKA) and
+Elliptic Curve Cryptography (ECC) support, and describes programming considerations for using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> PKA verbs, such as the PKA key
+token structure and key management.</li>
+<li><xref href="wskc_c_l0wskc03_zapgtr31.dita#l0wskc03_zapgtr31"/> introduces X9 TR-31 (Technical
+Report 31) support, and provides details about the TR-31 key block.</li>
+<li><xref href="wskc_understand_mkeys.dita#understand_mkeys"/> provides information about master key
+management.</li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000009001?>

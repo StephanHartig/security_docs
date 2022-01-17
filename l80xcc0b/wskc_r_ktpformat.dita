@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktpformat">
+<title>Format</title>
+	<titlealts>
+		<navtitle>Format</navtitle>
+		<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+	</titlealts><shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry>
+<codeblock>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>(
+	    <synph><var>return_code</var></synph>,
+	    <synph><var>reason_code</var></synph>,
+	    <synph><var>exit_data_length</var></synph>,
+	    <synph><var>edit_data</var></synph>,
+	    <synph><var>key_token</var></synph>,
+	    <synph><var>key_type</var></synph>,
+	    <synph><var>rule_array_count</var></synph>,
+	    <synph><var>rule_array</var></synph>,
+	    <synph><var>key_value</var></synph>,
+	    <synph><var rev="sh15">masterkey_verification_pattern_v03</var></synph>,
+	    <synph><var>reserved_2</var></synph>,
+	    <synph><var>reserved_3</var></synph>,
+	    <synph><var>control_vector</var></synph>,
+	    <synph><var>reserved_4</var></synph>,
+	    <synph><var>reserved_5</var></synph>,
+	    <synph><var>reserved_6</var></synph>,
+	    <synph><var rev="sh15">master_key_verification_pattern_v00</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kexusage">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/></searchtitle>
+</titlealts><shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)<indexterm>usage notes</indexterm></indexterm>
+<indexterm>MACD</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>DATAM</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>, you can use the following combinations of parameters: 
+<ul>
+<li>A valid key type in the <synph><var>key_type</var></synph> parameter and an internal
+key token in the <synph><var>source_key_identifier</var></synph> parameter. The key
+type must be equivalent to the control vector specified in the internal
+key token.</li>
+<li>A <synph><var>key_type</var></synph> parameter of <synph><kwd>TOKEN</kwd></synph> and an internal
+key token in the <synph><var>source_key_identifier</var></synph> parameter.  The <synph><var>source_key_identifier</var></synph> can
+be a label with <synph><kwd>TOKEN</kwd></synph> only if the label name is unique in
+the key storage. The key type is extracted from the control vector
+contained in the internal key token.</li>
+<li>A valid key type in the <synph><var>key_type</var></synph> parameter, and a label
+in the <synph><var>source_key_identifier</var></synph> parameter.</li>
+</ul></p></section>
+<section><p>If internal key tokens are supplied in the <synph><var>source_key_identifier</var></synph> or <synph><var>exporter_key_identifier</var></synph> parameters,
+the key in one or both tokens can be re-enciphered. This occurs if
+the master key was changed since the internal key token was last used.
+The return and reason codes that indicate this do <i>not</i> indicate
+which key was re-enciphered. Therefore, assume both keys have been
+re-enciphered.</p></section>
+<section><p>Existing internal tokens created with key type <synph><kwd>MACD</kwd></synph> must
+be exported with either a <synph><kwd>TOKEN</kwd></synph> or <synph><kwd>DATAM</kwd></synph> key type.
+The external CV will be <synph><kwd>DATAM</kwd></synph> CV. The <synph><kwd>MACD</kwd></synph> key type
+is not supported.</p></section>
+<section><p>To export a double-length MAC generation or MAC verification key,
+it is  recommended that a key type of <synph><kwd>TOKEN</kwd></synph> be used. </p></section>
+</refbody></reference>

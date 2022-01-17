@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_cfq_2_or_3" xml:lang="en-us">
+<title rev="sh20i2">Determining if a card is a CEX4C, CEX5C, CEX6C, or a CEX7C</title>
+<titlealts>
+<navtitle>Determining the CEX*C card</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Determining the CEX*C card</searchtitle>
+</titlealts>
+<shortdesc>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/>, the
+output <parmname>rule_array</parmname> for option STATCCA is the most accurate way to determine the
+cryptographic coprocessor type.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CEX6C</indexterm><indexterm>CEX7C</indexterm>
+<indexterm>CEX4C</indexterm>
+<indexterm>CEX5C</indexterm><indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p>An updated device driver might not be available yet for all distributions where the current RPM
+is usable. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host library uses
+this mechanism to determine card version, and we recommend that the application developer also use
+this method. Where this <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> output
+from the <synph><var>rule_array</var></synph> for option STATCCA  and the device driver disagree
+about the version of a particular card, it is the device driver that will be out of date because the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> data is not interpreted in any
+way. It comes directly from the adapter. </p>
+<ul>
+<li>If first character of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+application version field is the number <codeph>4</codeph>, then this card is a CEX3C or CEX4C.</li>
+<li>If the first character of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+application version field is the number <systemoutput><keyword>5</keyword></systemoutput>, then this
+card is a CEX5C.</li>
+<li rev="sh18i2">If the first character of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application version field is the number
+<systemoutput><keyword>6</keyword></systemoutput>, then this card is a CEX6C.</li>
+<li rev="sh20i2">If the first character of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application version field is the number
+<systemoutput><keyword>7</keyword></systemoutput>, then this card is a CEX7C.</li>
+<?Pub Caret 0?>
+</ul>
+<p>The commands <synph><kwd>ivp.e</kwd></synph> and <synph><kwd>panel.exe -x</kwd></synph> also tell
+you the cryptographic coprocessor type, by calling the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb for all available adapters.</p>
+<p>For details about <cmdname>panel.exe</cmdname>, see <xref
+href="wskc_c_panelexe.dita#l0wskc02_panelexe"/>.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002638?>

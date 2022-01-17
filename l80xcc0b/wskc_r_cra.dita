@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cra">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/></searchtitle>
+  </titlealts><shortdesc rev="sh20i1">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/>
+verb is used to allocate a specific <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> coprocessor or domain of a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor, or both, for use by the thread or process, depending on the scope of the verb. This
+service is also used to enable <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+usage.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/>)</indexterm>
+<indexterm>selecting a coprocessor resource</indexterm>
+<indexterm>coprocessor resource selection</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb is scoped to a thread. When a thread or process, depending
+on the scope, allocates a cryptographic resource, requests are routed
+to that resource. When a cryptographic resource is not allocated,
+requests are routed to the default cryptographic resource.</p>
+<p>You can set the default cryptographic resource. If you take no action, the default assignment is
+CRP01.</p>
+<p>You cannot allocate a cryptographic resource while one is already allocated. Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> verb (see <xref
+href="wskc_r_crd.dita#l0wskc02_crd"/>) to deallocate an allocated cryptographic resource.</p>
+<p>Be sure to review <xref href="wskc_c_multico.dita#l0wskc02_multico"/>.</p></section>
+</refbody></reference>

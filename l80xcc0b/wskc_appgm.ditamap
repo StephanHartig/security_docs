@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Introduction to programming for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/></title>
+<topicref href="wskc_c_appgm.dita">
+<topicref href="wskc_c_ch1availccaverbs.dita"></topicref>
+<topicref href="wskc_c_ch1ccafuncover.dita">
+<topicref href="wskc_c_ch1howappprogobtserv.dita"></topicref>
+<topicref href="wskc_c_ch1ovlp.dita"/>
+<topicref href="wskc_domain_selection.dita"/>
+<topicref href="wskc_domain_query.dita"/>
+<topicref href="wskc_c_multico.dita"/>
+</topicref>
+<topicref href="wskc_c_s02cpacf.dita">
+<topicref href="wskc_c_cpacf_conopt_envar.dita">
+<topicref href="wskc_c_l0wskc200.dita"></topicref>
+<topicref href="wskc_c_l0wskc202.dita"></topicref>
+</topicref>
+<topicref href="wskc_c_cpacf_conopt.dita"></topicref>
+<topicref href="wskc_c_cpacf_opsc.dita">
+<topicref href="wskc_t_cpacf_opsc_uksk.dita"></topicref>
+<topicref href="wskc_t_cpacf_opsc_ukclear.dita"></topicref>
+</topicref>
+<topicref href="wskc_t_cpacf_prep.dita"></topicref>
+<topicref href="wskc_c_ibdccpacf.dita"></topicref>
+<topicref format="dita" href="wskc_c_autoprotkey.dita"></topicref>
+</topicref>
+<topicref href="wskc_c_s02api.dita">
+<topicref href="wskc_c_vvap.dita"></topicref>
+<topicref href="wskc_c_cpanv.dita">
+<topicref href="wskc_c_vparms.dita"/>
+<topicref href="wskc_c_raaokp.dita"></topicref>
+<topicref href="wskc_c_keytli.dita"></topicref>
+</topicref>
+</topicref>
+<topicref href="wskc_c_compil_link.dita">
+<topicref href="wskc_c_ccajni_over_mk.dita"></topicref>
+<topicref href="wskc_t_cca_capps.dita"/>
+<topicref href="wskc_c_ccajni_top.dita">
+<topicref href="wskc_c_ccajni_over_meths.dita"/>
+<topicref href="wskc_c_ccajni_over_types.dita"></topicref>
+<topicref href="wskc_c_ccajni_over_xmp.dita"></topicref>
+<topicref href="wskc_c_ccajni_prep.dita"></topicref>
+<topicref href="wskc_c_comp_jni.dita">
+<topicref href="wskc_t_bjbc.dita"></topicref>
+<topicref href="wskc_t_l0wskc205.dita"></topicref>
+</topicref>
+</topicref>
+</topicref>
+</topicref>
+</map>
+<?Pub *0000004913?>

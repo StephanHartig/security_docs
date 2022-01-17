@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_owhparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/></indexterm></indexterm>
+<indexterm>MD5</indexterm>
+<indexterm>RPMD-160</indexterm>
+<indexterm>SHA-1</indexterm>
+<indexterm>SHA-224</indexterm>
+<indexterm>SHA-256</indexterm>
+<indexterm>SHA-384</indexterm>
+<indexterm>SHA-512</indexterm>
+<indexterm>FIRST</indexterm>
+<indexterm>LAST</indexterm>
+<indexterm>MIDDLE</indexterm>
+<indexterm>ONLY</indexterm>
+<indexterm>text_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>chaining_vector_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>hash_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+<indexterm>hash parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1 or 2.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>These keywords provide control information to the <ph>verb</ph>. The optional chaining flag
+keyword indicates whether calls to this verb are chained together logically to overcome buffer size
+limitations. Each keyword is left-aligned in an 8-byte field and padded on the right with blanks.
+All keywords must be in contiguous storage. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#l0wskc02_owhparameters/l0wskc02_owhary"/>.<table id="l0wskc02_owhary"
+pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Hash method</i></b> (One,
+required). The SHA-based hashing functions use CPACF by default. For details about CPACF, see <xref
+href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"/>. </entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MD5</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is MD5 algorithm. Use this hash method for PKCS-1.0
+and PKCS-1.1. Length of hash generated is 16 bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>RPMD-160</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is RIPEMD-160. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SHA-1</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is SHA-1 algorithm. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SHA-224</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is SHA-224 algorithm. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SHA-256</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is SHA-256 algorithm. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SHA-384</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is SHA-384 algorithm. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>SHA-512</kwd></synph></entry>
+<entry valign="top" align="left">Hash algorithm is SHA-512 algorithm. Length of hash generated is 20
+bytes.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Chaining flag</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>FIRST</kwd></synph></entry>
+<entry valign="top" align="left">Specifies this is the first call in a series of chained calls.
+Intermediate results are stored in the <synph><var>hash</var></synph> field.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>LAST</kwd></synph></entry>
+<entry valign="top" align="left">Specifies this is the last call in a series of chained
+calls.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MIDDLE</kwd></synph></entry>
+<entry valign="top" align="left">Specifies this is a middle call in a series of chained calls.
+Intermediate results are stored in the <synph><var>hash</var></synph> field.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ONLY</kwd></synph></entry>
+<entry valign="top" align="left">Specifies this is the only call and the call is not chained. This
+is the default.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>text_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>text</var></synph> parameter in bytes.<note>If you specify the
+<synph><kwd>FIRST</kwd></synph> or <synph><kwd>MIDDLE</kwd></synph> keyword, the text length must be
+a multiple of the block size of the hash method. For <synph><kwd>MD5</kwd></synph>,
+<synph><kwd>RPMD-160</kwd></synph>, and <synph><kwd>SHA-1</kwd></synph>, this is a multiple of 64
+bytes. <p>For <synph><kwd>ONLY</kwd></synph> and <synph><kwd>LAST</kwd></synph>, this verb performs
+the required padding according to the algorithm specified.</p></note></pd></plentry>
+<plentry><pt>text </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The application-supplied text on which this verb performs the
+hash.</pd></plentry>
+<plentry><pt>chaining_vector_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The byte length of the <synph><var>chaining_vector</var></synph> parameter. This must be 128
+bytes.</pd></plentry>
+<plentry><pt>chaining_vector </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field is a 128-byte work area. Your application must not change the data in this
+string. The chaining vector permits chaining data from one call to another.</pd></plentry>
+<plentry><pt>hash_length </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the supplied <synph><var>hash</var></synph> field in bytes.<note>For
+<synph><kwd>SHA-1</kwd></synph> and <synph><kwd>RPMD-160</kwd></synph> this must be a minimum of 20
+bytes. For <synph><kwd>MD5</kwd></synph> this must be a minimum of 16 bytes.</note></pd></plentry>
+<plentry><pt>hash </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the hash, left-aligned. The processing of the rest of the field depends
+on the implementation. If you specify the <synph><kwd>FIRST</kwd></synph> or
+<synph><kwd>MIDDLE</kwd></synph> keyword, this field contains the intermediate hash value. Your
+application must not change the data in this field between the sequence of
+<synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>, and
+<synph><kwd>LAST</kwd></synph> calls for a specific message.</pd></plentry>
+</parml></section>
+</refbody></reference>

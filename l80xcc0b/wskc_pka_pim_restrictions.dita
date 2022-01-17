@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pka_pim_restrictions" xml:lang="en-us" rev="sh18i1">
+<title>Restrictions</title>
+<titlealts>
+<navtitle>Restrictions</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/></searchtitle>
+</titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul>
+<li>PKCS#7 certificate containers are currently not supported by this service.<p>However it is
+possible to install all of the certificates from a PKCS#7 container, given that they are pulled from
+the container and loaded to the HSM as sub-CA certificates one at a time, in dependency order. The
+trust anchor for the chain should be loaded first using the platform-appropriate administration
+tool, as required. This is still done as a ‘load-root’ from a TKE command perspective, however the
+adapter PKI will recognize the parent relationship and automatically chain them.</p></li>
+<li>An end-entity may not be loaded as a sub-CA certificate.</li>
+<li>A key identifier length must be 64 for a key label.</li>
+<li>The following signature algorithms are supported: <table id="wskc_pka_pim_restrictions_suppalgo"
+pgwide="1" frame="all">
+<title>Supported signature algorithms for public infrastructure management (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>)</title>
+<desc>
+<p outputclass="summary">Supported signature algorithms for public infrastructure management
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>)</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="2*"/>
+<thead>
+<row>
+<entry>Signature Algorithm</entry>
+<entry>OID</entry>
+<entry>URL</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>sha1-with-rsa-signature</entry>
+<entry>1.2.840.113549.1.1.5</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.113549.1.1.5" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.113549.1.1.5</xref></entry>
+</row>
+<row>
+<entry>sha224WithRSAEncryption</entry>
+<entry>1.2.840.113549.1.1.14</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.113549.1.1.14" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.113549.1.1.14</xref></entry>
+</row>
+<row>
+<entry>sha256WithRSAEncryption</entry>
+<entry>1.2.840.113549.1.1.11</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.113549.1.1.11" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.113549.1.1.11</xref></entry>
+</row>
+<row>
+<entry>sha384WithRSAEncryption</entry>
+<entry>1.2.840.113549.1.1.12</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.113549.1.1.12" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.113549.1.1.12</xref></entry>
+</row>
+<row>
+<entry>sha512WithRSAEncryption</entry>
+<entry>1.2.840.113549.1.1.13</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.113549.1.1.13" format="html" scope="external"
+/></entry>
+</row>
+<row>
+<entry>ecdsa-with-SHA1</entry>
+<entry>1.2.840.10045.4.1</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.10045.4.1" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.10045.4.1</xref></entry>
+</row>
+<row>
+<entry>ecdsa-with-SHA224</entry>
+<entry>1.2.840.10045.4.3.1</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.10045.4.3.1" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.10045.4.3.1</xref></entry>
+</row>
+<row>
+<entry>ecdsa-with-SHA256</entry>
+<entry>1.2.840.10045.4.3.2</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.10045.4.3.2" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.10045.4.3.2</xref></entry>
+</row>
+<row>
+<entry>ecdsa-with-SHA384</entry>
+<entry>1.2.840.10045.4.3.3</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.10045.4.3.3" format="2" scope="external"
+/></entry>
+</row>
+<row>
+<entry>ecdsa-with-SHA512</entry>
+<entry>1.2.840.10045.4.3.4</entry>
+<entry><xref href="http://oid-info.com/get/1.2.840.10045.4.3.4" format="html" scope="external"
+>http://oid-info.com/get/1.2.840.10045.4.3.4</xref></entry>
+</row>
+</tbody>
+</tgroup>
+</table></li>
+<li>Concerning the signature algorithm, it is recommended to use a hash method of commensurate
+security to the curve of the key being wrapped. The <xref
+href="http://www.rfc-base.org/txt/rfc-5753.txt" format="html" scope="external">IETF RFC5753
+document</xref> provides the following information:<ul>
+<li>Implementations that support SignedData with ECDSA:<ul>
+<li>must support ECDSA with SHA-256</li>
+<li>may support ECDSA with SHA-1, ECDSA with SHA-224, ECDSA with SHA-384, and ECDSA with SHA-512.
+Other digital signature algorithms may also be supported.</li>
+</ul></li>
+<li>When using ECDSA, to promote interoperability it is recommended that <ul>
+<li>the P-192, P-224, and P-256 curves are to be used with SHA-256</li>
+<li>the P-384 curve is to be used with SHA-384</li>
+<li>the P-521 curve is to be used with SHA-512.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000000668?>

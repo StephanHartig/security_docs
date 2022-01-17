@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//IBM//DTD DITA IBM Composite//EN"
+ "ibm-ditabase.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<dita xml:lang="en-us">
+<topic id="phrases" xml:lang="en-us">
+<title>Phrases</title>
+<body>
+<!--paths-->
+<ul>
+<li><ph id="ph_emulatorpath">/usr/bin/qemu-system-s390x</ph></li>
+</ul>
+<ul>
+<!--IBM and z Systems-->
+<li><ph id="ph_ibm"><tm tmtype="reg" trademark="IBM">IBM</tm></ph></li>
+<li><ph id="ph_z">Z</ph></li>
+<li><ph id="ph_ibmzsystems"><tm trademark="IBM Z" tmtype="reg">IBM Z</tm></ph></li>
+<!--KVM and KVM products-->
+<li><ph id="ph_zkvm">KVM</ph></li>
+<!--Linux-->
+<li><ph id="ph_zhyp_linux"><tm tmtype="tm" trademark="Linux">Linux</tm> on KVM</ph></li>
+<li><ph id="ph_lnx_on_zkvm"><tm tmtype="tm" trademark="Linux">Linux</tm> on Z as a KVM
+guest</ph></li>
+<li><ph id="ph_lnx_guest_onz"><tm tmtype="tm" trademark="Linux">Linux</tm> as a KVM guest on
+Z</ph></li>
+<!--KVM host and hypervisor-->
+<li><ph id="ph_zhyp_kvmhost">KVM host</ph></li>
+<li><ph id="ph_zhyp_kvmhosts">KVM hosts</ph></li>
+<li><ph id="ph_zhyp_hostu">Host</ph></li>
+<li><ph id="ph_zhyp_host">host</ph></li>
+<li><ph id="ph_zhyp_hosts">hosts</ph></li>
+<li><ph id="ph_zhyp_hyp">KVM hypervisor</ph></li>
+<li><ph id="ph_zhyp_hyps">KVM hypervisors</ph></li>
+<!--KVM virtual server-->
+<li><ph id="ph_zhyp_kvmdom">KVM virtual server</ph></li>
+<li><ph id="ph_zhyp_kvmdoms">KVM virtual servers</ph></li>
+<li><ph id="ph_zhyp_dom">virtual server</ph></li>
+<li><ph id="ph_zhyp_domu">Virtual server</ph></li>
+<li><ph id="ph_zhyp_domus">Virtual servers</ph></li>
+<li><ph id="ph_zhyp_doms">virtual servers</ph></li>
+<li><ph id="ph_zhyp_domg">virtual server's</ph></li>
+<li><ph id="ph_zhyp_adm">KVM virtual server administrator</ph></li>
+<li><ph id="ph_zhyp_admg">virtual server administrator's</ph></li>
+<li><ph id="ph_zhyp_usr">virtual server user</ph></li>
+<!--KVM guest-->
+<?Pub Caret 12?>
+<li><ph id="ph_zhyp_kvmos">KVM guest</ph></li>
+<li><ph id="ph_zhyp_kvmoss">KVM guests</ph></li>
+<li><ph id="ph_zhyp_os">guest</ph></li>
+<li><ph id="ph_zhyp_osu">Guest</ph></li>
+<li><ph id="ph_zhyp_oss">guests</ph></li>
+<li><ph id="ph_zhyp_guest"
+>guest</ph><!--This duplicate symbol is still in use - will be cleaned up later!--></li>
+<!--Configuration-->
+<li><ph id="ph_ldva_xmlwo">configuration-XML</ph></li>
+<li><ph id="ph_ldva_xml">configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmls">configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmldom">domain configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmldomg">Domain configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmldomain">domain configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmldomains">domain configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmldomaing">Domain configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmldomaings">Domain configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmldsk">device configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmldsks">device configuration-XMLs</ph></li>
+<li><ph id="ph_ldva_xmldisk">device configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmldisks">device configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmldskg">Device configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmldiskg">Device configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmldiskgs">Device configuration-XML files</ph></li>
+<!--host device XML begin-->
+<li><ph id="ph_ldva_xmlhostdev">host-device XML</ph></li>
+<li><ph id="ph_ldva_xmlhostdevs">host-device XMLs</ph></li>
+<li><ph id="ph_ldva_xmlhostdevfile">host-device XML file</ph></li>
+<li><ph id="ph_ldva_xmlhostdevfiles">host-device XML files</ph></li>
+<li><ph id="ph_ldva_xmlhostdevu">Host-device XML</ph></li>
+<li><ph id="ph_ldva_xmlhostdevfileu">Host-device XML file</ph></li>
+<li><ph id="ph_ldva_xmlhostdevfilesu">Host-device XML files</ph></li>
+<!--host device XML end-->
+<li><ph id="ph_ldva_xmlsp">storage pool configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlsps">storage pool configuration-XMLs</ph></li>
+<li><ph id="ph_ldva_xmlspf">storage pool configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlspfs">storage pool configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmlspg">Storage pool configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlspgf">Storage pool configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlspgfs">Storage pool configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmlnet">network configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlnets">network configuration-XMLs</ph></li>
+<li><ph id="ph_ldva_xmlnetf">network configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlnetfs">network configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmlnetg">Network configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlnetgf">Network configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlnetgfs">Network configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmlvol">volume configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlvols">volume configuration-XMLs</ph></li>
+<li><ph id="ph_ldva_xmlvolf">volume configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlvolfs">volume configuration-XML files</ph></li>
+<li><ph id="ph_ldva_xmlvolg">Volume configuration-XML</ph></li>
+<li><ph id="ph_ldva_xmlvolgf">Volume configuration-XML file</ph></li>
+<li><ph id="ph_ldva_xmlvolgfs">Volume configuration-XML files</ph></li>
+<li><ph id="ph_ldva_libxmldom">current libvirt-internal configuration</ph></li>
+<li><ph id="ph_ldva_libsxmldom">libvirt-internal configuration</ph></li>
+<li><ph id="ph_ldva_libsxmldomu">Libvirt-internal configuration</ph></li>
+<!--Others-->
+<li><ph id="ph_ldva_file">image file</ph></li>
+<li><ph id="ph_ldva_files">image files</ph></li>
+<li><ph id="ph_ldva_fileg">Image file</ph></li>
+<li><ph id="ph_ldva_filegs">Image files</ph></li>
+<li><ph id="ph_zhyp_dd">virtio CCW transport device driver</ph></li>
+<li><ph id="ph_zhyp_dev">virtio device</ph></li>
+<li><ph id="ph_zhyp_devs">virtio devices</ph></li>
+<li><ph id="ph_zhyp_vSwitch">virtual Ethernet interface</ph></li>
+<li><ph id="ph_zhyp_vSwitches">virtual Ethernet interfaces</ph></li>
+<li><ph id="ph_not4zhyp">not applicable to <ph conref="ldv_symbols.dita#phrases/ph_zhyp_linux"
+/>.</ph></li>
+<li><ph id="ph_mannot4zhyp">The man page might include options that are not applicable to <ph
+conref="ldv_symbols.dita#phrases/ph_zhyp_linux"/>.</ph></li>
+<li><ph id="ph_ldva_emu">qemu-system-s390x</ph></li>
+<li><ph id="ph_ldvt_virtmanager"><codeph>virt-manager</codeph></ph></li>
+<li><ph id="ph_ldvt_virtinstall"><codeph>virt-install</codeph></ph></li>
+<li><ph id="ph_ldvt_virtclone"><codeph>virt-clone</codeph></ph></li>
+<li><ph id="ph_ldvt_virtviewer"><codeph>virt-viewer</codeph></ph></li>
+<li><ph id="ph_ldvt_virtlog"><codeph>virt-log</codeph></ph></li>
+</ul>
+</body>
+</topic>
+<topic id="pubs">
+<title>Publications</title>
+<body>
+<section>
+<title>Base technology for KVM on z Systems</title>
+<ul>
+<!--Host Guide-->
+<li><ph id="cit-zl-vh-nolink"><cite>KVM Virtual Server Management</cite>, SC34-2752</ph></li>
+<li><ph id="url-zl-vh"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldva/ldva_c_welcome.html"
+scope="external"
+>www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldva/ldva_c_welcome.html</xref></ph></li>
+<li><ph id="cit-zl-vh"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldva/ldva_c_welcome.html"
+otherprops="pdf" scope="external"><ph conref="#pubs/cit-zl-vh-nolink"/></xref><xref format="html"
+href="../com.ibm.linux.z.ldva/ldva_c_welcome.html" otherprops="NOTpdf" scope="peer"><ph
+conref="#pubs/cit-zl-vh-nolink"/></xref></ph></li>
+<!--VSM Tools-->
+<li><ph id="cit-zl-vt-nolink"><cite>KVM Virtual Server Management Tools</cite>, SC34-2763</ph></li>
+<li><ph id="url-zl-vt"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvt/ldvt_c_welcome.html"
+scope="external"
+>www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvt/ldvt_c_welcome.html</xref></ph></li>
+<li><ph id="cit-zl-vt"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvt/ldvt_c_welcome.html"
+otherprops="pdf" scope="external"><ph conref="#pubs/cit-zl-vt-nolink"/></xref><xref format="html"
+href="../com.ibm.linux.z.ldvt/ldvt_c_welcome.html" otherprops="NOTpdf" scope="peer"><ph
+conref="#pubs/cit-zl-vt-nolink"/></xref></ph></li>
+<!--Quick Start-->
+<li><ph id="cit-zl-qs-nolink"><cite>KVM Virtual Server Quick Start</cite>, SC34-2753</ph></li>
+<li><ph id="url-zl-qs"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvq/ldvq_c_welcome.html"
+scope="external"
+>www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvq/ldvq_c_welcome.html</xref></ph></li>
+<li><ph id="cit-zl-qs"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.ldvq/ldvq_c_welcome.html"
+otherprops="pdf" scope="external"><ph conref="#pubs/cit-zl-qs-nolink"/></xref><xref format="html"
+href="../com.ibm.linux.z.ldvq/ldvq_c_welcome.html" otherprops="NOTpdf" scope="peer"><ph
+conref="#pubs/cit-zl-qs-nolink"/></xref></ph></li>
+<!--SLES 12 Guest Installation-->
+<li><ph id="cit-zl-is-nolink"><cite>Installing SUSE <tm tmtype="tm" trademark="Linux">Linux</tm>
+Enterprise Server 12 as a KVM Guest</cite>, SC34-2755</ph></li>
+<li><ph id="url-zl-is"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lhvi/lhvi_c_welcome.html"
+scope="external"
+>www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lhvi/lhvi_c_welcome.html</xref></ph></li>
+<li><ph id="cit-zl-is"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lhvi/lhvi_c_welcome.html"
+otherprops="pdf" scope="external"><ph conref="#pubs/cit-zl-is-nolink"/></xref><xref format="html"
+href="../com.ibm.linux.z.lhvi/lhvi_c_welcome.html" otherprops="NOTpdf" scope="peer"><ph
+conref="#pubs/cit-zl-is-nolink"/></xref></ph></li>
+<!--Guest Guide-->
+<li><ph id="cit-zl-vg-nolink"><cite id="cit-zl-vg-title">Device Drivers, Features, and Commands for
+<tm tmtype="tm" trademark="Linux">Linux</tm> as a KVM Guest</cite>, SC34-2754</ph></li>
+<li><ph id="url-zl-vg"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_kvm_dd.html"
+scope="external"
+>www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_kvm_dd.html</xref></ph></li>
+<li><ph id="cit-zl-vg"><xref format="html"
+href="http://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_kvm_dd.html"
+otherprops="pdf" scope="external"><ph conref="#pubs/cit-zl-vg-nolink"/></xref><xref format="html"
+href="../liaaf/lnz_r_kvm_dd.html" otherprops="NOTpdf" scope="peer"><ph
+conref="#pubs/cit-zl-vg-nolink"/></xref></ph></li>
+</ul>
+</section>
+</body>
+</topic>
+<topic id="parts">
+<title>Part introductions</title>
+<body>
+<section id="sect_pt_newver"/>
+<section id="sect_pt_restrict"/>
+</body>
+</topic>
+<topic id="zhypcont">
+<title>Conrefs sources for lddd</title>
+<body>
+<draft-comment id="cioignore"><!--Just a sample, not actually used - can be deleted eventually-->Do
+we need something like this:<q>For <ph conref="lxcommon.dita#phrases/ph_linuxs"/> on <ph
+conref="lxcommon.dita#phrases/ph_vm"/>, cio_ignore might hide essential devices such as the console.
+The console is typically device number 0.0.0009.</q></draft-comment>
+</body>
+</topic>
+<?tm 1368784776 1?>
+</dita>
+<?Pub *0000010305?>

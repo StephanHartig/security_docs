@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkd">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to decrypt (unwrap) a formatted key value. This verb
+unwraps the key, <ph>parses</ph> it, and returns the <ph>parsed</ph> value
+to the application in the clear.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)</indexterm></indexterm>
+<indexterm>RSA key</indexterm>
+<indexterm>PKA key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><synph><kwd>PKCS 1.2</kwd></synph> and <synph><kwd>ZERO-PAD</kwd></synph> formatting are supported.
+For <synph><kwd>PKCS 1.2</kwd></synph>, the decrypted data is examined to ensure that
+it meets RSA DSI PKCS #1 block type 2 format specifications. <synph><kwd>ZERO-PAD</kwd></synph> is
+supported only for external or clear RSA private keys.</p>
+<p>For the <synph><kwd>PKCSOAEP</kwd></synph> recovery method keyword, the decrypted data is
+examined to ensure that it meets the RSAES-OAEP scheme of the RSA PKCS #1 v2.0 standard. See also
+<xref href="wskc_c_appdpkcs1form.dita#l0wskc02_appdpkcs1form"/>.</p></section>
+<section><p>This verb allows the use of clear or encrypted RSA private keys.
+If an external clear key token is used, the master keys are not required
+to be installed in any cryptographic coprocessor and PKA <ph>verbs</ph> do
+not have to be enabled.</p><note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

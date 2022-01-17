@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_pkaint" xml:lang="en-us">
+<title>Introducing PKA cryptography and using PKA verbs</title>
+<titlealts>
+<navtitle>PKA cryptography and PKA verbs</navtitle><?Pub Caret 21?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Introducing PKA cryptography and using PKA verbs</searchtitle>
+</titlealts>
+<shortdesc>Read the provided introduction to Public Key
+Algorithms (PKA) and Elliptic Curve Cryptography (ECC). When you use
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword> PKA
+verbs, take note of these programming considerations, such as the
+PKA key token structure and key management.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>PKA</indexterm></indexterm>
+<indexterm>PKA cryptography</indexterm><indexterm>public key cryptography</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>You can use PKA support to exchange symmetric (secret) keys securely, and to compute digital
+signatures for authenticating messages to users.</p>
+<p>The preceding chapters focused on AES or DES cryptography or secret-key
+cryptography. This cryptography is symmetric (senders and receivers
+use the same key, which must be exchanged securely in advance, to
+encipher and decipher data).</p>
+<p>Public key cryptography does not require exchanging a secret key.
+It is asymmetric (the sender and receiver each have a pair of keys,
+a public key and a different but corresponding private key).</p>
+</conbody>
+</concept>
+<?Pub *0000001836?>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="TR34_Distribution" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> verb for
+operations that take place at the Key Distribution Host (KDH) during TR-34-key-transport related
+operations, as specified in X9 TR34-2012.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)</indexterm>
+<indexterm>X9 TR34-2012</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>The TR-34 protocol describes the data objects and cryptograms needed for securely provisioning a
+symmetric key from a Key Distribution Host (KDH) to a Key Receiving Device (KRD). Although designed
+for 1-way key distribution, such as between a host computer (KDH) and an ATM (KRD), the protocol can
+be used for peer-to-peer key distribution as well. The main requirement for either use of the
+protocol is a Certificate Authority (CA) trusted by both the KDH and the KRD.</p>
+<p> This service is used to perform these operations:<ul>
+<li>2PASSCRE: The TR34 Key Transport (2-pass) token (KT-KDH) CREATE service.<ul>
+<li>Kn-T: (INPUT, <i>source_key_identifier</i>). <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token to be exported to the KRD.</li>
+<li>KEK-N: (INPUT, <i>unwrap_kek_identifier</i>). <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> internal key token for KEK to unwrap
+Kn-T.</li>
+<li>RT-KRD: (INPUT, <i>freshness_indicator</i>). Random number token received from KRD.</li>
+<li>CRL-CA: (INPUT, <i>crl</i>). Certificate Revocation List from CA.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>CredKRD: (INPUT, <i>cred_krd</i>). KRD credential (X.509 certificate) with ID and public key.
+The public key from this is used to RSA-encipher the RSA-encrypted part of the key block.</li>
+<li>D-kdh: (INPUT, <i>private_key_identifier</i>). Private key to sign data block.</li>
+<li>KVN: (INPUT, <i>key_version_number</i>). Two-byte version number for TR-31 Key block
+header,</li>
+<li>Opt-blocks: (INPUT, <i>opt_blocks</i>). Application generated optional blocks for TR-31 Key
+block header.</li>
+<li>KT-KDH: (OUTPUT, <i>output_token</i>). Key transport (2-pass) token in DER format.</li>
+</ul></li>
+<li>1PASSCRE: The TR34 Key Transport (1-pass) token (KT-KDH) CREATE service.<ul>
+<li>Kn-T: (INPUT, <i>source_key_identifier</i>). <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token to be exported to the KRD.</li>
+<li>KEK-N: (INPUT, <i>unwrap_kek_identifier</i>). <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> internal key token for KEK to unwrap
+Kn-T.</li>
+<li>Timestamp: (INPUT, <i>freshness_indicator</i>). Freshness indicator to defend against replay
+attacks.</li>
+<li>CRL-CA: (INPUT, <i>crl</i>). Certificate Revocation List from CA.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>CredKRD: (INPUT, <i>cred_krd</i>). KRD credential (X.509 certificate) with ID and public key.
+The public key from this is used to RSA-encipher the RSA-encrypted part of the key block.</li>
+<li>D-kdh: (INPUT, <i>private_key_identifier</i>). Private key to sign data block.</li>
+<li>KVN: (INPUT, <i>key_version_number</i>). Two-byte version number for TR-31 Key block
+header.</li>
+<li>Opt-blocks: (INPUT, <i>opt_blocks</i>). Application generated optional blocks for TR-31 Key
+block header.</li>
+<li>KT-KDH: (OUTPUT, <i>output_token</i>), Key transport (1-pass) token in DER format.</li>
+</ul></li>
+</ul><note othertype="Notes" type="other">
+<ol>
+<li rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</li>
+<li>Comp-tag AES and DES tokens are exportable using this service. A comp-tag RSA private key is
+required.</li>
+<li>The RT-KRD token can be created with correct formatting using the RT-KRD processing of the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/> service. See <xref
+href="wskc_r_rng.dita"/> for more details.</li>
+<li>RSA 2048 bit and 3072 bit keys will be supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. This allows strength equivalent to an AES
+128-bit key. TR-34 explicitly supports only RSA 2048-bit keys so some vendors will only support that
+key size.</li>
+</ol>
+</note></p>
+</section></refbody>
+</reference>
+<?Pub *0000077566?>

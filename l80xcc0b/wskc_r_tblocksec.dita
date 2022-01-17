@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tblocksec">
+<title>Trusted block sections</title>
+ <titlealts>
+    <navtitle>Trusted block sections</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block sections</searchtitle>
+  </titlealts>
+<shortdesc>At the beginning of every trusted block is a trusted block header.
+ </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>trusted block<indexterm>section format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The header contains the following information:
+<ul>
+<li>A token identifier, which specifies if the token contains an external
+or internal key-token</li>
+<li>A token version number to allow for future changes</li>
+<li>A length in bytes of the trusted block, including the length of
+the header</li>
+</ul></p></section>
+<section><p>The trusted block header is defined in <xref href="#l0wskc02_tblocksec/l0wskc02_zapgtblk_tab2"/>.
+<table id="l0wskc02_zapgtblk_tab2" pgwide="0" frame="all">
+<title>Trusted block
+header format</title><desc><p outputclass="summary">Trusted block header format</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="38*"/>
+<colspec colname="col2" colwidth="40*"/>
+<colspec colname="col3" colwidth="216*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Token identifier (a flag that indicates token
+type)
+<dl compact="yes"><dlhead><dthd>Value</dthd><ddhd>Description</ddhd></dlhead>
+<dlentry><dt><ph>X'1E'</ph></dt>
+<dd>External trusted block token</dd></dlentry>
+<dlentry><dt><ph>X'1F'</ph></dt>
+<dd>Internal trusted block token</dd></dlentry>
+</dl></entry></row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Token version number (<ph>X'00'</ph>).</entry></row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Length of the key-token structure in bytes.</entry></row>
+<row>
+<entry>004</entry>
+<entry>004</entry>
+<entry>Reserved, binary zero.</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+<section><p>Following the header, in no particular order, are trusted block sections. There are five
+different sections defined, each identified by a one-byte section identifier (X'11' - X'15'). Two of
+the five sections have subsections defined. A subsection is a tag-length-value (TLV) object,
+identified by a two-byte subsection tag.</p></section>
+<section><p>Only sections X'12' and X'14' have subsections defined; the other sections do not. A section and
+its subsections, if any, are one contiguous unit of data. The subsections are concatenated to the
+related section, but are otherwise in no particular order.</p></section>
+<section><p>Section X'12' has five subsections defined (X'0001' - X'0005'). Section X'14' has two
+subsections, (X'0001' and X'0002'). Of all the subsections, only subsection <ph>X'0001'</ph> of
+section X'14' is required. Section X'14' is also required. </p></section>
+<section><p>The trusted block sections and subsections are described in detail
+in the following topics.</p></section>
+</refbody></reference>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkx">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>
+<ph>verb</ph> to re-encipher a data-encrypting key (key type of DATA only) from encryption under the
+master key to encryption under an exporter key-encrypting key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</indexterm></indexterm>
+<indexterm>data key<indexterm>re-encipher</indexterm></indexterm>
+<indexterm>key<indexterm>data key<indexterm>re-enciphering</indexterm></indexterm></indexterm>
+<indexterm>data key<indexterm>export</indexterm></indexterm>
+<indexterm>key<indexterm>data key<indexterm>export</indexterm></indexterm></indexterm>
+<indexterm>exporter key-encrypting key</indexterm>
+<indexterm>key-encrypting key<indexterm>exporter</indexterm></indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The re-enciphered key is in a form suitable for export to another
+system.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> verb generates a key token with the same key length
+as the input token's key.</p></section>
+</refbody></reference>

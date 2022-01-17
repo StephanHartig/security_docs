@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_compliance" xml:lang="en-us" rev="sh18i1">
+<title>Running <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>
+</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Running <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Starting with the Crypto Express6 feature (CEX6S), the <ph
+conref="lxcommon.dita#phrases/ph_ibmz"/> cryptographic hardware offers the possibility to run
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> applications using keys that
+conform to the PIN Transaction Security (PTS) standards of the Payment Card Industry (PCI). This PCI
+PTS standard implemented on a hardware security module as of June 2016 is referred to in this
+documentation as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>Payment Card Industry<indexterm>PCI</indexterm></indexterm>
+<indexterm>PCI<indexterm>Payment Card Industry</indexterm></indexterm>
+<indexterm>PIN Transaction Security<indexterm>PTS</indexterm></indexterm>
+<indexterm>PTS<indexterm>PIN Transaction Security</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>When configured as a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor, <ph rev="sh20i1">CEX6C or later adapters</ph> are capable of running in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. <ph rev="sh20i2">PCI-HSM
+compliant operation and the available compliance modes are explained in <xref
+href="wskc_pci_modes.dita"/>.</ph></p>
+<p>In order for the requirements
+of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> to apply to a workload,
+the workload must be using compliant-tagged key tokens. Such a workload can be processed in the
+domain of a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> which is also
+switched into <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>.</p>
+<p>You can use a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V9.0 or higher
+to set a domain on the adapter to this <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. Then you can use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> to manually enter or create operational
+secure keys that have a compliance-tag, or you can create compliance-tagged keys directly from an
+application. Thus, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+applications that invoke services that use <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant keys, also apply to the
+PTS standards of the Payment Card Industry (PCI).</p>
+<p>Such a compliant-tagged key token is a key token that adheres to the requirements of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. <ph rev="sh20i1">Read <xref
+href="wskc_pci_hsm_intro.dita"/> for more information.</ph></p>
+<p>For verbs that support <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens, their description in <xref href="wskc_r_pt2a.dita#l0wskc02_pt2a"/>
+contains a note that indicates this support. <ph rev="sh20i1">Also, <xref
+href="wskc_pci_hsm_intro.dita"/> provides a compact list of these verbs.</ph></p>
+<p>Watch the <xref href="https://www.youtube.com/watch?v=FKaDnH89bWI&amp;feature=youtu.be"
+format="html" scope="external"><cite><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> Demonstration Video</cite></xref> to learn
+how to use a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> V9.0 to set a domain
+on a crypto adapter to  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/>.</p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> places certain
+restrictions on the use of compliant-tagged key tokens. For more detail, see <xref
+href="wskc_pci_hsm_keys.dita#wskc_pci_hsm_keys"/>.</p>
+<p>Existing applications prior to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+release 6.0 that exploit verbs that are  now <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant, can be migrated to apply
+to  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. For more
+information, see <xref href="wskc_pci_hsm_migrate.dita#wskc_pci_hsm_migrate"/>.</p>
+</conbody>
+</concept>
+<?Pub *0000002516?>

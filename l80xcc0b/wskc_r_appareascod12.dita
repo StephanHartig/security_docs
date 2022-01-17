@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_appareascod12" xml:lang="en-us">
+<title>Reason codes that accompany return code 12</title>
+<titlealts>
+<navtitle>Reason codes that accompany return code 12</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes that accompany return code
+12</searchtitle>
+</titlealts>
+<shortdesc>Reason codes that accompany return code 12</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>reason codes<indexterm>with return code 12</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>The codes are listed in <xref
+href="#l0wskc02_appareascod12/l0wskc02_rcrc12"></xref>. <table
+id="l0wskc02_rcrc12" pgwide="1"><title>Reason codes for return code
+12</title><desc><p outputclass="summary">Reason codes for return code
+12</p></desc>
+<tgroup cols="3"><colspec colname="col1" colwidth="4*"/><colspec
+colname="col2" colwidth="6*"/><colspec colname="col3" colwidth="33*"/>
+<thead>
+<row>
+<entry>Return code, decimal</entry>
+<entry>Reason code, decimal (hex)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>12</entry>
+<entry>097 (061) </entry>
+<entry>File space in key storage is insufficient to
+complete the operation. </entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>196 (0C4) </entry>
+<entry>The device driver, the security server, or the
+directory server is not installed or is not active. File permissions
+are not valid for your application. </entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>197 (0C5) </entry>
+<entry>There is a key-storage file I/O error or the
+file is not found.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>206 (0CE)  </entry>
+<entry>The key-storage file is not valid or the master-key
+verification failed. There is an unlikely, but possible, synchronization
+problem with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"></keyword> verb.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>207 (0CF) </entry>
+<entry>The verification method flags in the profile
+are not valid. </entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>319 (13F) </entry>
+<entry>Passed to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"></keyword> verb,
+the Verb Unique data corresponds to a PAN length of 19, but the overall
+length is wrong. This indicates that the host code is out of date.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>324 (144) </entry>
+<entry>There is insufficient memory available to process
+your request, either memory in the host computer or memory inside
+the coprocessor including the flash EPROM used to store keys, profiles,
+and other application data.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>338 (152) </entry>
+<entry>This cryptographic hardware device driver is
+not installed or is not responding, or the CCA code is not loaded
+in the coprocessor.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>764 (2FC)</entry>
+<entry>The master keys are not loaded and, therefore,
+a key cannot be recovered or enciphered.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>768 (300) </entry>
+<entry>One or more paths for key-storage directory
+operations are improperly specified.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>769 (301) </entry>
+<entry>An internal error has occurred with the parameters
+to a cryptographic algorithm.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2007 (7D7) </entry>
+<entry>The change type in the Pending Change Buffer
+is not recognized.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2015 (7DF)</entry>
+<entry>The domain stored in the domain mask does not
+match what was included as the domain in the CPRB.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2017 (7E1) </entry>
+<entry>The operation is attempting to call 'SET' for
+a master key, but has passed an invalid Master Key Verification Pattern.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2021 (7E5) </entry>
+<entry>The card is disabled in the TKE path.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2037 (7F5) </entry>
+<entry>Invalid domain specified.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2043 (7FB)</entry>
+<entry>In the course of TKE communication
+through the host library to an adapter, a particular requested OA
+certificate was not found.  A small number of these errors are typical
+when communication with a TKE is initiated.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2045 (7FD)   </entry>
+<entry>The CCA software is unable to claim a semaphore.
+The system might be short of resources. </entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2046 (7FE) </entry>
+<entry>The CCA software is unable to list all the keys.
+The limit of 500,000 keys might have been reached. </entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2049 (801)</entry>
+<entry>An error occurred while unlocking a semaphore
+in order to release the exclusive control of that semaphore.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2073 (819) </entry>
+<entry>TKE command received when TKE disabled.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2074 (81A)</entry>
+<entry>Invalid version found in Connectivity Programming
+Request/Reply Block (CPRB).</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2101 (835)</entry>
+<entry>Invalid AES flags in the function control vector
+(FCV).</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2117 (845)</entry>
+<entry>Thread specific CLiC objects are not in proper
+state.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2155 (86B)</entry>
+<entry>The length of the fully qualified dataset name
+exceeds the maximum size that the verb can process.</entry>
+</row>
+<row rev="shfin">
+<entry>12</entry>
+<entry>2225 (8B1)</entry>
+<entry>An internal outbound authentication manager error
+occurred, or the OA manager is disabled.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>3046 (BE6)</entry>
+<entry>The wrong usage was attempted in an operation
+with a retained key.</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2242 (8C2)</entry>
+<entry>The reply message block is too long for the host buffer.</entry>
+</row>
+<row rev="sh21i1">
+<entry>12</entry>
+<entry>3550 (DDE)</entry>
+<entry>The Dilithium operation failed because the minimum hardware requirement was not met.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody>
+</reference>
+<?Pub *0000007166?>

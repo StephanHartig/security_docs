@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ptr">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> <ph>verb</ph> to re-encipher a PIN block from
+one PIN-encrypting key to another and, optionally, to change the PIN
+block format, such as the pad digit or sequence number.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>)</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>translation
+verb</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>encrypting
+key</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>block
+format</indexterm></indexterm>
+<indexterm>key<indexterm>PIN-encrypting key</indexterm></indexterm>
+<indexterm>PIN-encrypting key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<note rev="sh21i1">This service has been deprecated. New applications should use <xref
+href="wskc_ptr2.dita"/> instead.  See  for more information.</note>
+<p>The unique-key-per-transaction key derivation for single and double-length
+keys is available for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb. This support is available
+for the <synph><var>input_PIN_encrypting_key_identifier</var></synph> and the <synph><var>output_PIN_encrypting_key_identifier</var></synph> parameters
+for both <synph><kwd>REFORMAT</kwd></synph> and  <synph><kwd>TRANSLAT</kwd></synph> process rules. The <synph><var>rule_array</var></synph> keyword
+determines which PIN keys are derived keys. </p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb can be used for
+unique-key-per-transaction key derivation.</p>
+<p rev="sh21i1">For AES-DUKPT, there is a set of these keywords: ADUKPTIP, ADUKPTOP and ADUKPTBH.
+When the user wants to derive key(s) using the DES DUKPT algorithm, then the PIN profile will
+contain CKSN data. When the user wants to derive key(s) using the AES-DUKPT algorithm, then the PIN
+profile will contain the derived data structure as described in <xref
+href="wskc_aes_dukpt.dita#aes_dukpt/adukpt_deriv_data"/>. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> determines how to parse the PIN profile by
+inspecting the rule array keywords:</p>
+<ul rev="sh21i1">
+<li>When the DES DUKPT algorithm is used, then the PIN profile contains CKSN extension and the 
+total length is 48 bytes.</li> 
+<li>When AES DUKPT algorithm is used then PIN profile contains Derived Data extension and total
+length is 44 bytes containing single derived data block.</li> 
+</ul>
+<p rev="sh21i1">A user may wish to use AES DUKPT and DES DUKPT in a combination such that the input
+and output PIN encrypting keys are derived differently with DUKPT algorithms or a combination of
+DUKPT and static.</p>
+<p rev="sh21i1">To use this verb, specify the following information:</p>
+<ul rev="sh21i1">
+<li>The mode of operation with keyword: TRANSLAT or REFORMAT.</li>
+<li>Optionally, the method of PIN extraction.</li>
+<li>Optionally, DUKPT option on input or output with keywords: UKPTIPIN, UKPTOPIN, or UKPTBOTH for
+Single-DES method, or DUKPT-IP, DUKPT-OP, or DUKPT-BH for Triple-DES method.</li>
+<li>Optionally, AES DUKPT can be specified for input PIN or output PIN encrypting keys, or both,
+with keywords ADUKPTIP, ADUKPTOP and ADUKPTBH.</li>
+<li>Input and output PIN-block encrypting keys, or the base keys used to derive the PIN-block enciphering
+keys.</li>
+<li>Input and output PIN profiles, which for DUKPT processing are extended to 48 bytes with a
+24-byte current-key serial number (CKSN) extension. The first 24 bytes of the PIN profiles are
+ignored when keyword TRANSLAT is specified. See <xref href="wskc_c_pinppp.dita"/>. When AES DUKPT
+keywords are specified, then input and output PIN profiles are extended with the derivation data
+structure which is 20 bytes of hex data and contains information necessary for AES-DUKPT
+derivation.</li>
+<li>Input and output PAN data as required by the selected PIN-block formats.</li>
+<li>An output PIN-block sequence number. Specify a value of 99999.</li>
+</ul>
+</section>
+<section>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

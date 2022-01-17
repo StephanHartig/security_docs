@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc279">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for Symmetric
+Algorithm Decipher</indexterm></indexterm>
+<indexterm>processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></indexterm></indexterm>
+<indexterm>encryption algorithm processing rule<indexterm>AES</indexterm></indexterm>
+<indexterm>AES encryption algorithm</indexterm>
+<indexterm>CBC processing rule</indexterm>
+<indexterm>processing rule<indexterm>CBC</indexterm></indexterm>
+<indexterm>ECB processing rule</indexterm>
+<indexterm>processing rule<indexterm>ECB</indexterm></indexterm>
+<indexterm>PKCS-PAD processing rule</indexterm>
+<indexterm>processing rule<indexterm>PKCS-PAD</indexterm></indexterm>
+<indexterm>KEY-CLR</indexterm>
+<indexterm>KEYIDENT</indexterm>
+<indexterm>ICV selection processing rule<indexterm>continue</indexterm></indexterm>
+<indexterm>continue processing rule</indexterm>
+<indexterm>ICV selection processing rule<indexterm>initial</indexterm></indexterm>
+<indexterm>initial processing rule</indexterm>
+<indexterm>key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>key_parms_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>key_parms parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>block_size parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>initialization_vector_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>initialization_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>chain_data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>chain_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>ciphertext_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>ciphertext parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>cleartext_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>cleartext parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>optional_data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+<indexterm>optional_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1, 2, 3, or 4.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An array of 8-byte keywords providing the processing control information. The keywords must
+be left-aligned and padded on the right with space characters. The <parmname>rule_array</parmname>
+keywords are described in <xref href="#l0wskc279/l0wskc02_sad_tab1"/>.<table id="l0wskc02_sad_tab1"
+pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="32*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Decryption algorithm</i></b>
+(One required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>AES</kwd></synph></entry>
+<entry valign="top" align="left">Specifies use of the Advanced Encryption Standard (AES) as the
+deciphering algorithm. The block size for AES is 16 bytes, and the key length is 16, 24, or 32
+bytes. AES is the only algorithm currently supported by this verb.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Processing rule</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CBC</kwd></synph></entry>
+<entry valign="top" align="left">Performs ANSI X3.102 cipher block chaining. The data must be a
+multiple of eight bytes. An OCV is produced and placed in the
+<synph><var>chaining_vector</var></synph> parameter. If the ICV selection keyword
+<synph><kwd>CONTINUE</kwd></synph> is specified, the CBC OCV from the previous call is used as the
+ICV for this call.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>ECB</kwd></synph></entry>
+<entry colname="col2">Specifies deciphering in Electronic Code Book mode. The ciphertext length must
+be a multiple of the block size.</entry>
+</row>
+<row rev="sh16">
+<entry><synph><kwd>GCM</kwd></synph></entry>
+<entry>Specifies decryption in Galois/Counter Mode. The ciphertext length must be a multiple of the
+algorithm block size and less than or equal to 2<sup>32</sup> - 1.</entry>
+</row>
+<row>
+<entry><synph><kwd>PKCS-PAD</kwd></synph></entry>
+<entry>Specifies that the cleartext was padded on the right with 1 - 16 bytes of pad characters,
+making the padded text a multiple of the block size, before the data was enciphered. Each pad
+character is valued to the number of pad characters added. <ph rev="sh16">The cleartext length must
+be greater than 0.</ph>
+<p>The output cleartext is stripped of any pad characters and the cleartext length is 1 - 16 bytes
+less than the ciphertext length.</p></entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>X9.23PAD</kwd></synph></entry>
+<entry>Specifies that the cleartext was padded on the right with 1 – 16 bytes of pad characters, 
+making the padded text a multiple of the block size, before the data was enciphered in Cipher Block Chaining mode. 
+The cleartext length must be greater than 0.
+<p>The output cleartext is stripped of any pad characters and the cleartext length is 1 – 16 bytes less than 
+the ciphertext length.</p></entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col2" colsep="1"><b><i>Key rule</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>KEY-CLR</kwd></synph></entry>
+<entry colname="col2">Specifies that the <synph><var>key_identifier</var></synph> parameter points
+to a cleartext AES key. Only the key value is allowed; the key is not contained in a key token. This
+is the default value.</entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>KEYIDENT</kwd></synph></entry>
+<entry colname="col2">Specifies that the <synph><var>key_identifier</var></synph> parameter points
+to an internal AES key-token or the label of an internal key-token in AES key-storage.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh16i1"><b><i>Initial chaining value (ICV)
+selection</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>CONTINUE</kwd></synph></entry>
+<entry valign="top" align="left">This specifies taking the initialization vector from the output
+chaining vector (OCV) contained in the work area to which the
+<synph><var>chaining_vector</var></synph> parameter points. <ph rev="sh16i1">This keyword is not
+valid with the ECB or GCM processing rule keyword.</ph></entry>
+</row>
+<row>
+<entry><synph><kwd>INITIAL</kwd></synph></entry>
+<entry>This specifies taking the initialization vector from the
+<synph><var>initialization_vector</var></synph> parameter. <ph rev="sh16i1">Not valid with the GCM
+processing rule keyword. Otherwise this is the default.</ph></entry>
+</row>
+<row rev="sh16">
+<entry><synph><kwd>ONLY</kwd></synph></entry>
+<entry>Specifies that this is the only request. The initialization vector is used as input to
+decipher the block of data, and must be the same value used to encipher the ciphertext. Only valid
+with GCM processing rule keyword. This is the default for GCM.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p><xref href="wskc_c_apxcipm.dita#l0wskc02_apxcipm"/> describes the cipher processing rules
+in detail.</p></pd></plentry>
+<plentry><pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>key_identifier</var></synph> variable. This value must be 16, 24, 32, or ≥ 64.</pd></plentry>
+<plentry><pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing either a cleartext AES key or the internal
+key-token or a label for an internal key-token record in AES key-storage. This is the key used to
+decipher the data pointed to by the <synph><var>ciphertext</var></synph> parameter.<p>For
+<parmname>rule_array</parmname> keyword <synph><kwd>KEY-CLR</kwd></synph>, a 16-byte, 24-byte, or
+32-byte clear AES key is required. For <parmname>rule_array</parmname> keyword
+<synph><kwd>KEYIDENT</kwd></synph>, <ph rev="sh16">a fixed-length or a variable-length internal AES
+key-token or key label for such a key in AES key-storage is required.</ph></p>
+<p rev="sh16">A variable-length AES key-token must have a key type of CIPHER and must allow the key
+to be used for decryption (key-usage field 1 high-order byte = B'x1xx xxxx'). In addition, the key
+token must have the following key usage based on processing rule keyword:</p><dl compact="yes"
+rev="sh16">
+<dlentry>
+<dt>CBC</dt>
+<dd>must allow the key to be used for Cipher Block Chaining (KUF2 high-order byte = X'00' or
+X'FF').</dd>
+</dlentry>
+<dlentry>
+<dt>ECB</dt>
+<dd>must allow the key to be used for Electronic Code Book (KUF2 high-order byte = X'01' or
+X'FF').</dd>
+</dlentry>
+<dlentry>
+<dt>GCM</dt>
+<dd>must allow the key to be used for Galois/Counter mode (KUF2 high-order byte = X'04' or
+X'FF').</dd>
+</dlentry>
+</dl></pd></plentry>
+<plentry><pt>key_parms_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in 
+the <parmname>key_parms</parmname> parameter. <ph rev="sh16">For processing rule GCM, this value can be 4 or 8 (which is strongly
+discouraged), or 12 - 16. Otherwise, this value must be 0.</ph></pd></plentry>
+<plentry><pt>key_parms</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable for key-related parameters. 
+<ph rev="sh16">For processing rule GCM, this variable contains the verified authentication tag 
+for the data identified by the ciphertext parameter and any additional authenticated data 
+identified by the <parmname>optional_data</parmname> parameter. No other usage is currently defined.</ph>
+</pd></plentry>
+<plentry><pt>block_size</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the block size used by the cryptographic
+algorithm. This value must be 16.</pd></plentry>
+<plentry><pt>initialization_vector_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>initialization_vector</parmname> variable. For cipher block chaining
+(<synph><kwd>CBC</kwd></synph> or <synph><kwd>PKCS-PAD</kwd></synph>) with an
+<synph><kwd>INITIAL</kwd></synph> ICV selection, this value must be 16. <ph rev="sh16">For
+processing rule GCM, NIST recommends a length of 12, but any length from <ph rev="sh16i1">1</ph> to
+a maximum of 2<sup>32</sup> - 1 can be used. Otherwise, set this value to 0.</ph>
+</pd></plentry>
+<plentry><pt>initialization_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the initialization vector for the
+<synph><kwd>INITIAL</kwd></synph> call to <synph><kwd>CBC</kwd></synph> mode decryption, 
+<ph rev="sh16">or if the ICV selection is ONLY. It is not
+used if the processing rule is <synph><kwd>ECB</kwd></synph> or the ICV selection is
+<synph><kwd>CONTINUE</kwd></synph>. The same initialization vector must have been used to 
+encipher the data.</ph></pd></plentry>
+<plentry><pt>chain_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>chain_data</parmname> variable. On input, <ph rev="sh16">set this variable to a value of
+at least 32 for CBC mode decryption, 0 for ECB mode encryption, or <ph rev="sh16i1">104 for</ph> GCM
+mode decryption.</ph>
+<p>On output, the variable is updated with the length of the data returned in the
+<parmname>chain_data</parmname> variable. The <parmname>chain_data_length</parmname> parameter must
+not be changed by the calling application until chained operations are complete.</p></pd></plentry>
+<plentry><pt>chain_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable used as a work area for <synph><kwd>CBC</kwd></synph>
+encipher requests. This work area is not used for <synph><kwd>ECB</kwd></synph> mode decryption 
+<ph rev="sh16">or 104 for GCM mode decryption.</ph> <p>When the verb performs a CBC decipher 
+operation and the ICV selection is <synph><kwd>INITIAL</kwd></synph>, 
+the <parmname>chain_data</parmname> variable is an output-only buffer that receives data used 
+as input for deciphering the next part of the input data, if any.</p> 
+<p>When the ICV selection is <synph><kwd>CONTINUE</kwd></synph>, the
+<parmname>chain_data</parmname> variable is both an input and output buffer.</p>
+<p rev="sh16">When the ICV selection is <synph><kwd>ONLY</kwd></synph>, the chain_data variable 
+is an output-only buffer that receives data in the event that the amount of ciphertext is greater 
+than the host code can send to the coprocessor in a single call.</p>
+<p>The application must not change any intermediate data in this string.</p>
+</pd></plentry>
+<plentry><pt>ciphertext_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>ciphertext</parmname> variable. <ph rev="sh21i1">For processing rules CBC, ECB, and
+PKCS-PAD, the <parmname>ciphertext_length</parmname> value must be a multiple of the algorithm block
+size. The maximum length is 2<sup>32</sup>-1.</ph> For processing rule GCM, the value can be a
+minimum of 0 up to a maximum of 2<sup>32</sup> - 1, otherwise the value must not be 0. If PKCS-PAD
+is specified, set the output <parmname>cleartext_length</parmname> variable from 1 - 16 bytes less
+than the <parmname>ciphertext_length</parmname> value. <p>When the Crypto Express adapter is a CEX5
+or CEX6, the maximum value is 2<sup>29</sup>-1. When the Crypto Express adapter is a CEX7, the
+maximum value is 2<sup>32</sup>-1.</p><p/><note>Do not make the
+<parmname>ciphertext_length</parmname> and <parmname>cleartext_length</parmname> parameters point to
+the same variable.</note>
+</pd></plentry>
+<plentry><pt>ciphertext</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the data to be deciphered, including any pad
+bytes.</pd></plentry>
+<plentry><pt>cleartext_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, this parameter is a pointer to an integer variable containing the number of bytes
+of data in the cleartext variable. On output, this variable is updated to contain the actual length
+of text output in the cleartext variable. If <synph><kwd>PKCS-PAD</kwd></synph> is specified, the
+<synph><var>cleartext</var></synph> value is updated with 1 - 16 bytes of data less than the
+<synph><var>ciphertext_length</var></synph> value.</pd></plentry>
+<plentry><pt>cleartext</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable used to contain the data to be deciphered, excluding any pad
+bytes.</pd></plentry>
+<plentry><pt>optional_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of bytes of data in the
+<parmname>optional_data</parmname> variable. <ph rev="sh16">For processing rule GCM, set this value 
+to a minimum of 0 up to a maximum of 2<sup>32</sup> - 1, otherwise set this value to 0.</ph>
+</pd></plentry>
+<plentry><pt>optional_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing optional data for the decryption. 
+<ph rev="sh16">For processing rule GCM, this parameter identifies any additional authenticated data
+(AAD). No other usage is currently defined.</ph>
+</pd></plentry>
+</parml></section>
+</refbody></reference>

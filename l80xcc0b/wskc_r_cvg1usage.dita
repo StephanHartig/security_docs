@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_cvg1usage" xml:lang="en-us">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/></searchtitle>
+</titlealts>
+<shortdesc>Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"></keyword>)<indexterm>usage
+notes</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>See <xref href="wskc_des_key_usage_restrictions.dita#des_key_usage_restrictions/DES_key_combo"/>
+for an illustration of key type and key usage keywords that can be combined in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> callable services to create a control
+vector..</p></section><?Pub Caret -1?>
+</refbody>
+</reference>
+<?Pub *0000001194?>

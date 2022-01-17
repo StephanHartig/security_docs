@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_x98_usdto" xml:lang="en-us">
+<title>Use <ph rev="shr2">stored</ph> decimalization tables only</title>
+<titlealts>
+<navtitle>Use <ph rev="shr2">stored</ph> decimalization tables only</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Use <ph rev="shr2">stored</ph>
+decimalization tables only</searchtitle>
+</titlealts>
+<shortdesc rev="shr2">The <cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname>
+access control point can be enabled by itself.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>When this access control point is enabled, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verbs must supply a decimalization
+table that matches the active decimalization tables stored in the coprocessors. The decimalization
+table in the <synph><var>data_array</var></synph> parameter will be compared against the active
+decimalization tables in the coprocessor, and if the supplied table matches a stored table, the
+request will be processed. If the supplied table doesn’t match any of the stored tables or there are
+no stored tables, the request fails.</p>
+<p>PIN decimalization tables can be stored in the in the Coprocessor, starting with CEX3C, for use
+by CCA verbs. Only tables that have been activated can be used. A TKE Workstation is required to
+manage the tables in the coprocessors.</p><?Pub Caret 68?>
+</conbody>
+</concept>
+<?Pub *0000001682?>

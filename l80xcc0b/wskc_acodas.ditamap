@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="acodas">
+<title>Access control data structures</title>
+<topicref href="wskc_acodas_intro.dita">
+<topicref href="wskc_acodas_role_structs.dita">
+<topicref href="wskc_acodas_basrole_struct.dita"/>
+<topicref href="wskc_acodas_role_acp.dita"/>
+<topicref href="wskc_acodas_defrole_conts.dita"/>
+</topicref>
+<topicref href="wskc_acodas_xmp.dita">
+<topicref href="wskc_acodas_xmp_acp.dita"/>
+<topicref href="wskc_acodas_xmp_role_ds.dita"/>
+</topicref>
+</topicref>
+</map>

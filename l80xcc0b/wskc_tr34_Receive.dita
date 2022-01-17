@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="TR34_Receive" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/> verb for
+operations that take place at the Key Receiving Device (KRD) during TR-34-prrotocol
+key-transport-related operations, as specified in X9 TR34-2012.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/> callable service</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/>
+(<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"
+/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"
+/></indexterm></indexterm>
+<indexterm>X9 TR34-2012</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>The TR-34 Protocol describes the data objects and cryptograms needed for securely provisioning a
+symmetric key from a Key Distribution Host (KDH) to a Key Receiving Device (KRD). Although designed
+for 1-way key distribution, such as between a host computer (KDH) and an ATM (KRD), the protocol can
+be used for peer-to-peer key distribution as well. The main requirement for either use of the
+protocol is a Certificate Authority (CA) trusted by both the KDH and the KRD.</p>
+<p> This service is used to perform these operations:</p>
+<ul>
+<li>2PASSRCV: The TR34 Key Transport (2-pass) token (KT-KDH) RECEIVE service.<ul>
+<li>KT-KDH: (INPUT, <i>input_token</i>). Key transport (2-pass) token received from KDH.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>RT-KRD: (INPUT, <i>input_freshness_indicator</i>).Token originally sent by the KRD to the KDH
+and now used for validation.</li>
+<li>D-krd: (INPUT, <i>private_key_identifier</i>). The private key matching the public key in
+CredKRD.</li>
+<li>Kn-T: (OUTPUT, <i>output_key_identifier</i>). <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token containing the transported
+TMK/KBPK.</li>
+</ul></li>
+<li>1PASSRCV: The TR34 Key Transport (1-pass) token (KT-KDH) RECEIVE service.<ul>
+<li>KT-KDH: (INPUT, <i>input_token</i>). Key transport (1-pass) token received from KDH.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>Timestamp-min: (INPUT, <i>input_freshness_indicator</i>). Minimum timestamp value allowed, could
+be the last timestamp received or a bootstrap value.</li>
+<li>D-krd: (INPUT, <i>private_key_identifier</i>). The private key matching the public key in
+CredKRD.</li>
+<li>Kn-T: (OUTPUT, <i>output_key_identifier</i>). CCA key token containing the transported
+TMK/KBPK.</li>
+<li>Timestamp-rcv: (OUTPUT, <i>output_freshness_indicator</i>). The timestamp value received in the
+KT-KDH.</li>
+</ul></li>
+</ul>
+<p rev="sh21i1">This verb can create either the ITU T-REC-X.690-201508 or the ASC X9 TR-34-2012
+variant of the <term>SignedAttributes</term> section in the <term>SignerInfo</term> of the token
+created, for 2-pass or 1-pass services. CSNDT34R has been updated to accept either format of the
+<term>SignedAttributes</term> token.</p>
+<note othertype="Notes" type="other">
+<ol>
+<li>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</li>
+<li> Compliant-tagged AES and DES tokens are exportable using this service. A compliant-tagged RSA
+private key is required.</li>
+<li>The RT-KRD token can be created with correct formatting using the RT-KRD processing of the
+CSNBRNGL service. See <xref href="wskc_r_rng.dita"/> for more details.</li>
+<li>RSA 2048 bit and 3072 bit keys are supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. This allows strength equivalent to an AES
+128-bit key. TR-34 explicitly supports only RSA 2048-bit keys so some vendors will only support that
+key size.</li>
+</ol>
+</note>
+</section></refbody>
+</reference>
+<?Pub *0000077566?>

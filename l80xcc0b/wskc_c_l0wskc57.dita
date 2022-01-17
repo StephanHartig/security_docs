@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc57" xml:lang="en-us">
+<title>ANSI X3.106 Cipher Block Chaining (CBC) method</title>
+<titlealts>
+<navtitle>ANSI X3.106 Cipher Block Chaining (CBC) method</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X3.106 Cipher Block Chaining (CBC)
+method</searchtitle>
+</titlealts>
+<shortdesc>ANSI standard X3.106 defines four modes of operation for
+ciphering, and one of these modes, Cipher Block Chaining (CBC), defines
+the basic method for ciphering multiple 8-byte data strings. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>X3.106 (CBC) method</indexterm><indexterm>ANSI
+X3.106 (CBC)</indexterm><indexterm>output chaining value (OCV)</indexterm>
+<indexterm>OCV (output chaining value)</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p><xref href="#l0wskc57/l0wskc02_cbcenc"></xref> and <xref
+href="#l0wskc57/l0wskc02_cbcdec"></xref> show CBC using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"></keyword> verbs.
+A plaintext data string that must be a multiple of eight bytes is
+processed as a series of 8-byte blocks. The ciphered result from processing
+an 8-byte block is XORed with the next block of 8 input bytes. The
+last 8-byte ciphered result is defined as an output chaining value
+(OCV). The security server stores the OCV in bytes 0 - 7 of the <synph><var>chaining_vector</var></synph> variable.</p>
+<p>An ICV is XORed with the first block of eight bytes. When you call the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verb, specify the
+<synph><kwd>INITIAL</kwd></synph> or <synph><kwd>CONTINUE</kwd></synph> keywords. If you specify the
+<synph><kwd>INITIAL</kwd></synph> keyword, the default, the initialization vector from the verb
+parameter is XORed with the first eight bytes of data. If you specify the
+<synph><kwd>CONTINUE</kwd></synph> keyword, the OCV identified by the <i>chaining_vector</i>
+parameter is XORed with the first eight bytes of data. <fig expanse="column" id="l0wskc02_cbcenc">
+<title>Enciphering using the ANSI X3.106 CBC method</title>
+<image href="wskc_l0wskc57_1.jpg" width="500"><alt>Enciphering using the ANSI X3.106 CBC
+method</alt></image></fig><fig expanse="column" id="l0wskc02_cbcdec">
+<title>Deciphering using the CBC method</title>
+<image href="wskc_l0wskc57_2.jpg" width="500"><alt>Deciphering using the CBC
+method</alt></image></fig></p>
+</conbody>
+</concept><?Pub Caret -3?>
+<?Pub *0000006146?>

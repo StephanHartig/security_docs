@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pvrparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>input_PIN_encrypting_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>PIN_verifying_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>input_PIN_profile parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>PIN profile<indexterm>description</indexterm></indexterm>
+<indexterm>PAN_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>personal account number (PAN)<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/></indexterm></indexterm>
+<indexterm>encrypted_PIN_block parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>algorithm
+value</indexterm></indexterm>
+<indexterm>IBM-PIN algorithm</indexterm>
+<indexterm>IBM-PINO algorithm</indexterm>
+<indexterm>GBP-PIN algorithm</indexterm>
+<indexterm>VISA-PVV algorithm</indexterm>
+<indexterm>VISAPVV4 algorithm</indexterm>
+<indexterm>algorithm<indexterm>IBM-PIN</indexterm></indexterm>
+<indexterm>algorithm<indexterm>IBM-PINO</indexterm></indexterm>
+<indexterm>algorithm<indexterm>GBP-PIN</indexterm></indexterm>
+<indexterm>algorithm<indexterm>VISA-PVV</indexterm></indexterm>
+<indexterm>algorithm<indexterm>VISAPVV4</indexterm></indexterm>
+<indexterm>GBP-PIN</indexterm>
+<indexterm>IBM-PIN</indexterm>
+<indexterm>IBM-PINO</indexterm>
+<indexterm>INBK-PIN</indexterm>
+<indexterm>VISA-PVV</indexterm>
+<indexterm>VISAPVV4</indexterm>
+<indexterm>UKPTIPIN</indexterm>
+<indexterm>DUKPT-IP</indexterm>
+<indexterm>PIN_check_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+<indexterm>data_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>input_PIN_encrypting_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The key label or internal key token of a PIN-encrypting key or key-generating key.</p>
+<p rev="sh21i1">If none of the <b><i>DUKPT keywords</i></b> is used, the key token must contain the
+input PIN-block encrypting key to be used to decrypt the input PIN-block. The key may be a DES key
+(all PIN block formats except ISO-4) or an AES key (PIN block format ISO-4).</p>
+<ul rev="sh21i1">
+<li>For DES keys, the control vector in the key token must specify the IPINENC key-type with EPINVER
+bit (CV bit 19) set to B'1'.
+</li>
+<li>For AES keys, the variable-length symmetric key token must have a token algorithm of AES and a
+key type of PINPROT. In addition, the key usage fields must indicate that the key can be used for
+decryption (DECRYPT), the encryption mode must be Cipher Block Chaining (CBC), common usage control
+must be NOFLDFMT, PIN block format usage must be ISO-4, and PIN function usage EPINVER must be
+enabled. </li>
+</ul>
+<p rev="sh21i1">If one of the <b><i>DUKPT keywords</i></b> is used:</p>
+<ul rev="sh21i1">
+<li>If you use the DES DUKPT process for the input PIN-block, specify that the base derivation key as a
+KEYGENKY key type with the UKPT bit (CV bit 18) set to B'1'.
+</li>
+<li>If you use the AES DUKPT process specified with the ADUKPTIP keyword for the input PIN-block,
+specify the base derivation key as an AES variable-length symmetric key-token, version X’ 05 AES
+DKYGENKY with Key-usage field 1, low-order byte, most significant bit set to 1 indicating this key
+is allowed to be used as BDK.</li>
+</ul>
+</pd></plentry>
+<plentry><pt>PIN_verifying_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 64-byte key label or internal key token that identifies the PIN verify
+(<synph><kwd>PINVER</kwd></synph>) key.</pd></plentry>
+<plentry><pt>input_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The three 8-byte character elements that contain information necessary to either create a
+formatted PIN block or extract a PIN from a formatted PIN block. A particular PIN profile can be
+either an input PIN profile or an output PIN profile depending on whether the PIN block is being
+enciphered or deciphered by the <ph>verb</ph>. If you specify <synph><kwd>DUKPT-IP</kwd></synph> or
+<synph><kwd>UKPTIPIN</kwd></synph>  in the <parmname>rule_array</parmname> parameter, the
+<parmname>input_PIN_profile</parmname> is extended to a 48-byte field and must contain the current
+key serial number. See <xref href="wskc_c_pinppp.dita#l0wskc02_pinppp"/> for additional information.
+<p>The pad digit is needed to extract the PIN from a 3624 or 3621 PIN block in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb.</p><p>The
+<b>PINLEN<synph><var>nn</var></synph></b> keywords are disabled for this verb by default. If these
+keywords are used, return code 8 with reason code 33 is returned. To enable them, the
+<cmdname>Enhanced PIN Security</cmdname> access control point (bit <ph>X'0313'</ph>) must be enabled
+using a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/>.</p><p rev="sh21i1">If
+you specify ADUKPTIP in the <parmname>rule_array</parmname> parameter, the
+<parmname>input_PIN_profile</parmname> parameter is extended to a 44-byte field and must contain the
+AES-DUKPT Derivation Data extension. The Derivation Data is 20-byte structure which specifies AES
+DUKPT input parameters. See <xref href="wskc_c_pinppp.dita"/> for additional information.</p></pd></plentry>
+</parml></section><section>
+<parml>
+<plentry><pt>PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">A primary account number (PAN) in character format. The service uses this parameter if the PIN
+profile specifies the ISO-0, ISO-3, ISO-4, or VISA-4 keyword for the PIN block format. Otherwise,
+ensure that this parameter is a 12-byte value in application storage. The information in this parameter
+is ignored, but the parameter must be specified.
+</p>
+<p rev="sh21i1">When using the ISO-0, ISO-3, or VISA-4 keyword, the value is 12 bytes long. Use the 12 rightmost
+digits of the PAN data, excluding the check digit.</p>
+<p rev="sh21i1">When using the ISO-4 keyword, the value is 21 bytes long. The PAN data is 10 – 19
+bytes long. The length of the PAN data and the PAN data are contained in the structure shown in
+<xref href="#l0wskc02_pvrparameters/pan_data_structure_2" format="dita"/>.</p>
+<table id="pan_data_structure_2" pgwide="0" frame="all" rev="sh21i1"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/> PAN data structure</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/> PAN
+data structure showing offset, length and a description</p>
+</desc><tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Length</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of the PAN data field, p.</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry>p</entry>
+<entry>10 to 19 bytes of PAN data.</entry>
+</row>
+<row>
+<entry>2+p</entry>
+<entry>0-9</entry>
+<entry>Padding to 21 bytes with characters that are ignored.</entry>
+</row>
+</tbody>
+</tgroup></table>
+</pd></plentry>
+<plentry><pt>encrypted_PIN_block</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The enciphered PIN block that contains the PIN to be verified. When the PIN block
+format is ISO-4, the PIN block is 16 bytes long. For all other formats, the PIN block is 8 bytes
+long.</p>
+</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1, 2, or 3.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule for the PIN verify algorithm, described in <xref
+href="#l0wskc02_pvrparameters/l0wskc02_pinvpr"/>.<table id="l0wskc02_pinvpr" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> control information</title>
+<desc>
+<p outputclass="summary">Keywords for 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Algorithm value</i></b> (One, required) </entry>
+</row>
+<row>
+<entry><synph><kwd>GBP-PIN</kwd></synph></entry>
+<entry>The <tm trademark="IBM" tmtype="reg">IBM</tm> German Bank Pool PIN. It verifies the PIN
+entered by the customer and compares that PIN with the institution generated PIN by using an
+institution key.</entry>
+</row>
+<row>
+<entry><synph><kwd>IBM-PIN</kwd></synph></entry>
+<entry>The <tm trademark="IBM" tmtype="reg">IBM</tm> 3624
+PIN, which is an institution-assigned PIN. It does not calculate the PIN offset.</entry>
+</row>
+<row>
+<entry><synph><kwd>IBM-PINO</kwd></synph></entry>
+<entry>The <tm trademark="IBM" tmtype="reg">IBM</tm> 3624
+PIN offset, which is a customer-selected PIN and calculates the PIN offset.</entry>
+</row>
+<row>
+<entry><synph><kwd>INBK-PIN</kwd></synph></entry>
+<entry>The Interbank PIN verify algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>VISA-PVV</kwd></synph></entry>
+<entry>The VISA PIN verify value.</entry>
+</row>
+<row>
+<entry><synph><kwd>VISAPVV4</kwd></synph></entry>
+<entry>The VISA PIN verify value. If the length is 4
+digits, normal processing for VISA-PVV will occur. </entry>
+</row>
+<row>
+<entry><b><i>PIN block format and PIN extraction method</i></b>
+(optional) </entry>
+<entry>See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/pbfandpem"/> for additional information and a
+list of PIN block formats and PIN extraction method keywords. <p>The
+<b>PINLEN<synph><var>nn</var></synph></b> keywords are disabled for this verb by default. If these
+keywords are used, return code 8 with reason code 33 is returned. To enable them, the <cmdname>Enhanced
+PIN Security</cmdname> access control point (bit <ph>X'0313'</ph>) must be enabled using a TKE
+workstation.</p>
+<note>If a PIN extraction method is not specified, the first one listed in <xref
+href="wskc_c_pbf.dita#l0wskc02_pbf/l0wskc02_newtb2"/> for the PIN block format will be the
+default.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>DUKPT keyword - single length key derivation</i></b> (optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>UKPTIPIN</kwd></synph></entry>
+<entry>The <synph><var>input_PIN_encrypting_key_identifier</var></synph> is derived as a single length key. The
+<synph><var>input_PIN_encrypting_key_identifier</var></synph> must be a
+<synph><kwd>KEYGENKY</kwd></synph> key with the UKPT usage bit enabled. The
+<synph><var>input_PIN_profile</var></synph> must be 48 bytes and contain the key serial
+number.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>DUKPT keyword - double length key derivation</i></b> (optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>DUKPT-IP</kwd></synph></entry>
+<entry>The <synph><var>input_PIN_encrypting_key_identifier</var></synph> is to be derived using the DUKPT
+algorithm. The <synph><var>input_PIN_encrypting_key_identifier</var></synph> must be a
+<synph><kwd>KEYGENKY</kwd></synph> key with the DUKPT usage bit enabled. The
+<synph><var>input_PIN_profile</var></synph> must be 48 bytes and contain the key serial
+number.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>ADUKPTIP</kwd></synph></entry>
+<entry>The <parmname>input_PIN_encrypting_key_identifier</parmname> is to be derived using the
+AES-DUKPT algorithm. It must be an AES DKYGENKY with the A-DUKPT bit set to 1 in the low-order byte
+of key usage field 1. The <parmname>input_PIN_profile</parmname> must be 44 bytes and contain the
+AES-DUKPT derivation data.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>PIN_check_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The PIN check length for the <synph><kwd>IBM-PIN</kwd></synph> or
+<synph><kwd>IBM-PINO</kwd></synph> process rules only. Otherwise, it is ignored. Specify the
+rightmost digits, 4 - 16, for the PIN to be verified.</pd></plentry>
+<plentry><pt>data_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Three 16-byte elements required by the corresponding <synph><var>rule_array</var></synph>
+parameter. The data array consists of three 16-byte fields whose specification depend on the process
+rule. If a process rule requires only one or two 16-byte fields, the rest of the data array is
+ignored by the <ph>verb</ph>. <xref href="#l0wskc02_pvrparameters/l0wskc02_pvrel"/> describes the
+array elements.<table id="l0wskc02_pvrel" pgwide="1" frame="all">
+<title>Array elements for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>
+data_array parameter</title>
+<desc>
+<p outputclass="summary">Array elements for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>
+<i>data_array</i> parameter</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="7*"/>
+<thead>
+<row>
+<entry>Array element</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Decimalization_table</entry>
+<entry>Decimalization table for <tm trademark="IBM" tmtype="reg">IBM</tm>
+and GBP only. Sixteen decimal digits of 0 - 9. <p>If the <cmdname>ANSI X9.8 PIN - Use stored
+decimalization tables only</cmdname> command (offset <ph>X'0356'</ph>) access control point is
+enabled in the active role, this table must match one of the active decimalization tables in the
+coprocessors.</p></entry>
+</row>
+<row>
+<entry>PIN_offset</entry>
+<entry>Offset data for <synph><kwd>IBM-PINO</kwd></synph>. One to twelve
+numeric characters, 0 - 9, left-aligned and padded on the right with blanks. For
+<synph><kwd>IBM-PINO</kwd></synph>, the PIN offset length is specified in the
+<synph><var>PIN_check_length</var></synph> parameter. For <synph><kwd>IBM-PIN</kwd></synph> and
+<synph><kwd>GBP-PIN</kwd></synph>, the field is ignored.</entry>
+</row>
+<row>
+<entry>Trans_sec_parm</entry>
+<entry>For VISA, only the leftmost twelve digits of the 16-byte field are
+used. These consist of the rightmost eleven digits of the personal account number (PAN) and a
+one-digit key index. The remaining four characters are ignored. <p>For Interbank only, all 16 bytes
+are used. These consist of the rightmost eleven digits of the PAN, a constant of <ph>X'6'</ph>, a
+one-digit key index, and three numeric digits of PIN validation data.</p></entry>
+</row>
+<row>
+<entry>RPVV</entry>
+<entry>For <synph><kwd>VISA-PVV</kwd></synph> only, referenced PVV (four
+bytes) that is left-aligned. The rest of the field is ignored.</entry>
+</row>
+<row>
+<entry>Validation_data</entry>
+<entry>Validation data for <tm trademark="IBM" tmtype="reg">IBM</tm> and
+GBP padded to 16 bytes. 1 - 16 characters of hexadecimal account data left-aligned and padded on the
+right with blanks.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p><xref href="#l0wskc02_pvrparameters/l0wskc02_pro2apa"/> lists the data array elements
+required by the process rule (<synph><var>rule_array</var></synph> parameter). The numbers refer to
+the process rule's position within the array. </p><table id="l0wskc02_pro2apa" pgwide="0"
+frame="all">
+<title>Array elements required by the process rule</title>
+<desc>
+<p outputclass="summary">Array elements required by the process rule</p>
+</desc>
+<tgroup cols="6" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="113*"/>
+<colspec colname="col2" colwidth="46*"/>
+<colspec colname="col3" colwidth="57*"/>
+<colspec colname="col4" colwidth="51*"/>
+<colspec colname="col6" colwidth="58*"/>
+<colspec colname="col7" colwidth="59*"/>
+<thead>
+<row>
+<entry>Process rule</entry>
+<entry align="center">IBM-PIN</entry>
+<entry align="center">IBM-PINO</entry>
+<entry align="center">GBP-PIN</entry>
+<entry align="center">VISA-PVV</entry>
+<entry align="center">INBK-PIN </entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Decimalization_table</entry>
+<entry align="center">1</entry>
+<entry align="center">1</entry>
+<entry align="center">1</entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+</row>
+<row>
+<entry>Validation_data</entry>
+<entry align="center">2</entry>
+<entry align="center">2</entry>
+<entry align="center">2</entry>
+<entry align="center"></entry>
+<entry align="center"></entry>
+</row>
+<row>
+<entry>PIN_offset</entry>
+<entry align="center">3</entry>
+<entry align="center">3</entry>
+<entry align="center">3</entry>
+<entry align="center"> </entry>
+<entry align="center">  </entry>
+</row>
+<row>
+<entry>Trans_sec_parm</entry>
+<entry align="center"> </entry>
+<entry align="center"> </entry>
+<entry align="center"> </entry>
+<entry align="center">1</entry>
+<entry align="center">1 </entry>
+</row>
+<row>
+<entry>RPVV</entry>
+<entry align="center"> </entry>
+<entry align="center"> </entry>
+<entry align="center"> </entry>
+<entry align="center">2</entry>
+<entry align="center">  </entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+</parml></section>
+</refbody></reference>

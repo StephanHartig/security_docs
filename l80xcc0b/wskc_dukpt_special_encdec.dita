@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//IBM//DTD DITA IBM Topic//EN" "ibm-topic.dtd">
+<topic xml:lang="en-us" id="bsm_specdec" rev="sh21i1">
+<title>Performing the special encryption and special decryption processes</title>
+<titlealts>
+<navtitle>Special encryption and decryption</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Performing the special encryption and
+special decryption processes</searchtitle>
+</titlealts>
+<shortdesc>Learn about the steps to perform the encryption and decryption processes for deriving
+unique keys per transaction.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>special encryption</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<body>
+<p>The special encryption process consists of the following steps: <ol>
+<li>Name the derived unique key for the current transaction K<sub>u</sub>.</li>
+<li>Name the clear PIN-block that was built from the user-entered PIN P<sub>c</sub>.</li>
+<li>Perform an XOR operation with the rightmost byte of K<sub>u</sub> and <ph>X'FF'</ph> to produce
+a variant of the key; name the result K<sub>u<sub>v</sub></sub>. <xref format="dita"
+href="#bsm_specdec/var_const"/> provides a list of all the variant constants for DUKPT keys. </li>
+<li>Perform an XOR operation with K<sub>u<sub>v</sub></sub> and P<sub>c</sub>; store the result in
+T<sub>1</sub>.</li>
+<li>Encrypt T<sub>1</sub> with K<sub>u<sub>v</sub></sub>; store the result in T<sub>2</sub>.</li>
+<li>Perform an XOR operation with K<sub>u<sub>v</sub></sub>; store the result in P<sub>e</sub>.</li>
+</ol></p>
+<p>The value in P<sub>e</sub> is the encrypted PIN-block that the POS terminal sends.<table
+colsep="1" frame="all" id="var_const" rowsep="1" scale="90"><title>Variant constants for DUKPT
+keys</title><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="3*"/>
+<colspec colname="c2" colnum="2" colwidth="2*"/>
+<colspec colname="c3" colnum="3" colwidth="2*"/>
+<thead>
+<row>
+<entry>Key purpose</entry>
+<entry>Variant constant, left</entry>
+<entry>Variant constant, right</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>PIN encryption</entry>
+<entry>X'00 00 00 00 00 00 00 FF'</entry>
+<entry>X'00 00 00 00 00 00 00 FF'</entry>
+</row>
+<row>
+<entry>Message authentication, request or both ways</entry>
+<entry>X'00 00 00 00 00 00 FF 00'</entry>
+<entry>X'00 00 00 00 00 00 FF 00'</entry>
+</row>
+<row>
+<entry>Message authentication, response</entry>
+<entry>X'00 00 00 00 FF 00 00 00'</entry>
+<entry>X'00 00 00 00 FF 00 00 00'</entry>
+</row>
+<row>
+<entry>Data encryption, request or both ways</entry>
+<entry>X'00 00 00 00 00 FF 00 00'</entry>
+<entry>X'00 00 00 00 00 FF 00 00'</entry>
+</row>
+<row>
+<entry>Data encryption, response</entry>
+<entry>X'00 00 00 FF 00 00 00 00'</entry>
+<entry>X'00 00 00 FF 00 00 00 00' </entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<p>The special decryption process consists of the previous steps, but in reverse.</p>
+<p>The following is an example of the special encryption process:
+<codeblock>Current encrypting key = K<sub>u</sub> = <ph><ph>X'670B 395E 6CFB 603D'</ph></ph>
+User-entered PIN = 1234
+User’s primary account-number = <ph><ph>X'4012 3456 7890'</ph></ph>
+Clear PIN-block (unformatted) = <ph><ph>X'0412 34FF FFFF FFFF'</ph></ph>
+Primary account-number (formatted) = <ph><ph>X'0000 4012 3456 7890'</ph></ph>
+Clear PIN-block (ANS format) = P<sub>c</sub> = <ph><ph>X'0412 74ED CBA9 876F'</ph></ph>
+Variant of PIN encrypting key = K<sub>u<sub>v</sub></sub> = <ph><ph>X'670B 395E 6CFB 60C2'</ph></ph>
+ 
+T<sub>1</sub> = <ph><ph>X'6319 4DB3 A752 E7AD'</ph></ph>
+T<sub>2</sub> = <ph><ph>X'5145 3CA3 E474 2148'</ph></ph>
+P<sub>e</sub> = <ph><ph>X'364E 05FD 888F 418A'</ph></ph></codeblock>
+</p>
+</body>
+</topic>

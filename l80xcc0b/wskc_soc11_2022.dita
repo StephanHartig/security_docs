@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="wskc08_soc2022" xml:lang="en-us" rev="sh22i1">
+<title>Edition September 2022, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Support
+Program Release 8.0</title>
+<shortdesc>This edition describes the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Basic Services API for Release 8.0.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>edition 2022</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For Release 8.0, changes to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+API include the following new verbs:</p>
+<table id="new_verbs60" pgwide="1" frame="all">
+<title>New verbs for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 8.0</title>
+<desc>
+<p outputclass="summary">New verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 8.0 with entry-point name,
+category, and long name with link to the verb description.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following verbs provide new keywords:</p>
+<table id="updated_verbs60" pgwide="1" frame="all">
+<title>Updated verbs for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 8.0</title>
+<desc>
+<p outputclass="summary">Updated verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 8.0 with entry-point name,
+category, and long name with link to the verb description.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="12*"/>
+<colspec colname="col2" colwidth="39*"/>
+<colspec colname="col3" colwidth="39*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry></entry>
+<entry></entry>
+<entry></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>In addition, the following changes apply to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Release 8.0:</p>
+<ul>
+<li></li>
+</ul>
+</section>
+</refbody>
+</reference>

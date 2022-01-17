@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<!--SH: Acrolinx run on March 19, 2018-->
+<reference xml:lang="en-us" id="xeaparameters" rev="sh15">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"
+/><indexterm>parameters</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"
+/><indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An array of 8-byte keywords providing the processing control information. The keywords must
+be left-aligned and padded on the right with space characters. The rule_array keywords are described
+in <xref href="#xeaparameters/csnbxea_table" format="dita"/>.<table pgwide="1" frame="all"
+id="csnbxea_table">
+<title>Keywords for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/>
+utility</title>
+<desc>
+<p outputclass="summary">Keywords for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"/> utility</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="17*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Service requested</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>TOASCII</kwd></synph></entry>
+<entry>Converts the contents of <parmname>source_text</parmname> from EBCDIC character set to ASCII
+character set using the appropriate code table that is displayed in <xref
+href="wskc_xeausage.dita#xeausage"/>. The result is placed in parameter
+<parmname>target_text</parmname>. <p>The parameters <parmname>code_table</parmname> and
+<parmname>code_table_length</parmname> are ignored for this keyword.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TOEBCDIC</kwd></synph></entry>
+<entry>Converts the contents of <parmname>source_text</parmname> from ASCII character set to EBCDIC
+character set by using the code table that is displayed in <xref href="wskc_xeausage.dita#xeausage"
+/>. The result is placed in parameter <parmname>target_text</parmname>. <p>The parameters
+<parmname>code_table</parmname> and <parmname>code_table_length</parmname> are ignored for this
+keyword.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>USETABLE</kwd></synph></entry>
+<entry>Converts the contents of <parmname>source_text</parmname> from the original character set to
+a custom character set by using the appropriate code table that is passed  by the application in the
+<parmname>code_table</parmname> parameter. The result is placed in parameter
+<parmname>target_text</parmname>. <p>Each byte of the <parmname>source_text</parmname> is used to
+index the <parmname>code_table</parmname> to discover the resulting byte for the
+<parmname>target_text</parmname>. This keyword assumes that the conversion data is single-byte
+aligned. One byte of <parmname>source_text</parmname> is used to look up 1 byte of conversion value
+in the code table. Therefore the <parmname>code_table_length</parmname> must be at least 256 bytes.
+If the code_table_length is larger than 256 bytes,  the extra is ignored.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable that contains the length of the
+<parmname>source_text</parmname> parameter. The length must be a positive nonzero value.</pd>
+</plentry>
+<plentry>
+<pt>source_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter contains the string to be converted.</pd>
+</plentry>
+<plentry>
+<pt>target_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter contains the converted text that is returned by this verb. The size of this
+buffer must be at least as long as indicated by <parmname>text_length</parmname>. </pd>
+</plentry>
+<plentry>
+<pt>code_table_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The size in bytes of the buffer that is passed as the <parmname>code_table</parmname>
+parameter.</pd>
+</plentry>
+<plentry>
+<pt>code_table</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A data conversion table that is specified by the user for converting the contents of
+<parmname>source_text</parmname> to <parmname>target_text</parmname>.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

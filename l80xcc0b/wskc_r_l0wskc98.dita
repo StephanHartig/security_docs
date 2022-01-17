@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc98">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"
+/>.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody><!--This paragraph is in two places, in the introduction and Usage notes.-->
+<section><p>The <synph><kwd>PASSTHRU</kwd></synph> service is provided as a convenience to users
+who wish to implement their own key completion process in host application
+software.  While the "Z" derivation process is not reversible (the
+ECC keys cannot be discovered by obtaining "Z") there is a level of
+security compromise associated with returning the clear "Z" to the
+application.  Future derivations for CCA key tokens using ECC keys
+previously used in <synph><kwd>PASSTHRU</kwd></synph> must be considered to have lower
+security, and using the same ECC keys for <synph><kwd>PASSTHRU</kwd></synph> as for <synph><kwd>DERIV01</kwd></synph> is
+strongly discouraged.  It should also be noted that since "Z" is the
+secret material, returning it in the clear to the host application
+reduces security level of the "Z" from the HSM level to the host application
+level, and keys made from this material should not be regarded as
+having any HSM protection.</p></section>
+<section><p>For more information, see <xref href="wskc_c_ecdh_key_agree.dita#ecdh_key_agree"/>.</p></section>
+</refbody></reference>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_migrate" xml:lang="en-us" rev="sh18i1">
+<title>Migrating applications to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></title>
+<titlealts>
+<navtitle>Migrating to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Migrating to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You can migrate existing applications to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>. This involves converting the keys
+that are used by the application to key tokens that are tagged as compliant to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>migrating applications</indexterm></indexterm>
+<indexterm>migrationg to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The migration process completes with existing key tokens that are converted to being
+compliant-tagged. Before you complete the migration, it is important that the necessary steps are
+taken so that upon completion of the migration, future key tokens can be created as
+compliant-tagged. </p>
+<section><title>Identifying key tokens to be converted using compliance warning
+events</title><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>identifying key tokens to be converted</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>warning events</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>identifying key tokens for conversion</indexterm></indexterm><indexterm>warning
+events<indexterm>identifying key tokens for conversion</indexterm></indexterm><p> Except for the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>) verb, a compliant-tagged key cannot
+be used in a cryptographic operation with a non-compliant-tagged key. Therefore, with that one
+exception, the key migration process needs to ensure that for each key that is to be
+compliant-tagged, all keys it can be used with, must also be compliant-tagged. </p><p>One procedure
+for migrating keys is to put them into one of the following five categories in order from top to
+bottom: </p><ol>
+<li id="cat1">Keys that are used in non-compliant or unsupported ways. These keys are included in
+compliance warning events with any of the following results: <ul compact="yes">
+<li>Non-compliant service</li>
+<li>Compliance not supported</li>
+<li>Non-compliant service operation.</li>
+</ul><p>Before these keys can be compliant-tagged, there must be a change to use them in a
+supported, compliant way.</p></li>
+<li id="cat2">Keys that are used with a key in category (<xref href="#wskc_pci_hsm_migrate/cat1"
+format="dita"/>). Since keys in this category are used with keys that should not be
+compliant-tagged, by extension they should not be compliant-tagged.</li>
+<li id="cat3">Keys that are not compliant. The overall warning event result would indicate that a
+non-compliant key was used and this key is marked as a non-compliant key. The reason for the
+non-compliance needs to be determined and fixed before the key can be compliant-tagged. For more
+information, see <xref href="wskc_pci_hsm_key_restrictions.dita#wskc_pci_hsm_key_restrictions"
+/>.</li>
+<li id="cat4">Keys that are used with a key in category (<xref href="#wskc_pci_hsm_migrate/cat3"
+format="dita"/>). Since keys in this category are used with keys that cannot be compliant-tagged, by
+extension these keys should not be compliant-tagged.</li>
+<li id="cat5">Keys that are compliant and only used in compliant ways. These keys are only included
+in warning events with an overall result of compliance. </li>
+</ol><p> For help interpreting the compliance warning events, see section <xref
+href="wskc_pci_hsm_warnevents.dita#wskc_pci_hsm_warnevents/warning_layout"/>. </p><p> As the issues
+in categories <xref href="#wskc_pci_hsm_migrate/cat1" format="dita"/> to <xref
+href="#wskc_pci_hsm_migrate/cat4" format="dita"/> are resolved, you are left only with keys in
+category <xref href="#wskc_pci_hsm_migrate/cat5" format="dita"/>. At this point, you can
+successfully compliant-tag all your keys. Further information is in <xref
+href="#wskc_pci_hsm_migrate/pci_hsm_migration_mode" format="dita"/>.</p><p>It might be the case that
+not all keys can become compliant-tagged, for instance, when a key is used in a verb that does not
+support compliance. In this case, you have a key or keys that remain in category <xref
+href="#wskc_pci_hsm_migrate/cat1" format="dita"/> and possibly also in category <xref
+href="#wskc_pci_hsm_migrate/cat2" format="dita"/> that should not be compliant-tagged. The keys in
+category <xref href="#wskc_pci_hsm_migrate/cat5" format="dita"/> can still be compliant-tagged. A
+similar situation arises when a key that is used in an otherwise compliant way is itself
+non-compliant. In this case, you have a key or keys that are remaining in category <xref
+href="#wskc_pci_hsm_migrate/cat3" format="dita"/> and possibly also in category <xref
+href="#wskc_pci_hsm_migrate/cat4" format="dita"/> that should not be compliant-tagged. Once again,
+the keys in category <xref href="#wskc_pci_hsm_migrate/cat5" format="dita"/> can still be
+compliant-tagged. These scenarios are not mutually exclusive so you might end up with keys in
+categories <xref href="#wskc_pci_hsm_migrate/cat1" format="dita"/> to <xref
+href="#wskc_pci_hsm_migrate/cat5" format="dita"/> at migration time. If the categories are strictly
+adhered to, you can compliant-tag the keys in category <xref href="#wskc_pci_hsm_migrate/cat5"
+format="dita"/>. </p><p>All requests that are selected for compliance warning
+processing should be routed to a CEX6C coprocessor by the application. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host library does not change application
+routing decisions if a CEX5C <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoprocs"/> has been selected for processing.
+To avoid application changes, it is recommended to disable any CEX5C instances using the
+<cmdname>chzcrypt -d</cmdname> command before making use of the warning mode with CEX6C adapters.
+This will avoid any errors from routing issues.</p></section>
+<section><title>Identifying key tokens to be converted outside of compliance warning
+events</title><indexterm>identifying key tokens for conversion</indexterm><p>Since compliance
+warnings are based on actual usage, be especially aware of operations (for example, infrequent
+operations) which might not be started during the period where warnings are being collected. These
+operations would not show up in a warning log and so must be discovered and analyzed
+independently.</p><p>It might be necessary to do an analysis of the key storage to
+identify the key tokens to be converted. If the key labels follow a naming convention, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrl"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrl"/>) callable service can be used to
+produce a list of labels according to a filter. You can use the <cmdname>panel.exe</cmdname> utility
+to list all the DES key tokens from key storage. The <cmdname>panel.exe</cmdname> utility also uses
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkrl"/> service. </p><p>Key tokens
+that are identified in this way do not have any information about how they are used. So either the
+usage of such key tokens must be understood, or all the key tokens that are used must be converted
+together.</p></section>
+<section><title>Ensure the key tokens identified can become compliant-tagged</title><indexterm>key
+tokens<indexterm>compliant-tagged</indexterm></indexterm><p>When the key tokens to be converted have
+been identified, you need to ensure that the process of compliant-tagging the key tokens is
+successful. Compliant-tagged key tokens cannot be used with non-compliant-tagged key tokens. So you
+do not want the conversion of some tokens to fail while others succeed. You do this by
+compliance-checking the key tokens first. Key tokens are compliance-checked by using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) verb with the COMP-CHK keyword.
+</p></section>
+<section id="pci_hsm_migration_mode"><title>Migration mode</title><indexterm>adapter
+domain<indexterm>migration mode</indexterm></indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>n<indexterm>migration
+mode</indexterm><indexterm>migrating key tokens</indexterm></indexterm><p>Existing keys are
+transformed into compliant-tagged keys using the <term>migration mode</term> of the adapter domain.
+This <term>migration mode</term> is a temporary sub-state of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. </p><p>The process is like
+follows:</p><ol>
+<li>Your <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> starts in a
+normal, non-compliant mode.</li>
+<li>Take one or more domains to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>, using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> for administrative steps.</li>
+<li>Now you can create new tokens with the compliance-tag. You cannot migrate legacy tokens by
+adding the compliance-tag while in the operational compliance mode, because this is a sensitive
+operation that could compromise security.</li>
+<li>Take one or more domains to <term>migration mode</term>, using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> for administrative steps. <note>You can
+only enter the <term>migration mode</term> from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>.</note></li>
+<li>Now you can migrate legacy tokens using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/> verb with the COMP-TAG keyword.</li>
+</ol><p>The <term>migration mode</term> has an inactivity timeout. If no key migration actions
+(initiated from the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2j"/> verb
+using the <synph><kwd>COMP-TAG</kwd></synph> keyword) are received within 30 minutes, then the
+domain automatically exits <term>migration mode</term>  and returns to the  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. Note that in <term>migration
+mode</term> you are allowed to migrate legacy tokens by adding the compliance-tag . However, no
+compliance-tagged key operations other than key migration are allowed in <term>migration
+mode</term>, as required for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"
+/> compliance.</p></section>
+<section><title>Converting key tokens to become compliant-tagged</title><indexterm>key
+tokens<indexterm>becoming compliant-tagged</indexterm></indexterm>
+<indexterm>becoming compliant-tagged<indexterm>key tokens</indexterm></indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/><indexterm>converting key
+tokens</indexterm></indexterm><p>Make sure to identify all key tokens that must be converted,
+because they cannot be used in a non-compliant way. Then verify that they can be converted to
+compliant-tagged key tokens. If your verification is successful, you can start the
+conversion.</p><p>At this point, you must decide what backup strategy, if any, to pursue. Depending
+on the nature of your workloads, your backup strategy can include, but is not be limited to: <ol>
+<li>Making a backup copy of the key storage.</li>
+<li>Retrieving the key tokens to be converted from the key storage and storing them in
+a file.</li>
+</ol>
+</p><p>Instead of making a backup copy of the key storage, you can write the
+compliant-tagged key tokens to new key storage labels.</p><p>Key tokens are converted to
+compliant-tagged tokens by using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) verb with the COMP-TAG keyword.
+</p><p> To begin the conversion, at least one <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor must be placed in migration
+mode by using the TKE workstation. To confirm the compliance mode of a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor, view the hardware status
+panel. Also, take note of the number of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> without being in migration mode.
+A coprocessor in migration mode cannot handle requests that contain compliant-tagged key tokens.
+Therefore, if workloads that use compliant-tagged key tokens are already in use (for example, you
+previously converted some key tokens to compliant-tagged), you must keep one or more coprocessors in
+PCI-HSM 2016 compliance mode, but not in migration mode.</p><p>At this point in the process, none of
+the key tokens should fail because they were previously compliance-checked. However, if for some
+reason there is a failure such that some of the key tokens were converted and others were not, the
+key tokens should be brought back to a consistent state as soon as possible. This means that the key
+tokens should be updated such that they are all compliant-tagged or all non-compliant-tagged. If a
+backup copy of the CKDS was made, it can be used to make all the key tokens non-compliant-tagged
+until the issue can be resolved. If the process involves creating compliant-tagged key tokens under
+new key labels, the old labels can still be used until the issue is resolved.</p></section>
+</conbody>
+</concept>
+<?Pub *0000002516?>

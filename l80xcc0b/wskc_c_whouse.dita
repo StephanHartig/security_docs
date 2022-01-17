@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_whouse">
+<title>Who should use this document</title><shortdesc>This document is intended for application programmers who are responsible
+for writing application programs that use the security application
+programming interface (API) to access cryptographic functions.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>who should use this document</indexterm>
+<indexterm>Common Cryptographic Architecture (CCA)<indexterm>description</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+</conbody></concept>

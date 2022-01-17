@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> verb to generate an AES or DES DATA key and return
+the key in two forms: enciphered under the master key and encrypted
+under an RSA public key.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</indexterm></indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>RSA key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>You can import the RSA public key encrypted form by using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verbs
+at the receiving node.</p></section>
+<section><p>Also use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> verb to generate any DES importer or exporter
+key-encrypting key encrypted under a RSA public key according to the
+PKA92 formatting structure. See <xref href="wskc_c_despk92.dita#l0wskc02_despk92"/> for
+more details about PKA92 formatting.</p>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

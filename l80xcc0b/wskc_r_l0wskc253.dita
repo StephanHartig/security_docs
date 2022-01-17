@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc253">
+<title>Generating and exporting DES keys</title>
+ <titlealts>
+    <navtitle>Generating and exporting DES keys</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>: Generating and exporting DES
+keys</searchtitle>
+  </titlealts>
+<shortdesc>This verb uses a trusted block to generate or export DES keys. </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>DES keys<indexterm>generating and exporting</indexterm></indexterm>
+<indexterm>generating DES keys</indexterm>
+<indexterm>exporting DES keys</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>To create a trusted block, see <xref href="wskc_r_tbc.dita#l0wskc02_tbc"/>. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> accepts as input parameters a trusted
+block, a public-key certificate and certificate parameters, a transport key, a rule ID to identify
+the appropriate rule section to be used within a trusted block, an importer key, a source key,
+optional extra data that can be used as part of the OAEP key-wrapping process, and key-check
+parameters used to calculate an optional key-check value.</p>
+<p>This verb validates all input parameters for generate and export operations. After the verb
+performs the input parameter validation, the remaining steps depend on whether the generate option
+or the export option is specified in the selected rule of the trusted block.</p>
+<p>This is a high-level description of the remaining processing steps for generate and export.</p></section>
+<section id="genop">
+<title>Processing for generate operation</title>
+<p> The verb performs these steps for the generate operation: </p>
+<ol>
+<li>Generates a random value for the generated key, K. The generated key length specified by the
+selected rule determines the key length.</li>
+<li id="l0wskc02_rkx_gen_s2">XORs the output key variant with the randomly generated key K from the
+previous step, if the selected rule contains a common export key parameters subsection and the
+output key variant length is greater than zero. Adjusts the result to have valid DES key
+parity.</li>
+<li>Continues with <xref href="#l0wskc253/finalcommon" format="dita"/>.</li>
+</ol>
+</section>
+<section id="exportop">
+<title>Processing for export operation</title>
+<p> The verb performs these steps for the export operation: </p>
+<ol>
+<li>If the selected rule contains a transport key rule reference subsection, verifies that the rule
+ID in the transport key rule reference subsection matches the rule ID in the token identified by the
+<parmname>transport_key_identifier</parmname> parameter, provided that the token is an RKX
+key-token. For more information on RKX key tokens, see <xref
+href="wskc_r_l0wskc03_xrkx_des.dita#l0wskc03_xrkx_des"/>.</li>
+<li>Verifies that the length of the transport key variant in the transport key variant subsection of
+the selected rule is greater than or equal to the length of the key identified by the
+<parmname>transport_key_identifier</parmname> parameter.</li>
+<li>Verifies that the key token identified by the <parmname>importer_key_identifier</parmname>
+parameter is of key type IMPORTER, if the <parmname>source_key_identifier</parmname> parameter
+identifies an external <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES
+key-token.</li>
+<li>Recovers the clear value of the source key, K, identified by the
+<parmname>source_key_identifier</parmname> parameter.</li>
+<li>Verifies that the length of key K is between the export key minimum length and export key
+maximum length specified in the common export key parameters subsection of the selected rule.</li>
+<li id="l0wskc02_rkx_exp_s6">XORs the output key variant with the randomly generated key K from the
+previous step, if the selected rule contains a common export key parameters subsection and the
+output key variant length is greater than zero. Adjusts the result to have valid DES key
+parity.</li>
+<li>Uses the public key in the trusted block to verify the digital signature embedded in the
+certificate variable if the <parmname>certificate_length</parmname> variable is greater than zero.
+Any necessary certificate objects are located with information from the
+<parmname>certificate_parms</parmname> variable. Returns an error if the signature verification
+fails.</li>
+<li>XORs the transport key variant with the clear value of the transport key (recovered in the
+previous step) if the selected rule contains a transport key variant subsection and the output key
+variant length is greater than zero. Adjusts the result to have valid DES key parity.</li>
+<li>Continues with <xref href="#l0wskc253/finalcommon" format="dita"/>.</li>
+</ol>
+</section>
+<section id="finalcommon">
+<title>Final processing common to generate and export operations</title>
+<ol>
+<li>Based on the symmetric encrypted output key format flag of the selected rule, returns the
+encrypted result in the token identified by the
+<synph><var>sym_encrypted_key_identifier</var></synph> parameter: <ul>
+<li>of <xref href="#l0wskc253/genop"/>, step 2, or of <xref href="#l0wskc253/exportop" format="dita"
+/>, step 6, into an RKX key-token, if the flag indicates to return an RKX key-token.</li>
+<li>using the resulting key from <xref href="#l0wskc253/exportop" format="dita"/>, step 6 into a CCA
+DES key-token and returns it in the token identified by the
+<synph><var>sym_encrypted_key_identifier</var></synph> parameter, if the flag indicates to return a
+CCA DES key-token.</li>
+</ul></li>
+<li>Encrypts the key result from <xref href="#l0wskc253/genop" format="dita"/>, step 2 or from <xref
+href="#l0wskc253/exportop" format="dita"/>, step 6, with the format specified, if the asymmetric
+encrypted output key format flag of the selected rule indicates to output an asymmetric encrypted
+key <ph rev="sh15">and return it to the <parmname>asym_encrypted_key</parmname> parameter.</ph></li>
+<li>Returns the computed key-check value as determined by the key-check algorithm identifier if the
+key-check algorithm identifier in the specified rule indicates to compute a key-check value. The
+value is returned in the <parmname>key_check_value</parmname> variable.</li>
+</ol>
+</section>
+</refbody></reference>

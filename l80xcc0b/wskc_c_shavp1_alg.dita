@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="shavp1_alg">
+<title>SHAVP1 algorithm</title>
+<titlealts>
+<navtitle>SHAVP1 algorithm</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): SHAVP1 algorithm</searchtitle>
+</titlealts><shortdesc>This algorithm is used by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> callable service to generate
+and verify the verification pattern.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>
+<codeblock>VP = Trunc128( SHA256( KA || KT || KL || K ))</codeblock></p>
+<p>where: 
+<dl>
+<dlentry><dt>VP</dt>
+<dd>Is the 128-bit verification pattern</dd></dlentry>
+<dlentry><dt>TruncN(<synph><var>x</var></synph>)</dt>
+<dd>Is truncation of the string <synph><var>x</var></synph> to the left most <synph><kwd>N</kwd></synph> bits</dd></dlentry>
+<dlentry><dt>SHA256(<synph><var>x</var></synph>)</dt>
+<dd>is the SHA-256 hash of the string <synph><var>x</var></synph></dd></dlentry>
+<dlentry><dt>KA</dt>
+<dd>Is the one-byte CCA variable-length key token constant for the
+algorithm of key (HMAC <ph>X'03'</ph>)</dd></dlentry>
+<dlentry><dt>KT</dt>
+<dd>Is the two-byte CCA variable-length key token constant for the
+type of key (MAC <ph>X'0002'</ph>)</dd></dlentry>
+<dlentry><dt>KL</dt>
+<dd>Is the two-byte bit length of the clear key value</dd></dlentry>
+<dlentry><dt>K</dt>
+<dd>Is the clear key value left-aligned and padded on the right
+with binary zeros to byte boundary</dd></dlentry>
+<dlentry><dt>||</dt>
+<dd>Is string concatenation</dd></dlentry>
+</dl> </p>
+</conbody></concept>

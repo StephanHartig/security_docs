@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="panexe_track_acps" xml:lang="en-us">
+<title>Using panel.exe to control ACP tracking</title>
+<titlealts>
+<navtitle>panel.exe: control ACP tracking</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using panel.exe to control ACP
+tracking</searchtitle>
+</titlealts>
+<shortdesc>The <cmdname>panel.exe</cmdname> utility allows you to query and control the tracking of
+ACP usage.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utilities<indexterm>panel.exe<indexterm>ACP tracking</indexterm></indexterm></indexterm>
+<indexterm>panel.exe<indexterm>ACP tracking</indexterm></indexterm>
+<indexterm>ACP tracking<indexterm>panel.exe</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Note that usage tracking only indicates if a verb made a query to an ACP, it does not indicate if
+that query succeeded or failed. The notion of success or failure varies greatly depending on the
+perspective, and for some ACPs, a value of 1 (setting is ON, that is, enabled) implies a
+restriction, while for other ACPs, a value of 0 (setting is OFF, that is, disabled) also implies a
+restriction. Generally, users should compare the tracking information to their role configuration to
+determine what setting the verbs encountered when the ACPs were accessed during application run-time
+(if tracking was enabled).</p>
+<p> The <cmdname>panel.exe</cmdname> utility allows a basic level of control and query functions for
+ACP tracking. You can also perform ACP tracking through the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/> verb, if the ACP at offset 0x01CC is
+enabled through a TKE (see <xref href="wskc_r_act.dita#csuaact"/>). This 0x01CC ACP is usually
+disabled by default. A typical user will access ACP tracking information through the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>). The <cmdname>panel.exe</cmdname>
+functionality is added as a convenience. If requested, the tracking data is returned in a data
+structure that matches the role data structure and ACP structure described in <xref
+href="wskc_acodas_intro.dita#acodas_intro"/>.</p>
+</conbody>
+</concept>
+<?Pub *0000002489?>

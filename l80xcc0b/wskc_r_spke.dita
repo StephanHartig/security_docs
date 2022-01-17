@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spke">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/></searchtitle>
+  </titlealts>
+<shortdesc>This <ph>verb</ph> encrypts a supplied clear key value under an
+RSA public key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)</indexterm></indexterm>
+<indexterm>RSA key</indexterm>
+<indexterm>PKA key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The supplied key can be formatted using the <synph><kwd>PKCS 1.2</kwd></synph> or
+<synph><kwd>ZERO-PAD</kwd></synph> methods prior to encryption. <ph>Beginning with Release 4.4, the
+supplied key can also be formatted using the PKCSOAEP method.</ph> The <i>rule_array</i> keyword
+specifies the format of the key prior to encryption.</p><note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

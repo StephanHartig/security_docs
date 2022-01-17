@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_xpkgrestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/>)<indexterm>restrictions</indexterm></indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<ul>
+<li>The maximum public exponent is 17 bits for any key that has a
+modulus greater than 2048 bits.</li>
+<li>Not all <tm trademark="IBM" tmtype="reg">IBM</tm> implementations of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> support a CRT form of the RSA private key;
+check the product-specific literature. The <tm trademark="IBM" tmtype="reg">IBM</tm> implementations
+support an optimized RSA private key (a key in Chinese Remainder Theorem format). The formats vary
+between versions.</li>
+<li>See <xref href="wskc_c_pkatok.dita#l0wskc02_pkatok"/> for the formats used when generating
+the various forms of key tokens.</li>
+<li>When generating a key for use with ANSI X9.31 digital signatures,
+the modulus length must be: 1024, 1280, 1536, 1792, 2048, or 4096
+bits.</li>
+<li>The key label used for a retained key must not exist in the external
+PKA key-storage held on the hard disk drive.</li>
+<li>Due to potential loss of a retained private key within the cryptographic
+engine, retained keys should be avoided for key management purposes.</li>
+<li>2048-bit RSA keys may have a public exponent in the range of 1
+- 256 bytes.</li>
+<li>4096-bit RSA key public exponents are restricted to the values
+3 and 65537.</li>
+</ul></p></section>
+<section>
+<p>RSA key generation has the following restrictions: </p>
+<ul>
+<li>For Modulus-Exponent, there are restrictions on the modulus, public exponent, and private
+exponent.</li>
+<li>For CRT, there are restrictions on <synph><var>dp</var></synph>, <synph><var>dq</var></synph>,
+<synph><var>U</var></synph>, and the public exponent.</li>
+</ul>
+<note rev="sh20i1">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key
+TDES keys. As a key management service this includes three-key TDES key encrypting keys
+(KEKs).</note><p>See the Key value structure in <xref href="wskc_r_pkb.dita#l0wskc02_pkb"/> for a summary of
+restrictions.</p>
+</section>
+</refbody></reference>

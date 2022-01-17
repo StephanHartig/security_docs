@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_tbc">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></searchtitle>
+  </titlealts>
+<shortdesc>The <ph>verb</ph> creates an external trusted block under dual
+control. A trusted block is an extension of CCA PKA key tokens using
+new section identifiers.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</indexterm></indexterm>
+<indexterm>trusted block</indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Trusted blocks are an integral part of a remote key-loading process.
+They contain various items, some of which are optional, and some of
+which can be present in different forms. Tokens are composed of concatenated
+sections. For a detailed description of a trusted block, including
+its format and field values, see <xref href="wskc_r_zapgtblk.dita#l0wskc02_zapgtblk"/>.</p></section>
+<section><p><b><i>Creating an external trusted block:</i></b> Create an active external trusted block in two
+steps: </p>
+<ol>
+<li>Create an inactive external trusted block using the <synph><kwd>INACTIVE</kwd></synph>
+<i>rule_array</i> keyword. This step requires the <cmdname rev="shr2">Trusted Block Create - Create
+Block in inactive form</cmdname> command (offset <ph>X'030F'</ph>) to be enabled in the active
+role.</li>
+<li>Complete the creation process by activating (promoting) an inactive external trusted block using
+the <synph><kwd>ACTIVE</kwd></synph>
+<i>rule_array</i> keyword. This step requires the <cmdname>Trusted Block Create - Activate an
+inactive block</cmdname> command (offset <ph>X'0310'</ph>) to be enabled in the active role.
+Changing an external trusted block from inactive to active effectively approves the trusted block
+for further use.</li>
+</ol>
+<note>Authorize each command in a different role to enforce a dual-control policy.</note>
+<p>The creation of an external trusted block typically takes place in a highly secure environment.
+Use <xref href="wskc_r_pki.dita#l0wskc02_pki"/> to import an active external trusted block into the
+desired node. The imported internal trusted block can then be used as input to <xref
+href="wskc_r_rkx.dita#l0wskc02_rkx"/> in order to generate or export DES keys.</p></section>
+<section><p><b><i>Creating an inactive external trusted block:</i></b> To
+create an inactive external trusted block, use a <synph><var>rule_array_count</var></synph> of
+1 and a <synph><var>rule_array</var></synph> keyword of <synph><kwd>INACTIVE</kwd></synph>. Identify
+the input trusted block using the <synph><var>input_block_identifier</var></synph> parameter,
+and set the <synph><var>input_block_identifier_length</var></synph> variable to the
+length of the key label or the key token of the input block. The input
+block can be any one of these forms:
+<ul>
+<li>An uninitialized trusted block. The trusted block is complete
+except that it does not have MAC protection.</li>
+<li>An inactive trusted block. The trusted block is external, and
+it is in inactive form. MAC protection is present due to recycling
+of an existing inactive trusted block.</li>
+<li>An active trusted block. The trusted block is internal or external,
+and it is in active form. MAC protection is present due to recycling
+of an existing active trusted block.</li>
+</ul></p></section><section>
+<note>The MAC key is replaced with a new MAC key, and any
+RKX key-token created with the input trusted block cannot be used
+with the output trusted block.</note></section>
+<section><p>This verb randomly generates a confounder and triple-length MAC
+key, and uses a variant of the MAC key to calculate an ISO 16609 CBC
+mode TDES MAC of the trusted block contents. To protect the MAC key,
+the verb encrypts the confounder and MAC key using a variant of an <synph><kwd>IMP-PKA</kwd></synph> key.
+The calculated MAC and the encrypted confounder and MAC key are embedded
+in the output trusted block. Use the <synph><var>transport_key_identifier</var></synph> parameter
+to identify the key token that contains the <synph><kwd>IMP-PKA</kwd></synph> key.</p></section>
+<section><p>On input, set the <synph><var>trusted_block_identifier_length</var></synph> variable
+to the length of the key label or at least the size of the output
+trusted block. The output trusted block is returned in the key-token
+identified by the <synph><var>trusted_block_identifier</var></synph> parameter, and
+the verb updates the <synph><var>trusted_block_identifier_length</var></synph> variable
+to the size of the key token if a key label is not specified.</p></section>
+<section><p><b><i>Creating an active external trusted block:</i></b> To
+create an active external trusted block, use a <synph><var>rule_array_count</var></synph> of
+1 and a <synph><var>rule_array</var></synph> keyword of <synph><kwd>ACTIVE</kwd></synph>. Identify the
+input trusted block using the <synph><var>input_block_identifier</var></synph> parameter,
+and set the <synph><var>input_block_identifier_length</var></synph> variable to the
+length of the key label or the key token of the input block. The input
+block must be an inactive external trusted block that was created
+using the <synph><kwd>INACTIVE</kwd></synph> <synph><var>rule_array </var></synph> keyword.</p></section>
+<section><p>Use the <synph><var>transport_key_identifier</var></synph> parameter to identify
+the key token that contains the <synph><kwd>IMP-PKA</kwd></synph> key.</p></section>
+<section><p>On input, set the <synph><var>trusted_block_identifier_length</var></synph> variable
+to the length of the key label or at least the size of the output
+trusted block. The verb returns an error if the input trusted block
+is not valid. Otherwise, it changes the flag in the trusted block
+information section from the inactive state to the active state, recalculates
+the MAC, and embeds the updated MAC value in the output trusted block.</p></section>
+<section><p>The output trusted block is returned in the key-token identified
+by the <synph><var>trusted_block_identifier</var></synph> parameter, and the verb updates
+the <synph><var>trusted_block_identifier_length</var></synph> variable to the size
+of the key token if a key label is not specified.</p></section>
+</refbody></reference>

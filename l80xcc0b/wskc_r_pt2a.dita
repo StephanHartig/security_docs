@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_pt2a" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs</searchtitle>
+</titlealts>
+<shortdesc rev="sh16"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs
+implement a variety of cryptographic processes and data-security techniques. Each available verb is
+documented in detail in a separate topic.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section rev="sh16">
+<p>For each documented verb, a Java Native Interface (JNI) is defined that you can use for JNI
+work.</p>
+<note>In this JNI, a new data type <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> is replacing the old type
+<b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> since <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> version 5.2. Both types inherit from an
+abstract class <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></i></b>.
+Thus, type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> is
+still supported, so you can run existing applications with this deprecated data type. However, start
+using type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> for new
+applications instead, because <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> may be removed in the future.
+</note>
+</section>
+<section otherprops="pdf"> <p>The following topics are contained: </p> <ul>
+<li><xref href="wskc_r_acc.dita"/> describes how to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> resource control verbs.</li>
+<li><xref href="wskc_r_apmky.dita"/> describes
+the verbs for generating and maintaining AES, DES, and HMAC cryptographic
+keys, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"></keyword> verb
+(which generates 8-byte random numbers), the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"></keyword> verb
+(which generates up to 8192 bytes of random content), and the Secure
+Sockets Layer (SSL) security protocol. This chapter also describes
+utilities to build DES and AES tokens, generate and translate control
+vectors, and describes the PKA verbs that support DES and AES key
+distribution.</li>
+<li><xref href="wskc_c_apenc.dita"/> describes
+the <ph>verbs</ph> for enciphering and deciphering data. </li>
+<li><xref href="wskc_c_apmac.dita"/> describes
+the <ph>verbs</ph> for generating and verifying Message Authentication
+Codes (MACs), generating Modification Detection Codes (MDCs) and generating
+hashes (SHA-1, MD5, RIPEMD-160).</li>
+<li><xref href="wskc_c_zapgkyst.dita"/> describes
+the use of key storage, key tokens, and associated verbs.</li>
+<li><xref href="wskc_c_appin.dita"/> describes
+the verbs for use in support of finance-industry applications. This
+includes several categories. <ul>
+<li>Verbs for generating, verifying, and translating personal identification
+numbers (PINS).</li>
+<li>Verbs that generate and verify VISA card verification values and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/amex"></keyword> card
+security codes.</li>
+<li>Verbs to support smart card applications using the EMV (Europay
+MasterCard Visa) standards.</li>
+</ul></li>
+<li rev="sh15"><xref href="wskc_c_appin_dk.dita"/> contains
+ information on financial services that are based on the PIN methods
+and requirements specified by the German Banking Industry Committee
+(Deutsche Kreditwirtschaft (DK)).</li>
+<li><xref href="wskc_tr34.dita"/> describes the verbs that manage TR-34 functions.</li>
+<li><xref href="wskc_r_l0wskc03_zapgtr31v.dita"/> describes the verbs that manage
+TR-31 functions.</li>
+<li><xref href="wskc_r_pk3.dita"/> describes the
+verbs that support using digital signatures to authenticate messages.</li>
+<li><xref href="wskc_r_pk4.dita"/> describes the
+verbs that generate and manage PKA keys.</li>
+<li rev="sh15"><xref href="wskc_utility_verbs.dita"/> describes
+the  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmxea"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclxea"></keyword>)
+utility. Use this verb to convert text strings from ASCII to EBCDIC
+or from  EBCDIC to ASCII.</li>
+</ul> </section>
+</refbody>
+</reference>
+<?Pub *0000003570?>

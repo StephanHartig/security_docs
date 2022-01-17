@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc197">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="shr2"><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> verb requires the
+following commands to be enabled in the active role:</p><table><desc><p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/> verb</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset </entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AES</kwd></synph> or <synph><kwd>HMAC</kwd></synph></entry>
+<entry><ph>X'00E9'</ph></entry>
+<entry><cmdname>Restrict Key Attribute - Export Control</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'0154'</ph></entry>
+<entry><cmdname>Restrict Key Attribute - Permit setting the TR-31 export bit</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The following access-control points are added beginning with Release 4.3:</p>
+<ul>
+<li>To disable the wrapping of a key with a weaker master key, the <cmdname>Prohibit weak wrapping -
+Master keys</cmdname> command (offset X'0333') must be enabled in the active role.</li>
+<li>To receive a warning when wrapping a key with a weaker master key, enable the <cmdname>Warn when
+weak wrap - Master keys</cmdname> command (offset X'0332') in the active role. The <cmdname>Prohibit
+weak wrapping - Master keys</cmdname> command overrides this command.</li>
+</ul>
+</section>
+</refbody></reference>

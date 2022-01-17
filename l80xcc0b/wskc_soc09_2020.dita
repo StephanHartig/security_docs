@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="wskc09_soc2020" xml:lang="en-us" rev="sh20i1">
+<title>Edition September 2020, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+Support Program Releases 7.1, 7.0 and 6.1 through 6.3</title>
+<shortdesc>This edition describes the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Basic Services API for Releases
+7.1 and 7.0 and for Releases 6.1 through 6.3. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>edition 2020</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the mentioned releases, changes to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API include the following new verbs:</p>
+<table id="new_verbs71" pgwide="1" frame="all"><title>New verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 7.1 and 7.0 and for Releases 6.1
+through 6.3. </title><desc>
+<p outputclass="summary">New verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 7.1 and 7.0 and for Releases 6.1
+through 6.3 with entry-point name, category, and long name with link to the verb description.</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="12*"/>
+<colspec colname="col3" colwidth="11*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/></entry>
+<entry><xref href="wskc_ddk.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></entry>
+<entry><xref href="wskc_ptr2.dita"/></entry>
+<entry>Financial services</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/></entry>
+<entry><xref href="wskc_dk_dpnuprwcard2.dita"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/></entry>
+<entry><xref href="wskc_dk_drpgranpin2.dita"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/></entry>
+<entry><xref href="wskc_tr34_BindBegin.dita"/></entry>
+<entry>TR-34 symmetric key management</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/></entry>
+<entry><xref href="wskc_tr34_BindComplete.dita"/></entry>
+<entry>TR-34 symmetric key management</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></entry>
+<entry><xref href="wskc_tr34_Distribution.dita"/></entry>
+<entry>TR-34 symmetric key management</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/></entry>
+<entry><xref href="wskc_tr34_Receive.dita"/></entry>
+<entry>TR-34 symmetric key management</entry>
+</row>
+
+</tbody>
+</tgroup></table>
+<p>The following verbs provide new keywords:</p>
+<table id="updated_verbs71" pgwide="1" frame="all" rev="sh20i2"><title>Updated verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 7.1 and 7.0 and for Releases 6.1
+through 6.3</title><desc>
+<p outputclass="summary">Updated verbs for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 7.1 and 7.0 and for Releases 6.1
+through 6.3 with entry-point
+name, category, and long name with link to the verb description.</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="12*"/>
+<colspec colname="col3" colwidth="11*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+<entry>Category</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></entry>
+<entry><xref href="wskc_r_act.dita"/></entry>
+<entry>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/></entry>
+<entry><xref href="wskc_r_cfq.dita"/></entry>
+<entry>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/></entry>
+<entry><xref href="wskc_r_cra.dita"/></entry>
+<entry>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/></entry>
+<entry><xref href="wskc_r_crd.dita"/></entry>
+<entry>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></entry>
+<entry><xref href="wskc_r_mkp.dita"/></entry>
+<entry>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvg"/></entry>
+<entry><xref href="wskc_r_cvg1.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/></entry>
+<entry><xref href="wskc_r_kgn.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/></entry>
+<entry><xref href="wskc_r_ktb.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/></entry>
+<entry><xref href="wskc_r_ktp.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/></entry>
+<entry><xref href="wskc_r_kpi.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/></entry>
+<entry><xref href="wskc_r_kyt.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></entry>
+<entry><xref href="wskc_r_kyt2.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/></entry>
+<entry><xref href="wskc_r_rngl.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></entry>
+<entry><xref href="wskc_csnbukd.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/></entry>
+<entry><xref href="wskc_r_spke.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></entry>
+<entry><xref href="wskc_r_syg.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></entry>
+<entry><xref href="wskc_r_syx.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></entry>
+<entry><xref href="wskc_r_ktb2.dita"/></entry>
+<entry>Managing AES, DES, and HMAC cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></entry>
+<entry><xref href="wskc_dk_dpcpinchange.dita"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpmt"/></entry>
+<entry><xref href="wskc_dk_dpmtpanmod.dita"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></entry>
+<entry><xref href="wskc_dk_dpvpinverify.dita"/></entry>
+<entry>Financial services for DK PIN methods</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/></entry>
+<entry><xref href="wskc_r_dsg.dita"/></entry>
+<entry>Using digital signatures</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></entry>
+<entry><xref href="wskc_r_dsv.dita"/></entry>
+<entry>Using digital signatures</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/></entry>
+<entry><xref href="wskc_pka_pim.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></entry>
+<entry><xref href="wskc_r_zapgkxlate.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/></entry>
+<entry><xref href="wskc_r_pkb.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></entry>
+<entry><xref href="wskc_r_xpkg.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/></entry>
+<entry><xref href="wskc_r_pkx.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptc"/></entry>
+<entry><xref href="wskc_r_ktcd.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></entry>
+<entry><xref href="wskc_r_pki.dita"/></entry>
+<entry>Managing PKA cryptographic keys</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></entry>
+<entry><xref href="wskc_r_vbtr31ki.dita"/></entry>
+<entry>TR-31 symmetric key management</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/></entry>
+<entry><xref href="wskc_r_vbspkextr31.dita"/></entry>
+<entry>TR-31 symmetric key management</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/></entry>
+<entry><xref href="wskc_r_vbtr31kp.dita"/></entry>
+<entry>TR-31 symmetric key management</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p  rev="sh20i2">In addition, the following changes apply to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Releases 7.1 and 7.0 and for Releases 6.1 through 6.3:</p>
+<ul rev="sh20i2">
+<li>More verbs are now capable of running in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. Besides DES and TDES key
+tokens, also AES and RSA key tokens are supported.</li>
+<li>Handling of PINs contained in encrypted ISO-4 PIN block format is supported by applicable
+verbs.</li>
+<li>Beginning with Release 6.2, multiple verbs support  triple-length TDES keys. For key management
+services, this includes triple-length TDES key-encrypting keys (KEKs).</li>
+<li>New Edwards elliptic curves are supported by applicable verbs: Curve25519 and Curve448.</li>
+<li>You can use the quantum safe CRYSTALS-Dilithium Digital Signature Algorithm for generating keys
+that can be used for Digital Signature Generation and Verification.</li>
+<li>When using verbs <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>, you can now dynamically
+allocate a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> or a domain of
+a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> on the fly. Also, you
+can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> verb to obtain the
+number of control domains and usage domains and the total number of domains available to the
+system.</li>
+<li>With the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/> verb, you can
+identify a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> by either its
+resource number or its serial number.</li>
+</ul>
+
+</section>
+</refbody>
+</reference>

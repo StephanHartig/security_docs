@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="pin_change_unblock" xml:lang="en-us" rev="sh16i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/></navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb</searchtitle>
+</titlealts>
+<shortdesc>The PIN Block calculation PIN Change/Unblock.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>PIN extraction rules<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> ()</indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/><indexterm>PIN
+extraction rules</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/><indexterm>PIN
+extraction rules</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<ol>
+<li>Form three 8-byte, 16-digit blocks, -1, -2, and -3, and set all digits to X'0'.</li>
+<li>Replace the rightmost four bytes of block-1 with the authentication code described in the
+previous section.</li>
+<li>Set the second digit of block-2 to the length of the new PIN (4 to 12), followed by the new PIN,
+and padded to the right with X'F'.</li>
+<li>Include any current PIN by placing it into the leftmost digits of block-3.</li>
+<li>Exclusive-OR blocks -1, -2, and -3 to form the 8-byte PIN block. </li>
+<li>Pad the PIN block with other portions of the message for the smart card:<ul>
+<li>prepend X'08'</li>
+<li>append X'80'</li>
+<li>append an additional six bytes of X'00'.</li>
+</ul></li>
+</ol>
+<p>The resulting message is ECB-mode triple-encrypted with an appropriate session key.</p>
+</conbody>
+</concept>
+<?Pub *0000002767?>

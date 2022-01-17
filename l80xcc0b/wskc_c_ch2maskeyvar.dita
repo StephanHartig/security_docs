@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_ch2maskeyvar">
+<title>Master key variant for fixed-length tokens</title>
+<titlealts>
+<navtitle>Master key variant for fixed-length tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Master key variant for fixed-length
+tokens</searchtitle>
+</titlealts><shortdesc>Whenever the master key is used to encipher a key, the cryptographic
+coprocessor produces a variation of the master key according to the
+type of key that the master key will encipher. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>master key variant</indexterm>
+<indexterm>key<indexterm>control vector</indexterm></indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>key type</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>These variations are called <term>master key variants</term>. The cryptographic coprocessor
+creates a master key variant by XORing a fixed pattern, called a <term>control vector</term>, onto
+the master key. A unique control vector is associated with each type of key. For example, all the
+different types of data-encrypting, PIN, MAC, and transport keys each use a unique control vector
+which is XORed with the master key in order to produce the variant. The different key types are
+described in <xref href="wskc_c_keys.dita#l0wskc02_keys"/>.</p>
+<p>Each master key variant protects a different type of key. It is
+similar to having a unique master key protect all the keys of a certain
+type.</p>
+<p>The master key, in the form of master key variants, protects keys
+operating on the system. A key can be used in a cryptographic function
+only when it is enciphered under a master key. When systems want to
+share keys, transport keys are used to protect keys sent outside of
+systems. When a key is enciphered under a transport key, the key cannot
+be used in a cryptographic function. It must first be brought on to
+a system and enciphered under the system's master key, or exported
+to another system where it will then be enciphered under that system's
+master key.</p>
+</conbody></concept>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_bktc2required">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/></searchtitle>
+  </titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>If you specify the <synph><kwd>RTNMK</kwd></synph> keyword, this verb requires the <cmdname
+rev="shr2">Reencipher CKDS2</cmdname> command (offset <ph>X'00F0'</ph>) to be enabled in the active
+role.</p>
+<p>If you specify the <synph><kwd>RTCMK</kwd></synph> keyword, this verb requires the
+<cmdname>Symmetric Key Token Change2 - RTCMK</cmdname> command (offset <ph>X'00F1'</ph>) to be
+enabled in the active role.</p></section>
+</refbody></reference>

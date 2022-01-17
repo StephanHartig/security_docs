@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_terms" xml:lang="en-us">
+<title>Terminology</title>
+ <titlealts>
+    <navtitle>Terminology</navtitle>
+    <searchtitle/>
+  </titlealts>
+<shortdesc>The following terms are used in this document for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> releases and features. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>CEX5C</indexterm>
+<indexterm>CEX6C</indexterm><indexterm>terminology</indexterm><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm>
+<indexterm>IBM Crypto Express5 feature</indexterm>
+<indexterm>IBM Crypto Express6 feature</indexterm>
+<indexterm>IBM Crypto Express7 feature</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<dl>
+<dlentry>
+<dt>CEX5C</dt>
+<dd>An <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 4767 Crypto Express5
+feature (CEX5S), configured in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor mode. This publication does not cover other modes of the CEX5.</dd>
+</dlentry>
+<dlentry rev="sh18i1">
+<dt>CEX6C</dt>
+<dd>An <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 4768 Crypto Express6
+feature (CEX6S), configured in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor mode. This publication does not cover other modes of the CEX6.</dd>
+</dlentry>
+<dlentry rev="sh20i2">
+<dt>CEX7C</dt>
+<dd>An <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 4769 Crypto Express7
+feature (CEX7S), configured in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor mode. This publication does not cover other modes of the CEX7.</dd>
+</dlentry>
+<dlentry>
+<dt>CEX*C</dt>
+<dd rev="sh20i2">Either the CEX4C, CEX5C, CEX6C, CEX7C, or (if plural) any combination of
+these.</dd>
+</dlentry>
+</dl>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001635?>

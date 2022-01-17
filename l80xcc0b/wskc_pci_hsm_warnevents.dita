@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pci_hsm_warnevents" xml:lang="en-us" rev="sh18i1">
+<title>Generating warning events </title>
+<titlealts>
+<navtitle>Generating warning events</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating warning events for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>You use the <codeph>CSU_CMP_WARN_MODE</codeph> environment variable to cause <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> to issue warning events for operations that
+need modifications to meet <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> requirements. Warning events are
+created as entries to SYSLOG in a certain layout, specifying information about the required
+actions.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>warnings</indexterm></indexterm>
+<indexterm>compliance warnings</indexterm>
+<indexterm>warning events<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm></indexterm>
+<indexterm>CSU_CMP_WARN_MODE</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<title>Setting the <codeph>CSU_CMP_WARN_MODE</codeph> environment variable</title>
+<p>If set, the <codeph>CSU_CMP_WARN_MODE</codeph> environment variable indicates that you want to
+have <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> warnings
+generated. The values can be one of the following:</p>
+<dl>
+<dlentry>
+<dt>OFF</dt>
+<dd>This is the default value for the variable. No warning mode is set and no warning events are
+created.</dd>
+</dlentry>
+<dlentry>
+<dt>SYSLOG</dt>
+<dd>The warning mode output is sent in a log content stream to the system log and creates an entry
+in the SYSLOG file as described in <xref href="#wskc_pci_hsm_warnevents/warning_layout"
+format="dita"/>. </dd>
+</dlentry>
+</dl>
+<note>
+<ul>
+<li>No log entry is written when an operation is completely compliant (compliant verb and compliant
+keys).</li>
+<li> Warning mode responses are sent to the configured system log.</li>
+</ul>
+</note>
+</section>
+<section id="warning_layout">
+<title>Warning log message layout</title>
+<p>The overall syntax of a generated warning message looks like shown:</p>
+<codeblock>
+&lt;preamble>CSUCMPW:&lt;serialnum>:&lt;KDF>:&lt;cprbflags>:&lt;verb_code>:&lt;keyword_count>:
+                  &lt;keywords>:&lt;key_count>
+</codeblock>
+<p>The name of the application which causes the triggering of the warning is not displayed
+in the message, but is captured by the system log itself. The components have the following meanings:</p>
+<parml>
+<plentry>
+<pt>preamble</pt>
+<pd>Content that a SYSLOG entry typically puts at the start of each message. If the SYSLOG is not
+the output target, then no preamble is posted.<p>A part of the preamble posted by the SYSLOG is the
+ASCII name of the application that was processing when the warning triggered. See the following
+example for details.</p></pd>
+</plentry>
+<plentry>
+<pt>CSUCMPW</pt>
+<pd>ASCII eye-catcher to mark the start of each entry</pd>
+</plentry>
+<plentry>
+<pt>serialnum</pt>
+<pd>ASCII representation of adapter serial number that generated the reply containing the warning
+response.</pd>
+</plentry>
+<plentry>
+<pt>KDF</pt>
+<pd>Key Derivation Function (KDF) value used in the host-to-card communication buffer. It  
+corresponds to the compliance level of the crypto card. This field is one binary byte. 
+It is printed as two hexadecimal characters in ASCII.</pd>
+</plentry>
+<plentry>
+<pt>cprbflags</pt>
+<pd>Warning flag value returned from the adapter for the verb. This field is one binary byte. It is
+printed as two hexadecimal characters in ASCII.  <dl>
+<dlhead>
+<dthd>Flag value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>0x40</dt>
+<dd><codeph>CPRBFO_CMP_BAD_VERB</codeph>: The requested verb is not compliant with the current
+target.</dd>
+</dlentry>
+<dlentry>
+<dt>0x20</dt>
+<dd><codeph>CPRBFO_CMP_BAD_OP</codeph>: The requested verb (keyword or data) is not compliant with
+the current target</dd>
+</dlentry>
+<dlentry>
+<dt>0x10</dt>
+<dd><codeph>CPRBFO_CMP_BAD_KEY</codeph>: The request included one or more keys that are not
+compliant with the current target</dd>
+</dlentry>
+<dlentry>
+<dt>0x08</dt>
+<dd><codeph>CPRBFO_CMP_UNK</codeph>: The request for the warning mode processing could not be
+honored due to problems with the input. The main reason is an unknown value supplied by the host
+library to the adapter as the target KDF: This is an internal error.</dd>
+</dlentry>
+<dlentry rev="sh20i2">
+<dt>0x00</dt>
+<dd>No consideration of compliance was made.</dd>
+</dlentry>
+</dl>
+</pd>
+</plentry>
+<plentry>
+<pt>verb_code</pt>
+<pd>Name of the verb encoded as two ASCII characters. See column <b>Subcommand code</b> in   <xref
+href="wskc_alpha_security_api.dita#alpa_security_api/security_api-codes"/> for the encoding
+reference.</pd>
+</plentry>
+<plentry>
+<pt>keyword_count</pt>
+<pd>ASCII number for the count of verb keywords contained in the request.</pd>
+</plentry>
+<plentry>
+<pt>keywords</pt>
+<pd> Keywords that were in request when sent to the adapter. Some API calls are split up into
+smaller requests when sent to the adapter to overcome bus transfer size limitations. Therefore,
+keywords may be slightly different when sent to the adapter. Also, a single API request may generate
+more than one warning log entry. <p>If the <parmname>keyword_count</parmname> is 0x00, this field is
+empty, such that only the delimiters on either side are visible (<codeph>::</codeph>). </p>
+</pd>
+</plentry>
+<plentry>
+<pt>key_count</pt>
+<pd>Count of keys that were sent to the adapter.</pd>
+</plentry>
+</parml>
+<p>Below is a warning message from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> verb, using a double length DES DATA
+token which can not be COMP-TAGGED in compliance mode.</p>
+<codeblock scale="90">
+Jan 12 09:51:01 test05 s6ctt2.e[24516]: IBM Crypto ./f_secy2/sefcmpwarn.c:627, 
+Nov  8 2017:15:02:05: 
+CSUCMPW:DV753302:01:10:TT:5:IKEY-DESOKEY-DESI-CBC   O-CBC   INITIAL :2
+</codeblock>
+<dl>
+<dlentry>
+<dt>CSUCMPW</dt>
+<dd>is the eye-catcher you should search for. All material previous to this ASCII string is the
+so-called <parmname>preamble</parmname>. As a part of this preamble, the SYSLOG captures the name of
+the application executing when warning triggered. In our example, this is <codeph>s6ctt2.e</codeph>
+(running on the <codeph>test05</codeph> system.</dd>
+</dlentry>
+<dlentry>
+<dt>DV753302</dt>
+<dd>is the serial number of the adapter that generated the warning. </dd>
+</dlentry>
+<dlentry>
+<dt>01</dt>
+<dd>is the compliance level in the card (<parmname>KDF</parmname> parameter).</dd>
+</dlentry>
+<dlentry>
+<dt>10</dt>
+<dd>specifies that the request included one or more keys that are not compliant with the current
+target (<parmname>cprbflags0</parmname> parameter).</dd>
+</dlentry>
+<dlentry>
+<dt>TT</dt>
+<dd> is the verb code for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> as
+provided in <xref href="wskc_alpha_security_api.dita#alpa_security_api/security_api-codes"/>
+(<parmname>verb-code</parmname> parameter). <codeph>TT</codeph> stands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>5</dt>
+<dd> is the number of 8 byte keywords (<parmname>keywordcount</parmname> parameter). </dd>
+</dlentry>
+<dlentry>
+<dt>IKEY-DESOKEY-DESI-CBC   O-CBC   INITIAL</dt>
+<dd>are the five 8 byte keywords provided by the <parmname>keywords</parmname> parameter:<sl
+compact="yes">
+<sli>IKEY-DES</sli>
+<sli>OKEY-DES</sli>
+<sli>I-CBC</sli>
+<sli>O-CBC</sli>
+<sli>INITIAL</sli>
+</sl><p>This part can be empty (<codeph>::</codeph>) if no keywords are supplied in the
+request.</p><p>Note that sometimes requests are split into smaller requests when sent to the
+adapter.</p></dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>is the number of keys supplied to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/> (<parmname>key_count</parmname>
+parameter).</dd>
+</dlentry>
+</dl>
+<p>Another example shows how to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/> verb to obtain SHA-1 hashes of master
+keys in legacy mode. The warning mode is logging that the requested verb service (keyword or data)
+is not compliant with current target:</p>
+<codeblock scale="90">
+Jan 12 09:49:04 test05 load.e[24427]: IBM Crypto ./f_secy2/sefcmpwarn.c:627, 
+Nov  8 2017:15:02:05: CSUCMPW:DV753302:01:20:KT:3:GENERATEKEY-KM  SYM-MK  :1
+Jan 12 09:49:04 test05 load.e[24427]: IBM Crypto ./f_secy2/sefcmpwarn.c:627, 
+Nov  8 2017:15:02:05: CSUCMPW:DV753302:01:20:KT:3:GENERATEKEY-OKM SYM-MK  :1
+Jan 12 09:49:04 test05 load.e[24427]: IBM Crypto ./f_secy2/sefcmpwarn.c:627, 
+Nov  8 2017:15:02:05: CSUCMPW:DV753302:01:20:KT:3:GENERATEKEY-KM  APKA-MK :1
+Jan 12 09:49:04 test05 load.e[24427]: IBM Crypto ./f_secy2/sefcmpwarn.c:627, 
+Nov  8 2017:15:02:05: CSUCMPW:DV753302:01:20:KT:3:GENERATEKEY-OKM APKA-MK :1
+</codeblock>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002516?>

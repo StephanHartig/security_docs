@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syxusage">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The hardware configuration sets the limit on the modulus size of
+keys for key management; thus, this verb will fail if the RSA key
+modulus bit length exceeds this limit.</p></section>
+<section><p>The strength of the exporter key expected by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> depends on the attributes of the key
+being exported. The resulting return code and reason code when using an exporter KEK that is weaker
+depends on the <cmdname>Disallow Weak Key Wrap</cmdname> command (offset <ph>X'0328'</ph>) and the
+<cmdname>Warn when Wrapping Weak Keys</cmdname> command (offset <ph>X'032C'</ph>): </p>
+<ul>
+<li>If the <cmdname>Disallow Weak Key Wrap</cmdname> command (offset <ph>X'0328'</ph>) is disabled
+(the default), the key strength requirement is not enforced. Using a weaker key results in return
+code 0 with a nonzero reason code if the <cmdname>Warn when Wrapping Weak Keys</cmdname> command
+(offset <ph>X'032C'</ph>)  is enabled. Otherwise, a reason code of zero is returned.</li>
+<li>If the <cmdname>Disallow Weak Key Wrap</cmdname> (offset <ph>X'0328'</ph>) access control point
+is enabled (using TKE), the key strength requirement will be enforced, and attempting to use a
+weaker key results in return code 8.</li>
+</ul></section>
+<section><p>For AES DATA and AES CIPHER keys, the AES EXPORTER key must be
+at least as long as the key being exported to be considered sufficient
+strength.</p></section>
+<section><p>Note that wrapping an AES 192-bit key or an AES 256-bit key with
+any RSA key will always be considered a weak wrap.</p></section>
+<section><p>For HMAC keys, the AES EXPORTER must be sufficient strength as
+described in <xref href="#l0wskc02_syxusage/syx_tab1"/>.
+<table id="syx_tab1" pgwide="0">
+<title>AES EXPORTER strength required for exporting
+an HMAC key under an AES EXPORTER</title><desc><p outputclass="summary">AES EXPORTER strength
+required for exporting an HMAC key under an AES EXPORTER</p></desc>
+<tgroup cols="2">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Key-usage field 2 in the HMAC key contains</entry>
+<entry colname="col2">Minimum strength of AES EXPORTER to adequately
+protect the HMAC key</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">SHA-256, SHA-384, SHA-512</entry>
+<entry colname="col2">256 bits</entry></row>
+<row>
+<entry colname="col1">SHA-224</entry>
+<entry colname="col2">192 bits</entry></row>
+<row>
+<entry colname="col1">SHA-1</entry>
+<entry colname="col2">128 bits</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+<section><p>If an RSA public key is specified as the <synph><var>transporter_key_identifier</var></synph>,
+the RSA key used must have a modulus size greater than or equal to
+the total PKOAEP2 message bit length (key size plus total overhead),
+as described in <xref href="#l0wskc02_syxusage/syx_tab2"/>.
+<table id="syx_tab2" pgwide="0">
+<title>Minimum RSA modulus strength required
+to contain a PKOAEP2 block when exporting an AES key</title><desc><p outputclass="summary">Minimum
+RSA modulus strength required to contain a PKOAEP2 block when exporting
+an AES key</p></desc>
+<tgroup cols="5">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<colspec colname="col3"/>
+<colspec colname="col4"/>
+<colspec colname="col5"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1" morerows="1" valign="middle" align="center">AES
+key size</entry>
+<entry namest="col2" nameend="col5" align="center">Total message sizes
+(and therefore minimum RSA key size) when the hash method is:</entry></row>
+<row>
+<entry colname="col2" align="center">SHA-1</entry>
+<entry colname="col3" align="center">SHA-256</entry>
+<entry colname="col4" align="center">SHA-384</entry>
+<entry colname="col5" align="center">SHA-512</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">128 bits</entry>
+<entry colname="col2">736 bits</entry>
+<entry colname="col3">928 bits</entry>
+<entry colname="col4">1184 bits</entry>
+<entry colname="col5">1440 bits</entry></row>
+<row>
+<entry colname="col1">192 bits</entry>
+<entry colname="col2">800 bits</entry>
+<entry colname="col3">992 bits</entry>
+<entry colname="col4">1248 bits</entry>
+<entry colname="col5">1504 bits</entry></row>
+<row>
+<entry colname="col1">256 bits</entry>
+<entry colname="col2">800 bits</entry>
+<entry colname="col3">1056 bits</entry>
+<entry colname="col4">1312 bits</entry>
+<entry colname="col5">1568 bits</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+<section><p>For AES keys, the AES EXPORTER must be sufficient strength as described
+in <xref href="#l0wskc02_syxusage/syx_tab3"/>.
+<table id="syx_tab3" pgwide="0">
+<title>Minimum RSA modulus length to adequately
+protect an AES key</title><desc><p outputclass="summary">Minimum RSA modulus length to adequately
+protect an AES key</p></desc>
+<tgroup cols="2">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">AES key to be exported</entry>
+<entry colname="col2">Minimum strength of RSA wrapping key to adequately
+protect the AES key</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">AES 128</entry>
+<entry colname="col2">3072 bits</entry></row>
+<row>
+<entry colname="col1">AES 192</entry>
+<entry colname="col2">7860 bits</entry></row>
+<row>
+<entry colname="col1">AES 256</entry>
+<entry colname="col2">15360 bits</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

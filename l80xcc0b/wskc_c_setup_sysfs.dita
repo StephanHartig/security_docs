@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_setup_sysfs">
+<title>Confirming your cryptographic devices</title>
+<titlealts>
+<navtitle>Confirming your cryptographic devices</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Confirming your cryptographic
+devices</searchtitle>
+</titlealts><shortdesc>Use the <cmdname>lszcrypt</cmdname> command to display a list of available cryptographic
+devices and their online status.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>lszcrypt, command</indexterm>
+<indexterm>chzcrypt, command</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>
+<codeblock rev="sh18i2">
+CARD.DOMAIN TYPE  MODE        STATUS  REQUEST_CNT
+-------------------------------------------------
+04          CEX5C CCA-Coproc  online         2174
+04.0013     CEX5C CCA-Coproc  online         2174
+04.0014     CEX5C CCA-Coproc  offline           0
+05          CEX5P EP11-Coproc online            0
+05.0013     CEX5P EP11-Coproc online            0
+05.0014     CEX5P EP11-Coproc online            0
+0a          CEX6C CCA-Coproc  online        15420
+0a.0013     CEX6C CCA-Coproc  online        15420
+0a.0014     CEX6C CCA-Coproc  offline           0
+
+
+</codeblock></p>
+<p rev="sh18i2">In the example, you see one CEX5C device and one CEX6C device offline. All other
+devices are online.</p>
+<p rev="sh18i2">You can use the <cmdname>chzcrypt</cmdname> command to set a cryptographic device
+online. For example, to set a cryptographic domain X'0014' on device X'0a' online, issue:
+<codeblock>chzcrypt -e 0a.0014</codeblock></p>
+<p>For more details about the <cmdname>lszcrypt</cmdname> and <cmdname>chzcrypt</cmdname> commands,
+see the man pages. If your distribution does not include these commands, see the version of <cite
+conref="lxcommon.dita#pubs/cit-zl-dd-title"/> that applies to your distribution about how to use the
+sysfs interface to find out this information and to set devices online.</p>
+</conbody></concept>

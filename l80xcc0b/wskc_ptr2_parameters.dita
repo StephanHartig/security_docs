@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptre">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</searchtitle>
+</titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+<indexterm>parameters</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>
+<indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of 8-byte elements in the
+<parmname>rule_array</parmname> variable. <ph rev="sh21i1">This value must be in the range 1 -
+5.</ph></pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. Each element in the array
+must contain a valid keyword that is left-aligned and padded on the right as needed with space
+characters. The <parmname>rule_array</parmname> keywords are: <table frame="all" pgwide="0"
+id="ptr2_paramters"><title>Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> control information</title><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> control information</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="6*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><i><b>Mode</b></i> (one required)</entry>
+</row>
+<row>
+<entry><b>REFORMAT</b></entry>
+<entry>Specifies that either or both the PIN-block format and the PIN-block encryption are to be
+changed. <p>If the PIN-extraction method is not chosen by default, another element in the rule array
+must specify one of the keywords that indicates a PIN-extraction method.</p></entry>
+</row>
+<row>
+<entry><b>TRANSLAT</b></entry>
+<entry>Specifies that only PIN-block encryption is changed. The first 24 bytes of PIN profiles are
+<i>not</i> ignored.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i><b>PAN-change option</b></i> (one, optional). Only valid with ISO-4
+PIN block processing and <b>REFORMAT</b> mode.</entry>
+</row>
+<row>
+<entry><b>PAN-CHG</b></entry>
+<entry>Specifies that a PAN change is requested.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i><b>Plaintext PAN field format for CMAC message</b></i> Only valid if
+all the following are true: (1)&NonBreakingSpace;<b>PAN-CHG</b> is specified,
+(2)&NonBreakingSpace;the <cmdname>PTR2 ISO-4 Reformat Requires Authenticated PAN Change to Change
+the PAN</cmdname> command (offset X'038B') is enabled in the active role, and
+(3)&NonBreakingSpace;the input and output PIN-block formats are both ISO-4.</entry>
+</row>
+<row>
+<entry><b>PANAUTAS</b></entry>
+<entry>Specifies the plaintext PAN field format for the message used to calculate the CMAC provided
+in the <parmname>authentication_data</parmname> variable is ASCII data, one ASCII character per PAN
+digit (that is, Old PAN = <parmname>input_PAN_data</parmname> and New PAN =
+<parmname>output_PAN_data</parmname>). This is the default.</entry>
+</row>
+<row>
+<entry><b>PANAUTI4</b></entry>
+<entry>Specifies the plaintext PAN field format for the message used to calculate the CMAC provided
+in the <parmname>authentication_data</parmname> variable is according to ISO 9564-1, as shown in
+<xref href="wskc_ptr2.dita#ptr2/ptr2_iso_95641"/>.</entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>DES DUKPT</b></i> (one, optional). Valid for DES keys
+only. See <xref href="wskc_ptr2_usage.dita#ptr2_usage/ptr2_usag2"/> for valid DUKPT keyword
+combinations.</entry>
+</row>
+<row>
+<entry><b>DUKPT-BH</b></entry>
+<entry>Specifies the use of DUKPT key-derivation and PIN-block ciphering for both input and output
+processing, Triple-DES method. <ph rev="sh21i1">This keyword cannot be specified with any of the
+keywords in the <b><i>AES DUKPT</i></b> group.</ph></entry>
+</row>
+<row>
+<entry><b>DUKPT-IP </b></entry>
+<entry>Specifies the use of DUKPT input-key derivation and PIN-block decryption, Triple-DES
+method. <ph rev="sh21i1">This keyword cannot be specified
+with ADUKPTBH or ADUKPTIP.</ph></entry>
+</row>
+<row>
+<entry><b>DUKPT-OP </b></entry>
+<entry>Specifies the use of DUKPT output-key derivation and PIN-block encryption, Triple-DES
+method. <ph rev="sh21i1">This keyword cannot be specified with ADUKPTBH or ADUKPTOP.</ph></entry>
+</row>
+<row>
+<entry><b>UKPTBOTH</b></entry>
+<entry>Specifies the use of DUKPT key-derivation and PIN-block ciphering for both input and output
+processing, Single-DES method. <ph rev="sh21i1">This keyword cannot be specified with any of the
+keywords in the AES DUKPT group.</ph></entry>
+</row>
+<row>
+<entry><b>UKPTIPIN</b></entry>
+<entry>Specifies the use of DUKPT input-key derivation and PIN-block decryption, Single-DES
+method. <ph rev="sh21i1">This keyword cannot be specified with ADUKPTBH or ADUKPTIP.</ph></entry>
+</row>
+<row>
+<entry><b>UKPTOPIN</b></entry>
+<entry>Specifies the use of DUKPT output-key derivation and PIN-block encryption, Single-DES
+method. <ph rev="sh21i1">This keyword cannot be specified with ADUKPTBH or ADUKPTOP.</ph></entry>
+</row>
+<row rev="sh21i1">
+<entry nameend="col2" namest="col1"><i><b>AES DUKPT</b></i> (one, optional). Valid for AES keys
+only. See <xref href="wskc_ptr2_usage.dita#ptr2_usage/ptr2_usag2"/> for valid DUKPT keyword
+combinations.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTBH</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for both input and
+output processing. This keyword cannot be specified with any of the keywords in the DES DUKPT
+group.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTIP</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for input processing.
+This keyword cannot be specified with UKPTIPIN, UKPTBOTH, DUKPT-IP, or DUKPT-BH.</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ADUKPTOP</b></entry>
+<entry>Specifies the use of AES DUKPT key-derivation and PIN-block ciphering for output processing.
+This keyword cannot be specified with UKPTOPIN, UKPTBOTH, DUKPT-OP, or DUKPT-BH.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i><b>PIN-extraction method</b></i> (one, optional). PIN-block format
+is specified by the first 8-byte element of the <parmname>input_PIN_profile</parmname> variable. See <xref href="wskc_c_pinppp.dita"/>.</entry>
+</row>
+<row>
+<entry><b>HEXDIGIT</b></entry>
+<entry>Specifies to use the first occurrence of a digit in the range from <ph>X'A'</ph> to
+<ph>X'F'</ph> as the pad value to determine the PIN length. Only valid when PIN-block format is
+3624.</entry>
+</row>
+<row>
+<entry><b>PADDIGIT</b></entry>
+<entry>Specifies to use the pad value in the PIN profile to identify the end of the PIN. Only valid
+when PIN-block format is 3624. This is the default for an IBM 3624 PIN-block format.</entry>
+</row>
+<row>
+<entry><b>PADEXIST</b></entry>
+<entry>Specifies to use the character in the sixth position of the PIN block as the value of the
+pad. Only valid when PIN-block format is 3624.</entry>
+</row>
+<row>
+<entry><b>PINBLOCK</b></entry>
+<entry>Specifies to use one of the following to identify the PIN:<ul>
+<li>The PIN length if the PIN block contains a PIN-length field.</li>
+<li>The PIN-delimiter character if the PIN block contains a PIN-delimiter character.</li>
+</ul><p>Only valid when PIN-block format is ISO (ISO-0, ISO-1, ISO-2, ISO-3, or ISO-4). This is the
+default for an ISO PIN-block format.</p></entry>
+</row>
+<row>
+<entry><b>PINLEN</b><i><b>xx</b></i></entry>
+<entry>Specifies the length of the PIN to use, where <i>xx</i> is 04, 05, 06, …, 16. For example,
+for a PIN length of 4 digits, specify keyword <b>PINLEN04</b>. Only valid when PIN-block format is
+3624.</entry>
+</row>
+</tbody>
+</tgroup></table></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PIN_encrypting_key_identifier</parmname> variable. Set this value to the length of
+the AES or DES key token or label. <ph rev="sh21i1">The maximum value is 3500.</ph> A key label must
+be at least 64 bytes, and only the first 64 bytes of a key label are used.</pd>
+</plentry>
+<plentry>
+<pt>input_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that identifies either an operational fixed-length DES
+key-token, a variable-length AES key-token, or the label of such a record in AES or DES key
+storage.
+<p>This is either the identifier of the key to decrypt the input PIN-block or the identifier
+of the key-generating key to be used to derive the key to decrypt the input PIN-block. The key
+identifier must identify an AES key if the input PIN profile specifies a PIN-block format of ISO-4,
+otherwise it must identify a DES key.</p>
+<!--
+<ul><li>AES key (input PIN profile specifies a PIN-block format of ISO-4)
+<p>For AES keys, DUKPT is not supported.</p><p>When the input PIN profile specifies a PIN-block format of ISO-4, 
+this parameter must identify a key token that contains a key whose algorithm is AES and a key type of PINPROT. 
+In addition, the key usage fields must have one or both PINXLATE and REFORMAT key usage field bits set to B’1’ 
+as appropriate for the requested mode, the decryption operation set so that the key can be used for decryption 
+(DECRYPT) but not encryption, the encryption mode of Cipher Block Chaining (CBC) must be specified, 
+and PIN-block support of ISO-4.</p><p>For a REFORMAT ISO-4 to ISO-1 request, access control behavior is affected 
+by the setting of the RFMT4TO1 key usage bit. See <xref href="wskc_ptr2_required.dita#ptr2_required/rfmt4to1"/>.</p>
+</li>
+<li>DES key (input PIN profile does not specify a PIN-block format of ISO-4)
+<p>For DES keys, specify the following input PIN encrypting key:<ul><li>If the DUKPT process is not used (that is, by not specifying a unique key per transaction rule-array keyword or by specifying <b>UKPTIPIN</b> or <b>DUKPT-IP</b>), the identified key token must contain the input PIN-block encrypting key to be used to decrypt the input PIN-block. The control vector in the key token must specify key type IPINENC and have either CV bit 21 = B’1’ (TRANSLAT), CV bit 22 = B’1’ (REFORMAT), or both for the requested mode. </li><li>If the DUKPT process is used (that is, by specifying the <b>UKPTOPIN, UKPTBOTH, DUKPT-OP</b>, or <b>DUKPT-BH</b> rule-array keyword), specify the base derivation key as a KEYGENKY key-type with CV bit 17 = B’1’ (UKPT).</li></ul></p></li></ul>-->
+<dl rev="sh21i1">
+<dlentry>
+<dt>For DES keys</dt>
+<dd>If you do not use the DUKPT process or you specify the UKPTOPIN or DUKPT-OP rule
+array keyword, the key is a DES PIN block encrypting key of type IPINENC and has one or both of the
+TRANSLAT and REFORMAT key usage bits enabled as appropriate for the requested mode.<p>If you use the
+DUKPT process for the input PIN block by specifying the UKPTIPIN, UKPTBOTH, DUKPT-IP, or DUKPT-BH
+rule array keyword, the key is the DES base derivation key of KEYGENKY key type with key usage UKPT enabled.
+</p>
+</dd>
+</dlentry>
+<dlentry>
+<dt>For AES keys (ISO-4 PIN blocks)</dt>
+<dd>If you do not use the DUKPT process or you specify the ADUKPTOP rule array keyword, this key is
+an AES PIN block encrypting key of type PINPROT with one or both of the PINXLATE and REFORMAT key
+usage field bits enabled as appropriate for the requested mode. The key usage fields must have the
+decryption operation set so that the key can be used for decryption (DECRYPT), but not encryption,
+and the encryption mode of Cipher Block Chaining (CBC) must be specified. <p>If you use the AES
+DUKPT process for the input PIN block by specifying the ADUKPTIP or ADUKPTBH rule array keyword and
+the <parmname>input_PIN_profile</parmname> parameter contains AES-DUKPT derivation data, then
+specify the base derivation key as an AES variable-length symmetric key-token, version X’ 05 AES
+DKYGENKY with Key-usage field 1, low-order byte, most significant bit set to 1 indicating this key
+is allowed to be used as BDK.</p>
+</dd>
+</dlentry>
+</dl></pd>
+</plentry>
+<plentry>
+<pt>output_PIN_encrypting_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_PIN_encrypting_key_identifier</parmname> variable. Set this value to the length of
+the AES or DES key token or label. <ph rev="sh21i1">The maximum value is 3500.</ph> A key label must
+be at least 64 bytes, and only the first 64 bytes of a key label are used.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_encrypting_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that identifies either an operational fixed-length DES
+key-token, a variable-length AES key-token, or the label of such a record in AES or DES key
+storage.<p>This is either the identifier of the key to encrypt the output PIN-block or the
+identifier of the key-generating key to be used to derive the key to use to encrypt the output
+PIN-block. The key identifier must identify an AES key if the output PIN profile specifies a
+PIN-block format of ISO-4, otherwise it must identify a DES key.</p>
+<dl rev="sh21i1">
+<dlentry>
+<dt>For DES keys</dt>
+<dd>If you do not use the DUKPT process or you specify the UKPTIPIN or DUKPT-IP rule
+array keyword, the key is a DES PIN block encrypting key of type OPINENC and has one or both of the
+TRANSLAT and REFORMAT key usage bits enabled as appropriate for the requested mode.<p>If you use the
+DUKPT process for the output PIN-block by specifying the UKPTOPIN, UKPTBOTH, DUKPT-OP, or DUKPT-BH
+rule array keyword, the key is the DES base derivation key of KEYGENKY key type with key usage UKPT
+enabled.</p></dd>
+</dlentry>
+<dlentry>
+<dt>For AES keys (ISO-4 PIN block)</dt>
+<dd>If you do not use the DUKPT process or you specify the ADUKPTIP rule array keyword, this key is
+an AES PIN block encrypting key of type PINPROT with one or both of the PINXLATE and REFORMAT key
+usage field bits enabled as appropriate for the requested mode. The key usage fields must have the
+encryption operation set so that the key can be used for encryption (ENCRYPT), but not decryption,
+and the encryption mode of Cipher Block Chaining (CBC) must be specified.<p>If you use the AES DUKPT
+process for the output PIN block by specifying the ADUKPTOP or ADUKPTBH rule array keywords and the
+<parmname>output_PIN_profile</parmname> contains AES-DUKPT derivation data, then specify the base
+derivation key as a AES variable-length symmetric key-token, version X’ 05 AES DKYGENKY with
+Key-usage field 1, low-order byte, most significant bit set to 1 indicating this key is allowed to
+be used as BDK.</p></dd>
+</dlentry>
+</dl>
+<!--<ul><li>AES key (output PIN profile specifies a PIN-block format of ISO-4)<p>For AES keys, DUKPT is not supported.</p><p>When the output PIN profile specifies a PIN-block format of ISO-4, this parameter must identify a key token that contains a key whose algorithm is AES and a key type of PINPROT. In addition, the key usage fields must have one or both PINXLATE and REFORMAT key usage field bits set to B’1’ as appropriate for the requested mode, the decryption operation set so that the key can be used for encryption (ENCRYPT) but not decryption, the encryption mode of Cipher Block Chaining (CBC) must be specified, and PIN-block support of ISO-4.</p><p>For a REFORMAT ISO-1 to ISO-4 request, access control behavior is affected by the setting of the RFMT1TO4 key usage bit. See <xref href="wskc_ptr2_required.dita#ptr2_required/rfmt1to4"/>.</p></li><li>DES key (output PIN profile does not specify a PIN-block format of ISO-4)<p>For DES keys, specify the following output PIN encrypting key:<ul><li>If the DUKPT process is not used (that is, by not specifying a unique key per transaction rule-array keyword or by specifying <b>UKPTOPIN</b> or <b>DUKPT-OP</b>), the identified key token must contain the output PIN-block encrypting key to be used to encrypt the output PIN-block. The control vector in the key token must specify key type OPINENC and have one or both CV bit 21 = B’1’ (TRANSLAT) and CV bit 22 = B’1’ (REFORMAT) for the requested mode.</li><li>If the DUKPT process is used (that is, by specifying the <b>UKPTIPIN, UKPTBOTH, DUKPT-IP</b>, or <b>DUKPT-BH</b> rule-array keyword), specify the base derivation key as a KEYGENKY key-type with CV bit 17 = B’1’ (UKPT).</li></ul></p></li></ul>--></pd>
+</plentry>
+<plentry>
+<pt>authentication_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>authentication_key_identifier</parmname> variable. When
+(1)&NonBreakingSpace;<b>PAN-CHG</b> is specified in the rule array, (2)&NonBreakingSpace;the
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset X'038B') is
+enabled in the active role, and (3)&NonBreakingSpace;the input and output PIN-block formats are both
+ISO-4, the length must be greater than 0 and the maximum length is 3500. Otherwise, set this value
+to either 0, the length of an AES null key-token, or the length of a key label for an AES null
+key-token.</pd>
+</plentry>
+<plentry>
+<pt>authentication_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that identifies a null or operational variable-length AES
+key-token, or the label of such a record in AES key storage.<p>When
+(1)&NonBreakingSpace;<b>PAN-CHG</b> is specified in the rule array, (2)&NonBreakingSpace;the
+<cmdname>PTR2 ISO-4 Reformat Requires Authenticated PAN Change to Change the PAN</cmdname> command
+(offset <ph>X'038B'</ph>) is enabled in the active role, and (3)&NonBreakingSpace;the input and
+output PIN-block formats are both ISO-4, the verb performs an <term>authenticated PAN change</term>.
+Otherwise, a PAN change is not authenticated and either the
+<parmname>authentication_key_identifier_length</parmname> variable must be 0 or the
+<parmname>authentication_key_identifier</parmname> parameter must identify an AES null
+key-token.</p><p>If the verb is to perform an <term>authenticated PAN change</term>, this key is
+used to verify the CMAC found in the <parmname>authentication_data</parmname> variable, and
+successful verification is required to authorize a PAN change request. The algorithm of this key
+must be AES and the key type must be MAC. In addition, the key usage fields must indicate a MAC
+operation of VERIFY and a MAC mode of CMAC. When keyword <b>PAN-CHG</b> is specified in the rule
+array, and required command <cmdname>PTR2 ISO-4 to ISO-4 Reformat Requires PTR2AUTH Usage when
+Authenticated PAN Change Is Required</cmdname> (offset <ph>X'0395'</ph>) is enabled in the active
+role, this key must have key usage PTR2AUTH.</p></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_profile_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PIN_profile</parmname> variable. <ph rev="sh21i1">Set the value according to <xref
+href="#ptre/profile_length" format="dita"/>:</ph><table rev="sh21i1" frame="all" rowsep="1"
+colsep="1" id="profile_length"><title>Supported Encrypted PIN Translate2 PIN profile
+lengths</title><tgroup cols="2">
+<colspec colname="c1" colwidth="3*"/>
+<colspec colname="c2" colwidth="1*"/>
+<thead>
+<row>
+<entry>Pin profile</entry>
+<entry>Length</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>PIN-block format only.</entry>
+<entry>24</entry>
+</row>
+<row>
+<entry>PIN-block format and CKSN extension used for DES-DUKPT.</entry>
+<entry>48</entry>
+</row>
+<row>
+<entry>PIN-block format and single block of derivation data extension used for AES-DUKPT.</entry>
+<entry>44</entry>
+</row>
+</tbody>
+</tgroup></table>
+</pd>
+</plentry>
+<plentry>
+<pt>input_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">The 24, 44, or 48 byte input PIN profile. The profile consists of three 8-byte
+character strings with information defining the input PIN-block format and optionally followed by
+either an additional 24 bytes containing the input CKSN extension or an additional 20 bytes
+containing the input Derivation Data extension. See <xref href="wskc_c_pinppp.dita"/> for additional
+information.</p>
+<p rev="sh21i1">If the rule array keyword UKPTBOTH or UKPTIPIN is specified, CKSN extension must
+be included in the <i>input_PIN_profile</i>. Single-DES DUKPT algorithm will be used to derive the
+DUKPT key used to decrypt the input PIN block. </p>
+<p rev="sh21i1">If the rule array keyword DUKPT-BH or DUKPT-IP is specified, CKSN extension must
+be included in the <i>input_PIN_profile</i>. The Triple-DES DUKPT algorithm will be used to derive
+the DUKPT key used to decrypt the input PIN block.</p>
+<p rev="sh21i1">If the rule array keyword ADUKPTBH or ADUKPTIP is specified, the AES-DUKPT algorithm
+will be used to derive the DUKPT key used to decrypt the input PIN block when the derivation data
+extension is included in the <parmname>input_PIN_profile</parmname>. See <xref
+href="wskc_aes_dukpt.dita#aes_dukpt/dukpt_ddata"/> for the layout of the AES-DUKPT derivation data
+extension. The algorithm indicator must be set to X'0000' (2-key TDES), X'0001' (3-key TDES),
+X'0002' (AES-128), X'0003' (AES-192), or X'0004' (AES-256). The key usage indicator must be set to
+X'1000' (PIN Encryption).</p>
+</pd>
+</plentry>
+<plentry>
+<pt>input_PAN_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PAN_data</parmname> variable. Set this value to 10 – 19 if keyword <b>REFORMAT</b>
+is specified in the rule array and keyword ISO-0, ISO-3, or ISO-4 is specified for the PIN-block
+format in the input PIN profile, otherwise this value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>input_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the PAN data used to recover the PIN from the PIN
+block if keyword <b>REFORMAT</b> is specified in the rule array and keyword ISO-0, ISO-3, or ISO-4
+is specified for the PIN-block format in the input PIN profile. This parameter is required to
+successfully process an ISO-4 PIN block for both <b>TRANSLAT</b> and <b>REFORMAT</b> modes. 
+<p rev="sh21i1">When the PIN block format is ISO-4, the PAN is used to format the output PIN
+block. The PAN check digit is included in the formation. The PAN check digit is excluded in the test
+used to determine if the PAN of an ISO-4 PIN block is equivalent to a PAN that is in a non-ISO
+format 4 PIN block.</p><note othertype="Notes" type="other">
+<ol compact="yes" id="ol_drj_mxw_jhb">
+<li>When using the ISO-0 or ISO-3 PIN-block format, use the 12 rightmost digits of the PAN,
+excluding the check digit.</li>
+<li>No PAN check digit is included in the formation of an output PIN block that is not ISO-4.</li>
+<li>No PAN check digit is included in the test to determine if the PAN in an ISO-4 PIN-block is
+equivalent to a PAN that is not in an ISO-4 PIN block. </li>
+</ol>
+</note></pd>
+</plentry>
+<plentry>
+<pt>input_PIN_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>input_PIN_block</parmname> variable. The value must be 8 for DES or 16 for AES. </pd>
+</plentry>
+<plentry>
+<pt>input_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the encrypted PIN-block. </pd>
+</plentry>
+<plentry>
+<pt>output_PIN_profile_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_PIN_profile</parmname> variable. Set the value according to <xref
+href="#ptre/profile_length" format="dita"/> for the supported PIN profile lengths.</pd>
+</plentry>
+<plentry>
+<pt>output_PIN_profile</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">The 24, 44, or 48 byte output PIN profile. The profile contains three 8-byte
+character strings with information defining the PIN-block format and optionally followed by either
+an additional 24 bytes containing the input CKSN extension or an additional 20 bytes containing the
+input Derivation Data structure. See <xref href="wskc_c_pinppp.dita"/> for additional
+information.</p>
+<p rev="sh21i1">If the rule array keyword UKPTBOTH or UKPTOPIN is specified, CKSN extension must be
+included in the <parmname>output_PIN_profile</parmname>. Single-DES DUKPT algorithm will be used to
+derive the DUKPT key used to encrypt the output PIN block.</p>
+<p rev="sh21i1">If the rule array keyword DUKPT-BH or DUKPT-OP is specified, CKSN extension must be
+included in the <parmname>output_PIN_profile</parmname>. The Triple-DES DUKPT algorithm will be used
+to derive the DUKPT key used to encrypt the output PIN block.</p>
+<p rev="sh21i1">If the rule array keyword ADUKPTBH or ADUKPTOP is specified, the AES-DUKPT algorithm
+will be used to derive the DUKPT key used to encrypt the output PIN block when the Derivation Data
+extension is included in the <parmname>output_PIN_profile</parmname>. See <xref
+href="wskc_c_pinppp.dita"/> for the layout of the AES-DUKPT Derivation Data structure. The algorithm
+indicator must be set to X'0000' (2-key TDES), X'0001' (3-key TDES), X'0002' (AES-128), X'0003'
+(AES-192), or X'0004' (AES-256). The key usage indicator must be set to X'1000' (PIN
+Encryption).</p>
+<p rev="sh21i1">When the mode rule is TRANSLAT, the first 24 bytes of this parameter are ignored.</p>
+<p rev="sh21i1">When the mode rule is REFORMAT in the rule array, the input PIN profile and output PIN profile
+can have different PIN block formats.</p>
+<p rev="sh21i1">When UKPTOPIN or UKPTBOTH is specified, the parameter is extended to a 48-byte field
+and must contain the output current key serial number (CKSN).</p>
+<p rev="sh21i1">When DUKPT-OP or DUKPT-BH is specified, the parameter is extended to a 48-byte field
+and must contain the output current key serial number (CKSN).</p></pd>
+</plentry>
+<plentry>
+<pt>output_PAN_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_PAN_data</parmname> variable. If the <b>PAN-CHG</b> keyword is specified in the
+rule array or the output PIN profile specifies ISO-0, ISO-3, or ISO-4, this value must be 10 – 19.
+Otherwise, set this value to 0. </pd>
+</plentry>
+<plentry>
+<pt>output_PAN_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an optional string variable containing the new primary account number (PAN) data.<ul>
+<li>If the <b>REFORMAT</b> keyword is specified in the rule array and output PIN profile keyword
+ISO-0, ISO-3, or ISO-4 is specified for the ISO format PIN-block in the output PIN profile (that is,
+PAN data is available), the verb requires this data to format the output PIN-block.</li>
+<li>If the <b>PAN-CHG</b> keyword is specified in the rule array, the verb uses the
+<term>authenticated PAN change</term> method to verify authorization to change the PAN. Otherwise,
+the access control point method is used to authorize changing the PAN if the<parmname>
+input_PAN_data</parmname> and the <parmname>output_PAN_DATA</parmname> values do not match.</li>
+</ul><note rev="sh21i1">When using the ISO-0, ISO-3, or VISA-4 PIN-block format, use the 12 rightmost digits of
+PAN, excluding the check digit. When using the ISO-4 PIN-block format, the PAN check digit is included in
+the formation of the PIN blocks.</note></pd>
+</plentry>
+<plentry>
+<pt>authentication_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>authentication_data</parmname> variable. If (1)&NonBreakingSpace;<b>PAN-CHG</b> is
+specified in the rule array, (2)&NonBreakingSpace;the <cmdname>PTR2 ISO-4 Reformat Requires
+Authenticated PAN Change to Change the PAN</cmdname> command (offset X'038B') is enabled in the
+active role, <i>and</i> (3)&NonBreakingSpace;the input and output PIN-block formats are both ISO-4,
+the verb performs an <term>authenticated PAN change</term>, in which case the value must be a
+minimum of 2 + 8 + 2 + 0 = 12 up to a maximum of 2 + 16 + 2 + 256 = 276. Otherwise, the value must
+be 0.</pd>
+</plentry>
+<plentry>
+<pt>authentication_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that, when the
+<parmname>authentication_data_length</parmname> variable is greater than 0, contains the MAC that
+the verb must verify when an <term>authenticated PAN change</term> is required. The variable has a
+length-value format as shown in the following table: <table frame="all" rowsep="1" colsep="1">
+<tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="4.6*"/>
+<thead>
+<row valign="bottom">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>2</entry>
+<entry>Length of NIST SP 800-38B CMAC, <i>c</i>, in bytes: <i>x</i>. Length is in big endian format,
+and valid values are 8 – 16 (X’0008’ – X’0010’).</entry>
+</row>
+<row>
+<entry>2</entry>
+<entry><i>x</i></entry>
+<entry>NIST SP 800-38B CMAC, <i>c</i>. <p>The data over which the MAC is calculated is an
+authentication value defined as follows:</p><sl>
+<sli>Authentication value = Old PAN &DoubleVerticalBar; New PAN &DoubleVerticalBar; Optional
+additional authentication data</sli>
+</sl><p>The plaintext PAN field format of the Old PAN data and the New PAN data is either ASCII (Old
+PAN = <option>input_PAN_data</option> and New PAN = <parmname>output_PAN_data</parmname>) or,
+beginning with Release 5.5.12, based on the plaintext PAN field format defined by ISO 9564-1 shown
+in <xref href="wskc_ptr2.dita#ptr2/ptr2_iso_95641"/>. In releases before Release 5.5.12, the PAN
+format is always ASCII. In Release 5.5.12 or later, rule-array keyword <b>PANAUTI4</b> specifies to
+format the <option>input_PAN_data</option> (Old PAN) and <parmname>output_PAN_data</parmname> (New
+PAN) according to ISO 9564-1. If keyword <b>PANAUTI4</b> is not specified, the ASCII format is
+used.</p></entry>
+</row>
+<row>
+<entry>2+<i>x</i></entry>
+<entry>2</entry>
+<entry>Length of optional additional authentication data, <i>a</i>, in bytes: <i>y</i>. Length is in
+big endian format, and valid values are 0 – 256 (X’0000’ – X’0100’). </entry>
+</row>
+<row>
+<entry>4+<i>x</i></entry>
+<entry><i>y</i></entry>
+<entry>Optional additional authentication data value, <i>a</i>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>If the verb must perform an <term>authenticated PAN change</term>, the CMAC length can be
+8 – 16. The verb creates a CMAC over the Old PAN data, New PAN data, and any additional
+authentication data. This MAC is compared to the CMAC, <i>c</i>, in this length-value structure for
+CMAC length <i>x</i> bytes. The PAN change request is only performed if the values
+match.</p><note>In releases before Release 5.5.12, the format for the Old PAN and the New PAN is
+ASCII characters, one character for each PAN digit (that is, Old PAN =
+<parmname>input_PAN_data</parmname> and New PAN = <parmname>output_PAN_data</parmname>). Beginning
+with Release 5.5.12, rule-array keyword <b>PANAUTAS</b> can be used to specify the format of the
+plaintext PAN fields in the message is ASCII. This is the default. If keyword <b>PANAUTI4</b> is
+specified in the rule array, the verb formats both the <parmname>input_PAN_data</parmname>and the
+<parmname>output_PAN_data</parmname> for the message using the PAN format specified by ISO 9564-1.
+<xref href="wskc_ptr2.dita#ptr2/ptr2_iso_95641"/> shows the format of an ISO 9564-1 plaintext PAN
+field.</note></pd>
+</plentry>
+<plentry>
+<pt>output_PIN_block_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>output_PIN_block</parmname> variable. On input, the value must be 8 for DES or 16 for AES.
+On output, the variable is updated with the actual length of the
+<parmname>output_PIN_block</parmname> variable. </pd>
+</plentry>
+<plentry>
+<pt>output_PIN_block</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the reenciphered and optionally reformatted
+PIN-block returned by the verb.</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the reserved1
+variable. This value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. This parameter is reserved for future use. </pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the reserved2
+variable. This value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. This parameter is reserved for future use.</pd>
+</plentry>
+<plentry>
+<pt>reserved3_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the reserved3
+variable. This value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>reserved3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. This parameter is reserved for future use. </pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

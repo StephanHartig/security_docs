@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_zapgkyst" xml:lang="en-us">
+<title>Key storage mechanisms</title>
+<titlealts>
+<navtitle>Key storage mechanisms</navtitle>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Key storage mechanisms</searchtitle>
+</titlealts>
+<shortdesc>You can use key storage mechanisms and the associated
+key record verbs to perform operations on key tokens and key records
+located in AES, DES, and PKA key storage.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>key storage</indexterm></indexterm>
+<indexterm>key storage mechanisms</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>A key-token record consists of a key-token name (key label) and
+a key token of format null, internal, or external. The operations
+to be performed are: creating, writing, reading, listing, and deleting
+key tokens or key records.</p>
+<p otherprops="pdf">The verbs described in this chapter include: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_r_akrc.dita#l0wskc02_akrc"/></li>
+<li><xref href="wskc_r_akrd.dita#l0wskc02_akrd"/></li>
+<li><xref href="wskc_r_akrl.dita#l0wskc02_akrl"/></li>
+<li><xref href="wskc_r_akrr.dita#l0wskc02_akrr"/></li>
+<li><xref href="wskc_r_akrw.dita#l0wskc02_akrw"/></li>
+<li><xref href="wskc_r_krc.dita#l0wskc02_krc"/></li>
+<li><xref href="wskc_r_krd.dita#l0wskc02_krd"/></li>
+<li><xref href="wskc_r_krl.dita#l0wskc02_krl"/></li>
+<li><xref href="wskc_r_krr.dita#l0wskc02_krr"/></li>
+<li><xref href="wskc_r_krw.dita#l0wskc02_krw"/></li>
+<li><xref href="wskc_r_prc.dita#l0wskc02_prc"/></li>
+<li><xref href="wskc_r_prd.dita#l0wskc02_prd"/></li>
+<li><xref href="wskc_r_dkrl.dita#l0wskc02_dkrl"/></li>
+<li><xref href="wskc_r_prr.dita#l0wskc02_prr"/></li>
+<li><xref href="wskc_r_prw.dita#l0wskc02_prw"/></li>
+<li><xref href="wskc_r_rkdel.dita#l0wskc02_rkdel"/></li>
+<li><xref href="wskc_r_rklist.dita#l0wskc02_rklist"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000011386?>

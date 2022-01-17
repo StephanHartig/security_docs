@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appin" xml:lang="en-us">
+<title>Financial services</title>
+<titlealts>
+<navtitle>Financial services</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Financial services</searchtitle>
+</titlealts>
+<shortdesc>The process of validating personal identities in a financial
+transaction system is called <i>personal authentication</i>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>financial services</indexterm></indexterm>
+<indexterm>financial services verbs</indexterm><indexterm>personal
+identification number (PIN)<indexterm>description</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The personal identification number (PIN) is the basis for verifying
+the identity of a customer across financial industry networks. CCA
+provides <ph>verbs</ph> to translate, verify, and generate PINs. You
+can use the <ph>verbs</ph> to prevent unauthorized disclosures when
+organizations handle PINs.</p>
+<p otherprops="pdf">The following verbs are described in this topic: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_apg.dita#csnbapg"/></li>
+<li><xref href="wskc_r_cpe.dita#l0wskc02_cpe"/></li>
+<li><xref href="wskc_r_pgn.dita#l0wskc02_pgn"/></li>
+<li><xref href="wskc_r_cpa.dita#l0wskc02_cpa"/></li>
+<li><xref href="wskc_r_csg.dita#l0wskc02_csg"/></li>
+<li><xref href="wskc_r_vbspckcombine.dita#vbspckcombine"/></li>
+<li><xref href="wskc_r_csv.dita#l0wskc02_csv"/></li>
+<li><xref href="wskc_r_epg1.dita#l0wskc02_epg1"/></li>
+<li><xref href="wskc_r_ptr.dita#l0wskc02_ptr"/></li>
+<li rev="sh20i1"><xref href="wskc_ptr2.dita"/></li>
+<li><xref href="wskc_ptre.dita#ptre"/></li>
+<li><xref href="wskc_r_pvr.dita#l0wskc02_pvr"/></li>
+
+<li rev="sh21i1"><xref href="wskc_ffxd.dita#csnbffxd"/></li>
+<li rev="sh21i1"><xref href="wskc_ffxe.dita#csnbffxe"/></li>
+<li rev="sh21i1"><xref href="wskc_ffxt.dita#csnbffxt"/></li>
+
+
+<li><xref href="wskc_fped.dita#csnbfped"/></li>
+<li><xref href="wskc_fpee.dita#csnbfpee"/></li>
+<li><xref href="wskc_fpet.dita#csnbfpet"/></li>
+<li><xref href="wskc_r_pcu.dita#l0wskc02_pcu"/></li>
+<li><xref href="wskc_bpfo.dita#csnbpfo"/></li>
+<li><xref href="wskc_r_sky.dita#l0wskc02_sky"/></li>
+<li><xref href="wskc_r_spn.dita#l0wskc02_spn"/></li>
+<li><xref href="wskc_r_trv.dita#l0wskc02_trv"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000008292?>

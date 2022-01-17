@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_ktb" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)</title>
+<titlealts>
+<navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb assembles
+a fixed-length symmetric key-token in application storage from information you supply, either as an
+internal fixed-length AES or DES key-token, or as an external fixed-length DES token. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> does not support fixed-length external AES
+key tokens,</shortdesc><?Pub
+Caret -1?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"></keyword>)</indexterm></indexterm>
+<indexterm>key token</indexterm><indexterm>control vector</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>This verb can include a control vector that you supply
+or can build a control vector based on the key type and the control
+vector related keywords in the <i>rule_array</i>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"></keyword> verb
+does not perform cryptographic services on any key value. You cannot
+use this verb to change a key or to change the control vector related
+to a key.</p></section>
+</refbody>
+</reference>
+<?Pub *0000002006?>

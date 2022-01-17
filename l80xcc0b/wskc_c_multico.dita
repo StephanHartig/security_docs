@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_multico" xml:lang="en-us">
+<title>Multi-coprocessor selection capabilities</title>
+<titlealts>
+<navtitle>Multi-coprocessor selection capabilities</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Multi-coprocessor selection capabilities
+for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Multi-coprocessor selection capabilities allow you to employ more than one <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>multi-coprocessor selection functions</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>)</indexterm>
+<indexterm>AUTOSELECT option</indexterm>
+<indexterm>master key coherence</indexterm>
+<indexterm>AUTOSELECT option<indexterm>master key coherence</indexterm><indexterm>ignoring
+verbs</indexterm></indexterm>
+<indexterm>coprocessor selection</indexterm>
+<indexterm>default <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor</indexterm>
+</keywords>
+<?Pub Caret 167?>
+</metadata>
+</prolog>
+<conbody>
+<p>When more than one <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor
+is installed, an application program can control which <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor to use. It can explicitly
+select a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor, it can
+switch on the AUTOSELECT option, or it can optionally employ the default <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor. </p>
+<section id="l0wskc02_autoselect">
+<title>AUTOSELECT option</title>
+<p>If switched on, the AUTOSELECT option overrides an explicit <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor selection and default <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor selection for all verbs (except
+those listed in <xref href="wskc_c_multico.dita#l0wskc02_multico/l0wskc02_ignore"/>).</p>
+<p>When the AUTOSELECT option is switched on, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor to be used by a verb will be
+selected by the operating system (the Linux device driver) from the set of available <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors, including any coprocessors
+loaded with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> user defined function
+(UDX) code. The Linux device driver chooses a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor based on a policy for load
+balancing.</p>
+<p>To switch on the AUTOSELECT option, use the  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> verb (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>). Alternatively, the AUTOSELECT option
+can be switched on at program start by setting the environment variable CSU_DEFAULT_ADAPTER to the
+value <codeph>DEV-ANY</codeph>. For
+example:<codeblock>export CSU_DEFAULT_ADAPTER=DEV-ANY</codeblock>To switch off the AUTOSELECT
+option, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> verb (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>). </p>
+</section>
+<section>
+<title>Master key coherence for AUTOSELECT</title>
+<p>When using the AUTOSELECT option, all <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors accessible by the operating
+system must have the same state. In particular, they must be configured with the same master key as
+appropriate for the services in use. For example, if your application uses only DES functions and
+you enable AUTOSELECT, then the SYM-MK should be the same across all accessible <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors. If you use any RSA functions
+from PKA verbs, then the ASYM-MKs must be the same. For AES usage the AES-MKs must match, and for
+ECC the APKA-MK must match.</p>
+</section>
+<section id="l0wskc02_ignore">
+<title>Verbs that ignore AUTOSELECT</title>
+<p>The following verbs ignore the AUTOSELECT option and use the explicitly selected or default
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor instead. These verbs
+act as if the AUTOSELECT option does not exist, acting exactly as they did in prior releases in
+which AUTOSELECT was not present.</p>
+<table id="ignore">
+<title>Verbs that ignore AUTOSELECT</title>
+<desc>
+<p outputclass="summary">Verbs that ignore AUTOSELECT</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="15*"/>
+<colspec colname="col2" colwidth="83*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Explanation</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CSUACFQ</entry>
+<entry>When querying <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> coprocessor state it is important to retrieve data from the explicitly queried <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor.</entry>
+</row>
+<row>
+<entry>CSUARNT</entry>
+<entry>When testing adapter health it is also important to receive explicit
+results.</entry>
+</row>
+<row>
+<entry>CSNDRKL, CSNDRKD</entry>
+<entry>Listing and managing the retained keys for a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor requires dealing with
+explicitly selected <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors.
+Note that it is specifically not recommended to use any retained key functions (such as choosing to
+use retained keys with PKA verbs) when AUTOSELECT is active. By their very nature retained keys are
+tied to the specific <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor
+where they were created</entry>
+</row>
+<row>
+<entry>CSNBMKP</entry>
+<entry>Managing the Master Keys for a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor also requires explicit
+allocation and de-allocaton to achieve expected results.</entry>
+</row>
+<row>
+<entry>HOST-only verbs</entry>
+<entry>Some verbs are not impacted by AUTOSELECT simply because they never use the
+CCA coprocessor. These verbs take actions that do not involve secrets guarded by the card Master
+Keys. These include:
+<lines>
+CSUACFV, CSNBKSI, CSNBCVG, CSNBKTB, CSNBKTB2, CSNBKTP,
+CSNBKTP2, CSNBT31O, CSNBT31R, CSNBT31P, CSNBAKRC,
+CSNBAKRD, CSNBAKRL, CSNBAKRR, CSNBAKRW, CSNBKRC,
+CSNBKRD, CSNBKRL, CSNBKRR, CSNBKRW, CSNDKRC, CSNDKRD,
+CSNDKRL, CSNDKRR, CSNDKRW, CSNDPKB, CSNDPKX</lines></entry>
+</row>
+<row>
+<entry>CPACF using verbs</entry>
+<entry>Some verbs use the CPACF according to configuration of appropriate environment
+variables. These verbs will ignore AUTOSELECT if told to use CPACF. These
+include:
+<lines rev="sh18i2">
+CSNBOWH, CSNBDEC, CSNBENC, CSNBSAE, CSNBSAD, CSNBMGN, 
+CSNBMVR</lines></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+<section>
+<title>Explicit <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor
+selection</title>
+<p>To explicitly select a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessor, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> verb
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>). This verb allocates a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor loaded with the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> software. When a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor is allocated and the AUTOSELECT
+option is not on, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> requests are
+routed to it until it is de-allocated. Similarly, when a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor is allocated and one of the
+verbs that ignore the AUTOSELECT option is used, then <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> requests are routed to it until it is
+de-allocated.</p>
+<p>To de-allocate an allocated coprocessor, use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> verb (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>). When a coprocessor is not allocated
+(either before an allocation occurs or after the cryptographic resource is de-allocated), requests
+are routed to the default coprocessor unless the AUTOSELECT option is on.</p>
+<note>The scope of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> and the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> verbs is to a thread. A
+multi-threaded application program can use all of the installed <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors simultaneously. A program
+thread can use only one of the installed coprocessors at any given time, but it can switch to a
+different installed coprocessor as needed. To perform the switch, a program thread must deallocate
+an allocated cryptographic resource, if any, and then it must allocate the desired cryptographic
+resource. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> verb fails if a
+cryptographic resource is already allocated.</note>
+</section>
+<section id="ListingCCACoprocessors">
+<title>Listing <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+coprocessors</title>
+<p>With the first call to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> from a
+process, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> associates coprocessor
+designators CRP01, CRP02, and so on with specific coprocessors. The host determines the total number
+of coprocessors installed through a call to the coprocessor device driver. Adding, removing, or
+relocating coprocessors can alter the number associated with a specific coprocessor. The host then
+polls each coprocessor in turn to determine which ones contain the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> firmware. As each coprocessor is evaluated,
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host associates the
+identifiers CRP01, CRP02, and so forth to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessors loaded with a UDX extension
+are also assigned a CRP<varname>nn</varname> identifier.</p>
+<p>For a specific device driver, names such as these are used: CRP<varname>nn</varname>,
+card<varname>nn</varname>, AP<varname>nn</varname>, and so forth, where the <varname>nn</varname>
+values normally do not match (for example, some start with 0, others start with 1).</p>
+<p rev="sh20i2">To determine the coprocessor type of a card (one out of CEX4C through CEX7C), use
+one of these methods:</p>
+<ul>
+<li>Invoke the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb (see <xref
+href="wskc_r_cfq_2_or_3.dita#l0wskc02_cfq_2_or_3"/>).</li>
+<li>Use the <cmdname>lszcrypt</cmdname> command (see <xref
+href="wskc_c_setup_sysfs.dita#l0wskc02_setup_sysfs"/>).</li>
+<li> Use the <synph><kwd>hwtype</kwd></synph> attribute of your cryptographic devices in sysfs (see
+the version of <cite>Device Drivers, Features, and Commands</cite>, that applies to your
+distribution).</li>
+<li>Run the <cmdname>panel.exe</cmdname> utility installed with the RPM, using option
+<cmdname>-x</cmdname> (<cmdname>panel.exe -x</cmdname>), to get a quick summary of cards available
+and their status. See <xref href="wskc_c_panelexe.dita#l0wskc02_panelexe"/>.</li>
+<li>Run <cmdname>ivp.e</cmdname>, another utility installed with the RPM, which gives more detailed
+information about each card available. See <xref href="wskc_c_utilities.dita#l0wskc02_utilities"
+/>.</li>
+</ul>
+<p>Note that the mapping of logical card identifiers such as CRP01 and CRP02 to physical cards in
+your machine is not defined. This is because the mapping can change depending on the machine and its
+configuration. If your application needs to identify specific coprocessor cards, you can do one of
+the following:</p>
+<ul>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb (see <xref
+href="wskc_r_cfq.dita#l0wskc02_cfq"/>) with the STATCARD or STATCRD2 <parmname>rule_array</parmname>
+keyword</li>
+<li>Use the <cmdname>panel.exe</cmdname> utility program with option -x, in order to read a card's serial number (see
+<xref href="wskc_c_panelexe.dita#l0wskc02_panelexe"/>).</li>
+</ul>
+</section>
+<section>
+<title>Default <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> coprocessor</title>
+<p>The selection of a default device occurs with the first <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> call to a coprocessor. When the default
+device is selected, it remains constant throughout the life of the thread. Changing the value of the
+environment variable after a thread uses a coprocessor does not affect the assignment of the default
+coprocessor. If a thread with an allocated coprocessor ends without first de-allocating the
+coprocessor, excess memory consumption results. It is not necessary to deallocate a cryptographic
+resource if the process itself ends. It is suggested only if individual threads end while the
+process continues to run.</p>
+<p>You can alter the default designation by explicitly setting the CSU_DEFAULT_ADAPTER environment
+variable. This is accomplished by issuing following
+command:<codeblock>export CSU_DEFAULT_ADAPTER=CRP<varname>xx</varname></codeblock>Replace
+CRP<varname>xx</varname> with the identifier for the resource you wish to use, such as CRP02. <ph
+rev="shd3">The rpm limits the maximum value of <varname>xx</varname> such that CRP01 through CRP08
+are the valid identifiers for the default coprocessor (limited by the number of coprocessors
+actually configured).</ph></p>
+<p>When cards of multiple types (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>) are active in the same system, note
+the following:</p>
+<ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library detects <ph
+rev="shd3"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph> adapters and
+intermingle them in the CRP<varname>xx</varname> adapter instance list. This is a list of all
+available adapters, in the order that they were discovered by the device driver.</li>
+<li rev="shd3">The default adapter will be the lowest numbered <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> instance, that is, the newest adapter
+level, found by the device driver. For example, if the ordered discovery list is: [CEX3C, CEX4C,
+CEX3C, CEX4C], the default adapter will be the first CEX4C.</li>
+<li>A user can specify the proper CRP<varname>xx</varname> number to allocate and work with any card
+(<ph rev="shd3"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>) .</li>
+<li>For a specific device driver, names such as these are used: CRP<synph><var>nn</var></synph>,
+card<varname>xx</varname>, AP<varname>xx</varname>, and so forth, where the <varname>xx</varname>
+values normally do not match (for example, some start with 0, others start with 1).</li>
+</ul>
+<?Pub Caret 39?>
+</section>
+</conbody>
+</concept>
+<?Pub *0000002305?>

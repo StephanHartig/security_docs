@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_comp_jni" xml:lang="en-us">
+<title>Building <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> applications
+using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI</title>
+<titlealts>
+<navtitle>Building Java applications using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>: Building Java
+applications using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> package infrastructure. </shortdesc><?Pub Caret 1?>
+<prolog><metadata>
+<keywords><indexterm>CCA application<indexterm>Java</indexterm></indexterm>
+<indexterm>Java Native Interface (JNI)</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>This method is the preferred method for new applications.</p>
+</conbody>
+</concept>
+<?Pub *0000001279?>

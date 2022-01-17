@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkerestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<ul>
+<li>A message can be encrypted provided that it is smaller than the
+public key modulus.
+<p>The term 'smaller' refers to the exact
+bit count, not the byte count of the modulus. For example, counting
+bits, the hexadecimal number <ph>X'FF'</ph> is several bits longer
+than the number <ph>X'1F'</ph>, even though both numbers are one byte
+long as represented in computer memory.</p></li>
+<li>The exponent of the RSA public key must be odd <ph>unless the
+MRP keyword is supplied.</ph></li>
+<li>The RSA public key modulus size (key size) is limited by the Function
+Control Vector to accommodate governmental export and import regulations.</li>
+<li rev="shd3">Rule array keywords PKCSOAEP, SHA-1, and SHA-256 are not supported in releases before
+Release 4.4. </li>
+<li rev="shd3">The <cmdname>PKA Encipher - Clear Key Disallow MRP</cmdname> (offset X'0208'),
+<cmdname>PKA Encipher - Clear Key Disallow PKCS-1.2</cmdname> (offset X'0206'), <cmdname>PKA
+Encipher - Clear Key Disallow PKCSOAEP</cmdname> (offset X'0209), and <cmdname>PKA Encipher - Clear
+Key Disallow ZERO-PAD</cmdname> (offset X'0207') are not defined in releases before Release 4.4. </li>
+</ul></section>
+</refbody></reference>

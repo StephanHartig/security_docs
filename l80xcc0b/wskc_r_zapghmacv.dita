@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_zapghmacv">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> verb to verify a keyed hash Message Authentication
+Code (HMAC) for the message string provided as input. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/></indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>)</indexterm></indexterm>
+<indexterm>Keyed-Hash Message Authentication Code (HMAC)<indexterm>verifying</indexterm></indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>A MAC key contained in an internal variable-length symmetric key-token
+is required to verify the HMAC. The key must have the same value as
+the key used to generate the HMAC.</p>
+<p rev="sh21i1">The HMAC key supplied in a variable-length symmetric key token may contain a secure
+or a clear key value. Clear HMAC keys can be built using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) callable service.</p></section>
+</refbody></reference>

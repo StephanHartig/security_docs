@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_retcode4reasoncodes">
+<title>Reason codes that accompany return code 4</title>
+ <titlealts>
+    <navtitle>Reason codes that accompany return code 4</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes that accompany return code
+4</searchtitle>
+  </titlealts>
+<shortdesc>Reason codes that accompany return code 4</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>reason codes<indexterm>with return code 4</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These codes are listed in <xref href="#l0wskc02_retcode4reasoncodes/l0wskc02_rcrc4"/>.
+<table id="l0wskc02_rcrc4" pgwide="1">
+<title>Reason codes for return code 4</title><desc><p outputclass="summary">Reason codes for return code 4</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="33*"/>
+<thead>
+<row>
+<entry>Return code, decimal</entry>
+<entry>Reason code, decimal (hex)</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>4</entry>
+<entry>001 (001)</entry>
+<entry>The verification test failed. </entry></row>
+<row>
+<entry>4</entry>
+<entry>013 (00D)</entry>
+<entry>The key token has an initialization vector and
+the <synph><var>initialization_vector</var></synph> parameter value is nonzero.  The
+verb uses the value in the key token.</entry></row>
+<row>
+<entry>4</entry>
+<entry>016 (010) </entry>
+<entry>The <i>rule_array</i> and the <i>rule_array_count</i> are too small to contain the
+complete result. </entry></row>
+<row>
+<entry>4</entry>
+<entry>017 (011) </entry>
+<entry>The requested ID is not present in any profile
+in the specified cryptographic hardware component. </entry></row>
+<row>
+<entry>4</entry>
+<entry>019 (013) </entry>
+<entry>The financial PIN in a PIN block is not verified. </entry></row>
+<row>
+<entry>4</entry>
+<entry>158 (09E)</entry>
+<entry>The verb did not process any key records. </entry></row>
+<row>
+<entry>4</entry>
+<entry>166 (0A6) </entry>
+<entry>The control-vector is not valid because of parity
+bits, anti-variant bits, inconsistent KEK bits or because bits 59
+- 62 are not zero.</entry></row>
+<row>
+<entry>4</entry>
+<entry>179 (0B3)</entry>
+<entry>The control-vector keywords in the <i>rule_array</i> are ignored. </entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>195 (C3)</entry>
+<entry>The key or key-part rule keyword provided does not match the length
+of the key in the enciphered key token. The output is based on the
+length specified, and not on the actual key length.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>283 (11B) </entry>
+<entry>The coprocessor battery is low. </entry></row>
+<row>
+<entry>4</entry>
+<entry>287 (11F) </entry>
+<entry>The PIN-block format is not consistent. </entry></row>
+<row>
+<entry>4</entry>
+<entry>429 (1AD)</entry>
+<entry>The digital signature is not verified.  The
+verb completed its processing normally. </entry>
+</row>
+
+<row rev="sh20i2">
+<entry>4</entry>
+<entry>877 (36D)</entry>
+<entry>The sub-CA certificate loaded has a later expiration (validity:NotAfter field) than its
+issuer certificate.</entry>
+</row>
+
+<row>
+<entry>4</entry>
+<entry>937 (3A9)</entry>
+<entry>The UTF8 name compare was done via <apiname>memcmp</apiname>.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>945 (3B1)</entry>
+<entry>The requested hash method differs from the hash method used when the certificate was loaded and activated.
+</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>963 (3C3)</entry>
+<entry>The OA request requires currently unavailable resources. 
+This is a transient condition. Please retry.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>1024 (400)</entry>
+<entry>Sufficient shares have been processed to create
+a new master key.</entry></row>
+<row>
+<entry>4</entry>
+<entry>2039 (7F7) </entry>
+<entry>At least one control vector bit cannot be parsed.</entry></row>
+<row>
+<entry>4</entry>
+<entry>2042 (7FA)</entry>
+<entry>The supplied passphrase is not valid.</entry></row>
+<row>
+<entry>4</entry>
+<entry>2133 (855)</entry>
+<entry>The <synph><var>verb_data</var></synph> value identifies one
+or more PIN decimalization tables to be deleted that are not stored
+on the coprocessor. All PIN tables that were requested to be deleted
+are removed.</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>2162 (872)</entry>
+<entry>At least two of the key parts of a new operational or master key have
+identical parts and a warning has been requested by the setting of an
+appropriate access control point.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

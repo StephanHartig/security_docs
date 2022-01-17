@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptre" rev="sh15">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+        conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>)</searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> verb reformats
+    a PIN into a different PIN-block format using an enciphered PAN field. You can use this verb in
+    an interchange-network application, or to change the PIN block to conform to the format and
+    encryption key used in a PIN-verification database.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/>
+              (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"
+          />)</indexterm></indexterm>
+        <indexterm>VDSP standard<indexterm>Visa Data Secure Platform</indexterm></indexterm>
+        <indexterm>Visa Data Secure Platform <indexterm>VDSP standard</indexterm></indexterm>
+        <indexterm>derived unique key per transaction<indexterm>DUKPT</indexterm></indexterm>
+        <indexterm>DUKPT<indexterm>derived unique key per transaction</indexterm></indexterm>
+        <indexterm>Visa Format Preserving Encryption <indexterm>VFPE</indexterm></indexterm>
+        <indexterm>VFPE<indexterm>Visa Format Preserving Encryption </indexterm></indexterm>
+        <indexterm>current-key serial number<indexterm>CKSN</indexterm></indexterm>
+        <indexterm>current-key serial number<indexterm>CKSN</indexterm></indexterm>
+        <indexterm>static TDES keys</indexterm>
+        <indexterm>static keys</indexterm>
+        <indexterm>Zone Encryption Keys</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/> verb supports
+Visa Data Secure Platform (VDSP, formerly known as Visa Merchant Data Secure (VMDS)) processing.
+With this verb you can also use <term>derived unique key per transaction</term>
+<term>(DUKPT)</term> PIN-block encryption (ANS X9.24) for both input and output PIN blocks. The verb
+supports translation of PINs whose PAN information has been enciphered using the VDSP standard and
+Visa Format Preserving Encryption (VFPE) methods.</p>
+      <p>PIN blocks are sometimes formatted using the PAN information. For the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/> verb, either the input PIN block
+profile or the output PIN block profile must specify a PIN block format that incorporates a PAN. The
+PIN block formats which incorporate a PAN are ISO-0, ISO-3, and Visa Format 4. VDSP enciphered PAN
+data can be enciphered using DUKPT key management or static TDES key management. The enciphered PAN
+could be enciphered with the CBC mode or the VFPE mode. VDSP requires that the same key management
+scheme and type of keys are used for both the PIN and PAN. For VDSP, the
+following pairings are supported:</p>
+      <table frame="all">
+        <title>Pairings supported for VDSP</title>
+        <desc>
+          <p outputclass="summary">Pairings supported for VDSP described in table with columns
+            Function, Source, and Target</p>
+        </desc>
+        <tgroup cols="5">
+          <colspec colname="col1" colwidth="9*"/>
+          <colspec colname="col2" colwidth="9*"/>
+          <colspec colname="col3" colwidth="9*"/>
+          <colspec colname="col4" colwidth="10*"/>
+          <colspec colname="col5" colwidth="9*"/>
+          <thead>
+            <row>
+              <entry align="center" valign="middle" morerows="1">Function</entry>
+              <entry align="center" namest="col2" nameend="col3">Source</entry>
+              <entry align="center" namest="col4" nameend="col5">Target</entry>
+            </row>
+            <row>
+              <entry>Key management</entry>
+              <entry>VDSP option</entry>
+              <entry>Key management</entry>
+              <entry>VDSP option</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry align="center" valign="middle" morerows="2">Translation</entry>
+              <entry morerows="1">DUKPT</entry>
+              <entry>Standard CBC</entry>
+              <entry morerows="2">Static TDES non-DUKPT (Zone Encryption Keys)</entry>
+              <entry morerows="2">Standard CBC</entry>
+            </row>
+            <row>
+              <entry>VFPE</entry>
+            </row>
+            <row>
+              <entry>Static TDES non-DUKPT</entry>
+              <entry>Standard CBC</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+<note type="other" othertype="Terminology">The VDSP specification speaks of two key management
+methods: <term>DUKPT (derived unique key per transaction)</term> and <term>Zone Encryption
+Keys</term>. The process for deriving these keys is documented in ANS X9.24 Part 1. <term>Zone
+Encryption Keys</term> are called <term>static keys</term> in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. Static keys are presented for use and are
+not derived during verb processing. They are double length TDES keys for this service which are
+called <term>static TDES keys</term> in this document.</note>
+      <p>The verb operates in reformat mode. In reformat mode, the verb performs the translate-mode
+functions (changes the wrapping key) and, in addition, processes the cleartext information.
+Following the rules that you specify, the PIN is extracted from the recovered cleartext PIN block
+using the specified input PIN encrypting key and formatted into an output PIN block according to the
+output PIN profile for encryption. The PIN block is re-enciphered with the specified output PIN
+encrypting key. Change of PAN data is not allowed.</p>
+    </section>
+    <section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> verb performs
+        the following processing:</p>
+      <ul>
+        <li>It decrypts the input PIN-block by using the supplied IPINENC key in ECB mode, or
+          derives the decryption key using the specified KEYGENKY key and the current-key serial
+          number (CKSN), and then uses ANS X9.24-specified special decryption or the Triple-DES
+          (TDES) method. The PAN must be deciphered using either the data decryption key derived
+          from the base derivation key and CKSN or using the specified static TDES data decryption
+          key (DECIPHER, CIPHER).</li>
+        <li>Checks the control vector of the input PIN encryption key to ensure that for an IPINENC
+          key the REFORMAT bit (CV bit 22) is set to B'1' for reformat mode, or for a KEYGENKY key,
+          that the UKPT bit (CV bit 18) is set to B'1'. Likewise the OPINENC key must have the
+          REFORMAT bit set according to the requested mode.</li>
+        <li>In reformat mode, performs these steps: <ul>
+            <li>It extracts the PIN from the specified PIN-block format using the method specified
+              by default or by a rule-array keyword. If required by the PIN-block format, PAN data
+              is used in the extraction process.</li>
+            <li>Formats the extracted-PIN into the format declared for the output PIN-block. As
+              required by the PIN-block format, the verb incorporates PAN data, sequence number, and
+              pad character information in formatting the output.</li>
+          </ul></li>
+        <li>It enciphers the output PIN-block by using the supplied static OPINENC key in ECB mode,
+          or derives the decryption key using the specified KEYGENKY key and the output current-key
+          serial number (CKSN) from the output PIN profile and uses ANS X9.24-specified special
+          encryption or Triple-DES method. The REFORMAT bit must be set to B'1' in the OPINENC
+          control vector, or the UKPT bit must be set to B'1' in the KEYGENKY control vector.</li>
+      </ul>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note>
+    </section>
+</refbody>
+</reference>

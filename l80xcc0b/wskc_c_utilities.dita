@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_utilities" xml:lang="en-us">
+<title>Utilities</title>
+<titlealts>
+<navtitle>Utilities</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Utilities</searchtitle>
+</titlealts>
+<shortdesc>You can use a utility to verify an installation. An additional utility is available to
+administer cryptographic coprocessors in setups without a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/>.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords><indexterm>utilities<indexterm>panel.exe</indexterm><indexterm>ivp.e</indexterm></indexterm>
+<indexterm>panel.exe</indexterm><indexterm>ivp.e</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>These two utilities are called <cmdname>ivp.e</cmdname> and <cmdname>panel.exe</cmdname>.</p>
+<dl><dlentry>
+<dt>ivp.e</dt>
+<dd>This is an easy-to-use utility used to verify an installation. <p>It calls the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> verb for all available adapters to
+report the firmware and configuration details.</p><p>This utility is installed by default to the
+following path in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> system:
+</p><p><filepath>/opt/IBM/CCA/bin/ivp.e</filepath></p><p>You can invoke this utility without any
+arguments. It presents information for all available CEX*C features on the system.</p></dd>
+</dlentry><dlentry>
+<dt>panel.exe</dt>
+<dd>This utility provides a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>
+native mechanism for administering and initializing certain characteristics of active <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoprocs"/>. It is intended as a basic
+administration tool for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>-only
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> configurations, where a
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) solution is not available. <ph
+rev="sh18i1">Note that <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"> co</ph> only
+covers some basic functions, but not the complete scope of a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/>. </ph><p>For mixed <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> configurations, it is recommended that
+administration be accomplished using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> TSO panels as described in the <xref
+conref="wskc_conref-l0wskc04.dita#links/icsf_admin_guide"/>. The utility is installed by the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>
+<ph rev="sh18i2">(RPM or DEB install package)</ph> to this path in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> system:
+</p><p><filepath>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/bin/panel.exe</filepath></p><note type="important" rev="sh18i1"> As of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0, the
+<cmdname>panel.exe</cmdname> interface has changed to offer a new default interface. The former
+interface is still available if the environment variable CSU_LEGACY_PANEL is set as follows:
+<codeblock>export CSU_LEGACY_PANEL=TRUE</codeblock><p>Go back to the new
+<cmdname>panel.exe</cmdname> interface:</p><codeblock>unset CSU_LEGACY_PANEL</codeblock><p>Be aware
+that CEX6C and newer functionality of <cmdname>panel.exe</cmdname> is only available from the
+default interface.</p>
+</note><p>There is more detailed information in <xref href="wskc_c_panelexe.dita#l0wskc02_panelexe"
+/>.</p></dd>
+</dlentry></dl>
+</conbody>
+</concept>
+<?Pub *0000003256?>

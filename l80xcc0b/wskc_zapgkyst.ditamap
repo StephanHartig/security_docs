@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Key storage mechanisms</title><topicref href="wskc_c_zapgkyst.dita">
+<topicref href="wskc_c_l0wskc149.dita">
+<topicref href="wskc_c_kenvar.dita" toc="no"></topicref>
+<topicref href="wskc_c_keylb07.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_c_keysrule.dita">
+<topicref href="wskc_c_keysrule_intro.dita" toc="no">
+<topicref href="wskc_c_keysrule_set.dita" toc="no"/></topicref>
+<topicref href="wskc_c_keysrule_zos.dita" toc="no"/>
+<topicref href="wskc_c_keysrule_other.dita" toc="no"/>
+<topicref href="wskc_c_fhk_chmk.dita" toc="no"/>
+<topicref href="wskc_c_keysrule_ksfo.dita" toc="no"/>
+<topicref href="wskc_c_keysrule_lnx.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_akrc.dita">
+<topicmeta>
+<retrievalKeys><retkey>AES Key Record Create (CSNBAKRC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc1.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc2.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc3.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc4.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc5.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc6.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc7.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_akrd.dita">
+<topicmeta>
+<retrievalKeys><retkey>AES Key Record Delete (CSNBAKRD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc8.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc9.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc10.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc11.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc12.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc13.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc14.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_akrl.dita">
+<topicmeta>
+<retrievalKeys><retkey>AES Key Record List (CSNBAKRL)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc15.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc16.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc17.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc18.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc19.dita" toc="no">
+</topicref>
+<topicref href="wskc_r_l0wskc20.dita"
+toc="no"></topicref>
+<topicref href="wskc_r_l0wskc21.dita" toc="no">
+</topicref>
+</topicref>
+<topicref href="wskc_r_akrr.dita">
+<topicmeta>
+<retrievalKeys><retkey>AES Key Record Read (CSNBAKRR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc22.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc23.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc24.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc25.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc26.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc27.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc28.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_akrw.dita">
+<topicmeta>
+<retrievalKeys><retkey>AES Key Record Write (CSNBAKRW)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc29.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc30.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc31.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc32.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc33.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc34.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc35.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_krc.dita">
+<topicmeta>
+<retrievalKeys><retkey>DES Key Record Create (CSNBKRC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_krcformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_krcparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_krcrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc127.dita" toc="no"></topicref>
+<topicref href="wskc_r_krcusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_krcrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc128.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_krd.dita">
+<topicmeta>
+<retrievalKeys><retkey>DES Key Record Delete (CSNBKRD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_krdformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_krdparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_krdrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc129.dita" toc="no"></topicref>
+<topicref href="wskc_r_krdusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_krdrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc130.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_krl.dita">
+<topicmeta>
+<retrievalKeys><retkey>DES Key Record List (CSNBKRL)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_krlformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_krlparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_krlrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc131.dita" toc="no"></topicref>
+<topicref href="wskc_r_krlusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_krlrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc132.dita" toc="no">
+</topicref>
+</topicref>
+<topicref href="wskc_r_krr.dita">
+<topicmeta>
+<retrievalKeys><retkey>DES Key Record Read (CSNBKRR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_krrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_krrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_krrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc133.dita" toc="no"></topicref>
+<topicref href="wskc_r_krrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_krrrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc134.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_krw.dita">
+<topicmeta>
+<retrievalKeys><retkey>DES Key Record Write (CSNBKRW)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_krwformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_krwparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_krwrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc135.dita" toc="no"></topicref>
+<topicref href="wskc_r_krwusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_krwrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc136.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_prc.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Record Create (CSNDKRC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_prcformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_prcparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_prcrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc218.dita" toc="no"></topicref>
+<topicref href="wskc_r_prcusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_prcrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc219.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_prd.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Record Delete (CSNDKRD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_prdformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_prdparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_prdrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc220.dita" toc="no"></topicref>
+<topicref href="wskc_r_prdusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_prdrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc221.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_dkrl.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Record List (CSNDKRL)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dkrlformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_dkrlparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_dkrlrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc101.dita" toc="no"></topicref>
+<topicref href="wskc_r_dkrlusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_dkrlrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc102.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_prr.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Record Read (CSNDKRR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_prrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_prrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_prrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc238.dita" toc="no"></topicref>
+<topicref href="wskc_r_prrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_prrrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc239.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_prw.dita">
+<topicmeta>
+<retrievalKeys><retkey>PKA Key Record Write (CSNDKRW)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_prwformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_prwparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_prwrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc240.dita" toc="no"></topicref>
+<topicref href="wskc_r_prwusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_prwrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc241.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_rkdel.dita">
+<topicmeta>
+<retrievalKeys><retkey>Retained Key Delete (CSNDRKD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc223.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc224.dita" toc="no"></topicref>
+<topicref href="wskc_r_rkdel_rk.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc225.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc226.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc227.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc228.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc229.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_rklist.dita">
+<topicmeta>
+<retrievalKeys><retkey>Retained Key List (CSNDRKL)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc230.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc231.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc232.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc233.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc234.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc235.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc236.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

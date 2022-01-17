@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_keysrule_lnx">
+<title>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>  approach</title>
+<titlealts>
+<navtitle>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>  approach</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> approach</searchtitle>
+</titlealts><shortdesc>Because the CCA key storage design point for the <tm trademark="Linux" tmtype="tm"
+>Linux</tm> platform host release has always been CMK-focused, this design point was taken forward
+for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> approach. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>RTNMK</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>At this time, CCA host key storage does not support nor ship with
+an additional utility to manage the 'store-in-pending' approach to
+re-enciphering key tokens. This additional utility is necessary to
+work with use of the RTNMK keyword for <xref href="wskc_r_bktc.dita#l0wskc02_bktc"/> and <xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"/>.  Therefore, it is suggested that users wanting
+to make use of CCA host key storage management follow the 'RTCMK-focused'
+approach described in <xref href="wskc_c_keysrule_other.dita#l0wskc02_keysrule_other"/>.</p>
+<p>However it is also desirable to provide as much host-support equivalence with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> approach as possible, given that the
+underlying system is running on an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/> platform and likely to
+collaborate with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zos"/> software.
+Therefore, the RTNMK keyword is provided for <xref href="wskc_r_bktc.dita#l0wskc02_bktc"/> and <xref
+href="wskc_r_ktcd.dita#l0wskc02_ktcd"/> to allow users who have their own utility or key storage
+management facility to manage key tokens using the method most familiar from <tm trademark="z/OS"
+tmtype="reg">z/OS</tm>: <ul>
+<li>The key tokens to be enciphered should be passed directly (not by label) to <xref
+href="wskc_r_bktc.dita#l0wskc02_bktc"/> and <xref href="wskc_r_ktcd.dita#l0wskc02_ktcd"/> for
+re-encipherment, and stored outside CCA host key storage.</li>
+<li>When re-encipherment is complete and the <xref href="wskc_r_mkp.dita#l0wskc02_mkp"/> SET'
+command has been issued, the re-enciphered key tokens can be reintroduced to CCA host key storage if
+desired, using the standard mechanisms.</li>
+</ul></p>
+</conbody></concept>

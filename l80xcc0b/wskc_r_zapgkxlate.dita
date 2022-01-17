@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_zapgkxlate">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/>
+verb to translate an RSA key in a PKA key-token using an output format specified by the input rule
+array. The RSA key to be translated is provided in a source PKA key-token that contains a
+private-key section, and the translated key is returned in the buffer identified by the
+target_key_token parameter. If the source key is in an external key-token, the source transport key
+must be in an operational fixed-length DES key-token.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb changes only Private Internal PKA Key Tokens.</p><p>The source <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RSA key token must
+be wrapped with a transport key encrypting key (KEK). The XLATE bit must also be turned on in the
+key usage byte of the source token. The source token is unwrapped using the specified source
+transport KEK. The target key token will be wrapped with the specified target transport KEK.
+Existing information in the target token is overwritten.</p>
+<p>There are three types of output formatting available described in the subsequent
+sections. The first type is an external-to-external translation of an RSA key to one of three smart
+card formats. The second is an external-to-external or internal-to-internal translation of an RSA
+key to a target PKA key-token that is protected by an AES transport key or an APKA master key. The
+third is an external-to-external translation of an RSA key to one of three EMV formats.</p></section>
+<section>
+<title>Target smart card formats</title>
+<p>To use this verb to translate an RSA key into a smart-card format, do the following: </p>
+<ul>
+<li>Specify one of the following rule-array keywords for the smart-card format to apply to the
+target key: <dl>
+<dlentry>
+<dt>SCVISA</dt>
+<dd>Specifies translation of an RSA private-key to the Visa proprietary format. This format is
+defined in <cite>Visa Smart Debit/Credit Technical Guide to Visa Applets for GlobalPlatform
+Cards</cite> and <cite>Visa Smart Debit Credit Personalization Guide for GlobalPlatform
+Cards</cite>.</dd>
+</dlentry>
+<dlentry>
+<dt>SCCOMME</dt>
+<dd>Specifies translation of an RSA private-key to the common Modulus-Exponent (M-E) format. This
+format is defined in <cite>Visa Smart Debit/Credit Technical Guide to Visa Applets for
+GlobalPlatform Cards</cite>.</dd>
+</dlentry>
+<dlentry>
+<dt>SCCOMCRT</dt>
+<dd>Specifies translation of an RSA private-key to the common Chinese-Remainder Theorem (CRT)
+format. This format is defined in <cite>Visa Smart Debit/Credit Technical Guide to Visa Applets for
+GlobalPlatform Cards</cite>. </dd>
+</dlentry>
+</dl>
+<note>
+<ol>
+<li>Translation from an M-E format to a CRT format is not supported.</li>
+<li>Translation from a CRT format to an M-E format is not supported.</li>
+<li rev="sh21i1">Export - Export an ECC or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> key from a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> internal key token to the AESKW
+key-formatting external format, wrapped by an AES key encrypting key (see also <xref
+href="wskc_aeskw_structure.dita"/>). </li>
+</ol>
+</note></li>
+<li>Specify the source key identifier of an external PKA key-token that has been protected by a
+fixed-length DES transport key to be translated. The RSA private key for smart card output formats
+SCVISA, SCCOMME, and SCCOMCRT must have translation control of XLATE-OK (offset 50 in the
+private-key section). </li>
+<li>Specify the source transport key identifier of an operational fixed-length DES transport key
+(EXPORTER or IMPORTER) to be used to unwrap the source key.</li>
+<li>Specify the target transport key identifier of an operational fixed-length DES transport key to
+be used to wrap the unwrapped source key. The control vector of the target transport key must have
+CV bit 22 = B'1' (XLATE). <note>Translation using an EXPORTER source transport key and an IMPORTER
+target transport key is not allowed. </note></li>
+<li>Specify the buffer of the target key token, to receive the returned external TDES-wrapped PKA
+key-token.</li>
+</ul>
+<p>  The verb builds the target external key-token using the chosen smart card format as follows: </p>
+<ol>
+<li>The external RSA source key-token is unwrapped using the operational fixed-length DES source
+transport key.</li>
+<li>The unwrapped key material is formatted into the specified target smart-card format.</li>
+<li>The formatted key-material is TDES encrypted in ECB mode using the operational fixed-length DES
+target transport key.</li>
+<li>The formatted and encrypted key material is written to the buffer identified by the
+<parmname>target_key_token</parmname> parameter, and the target key token length is updated.</li>
+</ol>
+</section>
+<section>
+<title>Target AES-protected formats</title>
+<p>To use this verb to translate an RSA key into an AES-protected format, specify: </p>
+<ul>
+<li>One of the following rule-array keywords for the AES-protected format to apply to the target
+key: <dl>
+<dlentry>
+<dt>EXTDWAKW</dt>
+<dd>specifies translation of an RSA key in an external TDES-wrapped (DES transport key) RSA
+key-token into an external AESKW-wrapped RSA key-token</dd>
+</dlentry>
+<dlentry>
+<dt>INTDWAKW</dt>
+<dd>specifies translation of an RSA key in an internal TDES-wrapped (PKA master key) RSA key-token
+into an internal AESKW-wrapped (APKA master key) PKA key-token. <note>An AESKW-wrapped key is
+protected at a higher level than a TDES-wrapped key.</note></dd>
+</dlentry>
+</dl></li>
+<li>The source key identifier of a PKA key-token to be translated, either in an external key-token
+that has been protected by a fixed-length DES transport key to be translated, or an internal
+key-token that has been protected by a PKA master key.</li>
+<li>Source key is in an external PKA key-token: <p>The source transport key identifier of an
+operational fixed-length DES transport key (EXPORTER or IMPORTER) to be used to unwrap the source
+key. The control vector of the source transport key does not require the XLATE bit on.</p><p>The
+target transport key identifier of an operational variable-length AES transport key to be used to
+wrap the OPK data of the target key-token. In addition, the key usage fields must have the algorithm
+wrap control set so that the key can wrap or unwrap RSA keys (WR-RSA).</p><p>The buffer of the
+target key-token, to receive the external RSA key-token with AES-wrapped OPK.</p></li>
+<li>Source key is in an internal PKA key-token: <p>Set the source transport key identifier length to
+0 or identify a null key-token as the source transport key.</p><p>Set the target transport key
+identifier length to 0 or identify a null key-token as the target transport key.</p><p>The buffer of
+the target key-token, to receive the internal PKA key-token with APKA-wrapped OPK.</p></li>
+</ul>
+<p> The verb builds the target external key-token using the chosen AES-protected format as follows: </p>
+<ol>
+<li>The source key-token is unwrapped using the source transport key or a PKA master-key, as
+appropriate.</li>
+<li>The unwrapped key material is wrapped using the AES OPK of the target key-token. The OPK in turn
+is wrapped by the AES key from the target transport key if the target key is external, or the APKA
+master key if the target key is internal.</li>
+<li>The completed external or internal key-token is written to the key token buffer identified by
+the <parmname>target_key_token</parmname> parameter, and the target key token length is
+updated.</li>
+</ol>
+</section>
+<section>
+<title>Target EMV formats</title>
+<p>To use this verb to translate an RSA key into an EMV format, specify one of the following
+<parmname>rule_array</parmname> keywords for the EMV format to apply to the target key:</p>
+<dl>
+<dlentry>
+<dt>EMVCRT</dt>
+<dd>specifies the translation of an RSA CRT private-key to an EMV CRT format and wrapped using
+TDES-ECB</dd>
+</dlentry>
+<dlentry>
+<dt>EMVDDA</dt>
+<dd>specifies the translation of an RSA CRT private-key to an EMV DDA format and wrapped using
+TDES-CBC</dd>
+</dlentry>
+<dlentry>
+<dt>EMVDDAE</dt>
+<dd>specifies the translation of an RSA CRT private-key to an EMV DDA format and wrapped using
+TDES-ECB. </dd>
+</dlentry>
+</dl>
+<p><b>Notes:</b></p>
+<ol>
+<li rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</li>
+<li>The PKA source key-token must have a private key section of X'08', and the bit length of the
+modulus must be 512 - 2040.</li>
+</ol>
+</section>
+</refbody></reference>

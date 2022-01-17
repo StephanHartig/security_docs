@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_second" xml:lang="en-us">
+<title>Edition April 2010, CCA Support Program Release 4.0.0</title>
+ <titlealts>
+    <navtitle>Edition April 2010, CCA Support Program Release 4.0.0</navtitle>
+    <searchtitle/>
+  </titlealts>
+
+<shortdesc>This edition describes the <tm tmtype="reg" trademark="IBM">IBM</tm> CCA Basic Services
+API for Release 4.0.0.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CEX3C</indexterm><indexterm>Java Native Interface
+(JNI)</indexterm><indexterm>JNI</indexterm><indexterm>Central Processor
+Assist for Cryptographic Functions (CPACF)</indexterm><indexterm>CPACF</indexterm>
+<indexterm>edition 2010</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For Release 4.0.0, changes to the CCA API include: <ul>
+<li>Support for the <tm tmtype="reg" trademark="IBM">IBM</tm> Crypto Express3 feature (CEX3C) in
+coprocessor mode</li>
+<?Pub Caret 52?>
+<li>A <tm tmtype="tm" trademark="Java">Java</tm> Native Interface (JNI) form for most of the
+verbs</li>
+<li>Central Processor Assist for Cryptographic Functions (CPACF) support</li>
+<li>These new verbs: <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrac1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarc1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkard1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkral1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarl1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/>)</li>
+</ul></li>
+</ul></p></section>
+</refbody>
+</reference>
+<?Pub *0000004819?>

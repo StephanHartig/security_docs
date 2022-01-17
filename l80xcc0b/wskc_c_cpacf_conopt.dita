@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_cpacf_conopt" xml:lang="en-us">
+<title>Access control points that affect <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> protected key operations</title>
+<titlealts>
+<navtitle>Access control points</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control points that affect
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> protected key operations for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>There are certain access points that enable the protected key feature.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CPACF <indexterm>access control points</indexterm></indexterm>
+<indexterm>access control points <indexterm>CPACF</indexterm></indexterm>
+<indexterm>High-performance secure DES keys</indexterm>
+<indexterm>DES key</indexterm><indexterm>DES
+key<indexterm>translation</indexterm></indexterm><indexterm>High-performance secure AES keys</indexterm><indexterm>AES
+key</indexterm><indexterm>AES key<indexterm>translation</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<dl>
+<dlentry>
+<dt>High-performance secure DES keys</dt>
+<dd>This is bit X'0295', and is set ON by default. <p>This ACP enables translating DES keys for use
+with the CPACF. Without this bit set ON, the call to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> to rewrap the key under the CPACF
+wrapping key will fail with a return code 8 and reason code 90, which will in turn imply disabling
+the use of this function by the host user. This error will not be returned to the user, instead the
+operation will be sent to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"
+/>. Because the default value of the bit is ON, it is assumed that the user will know that it is set
+OFF on purpose. A return code 8 and reason code 90 will cause no further requests to go to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> verb that translates keys, in
+an effort to preserve normal path performance.</p></dd>
+</dlentry>
+<dlentry>
+<dt>High-performance secure AES keys</dt>
+<dd>This is bit X'0296', and is set ON by default. <p>This ACP enables translating AES keys for use
+with the CPACF. Without this bit set ON, the call to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> to rewrap the key under the CPACF
+wrapping key will fail with a return code 8 and reason code 90, which will in turn imply disabling
+the use of this function by the host user. This error will not be returned to the user, instead the
+operation will be sent to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"
+/>. Because the default value of the bit is ON, it is assumed that the user knows that it is set OFF
+on purpose. A return code 8 and reason code 90 do not cause further requests to go to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> verb that translates keys, in an
+effort to preserve normal path performance.</p></dd>
+</dlentry>
+<!--<dlentry rev="sh20i1"><dt>ECC / Edward secure private keys</dt><dd>There are no specific ACPs that control <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> export. However, only ECC/Edwards private key tokens that have been tagged as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> export enabled (keyword <parmname>XPRTCPAC</parmname>) at key creation are exportable as protected keys.</dd></dlentry>-->
+</dl>
+</conbody>
+</concept>
+<?Pub *0000003534?>

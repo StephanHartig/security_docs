@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_ktvp" xml:lang="en-us">
+<title>Key-token verification patterns</title>
+<titlealts>
+<navtitle>Verification patterns</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key-token verification
+patterns</searchtitle>
+</titlealts>
+<shortdesc>These verification pattern techniques are used
+in the several types of CCA key tokens.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key-token verification patterns</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The techniques are: <ul>
+<li>AES and ECC key tokens: leftmost 8 bytes of SHA-256 hash of the
+string formed by pre-pending <ph>X'01'</ph> to the cleartext key value. </li>
+<li>DES key tokens:  <ul>
+<li>Triple-length master key, key token version <ph>X'00'</ph>: leftmost
+8 bytes of SHA-1 hash</li>
+<li>Triple-length master key, key token version <ph>X'03'</ph>: leftmost
+2 bytes of SHA-1 hash</li>
+<li>Double-length master key, key token version <ph>X'00'</ph>: leftmost
+8 bytes of <tm tmtype="reg" trademark="z/OS">z/OS</tm> hash</li>
+<li>Double-length master key, key token version <ph>X'03'</ph>: leftmost
+2 bytes of SHA-1 hash</li>
+</ul></li>
+<li>RSA key tokens:  <ul>
+<li>Private-key section types <ph>X'06'</ph> and <ph>X'08'</ph>: 16-byte
+MDC-4 value</li>
+<li>Private-key section types <ph>X'02'</ph> and <ph>X'05'</ph>: leftmost
+2 bytes of SHA-1 hash</li>
+</ul></li>
+<li>Trusted blocks: 16-byte MDC-4 value</li>
+</ul> </p>
+</conbody>
+</concept>
+<?Pub *0000001587?>

@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptr2_required" rev="sh20i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands </navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+<indexterm>required commands</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"
+/>)<indexterm>required commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> verb requires the
+commands shown in <xref href="#ptr2_required/bsm_2comm" format="dita"/> to be enabled in the active
+role. The commands required for mode keywords <b>REFORMAT</b> and <b>TRANSLAT</b> depend on whether
+an AES key-token is used.</p>
+<table id="bsm_2comm" pgwide="0"><title>Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></title><desc>
+<p outputclass="summary">Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1.31*"/>
+<colspec colname="col3" colwidth="1.09*"/>
+<colspec colname="col4" colwidth="3.6*"/>
+<thead>
+<row valign="bottom">
+<entry>Rule-array keyword</entry>
+<entry>At least one AES key-token used</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="1"><b>REFORMAT</b></entry>
+<entry>Yes</entry>
+<entry><ph>X’0391’ </ph></entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0391"/></entry>
+</row>
+<row>
+<entry>No</entry>
+<entry><ph>X’00B7’ (See Note 1.) </ph></entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x00B7"/></entry>
+</row>
+<row>
+<entry morerows="1"><b>TRANSLAT</b></entry>
+<entry>Yes</entry>
+<entry>X’0392’ </entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0392"/></entry>
+</row>
+<row>
+<entry>No</entry>
+<entry>X’00B3’ (See Note 2.) </entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x00B3"/></entry>
+</row>
+<row>
+<entry><b>DUKPT</b><b>&#x2011;</b><b>BH</b>, <b>DUKPT</b>
+<b>&#x2011;</b><b>IP</b>, <b>DUKPT</b><b>&#x2011;</b><b>OP</b>, <b>UKPTBOTH</b>, <b>UKPTIPIN</b>, or
+<b>UKPTOPIN</b>
+</entry>
+<entry>N/A</entry>
+<entry>X’00E1’ (See Note 3.)</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x00E1"/></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4">
+<note>
+<ol>
+<li>A role with offset X’00B7’ enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb and the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/> verb.</li>
+<li>A role with offset X’00B3’ enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb.</li>
+<li>A role with offset X’00E1’ can also use the verbs <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/>, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/>.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>Authenticated PAN change support is only allowed when
+(1)&NonBreakingSpace;<b>PAN-CHG</b> is specified in the rule array, (2)&NonBreakingSpace;the PTR2
+ISO-4 Reformat Requires Authenticated PAN Change to Change the PAN command (offset X'038B') is
+enabled in the active role, <i>and</i> (3)&NonBreakingSpace;the input and output PIN-block formats
+are both ISO-4. Certain restrictions apply when selecting a PAN change request. With offset
+<ph>X'038B'</ph> enabled in the active role, only authenticated PAN change requests are allowed when
+the input and output PIN-block formats are both ISO-4. When only one PIN-block format is ISO-4 (for
+example, ISO-0 to ISO-4 or ISO-4 to ISO-0), offset <ph>X'038B'</ph> does not prevent a reformat when
+there is no PAN change (that is, the 12 rightmost digits of the PAN, excluding the check digit, are
+equal).</p>
+<p><xref href="#ptr2_required/pftracc" format="dita"/> shows the required access control command
+that must be enabled in the active role for each supported PIN-block format translation and allowed
+authenticated PAN-change option:<table frame="all" rowsep="1" colsep="1" id="pftracc"
+><title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> PIN-block format
+translations and required access control commands</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>
+PIN-block format translations and required access control commands</p>
+</desc><tgroup cols="5">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="1.2*"/>
+<colspec colname="c4" colnum="4" colwidth="0.9*"/>
+<colspec colname="c5" colnum="5" colwidth="3.7*"/>
+<thead>
+<row>
+<entry namest="c1" nameend="c2" align="center">PIN-block format</entry>
+<entry morerows="1">Authenticated PAN-change option allowed</entry>
+<entry morerows="1">Offset</entry>
+<entry morerows="1">Command</entry>
+</row>
+<row>
+<entry>Input</entry>
+<entry>Output</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>ISO-0</b></entry>
+<entry><b>ISO-4</b></entry>
+<entry>No</entry>
+<entry>X’038E’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038E"/></entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-1</b> (See Note 1.)</entry>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1">No</entry>
+<entry>X’038C’ <ph><!--need this for line to wrap here--></ph>(See Note 2.)</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038C"/></entry>
+</row>
+<row>
+<entry>X’0393’ <ph><!--need this for line to wrap here--></ph>(See Note 2.)</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0393"/></entry>
+</row>
+<row>
+<entry><b>ISO-4</b></entry>
+<entry><b>ISO-0</b></entry>
+<entry>No</entry>
+<entry>X’038F’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038F"/></entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1"><b>ISO-1</b> (See Note 1.)</entry>
+<entry morerows="1">No</entry>
+<entry>X’038D’ <ph><!--need this for line to wrap here--></ph>(See Note 3.)</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038D"/></entry>
+</row>
+<row>
+<entry>X'0394' <ph><!--need this for line to wrap here--></ph>(See Note 3.)</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0394"/></entry>
+</row>
+<row>
+<entry><b>ISO-4</b></entry>
+<entry><b>ISO-4</b></entry>
+<entry>No</entry>
+<entry>X’038A’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038A"/></entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1">Yes</entry>
+<entry>X'038B'</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/></entry>
+</row>
+<row rev="sh21i1">
+<entry>X'0395' <ph><!--need this for line to wrap here--></ph>(See Note 4.)</entry>
+<entry><cmdname>Encrypted PIN Translate2 – Permit ISO-4 to ISO-4 PTR2AUTH</cmdname></entry>
+</row>
+<row>
+<entry namest="c1" nameend="c5">
+<note>
+<ol>
+<li>PIN-block format ISO-1 is not allowed when the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x032F"/> command (offset X'032F') is enabled in
+the active role.</li>
+<li>When the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0393"/> command (offset
+X'0393') is enabled in the active role, it has the effect of disallowing REFORMAT requests
+from ISO-1 to ISO-4 PIN blocks unless the outbound PIN encrypting key has the RFMT1TO4 key-usage
+field bit on in the AES key-token. See <xref href="#ptr2_required/rfmt1to4" format="dita"/>.</li>
+<li>When the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0394"/> command (offset
+<ph>X'0394'</ph>) is enabled in the active role, it has the effect of disallowing REFORMAT requests
+from ISO-4 to ISO-1 PIN blocks unless the inbound PIN encrypting key has the RFMT4TO1 key-usage
+field bit on in the AES key-token. See <xref href="#ptr2_required/rfmt4to1" format="dita"/>.</li>
+<li>The <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset
+<ph>X'038B'</ph>) does not prevent a reformat when only one PIN-block format is ISO-4 (for example,
+ISO-0 to ISO-4 or ISO-4 to ISO-0) and the 12 rightmost digits of the PAN, excluding the check digit,
+are equal).</li>
+<li rev="21i1">When enabled, the <cmdname>Encrypted PIN Translate2 – Permit ISO-4 to ISO-4 PTR2AUTH</cmdname> command 
+(offset X'0395') has the effect of disallowing REFORMAT requests from ISO-4 to ISO-4 PIN blocks unless the outbound PIN
+encrypting key has the PTR2AUTH key-usage field bit enabled in the AES key-token.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+<fig id="rfmt1to4">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> access control
+behavior for REFORMAT ISO-1 to ISO-4 requests</title>
+<image href="wskc_ptr2_rfmt1to4.jpg" width="400" placement="break">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> access control behavior
+for REFORMAT ISO-1 to ISO-4 requests</alt>
+</image>
+</fig>
+<fig id="rfmt4to1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> access control
+behavior for REFORMAT ISO-4 to ISO-1 requests</title>
+<image href="wskc_ptr2_rfmt4to1.jpg" width="400" placement="break">
+<alt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> access control behavior
+for REFORMAT ISO-4 to ISO-1 requests</alt>
+</image>
+</fig>
+<p>An enhanced PIN security mode is available for extracting PINs from a 3624 encrypted PIN-block
+and formatting an encrypted PIN-block into IBM 3624 format using the PADDIGIT PIN-extraction method.
+This mode limits checking of the PIN to decimal digits and a minimum PIN length of 4 is enforced. No
+other PIN-block consistency checking is performed. To activate this mode, enable the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0313"/> command (offset X’0313’) in the active
+role. See <xref href="wskc_c_pbf.dita#l0wskc02_pbf/l0wsck02_epsm_tab1"/> for a list of verbs
+affected when offset X’0313’ is enabled in the active role.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> defines PIN rules that
+affect how PIN blocks can be reformatted. To have this verb enforce the PIN rules defined by
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/>, enable the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> command (offset <ph>X'0350'</ph>) or the
+more restrictive <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset
+<ph>X'0352'</ph>) in the active role. If both of these commands are enabled, the more restrictive
+offset <ph>X'0352'</ph> overrides <ph>X'0350'</ph>.</p>
+<p><xref href="#ptr2_required/ptr2reqxlate" format="dita"/> provides a matrix of allowed and not
+allowed reformatting between PIN-block formats when <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> PIN rules are being enforced (that is,
+offset <ph>X'0350'</ph>, <ph>X'0352'</ph>, or both are enabled in the active role), as well as any
+exceptions.</p>
+<table colsep="1" frame="all" id="ptr2reqxlate" rowsep="1"><title>CSNBPTR2 rules between PIN-block
+formats when <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> rules are being
+enforced</title><desc>
+<p outputclass="summary">CSNBPTR2 rules between PIN-block formats when <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> rules are being enforced</p>
+</desc><tgroup cols="5">
+<colspec colname="c1" colnum="1" colwidth="1.7*"/>
+<colspec colname="c2" colnum="2" colwidth="1.1*"/>
+<colspec colname="c3" colnum="3" colwidth="2.0*"/>
+<colspec colname="c4" colnum="4" colwidth="1.1*"/>
+<colspec colname="c5" colnum="5" colwidth="1.1*"/>
+<thead>
+<row>
+<entry morerows="1" valign="bottom">Input PIN-block format</entry>
+<entry align="center" nameend="c5" namest="c2">Output PIN-block format</entry>
+</row>
+<row>
+<entry align="center"><b>IBM 3624</b></entry>
+<entry align="center"><b>IS0 Format 0, 3, or 4</b></entry>
+<entry align="center">ISO Format 1 (See Note 6.)</entry>
+<entry align="center"><b>ISO Format 2</b></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>IBM 3624</b></entry>
+<entry align="center">Allowed (see Note 3).</entry>
+<entry align="center">Allowed (see Note 3 and Note 4).</entry>
+<entry align="center">Allowed (see Note 3).</entry>
+<entry align="center">Not allowed.</entry>
+</row>
+<row>
+<entry><b>ISO Format 0, 3, or 4</b></entry>
+<entry align="center">Not allowed.</entry>
+<entry align="center">Allowed.</entry>
+<entry align="center">Not allowed (see Note 5).</entry>
+<entry align="center">Not allowed.</entry>
+</row>
+<row>
+<entry><b>ISO Format 1 (See Note 6.)</b></entry>
+<entry align="center">Not allowed.</entry>
+<entry align="center">Allowed.</entry>
+<entry align="center">Allowed.</entry>
+<entry align="center">Not allowed.</entry>
+</row>
+<row>
+<entry><b>ISO Format 2</b></entry>
+<entry align="center">Not allowed.</entry>
+<entry align="center">Not allowed.</entry>
+<entry align="center">Not allowed.</entry>
+<entry align="center">Not allowed.</entry>
+</row>
+<row>
+<entry nameend="c5" namest="c1">
+<note othertype="Note" type="other">
+<ol compact="yes" id="ol_qtx_2jz_hjb">
+<li>ANS <ph>X9.8</ph> PIN rules are enforced when the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> command (offset <ph>X'0350'</ph>), the
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset
+<ph>X'0352'</ph>), or both are enabled in the active role.</li>
+<li>ISO formats 0, 3, and 4 have a PAN as part of the format, while IBM 3624 and ISO formats 1 and 2
+do not.</li>
+<li>When the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset
+<ph>X'0352'</ph>) is enabled in the active role, the input and output PIN-block formats must both be
+ISO.</li>
+<li>When the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command is not
+enabled in the active role (offset <ph>X'0352'</ph>), the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0351"/> command (offset <ph>X'0351'</ph>)
+overrides the restriction to not allow a change of PAN data. The <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset <ph>X'038B'</ph>)
+overrides offset <ph>X'0351'</ph> and does not allow a change of PAN except for ISO-4 to ISO-4
+authenticated PAN change.</li>
+<li>When offsets <ph>X'0350'</ph> or <ph>X'0352'</ph> or both are enabled in the active role, the
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038D"/> command (offset
+<ph>X'038D'</ph>) overrides the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"
+/> PIN rules restriction to not allow a reformat from an ISO-4 to an ISO-1 PIN-block format.</li>
+<li>PIN-block format ISO-1 is not allowed when <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x032F"/> command (offset X'032F') is enabled in
+the active role.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>The three commands that, when enabled in the active role, affect how PIN processing is performed
+are described in more detail below:<ol>
+<li>Offset X’0350’ – <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> (see <xref
+href="#ptr2_required/ptr2reqxlate" format="dita"/>). <note>The <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset <ph>X'0352'</ph>)
+overrides offset X'0350'.</note><p> Enable offset <ph>X'0350'</ph> in the active role to apply
+additional restrictions to PIN processing as follows:<ul>
+<li>Do not translate or reformat an ISO PIN-block into a non-ISO PIN-block. Specifically, do not
+allow an IBM 3624 PIN-block format in the output_PIN_profile variable when the PIN-block format in
+the input_PIN_profile variable is not IBM 3624.</li>
+<li>Constrain use of ISO-2 PIN blocks to offline PIN verification and PIN change operations in
+integrated circuit card environments only. Specifically, do not allow ISO-2 input or output PIN
+blocks.</li>
+<li>Do not translate or reformat a PIN-block format that includes a PAN into a PIN-block format that
+does not include a PAN. Specifically, do not allow an ISO-1 PIN-block format in the
+<parmname>output_PIN_profile</parmname> variable when the PIN-block format in the
+<parmname>input_PIN_profile</parmname> variable is ISO-0, ISO-3, or ISO-4 (ISO-1 PIN blocks do not
+contain PAN data while ISO-0, ISO-3, and ISO-4 do contain PAN data).<note>The <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038D"/> command (offset X’038D’) when enabled in
+the active role overrides this rule for ISO-4 PIN blocks. When X’038D’ is enabled in the active role
+and the keys involved have the correct usage, an ISO-4 PIN-block can be reformatted to an ISO-1
+PIN-block.</note>
+</li>
+<li>Do not allow a change of PAN data. Specifically, when performing translations between PIN block
+formats that both include PAN data, do not allow the <parmname>input_PAN_data</parmname> and
+<parmname>output_PAN_data</parmname> variables to be different from the PAN data enciphered in the
+input PIN-block.<note>The <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0351"/>
+command (offset X’0351’) overrides the restriction to not allow a change of PAN data when the
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> command (offset X’0350’) is
+enabled in the active role, and allows a PIN-block format change from 3624 to ISO-0, ISO-3, or
+ISO-4.</note></li>
+</ul></p></li>
+<li>Offset X’0351’ – <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0351"/><note>The
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset
+<ph>X'038B'</ph>) overrides offset <ph>X'0351'</ph>. When <ph>X'038B'</ph> is enabled in the active
+role, a change of PAN is not allowed. The PAN can only be reformatted and the input and output PANs
+must match.</note><p>Enable offset <ph>X'0351'</ph> in the active role to override the restriction
+to not allow a change of PAN data. This override is applicable only when either the Enforce ANS X9.8
+PIN Rules command (offset <ph>X'0350'</ph>) is enabled in the active role, the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset <ph>X'0352'</ph>) is
+enabled in the active role, or both are enabled in the active role. This override is provided to
+support account number changes in issuing environments. Offset <ph>X'0351'</ph> has no effect if
+neither offset <ph>X'0350'</ph> nor offset <ph>X'0352'</ph> is enabled in the active role.</p> For
+ISO-4, the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset
+<ph>X'038B'</ph>) enables the authenticated PAN change feature. This feature occurs when offset
+<ph>X'038B'</ph> is enabled in the active role and the input and output PIN-block formats are both
+ISO-4.</li>
+<li>Offset <ph>X’0352’</ph> – <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/>
+(see <xref href="#ptr2_required/ptr2reqxlate" format="dita"/>).<p>Enable the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset <ph>X'0352'</ph>) in the
+active role to apply a more restrictive version of the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> command (offset <ph>X'0350'</ph>). In
+addition to the previously described restrictions of offset <ph>X’0350’</ph>, this command also
+restricts the <parmname>input_PIN_profile</parmname> and the <parmname>output_PIN_profile</parmname>
+to contain only ISO-0, ISO-1, ISO-3 or ISO-4 PIN block formats. Specifically, the IBM 3624 PIN-block
+format is not allowed with this command. Offset <ph>X'0352'</ph> overrides offset
+<ph>X'0350'</ph>.</p></li>
+</ol></p>
+<p>Each of the above three commands affects multiple verbs. For a list of the affected verbs, see
+offsets X’0350’, X’0351’, and X’0352’ in <xref href="wskc_r_apn.dita#l0wskc02_apn/l0wskc02_apn_acp"
+/>.</p>
+<p>Additional restrictions can be put in place or lessened to allow or disallow TRANSLAT and
+REFORMAT operations when ISO-4 PIN blocks are specified in either the input PIN profile or the
+output PIN profile. The following options are available:</p>
+<p>
+<table frame="all" rowsep="1" colsep="1" id="table_mkc_cbd_ffb"><desc>
+<p outputclass="summary">Additional restrictions can be put in place or lessened to allow or
+disallow TRANSLAT and REFORMAT operations when ISO-4 PIN blocks are specified in either the input
+PIN profile or the output PIN profile. The following options are available:</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="0.7*"/>
+<colspec colname="c4" colnum="4" colwidth="4.9*"/>
+<thead>
+<row valign="bottom">
+<entry namest="c1" nameend="c2" align="center">PIN-block format</entry>
+<entry morerows="1">Offset</entry>
+<entry morerows="1">Command</entry>
+</row>
+<row valign="bottom">
+<entry>Input</entry>
+<entry>Output</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>ISO-0</b></entry>
+<entry><b>ISO-4</b></entry>
+<entry>X’038E’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038E"/></entry>
+</row>
+<row>
+<entry><b>ISO-1</b> (See note.)</entry>
+<entry><b>ISO-4</b></entry>
+<entry>X’038C’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038C"/></entry>
+</row>
+<row>
+<entry><b>ISO-4</b></entry>
+<entry><b>ISO-0</b></entry>
+<entry>X’038F’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038F"/></entry>
+</row>
+<row>
+<entry><b>ISO-4</b></entry>
+<entry><b>ISO-4</b></entry>
+<entry>X’038A’</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038A"/></entry>
+</row>
+<row>
+<entry namest="c1" nameend="c4">
+<note>PIN-block format ISO-1 is not allowed when <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x032F"/> command (offset X'032F') is enabled in
+the active role (Release 5.5.12 or later).</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+<p>It is possible to do a translation using an output key that is weaker than the input key. To
+disallow this, set the appropriate commands shown in the table below:</p>
+<table colsep="1" frame="all" id="table_jwb_htq_jhb" rowsep="1"><desc>
+<p outputclass="summary">It is possible to do a translation using an output key that is weaker than
+the input key. To disallow this, set the appropriate commands shown in the table below</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.2*"/>
+<colspec colname="c2" colnum="2" colwidth="1.2*"/>
+<colspec colname="c3" colnum="3" colwidth="0.7*"/>
+<colspec colname="c4" colnum="4" colwidth="3.9*"/>
+<thead>
+<row valign="bottom">
+<entry namest="c1" nameend="c2" align="center">Algorithm of PIN-encrypting key</entry>
+<entry morerows="1">Offset</entry>
+<entry morerows="1">Command to disallow translation using a weaker key</entry>
+</row>
+<row valign="bottom">
+<entry>Input</entry>
+<entry>Output</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>AES</b></entry>
+<entry><b>DES</b></entry>
+<entry>X'01C5'</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x01C5"/></entry>
+</row>
+<row>
+<entry><b>AES</b></entry>
+<entry><b>AES</b></entry>
+<entry>X'01C6'</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x01C6"/></entry>
+</row>
+<row>
+<entry><b>DES</b></entry>
+<entry><b>DES</b></entry>
+<entry>X'01C7'</entry>
+<entry><cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x01C7"/></entry>
+</row>
+<row>
+<entry nameend="c4" namest="c1">Each of these commands affects multiple verbs. See <xref
+href="wskc_r_apn.dita#l0wskc02_apn/l0wskc02_apn_acp"/>.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is
+enabled in the domain role, the PIN block format in the <i>input_PIN_profile</i> and
+<i>output_PIN_profile</i> parameters is not allowed to be ISO-1.</p>
+</section>
+</refbody>
+</reference>

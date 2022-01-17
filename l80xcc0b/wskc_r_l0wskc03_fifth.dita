@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l0wskc03_fifth" xml:lang="en-us">
+<title>Edition January 2014, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+Support Program Release 4.2.10</title>
+  <titlealts>
+    <navtitle>Edition January 2014, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> Support Program Release 4.2.10</navtitle>
+    <searchtitle/>
+  </titlealts>
+<shortdesc>This edition describes the <tm tmtype="reg" trademark="IBM">IBM</tm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Basic Services API for Release
+4.2.10. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>edition 2014</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For Release 4.2.10, changes to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> API include the following added
+support:</p>
+<ul>
+<li>DEV-ANY (AUTOSELECT) support added via CSUACRA, CSUACRD, environment variable
+CSU_DEFAULT_ADAPTER, for automatic (simple) load balancing.</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage support for DES
+key tokens with Zero CVs.</li>
+<?Pub Caret -2?>
+<li>CEX4C support and recognition for all verbs and utilities.</li>
+</ul></section>
+</refbody>
+</reference>
+<?Pub *0000001500?>

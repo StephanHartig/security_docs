@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_zapghmacg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> verb to generate a keyed hash Message Authentication
+Code (HMAC) for the message string provided as input. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacg"/>)</indexterm></indexterm>
+<indexterm>Keyed-Hash Message Authentication Code (HMAC)<indexterm>generating</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>An HMAC key that can be used for generate is required to calculate
+the HMAC.</p>
+<p rev="sh21i1">The HMAC key supplied in a variable-length symmetric key token may contain a secure
+or a clear key value. Clear HMAC keys can be built using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) callable service.</p></section>
+</refbody></reference>

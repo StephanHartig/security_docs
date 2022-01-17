@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<?Pub Caret -2?>
+<task id="oc_strt_deamon" xml:lang="en-us"><title>Starting the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> slot
+daemon</title><titlealts><navtitle>Starting the daemon</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Starting the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> slot daemon on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts><shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword> slot
+daemon reads the configuration information and sets up the tokens.</shortdesc>
+<prolog><metadata><keywords><indexterm>pkcsslotd</indexterm><indexterm>slot
+daemon, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword></indexterm>
+<indexterm>daemon<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"></keyword><indexterm>slot
+daemon</indexterm></indexterm></keywords></metadata></prolog><taskbody>
+<prereq>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> configuration file must
+list all available tokens that are ready to register to <ph>the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></ph> slot daemon, see <xref
+href="wskc_r_oc_conf_file.dita#ocryptoki_conffile"/>. </prereq>
+<steps><step><cmd>Start the slot daemon by using one of the following
+commands:</cmd><info>
+<screen>
+$ systemctl start pkcsslotd.service  
+$ systemctl start pkcsslotd    
+</screen>
+<p>
+<note rev="sh18i1">For SLES11 and RHEL6, use the following commands to start and stop the slot
+daemon: <screen>
+$ service pkcsslotd start
+$ service pkcsslotd stop</screen>See the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> man page for the complete syntax of the
+<cmdname>service</cmdname> command.</note>
+</p>
+<p>Use the following command to make the daemon start automatically after a
+reboot:<screen>$ chkconfig pkcsslotd on</screen></p>
+</info></step></steps></taskbody></task>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_crdusage">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/></searchtitle>
+  </titlealts><shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>To disable CPACF usage in your processing thread, make a call to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/>,
+specifying the correct HCPUACLR and HCPUAPRT keyword as appropriate.
+See the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> <synph><var>rule_array</var></synph> keyword definitions, and see <xref href="wskc_c_cpacf_conopt.dita#l0wskc02_cpacf_conopt"/> for more affected verbs.</p></section>
+</refbody></reference>

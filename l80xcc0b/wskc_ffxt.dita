@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbffxt" rev="sh21i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/>)</title>
+<titlealts>
+<navtitle> FPE Algorithms Translate (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): FPE Algorithms Translate (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/> callable
+service implements the FPE algorithms (FF1, FF2, and FF2.1). This service returns the translated
+data for the requested format.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxt"/>)</indexterm>
+<indexterm>FF1, FF2, and FF2.1 <indexterm>format preserving algorithms</indexterm></indexterm>
+<indexterm>format preserving algorithms <indexterm>FF1, FF2, and FF2.1</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody/>
+</reference>

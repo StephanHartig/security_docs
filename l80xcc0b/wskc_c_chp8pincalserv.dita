@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_chp8pincalserv" xml:lang="en-us">
+<title>PIN verbs</title>
+<titlealts>
+<navtitle>PIN verbs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PIN verbs</searchtitle>
+</titlealts><abstract><shortdesc>CCA supports PIN verbs,
+various PIN algorithms, and PIN block formats. </shortdesc><?Pub Caret 0?>It
+also explains the use of PIN-encrypting keys.</abstract>
+<prolog><metadata>
+<keywords><indexterm>verbs<indexterm>PIN</indexterm></indexterm>
+<indexterm>PIN verb</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>You use the PIN <ph>verbs</ph> to generate, verify, and translate
+PINs. </p>
+</conbody>
+</concept>
+<?Pub *0000000794?>

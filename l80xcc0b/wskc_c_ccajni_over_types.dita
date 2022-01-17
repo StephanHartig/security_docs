@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ccajni_over_types" xml:lang="en-us">
+<title>Entry points and data types used in the JNI</title>
+<titlealts>
+<navtitle>Entry points and data types used in the JNI</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Entry points and data types used in the
+JNI for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>The <tm tmtype="tm" trademark="Java">Java</tm> entry points of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs are similar to the C entry points,
+except that a letter <codeph>J</codeph> is appended to the entry point name. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>Java<indexterm>entry point names</indexterm><indexterm>data types</indexterm></indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></indexterm>
+<indexterm>Byte *</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"></keyword>.html
+file</indexterm><indexterm>files<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"></keyword>.html</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>For example, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword> is
+the C entry point for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"></keyword> verb,
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"></keyword>J
+is the <tm tmtype="tm" trademark="Java">Java</tm> entry point for
+this verb. The detailed verb descriptions in <xref
+href="wskc_r_pt2a.dita#l0wskc02_pt2a"></xref> include a section for
+the JNI interface.</p>
+<p>The following data types are defined and used in the JNI: <dl>
+<dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></dt>
+<dd>Abstract data type. Parent for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/>
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/>.</dd>
+</dlentry>
+<dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></dt>
+<dd>64-bit native signed integer (type long), matching the C interface</dd>
+</dlentry>
+<dlentry>
+<dt>Byte *</dt>
+<dd>general pointer type to unsigned byte</dd>
+</dlentry>
+<dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></dt>
+<dd>This data type is deprecated.</dd>
+</dlentry>
+</dl></p>
+<note rev="sh16">The data type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"
+/></i></b> is replacing the old type <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> since <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> version 5.2. Both types inherit from
+abstract class <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"/></i></b>.
+Thus, type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> is
+still supported, so you can run existing applications with this deprecated data type. However, start
+using type <b><i><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"/></i></b> for new
+applications instead, because <b><i><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"/></i></b> may be removed in the future. </note>
+<p rev="sh16">The following documentation files (per default located in <filepath>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc</filepath>) provide information about
+these classes:</p>
+<sl rev="sh16">
+<sli><filepath><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"
+/>.html</filepath></sli>
+<sli><filepath><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnl"
+/>.html</filepath></sli>
+<sli><filepath><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hnint"
+/>.html</filepath></sli>
+</sl><?Pub
+Caret 110?>
+<p rev="sh16">A file named <filepath><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/hni"
+/>.html</filepath> provides information about this class. The default location of this file is
+<filepath>/opt/IBM/<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>/doc</filepath>
+directory.</p>
+</conbody>
+</concept>
+<?Pub *0000002372?>

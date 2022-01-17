@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appdiso1">
+<title>ISO Format 1</title>
+  <titlealts>
+    <navtitle>ISO Format 1</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ISO Format 1</searchtitle>
+  </titlealts><shortdesc>Example code for ISO Format 1.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>ISO-1</indexterm></indexterm>
+<indexterm>ISO-1 PIN block format</indexterm>
+<indexterm>ISO format 1</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This format is also named ECI format 4.</p></section><example>
+<codeblock>   PIN Block = CLPPPPrrrrrrrrRR
+
+where C = X'1'
+      L = X'4' to X'C'
+ </codeblock></example>
+</refbody></reference>

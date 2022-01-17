@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_akrw">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/></searchtitle>
+  </titlealts><shortdesc rev="sh18i2">Use this verb to write a copy of an AES or HMAC key-token from application
+storage into AES key-storage. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkraw1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarw1"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUAESDS</indexterm></indexterm>
+<indexterm>CSUAESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb can perform the following processing options:
+<ul>
+<li>Write the new key-token only if the old token was null.</li>
+<li>Write the new key-token regardless of content of the old token.</li>
+</ul></p></section>
+<section><p>AES key records are stored in the external key-storage file defined
+by the CSUAESDS environment variable.</p></section><section>
+<note>Before using this verb, use the verb <xref href="wskc_r_akrc.dita#l0wskc02_akrc"/> to create a key record in the key storage file.</note></section>
+</refbody></reference>

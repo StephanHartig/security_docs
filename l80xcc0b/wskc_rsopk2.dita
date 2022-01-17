@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<topic id="rsopk2" xml:lang="en-us">
+<title>RSA private key, 4096-bit Modulus-Exponent format with AES
+encrypted OPK section internal form</title>
+<titlealts>
+    <navtitle>RSA private key, 4096-bit Modulus-Exponent format with AES
+encrypted OPK section internal form</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): RSA private key, 4096-bit
+Modulus-Exponent format with AES encrypted OPK section internal form</searchtitle>
+  </titlealts>
+<prolog><metadata>
+<keywords>
+<indexterm>4096-bit Modulus-Exponent format</indexterm>
+<indexterm>AES encrypted OPK section</indexterm>
+<indexterm>RSA private key<indexterm>4096-bit Modulus-Exponent format</indexterm><indexterm>AES
+encrypted OPK section</indexterm><indexterm>internal form</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<body>
+<p>This RSA private key token is supported on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> Crypto Express coprocessors.</p>
+<table frame="all" id="rsopk2t" pgwide="1" scale="90"><title>RSA private
+key, 4096-bit Modulus-Exponent format with AES encrypted OPK section
+(X'30') internal form</title><desc><p outputclass="summary">RSA private
+key, 4096-bit Modulus-Exponent format with AES encrypted OPK section
+(X'30') internal form</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="21*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>000</entry>
+<entry>001</entry>
+<entry>Section identifier: <dl><dlentry>
+<dt><ph>X'30'</ph></dt>
+<dd>RSA private key, ME format with AES encrypted OPK.</dd>
+</dlentry></dl> </entry>
+</row>
+<row>
+<entry>001</entry>
+<entry>001</entry>
+<entry>Section version number (<ph>X'00'</ph>).</entry>
+</row>
+<row>
+<entry>002</entry>
+<entry>002</entry>
+<entry>Section length: 122 + nnn + ppp</entry>
+</row>
+<row>
+<entry>004</entry>
+<entry>002</entry>
+<entry>Length of Associated Data section</entry>
+</row>
+<row>
+<entry>006</entry>
+<entry>002</entry>
+<entry>Length of payload data: ppp</entry>
+</row>
+<row>
+<entry colname="col1">008</entry>
+<entry colname="col2">002</entry>
+<entry colname="col3">Reserved, binary zero.  </entry>
+</row>
+<row>
+<entry colname="col1"></entry>
+<entry colname="col2"></entry>
+<entry colname="col3"><b>Start of Associated Data</b></entry>
+</row>
+<row>
+<entry>010</entry>
+<entry>001</entry>
+<entry>Associated Data Version:  <dl><dlentry>
+<dt>X'02'</dt>
+<dd>Version 2</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry>011</entry>
+<entry>001</entry>
+<entry>Key format and security flag:  <dl><dlentry>
+<dt>X'02'</dt>
+<dd>Encrypted ME RSA private-key subsection identifier</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry>012</entry>
+<entry>001</entry>
+<entry>Key source flag:  <p>Internal tokens:  <dl>
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>Imported from cleartext</dd>
+</dlentry><dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>Imported from ciphertext</dd>
+</dlentry><dlentry>
+<dt><ph>X'23'</ph></dt>
+<dd>Generated using regeneration data</dd>
+</dlentry><dlentry>
+<dt><ph>X'24'</ph></dt>
+<dd>Randomly generated</dd>
+</dlentry></dl></p></entry>
+</row>
+<row>
+<entry>013</entry>
+<entry>001</entry>
+<entry>Reserved, binary zeroes.</entry>
+</row>
+<row>
+<entry>014</entry>
+<entry>001</entry>
+<entry>Hash type: <dl><dlentry>
+<dt>X'00'</dt>
+<dd>Clear key</dd>
+</dlentry><dlentry>
+<dt>X'02'</dt>
+<dd>SHA-256</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry>015</entry>
+<entry>032</entry>
+<entry>SHA-256 hash of all optional sections that follow
+the public key section, if any; else 32 bytes of X'00'.</entry>
+</row>
+<row>
+<entry>047</entry>
+<entry>003</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>050</entry>
+<entry>001</entry>
+<entry>Key-usage flag:  <dl compact="yes"><dlentry>
+<dt>B'11xx xxxx'</dt>
+<dd>Only key unwrapping (KM-ONLY)</dd>
+</dlentry><dlentry>
+<dt>B'10xx xxxx'</dt>
+<dd>Both signature generation and key unwrapping (KEY-MGMT)</dd>
+</dlentry><dlentry>
+<dt>B'01xx xxxx'</dt>
+<dd>Undefined</dd>
+</dlentry><dlentry>
+<dt>B'00xx xxxx'</dt>
+<dd>Only signature generation (SIG-ONLY)</dd>
+</dlentry></dl> <p>Translation control:</p> <dl><dlentry>
+<dt>B'xxxx xx1x'</dt>
+<dd>Private key translation is allowed (XLATE-OK)</dd>
+</dlentry><dlentry>
+<dt>B'xxxx xx0x'</dt>
+<dd>Private key translation is not allowed (NO-XLATE)</dd>
+</dlentry></dl></entry>
+</row>
+<row>
+<entry>051</entry>
+<entry>001</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>052</entry>
+<entry>002</entry>
+<entry>Length of modulus: nnn bytes</entry>
+</row>
+<row>
+<entry>054</entry>
+<entry>002</entry>
+<entry>Length of private exponent: ddd bytes</entry>
+</row>
+<row>
+<entry></entry>
+<entry></entry>
+<entry><b>End of Associated Data</b></entry>
+</row>
+<row>
+<entry>056</entry>
+<entry>048</entry>
+<entry>16 byte confounder + 32-byte Object Protection
+Key. <p>OPK used as an AES key.</p> <p>encrypted with the ECC master
+key.</p></entry>
+</row>
+<row>
+<entry>104</entry>
+<entry>016</entry>
+<entry>Key verification pattern  <ul>
+<li>For an encrypted private key, ECC master-key verification pattern
+(MKVP)</li>
+<li>For a skeleton, binary zeros</li>
+</ul></entry>
+</row>
+<row>
+<entry>120</entry>
+<entry>002</entry>
+<entry>Reserved, binary zeros.</entry>
+</row>
+<row>
+<entry>122</entry>
+<entry>nnn</entry>
+<entry>Modulus</entry>
+</row>
+<row>
+<entry>122+nnn</entry>
+<entry>ppp</entry>
+<entry>Payload starts here and includes:  <p>When this
+section is unencrypted: <ul>
+<li>Clear private exponent d.</li>
+<li>Length ppp bytes : ddd + 0</li>
+</ul></p> <p>When this section is encrypted: <ul>
+<li>Private exponent d within the AESKW-wrapped payload.</li>
+<li>Length ppp bytes : ddd + AESKW format overhead</li>
+</ul></p></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>
+<?Pub *0000006512?>

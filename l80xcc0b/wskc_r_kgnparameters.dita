@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgnparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_form parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>key form</indexterm>
+<indexterm>importable key form</indexterm>
+<indexterm>exportable key form</indexterm>
+<indexterm>operational key form</indexterm>
+<indexterm>key form</indexterm>
+<indexterm>EX</indexterm>
+<indexterm>EXEX</indexterm>
+<indexterm>IM</indexterm>
+<indexterm>IMEX</indexterm>
+<indexterm>IMIM</indexterm>
+<indexterm>OP</indexterm>
+<indexterm>OPEX</indexterm>
+<indexterm>OPIM</indexterm>
+<indexterm>OPOP</indexterm>
+<indexterm>OP</indexterm>
+<indexterm>IM</indexterm>
+<indexterm>EX</indexterm>
+<indexterm>key_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>SINGLE</indexterm>
+<indexterm>SINGLE-R</indexterm>
+<indexterm>KEYLN8</indexterm>
+<indexterm>DOUBLE</indexterm>
+<indexterm>DOUBLE-O</indexterm>
+<indexterm>KEYLN16</indexterm>
+<indexterm>KEYLN24</indexterm>
+<indexterm>KEYLN32</indexterm>
+<indexterm>AES</indexterm>
+<indexterm>AESTOKEN</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>CVARDEC</indexterm>
+<indexterm>CVARENC</indexterm>
+<indexterm>CVARPINE</indexterm>
+<indexterm>CVARXCVL</indexterm>
+<indexterm>CVARXCVR</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>key_type_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>AESDATA</indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>DATAXLAT</indexterm>
+<indexterm>DECIPHER</indexterm>
+<indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>key type</indexterm>
+<indexterm>key form</indexterm>
+<indexterm>CVARDEC</indexterm>
+<indexterm>CVARENThe restrictions for .C</indexterm>
+<indexterm>key_type_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>KEK_key_identifier_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>KEK_key_identifier_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_form</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 4-byte keyword that defines the type of key you want generated. This parameter also
+specifies if each key should be returned for either operational, importable, or exportable use. The
+keyword must be in a 4-byte field, left-aligned, and padded with blanks.<p>The possible key forms
+are: </p><dl>
+<dlentry>
+<dt>Operational (OP)</dt>
+<dd>The key is used for cryptographic operations on the local system. Operational keys are protected
+by master key variants and can be stored in the CCA key storage file or held by applications in
+internal key tokens.</dd>
+</dlentry>
+<dlentry>
+<dt>Importable (IM)</dt>
+<dd>The key is stored with a file or sent to another system. Importable keys are protected by
+importer key-encrypting keys.</dd>
+</dlentry>
+<dlentry>
+<dt>Exportable (EX)</dt>
+<dd>The key is transported or exported to another system and imported there for use. Exportable keys
+are protected by exporter key-encrypting keys and cannot be used by CCA <ph>verb</ph>.</dd>
+</dlentry>
+</dl><p>Importable and exportable keys are contained in external key tokens. For more information on
+key tokens, refer to <xref href="wskc_c_ktn.dita#l0wskc02_ktn"/>.</p><p>The first two characters
+refer to <synph><var>key_type_1</var></synph>. The next two characters refer to
+<synph><var>key_type_2</var></synph>.</p><p>The following keywords are allowed:
+<synph><kwd>OP</kwd></synph>, <synph><kwd>IM</kwd></synph>, <synph><kwd>EX</kwd></synph>,
+<synph><kwd>OPIM</kwd></synph>, <synph><kwd>OPEX</kwd></synph>, <synph><kwd>IMEX</kwd></synph>,
+<synph><kwd>EXEX</kwd></synph>, <synph><kwd>OPOP</kwd></synph>, and <synph><kwd>IMIM</kwd></synph>.
+See <xref href="#l0wskc02_kgnparameters/l0wskc02_keygenf"/> for their meanings. </p><table
+id="l0wskc02_keygenf" pgwide="1" frame="all">
+<title>Keywords for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb
+key_form parameter</title>
+<desc>
+<p outputclass="summary">Keywords for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb <i>key_form</i> parameter</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>EX</kwd></synph></entry>
+<entry>Return one copy of the key enciphered under an exporter KEK with key usage EXEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>EXEX</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, both enciphered under exporter key-encrypting keys with key
+usage EXEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>IM</kwd></synph></entry>
+<entry rev="sh16i1">Return one copy of the key enciphered under an importer KEK with key usage IMEX. </entry>
+</row>
+<row>
+<entry><synph><kwd>IMEX</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, the first enciphered under an importer
+KEK with key usage IMEX, and the second under an exporter KEK with key usage IMEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>IMIM</kwd></synph></entry>
+<entry>Return two copies of the key, both enciphered under importer KEKs with
+key usage IMIM. </entry>
+</row>
+<row>
+<entry><synph><kwd>OP</kwd></synph></entry>
+<entry>Return one copy of the key enciphered under the DES master key.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPEX</kwd></synph></entry>
+<entry>Return two copies of the key, the first enciphered key under the DES master
+key and the second under an exporter KEK with key usage OPEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPIM</kwd></synph></entry>
+<entry>Return two copies of the key, the first enciphered key under the DES
+master key and the second under an importer KEK with key usage OPIM.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPOP</kwd></synph></entry>
+<entry>Return two copies of the key, both enciphered under the DES
+master key. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>The key forms are defined as follows:</p>
+<dl>
+<dlentry>
+<dt>Operational (OP)</dt>
+<dd>The key value is enciphered under a master key. The result is placed into an internal key token.
+The key is then operational at the local system.</dd>
+</dlentry>
+<dlentry>
+<dt>Importable (IM)</dt>
+<dd rev="sh16i1">The key value is enciphered under an importer key-encrypting key.
+The result is placed into an external key token. The key can then be imported later to
+the local node. This key form cannot be used by any CCA verb. </dd>
+</dlentry>
+<dlentry>
+<dt>Exportable (EX)</dt>
+<dd>The key value is enciphered under an exporter key-encrypting key. The result is placed into an
+external key token. The key can then be transported or exported to another system and imported there
+for use. This key form cannot be used by any <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verb.</dd>
+</dlentry>
+</dl><p>The keys are placed into tokens that the
+<synph><var>generated_key_identifier_1</var></synph> and
+<synph><var>generated_key_identifier_2</var></synph> parameters identify.</p><p>Valid key type
+combinations depend on the key form. See <xref
+href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/> for valid key combinations.</p></pd></plentry>
+<plentry><pt>key_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 8-byte value that defines the length of the key as being 8, 16, 24 or 32 bytes. The
+keyword must be left-aligned and padded on the right with blanks. You must supply one of the key
+length values in the <synph><var>key_length</var></synph> parameter.<note rev="sh20i1">As of
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key TDES
+keys. As a key management service this includes three-key TDES key encrypting keys
+(KEKs).</note><p><xref href="#l0wskc02_kgnparameters/l0wskc02_keygen_kl_tab1"/> lists the key
+lengths used for various key types. </p>
+<table id="l0wskc02_keygen_kl_tab1"><title>Key length values for the 
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</title>
+<desc>
+<p outputclass="summary">Key length values for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> verb</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="4*"></colspec>
+<colspec colname="col2" colwidth="21*"></colspec>
+<colspec colname="col3" colwidth="4*"></colspec>
+<thead>
+<row>
+<entry>Value</entry>
+<entry>Description</entry>
+<entry>Algorithm</entry>
+</row>
+</thead>
+<tbody><row rev="sh20i1">
+<entry>SINGLE or KEYLN8</entry>
+<entry colname="col2">Single length (8-byte or 64-bit) key</entry>
+<entry colname="col3">DES</entry>
+</row><row rev="sh20i1">
+<entry>SINGLE-R</entry>
+<entry>Generates a double-length (two-key) Triple-DES key (16 bytes) with replicated key halves,
+making an effective single-length key (CV bit 40 = B'0'; see the  <xref
+href="#l0wskc02_kgnparameters/triple_note" format="dita">Note</xref> at the end of the table). DES
+only.</entry>
+<entry colname="col3">DES</entry>
+</row><row>
+<entry colname="col1"><synph><kwd>DOUBLE</kwd></synph> or <synph><kwd>KEYLN16</kwd></synph></entry>
+<entry colname="col2">Double length (16-byte or 128-bit) key</entry>
+<entry colname="col3">AES or DES</entry>
+</row><row>
+<entry colname="col1"><synph><kwd>DOUBLE-O</kwd></synph></entry>
+<entry colname="col2">Double length (16-byte or 128-bit) key</entry>
+<entry colname="col3">DES</entry>
+</row>
+
+<row rev="sh20i1">
+<entry><synph><kwd>TRIPLE</kwd></synph></entry>
+<entry>Generates a triple-length (three-key) Triple-DES key (24 bytes) that does not have key parts
+guaranteed unique (CV bit 40 = B'0'; see the  <xref href="#l0wskc02_kgnparameters/triple_note"
+format="dita">Note</xref> at the end of the table).</entry>
+<entry colname="col3">DES only</entry>
+</row>
+
+<row rev="sh20i1">
+<entry><synph><kwd>TRIPLE-O</kwd></synph></entry>
+<entry>Generates a triple-length (three-key) Triple-DES key (24 bytes) that has key parts guaranteed
+unique (CV bit 40 = B'1';´see the  <xref href="#l0wskc02_kgnparameters/triple_note" format="dita"
+>Note</xref> at the end of the table). </entry>
+<entry>DES only.</entry>
+</row>
+
+<row rev="sh20i1">
+<entry><synph><kwd>ZEROCV24</kwd></synph></entry>
+<entry>Generates a triple-length (three-key) Triple-DES key (24 bytes) for a default DATA key that
+does not have key parts guaranteed unique. Requires at least one generated key that is in external
+form. Not valid with key form keyword OP or OPOP. <note othertype="Notes" type="other">
+<ul>
+<li>Each external key is returned in a Version X'01' fixed-length DES key-token, that is,
+in a key-token that has a control vector valued to binary zeros.
+</li>
+<li>If OPIM or OPEX is specified, the internal key is returned in a non-Version X'01'
+fixed-length DES key-token. The internal key-token has a default control vector for a
+triple-length DATA key.</li>
+</ul>
+</note>
+</entry>
+<entry colname="col3">DES only.</entry>
+</row>
+
+
+<row>
+<entry><synph><kwd>KEYLN24</kwd></synph></entry>
+<entry>Triple length (24-byte or 192-bit) key</entry>
+<entry>AES or DES</entry>
+</row>
+<row>
+<entry><synph><kwd>KEYLN32</kwd></synph></entry>
+<entry>32-byte (256-bit) key</entry>
+<entry>AES</entry>
+</row>
+<row rev="sh20i1">
+<entry nameend="col3" namest="col1">
+<note id="triple_note">Excluding Version X'01' fixed-length DES key tokens, the key-form bits of a
+triple-DES control vector can be set so that the key parts are guaranteed unique (that is, not
+replicated). This control vector setting prevents a double-length or triple-length key that has an
+effective strength of single length, or a triple-length key that has an effective strength of double
+length, from masquerading as a stronger Triple-DES key. CCA supports the keyword DOUBLE-O to force
+the verb to generate a double-length Triple-DES key that has both key parts guaranteed unique.
+<p>Beginning with Release 5.4, CCA also supports the keyword TRIPLE-O to force the verb to generate
+a triple-length Triple-DES key that has all three key parts guaranteed unique. Another method to
+force the verb to generate a Triple-DES key with key parts guaranteed unique is to provide a key
+token with a control vector that has the required key form bits set. 
+See <xref href="wskc_r_kformbfff.dita"/>.</p></note>
+</entry>
+</row>
+</tbody>
+</tgroup></table><p>AES keys allow only <synph><kwd>KEYLN16</kwd></synph>,
+<synph><kwd>KEYLN24</kwd></synph>, and <synph><kwd>KEYLN32</kwd></synph>. To generate a 128-bit AES
+key, specify <synph><var>key_length</var></synph> as <synph><kwd>KEYLN16</kwd></synph>. For 192-bit
+AES keys specify <synph><var>key_length</var></synph> as <synph><kwd>KEYLN24</kwd></synph>. A
+256-bit AES key requires a <synph><var>key_length</var></synph> of
+<synph><kwd>KEYLN32</kwd></synph>. All AES keys are <synph><kwd>DATA</kwd></synph> keys.</p><p>Keys
+with a length of 32 bytes have four 8-byte key parts. This key length is valid only for AES keys. To
+generate a 32-byte AES key with four different values to be the basis of each key part, specify
+<synph><var>key_length</var></synph> as <synph><kwd>KEYLN32</kwd></synph>.</p><p>To generate a
+single-length key, specify <synph><var>key_length</var></synph> as <synph><kwd>SINGLE</kwd></synph>
+or <synph><kwd>KEYLN8</kwd></synph>.</p><p>Double-length (16-byte) keys have an 8-byte left half and
+an 8-byte right half. Both halves can have identical clear values or not. If you want the same value
+to be used in both key halves (called <synph><var>replicated key values</var></synph>), specify a
+<synph><var>key_length</var></synph> of <synph><kwd>SINGLE</kwd></synph>,
+<synph><kwd>SINGLE-R</kwd></synph>, or <synph><kwd>KEYLN8</kwd></synph>. If you want different
+values to be the basis of each key half, specify a <synph><var>key_length</var></synph> of
+<synph><kwd>DOUBLE</kwd></synph> or <synph><kwd>KEYLN16</kwd></synph>.</p><p>Triple-length (24-byte)
+keys have three 8-byte key parts. This key length is valid for DATA keys only. To generate a
+triple-length <synph><kwd>DATA</kwd></synph> key with three different values to be the basis of each
+key part, specify a <synph><var>key_length</var></synph> of
+<synph><kwd>KEYLN24</kwd></synph>.</p><p>Use <synph><kwd>SINGLE</kwd></synph> or
+<synph><kwd>SINGLE-R</kwd></synph> if you want to create a DES transport key that you would use to
+exchange <synph><kwd>DATA</kwd></synph> keys with a PCF system. Because PCF does not use
+double-length transport keys, specify <synph><kwd>SINGLE</kwd></synph> so that the effects of
+multiple encipherment are nullified.</p><p>When generating an AKEK, the
+<synph><var>key_length</var></synph> parameter is ignored. The AKEK key length (8-byte or 16-byte)
+is determined by the skeleton token created by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> verb and provided in the
+<synph><var>generated_key_identifier_1</var></synph> parameter.</p><p>The key length specified must
+be consistent with the key length indicated by the token you supply. For DES keys, this length is a
+field in the control vector. For AES keys, the length is an explicit field in the token. <xref
+href="#l0wskc02_kgnparameters/l0wskc02_kgn_tab3"/> shows the valid key lengths for each key type. An
+<b>X</b> indicates that a key length is permitted for a key type. A <b>Y</b> indicates that the key
+generated will be a double-length key with replicated key values. It is preferred that
+<synph><kwd>SINGLE-R</kwd></synph> be used for this result.</p>
+<table id="l0wskc02_kgn_tab3" pgwide="1" frame="all" rev="shd3"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> - key lengths for each key type</title><desc>
+<p outputclass="summary"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> - key
+lengths for each key type</p>
+</desc><tgroup cols="7">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="*"/>
+<colspec colname="col4" colwidth="*"/>
+<colspec colname="col5" colwidth="*"/>
+<colspec colname="col6" colwidth="*"/>
+<colspec colname="col7" colwidth="*"/>
+<thead>
+<row>
+<entry>Key Type</entry>
+<entry align="center"><synph><kwd>SINGLE</kwd></synph> (KEYLN8)</entry>
+<entry align="center">SINGLE-R</entry>
+<entry align="center">DOUBLE (KEYLN16)</entry>
+<entry align="center">DOUBLE-O</entry>
+<entry align="center">Triple (KEYLN24)</entry>
+<entry align="center">(KEYLN32)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>AESDATA</kwd></synph></entry>
+<entry/>
+<entry/>
+<entry align="center">X</entry>
+<entry/>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>MAC</kwd></synph>
+<synph><kwd>MACVER</kwd></synph></lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry><synph><kwd>DATA</kwd></synph></entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry align="center">X</entry>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>DATAM</kwd></synph>
+<synph><kwd>DATAMV</kwd></synph></lines>
+</entry>
+<entry/>
+<entry/>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>EXPORTER</kwd></synph>
+<synph><kwd>IMPORTER</kwd></synph></lines>
+</entry>
+<entry align="center">
+<lines>Y
+Y</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>IKEYXLAT</kwd></synph>
+<synph><kwd>OKEYXLAT</kwd></synph></lines>
+</entry>
+<entry align="center">
+<lines>Y
+Y</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>CIPHER</kwd></synph>
+<synph><kwd>DECIPHER</kwd></synph>
+<synph><kwd>ENCIPHER</kwd></synph></lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X</lines>
+</entry>
+<entry/>
+<entry align="center">
+<lines>X
+X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>IPINENC</kwd></synph>
+<synph><kwd>OPINENC</kwd></synph>
+<synph><kwd>PINGEN</kwd></synph>
+<synph><kwd>PINVER</kwd></synph></lines>
+</entry>
+<entry align="center">
+<lines>Y
+Y
+Y
+Y</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>CVARDEC</kwd></synph>*
+<synph><kwd>CVARENC</kwd></synph>*
+<synph><kwd>CVARPINE</kwd></synph>*
+<synph><kwd>CVARXCVL</kwd></synph>*
+<synph><kwd>CVARXCVR</kwd></synph>*</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X
+X
+X</lines>
+</entry>
+<entry/>
+<entry align="center">
+<lines>X
+X
+X
+X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X
+X
+X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry>
+<lines><synph><kwd>DKYGENKY</kwd></synph>*
+<synph><kwd>KEYGENKY</kwd></synph>*</lines>
+</entry>
+<entry/>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry align="center">
+<lines>X
+X</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+<row>
+<entry rev="shd3">
+<lines><synph><kwd>CIPHERXI</kwd></synph>
+<synph><kwd>CIPHERXL</kwd></synph>
+<synph><kwd>CIPHERXO</kwd></synph>
+</lines>
+</entry>
+<entry/>
+<entry/>
+<entry/>
+<entry align="center">
+<lines>X
+X
+X
+</lines>
+</entry>
+<entry/>
+<entry/>
+</row>
+</tbody>
+</tgroup></table><note> Key types marked with an asterisk (*) are requested through the use of the
+<synph><kwd>TOKEN</kwd></synph> keyword and specifying a proper control vector in a key
+token.</note></pd></plentry>
+<plentry><pt>key_type_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 8-byte keyword from the following group:
+<codeblock>
+AESDATA      DATA          ENCIPHER      MACVER
+AESTOKEN     DATAC         EXPORTER      OKEYXLAT
+CIPHER       DATAM         IKEYXLAT      OPINENC
+CIPHERXI     DATAMV        IMPORTER      PINGEN
+CIPHERXL     DATAXLAT      IPINENC       PINVER
+CIPHERXO     DECIPHER      MAC
+</codeblock>
+or the keyword <synph><kwd>TOKEN</kwd></synph>.<p>For information on the meaning of the key types,
+see <xref href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</p><p>Use the
+<parmname>key_type_1</parmname> parameter for the first, or only key, that you want generated. The
+keyword must be left-aligned and padded with blanks. Valid type combinations depend on the key
+form.</p><p>If <parmname>key_type_1</parmname> is <synph><kwd>TOKEN</kwd></synph>, <ph>CCA</ph>
+examines the control vector (CV) field in the <parmname>generated_key_identifier_1</parmname>
+parameter to derive the key type. When <parmname>key_type_1</parmname> is
+<synph><kwd>TOKEN</kwd></synph>, <ph>CCA</ph> does not check for the length of the key for DATA
+keys. Instead, it uses the <parmname>key_length</parmname> parameter to determine the length of the
+key.</p><p>Use the <synph><kwd>AESTOKEN</kwd></synph> keyword for AES keys, or the
+<synph><kwd>TOKEN</kwd></synph> keyword for DES keys to indicate that the verb should determine the
+key type from the key token that you supply. For AES, all keys are type
+<synph><kwd>AESDATA</kwd></synph>. For DES, the key type is determined from the control vector in
+the key tokens. Alternatively, you can specify the key type using keywords shown in <xref
+href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt1"/> and <xref
+href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/>.</p><p><synph><kwd>Key types can
+have mandatory key forms.</kwd></synph> For example, CVARENC keys must be generated in pairs with
+<synph><kwd>CVARDEC</kwd></synph> keys. The reason is that a <synph><kwd>CVARENC</kwd></synph> key
+can only be used for encryption, and without a <synph><kwd>CVARDEC</kwd></synph> key you cannot
+decrypt the data. See <xref href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt1"/> and
+<xref href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/> for valid key type and key
+form combinations.</p></pd></plentry>
+<plentry><pt>key_type_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An 8-byte keyword from the following group:
+<codeblock>
+AESDATA      DATA          ENCIPHER      MACVER
+AESTOKEN     DATAC         EXPORTER      OKEYXLAT
+CIPHER       DATAM         IKEYXLAT      OPINENC
+CIPHERXI     DATAMV        IMPORTER      PINGEN
+CIPHERXL     DATAXLAT      IPINENC       PINVER
+CIPHERXO     DECIPHER      MAC
+</codeblock>
+or the keyword <synph><kwd>TOKEN</kwd></synph>.<p>For information on the meaning of the key types,
+see <xref href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</p><p>Use the
+<synph><var>key_type_2</var></synph> parameter for a key pair, which is shown in <xref
+href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/>. The keyword must be left-aligned
+and padded with blanks. Valid type combinations depend on the key form.</p><p>If
+<synph><var>key_type_2</var></synph> is <synph><kwd>TOKEN</kwd></synph>, <ph>CCA</ph> examines the
+control vector (CV) field in the <synph><var>generated_key_identifier_2</var></synph> parameter to
+derive the key type. When <synph><var>key_type_2</var></synph> is <synph><kwd>TOKEN</kwd></synph>,
+<ph>CCA</ph> does not check for the length of the key for <synph><kwd>DATA</kwd></synph> keys.
+Instead, it uses the <synph><var>key_length</var></synph> parameter to determine the length of the
+key.</p><p>If you want only one key to be generated, specify the
+<synph><var>key_type_2</var></synph> and <synph><var>KEK_key_identifier_2</var></synph> as binary
+zeros. </p><p>See <xref href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt1"/> and <xref
+href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/> for valid key type and key form
+combinations.</p></pd></plentry>
+<plentry><pt>KEK_key_identifier_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string of an internal key token containing the importer or exporter key-encrypting
+key, or a key label. If you supply a key label that is less than 64-bytes, it must be left-aligned
+and padded with blanks. <synph><var>KEK_key_identifier_1</var></synph> is required for a
+<synph><var>key_form</var></synph> of <synph><kwd>IM</kwd></synph>, <synph><kwd>EX</kwd></synph>,
+<synph><kwd>IMEX</kwd></synph>, <synph><kwd>EXEX</kwd></synph>, or
+<synph><kwd>IMIM</kwd></synph>.<p>If the <synph><var>key_form</var></synph> is
+<synph><kwd>OP</kwd></synph>, <synph><kwd>OPEX</kwd></synph>, <synph><kwd>OPIM</kwd></synph>, or
+<synph><kwd>OPOP</kwd></synph>, the <synph><var>KEK_key_identifier_1</var></synph> is null.</p><p>If
+the NOCV bit is on in the internal key token containing the key-encrypting key, the key-encrypting
+key itself (not the key-encrypting key variant) is used to encipher the generated key.</p><p>Control
+vectors are explained in <xref href="wskc_c_cv.dita#l0wskc02_cv"/> and the NOCV bit is shown in
+<xref href="wskc_r_kt.dita#l0wskc02_kt/l0wskc02_intky"/>.</p><p>This parameter is not used when
+generating AES keys, and should point to null key-tokens.</p></pd></plentry>
+<plentry><pt>KEK_key_identifier_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string of an internal key token containing the importer or exporter key-encrypting
+key, or a key label of an internal token. If you supply a key label that is less than 64-bytes, it
+must be left-aligned and padded with blanks. <synph><var>KEK_key_identifier_2</var></synph> is
+required for a <synph><var>key_form</var></synph> of <synph><kwd>OPIM</kwd></synph>,
+<synph><kwd>OPEX</kwd></synph>, <synph><kwd>IMEX</kwd></synph>, <synph><kwd>IMIM</kwd></synph>, or
+<synph><kwd>EXEX</kwd></synph>. This field is ignored for <synph><var>key_form</var></synph>
+keywords <synph><kwd>OP</kwd></synph>, <synph><kwd>IM</kwd></synph> and
+<synph><kwd>EX</kwd></synph>.<p>If the NOCV bit is on in the internal key token containing the
+key-encrypting key, the key-encrypting key itself (not the key-encrypting key variant) is used to
+encipher the generated key.</p><p>Control vectors are explained in <xref
+href="wskc_c_cv.dita#l0wskc02_cv"/> and the NOCV bit is shown in <xref
+href="wskc_r_kt.dita#l0wskc02_kt/l0wskc02_intky"/>.</p><p>This parameter is not used when generating
+AES keys, and should point to null key-tokens.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter specifies either a generated: <ul>
+<li>Internal key token for an operational key form, or</li>
+<li>External key token containing a key enciphered under the
+<synph><var>kek_key_identifier_1</var></synph> parameter.</li>
+</ul><p>When <synph><var>key_type_1</var></synph> parameter is <synph><kwd>AESDATA</kwd></synph>,
+the <synph><var>generated_key_identifier_1</var></synph> parameter is ignored. In this case, it is
+recommended that the parameter be initialized to 64-bytes of <ph>X'00'</ph>.</p><p>If you specify a
+<synph><var>key_type_1</var></synph> of <synph><kwd>TOKEN</kwd></synph>, then this field contains a
+valid token of the key type you want to generate. Otherwise, on input, this parameter must be binary
+zeros. See <synph><var>key_type_1</var></synph> for a list of valid key types.</p><p>If you specify
+a <synph><var>key_type_1</var></synph> of <synph><kwd>IMPORTER</kwd></synph> or
+<synph><kwd>EXPORTER</kwd></synph> and a <synph><var>key_form</var></synph> of
+<synph><kwd>OPEX</kwd></synph>, and if the <synph><var>generated_key_identifier_1</var></synph>
+parameter contains a valid internal token of the same type, the NOCV bit, if on, is propagated to
+the generated key token.</p><p>Using the <synph><kwd>AESTOKEN</kwd></synph> or
+<synph><kwd>TOKEN</kwd></synph> keyword in the key type parameters requires that the key tokens
+already exist when the verb is called, so the information in those tokens can be used to determine
+the key type: <ul>
+<li>The <synph><var>key_type_1</var></synph> parameter overrides the type in the token.</li>
+<li>The <synph><var>key_length</var></synph> parameter overrides the length value in the generated
+key token.</li>
+</ul></p><p rev="sh20i1">To generate a compliant-tagged key token, a compliant-tagged skeleton token
+must be supplied.</p><p>In general, unless you are using the <synph><kwd>AESTOKEN</kwd></synph> or
+<synph><kwd>TOKEN</kwd></synph> keyword, you must identify a null key token in the generated key
+identifier parameters on input.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter specifies a generated external key token containing a key enciphered under
+the <synph><var>kek_key_identifier_2</var></synph> parameter.<p>If you specify a
+<synph><var>key_type_2</var></synph> of <synph><kwd>TOKEN</kwd></synph>, then this field contains a
+valid token of the key type you want to generate. Otherwise, on input, this parameter must be binary
+zeros. See <synph><var>key_type_1</var></synph> for a list of valid key types. </p><p>The token can
+be an internal or external token.</p><p rev="sh20i1">To generate a compliant-tagged key token, a
+compliant-tagged skeleton token must be supplied.</p><p>Using the <synph><kwd>AESTOKEN</kwd></synph>
+or <synph><kwd>TOKEN</kwd></synph> keyword in the key type parameters requires that the key tokens
+already exist when the verb is called, so the information in those tokens can be used to determine
+the key type. In general, unless you are using the <synph><kwd>AESTOKEN</kwd></synph> or
+<synph><kwd>TOKEN</kwd></synph> keyword, you must identify a null key token in the generated key
+identifier parameters on input.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

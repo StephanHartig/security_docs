@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_owh">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> <ph>verb</ph> to generate a one-way hash on specified
+text. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmowh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclowh"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>These SHA based hashing functions are supported with the CPACF
+exploitation layer: SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512.
+For details about CPACF, see <xref href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"/>.</p></section>
+</refbody></reference>

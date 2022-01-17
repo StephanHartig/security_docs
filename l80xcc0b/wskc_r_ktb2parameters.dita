@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktb2parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/></searchtitle>
+</titlealts><shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>INTERNAL</indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>NO-KEY</indexterm>
+<indexterm>KEY-CLR</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>NOEX-SYM</indexterm>
+<indexterm>XPRT-SYM</indexterm>
+<indexterm>NOEXUASY</indexterm>
+<indexterm>XPRTUASY</indexterm>
+<indexterm>NOEXAASY</indexterm>
+<indexterm>XPRTAASY</indexterm>
+<indexterm>GENERATE</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>SHA-1</indexterm>
+<indexterm>SHA-224</indexterm>
+<indexterm>SHA-256</indexterm>
+<indexterm>SHA-384</indexterm>
+<indexterm>SHA-512</indexterm>
+<indexterm>clear_key_value parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>key_name parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>token_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+<indexterm>target_key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+The minimum value is 4.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> contains keywords that provide control information
+to the verb. The keywords must be in contiguous storage with each of the keywords left-aligned in
+its own 8-byte location and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc02_ktb2parameters/ktb2_keywords"/>.<table id="ktb2_keywords" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/></title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/></p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b>Header section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token identifier</i></b> (one
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>EXTERNAL</kwd></synph></entry>
+<entry>Specifies to build an external variable-length symmetric key-token.</entry>
+</row>
+<row>
+<entry><synph><kwd>INTERNAL</kwd></synph></entry>
+<entry>Specifies to build an internal variable-length symmetric key-token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b>Wrapping information section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key status</i></b> (one,
+optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>NO-KEY</kwd></synph></entry>
+<entry>Build the key token without a key value. This creates a skeleton key token that can later be
+supplied to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>) verb. This is the default.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-CLR</kwd></synph></entry>
+<entry>Build the key token with a clear key, AES CIPHER and HMAC MAC keys only.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Type of algorithm for which the key can be used</i></b>
+(one required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies to build an AES key token.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>Specifies to build an HMAC key token.</entry>
+</row>
+<row rev="sh18i2">
+<entry namest="col1" nameend="col2"><b><i>CPACF export control</i></b></entry>
+</row>
+<row rev="sh18i2">
+<entry><synph><kwd>XPRTCPAC</kwd></synph></entry>
+<entry>Allow this key token to be exported as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> protected key. When
+<codeph>CSU_HCPUAPRT</codeph> is enabled, and this key token (or a label referring to this key
+token) is used, the key token is translated to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library and the handle is used with the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>. <note>Only usable with AES keys of key type CIPHER.</note></entry>
+</row>
+<row rev="sh18i2">
+<entry><synph><kwd>NOEXCPAC</kwd></synph></entry>
+<entry>Do not allow this key token to be exported as a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> protected key. This is the
+default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key type</i></b> (one required)</entry>
+</row>
+<row>
+<entry><synph><kwd>CIPHER</kwd></synph></entry>
+<entry>Build a CIPHER key for encryption, decryption, and translation operations. AES algorithm
+only. <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_cipher_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/cipher_keywords"/> for token offsets,
+offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_cipher_vlskt.dita#l0wskc02_aes_cipher/aes_cipher_vlskt"/> for the
+format of the key token.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>DKYGENKY</kwd></synph></entry>
+<entry>Build a diversifying key generating key. AES algorithm only. <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_dkygenky_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/dkygenky_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_dkygenky_vlskt.dita#l0wskc02_aes_dkygenky"/> for the format of the
+key token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry>Build an EXPORTER key-encrypting key. AES algorithm only. <ul compact="yes" rev="shd3">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_exporter_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/exporter_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_eximporter_vlskt.dita#l0wskc02_aes_eximporter"/> for the format of
+the key token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry>Build an IMPORTER key-encrypting key. AES algorithm only. <ul compact="yes" rev="shd3">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_exporter_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/exporter_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_eximporter_vlskt.dita#l0wskc02_aes_eximporter"/> for the format of
+the key token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>MAC</kwd></synph></entry>
+<entry>Build a MAC key for message authentication code operations. AES and HMAC algorithms only.
+<p>For AES: <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_aes_mac_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/aes_mac_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_mac_vlskt.dita#l0wskc02_aes_mac"/> for the format of the key
+token.</li>
+</ul></p><p>For HMAC: <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_hmac_mac_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/hmac_mac_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_r_hvlsktok.dita#l0wskc02_hvlsktok"/> for the format of the key
+token.</li>
+</ul></p>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>PINCALC</kwd></synph></entry>
+<entry>Build a DK PIN calculating key. AES algorithm only. <ul compact="yes" rev="shd3">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_pincalc_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pincalc_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_pinpcp_vlskt.dita#l0wskc02_aes_pinpcp"/> for the format of the key
+token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>PINPROT</kwd></synph></entry>
+<entry>Build a DK PIN protection key. AES algorithm only. <ul compact="yes" rev="shd3">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_pinprot_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pinprot_keywords"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_pinpcp_vlskt.dita#l0wskc02_aes_pinpcp"/> for the format of the key
+token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>PINPRW</kwd></synph></entry>
+<entry>Build a DK PIN PRW key. AES algorithm only. <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_pinprw_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pinprw_keywords"/> for token offsets,
+offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_pinpcp_vlskt.dita#l0wskc02_aes_pinpcp"/> for the format of the key
+token.</li>
+</ul></entry>
+</row>
+<row>
+<entry><synph><kwd>SECMSG</kwd></synph>
+</entry>
+<entry>Build a secure messaging key. AES algorithm only. <ul compact="yes">
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_secmsg_fig"/> for valid rule
+array keyword combinations.</li>
+<li>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_secmsg_table"/> for token
+offsets, offset values, and meanings of these keywords.</li>
+<li>Refer to <xref href="wskc_aes_secmsg_vlskt.dita#l0wskc02_aes_secmsg"/> for the format of the key
+token.</li>
+</ul></entry>
+</row>
+<row  rev="sh20i2">
+<entry namest="col1" nameend="col2"><b>Payload format version</b> (one, optional). Identifies format of the payload.</entry>
+</row>
+<row rev="sh20i2">
+<entry><synph><kwd>V0PYLD</kwd></synph></entry>
+<entry>Build a key token with a version 0 payload format. This format
+has a variable length and the key length can be inferred from
+the size of the payload. This format is compatible with all
+releases. This is the default.</entry>
+</row>
+<row rev="sh20i2">
+<entry><synph><kwd>V1PYLD</kwd></synph></entry>
+<entry>Build the key token with a version 1 payload format. This
+format has a fixed length and the key length cannot be
+inferred by the size of the payload. An obscured key length is considered more secure.</entry>
+</row>
+<row  rev="sh20i1">
+<entry namest="col1" nameend="col2"><b>Compliance</b> (Optional)</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>COMP-TAG</kwd></synph></entry>
+<entry>Build a compliant-tagged key token. Not valid with EXTERNAL, HMAC, or V0PYLD.</entry>
+</row>
+<row rev="sh20i1">
+<entry><synph><kwd>NOCMPTAG</kwd></synph></entry>
+<entry>Do not build a compliant-tagged key token. This is the default.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>clear_key_bit_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the clear key in bits. Specify 0 when no key value is supplied or a valid
+<synph><kwd>HMAC</kwd></synph> key bit length, between 80 and 2048.</pd></plentry>
+<plentry><pt>clear_key_value</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is used when the <synph><kwd>KEY-CLR</kwd></synph> keyword is specified. This
+parameter is the clear key value to be put into the token being built. </pd></plentry>
+<plentry><pt>key_name_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>key_name</var></synph> parameter. Valid values are 0 and
+64.</pd></plentry>
+<plentry><pt>key_name</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte key store label to be stored in the associated data structure of the token.</pd></plentry>
+<plentry><pt>user_associated_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the user-associated data. The valid values are 0 - 255 bytes.</pd></plentry>
+<plentry><pt>user_associated_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>User-associated data to be stored in the associated data structure. </pd></plentry>
+<plentry><pt>token_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+This parameter is reserved. This value must be 0.</pd></plentry>
+<plentry><pt>token_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">n/a</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry rev="sh15">
+<pt>verb_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the number of bytes of data in the
+<parmname>verb_data</parmname> variable. The value must be 0.
+</pd>
+</plentry>
+<plentry rev="sh15">
+<pt>verb_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing key-usage field keywords that are related to the
+type of key to diversify.
+<p>DKYUSAGE specifies that the <parmname>verb_data</parmname>
+variable contains all of the keywords necessary to define the key
+usage attributes related to the type of key to diversify. Based on the
+<parmname>verb_data</parmname> keywords, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> appends the key usage attributes of
+the type of key to diversify to the key usage fields of the DKYGENKY key. The related key usage
+fields control which key usage attributes are permissible for the finally generated diversified
+key.</p><p> DKYUSAGE is not valid with D-ALL, because the type of key to diversify is unspecified.
+DKYUSAGE is optional with D-CIPHER, D-EXP, and D-IMP. For these key types, if DKYUSAGE is not
+specified, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> assigns default
+key usage attributes to the related KUF fields. DKYUSAGE is required for the remaining values of
+type of key to diversify, because those key types do not have default key usage attributes.
+</p>
+<table id="ktb2_dkygenky" pgwide="1" frame="all" rev="sh16">
+<title>Related key usage fields when <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> builds a DKYGENKY key-token</title>
+<desc>
+<p outputclass="summary">Related key usage fields when <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> builds a DKYGENKY key-token</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="*"/>
+<colspec colname="col2" colwidth="*"/>
+<colspec colname="col3" colwidth="5*"/>
+<thead>
+<row>
+<entry>Type of key to diversify</entry>
+<entry>DKYUSAGE usage</entry>
+<entry>Related key usage fields for key type DKYGENKY</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>D-ALL</entry>
+<entry>Invalid</entry>
+<entry>None.</entry>
+</row>
+<row>
+<entry>D-CIPHER</entry>
+<entry>Optional</entry>
+<entry>If keyword DKYUSAGE is specified, the verb_data variable
+must contain key usage fields keywords related to an AES
+CIPHER key. If not specified, the related key usage fields are those
+of a default AES CIPHER key.</entry>
+</row>
+<row>
+<entry>D-EXP</entry>
+<entry>Optional</entry>
+<entry>If keyword DKYUSAGE is specified, the verb_data variable
+must contain key usage fields keywords related to an AES
+EXPORTER key. If not specified, the related key usage fields
+will be that of a default AES EXPORTER key.</entry>
+</row>
+<row>
+<entry>D-IMP</entry>
+<entry>Optional</entry>
+<entry>If keyword DKYUSAGE is specified, the verb_data variable
+must contain key usage fields keywords related to an AES
+IMPORTER key. If not specified, the related key usage fields
+will be that of a default AES IMPORTER key.</entry>
+</row>
+<row>
+<entry>D-MAC</entry>
+<entry>Required</entry>
+<entry>The verb_data variable must contain key usage fields
+keywords related to an AES MAC key.</entry>
+</row>
+<row>
+<entry>D-PCALC</entry>
+<entry>Required</entry>
+<entry>The verb_data variable must contain key usage fields
+keywords related to an AES PINCALC key.</entry>
+</row>
+<row>
+<entry>D-PPROT</entry>
+<entry>Required</entry>
+<entry>The verb_data variable must contain key usage fields
+keywords related to an AES PINPROT key.</entry>
+</row>
+<row>
+<entry>D-PPRW</entry>
+<entry>Required</entry>
+<entry>The verb_data variable must contain key usage fields
+keywords related to an AES PINPRW key.</entry>
+</row>
+<row>
+<entry>D-SECMSG</entry>
+<entry>Required</entry>
+<entry>The verb_data variable must contain key usage fields
+keywords related to an AES SECMSG key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</pd>
+</plentry>
+<plentry><pt>target_key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length of the <synph><var>target_key_token</var></synph> parameter supplied to
+receive the token. On output, the actual length of the token returned to the caller. Maximum length
+is 725 bytes.</pd></plentry>
+<plentry><pt>target_key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The key token built by this verb.</pd></plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--arameArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_keys" xml:lang="en-us">
+<title>Impact of the  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>
+on the callable verbs</title>
+<titlealts>
+<navtitle>Impact of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> on
+callable verbs</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Impact of the  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> on the callable verbs for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz_searchtitle"/></searchtitle>
+</titlealts>
+<shortdesc>When compliant-tagged key tokens are used, the request is processed according to
+the compliance mode in effect. A subset of callable services support
+compliant-tagged key tokens. Any attempt to use a compliant-tagged key token in
+a cryptographic operation within a service that does not accept compliant-tagged
+key tokens results in a failure.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>impact on verbs</indexterm></indexterm>
+<indexterm>verbs<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><xref href="#wskc_pci_hsm_keys/t_pci_hsm_impact" format="dita"/> shows a list of callable
+services (verbs) that are not compliant with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>.</p>
+<table id="t_pci_hsm_impact" pgwide="1"><title>Callable services not compliant with <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/></title><tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="17*"/>
+<colspec colname="col3" colwidth="32*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+<entry>Possible compliance alternatives</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/></entry>
+<entry> Create double-length keys instead of single-length keys. This eliminates a need for the
+service. <note>Though this service does not accept or create compliant-tagged key tokens, the key
+tokens that are created by this service can be converted to compliant-tagged key
+tokens.</note></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/></entry>
+<entry>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/></entry>
+<entry>
+<ul>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> to create a
+compliant-tagged key token from key parts. </li>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>) callable service to create a
+compliant-tagged key token with a random key value.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/></entry>
+<entry>
+<ul>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> to create a
+compliant-tagged key token from key parts.</li>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>) callable service to create a
+compliant-tagged key token with a random key value.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/></entry>
+<entry>Create double-length keys instead of single-length keys. This eliminates a need for the
+service.</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcvt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/></entry>
+<entry>
+<ul>
+<li>Recreate the source key token with the wanted control vector.</li>
+<li>Wrap the source key such that the wanted attributes are bound to the key. You can use the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/>/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>) verbs.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkm"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/></entry>
+<entry>DATA keys are not compliant. Create compliant-tagged CIPHER or MAC keys that can be imported
+by using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/>) callable services.</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/></entry>
+<entry>DATA keys are not compliant. Create compliant-tagged CIPHER or MAC keys that can be exported
+by using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>) callable services.</entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/></entry>
+<entry>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> to create a
+compliant-tagged key token from key parts.</entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi2"/></entry>
+<entry>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/> to create a
+compliant-tagged key token from key parts.</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsky"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsky"/></entry>
+<entry>None.</entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkx"/></entry>
+<entry>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/> service to
+create a certificate signing request from a compliant-tagged private key token. Create a certificate
+from the CSR and use that in place of a public key token.</entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/></entry>
+<entry>Use the TR34 and TR31 set of services to exchange compliant-tagged keys with a remote
+device.</entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/></entry>
+<entry>You can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>) to export a
+compliant-tagged symmetric key token with data.</entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/></entry>
+<entry>Use the TR34 and TR31 set of services to exchange compliant-tagged keys with a remote
+device.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<section>
+<p rev="sh20i1"><xref href="#wskc_pci_hsm_keys/t_pci_hsm_ecc_diffie_hellmann" format="dita"/> shows
+a list of services that are both compliant with PCI-HSM 2016 and accept key tokens which could
+become compliant-tagged, but do not support compliant-tagged key tokens. </p>
+</section>
+<section>
+<table id="t_pci_hsm_ecc_diffie_hellmann" pgwide="0" rev="sh20i1"><title>Callable services that do
+not support compliant-tagged key tokens</title><tgroup cols="2">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="9*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+<section>
+<p><xref href="#wskc_pci_hsm_keys/t_pci_hsm_impact_supp" format="dita"/> shows the list of services
+that support compliant-tagged key tokens when running in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>.</p>
+<table id="t_pci_hsm_impact_supp" pgwide="0" rev="sh20i1"><title>Callable services that support compliant-tagged
+key tokens in cryptographic operations</title><tgroup cols="2">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="9*"/>
+<thead>
+<row>
+<entry>Verb</entry>
+<entry>Service name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclapg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmapg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcsv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclenc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclepg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmepg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfped"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfped"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpee"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpee"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpfo"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptre"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptre"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkatr"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkatr"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclspn"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ki"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltrv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldmp"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdmp"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpc"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpcg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpcg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpmt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpmt"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpnu"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpnu"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpt"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpt"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrp"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdrp"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrpg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdrpg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/></entry>
+</row>
+<row>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcu2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcu2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbddk"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbrmbddk"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmddpg"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad1"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad1"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsad2"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpke"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpke"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkg"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpki"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/></entry>
+</row>
+<row rev="sh20i1">
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/></entry>
+<entry><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34r"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</conbody>
+</concept>

@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="actparameters" rev="sh16">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements
+in the <i>rule_array</i> variable. This value must
+be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> parameter is a pointer to a string variable
+containing an array of keywords. The keywords are eight bytes in length and must be left-aligned and
+padded on the right with space characters. The <synph><var>rule_array</var></synph> keywords are
+described in <xref href="#actparameters/act_tab1"/>. 
+<table id="act_tab1" pgwide="0" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="13*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Function to perform (required).</i></b> Setting the
+<parmname>role_ID_length</parmname> variable to 0 causes the function to operate on the default role
+ID.</entry>
+</row>
+<row>
+<entry>CLRDATA</entry>
+<entry>Specifies to clear ACP tracking information for the role IDs identified by the
+<parmname>role_ID</parmname> parameter.<note>
+<ol>
+<li>No data is returned in the buffer identified by the <parmname>output_data</parmname>
+parameter.</li>
+<li>This function does not start or stop tracking information. Use the START or STOP keywords for
+this purpose.</li>
+<li>It is possible for some data to be gathered after CLRDATA, but before a subsequent STOP. To
+avoid this, use STOP before CLRDATA. </li>
+<li>This function generates an ACP query which gets logged before any tracking information is
+cleared.</li>
+</ol>
+</note></entry>
+</row>
+<row>
+<entry>GETDATA</entry>
+<entry>
+Specifies to return the tracking information for the role IDs identified by the
+<parmname>role_ID</parmname> parameter. This tracking information is returned into the buffer
+identified by the <parmname>output_data</parmname> parameter, provided that the buffer is large
+enough to receive all of the data.<note><ol>
+<li>This function does not clear tracking information. Use CLRDATA for this purpose. </li>
+<li>This function does not stop ACP tracking. Use STOP instead. </li>
+<li>Use SIZEDATA to determine the minimum required size for the buffer identified by the
+<parmname>output_data</parmname> parameter.</li>
+</ol>
+</note>
+</entry>
+</row>
+
+<row rev="sh20i1">
+<entry>GETINTVL</entry>
+<entry>Specifies to return the <term>interval tracking data structure</term> in the
+<parmname>output_data </parmname> parameter. The <parmname>output_data_length</parmname> parameter
+must indicate that enough space is available to hold the data structure. It is updated with the
+length of the data structure returned. For more information, read <xref
+href="wskc_r_acttracking.dita"/>.</entry>
+</row>
+<row>
+<entry>GETSTATE</entry>
+<entry>Specifies to return the state (either enabled or not enabled) of ACP tracking for the role
+IDs identified by the <parmname>role_ID</parmname> parameter. The state is returned into the buffer
+identified by the <parmname>output_data</parmname> parameter, provided that the buffer is large
+enough to receive all of the data.<note>This function does not start or stop ACP tracking. Use START
+or STOP instead.</note></entry>
+</row>
+<row>
+<entry>SIZEDATA</entry>
+<entry>Specifies to return the size of the data in bytes that GETDATA would return as a single
+integer value into the <parmname>output_data_length</parmname> variable.<note>
+<ol>
+<li>No data is returned in the buffer identified by the output_data parameter. </li>
+<li>The <parmname>output_data_length</parmname> variable can be greater on output than on input. </li>
+<li>Provide the same list of role IDs to be used for GETDATA.</li>
+</ol>
+</note></entry>
+</row>
+<row>
+<entry>START</entry>
+<entry>Specifies to start ACP tracking for the role IDs identified by the
+<parmname>role_ID</parmname> parameter.<note>
+<ol>
+<li>No data is returned in the buffer identified by the <parmname>output_data</parmname>
+parameter.</li>
+<li>Use of this function for a role ID that is being tracked has no effect and does not cause an
+error or warning.</li>
+</ol>
+</note></entry>
+</row>
+<row>
+<entry>STOP</entry>
+<entry>Specifies to stop ACP tracking for the role IDs identified by the
+<parmname>role_ID</parmname> parameter.<note>
+<ol>
+<li>No data is returned in the buffer identified by the output_data parameter.</li>
+<li>Use of this keyword on a role ID that is not being tracked has no effect and does not cause an
+error or warning.</li>
+<li>ACP tracking stops after the ACP check for the required commands of this verb are recorded for
+the appropriate role ID.</li>
+</ol>
+</note></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry>
+<pt>role_ID_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>role_ID_length</parmname> parameter is a pointer to an integer variable
+containing the number of bytes of data in the <parmname>role_ID</parmname> variable. This value must
+be greater than or equal to 0 and a multiple of 8. <note>Setting the
+<parmname>role_ID_length</parmname> variable to 0 causes the function to operate on the default role
+ID.</note></pd>
+</plentry>
+<plentry>
+<pt>role_ID</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to a string variable containing an optional array of role IDs of
+the role definitions to process. The role IDs are 8 bytes in length and must be left-aligned and
+padded on the right with space characters.</pd>
+</plentry>
+<plentry>
+<pt>output_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is a pointer to an integer variable containing the number of bytes of data in
+the <parmname>output_data</parmname> variable. For keyword SIZEDATA, this value is allowed to be
+less on input than on output since no data is returned in the buffer identified by the
+<parmname>output_data</parmname> parameter. Otherwise, set this value to at least the number of data
+bytes to be returned in that buffer.</pd>
+</plentry>
+<plentry>
+<pt>output_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>output_data</parmname> parameter is a pointer to a string variable containing
+data returned by the verb. The size and content of the output data depends on the function to
+perform based on the rule array. Only rule array keywords GETDATA and GETSTATE return data in this
+variable (buffer). Keyword SIZEDATA does not return any data in this buffer, even if the returned
+<parmname>output_data_length</parmname> variable is greater than 0. <p>The GETSTATE option returns a
+concatenation of role tracking data headers, one for each role ID identified by the
+<parmname>role_ID</parmname> parameter. Refer to <xref href="#actparameters/act_tab2" format="dita"
+/>. No additional data follows the header for GETSTATE.</p><table pgwide="0" frame="all"
+id="act_tab2">
+<title>Role tracking data header format</title>
+<desc>
+<p outputclass="summary">Role tracking data header format with three columns showing offset, length
+and description.</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry> Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>02</entry>
+<entry>Role tracking data (RTD) header version (X'0100').</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>02</entry>
+<entry>RTD length in bytes (big endian): <parmname>rtdln</parmname>. Length includes this header (16
+bytes) + length of data that follows the header, if any.</entry>
+</row>
+<row>
+<entry>04</entry>
+<entry>08</entry>
+<entry>Role ID of role tracking data</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>01</entry>
+<entry>Role tracking flag byte for the role ID (value at offset 4) <dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'xxxx xxx0'</dt>
+<dd>Tracking is not enabled.</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0001'</dt>
+<dd>Tracking is enabled.</dd>
+</dlentry>
+</dl><p>All unused bits are reserved and must be zero.</p></entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>03</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">
+<note>
+<ol>
+<li>For GETDATA, the returned <parmname>output_data</parmname> is a concatenation of a role tracking
+data header and an ACP list pair, one for each role ID identified by the
+<parmname>role_ID</parmname> parameter.</li>
+<li>For GETSTATE, the returned <parmname>output_data</parmname> is a concatenation of role tracking
+data headers, one for each role ID identified by the <parmname>role_ID</parmname> parameter.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>The GETDATA option returns a role tracking data header for each role ID, with an
+additional ACP list concatenated to each header. Refer to <xref
+href="wskc_acodas_role_acp.dita#acodas_role_acp/acplist_struc"/>. <xref
+href="#actparameters/act_tab3" format="dita"/> provides the format of the output returned by the
+GETDATA option.</p><table pgwide="0" frame="all" id="act_tab3">
+<title>GETDATA <parmname>output_data</parmname> format</title>
+<desc>
+<p outputclass="summary">GETDATA <parmname>output_data</parmname> format</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col3">
+<parmname>role_id</parmname> 1 of n, where n = 1 for <codeph><parmname>role_ID_length</parmname> =
+0</codeph>. Otherwise <codeph>n = <parmname>role_ID_length</parmname> / 8</codeph>.</entry>
+</row>
+<row>
+<entry>00</entry>
+<entry>02</entry>
+<entry>Role tracking data (RTD) header version (X'0100').</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>02</entry>
+<entry>RTD length in bytes (big endian): <parmname>rtdln#1</parmname>. Length includes this header
+(16 bytes) + length of ACP list structure.</entry>
+</row>
+<row>
+<entry>04</entry>
+<entry>08</entry>
+<entry>Role ID of role tracking data</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>01</entry>
+<entry>Role tracking flag byte for the role ID (value at offset 4) <dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'xxxx xxx0'</dt>
+<dd>Tracking is not enabled.</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0001'</dt>
+<dd>Tracking is enabled.</dd>
+</dlentry>
+</dl><p>All unused bits are reserved and must be zero.</p></entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>03</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>16</entry>
+<entry>rtdln#1 - 16</entry>
+<entry>Access-control-point list structure for role ID 1. Refer to <xref
+href="wskc_acodas_role_acp.dita#acodas_role_acp/acplist_struc"/>. <p>The meaning of each bit valued
+in the bit-map data segments of the ACP list structure has the following meaning for role tracking
+data: </p><dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'0'</dt>
+<dd>No recorded access attempt has been made.</dd>
+</dlentry>
+<dlentry>
+<dt>B'1'</dt>
+<dd>This ACP has had at least one access attempt while being tracked. The value does not indicate
+the success of any access attempt.</dd>
+</dlentry>
+</dl><note>
+<ol>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>) verb with the GET-ROLE
+<parmname>rule-array</parmname> keyword to determine which offsets this role ID has enabled. Compare
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/> list of enabled ACPs to
+the tracking list of the role ID to determine which ACP access attempts were successful.</li>
+<li>The gathering of data for a given role ID can be impacted by multiple STARTs and STOPs. if
+CLRDATA is not performed between a STOP and a START.</li>
+</ol>
+</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">
+<parmname>role_ID</parmname> 2 of n, for <parmname>role_ID_length</parmname> ≥ 2*8 where <codeph>n =
+<parmname>role_ID_length</parmname> / 8</codeph>
+</entry>
+</row>
+<row>
+<entry>rtdln#1</entry>
+<entry>02</entry>
+<entry>RTD header version.</entry>
+</row>
+<row>
+<entry>rtdln#1 + 02</entry>
+<entry>02</entry>
+<entry> RTD overall length in bytes (big endian): rtdln#2</entry>
+</row>
+<row>
+<entry>rtdln#1 + 04</entry>
+<entry>08</entry>
+<entry>Role ID of role tracking data.</entry>
+</row>
+<row>
+<entry>rtdln#1 + 12</entry>
+<entry>01</entry>
+<entry>Role tracking flag byte for role ID (value at offset rtdln#n-1 + 4). </entry>
+</row>
+<row>
+<entry>rtdln#1 + 13</entry>
+<entry>03</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>rtdln#1 + 16 </entry>
+<entry>rtdln#n - 16</entry>
+<entry>Access-control-point list structure for role ID n</entry>
+</row>
+<!--<row>
+<entry namest="col1" nameend="col3">
+<parmname>role_ID</parmname> n, for <parmname>role_ID_length</parmname> ≥ 3*8 where <codeph>n =
+role_ID_length / 8</codeph>
+</entry>
+</row>
+<row>
+<entry>rtdln#n-1</entry>
+<entry>02</entry>
+<entry>RTD header version</entry>
+</row>
+<row>
+<entry>rtdln#n-1 + 02</entry>
+<entry>02</entry>
+<entry>RTD overall length in bytes (big endian): rtdln#n </entry>
+</row>
+<row>
+<entry>rtdln#n-1 + 04</entry>
+<entry>08</entry>
+<entry>Role ID of role tracking data</entry>
+</row>
+<row>
+<entry>rtdln#n-1 + 12</entry>
+<entry>01</entry>
+<entry>Role tracking flag byte for role ID (value at offset rtdln#n-1 + 4)</entry>
+</row>
+<row>
+<entry>rtdln#n-1 + 13</entry>
+<entry>03</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry>rtdln#n-1 + 16 </entry>
+<entry> rtd_n - 16</entry>
+<entry>Access-control-point list structure for role ID n.</entry>
+</row>-->
+<row>
+<entry namest="col1" nameend="col3">
+<note>
+<ol>
+<li>For GETDATA, the returned <parmname>output_data</parmname> is a concatenation of a role tracking
+data header and ACP list pair, one for each role ID identified by the <parmname>role_ID</parmname>
+parameter.</li>
+<li>All integer values returned in the <parmname>output_data</parmname> variable are in big-endian
+format.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>The GETSTATE option returns a concatenation of role tracking data headers, one for each
+role ID identified by the <parmname>role_ID</parmname> parameter. Refer to <xref
+href="#actparameters/act_tab4" format="dita"/>. No additional data follows the header for
+GETSTATE.</p>
+<table pgwide="0" frame="all" id="act_tab4">
+<title>GETSTATE <parmname>output_data</parmname> format</title>
+<desc>
+<p outputclass="summary">GETSTATE <parmname>output_data</parmname> format with three columns showing
+offset, length and description.</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>00</entry>
+<entry>02</entry>
+<entry>Role tracking data (RTD) header version (X'0100').</entry>
+</row>
+<row>
+<entry>02</entry>
+<entry>02</entry>
+<entry>RTD structure length in bytes (big endian). Length includes this header (16 bytes) + length
+of data that follows the header (zero for GETSTATE).</entry>
+</row>
+<row>
+<entry>04</entry>
+<entry>08</entry>
+<entry>Role ID of role tracking data</entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>01</entry>
+<entry>Role tracking flag byte for the role ID (value at offset 4) <dl>
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>B'xxxx xxx0'</dt>
+<dd>Tracking is not enabled.</dd>
+</dlentry>
+<dlentry>
+<dt>B'0000 0001'</dt>
+<dd>Tracking is enabled.</dd>
+</dlentry>
+</dl><p>All unused bits are reserved and must be zero.</p></entry>
+</row>
+<row>
+<entry>13</entry>
+<entry>03</entry>
+<entry>Reserved, binary zero.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">
+<note>For GETSTATE, the returned output_data is a concatenation of role tracking data headers, one
+for each role ID identified by the role_ID parameter. </note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved1_length</parmname> parameter is a pointer to an integer variable
+containing the number of bytes of data in the reserved1 variable. This value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved1</parmname> parameter is a pointer to a string variable. This
+parameter is reserved for future use.</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input/Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved2_length</parmname> parameter is a pointer to an integer variable
+containing the number of bytes of data in the reserved2 variable. This value must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Output</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>reserved2</parmname> parameter is a pointer to a string variable. This
+parameter is reserved for future use.</pd>
+</plentry>
+</parml></section>
+</refbody></reference>

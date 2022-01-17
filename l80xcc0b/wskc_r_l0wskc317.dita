@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc317">
+<title>Format</title>
+ <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ko"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry colname="col1">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31ko"/>(
+              <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rcode"/></var></synph>,
+              <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/rscde"/></var></synph>,
+              <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdl"/></var></synph>,
+              <synph><var><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/exdt"/></var></synph>,
+              <synph><var>rule_array_count</var></synph>,
+              <synph><var>rule_array</var></synph>,
+              <synph><var>opt_blocks_bfr_length</var></synph>,
+              <synph><var>opt_blocks_length</var></synph>,
+              <synph><var>opt_blocks</var></synph>,
+              <synph><var>num_opt_blocks</var></synph>,
+              <synph><var>opt_block_id</var></synph>,
+              <synph><var>opt_block_data_length</var></synph>,
+              <synph><var>opt_block_data</var></synph>)             </codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

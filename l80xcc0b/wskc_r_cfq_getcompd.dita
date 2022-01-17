@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="cfq_getcompd" rev="sh18i1">
+<title>GETCOMPD</title>
+<titlealts>
+<navtitle>GETCOMPD</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): GETCOMPD</searchtitle>
+</titlealts>
+<shortdesc>This <parmname>rule_array</parmname> keyword causes all data to be returned in one VUD
+block. The described structure also comprises extra data fields that contains output if the SIGNSTAT
+keyword is specified. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>GETCOMPD</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The VUD block header and data has a layout as described in <xref
+href="#cfq_getcompd/tab_getdcomp" format="dita"/>:</p>
+<table id="tab_getdcomp" pgwide="1" frame="all"><title>Output data format for the GETCOMPD keyword</title>
+<desc>
+<p outputclass="summary">A table with five columns describing the layout of the VUD block 
+header and data.</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="8*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="15*"/>
+<colspec colname="col4" colwidth="30*"/>
+<colspec colname="col5" colwidth="47*"/>
+<thead>
+<row>
+<entry>Offset</entry>
+<entry>Size</entry>
+<entry>Field</entry>
+<entry>Subordinate data type</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin outer templating</b></entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>1</entry>
+<entry>Struct name</entry>
+<entry>Signed_data_t</entry>
+<entry>
+<lines>
+Structure name
+Type: binary integer
+Value: 
+<codeph>mbif_types.h:118:#define SIGNED_DATA_T 0x82</codeph>
+</lines>
+</entry>
+</row>
+<row>
+<entry>5</entry>
+<entry>1</entry>
+<entry>Struct version</entry>
+<entry>Signed_data_t</entry>
+<entry>
+<lines>
+Structure version
+Type: binary integer
+Value: <codeph>0x00</codeph>
+</lines>
+</entry>
+</row>
+<row>
+<entry>6</entry>
+<entry>4</entry>
+<entry>Signed data len</entry>
+<entry>Signed_data_t</entry>
+<entry>Length of entire <parmname>Signed_data_t</parmname> structure, including appended data and
+signature <lines>
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>10</entry>
+<entry>4</entry>
+<entry>Data offset</entry>
+<entry>Signed_data_t</entry>
+<entry>Offset from start of the data sub-struct (here) to the start of the actual data payload.
+<lines>
+Type: binary integer, big-endian
+Value: <codeph>0x14</codeph>
+</lines>
+</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>4</entry>
+<entry>Data len</entry>
+<entry>Signed_data_t</entry>
+<entry>
+<lines>
+Length of the data payload
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>18</entry>
+<entry>4</entry>
+<entry>Sig offset</entry>
+<entry>Signed_data_t</entry>
+<entry>Offset from start of the signature sub-structure (here) to the start of the actual signature.
+<lines>
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>22</entry>
+<entry>4</entry>
+<entry>Sig len</entry>
+<entry>Signed_data_t</entry>
+<entry>
+<lines>
+Length of the signature
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>26</entry>
+<entry>4</entry>
+<entry>Sig type</entry>
+<entry>Signed_data_t</entry>
+<entry>
+<lines>
+Type of the signature
+Type: binary integer, big-endian
+Value: 0x04 (ECDSA over SHA-512 hash with 
+            ECC P521, raw format)
+       0x00 (no signature)
+</lines>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin payload</b></entry>
+</row>
+<row>
+<entry>30</entry>
+<entry>7</entry>
+<entry>VE</entry>
+<entry>xcVpd_t:VE field</entry>
+<entry>
+<lines>
+Card <term>secure part number</term> field from VPD
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>37</entry>
+<entry>1</entry>
+<entry>Reserved1</entry>
+<entry>n/a</entry>
+<entry>Reserved field
+Type: binary integer
+</entry>
+</row>
+<row>
+<entry>38</entry>
+<entry>7</entry>
+<entry>EC</entry>
+<entry>xcVpd_t:EC field</entry>
+<entry>
+<lines>
+Card <term>EC</term> field from VPD
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>45</entry>
+<entry>1</entry>
+<entry>Reserved1</entry>
+<entry>n/a</entry>
+<entry>
+Reserved field
+Type: binary integer
+</entry>
+</row>
+<row>
+<entry>46</entry>
+<entry>12</entry>
+<entry>SN</entry>
+<entry>xcVpd_t:[sn_hdr | sn] fields</entry>
+<entry>Card <term>serial number header</term> and <term>serial number</term> concatenated; 
+making up a 12 byte quantity.
+<lines>
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>58</entry>
+<entry>16</entry>
+<entry>Current_clock</entry>
+<entry>Cca_gentime_t structure</entry>
+<entry>
+The current card clock time maintained by the RTC hardware.
+<p>Type: ASCII characters for the date in the following layout of 14 characters, with 2 NULL 
+characters at the end since the day-of-week is not returned.
+<codeblock>YYYYMMDDHHMMSS\0\0</codeblock></p>
+<note>This is similar to ASN.1 Generalized Time format for <uicontrol>Local time</uicontrol>. 
+Since the adapter reports whatever time it has been set to, and has no external reference for 
+timezone verification, it is not appropriate to have a Z indicating UTC or to specify an offset 
+from UTC.</note>
+</entry>
+</row>
+<row>
+<entry>74</entry>
+<entry>8</entry>
+<entry>Cca_version</entry>
+<entry></entry>
+<entry>Same value reported for other <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> calls that report the  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> version
+<lines>
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>82</entry>
+<entry>8</entry>
+<entry>Udx_version1</entry>
+<entry>Ccax_version1</entry>
+<entry>UDX supplied version field (first), should be <term>none</term> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> capable firmware
+<lines>
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>90</entry>
+<entry>8</entry>
+<entry>Udx_version2</entry>
+<entry>Ccax_version2</entry>
+<entry>UDX supplied version field (second), should be <term>none</term> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> capable firmware
+<lines>
+Type: ASCII, not NULL terminated
+</lines>
+</entry>
+</row>
+<row>
+<entry>98</entry>
+<entry>16</entry>
+<entry>Build_date</entry>
+<entry>Cca_gentime_t structure</entry>
+<entry>Build time_date: Local Date and time on machine where firmware was built.
+<p>Type: ASCII characters for the date in the following layout of 14 characters, with 2 NULL
+characters at the end since the day-of-week is not returned.</p>
+<codeblock>YYYYMMDDHHMMSS\0\0</codeblock><note>This is similar to ASN.1 Generalized Time format for
+<uicontrol>Local time</uicontrol>. Since the adapter reports whatever time it has been set to, and has no external
+reference for timezone verification, it is not appropriate to have a Z indicating UTC or to specify
+an offset from UTC. </note>
+</entry>
+</row>
+<row>
+<entry>114</entry>
+<entry>4</entry>
+<entry>Card_action</entry>
+<entry>cmp_srdi_hdr_t:action_flags</entry>
+<entry>
+<lines>
+Card scope action flags
+Type: binary integer, big-endian
+</lines>
+<ol compact="yes">
+<li><codeph>CARD_ZEROIZE_START 0x8000_0000</codeph><ol compact="yes">
+<li>Flag Name: <term>Card-wide zeroize started</term></li>
+<li>one bit flag to indicate that card        zeroize is starting.</li>
+<li>Default value is 0b0, which indicates        that a card zeroize is not in progress</li>
+</ol></li>
+<li><codeph>CARD_CLOCK_SET 0x4000_0000</codeph><ol>
+<li>Flag Name:        <term>Card-wide system clock has been set</term></li>
+<li>one bit flag to indicate if the card        has seen a valid SETCLOCK operation       (from the
+TKE) in the time covered by        the current SRDI files.</li>
+<li>Set once and never un-set or zeroed        except for card-scope zeroize events.</li>
+<li>Default value: <codeph>0b0</codeph></li>
+</ol></li>
+<li><codeph>RESERVED</codeph> (all bits not defined above) </li>
+</ol>
+</entry>
+</row>
+<row>
+<entry>118</entry>
+<entry>4</entry>
+<entry>Comp_issues</entry>
+<entry>DRAM variable CCA_comp_issue_flags</entry>
+<entry>Returns any issues with compliance: reasons the card cannot support a compliance setting.<lines>
+Type: binary integer, big-endian
+Flags are defined:
+</lines><ol>
+<li><codeph>CMPIF_CERT_NO_ISSUES 0x00000000</codeph></li>
+<li><codeph>CMPIF_FW_UDX 0x80000000</codeph>
+<p>This value indicates a UDX was detected.</p></li>
+<li><codeph>CMPIF_FW_SIM 0x40000000</codeph>
+<p>This value indicates code is a simulator.</p></li>
+<li>Remaining values: reserved. Default value: <codeph>0b0</codeph></li>
+</ol></entry>
+</row>
+<row>
+<entry>122</entry>
+<entry>4</entry>
+<entry>Sec_log_max</entry>
+<entry>Not in a structure</entry>
+<entry>Maximum count of events for this domain, this is not a byte count. 
+This is the same for the life of a card, but the API will live beyond one card.
+<lines>
+Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>126</entry>
+<entry>2</entry>
+<entry>
+<lines>
+Sec_log_event
+_size</lines></entry>
+<entry>Not in a structure</entry>
+<entry>Maximum size of one event in bytes. This is the same for the life of a card, but the API will 
+live beyond one card.
+<lines>Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>128</entry>
+<entry>2</entry>
+<entry>Dmn_kdf</entry>
+<entry>Kdf value from DRAM</entry>
+<entry>KDF value that maps to the compliance flags.
+<lines>Type: binary integer, big-endian
+</lines>
+</entry>
+</row>
+<row>
+<entry>130</entry>
+<entry>4</entry>
+<entry>Dmn_action</entry>
+<entry>cmp_srdi_mbr_t:action_flags</entry>
+<entry>Domain scope action flags.
+<lines>
+Type: binary integer, big-endian
+(description continued in next row)
+</lines>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5">
+<b>Description continued for Dmn_action (offset 130, size 4):</b>
+<ul>
+<li><codeph>DOMAIN_ZERO_START 0x8000_0000</codeph>
+<ol>
+<li>Flag Name: <codeph>domain-scope zeroize has started</codeph></li>
+<li>one bit flag to indicate the beginning of work to zero-ize a domain.</li>
+<li>Default value is <codeph>0b0</codeph>.</li>
+</ol>
+</li>
+<li><codeph>DOMAIN_IMPRINT_START 0x4000_0000</codeph><ol>
+<li>Flag Name: <term>This domain has started transition to Imprint mode</term></li>
+<li>one bit flag to indicate start of internal preparation for imprint mode transition.</li>
+<li>Default value is <codeph>0b0</codeph>, which indicates a zero-ize is not in progress.</li>
+</ol></li>
+<li><codeph>DOMAIN_IMPRINT_ACTIVE 0x2000_0000</codeph><ol>
+<li>Flag Name: <term>This domain is in Imprint mode</term></li>
+<li>one bit flag to indicate domain is in imprint mode for the compliance mode indicated by the
+compliance flags</li>
+<li>Default value is 0b0, which indicates the domain is NOT in imprint mode</li>
+</ol></li>
+<li><codeph>DOMAIN_COMP_ACTIVE 0x1000_0000</codeph><ol>
+<li>Flag Name: <term>This domain has 1 or more compliance modes active</term></li>
+<li>one bit flag to indicate the compliance flags field is in force</li>
+<li>Default value is 0b0, which indicates the compliance flags field is not in force</li>
+</ol></li>
+<li><codeph>DOMAIN_COMP_REMOVE_START 0x0800_0000     </codeph><ol>
+<li>Flag Name: <term>This domain has started removal of 1 or more compliance modes</term></li>
+<li>one bit flag to indicate the beginning of work to un-set a compliance mode</li>
+<li>Default value is 0b0</li>
+</ol></li>
+<li><codeph>DOMAIN_COMP_MIGRATION 0x0400_0000     </codeph><ol>
+<li>Flag Name:         <term>This domain is in migration mode as a reduced mode of an active
+compliance mode</term></li>
+<li>one bit flag to indicate that migration mode is active</li>
+<li>In this mode Comp-tagged keys may be created from qualified non-tagged keys.</li>
+<li>If this bit is active then the domain is within the 30 minute inactivity timeout window.
+After 30 minutes of not receiving any migration work (applying a comp-tag to a non-comp-tag
+key) then the domain reverts to compliance mode and the flag is automatically turned to
+<codeph>0b0</codeph>.</li>
+<li>Default value is <codeph>0b0</codeph></li>
+</ol></li>
+<li><codeph>(reserved) 0x0200_0000</codeph><ol>
+<li>Flag is reserved     </li>
+<li>Default value is <codeph>0b0</codeph></li>
+</ol></li>
+<li><codeph>DOMAIN_SLOG_ENAB 0x0000_8000</codeph><ol>
+<li>Flag Name: <term>This domain has Secure Log enabled</term>
+</li>
+<li> one bit flag to indicate that Secure Log is enabled for this domain</li>
+<li>This flag will be 0b1 for every case where DOMAIN_IMPRINT_ACTIVE flag or
+DOMAIN_COMP_ACTIVE flag are active, however this flag may be 0b1 when neither flag is
+active. This means that a domain can have Secure Log active even if it is not in
+imprint mode or compliant mode.</li>
+<li>Default value is <codeph>0b0</codeph></li>
+</ol></li>
+</ul>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5">
+<b>Description continued for Dmn_action (offset 130, size 4):</b>
+<ul>
+<li><codeph>DOMAIN_SLOG_NOWRAP 0x0000_4000</codeph><ol>
+<li>Flag Name: <term>This domain has Secure Log configured for NOT WRAP when the Log fills</term>
+</li>
+<li> one bit flag to indicate that Secure Log is configured to NOT WRAP for this domain</li>
+<li>This flag is meaningful only if the <codeph>DOMAIN_SLOG_ENAB</codeph> flag is
+<codeph>0b1</codeph>, all other times it is set to <codeph>0b0</codeph>.</li>
+<li>Similar to <codeph>DOMAIN_SLOG_ENAB</codeph>, this flag will be 0b1 for every case where
+<codeph>DOMAIN_IMPRINT_ACTIVE</codeph> flag or <codeph>DOMAIN_COMP_ACTIVE</codeph> flag are active,
+however, this flag may be <codeph>0b1</codeph> when neither flag is active. This means that
+<apiname>No Wrap</apiname> is a required feature of the Secure Log if the domain is in
+Imprint mode or Compliant Mode, and <apiname>No Wrap</apiname> is an optional feature of the
+Secure Log otherwise.</li>
+<li>Default value is <codeph>0b0</codeph>.</li>
+</ol></li>
+<li>(Reserved) all remaining bits.  Default value is <codeph>0b0</codeph>.</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>134</entry>
+<entry>4</entry>
+<entry>Dmn_compl</entry>
+<entry>cmp_srdi_mbr_t:compl_flags</entry>
+<entry>Domain scope compliance flags
+<lines>Type: binary integer, big-endian
+(description continued in next row)
+</lines>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5">
+<b>Description continued for Dmn_compl (offset 134, size 4):</b>
+<ul>
+<li>COMPF_PCI_HSM_2016   0x8000_0000
+<ol>
+<li>Flag Name: <term>This domain has the PCI-HSM v3.0 (June 2016) mode active</term>
+</li>
+<li>one bit flag to indicate that the domain has <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> enabled.</li>
+<li>Default value is 0b0, which indicates that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/> is disabled.</li>
+</ol></li>
+<li>(Reserved) all remaining bits. Default value 0b0</li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>138</entry>
+<entry>4</entry>
+<entry>Sec_log_cnt</entry>
+<entry>Not in a structure</entry>
+<entry>Current count of events for this domain, this is not a byte count.
+<lines>Type: binary integer, big-endian
+</lines>Will be <codeph>0x00000000</codeph> if Secure Log is not enabled at domain scope.
+</entry>
+</row>
+<row>
+<entry>142</entry>
+<entry>2</entry>
+<entry>Owner2</entry>
+<entry>Rom_status_t:owner2</entry>
+<entry>
+<lines>Type: binary integer, big-endian
+two byte owner-ID field.
+</lines>
+</entry>
+</row>
+<row>
+<entry>144</entry>
+<entry>2</entry>
+<entry>Owner3</entry>
+<entry>Rom_status_t:owner3</entry>
+<entry>
+<lines>Type: binary integer, big-endian
+two byte owner-ID field.
+</lines>
+</entry>
+</row>
+<row>
+<entry>146</entry>
+<entry>4</entry>
+<entry>Miniboot versions</entry>
+<entry>xcMB_Version_t</entry>
+<entry>
+<lines>Type: binary integer, big-endian
+two bytes for miniboot 0, 
+two bytes for miniboot 1
+</lines>
+</entry>
+</row>
+<row>
+<entry>150</entry>
+<entry>4</entry>
+<entry>Adapter type</entry>
+<entry>Adapter_type : CardRevId from xcAdapterInfo_t</entry>
+<entry>
+<lines>Type: binary integer, big-endian
+four byte field from adapter info
+</lines>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col5"><b>Begin signature section <uicontrol>sig-section</uicontrol> 
+(if SIGNSTAT passed)</b></entry>
+</row>
+<row>
+<entry></entry>
+<entry>X</entry>
+<entry>signature</entry>
+<entry>Raw <parmname>r</parmname> and <parmname>s</parmname> values for signature over SHA-512 hash of 
+the payload</entry>
+<entry>Length X is given in <uicontrol>signed_data_t:sig len</uicontrol> field at the beginning of 
+returned data.
+<lines>X will always be 132 bytes.
+<parmname>r</parmname> and <parmname>s</parmname> are 66 bytes each, <parmname>r</parmname> is first.
+</lines>
+</entry>
+</row>
+<row>
+<entry></entry>
+<entry>64</entry>
+<entry>Payload hash</entry>
+<entry>Raw hash value</entry>
+<entry>
+Raw SHA-512 hash over the payload. This is the value used for calculating the signature.
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

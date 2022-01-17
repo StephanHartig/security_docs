@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8tranpin">
+<title>Translating a PIN</title>
+  <titlealts>
+    <navtitle>Translating a PIN</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Translating a PIN</searchtitle>
+  </titlealts><shortdesc>To translate a PIN block format from one PIN-encrypting key to
+another or from one PIN block format to another, call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> <ph>verb</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>translating</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm>translating</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You must identify the input PIN-encrypting key that originally
+enciphered the PIN. You also need to specify the output PIN-encrypting
+key that you want the <ph>verb</ph> to use to encipher the PIN. If
+you want to change the PIN block format, specify a different output
+PIN block format from the input PIN block format. </p>
+</conbody></concept>

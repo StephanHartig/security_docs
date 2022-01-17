@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ch2useccaverbs" xml:lang="en-us">
+<title>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node and master
+key management verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node and master key
+management</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node and master key management
+verbs</searchtitle>
+</titlealts>
+<shortdesc>Use these verbs for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+node and master key management functions.</shortdesc><?Pub Caret 0?>
+<prolog><metadata>
+<keywords>
+<indexterm>master key management verbs</indexterm>
+<indexterm>node key management verbs</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> node key management
+verbs</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfv"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcve"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcve"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkm"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkpi"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmksi"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclksi"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpex"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpex"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpee"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpee"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrnt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrnt"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyi"/>)</li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000006099?>

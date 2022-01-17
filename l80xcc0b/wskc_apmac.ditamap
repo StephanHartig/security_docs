@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Verifying data integrity and authenticating messages</title><topicref href="wskc_c_apmac.dita">
+
+<topicref href="wskc_c_howmac.dita"></topicref>
+<topicref href="wskc_c_chp7howhashmdc.dita"></topicref>
+<topicref href="wskc_r_zapghmacg.dita">
+<topicmeta>
+<retrievalKeys><retkey>HMAC Generate (CSNBHMG)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_hmgnformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmgnparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmgnrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmgnrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmgnusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmgnrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc110.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_zapghmacv.dita">
+<topicmeta>
+<retrievalKeys><retkey>HMAC Verify (CSNBHMV)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_hmvrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmvrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmvrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmvrrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmvrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_hmvrrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc111.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_mgn.dita">
+<topicmeta>
+<retrievalKeys><retkey>MAC Generate (CSNBMGN)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc176.dita" toc="no"></topicref>
+<topicref href="wskc_r_mgnformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_mgnparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_mgnrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_mgnrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_mgnusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc177.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_mgn2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>MAC Generate2 (CSNBMGN2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_mgn2format.dita" toc="no"/>
+<topicref href="wskc_mgn2parameters.dita" toc="no"/>
+<topicref href="wskc_mgn2restrictions.dita" toc="no"/>
+<topicref href="wskc_mgn2required.dita" toc="no"/>
+<topicref href="wskc_mgn2usage.dita" toc="no"/>
+<topicref href="wskc_mgn2related.dita" toc="no"/>
+<topicref href="wskc_mgn2jniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_mvr.dita">
+<topicmeta>
+<retrievalKeys><retkey>MAC Verify (CSNBMVR)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc179.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_mvrrelated.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc180.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_mvr2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>MAC Verify2 (CSNBMVR2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_mvr2format.dita" toc="no"/>
+<topicref href="wskc_mvr2parameters.dita" toc="no"/>
+<topicref href="wskc_mvr2restrictions.dita" toc="no"/>
+<topicref href="wskc_mvr2required.dita" toc="no"/>
+<topicref href="wskc_mvr2usage.dita" toc="no"/>
+<topicref href="wskc_mvr2jniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_mdc_generate.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>MDC Generate (CSNBMDG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc159.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc160.dita" toc="no"/>
+<topicref href="wskc_r_mdc_generate_rst.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc161.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc162.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc169.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_r_owh.dita">
+<topicmeta>
+<retrievalKeys><retkey>One-Way Hash (CSNBOWH)</retkey></retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_owhformat.dita" toc="no"></topicref>
+<topicref href="wskc_r_owhparameters.dita" toc="no"></topicref>
+<topicref href="wskc_r_owhrestrictions.dita" toc="no"></topicref>
+<topicref href="wskc_r_owhrequired.dita" toc="no"></topicref>
+<topicref href="wskc_r_owhusage.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc185.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

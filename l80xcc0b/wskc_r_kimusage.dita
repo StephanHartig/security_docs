@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kimusage">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/></searchtitle>
+</titlealts><shortdesc>Usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkim"/>)<indexterm>usage notes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Use of NOCV keys are controlled by an access control point in the <ph><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>.
+Creation of NOCV key-encrypting keys is available only for standard
+IMPORTERs and EXPORTERs.</p></section>
+<section><p>This verb will mark an imported KEK as a NOCV-KEK KEK: 
+<ul>
+<li>If a token is supplied in the target token field, it must be a
+valid importer or exporter token. If the token fails token validation,
+processing continues, but the NOCV flag will not be copied</li>
+<li>The source token (key to be imported) must be a importer or exporter
+with  the default control vector. </li>
+<li>If the target token is valid and the NOCV flag is on and the source
+token  is valid and the control vector of the target token is exactly
+the same as the  source token, the imported token will have the NOCV
+flag set on. </li>
+<li>If the target token is valid and the NOCV flag is on and the source
+token  is valid and the control vector of the target token is NOT
+exactly the same as  the source token, a return code will be given.</li>
+<li>All other scenarios will complete successfully, but the NOCV flag
+will not  be copied</li>
+</ul></p></section>
+<section><p>The software bit used to mark the imported token with export prohibited
+is not supported on a <ph><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>. The internal token for
+an export prohibited key will have the appropriate control vector
+that prohibits export. </p></section>
+</refbody></reference>

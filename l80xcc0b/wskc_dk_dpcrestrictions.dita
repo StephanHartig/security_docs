@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpcrestrictions" rev="sh15">
+<title>Restrictions</title><titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpc"
+    />.</shortdesc>
+<prolog><metadata><keywords/>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The following rule array keywords are not supported in releases before Release 4.4:</p>
+<ul>
+<li>Script selection algorithm and method keyword <keyword>AES-CBC</keyword></li>
+<li>MAC ciphering method keyword <keyword>CMAC</keyword></li>
+<li>MAC length and presentation keyword <keyword>MACLEN16 </keyword></li>
+<li rev="sh20i1">PINs contained in encrypted ISO-4 PIN blocks are not supported in releases before
+Release 5.4.</li>
+<li rev="sh20i1">Support for three-key Triple-DES keys is not available in releases before Release
+5.4 and Release 6.2. Beginning with Release 5.4 and Release 6.2, this verb supports triple-length
+DES keys. For a list of supported three-key Triple-DES key types beginning with Release 5.4 and
+Release 6.2, see <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</li>
+<li rev="sh20i1">The following rule array keywords are not supported in releases before Release 5.6:<ul>
+<li>Script process keyword <keyword>SCR2013</keyword></li>
+<li>Script process keyword <keyword>SCR2020</keyword></li>
+</ul></li>
+</ul>
+</section>
+</refbody></reference>

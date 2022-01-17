@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_ctt2format" rev="sh15">
+  <title>Format</title>
+  <titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"
+    />.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"
+            />)<indexterm>format</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <table pgwide="0" frame="all">
+      <tgroup cols="1" colsep="1" rowsep="1">
+        <colspec colname="col1" colwidth="468*"/>
+        <tbody>
+          <row>
+            <entry valign="top" align="left">
+              <codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>key_identifier_in_length</var></synph>,
+             <synph><var>key_identifier_in</var></synph>,
+             <synph><var>init_vector_in_length</var></synph>,
+             <synph><var>init_vector_in</var></synph>,
+             <synph><var>cipher_text_in_length</var></synph>,
+             <synph><var>cipher_text_in</var></synph>,
+             <synph><var>chaining_vector_length</var></synph>,
+             <synph><var>chaining_vector</var></synph>,
+             <synph><var>key_identifier_out_length</var></synph>,
+             <synph><var>key_identifier_out</var></synph>,
+             <synph><var>init_vector_out_length</var></synph>,
+             <synph><var>init_vector_out</var></synph>,
+             <synph><var>cipher_text_out_length</var></synph>,
+             <synph><var>cipher_text_out</var></synph>,
+             <synph><var>reserved1_length</var></synph>,
+             <synph><var>reserved1</var></synph>,
+             <synph><var>reserved2_length</var></synph>,
+             <synph><var>reserved2</var></synph>)</codeblock></entry></row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refbody>
+</reference>

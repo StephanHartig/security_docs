@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="l0wskc02_cpacf_prep" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/> preparation at startup</title>
+<titlealts>
+<navtitle>CCA library <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>
+preparation at startup</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library CPACF
+preparation at startup for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"
+/></searchtitle>
+</titlealts>
+<shortdesc>When the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library first
+starts up, it must take some initialization steps to prepare for using the Central Processor Assist
+for Cryptographic Functions (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"
+/>).</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/><indexterm>preparation
+at startup</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library</indexterm></keywords>
+</metadata></prolog>
+<taskbody>
+<steps>
+<step>
+<cmd>Check configuration options to see if either is set to ON, allowing some use of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>. If neither is on, skip the rest of
+initialization</cmd>
+<info/>
+</step>
+<step>
+<cmd>Check for existence and configuration of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cpacf"/>.</cmd>
+</step>
+</steps><?Pub Caret -2?>
+</taskbody>
+</task>
+<?Pub *0000000980?>

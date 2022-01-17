@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="key_strength" rev="sh21i1">
+<title>Key wrapping access control points</title>
+<titlealts>
+<navtitle>Key wrapping ACPs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Key wrapping access control
+points</searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>ACPs<indexterm>for key wrapping</indexterm></indexterm>
+<indexterm>key wrapping ACPs</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In order to comply with cryptographic standards, including ANSI X9.24 Part 1 and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides a set of access control points
+(ACPs) to ensure that a key is not wrapped with a key weaker than itself. Administrators can use
+these ACPs to control the wrapping of keys by master and key-encrypting keys in order to meet an
+installation's individual requirements. These access control points either prohibit the wrapping of
+a key by a key of weaker strength, or return a warning when a key is wrapped by a weaker key. All of
+these ACPs are disabled by default.</p>
+<p>This subsequent list provides a description of the available access control points, the wrapping
+they control, and the effect they have on the processing of the affected verbs. These ACPs apply to
+symmetric and asymmetric keys. </p>
+<ul>
+<li>When the <cmdname>Prohibit weak wrapping - Transport keys</cmdname> access control point is
+enabled, any service that attempts to wrap a key with a weaker transport key will fail. </li>
+<li>When the <cmdname>Prohibit weak wrapping - Master keys</cmdname> access control point is
+enabled, any service that wraps a key under a master key will fail if the master key is weaker than
+the key being wrapped.</li>
+<li>When the <cmdname>Warn when weak wrap - Transport keys</cmdname> access control point is
+enabled, any service that attempts to wrap a key with a weaker transport key will succeed with a
+warning reason code. </li>
+<li>When the <cmdname>Warn when weak wrap - Master keys</cmdname> access control point is enabled,
+any service that attempts to wrap a key with a weaker master key will succeed with a warning reason
+code. </li>
+<li>When the <cmdname>Allow weak wrapping of compliance-tagged keys by DES MK</cmdname> access
+control point is enabled, any service which attempts to wrap a compliant-tagged key token with a
+weaker DES master key will succeed. </li>
+<li>24-byte DATA keys with a zero control vector can be wrapped with a 16-byte key, the DES master
+key, or a key-encrypting key, which violates the wrapping requirements. The <cmdname>Prohibit weak
+wrapping - Transport keys</cmdname> and <cmdname>Prohibit weak wrapping - Master keys</cmdname>
+access control points do not cause services to fail for this case. The <cmdname>Disallow 24-byte
+DATA wrapped with 16-byte Key</cmdname> access control point does control this wrapping. When
+enabled, services will fail. The <cmdname>Warn when weak wrap - Transport keys</cmdname> and
+<cmdname>Warn when weak wrap - Master keys</cmdname> access control points will cause the warning to
+be returned when the access control points are enabled.</li>
+<li>When the <cmdname>Trusted Block Create - Disallow triple-length MAC key</cmdname> access control
+point is enabled, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/> will fail to
+import a triple-length MAC key under a double-length key-encrypting key. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltbc"/> will not wrap a triple-length MAC key
+under a double-length key-encrypting key. The <cmdname>Prohibit weak wrapping - Transport
+keys</cmdname> and <cmdname>Prohibit weak wrapping - Master keys</cmdname> access control points do
+not cause services to fail for this case. The <cmdname>Warn when weak wrap - Transport
+keys</cmdname> and <cmdname>Warn when weak wrap - Master keys</cmdname> access control points will
+cause the warning to be returned when the ACPs are enabled. </li>
+<li>When the <cmdname>Prohibit weak wrapping - ...</cmdname> access control points are enabled, RSA
+private keys may not be wrapped using a weaker DES key-encrypting key. Enabling the <cmdname>Allow
+weak DES wrap of RSA</cmdname> access control point will override this restriction. </li>
+</ul>
+<p>Additionally, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides a set of
+access control points in the domain role that prohibit the usage and generation of keys that fall
+below the minimum key strength requirement of the respective access control point. All of these ACPs
+are disabled by default in the domain role. </p>
+<ul>
+<li>When the <cmdname>Disable 56-bit length DES keys</cmdname> access control point is enabled, any
+verb that attempts to accept or generate a 56-bit length DES key will fail. </li>
+<li>When the <cmdname>Disable 56-bit effective length DES keys</cmdname> access control point is
+enabled, any service that attempts to accept or generate a 56-bit effective length DES key (112-bit
+or 168-bit keys with repeated 56-bit sections) will fail. This will also disallow loading a master
+key that has a 56-bit effective length. </li>
+<li>When the <cmdname>Disable RSA keys with less than 1024-bit modulus length</cmdname> access
+control point is enabled, any service that attempts to accept or generate RSA keys with a modulus
+length less than 1024 bit will fail.</li>
+<li>When the <cmdname>Disable RSA keys with less than 2048-bit modulus length</cmdname> access
+control point is enabled, any service that attempts to accept or generate RSA keys with a modulus
+length less than 2048 bit will fail. </li>
+<li>When the <cmdname>Disable ECC keys weaker than 224-bit (P192, BP160, BP192)</cmdname> access
+control point is enabled, any service that attempts to accept or generate ECC keys weaker than 224
+bit (P192, BP160, BP192) will fail.</li>
+</ul>
+</conbody>
+</concept>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktr1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> <ph>verb</ph> uses one key-encrypting key to decipher
+an input key and then enciphers this key using another key-encrypting
+key within the secure environment. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr"/>)</indexterm></indexterm>
+<indexterm>key encrypting key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>All key labels must be unique.</p>
+<note type="other" othertype="Notes">
+<ul>
+<li>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</li>
+<li rev="sh21i1">This service has been deprecated. New applications should use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/> service that is described in <xref
+href="wskc_r_ktr2.dita"/>.</li>
+</ul>
+</note>
+</section>
+</refbody></reference>

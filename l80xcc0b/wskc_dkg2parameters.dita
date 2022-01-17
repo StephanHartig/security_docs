@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_dkg2parameters">
+<title>Parameters</title><titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/></indexterm></indexterm>
+<indexterm>KEYGENKY</indexterm>
+<indexterm>KUF<indexterm>key usage field</indexterm></indexterm>
+<indexterm>key usage field<indexterm>must be equal, KUF-MBE</indexterm><indexterm>must be permitted,
+KUF-MBP</indexterm></indexterm>
+<indexterm>KUF-MBE<indexterm>key usage field must be equal, </indexterm></indexterm>
+<indexterm> KUF-MBP<indexterm>key usage field must be permitted</indexterm></indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>CLR8-ENC</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>TDES-DEC</indexterm>
+<indexterm>TDES-ENC</indexterm>
+<indexterm>TDES-XOR</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>SMPIN</indexterm>
+<indexterm>SMKEY</indexterm>
+<indexterm>TDESEMV2</indexterm>
+<indexterm>EMV 2000</indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>SESS-XOR</indexterm>
+<indexterm>USECONFG</indexterm>
+<indexterm>WRAP-ENH</indexterm>
+<indexterm>WRAP-ECB</indexterm>
+<indexterm>ENH-ONLY</indexterm>
+<indexterm>generating_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>data_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier1 parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier2 parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</indexterm></indexterm>
+<indexterm>DKYGENKY</indexterm>
+<indexterm>SESS-XOR</indexterm>
+<indexterm>null key token</indexterm>
+<indexterm>key token</indexterm>
+<indexterm>control vector</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count </pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="shd3">A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1 or 2.</ph></pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The keyword that provides control information to the verb. The only
+<parmname>rule_array</parmname> keyword is described in <xref
+href="#wskc_dkg2parameters/l0wskc02_kytary1"/>.<table id="l0wskc02_kytary1" pgwide="1" frame="all">
+<title>Keyword for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keyword for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Diversification Process</i></b> (One
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>KDFFM-DK</kwd></synph></entry>
+<entry>Specifies to use the DK version of Key Derivation Function (KDF) in Feedback Mode (NIST SP
+800-108), as specified in <cite>DK Kryptographie Teil 1: Empfohlene kryptographische
+Algorithmen</cite>, to generate a bank specific Issuer Master Key. The generated Issuer Master Key
+(keying material) can be used to derive an ICC master key. <p>This method uses AES CMAC to encipher
+16 - 40 bytes of derivation data with the k-bit diversified key generating key (banking association
+specific master key) to produce a k-bit generated Bank specific Issuer Master Key, where k = 128,
+192, or 256.</p>
+</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>MK-OPTC</kwd></synph></entry>
+<entry>Specifies to use the EMV Master Key Derivation Option C, as specified in <cite>EMV Integrated
+Circuit Card Specifications for Payments Systems</cite>, to generate an ICC master key. The
+generated ICC master key (keying material) can be used for Application Cryptogram generation or
+verification, issuer authentication, and secure messaging. <p>This method uses AES in ECB mode to
+encipher the 16 bytes of derivation data with the k-bit diversified key generating key (Issuer
+Master Key) to produce a k-bit generated ICC master key, where k = 128, 192, or 256.</p>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>SESS-ENC</kwd></synph></entry>
+<entry>A session key is created by enciphering a 16-byte diversification value with the k-bit AES
+key-generating key to produce a k-bit AES session key using the AES algorithm in ECB mode, where k
+is 128, 192 or 256 bits.</entry>
+</row>
+<row rev="shd3">
+<entry namest="col1" nameend="col2" rev="shd3"><b><i>Bit length of generated key</i></b> (One,
+optional). Release 4.4 or later. Valid only with the KDFFM-DK keyword. Default is to use the bit
+length of the generating key as the bit length of the generated key.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>KLEN128</kwd></synph></entry>
+<entry>Specifies the bit length of the generated key to be 128.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>KLEN192</kwd></synph></entry>
+<entry>Specifies the bit length of the generated key to be 192, allowed if and only if the bit
+length of the generating key is greater than or equal to 192. See <xref
+href="wskc_dkg2required.dita#wskc_dkg2required"/>.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>KLEN256</kwd></synph></entry>
+<entry>Specifies the bit length of the generated key to be 256, allowed if and only if the bit
+length of the generating key is 256. See <xref href="wskc_dkg2required.dita#wskc_dkg2required"
+/>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry>
+<pt>generating_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>generating_key_identifier</parmname> parameter in bytes. If the
+<parmname>generating_key_identifier</parmname> contains a label, the value must be 64. Otherwise,
+the value must be at least the actual token length, up to 725.</pd>
+</plentry>
+<plentry>
+<pt>generating_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the key-generating key. The key identifier is an operational token or the
+key label of an operational token in key storage. The key algorithm of this key must be AES and the
+key type must be DKYGENKY. The key usage field indicates the key type of the generated key. <p> If
+SESS-ENC is specified, the clear length of the generated key is equal to the clear length of the
+generating key. <ph rev="shd3">Also, beginning with Release 4.4, the sequence level can be set to
+DKYL0, DKYL1, or DKYL2 in the key usage field 2.</ph></p><p>If the token supplied was encrypted
+under the old master key, the token is returned encrypted under the current master key.</p><p
+rev="shd3">If the <parmname>rule_array</parmname> parameter specifies a diversification process of
+KDFFM-DK, the key-derivation sequence level of the generating key must be DKYL2. Otherwise, if
+KDFFM-DK is not specified, any sequence level is allowed for the generating key. </p></pd>
+</plentry>
+<plentry>
+<pt>derivation_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>derivation_data</parmname> parameter in bytes. <ph rev="sh21i1"
+>Derivation data length value can be any positive value less than or equal to 2048 for keyword
+<keyword>KDFFM-DK</keyword>.</ph>   Otherwise the value must be 16. </pd>
+</plentry>
+<plentry>
+<pt>derivation_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The derivation data to be used in the key generation process. This data is often referred to
+as the diversification data. For SESS-ENC, the derivation data is 16 bytes long. Note that if
+SESS-ENC is specified and the length of the key generating key is 192 bits or 256 bits, the data is
+manipulated in conformance with the <cmdname>EMV Common Session Key Derivation
+Option</cmdname>.</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>reserved1</parmname> parameter in bytes. The value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>reserved2</parmname> parameter in bytes. The value must be 0.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, this parameter specifies the length in bytes of the buffer for the
+<parmname>generated_key_identifier1</parmname> parameter. The maximum value is 725 bytes. <p>On
+output, the parameter holds the actual length in bytes of the
+<parmname>generated_key_identifier1</parmname> parameter. </p></pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to a string variable containing an internal variable-length symmetric key-token
+or the key label of such a record in AES key-storage. <p>On input, identify a null key token or a
+skeleton key token that specifies the desired attributes of the key on output. The key token
+identified by <parmname>generating_key_identifier1</parmname> determines whether on input the
+<parmname>generating_key_identifier1</parmname> can identify a null key token or a skeleton key
+token. See <xref href="#wskc_dkg2parameters/gen_key_id1" format="dita"/>:</p><p rev="sh20i1">When
+the key-generating key from <parmname>generating_key_identifier</parmname> is compliant-tagged, a
+compliant-tagged key token is created.</p><p rev="sh20i1">When a skeleton token is passed as input
+and the <parmname>generating_key_identifier</parmname> is compliant-tagged, the skeleton token must
+have the compliant-tagged flag on.</p>
+<table id="gen_key_id1"><title>Generating and generated key tokens</title><desc>
+<p outputclass="summary">Table with three columns describing input and output of generating and
+generated key tokens</p>
+</desc><tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="1*"/>
+<thead>
+<row>
+<entry>Iunpt generating key token</entry>
+<entry>Iunpt generated key token</entry>
+<entry>Output generated key token</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>DKYGENKY, DKYL0, type of key to diversify D-ALL</entry>
+<entry>Null AES key token not allowed; AES skeleton key token required.</entry>
+<entry>Key type same as skeleton; diversified key final.</entry>
+</row>
+<row>
+<entry>DKYGENKY, DKYL0, type of key to diversify not D-ALL</entry>
+<entry>Either null AES key token or AES skeleton key token required.</entry>
+<entry>Key type determined by input generated key token type of key to diversify; if null key token
+on input, output key token will have attributes based on the related generated key usage fields of
+the input generating key token, otherwise the output key token has attributes of the input skeleton
+key token.</entry>
+</row>
+<row>
+<entry>DKYGENKY, DKYL1, any type of key to diversify</entry>
+<entry>Null AES key token required; AES skeleton key token not allowed.</entry>
+<entry>Same as input generating key token except DKYL0 and with new level of diversified
+key.</entry>
+</row>
+<row>
+<entry>DKYGENKY, DKYL2, any type of key to diversify</entry>
+<entry>Null AES key token required; AES skeleton key token not allowed.</entry>
+<entry>Same as input generating key token except DKYL1 and with new level of diversified
+key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">
+<note>
+<ol>
+<li>If the supplied generated key-token contains a key, the key value and length are ignored and
+overwritten.</li>
+<li>The key type must match what the generating key indicates can be created in the key generating
+key usage field at offset 45.</li>
+<li>The key usage fields in the generated key must meet the requirements (<codeph>KUF must be equal
+(KUF-MBE)</codeph> or <codeph>KUF must be permissible (KUF-MBP)</codeph>) of the corresponding key
+usage fields in the generating key unless D-ALL is specified in the generating key. A flag bit in
+the DKYGENKY key-usage field 2 determines whether the key-usage field level of control is KUF-MBE or
+KUF-MBP.</li>
+<li>If authorized by access control, D-ALL permits the derivation of several different keys. See
+<xref href="wskc_dkg2required.dita#wskc_dkg2required"/>.</li>
+</ol>
+</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>generated_key_identifier2</parmname> parameter in bytes. The value
+must be 0.</pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml></section>
+</refbody></reference>

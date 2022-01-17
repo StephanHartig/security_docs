@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc227" xml:lang="en-us">
+<title>Usage notes</title>
+ <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>This verb is not impacted by the AUTOSELECT option. See <xref
+href="wskc_c_multico.dita#l0wskc02_multico/l0wskc02_ignore"/> for more information.</p></section><?Pub Caret -1?>
+</refbody>
+</reference>
+<?Pub *0000000793?>

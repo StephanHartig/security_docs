@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<!--HW: Acrolinx run on May 13, 2015-->
+<concept id="opencryptoki" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> support</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> support</searchtitle>
+</titlealts>
+<abstract><shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> is an
+open source implementation of the <term>Cryptoki</term> API as defined by the industry-wide <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> Cryptographic Token Interface
+Standard.</shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> supports
+several cryptographic algorithms according to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> standards. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> library loads plug-ins that provide
+hardware or software-specific support for cryptographic functions.</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></indexterm>
+<indexterm>Cryptoki</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/><indexterm> shared
+library (C API)</indexterm></indexterm>
+<indexterm>C API</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/></indexterm>
+<indexterm>token<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><ph>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> terminology, and
+hence in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> terminology, these
+plug-ins are called <term>tokens</term>.</ph> Do not confuse <term>token</term> in the context of
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> with <term>token</term> in the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> context.<dl>
+<dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/></dt>
+<dd>In the context of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/>, a token is a representation of
+a hardware or software component that implements cryptographic functions. For example, a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pkcs11"/> token can represent a cryptographic
+adapter, a smart card, or a cryptographic library.<p>The term <cite><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/></cite> is used to denote the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> plug-in for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> represents a library that extends the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> token library and links to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccalib"/> (libcsulcca).</p></dd>
+</dlentry>
+<dlentry>
+<dt><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></dt>
+<dd>In the context of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, a
+<term>token</term> is a representation of a key and the attributes belonging to the key. </dd>
+</dlentry>
+</dl></p>
+<?Pub Caret 204?>
+<p>For more information about the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> services or about the interfaces
+between the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> main module and
+its tokens, obtain an <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> package
+from <xref conref="wskc_conref-l0wskc04.dita#links/opencryptoki_source"/> and see the documents in
+the <filepath>doc</filepath> subdirectory within this website.</p>
+<section>
+<title>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> token
+directories</title>
+<p>Each token has a separate token directory, which is used by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> to store token-specific information,
+like key objects, the user PIN, or the SO PIN. <ph>For most <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> distributions, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token directory is
+<filepath>/var/lib/opencryptoki/ccatok</filepath>.</ph></p>
+<note>The data in the token directory applies to all applications that use the
+token.</note>
+</section>
+<section>
+<title>Prerequisites</title>
+<ul>
+<li>The libcsulcca library must be installed, see <xref href="wskc_c_install.dita#l0wskc02_install"
+/>.</li>
+<li>The cryptographic device driver must be loaded, see <xref
+href="wskc_c_setupilzdd.dita#l0wskc02_setupilzdd"/>.</li>
+<li>A Crypto Express coprocessor (see <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> in <xref
+href="wskc_r_terms.dita#l0wskc02_terms"/>) must be accessible to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>. For <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> on z/VM, this coprocessor must be
+dedicated to the guest.</li>
+<li>The master keys must be loaded and set in the coprocessor, see <xref
+href="wskc_c_utilities.dita#l0wskc02_utilities"/>.</li>
+</ul>
+<note rev="sh16i1">To properly configure the system, and to be authorized for the tasks described in
+this section, the <term>pkcs11</term> group must be defined in <filepath>/etc/group</filepath> of
+the system. Every user of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+(including the users configuring <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"
+/> and its tokens) must be a member of this <term>pkcs11</term> group. Use standard <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> management operations to create the
+<term>pkcs11</term> group if needed, and to add users to this group as required.<p>You may also
+refer to the man page of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>
+<cite>man <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/></cite> which has a
+<cite>SECURITY NOTE</cite> section that is important from the security perspective. </p>
+<!--For more information on how to create this group, refer to topic <cite>Preparing the System for Configuration</cite> in the following document, <ph rev="sh16i1">included in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> rpm (/usr/share/doc/opencryptoki/openCryptoki-HOWTO.pdf<filepath/>) or retrievable from this URL:</ph> <xref href="https://sourceforge.net/p/opencryptoki/opencryptoki/ci/9961353e5b5eaf4356286355db3ff637f6e448b0/tree/doc/openCryptoki-HOWTO.pdf" format="pdf" scope="external">openCryptoki-HOWTO.pdf </xref>--></note>
+</section>
+</conbody>
+</concept>
+<?Pub *0000003393?>

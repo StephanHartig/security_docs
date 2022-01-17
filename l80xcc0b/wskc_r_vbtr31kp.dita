@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbtr31kp">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb to disassemble the unencrypted header
+of an external TR-31 key block into separate pieces of information. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcltr31kp"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The part of the header that is optional, called optional blocks,
+is not disassembled. To obtain the contents of optional blocks, use
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb.  Neither verb performs any cryptographic services,
+and both disassemble a key block in application storage. The validity
+of the key block is verified as much as can be done without performing
+any cryptographic services.</p></section>
+<section><p>The TR-31 header fields that are disassembled into separate pieces
+of information include a key block version ID,  key block length,
+key usage, algorithm, mode of use, key version number, exportability,
+and number of optional blocks. Except for the two length values, which
+are returned as integers, the verb returns the field values as ASCII
+strings. This format is used in the TR-31 key block itself. For more
+information, see X9 TR-31 2010: <synph><var>Interoperable Secure Key Exchange
+Block Specification for Symmetric Algorithms</var></synph>.</p></section>
+<section><p>The following table summarizes the key blocks fields returned by
+this verb:
+<table pgwide="1" rowheader="firstcol"><desc><p outputclass="summary">Key blocks fields returned by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kp"/> verb</p></desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="9*"/>
+<colspec colname="col2" colwidth="9*"/>
+<colspec colname="col3" colwidth="6*"/>
+<colspec colname="col4" colwidth="22*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">TR-31 field name</entry>
+<entry colname="col2">Verb parameter</entry>
+<entry colname="col3">Field or buffer string length in bytes</entry>
+<entry colname="col4">Description of TR-31 field</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">Key block version ID</entry>
+<entry colname="col2"><synph><var>key_block_version</var></synph></entry>
+<entry colname="col3">1</entry>
+<entry colname="col4">Identifies the method by which the key block
+is cryptographically protected and the content layout of the block.</entry></row>
+<row>
+<entry colname="col1">Key block length</entry>
+<entry colname="col2"><synph><var>key_block_length</var></synph></entry>
+<entry colname="col3">4 (integer)</entry>
+<entry colname="col4">Entire key block length after encoding (header,
+encrypted confidential data, and MAC).</entry></row>
+<row>
+<entry colname="col1">Key usage</entry>
+<entry colname="col2"><synph><var>key_usage</var></synph></entry>
+<entry colname="col3">2</entry>
+<entry colname="col4">Provides information about the intended function
+of the protected key/sensitive data, such as data encryption, PIN
+encryption, or key wrapping. Numeric values are reserved for proprietary
+use (that is, not defined by TR-31).</entry></row>
+<row>
+<entry colname="col1">Algorithm</entry>
+<entry colname="col2"><synph><var>algorithm</var></synph></entry>
+<entry colname="col3">1</entry>
+<entry colname="col4">The approved symmetric algorithm for which the
+protected key may be used. Numeric values are reserved for proprietary
+use.</entry></row>
+<row>
+<entry colname="col1">Mode of use</entry>
+<entry colname="col2"><synph><var>mode</var></synph></entry>
+<entry colname="col3">1</entry>
+<entry colname="col4">Defines the operation for which the protected
+key can perform. Numeric values are reserved for proprietary use.</entry></row>
+<row>
+<entry colname="col1">Key version number</entry>
+<entry colname="col2"><synph><var>key_version_number</var></synph></entry>
+<entry colname="col3">2</entry>
+<entry colname="col4">Version number to optionally indicate that the
+contents of the key block is a component (key part), or to prevent
+re-injection of an old key. This field is a tool for enforcement of
+local key change rules.</entry></row>
+<row>
+<entry colname="col1">Exportability</entry>
+<entry colname="col2"><synph><var>exportability</var></synph></entry>
+<entry colname="col3">1</entry>
+<entry colname="col4">Defines whether the protected key may be exported.</entry></row>
+<row>
+<entry colname="col1">Number of optional blocks</entry>
+<entry colname="col2"><synph><var>num_opt_blocks</var></synph></entry>
+<entry colname="col3">4 (integer)</entry>
+<entry colname="col4">Defines the number of optional blocks included
+in the key block. If this value is greater than zero, use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31kr"/> verb
+to obtain the contents of the optional blocks.</entry></row>
+</tbody>
+</tgroup>
+</table></p></section>
+<section><p>This verb does not perform cryptographic services on any key value.
+You cannot use this verb to change a key or to change the control
+vector related to a key.</p></section>
+</refbody></reference>

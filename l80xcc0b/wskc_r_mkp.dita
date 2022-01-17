@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mkp">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>)  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> verb operates on the three master-key registers:
+new, current, and old. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/>)</indexterm>
+<indexterm>processing a master key</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</indexterm></indexterm>
+<indexterm>loading a master key</indexterm>
+<indexterm>master key loading</indexterm>
+<indexterm>master key register</indexterm>
+<indexterm>key part</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>key storage</indexterm>
+<indexterm>verification pattern</indexterm>
+<indexterm>key verification pattern</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Use the verb to perform the following services: </p>
+<ul>
+<li>Clear the new and clear the old master-key registers.</li>
+<li>Generate a random master-key value in the new master-key register.</li>
+<li>XOR a clear value as a key part into the new master-key register.</li>
+<li>Set the master key, which transfers the current master-key to the old master-key register, and
+the new master-key to the current master-key register. It then clears the new master-key
+register.</li>
+</ul>
+<p>You can choose to process either the symmetric or asymmetric registers by specifying the
+<synph><kwd>SYM-MK</kwd></synph> and the <synph><kwd>ASYM-MK</kwd></synph>
+<i>rule_array</i> keywords.</p>
+<note type="other" othertype="Tip">Before starting to load new master-key information, ensure the
+new master-key register is cleared. Do this by using the <synph><kwd>CLEAR</kwd></synph> keyword in
+the <i>rule_array</i>.</note>
+<p>To form a master key from key parts in the new master-key register, use the verb several times to
+complete the following tasks: </p>
+<ul compact="yes">
+<li>Clear the register, if it is not already clear.</li>
+<li>Load the first key part.</li>
+<li>Load any middle key parts, calling the verb once for each middle key part.</li>
+<li>Load the last key part.</li>
+<li>SET or confirm a master key for which the last key part has been loaded into the new master-key
+register.</li>
+</ul>
+<p>For the SYM-MK, the low-order bit (most right) in each byte of the key is used as parity for the
+remaining bits in the byte. Each byte of the key part must contain an odd number of '1' bits. <ph
+rev="sh20i1">Therefore, the low-order bit  needs to be turned to '1' or '0' accordingly to make
+the total number of '1's in the byte an odd number.</ph> If this is not the case, a warning is
+issued. The product maintains odd parity on the accumulated symmetric master-key value.</p>
+<p rev="sh20i1"/>
+<p>When the last master key part is entered, this additional processing is performed: </p>
+<ul>
+<li>If any two of the 8-byte parts of the <i>new</i> master-key have the same value, a warning is
+issued. <i>Do not ignore this warning.</i> Do not use a key with this property. </li>
+<li>If any of the 8-byte parts of the <i>new</i> master-key compares equal to one of the weak
+DES-keys, the verb fails with return code 8, reason code 703. See <xref
+href="wskc_r_mkprelated.dita#l0wskc02_mkprelated"/> for a list of these weak keys. A parity-adjusted
+version of the asymmetric master-key is used to look for weak keys.</li>
+</ul>
+<p>If an AES, DES or PKA key storage exists, the header record of each key storage is updated with
+the verification pattern of the new, current master key.</p></section>
+</refbody></reference>

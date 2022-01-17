@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_crdparameters" xml:lang="en-us">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcrd"></keyword>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> verb</indexterm></indexterm>
+<indexterm>HCPUACLR</indexterm><indexterm>HCPUAPRT</indexterm>
+<indexterm>CSU_DEFAULT_ADAPTER</indexterm><indexterm>environment variable<indexterm>CSU_DEFAULT_ADAPTER</indexterm></indexterm>
+<indexterm>resource_name_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> verb</indexterm></indexterm>
+<indexterm>resource_name parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"></keyword> verb</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref
+href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+<section> <parml><plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1.</pd>
+</plentry><plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>rule_array</parmname> parameter is a pointer to a string variable containing
+an array of keywords. The keywords are eight bytes in length and must be left-aligned and padded on
+the right with space characters. The <parmname>rule_array</parmname> keyword is described in <xref
+href="#l0wskc02_crdparameters/l0wskc02_crd_ra"/>. <table frame="all" id="l0wskc02_crd_ra" pgwide="0">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcrd"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row rowsep="1">
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry nameend="col2" namest="col1"><i>Cryptographic resource</i> (Required)</entry>
+</row>
+<row>
+<entry><b>DEVICE</b></entry>
+<entry rev="sh20i1">Specifies a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"
+/> coprocessor by resource number. The <parmname>resource_name</parmname> variable must point to a
+buffer containing "CRPxx" where 'xx' is the decimal number of the resource from '01' to '64', with 3
+spaces (hexadecimal 0x20 value) at the end. Note that the <cmdname>panel.exe</cmdname> utility shows
+the card numbers starting from 0, and the resource number is obtained by adding '1' to the card
+number.<p><b>Example:</b> To specify card number 5 as identified by <cmdname>panel.exe</cmdname>,
+use resource number 6. The user of CSUACRD:"DEVICE " will set<parmname> resource_name</parmname> to
+<codeph>"CRP06   "</codeph>, and <parmname>resource_name_length</parmname> to 8.</p></entry>
+</row>
+<row rev="sh20i1">
+<entry><b>SERIAL</b></entry>
+<entry>Specifies a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>
+coprocessor by serial number. The <parmname>resource_name</parmname> variable must point to a buffer
+containing "xxxxxxxx", the 8 character serial number as shown by the <cmdname>panel.exe</cmdname>
+utility or returned by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>
+verb. Note that the <cmdname>panel.exe -x</cmdname> command shows the card serial number in this
+format: 'SER [xxxxxxxx]', along with other output. <p><b>Example:</b> The serial number is shown by
+the command <cmdname>panel.exe -x</cmdname> to be <codeph>xx1234xx</codeph>, as part of this output:
+<codeblock>CARD [0: CEX5C] SER [xx1234xx] CCA Vers:Date ....</codeblock> The user of CSUACRD:"SERIAL
+" will set <parmname>resource_name</parmname> to <codeph>xx1234xx</codeph>, and
+<parmname>resource_name_length</parmname> to 8.</p></entry>
+</row>
+
+<row>
+<entry colname="col1"><b>DEV-ANY</b></entry>
+<entry colname="col2">Specifies to disable the AUTOSELECT option. Verbs will now all use the default
+adapter or a previously configured "selected" adapter as chosen via CSUACRA. See <xref
+href="wskc_c_multico.dita#l0wskc02_multico"/> for more information.</entry>
+</row>
+<row>
+<entry><b>HCPUACLR</b></entry>
+<entry>Specifies the use of host CPU assist for clear keys. This keyword enables clear key use of
+the CPACF, for clear key AES encryption and decryption with hash algorithms: SHA-1, SHA-224,
+SHA-256, SHA-384, and SHA-512. This is the default state at the time of the first use of the CCA
+library by a PID or TID.</entry>
+</row>
+<row>
+<entry><b>HCPUAPRT</b></entry>
+<entry>Specifies the use of host CPU assist for protected keys. This keyword disables
+protected key use of the CPACF for protected key AES and DES, TDES, and MAC. This is the default
+state at the time of the first use of the CCA library by a PID or TID.</entry>
+</row>
+<row rev="sh20i1">
+<entry nameend="col2" namest="col1"><i>Domain selection.</i> (One, optional)</entry>
+</row>
+<row rev="sh20i1">
+<entry><b>DOMN-DEF</b></entry>
+<entry>This keyword specifies to return to using the domain value from other sources for the card 
+specified with this thread. The CCA library returns to using the domain specified in the environment variable 
+CSU_DEFAULT_DOMAIN, or if none is specified, then the domain used is the domain given by the ap device driver.
+This keyword may be combined with <b>SERIAL</b> or <b>DEVICE</b>.</entry>
+</row>
+
+</tbody>
+</tgroup>
+</table><p>There is an environment variable that also impacts the default card: CSU_DEFAULT_ADAPTER
+(see <xref href="wskc_c_multico.dita#l0wskc02_multico"/>). There are also environment variables that
+influence CPACF support (see <xref href="wskc_c_cpacf_conopt_envar.dita#l0wskc02_cpacf_conopt_envar"
+/>).</p><p>The actual hardware configuration determines what features are available, and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses what exists if the user sets these
+values as desired, with respect to appropriate defaults.</p></pd>
+</plentry><plentry>
+<pt>resource_name_length</pt>
+<pd> <table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>resource_name_length</var></synph> parameter
+is a pointer to an integer variable containing the number of bytes
+of data in the <i>resource_name</i> variable. The length must be 1
+- 64. </pd>
+</plentry><plentry>
+<pt>resource_name</pt>
+<pd> <table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>resource_name</var></synph> parameter
+is a pointer to a string variable containing the name of the coprocessor
+to be deallocated. </pd>
+</plentry></parml></section>
+</refbody>
+</reference>
+<?Pub *0000005687?>

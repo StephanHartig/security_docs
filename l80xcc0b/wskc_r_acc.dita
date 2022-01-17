@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_acc" xml:lang="en-us">
+<title>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and
+resource control verbs</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and resource
+control</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and resource control
+verbs</searchtitle>
+</titlealts>
+<shortdesc>Use these verbs to control <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and their resources.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes
+and resource control</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> nodes and resource
+control verb</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section otherprops="pdf">
+<p>The following verbs are described: </p>
+<ul>
+<li rev="sh16"><xref href="wskc_r_acm.dita#csuaacm"/></li>
+<li rev="sh16"><xref href="wskc_r_act.dita#csuaact"/></li>
+<li><xref href="wskc_r_cfq.dita#l0wskc02_cfq"/></li>
+<li><xref href="wskc_r_cfv.dita#l0wskc02_cfv"/></li>
+<li><xref href="wskc_r_cra.dita#l0wskc02_cra"/></li>
+<li><xref href="wskc_r_crd.dita#l0wskc02_crd"/></li>
+<li><xref href="wskc_r_ksi.dita#l0wskc02_ksi"/></li>
+<li><xref href="wskc_lgq.dita#l0wskc02_lgq"/></li>
+<li><xref href="wskc_r_mkp.dita#l0wskc02_mkp"/></li>
+<li><xref href="wskc_r_rnt.dita#l0wskc02_rnt"/></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001555?>

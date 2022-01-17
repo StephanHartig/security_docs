@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_hmvrusage">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/></searchtitle>
+  </titlealts><shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnhmacv"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbhmacv"/><indexterm>usage notes</indexterm></indexterm>
+<indexterm>HMAC key length</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh6??">
+<p>The HMAC key bit length must be equal or greater than half of the size of the hash function
+output. For example, SHA-256 output requires a 128-bit HMAC key.</p>
+</section>
+</refbody></reference>

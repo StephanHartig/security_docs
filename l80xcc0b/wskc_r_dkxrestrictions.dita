@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkxrestrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/></searchtitle>
+  </titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkx"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><ph>For security reasons, requests will fail by default</ph> if they use an equal key halves
+exporter to export a key with unequal key halves. You must have access control point <cmdname>Data
+Key Export - Unrestricted</cmdname> explicitly enabled if you want to export keys in this
+manner.</p>
+<note rev="sh20i1">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key
+TDES keys. As a key management service this includes three-key TDES key encrypting keys
+(KEKs).</note></section>
+</refbody></reference>

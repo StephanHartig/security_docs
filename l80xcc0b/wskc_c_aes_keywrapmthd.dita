@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_aes_keywrapmthd" xml:lang="en-us">
+<title>AES key wrapping</title>
+<titlealts>
+<navtitle>AES key</navtitle><?Pub Caret -1?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+AES key       wrapping</searchtitle>
+</titlealts>
+<shortdesc>The key value in AES tokens are wrapped using the AES algorithm
+and cipher block chaining (CBC) mode of encryption.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key wrapping<indexterm>AES</indexterm></indexterm>
+<indexterm>cipher block chaining</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The key value is left-aligned in a 32-byte block, padded on the
+right with zero, and encrypted.</p>
+<p>The enhanced wrapping of an AES key (*K) using an AES *MK is defined
+as: <codeblock>e<sub>*MK</sub>(*K) = e<sub>cbcMK</sub>(*K)</codeblock>where: </p>
+<parml rev="shr2"><plentry>
+<pt>e<sub>*k</sub>(m) or e<sub>*kek</sub>(*k)</pt>
+<pd>message <parmname>m</parmname> is encrypted (<parmname>e</parmname>)
+with key <parmname>*k</parmname> or key <parmname>*k</parmname> is
+encrypted with key encrypting key <parmname>*kek</parmname></pd>
+</plentry><plentry>
+<pt>ecbc<sub>*k</sub>(m)</pt>
+<pd>message <parmname>m</parmname> is encrypted (<parmname>e</parmname>)
+with key <parmname>*k</parmname> using the  cipher block chaining
+(<parmname>cbc</parmname>) mode of operation</pd>
+</plentry></parml>
+</conbody>
+</concept>
+<?Pub *0000001735?>

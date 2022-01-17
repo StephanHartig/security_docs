@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_lgqrequired">
+<title>Required commands</title><titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>
+</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcllgq"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> verb requires the
+        following commands to be enabled in the active role:</p>
+  <table frame="all"><title>Required commands for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> verb</title>
+    <desc>
+      <p outputclass="summary">Required commands for the <keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmlgq"/> verb with four columns
+            describing Rule-array keyword, Log number value, Offset, and Command</p>
+    </desc>
+    <tgroup cols="4">
+      <colspec colname="col1" colwidth="10*"/>
+      <colspec colname="col2" colwidth="10*"/>
+      <colspec colname="col3" colwidth="10*"/>
+      <colspec colname="col4" colwidth="25*"/>
+     <thead>
+        <row>
+          <entry>Rule-array keyword</entry>
+          <entry>Log number value</entry>
+          <entry>Offset</entry>
+          <entry>Command</entry>
+        </row>
+      </thead>
+          <tbody>
+            <row>
+              <entry><synph><kwd>CCALGLEN</kwd></synph>, <synph><kwd>GETCCALG</kwd></synph>
+                </entry>
+              <entry>Ignored</entry>
+              <entry>X'0035'</entry>
+              <entry><cmdname>Log Query: CCA</cmdname></entry>
+            </row><row>
+              <entry><synph><kwd>GETSYSLG</kwd></synph>, <synph><kwd>SYSLGLEN</kwd></synph></entry>
+              <entry>Ignored</entry>
+              <entry>X'0034'</entry>
+              <entry><cmdname>Log Query: System</cmdname></entry>
+            </row><row>
+              <entry morerows="1"><synph><kwd>SETLGLVL</kwd></synph></entry>
+              <entry>4</entry>
+              <entry>X'0036'</entry>
+              <entry><cmdname rev="shr2">Log Query: Set Log Level -4-</cmdname></entry>
+            </row>
+            <row>
+              <entry>8</entry>
+              <entry>X'0037'</entry>
+              <entry><cmdname rev="shr2">Log Query: Set Log Level -8-</cmdname></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></section>
+</refbody></reference>

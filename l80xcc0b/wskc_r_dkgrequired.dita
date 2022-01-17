@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkgrequired">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the keyword
+specified for the process rule: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row>
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>CLR8-ENC</kwd></synph></entry>
+<entry><ph>X'0040'</ph></entry>
+<entry><cmdname>Diversified Key Generate - CLR8-ENC</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>SESS-XOR</kwd></synph></entry>
+<entry><ph>X'0043'</ph></entry>
+<entry><cmdname>Diversified Key Generate - SESS-XOR</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-DEC</kwd></synph></entry>
+<entry><ph>X'0042'</ph></entry>
+<entry><cmdname>Diversified Key Generate - TDES-DEC</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-ENC</kwd></synph></entry>
+<entry><ph>X'0041'</ph></entry>
+<entry><cmdname>Diversified Key Generate - TDES-ENC</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-XOR</kwd></synph></entry>
+<entry><ph>X'0045'</ph></entry>
+<entry><cmdname>Diversified Key Generate - TDES-XOR</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>TDESEMV2</kwd></synph> or <synph><kwd>TDESEMV4</kwd></synph></entry>
+<entry><ph>X'0046'</ph></entry>
+<entry><cmdname>Diversified Key Generate - TDESEMV2/TDESEMV4</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph> and default key-wrapping method setting
+does not match keyword</entry>
+<entry><ph>X'013D'</ph></entry>
+<entry><cmdname>Diversified Key Generate - Allow wrapping override keywords</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>When a key-generating key of key type <synph><kwd>DKYGENKY</kwd></synph> is specified with
+control vector bits (19 - 22) of <ph>B'1111'</ph>, the <cmdname>Diversified Key Generate - DKYGENKY
+- DALL</cmdname> command (offset <ph>X'0290'</ph>) must also be enabled in the active role.</p>
+<note>A role with offset <ph>X'0290'</ph> enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> verb with a
+<synph><kwd>DALL</kwd></synph> key.</note>
+<p>When using the <synph><kwd>TDES-ENC</kwd></synph> or <synph><kwd>TDES-DEC</kwd></synph> modes,
+you can specifically enable generation of a single-length key or a double-length key with equal
+key-halves (an effective single-length key) by enabling the <cmdname>Diversified Key Generate -
+Single length or same halves</cmdname> command (offset <ph>X'0044'</ph>).</p></section>
+</refbody></reference>

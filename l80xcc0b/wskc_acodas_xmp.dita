@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_xmp" xml:lang="en-us" rev="sh16">
+<title>Examples of the access control data structures</title>
+<titlealts>
+<navtitle>Examples of the access control data structures</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Examples of the access control data
+structures</searchtitle>
+</titlealts>
+<shortdesc>View examples for access control data structures as they are used in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>examples</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Examples are provided in the following subtopics: </p>
+<ul>
+<li><xref href="wskc_acodas_xmp_acp.dita#acodas_xmp_acp"/></li>
+<li><xref href="wskc_acodas_xmp_role_ds.dita#acodas_xmp_role_ds"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000003873?>

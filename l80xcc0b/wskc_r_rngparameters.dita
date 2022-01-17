@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rngparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JParameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>form parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> verb</indexterm></indexterm>
+<indexterm>parity of key<indexterm>EVEN<indexterm>form parameter</indexterm></indexterm></indexterm>
+<indexterm>parity of key<indexterm>ODD<indexterm>form parameter</indexterm></indexterm></indexterm>
+<indexterm>EVEN</indexterm>
+<indexterm>even parity</indexterm>
+<indexterm>ODD</indexterm>
+<indexterm>odd parity</indexterm>
+<indexterm>RANDOM</indexterm>
+<indexterm>random_number parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>form</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> The 8-byte keyword that defines the characteristics of the random number should be
+left-aligned and padded on the right with blanks. The keywords are listed in <xref
+href="#l0wskc02_rngparameters/l0wskc02_xrng"/>. <table id="l0wskc02_xrng" pgwide="0" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> form
+parameter</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="4*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>EVEN</kwd></synph></entry>
+<entry>Generate a 64-bit random number with even parity in each byte.</entry>
+</row>
+<row>
+<entry><synph><kwd>ODD</kwd></synph></entry>
+<entry>Generate a 64-bit random number with odd parity in each byte.</entry>
+</row>
+<row>
+<entry><synph><kwd>RANDOM</kwd></synph></entry>
+<entry>Generate a 64-bit random number.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>Parity is calculated on the seven high-order bits in each byte and is presented in the
+low-order bit in the byte.</p></pd></plentry>
+<plentry><pt>random_number</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The generated number returned by the <ph>verb</ph> in an 8-byte
+variable.</pd></plentry>
+</parml></section>
+</refbody></reference>

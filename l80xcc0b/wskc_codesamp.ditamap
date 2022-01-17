@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_h">
+ <title>Sample verb call routines</title>
+ <topicref href="wskc_c_codesamp.dita">
+  <topicref href="wskc_c_codesamp_c.dita"/>
+  <topicref href="wskc_c_codesamp_java.dita"/>
+ </topicref>
+</map>

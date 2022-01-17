@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_rkx" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)</title>
+ <titlealts>
+    <navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb is used as a method of secured transport
+of DES keys using asymmetric techniques from a security module to a remote device such as
+an Automated Teller Machine (ATM). </shortdesc><?Pub Caret 135?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)</indexterm></indexterm>
+<indexterm>transport key</indexterm><indexterm>operational key</indexterm>
+<indexterm>key encrypting key</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>The DES keys to be transported are either key encrypting
+keys that are generated within the coprocessor or, alternately, operational
+keys or replacement KEKs enciphered under a KEK currently installed
+in a remote device.</p></section>
+</refbody>
+</reference>
+<?Pub *0000001751?>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rng">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/></searchtitle>
+  </titlealts>
+<shortdesc>This <ph>verb</ph> uses the cryptographic feature to generate a <ph>cryptographic-quality</ph> random
+number. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)</indexterm></indexterm>
+<indexterm>random number</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+</refbody></reference>

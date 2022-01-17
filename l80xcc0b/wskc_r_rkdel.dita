@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_rkdel" xml:lang="en-us">
+<title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword>)</title>
+ <titlealts>
+    <navtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to delete a PKA key-record currently retained
+within the cryptographic engine.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"></keyword>)</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword>)</indexterm>
+<indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkd"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkd"></keyword>)</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Both public and private keys can be retained within the
+cryptographic engine using verbs such as <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"></keyword>.
+A list of retained keys can be obtained using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"></keyword> verb.</p>
+<note type="other" othertype="Important">Before using this verb, see the information about retained
+keys in <xref href="wskc_r_rkdel_rk.dita#l0wskc02_rkdel_rk"/>.</note></section>
+</refbody><?Pub Caret -1?>
+</reference>
+<?Pub *0000001812?>

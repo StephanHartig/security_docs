@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_mskarr">
+<title>Providing the control information for testing the control vectors</title>
+  <titlealts>
+    <navtitle>Providing the control information for testing the control vectors</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Providing the control information for
+testing the control vectors</searchtitle>
+  </titlealts><shortdesc>To minimize your security exposure, the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"/> <ph>verb</ph> requires
+control information (<i>mask array</i> information)
+to limit the range of allowable control vector changes. </shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>To ensure that this verb is used only for authorized purposes,
+the source-key control vector, target-key control vector, and key-encrypting
+key (KEK) control vector must pass specific tests. The tests on the
+control vectors are performed within the secured cryptographic engine.</p>
+<p>The tests consist of evaluating four logic expressions, the results
+of which must be a string of binary zeros. The expressions operate
+bitwise on information that is contained in the mask arrays and in
+the portions of the control vectors associated with the key or key-half
+that is being processed. If any of the expression evaluations do not
+result in all zero bits, the <ph>verb</ph> is ended with a <i>control vector violation</i> return and reason code
+(8/39). See <xref href="wskc_c_appcmaskarrprep.dita#l0wskc02_appcmaskarrprep/l0wskc02_cvxl2"/>. Only the 56-bit
+positions that are associated with a key value are evaluated. The
+low-order bit that is associated with key parity in each key byte
+is not evaluated.</p>
+</conbody></concept>

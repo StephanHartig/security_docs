@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptr2_usage" rev="sh21i1">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></searchtitle>
+</titlealts>
+<shortdesc>The usage notes for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+<indexterm>format</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>
+<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The inbound and outbound PIN encrypting key usage requirements are defined in <xref
+href="#ptr2_usage/ptr2_usag1" format="dita"/>:<table frame="all" rowsep="1" colsep="1"
+id="ptr2_usag1" pgwide="1"><title>Key usage requirements for PIN encrypting keys</title><desc>
+<p outputclass="summary">Key usage requirements for PIN encrypting keys.</p>
+</desc><tgroup cols="6">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<colspec colname="c4" colnum="4" colwidth="1*"/>
+<colspec colname="c5" colnum="5" colwidth="1*"/>
+<colspec colname="c6" colnum="6" colwidth="1*"/>
+<thead>
+<row>
+<entry>Input PIN format</entry>
+<entry>Output PIN format</entry>
+<entry>Authenticated PAN-change allowed</entry>
+<entry>Inbound key (key usage)</entry>
+<entry>Outbound key (key usage)</entry>
+<entry>Authentication key (key usage)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ISO-0</entry>
+<entry>ISO-4</entry>
+<entry>No</entry>
+<entry>DES IPINENC (REFORMAT)</entry>
+<entry>AES PINPROT (ENCRYPT, ISO-4, REFORMAT)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-1</entry>
+<entry>ISO-4</entry>
+<entry>No</entry>
+<entry>DES IPINENC (REFORMAT)</entry>
+<entry>AES PINPROT (ENCRYPT, ISO-4, REFORMAT)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-1</entry>
+<entry>ISO-4</entry>
+<entry>No</entry>
+<entry>DES IPINENC (REFORMAT)</entry>
+<entry>AES PINPROT (ENCRYPT, REFORMAT, ISO-4, RFMT1TO4)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>ISO-0</entry>
+<entry>No</entry>
+<entry>AES PINPROT (DECRYPT, ISO-4, REFORMAT)</entry>
+<entry>DES OPINENC (REFORMAT)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>ISO-1</entry>
+<entry>No</entry>
+<entry>AES PINPROT (DECRYPT, ISO-4, REFORMAT)</entry>
+<entry>DES OPINENC (REFORMAT)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>ISO-1</entry>
+<entry>No</entry>
+<entry>AES PINPROT (DECRYPT, ISO-4, REFORMAT, RFMT4TO1)</entry>
+<entry>DES OPINENC (REFORMAT)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>ISO-4</entry>
+<entry>No</entry>
+<entry>AES PINPROT (DECRYPT, ISO-4, PINXLATE)</entry>
+<entry>AES PINPROT (ENCRYPT, ISO-4, PINXLATE)</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>ISO-4</entry>
+<entry>Yes</entry>
+<entry>AES PINPROT (DECRYPT, ISO-4, PINXLATE)</entry>
+<entry>AES PINPROT (ENCRYPT, ISO-4, PINXLATE)</entry>
+<entry>AES MAC (CMAC, VERIFY) or (CMAC, VERIFY, PTR2AUTH)</entry>
+</row>
+</tbody>
+</tgroup></table><table frame="all" rowsep="1" colsep="1" id="ptr2_usag2" pgwide="1"><title>Valid
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> DUKPT keyword
+combinations</title><desc>
+<p outputclass="summary">Valid <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"
+/> DUKPT keyword combinations.</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="1*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<thead>
+<row>
+<entry>DUKPT keyword combination</entry>
+<entry>Input PIN encrypting key</entry>
+<entry>Output PIN encrypting key</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>UKPTIPIN ADUKPTOP</entry>
+<entry>Single DES DUKPT</entry>
+<entry>AES DUKPT</entry>
+</row>
+<row>
+<entry>DUKPT-IP ADUKPTOP</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>AES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTIP UKPTOPIN</entry>
+<entry>AES DUKPT</entry>
+<entry>Single DES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTIP DUKPT-OP</entry>
+<entry>AES DUKPT</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>UKPTBOTH</entry>
+<entry>Single DES DUKPT</entry>
+<entry>Single DES DUKPT</entry>
+</row>
+<row>
+<entry>DUKPT-BH</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTBH</entry>
+<entry>AES DUKPT</entry>
+<entry>AES DUKPT</entry>
+</row>
+<row>
+<entry>UKPTIPIN</entry>
+<entry>Single DES DUKPT</entry>
+<entry>Static</entry>
+</row>
+<row>
+<entry>UKPTOPIN</entry>
+<entry>Static</entry>
+<entry>Single DES DUKPT</entry>
+</row>
+<row>
+<entry>DUKPT-IP</entry>
+<entry>Triple DES DUKPT</entry>
+<entry>Static</entry>
+</row>
+<row>
+<entry>DUKPT-OP</entry>
+<entry>Static</entry>
+<entry>Triple DES DUKPT</entry>
+</row>
+<row>
+<entry>ADUKPTIP</entry>
+<entry>AES DUKPT</entry>
+<entry>Static</entry>
+</row>
+<row>
+<entry>ADUKPTOP</entry>
+<entry>Static</entry>
+<entry>AES DUKPT</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</section>
+</refbody>
+</reference>

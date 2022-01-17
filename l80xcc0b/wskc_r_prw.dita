@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_prw">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/></searchtitle>
+  </titlealts>
+<shortdesc rev="sh20i2">Use this verb to write over an existing ECC,  RSA, or CRYSTALS-Dilithium
+(QSA) key-token record from application storage in the PKA key storage file.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprw"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclprw"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUPKADS</indexterm></indexterm>
+<indexterm>CSUPKADS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>PKA key records are stored in the external key-storage file defined
+by the CSUPKADS environment variable.</p></section>
+</refbody></reference>

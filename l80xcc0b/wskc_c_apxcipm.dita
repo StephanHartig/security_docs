@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_apxcipm">
+<title>Ciphering methods</title>
+<titlealts>
+<navtitle>Ciphering methods</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Ciphering methods</searchtitle>
+</titlealts><shortdesc>The Data Encryption Standard (DES) algorithm defines operations
+on 8-byte data strings. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>ciphering methods</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The DES algorithm is used in many different processes within <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>: <ul>
+<li>Encrypting and decrypting general data</li>
+<li>Triple-encrypting and triple-decrypting PIN blocks</li>
+<li>Triple-encrypting and triple-decrypting <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES keys</li>
+<li>Triple-encrypting and triple-decrypting RSA private keys with several processes</li>
+<li>Deriving keys, hashing data, generating CVV values, and so forth</li>
+</ul></p>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs describe how you can request
+encryption or decryption of application data. See the following topic: <xref href="wskc_c_gendata.dita#l0wskc02_gendata"/> for a description of the two standardized
+processes you can use.</p>
+<p>In <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>, PIN blocks are encrypted
+with double-length keys. The PIN block is encrypted with the left-half key, for which the result is
+decrypted with the right-half key and this result is encrypted with the left-half key.</p>
+<p>See also <xref href="wskc_c_algtdes.dita#l0wskc02_algtdes"/> for more information.</p>
+</conbody></concept>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cperequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/></searchtitle>
+  </titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpe"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpe"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb requires the <cmdname>Clear PIN Encrypt</cmdname> command (offset <ph>X'00AF'</ph>) to
+be enabled in the active role.</p><p>An enhanced PIN security mode is available for formatting an encrypted PIN-block into <tm
+trademark="IBM" tmtype="reg">IBM</tm> 3624 format using the <synph><kwd>PADDIGIT</kwd></synph>
+PIN-extraction method. This mode limits checking of the PIN to decimal digits. No other PIN-block
+consistency checking will occur. To activate this mode, enable the <cmdname>Enhanced PIN
+Security</cmdname> command (offset X'0313') in the active role.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is
+enabled in the domain role, the PIN block format in the <parmname>PIN_profile</parmname> parameter
+is not allowed to be ISO-1.</p></section>
+</refbody></reference>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_hardwareneeds" xml:lang="en-us">
+<title>Hardware requirements</title>
+<titlealts>
+<navtitle>Hardware requirements</navtitle>
+<searchtitle/>
+</titlealts>
+<shortdesc>In order to make use of the verbs provided in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) API for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>, your hardware must meet certain
+minimum requirements. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>hardware requirements</indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atkews"/></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcfq"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/>)</indexterm>
+<indexterm>sysfs interface</indexterm><indexterm>z/VM</indexterm><indexterm>APAR
+fixes<indexterm>z/VM</indexterm></indexterm><indexterm>Central Processor
+Assist for Cryptographic Functions (CPACF)</indexterm><indexterm>CPACF</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>This is the minimum supported hardware configuration: </p>
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zec12"/></li>
+<li>One CEXC4 feature, with one CEXC4 adapter mapped to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> image or LPAR that uses it. The CEXC4 must
+have <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 4.2.0z or greater firmware
+loaded, configured in co-processor mode. </li>
+<li>If you plan to use a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) workstation, you must have a
+TKE V9.2 or later to exploit CEX7C adapters and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>. <ul>
+<li>You need a TKE 7.2 workstation or higher in order to see supported CEX4C adapters. </li>
+<li>A TKE V8.0 workstation is required to manage CEX5C adapters.</li>
+<li>A TKE V9.1 workstation is required to manage CEX6C adapters, especially to start exploiting
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"/>.</li>
+<li>A TKE V9.2 workstation is required to manage CEX7C adapters.</li>
+</ul><p>For more detailed information about required <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/> versions for accessing the various
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features, see <xref
+href="wskc_c_ch1dual.dita#l0wskc02_ch1dual"/>.</p></li>
+</ul>
+<p>This is the maximum supported hardware configuration:</p>
+<ul rev="sh20i2">
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibmz15"/><ul>
+<li>60 CEX7S adapters total in the machine. The CEX7S card is available as 1-port or 2-port feature.
+The maximum number of combined features of all types cannot exceed 60 HSMs on an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibmz15"/> T01. This means the maximum number for
+feature code 0898 is 30, for all other (single HSM) types is 16 when installed exclusively (see
+<xref href="https://www.oreilly.com/library/view/ibm-z15-8561/9780738458120/" format="html"
+scope="external"><cite><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibmz15"/> (8561)
+Technical Guide</cite></xref>).</li>
+</ul></li>
+</ul>
+<p>This hardware configuration is also supported: </p>
+<ul>
+<li rev="sh20i2"><ph conref="lxcommon.dita#phrases/ph_ibmz14"/>
+<ul rev="sh20i2">
+<li>up to 16 CEX5S and CEX6S adapters total in the machine</li>
+</ul></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/><ul>
+<li>16 CEX5S adapters total in the machine</li>
+<li>all 16 adapters may also be mapped to an LPAR, up to 85 total LPARs</li>
+<li>there is one adapter per feature code.</li>
+</ul></li>
+</ul>
+<p>See <xref href="wskc_c_ch1concur.dita#l0wskc02_ch1concur"/> for details about a mixed environment
+of <ph rev="sh20i2">CEX7S</ph> and previous <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features. Note that CEX4Cs are only
+supported by TKE 7.2 or later if the <ph conref="lxcommon.dita#phrases/ph_linuxs"/> driver reports
+them as CEX4s.</p>
+<p>To determine whether a Crypto Express adapter available to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> is a CEX4C, a CEX5C, CEX6C, or a <ph
+rev="sh20i2">CEX7C</ph>, see <xref
+href="wskc_c_multico.dita#l0wskc02_multico/ListingCCACoprocessors"/>.</p>
+<p> Apply the following APAR fixes on the appropriate <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> systems to achieve the applicable <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/> support: </p>
+<dl>
+<dlentry>
+<dt>VM64727</dt>
+<dd>Fixes problem with shared coprocessors.</dd>
+</dlentry>
+<dlentry>
+<dt>VM64793</dt>
+<dd>Introduces protected key CPACF support.</dd>
+</dlentry>
+</dl>
+<p>On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> 6.2, apply the following
+APAR fixes: </p>
+<dl>
+<dlentry>
+<dt>VM65007</dt>
+<dd>Introduces Crypto Express4 support.</dd>
+</dlentry>
+<dlentry>
+<dt>VM65577</dt>
+<dd>Introduces Crypto Express5 support.</dd>
+</dlentry>
+</dl>
+<p>On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> 6.3, apply the following
+APAR fixes: </p>
+<dl>
+<dlentry>
+<dt>VM65577</dt>
+<dd>Introduces Crypto Express5 support.</dd>
+</dlentry>
+<dlentry>
+<dt>VM65942</dt>
+<dd>Introduces Crypto Express6 support.</dd>
+</dlentry>
+</dl>
+<p>On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> 6.4, apply the following
+APAR fix: </p>
+<dl>
+<dlentry>
+<dt>VM65942</dt>
+<dd>Introduces Crypto Express6 support.</dd>
+</dlentry>
+</dl>
+<p>On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> 6.4 or 7.1, apply the
+following APAR fix: </p>
+<dl>
+<dlentry>
+<dt>VM66248</dt>
+<dd>Provides z/VM compatibility support for IBM z15 and LinuxONE III servers. Also introduces Crypto
+Express7 support.</dd>
+</dlentry>
+</dl>
+<p rev="sh21i3">On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> 7.1 or 7.2,
+apply the following APAR fix: </p>
+<dl>
+<dlentry rev="sh21i3">
+<dt>VM66481</dt>
+<dd>This APAR fixes code introduced with <xref
+href="http://www-01.ibm.com/support/docview.wss?uid=isg1VM66266" format="html" scope="external"
+>VM66266</xref>. CRYGQBUF storage obtained in the crypto scan routine is released when it is no
+longer needed. VM66266 introduces dynamic changes to the cryptographic environment on a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/zvm"/> system. This allows the addition or removal
+of Crypto Express adapters, as well as maintenance and repair of Crypto Express adapters, to be less
+disruptive to the system and guests running on the system. </dd>
+</dlentry>
+</dl>
+<!--For new editions: get z/VM APAR information from Les Geer:  Leslie Geer III/Endicott/IBM **** Also check: http://www.vm.ibm.com/newfunction/  -->
+</conbody>
+</concept>
+<?Pub *0000004939?>

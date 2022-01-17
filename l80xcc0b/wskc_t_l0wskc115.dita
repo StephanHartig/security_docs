@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc115" xml:lang="en-us">
+<title>Before you begin</title>
+<titlealts>
+<navtitle>Before you begin</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>)</searchtitle>
+</titlealts>
+<shortdesc rev="sh18i1">In the installation instructions, the term <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.x is used to describe <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> packages referring to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.0.0 and subsequent versions.</shortdesc><?Pub
+Caret 0?>
+<prolog><metadata>
+<keywords>
+<indexterm>installation instructions</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody><section>
+<p>Before you begin the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+installation, review these points: <ul>
+<li>If you are upgrading from a prior installation, be sure to review <xref format="dita"
+href="wskc_r_defaultinst.dita" scope="local" type="reference"/>.</li>
+<li>Ensure that you are using supported hardware. See <xref
+href="wskc_c_hardwareneeds.dita#l0wskc02_hardwareneeds"/>.</li>
+<li>Ensure that your <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>
+distribution has the cryptographic device driver support. For details, see <xref
+href="wskc_c_setupilzdd.dita#l0wskc02_setupilzdd"/>.</li>
+<li>If you are going to use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/>
+Native Interface (JNI), see <xref href="wskc_c_comp_jni.dita#l0wskc02_comp_jni"/> for supported
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/java"/> levels and installation
+instructions.</li>
+</ul></p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002788?>

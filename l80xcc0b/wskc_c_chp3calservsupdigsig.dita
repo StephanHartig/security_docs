@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_chp3calservsupdigsig" xml:lang="en-us">
+<title>Verbs supporting digital signatures</title>
+<titlealts>
+<navtitle>Digital signatures</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs supporting digital
+signatures</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides verbs that
+support digital signatures.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>verb<indexterm>digital signature</indexterm></indexterm>
+<indexterm>digital signature verb</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>These verbs are: <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsg"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsg"></keyword>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldsv"></keyword>)</li>
+</ul></p>
+</conbody>
+</concept>
+<?Pub *0000001094?>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ukdrestrictions" rev="sh15">
+  <title>Restrictions</title>
+   <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"
+            />)<indexterm>restrictions</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section><p><xref href="#ukdrestrictions/csnbukd_restrictions" format="dita"/> shows the valid skeleton
+        tokens depending on the key type to be derived.</p> <table frame="all" id="csnbukd_restrictions">
+        <title>Valid Control Vectors for Derived Keys</title>
+        <desc>
+          <p outputclass="summary">Valid Control Vectors for Derived Keys with columns Key to be
+            derived and Supported key types in the skeleton token</p>
+        </desc>
+        <tgroup cols="4">
+          <colspec colname="col1" colwidth="12*"/>
+          <colspec colname="col2" colwidth="9*"/>
+          <colspec colname="col3" colwidth="17*"/>
+          <colspec colname="col4" colwidth="17*"/>
+         <thead>
+            <row>
+              <entry colname="col1">Key to be derived</entry>
+              <entry namest="col2" nameend="col4">Supported key types in the skeleton token</entry>
+            </row>
+            
+          </thead>
+          <tbody>
+          <row>
+            <entry morerows="2">Data encryption key</entry>
+            <entry>CIPHER</entry>
+            <entry>00 03 71 00 03 41 00 00</entry>
+            <entry>00 03 71 00 03 21 00 00</entry>
+          </row>
+          <row>
+            <entry>ENCIPHER</entry>
+            <entry>00 03 60 00 03 41 00 00</entry>
+            <entry>00 03 60 00 03 21 00 00</entry>
+          </row>
+            <row>
+              <entry>DECIPHER</entry>
+              <entry>00 03 50 00 03 41 00 00</entry>
+              <entry>00 03 50 00 03 21 00 00</entry>
+            </row>  
+            <row>
+              <entry morerows="1">Message authentication code(MAC)</entry>
+              <entry>MAC</entry>
+              <entry>00 05 4D 00 03 41 00 00</entry>
+              <entry>00 05 4D 00 03 21 00 00</entry>
+            </row>  
+            <row>
+            <entry>MACVER</entry>
+            <entry>00 05 44 00 03 41 00 00</entry>
+            <entry>00 05 44 00 03 21 00 00</entry>
+            </row>  
+
+            <row>
+              <entry morerows="1">PIN key</entry>
+              <entry>IPINENC</entry>
+              <entry>00 21 5F 00 03 41 00 00</entry>
+              <entry>00 21 5F 00 03 21 00 00</entry>
+            </row>  
+            <row>
+              <entry>OPINENC</entry>
+              <entry>00 24 77 00 03 41 00 00</entry>
+              <entry>00 24 77 00 03 21 00 00</entry>
+            </row> 
+            <row>
+              <entry>PIN key with rule keyword PIN-DATA</entry>
+              <entry>DATA PIN</entry>
+              <entry>00 00 7D 00 03 41 00 00</entry>
+              <entry>00 00 7D 00 03 21 00 00</entry>
+            </row>        
+         </tbody>
+        </tgroup>
+        </table><p>Note that the following bits of the control vector are not checked and may have a value of either
+        0 or 1:</p>
+      <ul>
+        <li>Bit 17 - Export control</li>
+        <li>Bit 56 – Enhanced wrapping control</li>
+        <li>Bit 57 – TR-31 export control</li>
+        <li>Bits 4 and 5 – UDX</li>
+      </ul>
+      <p>Additional control vector bit that is not checked for PIN key with rule keyword PIN-DATA: </p>
+      <ul>
+        <li>Bit 61 - Not-CCA</li>
+      </ul></section>
+  </refbody>
+</reference>

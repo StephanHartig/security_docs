@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appdgbppgalg" xml:lang="en-us">
+<title>German Banking Pool PIN Generation algorithm</title>
+<titlealts>
+<navtitle>German Banking Pool PIN generation</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): German Banking Pool PIN Generation
+algorithm</searchtitle>
+</titlealts>
+<shortdesc>This algorithm generates a 4-digit PIN based on account-related
+data or person-related data, namely the validation data.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>algorithm<indexterm>GBP PIN generation</indexterm></indexterm>
+<indexterm>German Banking Pool PIN algorithm</indexterm><indexterm>personal
+identification number (PIN)<indexterm>German Banking Pool PIN algorithm</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The algorithm requires the following input parameters:  <ul>
+<li>A 64-bit validation data</li>
+<li>A 64-bit decimalization table</li>
+<li>A 128-bit PIN-generation key</li>
+</ul></p>
+<p>The validation data is enciphered using the PIN generation key.
+Each digit of the enciphered validation data is replaced by the digit
+in the decimalization table whose displacement from the leftmost digit
+of the table is the same as the value of the digit of enciphered validation
+data. The result is an intermediate PIN. The rightmost 4 digits of
+the leftmost 6 digits of the intermediate PIN are extracted. The leftmost
+digit of the extracted 4 digits is checked for zero. If the digit
+is zero, the digit is changed to one; otherwise, the digit remains
+unchanged. The resulting four digits is the generated PIN.</p>
+<p><xref href="#l0wskc02_appdgbppgalg/l0wskc02_pgag"></xref> illustrates
+the German Banking Pool (GBP) PIN generation algorithm.</p>
+<fig expanse="column" id="l0wskc02_pgag">
+<title>GBP PIN generation algorithm</title>
+<image href="l0wskc02_fig2.jpg" placement="break" width="250">
+<alt>GBP PIN generation algorithm</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000002082?>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syxrestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>function control vector<indexterm>FCV</indexterm></indexterm>
+<indexterm>FCV<indexterm>function control vector</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul>
+<li>The RSA public-key modulus size (key length) is limited by the function control vector (FCV) to
+accommodate potential government export and import regulations.</li>
+<li>Retained keys are not supported.</li>
+<li>The maximum public exponent is 17 bits for any key that has a modulus greater than 2048
+bits.</li>
+<li rev="sh20i1">As of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 5.4 and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.2, this verb supports three-key
+TDES keys. As a key management service this includes triple-length TDES key encrypting keys (KEKs).
+For a list of supported triple-length TDES key types beginning with Release 5.4 and Release 6.2, see
+<xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>. </li>
+</ul>
+</section>
+</refbody></reference>

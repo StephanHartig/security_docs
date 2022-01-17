@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kexparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkex"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb</indexterm></indexterm>
+<indexterm>CIPHER</indexterm>
+<indexterm>CIPHERXL</indexterm>
+<indexterm>CIPHERXI</indexterm>
+<indexterm>CIPHERXO</indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>DATAC</indexterm>
+<indexterm>DATAM </indexterm>
+<indexterm>DATAMV</indexterm>
+<indexterm>DECIPHER</indexterm>
+<indexterm>ENCIPHER</indexterm>
+<indexterm>EXPORTER</indexterm>
+<indexterm>IMPORTER</indexterm>
+<indexterm>IKEYXLAT</indexterm>
+<indexterm>IPINENC</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+<indexterm>OKEYXLAT</indexterm>
+<indexterm>OPINENC</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>PINVER</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>source_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb</indexterm></indexterm>
+<indexterm>key token</indexterm>
+<indexterm>key label</indexterm>
+<indexterm>key storage</indexterm>
+<indexterm>exporter_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb</indexterm></indexterm>
+<indexterm>NOCV</indexterm>
+<indexterm>target_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_type</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The parameter is an 8-byte field that contains either a key type value or the keyword
+<synph><kwd>TOKEN</kwd></synph>. The keyword is left-aligned and padded on the right with blanks.
+<p>If the key type is <synph><kwd>TOKEN</kwd></synph>, <ph>CCA</ph> determines the key type from the
+control vector (CV) field in the internal key token provided in the
+<synph><var>source_key_identifier</var></synph> parameter.</p><p id="l0wskc02_kxt">Key type values
+for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>
+<ph>verb</ph> are:
+<codeblock rev="sh15">
+CIPHER       DATAMV      MAC     
+CIPHERXI     DECIPHER    MACVER     
+CIPHERXL     ENCIPHER    OKEYXLAT
+CIPHERXO     EXPORTER    OPINENC
+DATA         IKEYXLAT    PINGEN
+DATAC        IMPORTER    PINVER
+DATAM        IPINENC     TOKEN   
+</codeblock>For
+information about the meaning of the key types, see <xref
+href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keyta"/>.</p></pd></plentry>
+<plentry><pt>source_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string of the internal key token that contains the key to be re-enciphered. This
+parameter must identify an internal key token in application storage, or a label of an existing key
+in the <ph>DES key storage file</ph>.<p>If you supply <synph><kwd>TOKEN</kwd></synph> for the
+<synph><var>key_type</var></synph> parameter, <ph>CCA</ph> looks at the control vector in the
+internal key token and determines the key type from this information. If you supply
+<synph><kwd>TOKEN</kwd></synph> for the <synph><var>key_type</var></synph> parameter and supply a
+label for this parameter, the label must be unique in the <ph>DES key storage file</ph>.</p></pd></plentry>
+<plentry><pt>exporter_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A 64-byte string of the internal key token or key label that contains the exporter
+key-encrypting key. This parameter must identify an internal key token in application storage, or a
+label of an existing key in the key storage file.<p>If the NOCV bit is on in the internal key token
+containing the key-encrypting key, the key-encrypting key itself (not the key-encrypting key
+variant) is used to encipher the generated key.</p><p>Control vectors are explained in <xref
+href="wskc_c_cv.dita#l0wskc02_cv"/> and the NOCV bit is shown in <xref
+href="wskc_r_kt.dita#l0wskc02_kt/l0wskc02_intky"/>.</p></pd></plentry>
+<plentry><pt>target_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 64-byte field external key token that contains the re-enciphered key. The re-enciphered
+key can be exchanged with another cryptographic system.</pd></plentry>
+</parml></section>
+</refbody></reference>

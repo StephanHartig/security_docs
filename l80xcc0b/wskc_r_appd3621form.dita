@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appd3621form">
+<title><tm trademark="IBM" tmtype="reg">IBM</tm> 3621 Format</title>
+  <titlealts>
+    <navtitle>IBM 3621 Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): IBM 3621 Format</searchtitle>
+  </titlealts><shortdesc>This format requires the program to specify the delimiter, X, for
+determining the PIN length. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN block format<indexterm>3621</indexterm></indexterm>
+<indexterm>3621 PIN block format</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>
+<codeblock>   PIN Block = SSSSPPPPxxxxxxxx</codeblock></p></section>
+</refbody></reference>

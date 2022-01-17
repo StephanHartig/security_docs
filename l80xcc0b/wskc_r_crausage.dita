@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_crausage" xml:lang="en-us">
+<title>Usage notes</title>
+<titlealts>
+<navtitle>Usage notes</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"/></searchtitle>
+</titlealts>
+<shortdesc>Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcra"></keyword>)<indexterm>usage
+notes</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>For optimal performance, ensure that you have enabled CPACF in the thread doing the processing,
+by making a quick call on the host side at thread startup time, to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/>, specifying the correct HCPUACLR and
+HCPUAPRT keyword values for your operation. See the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcra"/>
+<parmname>rule_array</parmname> keyword definitions, and see <xref
+href="wskc_c_cpacf_conopt.dita#l0wskc02_cpacf_conopt"/> for more affected verbs. Note that it is the
+user's responsibility to ensure that all adapters accessible to the operating system use the
+<codeph>DEV-ANY</codeph> state. Further use of <codeph>DEV-ANY</codeph> as a target adapter for
+verbs that modify the state of an adapter (such as the generation of retained keys) can lead to
+unexpected results. See <xref format="dita" href="wskc_c_multico.dita" scope="local" type="concept"
+/> for more information.</p><?Pub Caret 660?></section>
+</refbody>
+</reference>
+<?Pub *0000001806?>

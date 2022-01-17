@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cpa">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb to generate a clear VISA PVV 
+(PIN validation value) from an input encrypted PIN block or to produce a 3624 offset
+from a customer-selected encrypted PIN. <ph rev="sh21i1">The PIN block can be encrypted under either an input 
+PIN-encrypting key (IPINENC) or an output PIN-encrypting key (OPINENC). When the input encrypted PIN block is in ISO-4 format, 
+the PIN-encrypting key is an AES PINPROT key.</ph></shortdesc><prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcpa"/>)</indexterm></indexterm>
+<indexterm>personal identification number (PIN)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> verb</indexterm></indexterm>
+<indexterm>VISA PVV key</indexterm>
+<indexterm>key<indexterm>VISA PVV</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+</section>
+</refbody></reference>

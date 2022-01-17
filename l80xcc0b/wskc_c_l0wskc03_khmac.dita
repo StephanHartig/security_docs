@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc03_khmac">
+<title>Keyed-hash MAC (HMAC)</title>
+  <titlealts>
+    <navtitle>Keyed-hash MAC (HMAC)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Keyed-hash MAC (HMAC)</searchtitle>
+  </titlealts><shortdesc><synph><var>The Keyed-Hash Message Authentication Code (HMAC)</var></synph> standard
+(FIPS PUB 198-1) describes a mechanism for message authentication
+using cryptographic hash functions.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p> HMAC can be used with a hash function in combination with a shared
+secret key.</p>
+<p>To see how to compute a MAC over the data, see FIPS PUB 198-1 available at:
+<codeblock><xref href="https://csrc.nist.gov/publications/detail/fips/198/1/final" format="html" scope="external"/></codeblock></p>
+</conbody></concept>

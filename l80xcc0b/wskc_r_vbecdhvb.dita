@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="vbecdhvb">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb to create symmetric key material from a
+pair of Elliptic Curve Cryptography (ECC) keys using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ecdh"/> (ECDH)
+protocol and "Z" - The "secret" material output from <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> process.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ecdh"/></indexterm>
+<indexterm>Elliptic Curve Cryptography</indexterm>
+<indexterm>ECC<indexterm>Elliptic Curve Cryptography</indexterm></indexterm>
+<indexterm>ECDH protocol</indexterm>
+<indexterm>elliptic curve domain parameters</indexterm>
+<indexterm>elliptic curve
+type<indexterm>Brainpool</indexterm><indexterm>Prime</indexterm></indexterm>
+<indexterm>Brainpool<indexterm>elliptic curve type</indexterm></indexterm>
+<indexterm>Prime<indexterm>elliptic curve type</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p> For more information, see <xref href="wskc_c_ecdh_key_agree.dita#ecdh_key_agree"/>.</p></section>
+<section><p>ECDH is a key-agreement protocol that allows two parties, each
+having an elliptic curve public-private key pair, to establish a shared
+secret over an insecure channel. This shared secret is used to derive
+another symmetric key. The ECDH protocol is a variant of the Diffie-Hellman
+protocol using elliptic curve cryptography. ECDH derives a shared
+secret value from a secret key owned by an Entity A and a public key
+owned by an Entity B, when the keys share the same elliptic curve
+domain parameters. Entity A can be either the initiator of a key-agreement
+transaction, or the responder in a scheme. If two entities both correctly
+perform the same operations with corresponding keys as inputs, the
+same shared secret value is produced.</p></section>
+<section><p>Both parties must create an ECC public-private key pair. See <xref href="wskc_r_pkb.dita#l0wskc02_pkb"/> and <xref href="wskc_r_xpkg.dita#l0wskc02_xpkg"/>. A key can
+be internal or external, as well as encrypted or in the clear. Both
+keys must have the same elliptic curve domain parameters (curve type
+and key size):
+<ul>
+<li>Brainpool (key size 160, 192, 224, 256, 320, 384, or 512)</li>
+<li>Prime (key size 192, 224, 256, 384, or 521)</li>
+<li rev="sh21i1">Edwards (key size 255, 448)</li>
+<li rev="sh21i1">Koblitz (key size 256)</li>
+</ul></p></section>
+<section><p>In addition to having the same elliptic curve domain parameters,
+the keys must have their key-usage field set to permit key establishment
+(either KEY-MGMT or KM-ONLY). See <xref href="wskc_r_ecckt.dita#l0wskc02_ecckt"/>.</p></section>
+<section><p>To use this verb, specify the following:
+<ul>
+<li>One to six rule-array keywords: <ul>
+<li>A required key-agreement keyword</li>
+<li>An optional transport key-type (required if <synph><var>output_KEK_key_identifier</var></synph>
+is a label) that identifies which key-storage dataset contains the output KEK key-token</li>
+<li>An optional output key-type (required if <synph><var>output_key_identifier</var></synph> is a
+label) that identifies which key-storage dataset contains the output key-token</li>
+<li>When the output is a DES key-token, an optional key-wrapping method and an optional translation
+control keyword</li>
+<li rev="sh16">An optional hash type for rule-array keyword DERIV02.</li>
+</ul></li>
+<li>The internal or external ECC key-token containing the private
+key (public-private key pair).
+<p>If the private key is in an external
+key-token and is not in the clear, specify the internal KEK that was
+used to wrap the private key. Otherwise, specify a private KEK key-length
+of 0.</p></li>
+<li>An internal or external ECC key-token containing the public key
+(public key only or public-private key pair) of the other party.
+<p>If
+the public key is in a key token that contains a public-private key
+pair, only the public-key portion is used. No attempt is made to decrypt
+the private key.</p></li>
+<li>Party information data in parameter <parmname>party_info</parmname>:<ul>
+<li>When rule-array keyword <parmname>DERIV01</parmname> is given: From 8 - 64 bytes, specify the
+party information data of the initiator and the responder entities, according to NIST SP800-56A
+Section 5.8</li>
+<li>When rule-array keyword <parmname>DERIV02</parmname> is given: From 0 - 256 bytes, specify party
+information data, according to section 5.6.3 of ANS X9.63-2011</li>
+</ul></li>
+<li>The number of bits of key material, from 64 - 256, to derive and
+place in the provided output key-token</li>
+<li>The length in bytes of the buffer for the output key-identifier</li>
+<li>An internal or external skeleton key-token to be used as input for the output key-token <p>The
+skeleton key-token must be an AES key or a DES key, as shown in the following table: </p>
+<table pgwide="0">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/> skeleton
+key-tokens</title>
+<desc>
+<p outputclass="summary">This is a complex table: Column one may have two rows.</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row>
+<entry>Algorithm</entry>
+<entry>Token version number</entry>
+<entry>Key type (see note)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" morerows="1">AES</entry>
+<entry colname="col2"><ph>X'04'</ph> (legacy fixed-length symmetric key-token)</entry>
+<entry colname="col3">DATA</entry>
+</row>
+<row>
+<entry colname="col2"><ph>X'05'</ph> (variable-length symmetric key-token)</entry>
+<entry colname="col3">
+<ul compact="yes">
+<li>CIPHER <p>Both parties can provide any combination of encryption or decryption for key-usage
+field.</p></li>
+<li>EXPORTER or IMPORTER <p>Both parties can provide any combination of EXPORTER or
+IMPORTER.</p></li>
+</ul>
+</entry>
+</row>
+<row>
+<entry>DES</entry>
+<entry><ph>X'00'</ph>, <ph>X'01'</ph>, <ph>X'03'</ph> (legacy fixed-length symmetric
+key-token)</entry>
+<entry>
+<ul compact="yes">
+<li>CIPHER, DECIPHER, ENCIPHER <p>Both parties can provide any combination of Encipher or Decipher
+key-usage bits in the control vector.</p></li>
+<li rev="sh16i1">CIPHER XI, CIPHERXL, CIPHERXO
+<p>Both parties can provide any combination of Encipher or Decipher key-usage bits in the control vector. </p>
+</li>
+<li>EXPORTER or IMPORTER <p>Both parties can provide any combination of EXPORT or IMPORT key-usage
+bits in the control vector.</p></li>
+</ul>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col3">
+<note/>
+<ol>
+<li>Except as otherwise noted, both parties must provide identical skeleton key tokens for the
+output key in order to derive identical keys. For legacy skeletons, control vector parity bits are
+not used in the key derivation process.</li>
+<li rev="sh16">Control vector bits and key-usage fields are not used in the key derivation process
+when rule-array keyword DERIV02 is specified.</li>
+</ol>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>If the skeleton key-token is an external key-token, specify the internal KEK to be used
+to wrap the output key-token. Otherwise, specify an output KEK length of 0.</p><p>If the
+<synph><var>output_key_identifier</var></synph> specifies a DES key-token, then the
+<synph><var>output_KEK_key_token</var></synph> must identify a legacy DES KEK. Otherwise it must
+identify a variable-length symmetric AES KEK key-token.</p></li>
+</ul></p></section>
+<section rev="sh16">
+<p><xref href="#vbecdhvb/deriv01_concat" format="dita"/> provides the format for the concatenation
+string from which the key is derived when DERIV01 is specified in the rule-array:</p>
+<table pgwide="0" rev="sh16" id="deriv01_concat">
+<title>CSNDEDH concatenation string format for DERIV01</title>
+<desc>
+<p outputclass="summary">A table about the CSNDEDH concatenation string format for DERIV01 with four
+columns, showing the Offset in bytes, the length in bytes, the value and a comment.</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="2*"/>
+<colspec colname="col4" colwidth="3*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Value</entry>
+<entry>Comments</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>4</entry>
+<entry>Initialized to X'00000001'</entry>
+<entry>Counter (four-byte unsigned integer)</entry>
+</row>
+<row>
+<entry>4</entry>
+<entry>xx</entry>
+<entry>Z</entry>
+<entry>A shared secret bit string or octet string</entry>
+</row>
+<row>
+<entry>4 + xx</entry>
+<entry>1</entry>
+<entry><dl>
+<dlhead><dthd>Value</dthd><ddhd>Meaning</ddhd></dlhead>
+<dlentry>
+<dt>X'03'</dt>
+<dd>DES</dd>
+</dlentry>
+<dlentry>
+<dt>X'04'</dt>
+<dd>AES</dd>
+</dlentry>
+</dl>  
+</entry>
+<entry>Algorithm identifier</entry>
+</row>
+<row>
+<entry>5 + xx</entry>
+<entry>1</entry>
+<entry>Passed party_info_length variable</entry>
+<entry>Party information length passed by caller, converted to a one-byte unsigned integer
+</entry>
+</row>
+<row>
+<entry>6 + xx</entry>
+<entry>party_info_length</entry>
+<entry>String identified by party_info parameter</entry>
+<entry>Parties information</entry>
+</row>
+<row>
+<entry>6 + xx + party_info_length</entry>
+<entry>2</entry>
+<entry>Supplied public information length, zz</entry>
+<entry>Two-byte unsigned integer specifying length of supplied public information</entry>
+</row>
+<row>
+<entry>8 + xx + party_info_length</entry>
+<entry>zz</entry>
+<entry>Supplied public information</entry>
+<entry>Token data extracted from the skeleton key token identified by the
+<parmname>output_key_identifier</parmname> parameter (refer to <xref href="#vbecdhvb/deriv01_pubinf"
+format="dita"/>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><note>All integers are in big-endian format.</note></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table pgwide="0" rev="sh16" id="deriv01_pubinf">
+<title>DERIV01 supplied public information</title>
+<desc>
+<p outputclass="summary">A complex table about the DERIV01 supplied public information with five 
+columns, showing the algorithm, the Key-token version, the Key type, 
+the Supplied public information length, zz (bytes), and supplied public information.</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="8*"/>
+<colspec colname="col2" colwidth="8*"/>
+<colspec colname="col3" colwidth="8*"/>
+<colspec colname="col4" colwidth="12*"/>
+<colspec colname="col5" colwidth="18*"/>
+<thead>
+<row>
+<entry>Algorithm</entry>
+<entry>Key-token version</entry>
+<entry>Key type</entry>
+<entry>Supplied public information length, zz (bytes)</entry>
+<entry>Supplied public information</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry morerows="2">AES</entry>
+<entry>X'04' (legacy fixed-length symmetric key-token)</entry>
+<entry>DATA</entry>
+<entry>8</entry>
+<entry>Control vector (CV) from key token beginning at offset 48 for zz bytes. 
+If flag byte indicates no CV present, information valued to binary zeros.
+</entry>
+</row>
+<row>
+<entry morerows="1">X'05' (variable-length symmetric key-token)</entry>
+<entry>CIPHER</entry>
+<entry>1 + (key usage fields count * 2) + 1 + (key management fields count * 2)</entry>
+<entry>Key usage and key management information from key token beginning at offset 44 
+for zz bytes, with ENCRYPT and DECRYPT bits (B'11xx xxxx' ) of KUF 1 high-order byte 
+masked off to maintain compatibility between keys with different key usage for these bits
+</entry>
+</row>
+<row>
+<entry>EXPORTER or IMPORTER</entry>
+<entry>1 + (key usage fields count * 2) + 1 + (key management fields count * 2)</entry>
+<entry>Key usage and key management information from key token beginning at offset 44 for 
+zz bytes, with no bits masked off</entry>
+</row>
+
+<row>
+<entry morerows="1">DES</entry>
+<entry morerows="1">X'00', X'01', X'03' (legacy fixed-length symmetric key token)</entry>
+<entry>CIPHER, DECIPHER, or ENCIPHER</entry>
+<entry>8 for single-length keys, 16 for double-length keys</entry>
+<entry>CV from key token beginning at offset 32 for zz bytes, with CV bits 18, 19, and 23 
+(X'xx11 xxx1') masked off (in both CV halves if double-length key) to maintain compatibility 
+between keys with different Encipher, Decipher, and parity bit values.</entry>
+</row>
+<row>
+<entry>EXPORTER or IMPORTER</entry>
+<entry>16</entry>
+<entry>CV from key token beginning at offset 32 for zz bytes, with CV bits 9, 14, and 15 
+(X'x1xx xx11') masked off (in both CV halves) to maintain compatibility between different 
+KEK key types and parity bit values.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p><xref href="#vbecdhvb/deriv02_concat" format="dita"/> provides the format for the concatenation
+string from which the key is derived when DERIV02 is specified in the rule-array:</p>
+<table pgwide="0" rev="sh16" id="deriv02_concat">
+<title>CSNDEDH concatenation string format for DERIV02</title>
+<desc>
+<p outputclass="summary">A table about the CSNDEDH concatenation string format for DERIV02 with four
+columns, showing the Offset in bytes, the length in bytes, the value and a comment. </p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="5*"/>
+<colspec colname="col3" colwidth="7*"/>
+<colspec colname="col4" colwidth="10*"/>
+<thead>
+<row>
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>Value</entry>
+<entry>Comments</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>xx</entry>
+<entry>Z</entry>
+<entry>A shared secret bit string or octet string</entry>
+</row>
+<row>
+<entry>xx</entry>
+<entry>4</entry>
+<entry>Initialized to X'00000001'</entry>
+<entry>Counter (four-byte unsigned integer)</entry>
+</row>
+<row>
+<entry>xx + 4</entry>
+<entry>yy</entry>
+<entry>String identified by <parmname>party_info</parmname> parameter</entry>
+<entry>Parties information; length not an explicit field in concatenation string</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col4"><note>All integers are in big-endian format.</note></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+<section><p>The output from this verb can be one of the following formats:
+<ul>
+<li>Internal CCA Token (DES or AES): AES keys are in the variable-length
+symmetric key token format. DES keys are in the DES external key token
+format.</li>
+<li>External CCA key token (DES or AES): AES keys are in the variable-length
+symmetric key token format. DES keys are in the DES external key token
+format.</li>
+<li>"Z" – The "secret" material output from <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> process.</li>
+</ul></p></section><!--This paragraph is in two places, in the introduction and Usage notes.-->
+<section><p>The <synph><kwd>PASSTHRU</kwd></synph> service is provided as a convenience to users
+who wish to implement their own key completion process in host application
+software.  While the "Z" derivation process is not reversible (the
+ECC keys cannot be discovered by obtaining "Z") there is a level of
+security compromise associated with returning the clear "Z" to the
+application.  Future derivations for CCA key tokens using ECC keys
+previously used in <synph><kwd>PASSTHRU</kwd></synph> must be considered to have lower
+security, and using the same ECC keys for <synph><kwd>PASSTHRU</kwd></synph> as for <synph><kwd>DERIV01</kwd></synph> is
+strongly discouraged.  It should also be noted that since "Z" is the
+secret material, returning it in the clear to the host application
+reduces security level of the "Z" from the HSM level to the host application
+level, and keys made from this material should not be regarded as
+having any HSM protection.</p></section>
+<section><p>For more information, see <xref href="wskc_c_ecdh_key_agree.dita#ecdh_key_agree"/>.</p></section>
+</refbody></reference>

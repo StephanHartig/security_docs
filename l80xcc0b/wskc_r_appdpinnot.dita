@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="l0wskc02_appdpinnot" xml:lang="en-us">
+<title>PIN notation</title>
+<titlealts>
+<navtitle>PIN notation</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PIN notation</searchtitle>
+</titlealts>
+<shortdesc>The content of PIN blocks are assigned a letter
+that represents the content. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>PIN notation</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>The following notations describe the contents of PIN blocks:
+ <dl><dlentry>
+<dt>P =</dt>
+<dd>A 4-bit decimal digit that is one digit of the PIN value.</dd>
+</dlentry><dlentry>
+<dt>C =</dt>
+<dd>A 4-bit hexadecimal control value. The valid values are <ph>X'0'</ph>, <ph>X'1'</ph>,
+and <ph>X'2'</ph>.</dd>
+</dlentry><dlentry>
+<dt>L =</dt>
+<dd>A 4-bit hexadecimal value that specifies the number of PIN digits.
+This value is in the range 4 - 12.</dd>
+</dlentry><dlentry>
+<dt>F =</dt>
+<dd>A 4-bit field delimiter of value <ph>X'F'</ph>.</dd>
+</dlentry><dlentry>
+<dt>f =</dt>
+<dd>A 4-bit delimiter filler that is either P or F, depending on the
+length of the PIN.</dd>
+</dlentry><dlentry>
+<dt>D =</dt>
+<dd>A 4-bit decimal padding value. All pad digits in the PIN block
+have the same value.</dd>
+</dlentry><dlentry>
+<dt>X =</dt>
+<dd>A 4-bit hexadecimal padding value. All pad digits in the PIN block
+have the same value.</dd>
+</dlentry><dlentry>
+<dt>x =</dt>
+<dd>A 4-bit hexadecimal filler that is either P or X, depending on
+the length of the PIN.</dd>
+</dlentry><dlentry>
+<dt>R =</dt>
+<dd>A 4-bit hexadecimal random digit. The sequence of R digits can
+each take a different value.</dd>
+</dlentry><dlentry>
+<dt>r =</dt>
+<dd>A 4-bit random filler that is either P or R, depending on the
+length of the PIN.</dd>
+</dlentry><dlentry>
+<dt>Z =</dt>
+<dd>A 4-bit hexadecimal zero (<ph>X'0'</ph>).</dd>
+</dlentry><dlentry>
+<dt>z =</dt>
+<dd>A 4-bit zero filler that is either P or Z, depending on the length
+of the PIN.</dd>
+</dlentry>
+<dlentry>
+<dt>S =</dt>
+<dd>A 4-bit hexadecimal digit that constitutes one digit of a sequence number.</dd>
+</dlentry>
+<dlentry rev="sh20i1">
+<dt>U =</dt>
+<dd>A 4-bit decimal digit that constitutes one digit of a user-specified constant.</dd>
+</dlentry>
+<dlentry>
+<dt>A =</dt>
+<dd>A 4-bit decimal digit that constitutes one digit of a user-specified
+constant.</dd>
+</dlentry>
+ <dlentry rev="sh20i1">
+ <dt>a =</dt>
+ <dd>A 4-bit value that is either P or A, depending on the length of the PIN.</dd>
+ </dlentry></dl></p></section>
+</refbody>
+</reference>
+<?Pub *0000002403?>

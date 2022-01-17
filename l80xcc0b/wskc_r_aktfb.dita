@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_aktfb">
+<title>AES internal <ph rev="sh18i1">fixed-length</ph> key-token flag byte</title>
+<titlealts>
+<navtitle>AES internal <ph rev="sh18i1">fixed-length</ph> key-token flag byte</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): AES internal <ph rev="sh18i1"
+>fixed-length</ph> key-token flag byte</searchtitle>
+</titlealts><shortdesc>The format for an AES internal <ph rev="sh18i1">fixed-length</ph> key token flag
+byte.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>AES internal <ph rev="sh18i1">fixed-length</ph> key-token<indexterm>flag
+byte</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p><xref href="#l0wskc02_aktfb/l0wskc02_aktfb_tab1"/> shows the format for an AES internal <ph
+rev="sh18i1">fixed-length</ph> key token flag byte. <table id="l0wskc02_aktfb_tab1" pgwide="1">
+<title>AES internal <ph rev="sh18i1">fixed-length</ph> key-token flag byte</title>
+<desc>
+<p outputclass="summary">AES internal <ph rev="sh18i1">fixed-length</ph> key-token flag byte</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="8*"/>
+<thead>
+<row>
+<entry>Bits (MSB...LSB)<sup>1</sup></entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>1<synph><var>xxx xxxx</var></synph></entry>
+<entry>Key is encrypted under the AES master-key (ignored if no key present).</entry>
+</row>
+<row>
+<entry>0<synph><var>xxx xxxx</var></synph></entry>
+<entry>Key is in the clear (ignored if no key present).</entry>
+</row>
+<row>
+<entry><synph><var>x</var></synph>1<synph><var>xx xxxx</var></synph></entry>
+<entry>Control vector (CV) is present.</entry>
+</row>
+<row rev="sh18i1">
+<entry><synph><var>x</var></synph>0<synph><var>xx xxxx</var></synph></entry>
+<entry>Control vector (CV) is not present.</entry>
+</row>
+<row>
+<entry><synph><var>xx</var></synph>1<synph><var>x xxxx</var></synph></entry>
+<entry>No key and no MKVP present.</entry>
+</row>
+<row>
+<entry><synph><var>xx</var></synph>0<synph><var>x xxxx</var></synph></entry>
+<entry>Encrypted or clear key present, MKVP present if key is encrypted.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" colsep="1">
+<note>All undefined bits are reserved and must be 0.</note>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p></section>
+</refbody></reference>

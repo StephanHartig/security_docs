@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_akrr">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/></searchtitle>
+  </titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> <ph>verb</ph> to read a key-token record from
+AES key-storage and return a copy of the key token to application
+storage. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrar1"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkarr1"/>)</indexterm></indexterm>
+<indexterm>environment variable<indexterm>CSUAESDS</indexterm></indexterm>
+<indexterm>CSUAESDS</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The returned key token can be null. In this event, the <synph><var>key_length</var></synph> variable
+contains a value of 64 and the <synph><var>key-token</var></synph> variable contains
+64 bytes of <ph>X'00'</ph> beginning at offset 0.</p></section><section>
+<note>AES key records are stored in the external key-storage
+file defined by the CSUAESDS environment variable.</note></section>
+</refbody></reference>

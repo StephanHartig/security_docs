@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="dpvparameters" rev="sh15">
+<title>Parameters</title><titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"
+/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldpv"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>ENCRYPT</indexterm>
+<indexterm>BCD</indexterm>
+<indexterm>CLEAR</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 0.</pd></plentry>
+<plentry rev="sh20i1">
+<pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0"
+id="table_qnh_xmn_nlb">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords that control the processing
+of the verb. Each element in the array must contain a valid keyword that is left-aligned and padded
+on the right as needed with space characters. The keyword must be in eight bytes of contiguous
+storage, left-aligned, and padded on the right with blanks. The <synph><var>rule_array</var></synph>
+keywords are described in <xref href="#dpvparameters/dk_dpv_keywords" format="dita"/><table
+id="dk_dpv_keywords" pgwide="1" frame="all"><title>Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> control information</title><desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdpv"/> control information</p>
+</desc><tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>PIN-block format</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry>ISO-1</entry>
+<entry>Specifies that the PIN block identified by the <parmname>ISO_encrypted_PIN_block</parmname>
+parameter is in the ISO-1 format. This is the default.</entry>
+</row>
+<row>
+<entry>ISO-4</entry>
+<entry>Specifies that the PIN block identified by the <parmname>ISO_encrypted_PIN_block</parmname>
+parameter is in the ISO-4 format.</entry>
+</row>
+</tbody>
+</tgroup></table></pd>
+</plentry>
+<plentry>
+<pt>PAN_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PAN_data</parmname> parameter. The value must be
+in the range 10 - 19.
+</pd>
+</plentry>
+<plentry>
+<pt>PAN_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The PAN data which the PIN is associated. The full account number, including check digit, should
+be included.
+</pd>
+</plentry>
+<plentry>
+<pt>card_data_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>card_data</parmname> parameter. The value must be
+in the range  4 - 512.
+</pd>
+</plentry>
+<plentry>
+<pt>card_data</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The time-invariant card data (CDp) and the time-sensitive card data (CDt) which, together with
+the account number, specifies an individual card.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PIN_reference_value</parmname> parameter. This
+value must be 16.
+</pd>
+</plentry>
+<plentry>
+<pt>PIN_reference_value</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 16-byte PIN reference value for comparison to the calculated value.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_random_number_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PRW_random_number</parmname> parameter. The value
+must be 4.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_random_number</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The 4-byte random number associated with the PIN reference value.
+</pd>
+</plentry>
+<plentry>
+<pt>ISO_encrypted_PIN_block_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh20i1">Specifies the length of data in bytes in the
+<parmname>ISO_encrypted_PIN_block</parmname> parameter. The value must be 8 for ISO-1 or 16 for
+ISO-4.</ph></pd>
+</plentry>
+<plentry>
+<pt>ISO_encrypted_PIN_block</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="sh20i1">A pointer to a string variable containing the encrypted PIN block in ISO-1 or ISO-4
+format from which to extract the PIN.</ph></pd>
+</plentry>
+<plentry>
+<pt>PRW_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+Specifies the length in bytes of the <parmname>PRW_key_identifier</parmname> parameter. If the
+<parmname>PRW_key_identifier</parmname> contains a label, the length must be 64. Otherwise, the
+value must be at least the actual token length, up to 725.
+</pd>
+</plentry>
+<plentry>
+<pt>PRW_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The identifier of the key to verify the PIN reference value. The key identifier is an operational
+token or the key label of an operational token in key storage. The key algorithm of this key must be
+AES, the key type must be PINPRW, and the key usage fields must indicate VERIFY, CMAC, and DKPINOP.
+<p>If the token supplied was encrypted under the old master key, the token is be returned
+encrypted under the current master key.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>IPIN_encryption_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh20i1">Specifies the length in bytes of the
+<parmname>IPIN_encryption_key_identifier</parmname> parameter. Set the value to 64 for an ISO-1
+PIN-block, or a maximum of 3500 for an ISO-4 PIN-block. A key label must be at least 64 bytes, and
+only the first 64 bytes of a key label are used.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>IPIN_encryption_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh20i1">A pointer to a string variable containing an operational fixed-length Triple-DES
+key-token or the key label of such a record in DES key-storage or, beginning with Release 5.4, an
+operational variable-length AES key-token or the key label of such a record in AES key-storage. The
+key token contains the inbound PIN encryption key used to recover the PIN from the ISO encrypted PIN
+block.</p>
+<p rev="sh20i1">If the PIN block is in ISO-1 format, the key token must have a key type of IPINENC. In addition,
+the control vector must enable the verification of an encrypted PIN (EPINVER, CV bit 19 = B'1').</p>
+<p rev="sh20i1">If the PIN block is in ISO-4 format, the key token must have a token algorithm of AES and a key
+type of PINPROT. In addition, the key usage fields must have the encryption operation set so that
+the key can be used for decryption but not encryption (DECRYPT), the encryption mode must be Cipher
+Block Chaining (CBC), the common control usage set to no field format specification (NOFLDFMT), and
+the inbound function usage set so that the key can be used to verify an encrypted PIN (EPINVER).</p>
+</pd>
+</plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="ccajni_over_mk">
+<title>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb</title>
+  <titlealts>
+    <navtitle>Using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/>
+        (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+  </titlealts><shortdesc><filepath>/usr/lib64/libcsulccamk.so</filepath> contains
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Any use of the <filepath>libcsulccamk.so</filepath> library is restricted because the library is
+installed so that only the <codeph>root</codeph> user (user ID of 0) and members of the group
+<codeph>cca_admin</codeph> have read access. The <codeph>cca_admin</codeph> group is added by the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> RPM installation procedure. This
+is done to limit the ability of an untrusted user to copy the library with the purpose of
+reverse-engineering the master-key access methods inside it.</p>
+<p>Furthermore, use of some specific access methods through the <keyword
+                conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword
+                conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>) verb are restricted to
+            a  corresponding <tm trademark="Linux" tmtype="tm">Linux</tm> group membership of the
+            user trying to make that access. <xref
+                href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_ccagrp"/> contains a list of
+            the groups and their functions.</p>
+<p>Users without the required group membership are denied use. For
+more information, see <synph><kwd>Master key load</kwd></synph> (Step <xref href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_install_rpm_mkl"/>).</p>
+</conbody></concept>

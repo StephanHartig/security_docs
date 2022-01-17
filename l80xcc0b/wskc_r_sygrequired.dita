@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_sygrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyg"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role based on the
+key-formatting method and the algorithm: </p>
+<table pgwide="0">
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyg"/> verb</p>
+</desc>
+<tgroup cols="4">
+<colspec colname="col1" colwidth="17*"/>
+<colspec colname="col2" colwidth="14*"/>
+<colspec colname="col3" colwidth="12*"/>
+<colspec colname="col4" colwidth="50*"/>
+<thead>
+<row>
+<entry>Key-formatting method</entry>
+<entry>Algorithm</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph> or <synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph>
+</entry>
+<entry><ph>X'012C'</ph>
+</entry>
+<entry><cmdname>Symmetric Key Generate - AES_ PKCSOAEP_ PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKCSOAEP</kwd></synph> or <synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'023F'</ph></entry>
+<entry><cmdname>Symmetric Key Generate - DES_ PKCS-1.2</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph>
+</entry>
+<entry><ph>X'012D'</ph>
+</entry>
+<entry><cmdname>Symmetric Key Generate - AES_ ZERO-PAD</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'023C'</ph></entry>
+<entry><cmdname>Symmetric Key Generate - DES_ ZERO-PAD</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>PKA92</kwd></synph></entry>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry><ph>X'010D'</ph></entry>
+<entry><cmdname>Symmetric Key Generate - DES_ PKA92</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<section><p>The use of the <synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph>
+key-wrapping method keywords requires the <cmdname>Symmetric Key Generate - Allow wrapping
+override keywords</cmdname> command (offset <ph>X'013E'</ph>) to be enabled.</p>
+<p rev="shr2">The following access-control points are added beginning with Release 4.3:</p>
+<ul rev="shr2">
+<li>To disable the wrapping of a key with a weaker master key, the 
+<cmdname>Prohibit weak wrapping - Master keys</cmdname> command (offset X'0333') 
+must be enabled in the active role.</li>
+<li>To receive a warning when wrapping a key with a weaker master key, enable the 
+<cmdname>Warn when weak wrap - Master keys</cmdname> command (offset X'0332') in 
+the active role. The <cmdname>Prohibit weak wrapping - Master keys</cmdname> command 
+overrides this command.</li>
+</ul></section>
+</refbody></reference>

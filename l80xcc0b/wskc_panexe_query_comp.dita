@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="panexe_epoc_cert" xml:lang="en-us" rev="sh18i1">
+<title>Using panel.exe to query the adapter compliance state</title>
+<titlealts>
+<navtitle><ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>: query adapter compliance
+state</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): panel.exe: querying the adapter
+compliance state</searchtitle>
+</titlealts>
+<shortdesc>Using the <parmname>–qcomp --vsig</parmname> parameter, the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility allows you to check, whether the
+adapter is in   <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utilities<indexterm>panel.exe<indexterm>query adapter compliance
+state</indexterm></indexterm></indexterm>
+<indexterm>panel.exe<indexterm>query adapter compliance state</indexterm></indexterm>
+<indexterm>query adapter compliance state<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>query adapter compliance state<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>compliance state querying<indexterm>panel.exe</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016mode"
+/><indexterm>query mode with panel.exe</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Using the <parmname>–qcomp --vsig</parmname> parameter, the <ph
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/> utility allows you to query the status
+of the domain on the adapter and parses all of the data fields to display the information on the
+console. Here is a successful run for a domain that is not in compliance mode, with the additional
+<parmname>--vsig</parmname> option which requests that the output is signed by the card, and that
+the signature is verified by <ph conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/panexe"/>. There
+is explanatory text in <b>boldface</b>.</p>
+<codeblock><b>panel.exe –qcomp --vsig</b>
+</codeblock>
+</conbody>
+</concept>
+<?Pub *0000002489?>

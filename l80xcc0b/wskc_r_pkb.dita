@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pkb">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/></searchtitle>
+  </titlealts>
+<shortdesc>Use this verb to build external PKA key tokens containing unenciphered private RSA, ECC,
+<ph rev="sh21i1">or QSA keys</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>utilities<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/></indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>)</indexterm></indexterm>
+<indexterm>key token<indexterm>Elliptic Curve Cryptography
+(ECC)</indexterm></indexterm>
+<indexterm>Elliptic Curve Cryptography (ECC)<indexterm>key
+token</indexterm></indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>You can use this token as input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> <ph>verb</ph> to
+obtain an operational internal token containing an enciphered private
+key. This <ph>verb</ph> builds a skeleton token that you can use as
+input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> <ph>verb</ph> (see <xref href="wskc_r_xpkgparameters.dita#l0wskc02_xpkgparameters/l0wskc02_pkg"/>).
+You can also input to this verb a clear unenciphered public RSA or
+ECC key and return the public key in a token format that other PKA
+verbs can use directly.</p></section>
+<section>
+<p>Specifically, you can use this verb to:</p>
+<ul>
+<li>Build external PKA key tokens containing unencrypted private key for ECC or RSA keys. You can
+use this token as input to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/>
+service to obtain an operational internal token containing an enciphered private key.</li>
+<li>Build external RSA key tokens with the private key for use with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> service.</li>
+<li>Build a skeleton token for ECC, RSA, or CRYSTALS-Dilithium keys that you can use as input to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkg"/> service. </li>
+<li>Build a public key token containing a clear unencrypted public key for an ECC or RSA keys and
+return the public key in a token format that other PKA services can use directly.</li>
+<li>An RSA token with <ph>X'09'</ph> section identifier using the <synph><kwd>RSAMEVAR</kwd></synph>
+keyword to obtain a token for a key in Modulus-Exponent format that is variable length.</li>
+</ul>
+</section>
+<section><p>ECC key generation requires this information in the skeleton token: </p>
+<ul>
+<li>The key type: <synph><kwd>ECC</kwd></synph></li>
+<li rev="sh21i1">The type of curve: Prime, Brainpool, Edwards, or Koblitz.</li>
+<li>The size of <synph><var>p</var></synph> in bits: <ul>
+<li>192, 224, 256, 384 or 521 for Prime curves</li>
+<li>160, 192, 224, 256, 320, 384, or 521 for Brainpool curves</li>
+<li>255 or 448 for Edwards curves.</li>
+<li rev="sh21i1">256 for Koblitz curves.</li>
+</ul>
+</li>
+<li>Key usage information:<ul>
+<li rev="sh21i1">If an ECC private key specifies an Edwards curve, it can be used for EdDSA.</li>
+<li rev="sh21i1">The Edwards keys are not usable outside their specified cryptography system. 
+When creating the Edwards (Ed25519, Ed448) skeleton key token for use with EdDSA, the SIG-ONLY key usage keyword is required.</li>
+<li rev="sh21i1">If an ECC private key specifies an Edwards curve, it cannot be used for ECDSA.</li>
+<li rev="sh21i1">Koblitz curve (secp256k1) keys have the same usage constraints as Prime 256 curve
+keys.</li>
+</ul></li>
+<li>Optionally, application associated data.</li>
+<li>Optionally, a key-derivation section.</li>
+<li></li>
+</ul></section>
+<section rev="sh21i1">
+<p>RSA key generation requires this following information in the skeleton token:</p>
+<ul>
+<li>In modulus-exponent form:<ul>
+<li>The length of the modulus n in bits (512-4096).</li>
+<li>The length of the public exponent e (optional).</li>
+<li>The length of the private exponent d (optional).</li>
+<li>The public exponent e (optional).</li>
+</ul></li>
+<li>In Chinese Remainder Theorem form:<ul>
+<li>The length of the modulus n in bits (512-4096).</li>
+<li>The length of the public exponent e (optional).</li>
+<li>The public exponent e (optional).</li>
+<li>Other optional lengths.</li>
+</ul></li>
+<li>There are restrictions on the value and length of the RSA public exponent:<ul>
+<li>RSA keys 512-bit to 2048-bit may have a public exponent of 3, 5, 17, 257, 65537, or random.
+Support for RSA public exponents 5, 17, and 257 requires the October 2016 or later licensed internal
+code (LIC).</li>
+<li>For 2049-bit to 4096-bit RSA keys:
+<ul>
+<li>The public exponent may have a value of 3, 5, 17, 257, 65537, or random.</li>
+<li>Support for RSA public exponents 5, 17, and 257 requires the October 2016 or later licensed
+internal code (LIC).</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> key generation
+requires the following information in the skeleton token:</p>
+<ul>
+<li>The Algorithm identifier: <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/>.</li>
+<li>The Algorithm parameter: X'0605' <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> (6,5).</li>
+<li>The U-DIGSIG key word is required.</li>
+</ul>
+<p rev="sh21i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/crystals_dil"/> keys are
+only usable for signature creation and verification.</p>
+</section>
+</refbody></reference>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Using AES, DES, and HMAC cryptography and verbs </title>
+<topicref href="wskc_c_apint.dita">
+<topicref href="wskc_c_crypkey.dita">
+<topicref href="wskc_c_ch2kepsep.dita"/>
+<topicref href="wskc_c_ch2maskeyvar.dita"/>
+<topicref href="wskc_c_ch2transkeyvar.dita"/>
+<topicref href="wskc_c_chp2keyform.dita"/>
+<topicref href="wskc_c_ktn.dita"/>
+<topicref href="wskc_compliant_tagged.dita"/>
+<topicref href="wskc_c_key_wrapping_enh.dita">
+<topicref href="wskc_c_aes_keywrapmthd.dita"/>
+<topicref href="wskc_c_des_keywrapmthd.dita"/>
+<topicref href="wskc_c_keywmt_hmac.dita"/>
+</topicref>
+<topicref href="wskc_key_strength.dita">
+<topicref href="wskc_key_strength_wrap_acps.dita"/></topicref>
+<topicref href="wskc_c_cv.dita"/>
+<topicref href="wskc_c_keys.dita"/>
+<topicref href="wskc_des_key_usage_restrictions.dita"/>
+<topicref href="wskc_triple_tdes_keys.dita"/>
+</topicref>
+<topicref href="wskc_c_chp2csmccaksf.dita"/>
+<topicref href="wskc_c_pkdsser.dita"></topicref>
+<topicref href="wskc_c_ecdh_key_agree.dita"/>
+<topicref href="wskc_c_irkdist.dita">
+<topicref href="wskc_c_rkload.dita"/>
+</topicref>
+<topicref href="wskc_c_ssl1.dita"/>
+<topicref href="wskc_c_chp2mandataint.dita">
+<topicref href="wskc_c_chp2mesauthproc.dita"/>
+<topicref href="wskc_c_chp2hashf.dita"></topicref>
+</topicref>
+<topicref href="wskc_c_pin.dita"/>
+<topicref href="wskc_c_smsgs.dita"></topicref>
+<topicref href="wskc_c_tke1.dita"></topicref>
+<topicref href="wskc_c_chp2tsccacs.dita"/>
+<topicref href="wskc_c_ch2useccaverbs.dita"></topicref>
+<topicref href="wskc_c_sumccaacc.dita"></topicref>
+<topicref href="wskc_c_sumdea.dita"/></topicref>
+</map>
+<?Pub *0000004209?>

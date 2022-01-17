@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appareascod">
+<title>Reason codes</title>
+  <titlealts>
+    <navtitle>Reason codes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Reason codes</searchtitle>
+  </titlealts><shortdesc>A reason code details the results of verb processing. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>reason code</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Every reason code is associated with a single return code. A nonzero
+reason code can be associated with a zero return code.</p></section>
+<section><p>User Defined Extensions (UDX) return reason codes in the range
+of 20480 (<ph>X'5000'</ph>) - 24575 (<ph>X'5FFF'</ph>). </p></section>
+<section><p>The remainder of this topic lists the reason codes that accompany each of the return codes. The
+        return codes are shown in decimal form and the reason codes are shown in decimal and in
+        hexadecimal (hex) form. </p></section>
+</refbody></reference>

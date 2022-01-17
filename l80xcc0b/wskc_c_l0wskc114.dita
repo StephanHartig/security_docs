@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc114" xml:lang="en-us">
+<title>Running secure key under a <tm tmtype="reg" trademark="z/VM">z/VM</tm> guest</title>
+<titlealts>
+<navtitle>Running secure key under a z/VM guest</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Running secure key under a z/VM
+guest</searchtitle>
+</titlealts>
+<shortdesc>In order to use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"
+/> feature under <tm tmtype="reg" trademark="z/VM">z/VM</tm>, you need to apply specific APAR
+fixes.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>z/VM guest</indexterm><indexterm>CPACF</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm>
+<indexterm>APAR fixes<indexterm>z/VM</indexterm></indexterm><indexterm>Central
+Processor Assist for Cryptographic Functions (CPACF)</indexterm>
+<indexterm>CPACF</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>These fixes are described in <xref format="dita"
+href="wskc_c_hardwareneeds.dita" scope="local" type="concept"></xref>.</p>
+<p>Also, to get secure key running under a <tm tmtype="reg"
+trademark="z/VM">z/VM</tm> guest, a directory control statement (CRYPTO
+APDED) for a given <tm tmtype="reg" trademark="z/VM">z/VM</tm> guest
+needs to be used. This requires that the AP's with this domain are
+owned by the LPAR. There is no virtualization done by <tm tmtype="reg"
+trademark="z/VM">z/VM</tm>.</p><?Pub Caret 7?>
+<p>For secure key, <tm tmtype="reg" trademark="z/VM">z/VM</tm> does
+not virtualize the AP's. The AP's need to be dedicated, which is done
+by the user statement:  <codeblock>CRYPTO DOMAIN 12 APDED 5 7</codeblock>This
+statement dedicates AP's 5 and 7 for domain 12 to one <tm tmtype="tm"
+trademark="Linux">Linux</tm> guest.</p>
+<note>Shared crypto adapters, as defined with the <tm tmtype="reg"
+trademark="z/VM">z/VM</tm> user directory statement CRYPTO APVIRT,
+cannot be used for secure key cryptographic operations. Because dedicated
+and shared cryptographic adapters cannot be mixed in a <tm tmtype="reg"
+trademark="z/VM">z/VM</tm> guest virtual machine, additional crypto
+adapters for use with clear key cryptography, coprocessors or accelerators,
+must be defined as dedicated adapters.</note>
+</conbody>
+</concept>
+<?Pub *0000002388?>

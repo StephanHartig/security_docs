@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--KArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_cfq_statkprl" xml:lang="en-us">
+<title>STATKPRL</title>
+<titlealts>
+<navtitle>STATKPRL</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATKPRL</searchtitle>
+</titlealts>
+<shortdesc rev="sh15">This keyword returns a list of the names of all operational key parts that
+have been loaded by the TKE into the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>STATKPRL</indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p>Each name has a length of 64 bytes. The maximum number of key slots (and thus the count of labels
+returned) depends on the firmware loaded to the adapter. <ph rev="shd3">This count is currently set
+to 100.</ph> If not enough space has been provided (using the
+<synph><var>verb_data_length</var></synph> field passed in by the application) to return the
+available list, <ph rev="sh15">a return code of 8 and a reason code of 72 is returned.</ph></p>
+<?Pub Caret -1?>
+<note rev="sh16">This keyword can return AES keys as well as HMAC key descriptions.</note>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001088?>

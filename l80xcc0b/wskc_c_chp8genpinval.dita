@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8genpinval">
+<title>Generating a PIN validation value from an encrypted PIN block</title>
+  <titlealts>
+    <navtitle>Generating a PIN validation value from an encrypted PIN block</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating a PIN validation value from an
+encrypted PIN block</searchtitle>
+  </titlealts><shortdesc>To generate a clear VISA PIN validation value (PVV) from an encrypted
+PIN block, call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"/> <ph>verb</ph>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PIN validation value (PVV)</indexterm>
+<indexterm>PIN block</indexterm><indexterm>personal identification number (PIN)<indexterm>generating<indexterm>from encrypted PIN block</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p> The PIN block can be encrypted under an input PIN-encrypting key
+(<synph><kwd>IPINENC</kwd></synph>) or an output PIN encrypting key (<synph><kwd>OPINENC</kwd></synph>). </p>
+</conbody></concept>

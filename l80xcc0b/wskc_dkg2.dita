@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkg2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> service
+generates an AES key based on a function of a key-generating key, the process rule, and data that
+you supply.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>To use this service, specify: </p>
+<ul>
+<li>the rule array keyword to select the diversification process</li>
+<li>the operational AES key-generating key from which the diversified keys are generated:<ul>
+<li>Key usage field 1 determines the type of key that is generated and restricts the use of this key
+to the key-diversification process.</li>
+<li>Key usage field 2 contains a flag to determine how key usage fields 3 through 6 control the key
+usage fields of the generated key.<ul>
+<li>When the flag is on, the key usage fields of the DKYGENKY must be equal to the key usage fields
+of the generated key (KUF-MBE, meaning: <term>key usage fields must be equal</term>).</li>
+<li>When the flag is off, the key usage fields of the DKYGENKY limit the values of the key usage
+fields of the generated key (KUF-MBP, meaning: <term>key usage fields must be
+permitted</term>).</li>
+</ul><p>For the service to be valid, the generated key cannot have a usage that is not enabled in
+the DKYGENKY key. The UDX-ONLY bit is always treated as <term>must be equal</term>.</p></li>
+<li>Key usage fields 3 through 6 in the key generating key indicate the key usage attributes for the
+key to be generated. The only exception to this rule is when the type of key to diversify is
+D-ALL.</li>
+</ul></li>
+<li>the data and length of data used in the diversification process</li>
+<li>the AES key token with a suitable key usage field for receiving the diversified key.</li>
+</ul>
+<note rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</note>
+</section>
+</refbody>
+</reference>

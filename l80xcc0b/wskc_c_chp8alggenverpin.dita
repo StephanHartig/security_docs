@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_chp8alggenverpin" xml:lang="en-us">
+<title>Algorithms for generating and verifying a PIN</title>
+<titlealts>
+<navtitle>Generate and verify PIN</navtitle><?Pub Caret 20?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Algorithms for generating and verifying a
+PIN</searchtitle>
+</titlealts>
+<shortdesc>CCA supports the following algorithms for generating and
+verifying personal identification numbers.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>personal identification number (PIN)<indexterm>algorithms</indexterm></indexterm>
+<indexterm>Interbank PIN</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p> <ul>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> 3624 institution-assigned
+PIN</li>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> 3624 customer-selected
+PIN (through a PIN offset)</li>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> German Bank Pool PIN
+(verify through an institution key)</li>
+<li>VISA PIN through a VISA PIN validation value </li>
+<li>Interbank PIN</li>
+</ul></p>
+<p>The algorithms are described in detail in <xref
+href="wskc_r_ap2me.dita#l0wskc02_ap2me"></xref>.</p>
+</conbody>
+</concept>
+<?Pub *0000001288?>

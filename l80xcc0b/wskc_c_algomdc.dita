@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_algomdc" xml:lang="en-us">
+<title>Modification Detection Code calculation</title>
+<titlealts>
+<navtitle>MDC method</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Modification Detection Code
+calculation</searchtitle>
+</titlealts>
+<shortdesc>The Modification Detection Code (MDC) calculation method
+defines a one-way cryptographic function. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>Modification Detection Code (MDC)</indexterm>
+<indexterm>calculation method<indexterm>Modification Detection Code
+(MDC)</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>A one-way cryptographic function is a function in which it is easy
+to compute the input into output (a digest) but very difficult to
+compute the output into input. MDC uses DES encryption only and a
+default key of <ph>X'5252 5252 5252 5252  2525 2525 2525 2525'</ph>.</p>
+<p>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> verb
+supports four versions of the MDC calculation method that you specify
+by using one of the keywords shown in <xref
+href="#l0wskc02_algomdc/l0wskc02_mdcct"></xref>. All versions use
+the MDC-1 calculation. </p>
+<p> <table id="l0wskc02_mdcct" pgwide="0"><title>Versions of the MDC
+calculation method</title><desc><p outputclass="summary">Versions
+of the MDC calculation method</p></desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="50*"/>
+<colspec colname="col2" colwidth="130*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Version of the MDC calculation</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>MDC-2</b>, <b>PADMDC-2</b></entry>
+<entry>Specifies two encipherments for each 8-byte input
+data block. These versions use the MDC-2 calculation procedure described
+in <xref href="#l0wskc02_algomdc/l0wskc02_mdctabproc"></xref>.</entry>
+</row>
+<row>
+<entry valign="top"><b>MDC-4</b>, <b>PADMDC-4</b></entry>
+<entry valign="top">Specifies four encipherments for each 8-byte input
+data block. These versions use the MDC-4 calculation procedure described
+in <xref href="#l0wskc02_algomdc/l0wskc02_mdctabproc"></xref>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+<p>When the keywords <synph><kwd>PADMDC-2</kwd></synph> and <synph><kwd>PADMDC-4</kwd></synph> are
+used, the supplied text is always padded as follows:  <ul>
+<li>If the total supplied text is less than 16 bytes in length, pad
+bytes are appended to make the text length equal to 16 bytes. A length
+of zero is allowed.</li>
+<li>If the total supplied text is a minimum of 16 bytes in length,
+pad bytes are appended to make the text length equal to the next-higher
+multiple of eight bytes. One or more pad bytes are always added.</li>
+<li>All appended pad bytes, other than the last pad byte, are set
+to <ph>X'FF'</ph>.</li>
+<li>The last pad byte is set to a binary value equal to the count
+of all appended pad bytes (<ph>X'01'</ph> - <ph>X'10'</ph>).</li>
+</ul></p>
+<p>Use the resulting pad text in the <xref
+href="#l0wskc02_algomdc/l0wskc02_mdctabproc"></xref>. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"></keyword> verb
+uses these MDC calculation methods. See <xref
+href="wskc_r_mdc_generate.dita#l0wskc02_mdc_generate"></xref> for
+more information.</p>
+<p> <table id="l0wskc02_mdctabproc"><title>MDC calculation procedures</title>
+<desc><p outputclass="summary">MDC calculation procedures</p></desc>
+<tgroup cols="2"><colspec colname="col1" colwidth="2*"/><colspec
+colname="col2" colwidth="12*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Calculation</entry>
+<entry colname="col2">Procedure</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>MDC-1</kwd></synph></entry>
+<entry colname="col2"> <codeblock>MDC-1(KD1, KD2, IN1, IN2, OUT1, OUT2);
+ Set KD1mod := set KD1 bit 1 to B'1' and bit 2 to B'0' (bits 0-7)
+ Set KD2mod := set KD2 bit 1 to B'0' and bit 2 to B'1' (bits 0-7)
+ Set F1 := IN1 XOR eKD1mod(IN1)
+ Set F2 := IN2 XOR eKD2mod(IN2)
+ Set OUT1 := (bits 0..31 of F1) || (bits 32..63 of F2)
+ Set OUT2 := (bits 0..31 of F2) || (bits 32..63 of F1)
+End procedure</codeblock></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>MDC-2</kwd></synph></entry>
+<entry colname="col2"> <codeblock>MDC-2(n, text, KEY1, KEY2, MDC);
+ For i := 1, 2, ..., n do
+  Call MDC-1(KEY1, KEY2, T8&lt;i&gt;, T8&lt;i&gt;, OUT1, OUT2)
+  Set KEY1 := OUT1
+  Set KEY2 := OUT2
+ End do
+ Set output MDC := (KEY1 || KEY2)
+End procedure</codeblock></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>MDC-4</kwd></synph></entry>
+<entry colname="col2"> <codeblock>MDC-4(n, text, KEY1, KEY2, MDC);
+ For i := 1, 2, ..., n do
+  Call MDC-1(KEY1, KEY2, T8&lt;i&gt;, T8&lt;i&gt;, OUT1, OUT2)
+  Set KEY1int := OUT1
+  Set KEY2int := OUT2
+  Call MDC-1(KEY1int, KEY2int, KEY2, KEY1, OUT1, OUT2)
+  Set KEY1 := OUT1
+  Set KEY2 := OUT2
+ End do
+ Set output MDC := (KEY1 || KEY2)
+End procedure</codeblock></entry>
+</row>
+<row>
+<entry nameend="col2" namest="col1"><synph><kwd>Notation:</kwd></synph> <dl
+compact="yes"><dlentry>
+<dt>eK(X)</dt>
+<dd>DES encryption of plaintext X using key K</dd>
+</dlentry><dlentry>
+<dt>||</dt>
+<dd>Concatenation operation</dd>
+</dlentry><dlentry>
+<dt>XOR</dt>
+<dd>Exclusive-OR operation</dd>
+</dlentry><dlentry>
+<dt>:=</dt>
+<dd>Assignment operation</dd>
+</dlentry><dlentry>
+<dt>T8&lt;1&gt;</dt>
+<dd>First 8-byte block of text</dd>
+</dlentry><dlentry>
+<dt>T8&lt;2&gt;</dt>
+<dd>Second 8-byte block of text</dd>
+</dlentry><dlentry>
+<dt>KD1, KD2</dt>
+<dd>64-bit quantities</dd>
+</dlentry><dlentry>
+<dt>IN1, IN2</dt>
+<dd>64-bit quantities</dd>
+</dlentry><dlentry>
+<dt>OUT1, OUT2</dt>
+<dd>64-bit quantities</dd>
+</dlentry><dlentry>
+<dt>n</dt>
+<dd>Number of 8-byte blocks</dd>
+</dlentry></dl></entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+</conbody>
+</concept>
+<?Pub *0000006004?>

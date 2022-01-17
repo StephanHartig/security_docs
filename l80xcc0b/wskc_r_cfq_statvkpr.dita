@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_statvkpr">
+<title>STATVKPR</title>
+  <titlealts>
+    <navtitle>STATVKPR</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): STATVKPR</searchtitle>
+  </titlealts><shortdesc>This keyword cause non-secret information about a particular named
+operational key part loaded by the TKE to returned to the user.  </shortdesc>
+<prolog><metadata><keywords>
+<indexterm>STATVKPR<indexterm>output data format</indexterm><indexterm>operational key
+parts</indexterm></indexterm>
+<indexterm>key part register</indexterm>
+<indexterm>key length</indexterm>
+<indexterm>key completeness</indexterm>
+<indexterm>verification pattern</indexterm>
+<indexterm>key part register hash</indexterm>
+<indexterm>skeleton token length</indexterm>
+<indexterm>skeleton token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This is different from STATKPR in that a register for creating a key in a variable length key
+token is described. The structures for various key types are given in section <cite>STATVKPR output
+data</cite>. An appropriate name for an existing operational key part is expected to be provided as
+described in <cite>STATVKPL input data</cite>. If not, the error return code of 8 and a reason code
+of 1026 is returned, meaning that the key name is not found.</p>
+<p><b>STATVKPL input data:</b></p>
+<p>A 64 byte key name must be provided in the <synph><var>verb_data</var></synph> field, while the
+<synph><var>verb_data_length</var></synph> must be set to 64. </p>
+<p>The operational key name must match exactly the name returned by a call to STATVKPL.</p>
+<p><b>STATVKPR output data:</b></p>
+<p>See <xref href="#l0wskc02_cfq_statvkpr/l0wskc02_cfq_vdras390_od_tab6" format="dita"/> for the
+output data format. </p>
+<note>
+<ol>
+<li>The fields are returned in the order given.</li>
+<li>Output data overwrites the input data in the <synph><var>verb_data</var></synph> field, and set
+the <synph><var>verb_data_length</var></synph> field to the output value.</li>
+<li>The <synph><var>verb_data_length</var></synph> parameter indicates the total size, at the bottom
+of the table describing the <synph><var>verb_data</var></synph>. <p>Note that the output data is
+smaller than the input data.</p></li>
+<li>Multiple byte fields are stored in Big-Endian format, as is typical for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> communication.</li>
+</ol>
+</note>
+<table id="l0wskc02_cfq_vdras390_od_tab6" pgwide="1">
+<title>Output data format for STATVKPR operational key parts</title>
+<desc>
+<p outputclass="summary">Output data format for STATVKPR operational key parts</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="colspec5" colwidth="3*"/>
+<colspec colname="col3" colwidth="27*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col2">Field name</entry>
+<entry colname="colspec5">Length in bytes</entry>
+<entry colname="col3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col2">version</entry>
+<entry colname="colspec5">1</entry>
+<entry colname="col3">Version of the structure</entry>
+</row>
+<row>
+<entry colname="col2">state</entry>
+<entry colname="colspec5">1</entry>
+<entry colname="col3">State of the key part register: <dl compact="yes">
+<dlhead>
+<dthd>Value</dthd>
+<ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt><ph>X'00'</ph></dt>
+<dd>The register is empty.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'01'</ph></dt>
+<dd>The first DES key part was entered for the named key into this register.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'02'</ph></dt>
+<dd>An intermediate DES key part (part after first) has been entered.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'03'</ph></dt>
+<dd>The register contains a completed DES key.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'11'</ph></dt>
+<dd>The first AES key part was entered for the named key into this register.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'12'</ph></dt>
+<dd>An intermediate AES key part (part after first) has been entered.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'13'</ph></dt>
+<dd>The register contains a completed AES key.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'21'</ph></dt>
+<dd>The first AES key part for variable length token was entered for the named key into this
+register.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'22'</ph></dt>
+<dd>An intermediate AES key part for variable length token (part after first) has been entered.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'23'</ph></dt>
+<dd>The register contains a completed AES key part for variable length token.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col2">key_length</entry>
+<entry colname="colspec5">1</entry>
+<entry colname="col3">Length of key in bytes. For DES keys, values are: 8, 16, 24. For AES keys,
+values are: 16, 24, 32.</entry>
+</row>
+<row>
+<entry colname="col2">key_completeness</entry>
+<entry colname="colspec5">1</entry>
+<entry colname="col3">Number of parts needed to complete key <dl compact="yes">
+<dlentry>
+<dt><ph>X'C0'</ph></dt>
+<dd>Two parts are needed.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'80'</ph></dt>
+<dd>One part is needed.</dd>
+</dlentry>
+<dlentry>
+<dt><ph>X'40'</ph></dt>
+<dd>No parts are needed. Key is complete.</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry colname="col2">ver_pattern</entry>
+<entry colname="colspec5">4</entry>
+<entry colname="col3" rev="sh21i1">ENC-ZERO method calculated verification pattern of the key. 
+<ph rev="sh21i3">This is the default behavior.</ph>
+<p rev="sh21i3">If the keyword ENC-ZERO has been passed and the key in the key part register is a DES key, 
+then this field contains 3 bytes of an ENC-ZERO key check value over the key stored in the key part register. 
+The remaining bytes are 0x00.</p>
+<p rev="sh21i3">If the keyword CMACZERO has been passed but the keyword ENC-ZERO has not been passed, 
+or if the key in the key part register is not a DES key, then this field will contain only bytes of 0x00.</p>
+</entry>
+</row>
+<row>
+<entry colname="col2">key_part_hash</entry>
+<entry colname="colspec5">8</entry>
+<entry colname="col3">Hash using the SHA-256 algorithm over the key that is currently stored, at the
+current level of completeness.
+<ph rev="sh21i3">This is the default behavior.</ph>
+<p rev="sh21i3">If the keyword CMACZERO has been passed, then this field contains 5 bytes of a CMACZERO key check value 
+over the key stored in the key part register. The remaining bytes are 0x00.</p>
+<p rev="sh21i3">If the keyword ENC-ZERO has been passed, but the keyword CMACZERO has not been passed, 
+then this field contains only bytes of 0x00.</p>
+</entry>
+</row>
+<row>
+<entry colname="col2">skel_length</entry>
+<entry colname="colspec5">2</entry>
+<entry colname="col3">Skeleton token length.</entry>
+</row>
+<row>
+<entry colname="col2">pad</entry>
+<entry colname="colspec5">2</entry>
+<entry colname="col3">Pad structure to 4-byte boundary.</entry>
+</row>
+<row>
+<entry colname="col2">skel</entry>
+<entry colname="colspec5">384</entry>
+<entry colname="col3">Stored key token skeleton, which will hold completed key when operation is
+complete. No key material is stored or returned here.</entry>
+</row>
+<row>
+<entry colname="col2">reserved2</entry>
+<entry colname="colspec5">108</entry>
+<entry colname="col3">Extra bytes.</entry>
+</row>
+<row>
+<entry colname="col2" colsep="1" valign="bottom">Total byte count</entry>
+<entry colsep="1" nameend="col3" namest="colspec5">512</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody></reference>

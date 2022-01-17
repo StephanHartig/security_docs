@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_pci_hsm_key_restrictions" xml:lang="en-us" rev="sh20i1">
+<title>Restrictions on creation and use of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant key tokens</title>
+<titlealts>
+<navtitle>Restrictions on <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant keys</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant keys</searchtitle>
+</titlealts>
+<shortdesc>Read about the restrictions that apply to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant key tokens.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant key
+tokens<indexterm>restrictions</indexterm></indexterm>
+<indexterm>key tokens<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant<indexterm>restrictions</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In addition to the callable services above, certain restrictions are placed on
+compliant-tagged key tokens regardless of the service. </p>
+<ul>
+<li>DES <ul>
+<li>Only internal DES key tokens may be compliant-tagged.</li>
+<li>Only the enhanced wrapping method can be used.</li>
+<li>Single-length key tokens cannot be compliant-tagged.</li>
+<li>Key encrypting keys (KEKs, including master keys) must be at least as strong as the keys they
+protect. Therefore, a KEK with replicated key halves can not wrap a key with unique key halves. </li>
+<li>Default DATA key tokens (including zero CV DATA key tokens) cannot be compliant-tagged. They are
+multi-use keys capable of performing encipherment and creating MACs. One alternative is to upgrade
+to CIPHER or MAC keys, or both CIPHER and MAC keys. Currently, triple-length DATA keys with unique
+key parts have no migration path to becoming compliant-tagged without downgrading the key to a
+double-length key. </li>
+<li>NOCV-KEKs cannot be compliant-tagged.</li>
+<li>Compliant-tagged key tokens are restricted in terms of the verification patterns that can be
+calculated. Only the ENC-ZERO and CMACZERO verification patterns are allowed. See the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt"/>), <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>), and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>) callable services for more detail. In
+addition, for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> services, the KEY-ENCD keyword is
+required. </li>
+<li>Generally, compliant-tagged key tokens cannot be used with non-compliant-tagged key tokens. The
+exceptions are: <ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>) callable service.</li>
+<li>Compliant-tagged key tokens may be used with an X.509 certificate which is compliant.</li>
+</ul>
+</li>
+<li>Compliant-tagged key tokens are restricted from performing certain PIN block translation
+operations. For more information, see <xref
+href="wskc_pci_hsm_pinblock_restrictions.dita#wskc_pci_hsm_pinblock_restrictions/t_pci_hsm_impact_translate"
+/>.</li>
+<li>Compliant-tagged keys cannot be used with the following RSA-encrypted key formats: PKCSAOEP,
+PKCS-1.2, ZEROPAD.</li>
+</ul><p>Compliant-tagged key tokens are defined by two features of the key token:</p><ol>
+<li>The compliant-tag bit in the key attributes, which is the CV for DES fixed-length key
+tokens.</li>
+<li>The key derivation function (KDF) value which indicates what generation of compliance is
+applicable.</li>
+</ol><p>The KDF value appears at the end of the truncated Master Key Verification Pattern (MKVP)
+section. For additional information, see <xref href="wskc_r_aptkn.dita"/>. </p>
+<p rev="sh21i2">Key tokens with the compliant-tag bit on in the control vector and a key derivation
+function (KDF) of less than X'03' are no longer considered compliant-tagged. They are referred to as
+DES KDF 01 or 02 tokens throughout the ICSF and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> publications. They were either created on a
+Crypto Express adapter which does not have the May 2021 (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.3 or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.6) or later licensed internal code or by
+the<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>) or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>) services using an input DES KDF 01 or
+02 token. A DES KDF 01 key token can only be used with other DES KDF 01 tokens. Beginning with the
+May 2021 or later licensed internal code (LIC), a DES KDF 02 token can only be used with other DES
+KDF 02 key tokens. The only exception to this is a DES KDF 01 or 02 key token can also be used with
+an X.509 certificate or with any other key token in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>) callable service. It is recommended
+that DES KDF 01 and 02 tokens be migrated using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) service with the COMP-TAG keyword.
+The output is a key token with the compliant-tag bit set in the control vector and a KDF of X'03' or
+greater. Only DES tokens with a KDF of X'03' or greater are referred to as compliant-tagged key
+tokens. Key tokens without the compliant-tag bit set or DES KDF 01 or 02 tokens are referred to as
+non-compliant-tagged tokens and this is reflected in ICSF output (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> displays as well as log records do not show
+DES KDF 01 or 02 tokens as compliant-tagged). Though DES KDF 01 or 02 tokens are not
+compliant-tagged, a coprocessor in compliance mode is required to use them.</p>
+</li>
+<li>AES <ul>
+<li>Only internal version 05 AES key tokens may become compliant-tagged (AES version 04 DATA key
+tokens may be migrated to version 05 using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktr2"/>) callable service).</li>
+<li>Key encrypting keys (KEKs, including master keys) must be at least as strong as the keys they
+protect.</li>
+<li>Compliant-tagged key tokens are restricted in terms of the verification patterns that can be
+calculated. Only the CMACZERO verification pattern is allowed. </li>
+<li>Compliant-tagged keys may not have a variable-length payload (V0PYLD). Only fixed-length
+payloads are allowed (V1PYLD).</li>
+<li>Generally, compliant-tagged key tokens cannot be used with non-compliant-tagged key tokens. The
+exceptions are: <ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmctt2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclctt2"/>) callable service.</li>
+<li>Compliant-tagged key tokens may be used with an X.509 certificate which is compliant.</li>
+</ul></li>
+<li>Compliant-tagged key tokens are restricted from performing certain PIN block translation
+operations. For more information, see <xref
+href="wskc_pci_hsm_pinblock_restrictions.dita#wskc_pci_hsm_pinblock_restrictions/t_pci_hsm_impact_translate"
+>Table 606 on page 1508</xref>.</li>
+<li>Compliant-tagged keys cannot be used with the following RSA-encrypted key formats: PKCSAOEP,
+PKCS-1.2, ZEROPAD. </li>
+</ul></li>
+<li>RSA <ul>
+<li>Only internal RSA key tokens with private key sections X'30' or X'31' and associated data
+versions X'04' or X'05' may become compliant-tagged. This corresponds to keywords RSAAESM2 and
+RSAAESC2 on the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkb"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>) callable service. Other private key
+sections may be migrated using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptx"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptx"/>) callable service.</li>
+<li>Compliant-tagged key tokens must be single usage, or in other words, may not perform both
+signatures and key encipherment. See <xref href="wskc_r_pkb.dita"/> for details.</li>
+<li>Compliant-tagged keys must have a minimum modulus size of 2048 bits.</li>
+<li>Key encrypting keys (KEKs, including master keys) must be at least as strong as the keys they
+protect.</li>
+<li>Compliant-tagged key tokens cannot be used with non-compliant-tagged key tokens. However,
+compliant-tagged key tokens may be used with an X.509 certificate which is compliant.</li>
+<li>An RSA public key token may not be used to wrap a compliant-tagged symmetric key token.</li>
+<li>Compliant-tagged keys cannot be used with the following RSA-encrypted key formats: PKCSAOEP,
+PKCS-1.2, ZEROPAD.</li>
+<li>Compliant-tagged keys cannot use the SHA-1 hash method. </li>
+</ul>
+</li>
+</ul>
+<section>
+<title>X.509 certificates (RSA)</title>
+<p>An X.509 certificate cannot be compliant-tagged. However, it may be used with compliant-tagged
+tokens if the X.509 certificate is considered compliant and PKI validation is active for the
+request. PKI validation is active if the request specifies or defaults to the PKI-CHK keyword. A
+certificate is considered compliant if it satisfies all of the following:</p>
+<ol>
+<li>It is single usage (any combination of the following signature usages may be allowed by the
+certificate and it is still considered single usage: digitalSignature, nonRepudiation, keyCertSign,
+cRLSign).</li>
+<li>It has a minimum modulus size of 2048 bits.</li>
+<li>The signature algorithm does not specify the SHA-1 hashing method.</li>
+</ol>
+<p>One way to create a certificate with specific key usage attributes is to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpic"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpic"/>) callable service to create a
+certificate signing request (CSR) with the desired key usage attributes. This CSR can then be signed
+by a Certificate Authority (CA) to create a certificate with the desired key usage attributes. </p>
+<p> When used with a compliant-tagged key token, certificates must fulfill the following conditions: </p>
+<ul>
+<li>They must be at least as strong as the keys they protect.</li>
+<li>They cannot use the following RSA-encrypted key formats: PKCSAOEP, PKCS-1.2, ZEROPAD. </li>
+<li>They cannot use the SHA-1 hash method.</li>
+</ul>
+</section>
+</conbody>
+</concept>
+<?Pub *0000002516?>

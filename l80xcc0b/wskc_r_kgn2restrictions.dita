@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn2restrictions">
+<title>Restrictions</title>
+  <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></searchtitle>
+  </titlealts><shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>.</shortdesc>
+<prolog><metadata><keywords/>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh20i1">
+<ul>
+<li>The generation of a pair of operational AES PINPROT keys (OPOP), where one PINPROT key has usage
+of ENCRYPT, REFORMAT, NOFLDFMT, and ISO-4, and the other PINPROT key has usage of DECRYPT, EPINVER,
+NOFLDFMT, and ISO-4, is not supported in releases before Release 5.6.</li>
+<li>The Allow GEN of OPOP EPVR/OPIN Key Pair command (offset X'039D') is not supported in releases
+before Release 5.6.</li>
+</ul>
+</section>
+</refbody></reference>

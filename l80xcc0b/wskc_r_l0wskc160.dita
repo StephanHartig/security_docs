@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc160">
+<title>Parameters</title>
+  <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmdg"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>text_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+<indexterm>text parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/></indexterm></indexterm>
+<indexterm>ONLY</indexterm>
+<indexterm>FIRST</indexterm>
+<indexterm>MIDDLE</indexterm>
+<indexterm>LAST</indexterm>
+<indexterm>MDC-2</indexterm>
+<indexterm>MDC-4</indexterm>
+<indexterm>PADMDC-2</indexterm>
+<indexterm>PADMDC-4</indexterm>
+<indexterm>chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+<indexterm>MDC parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>text</var></synph> variable. See <xref
+href="wskc_r_mdc_generate_rst.dita#l0wskc02_mdc_generate_rst"/>.</pd></plentry>
+<plentry><pt>text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the text for which the verb calculates the MDC
+value.</pd></plentry>
+<plentry><pt>rule_array_count </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value can be 0, 1, or 2.</pd></plentry>
+<plentry><pt>rule_array </pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Keywords that provide control information to the <ph>verb</ph>. A keyword specifies the
+method for calculating the RSA digital signature. Each keyword is left-aligned in an 8-byte field
+and padded on the right with blanks. All keywords must be in contiguous storage. The
+<synph><var>rule_array</var></synph> keywords are described in <xref
+href="#l0wskc160/l0wskc02_mdcgen"/>.<table id="l0wskc02_mdcgen" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="12*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Segmenting and key
+control</i></b> (One, optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>ONLY</kwd></synph></entry>
+<entry valign="top" align="left">Specifies that segmenting is not used and the default key is used.
+This is the default.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>FIRST</kwd></synph></entry>
+<entry valign="top" align="left">Specifies the first segment of text, and use of the default
+key.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MIDDLE</kwd></synph></entry>
+<entry valign="top" align="left">Specifies an intermediate segment of text, or the first segment of
+text and use of a user-supplied key.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>LAST</kwd></synph></entry>
+<entry valign="top" align="left">Specifies the last segment of text, or that segmenting is not used,
+and use of a user-supplied key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Algorithm mode</i></b> (One,
+optional)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MDC-2</kwd></synph></entry>
+<entry valign="top" align="left">Specifies two encipherments for each 8-byte block using MDC
+procedures. This is the default.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>MDC-4</kwd></synph></entry>
+<entry valign="top" align="left">Specifies four encipherments for each 8-byte block using MDC
+procedures.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PADMDC-2</kwd></synph></entry>
+<entry valign="top" align="left">Specifies two encipherments for each 8-byte block using PADMDC
+procedures.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>PADMDC-4</kwd></synph></entry>
+<entry valign="top" align="left">Specifies four encipherments for each 8-byte block using PADMDC
+procedures.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an 18-byte string variable the security server uses as a work area to hold
+segmented data between verb invocations.<note type="other" othertype="Important">When segmenting
+text, the application program must not change the data in this string between verb calls to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb.</note></pd></plentry>
+<plentry><pt>mdc</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a user-supplied MDC key or to a 16-byte string variable containing the MDC
+value. This value can be the key that the application program provides. This variable is also used
+to hold the intermediate MDC result when segmenting text.<note type="other" othertype="IMPORTANT"
+>When segmenting text, the application program must not change the data in this string between verb
+calls to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmdg"/> verb.</note></pd></plentry>
+</parml></section>
+</refbody></reference>

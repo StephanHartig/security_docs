@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8usepindefsys">
+<title>Using PINs on different systems</title>
+<titlealts>
+<navtitle>Using PINs on different systems</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using PINs on different
+systems</searchtitle>
+</titlealts><shortdesc>CCA allows you to translate different PIN block formats, which
+lets you use personal identification numbers on different systems. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>block
+format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>CCA supports the following formats: 
+<ul>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3624</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 3621 (same as <tm trademark="IBM" tmtype="reg">IBM</tm> 5906)</li>
+<li><tm trademark="IBM" tmtype="reg">IBM</tm> 4704 encrypting PINPAD
+format</li>
+<li>ISO 0 (same as ANSI 9.8, VISA 1, and ECI 1)</li>
+<li>ISO 1 (same as ECI 4)</li>
+<li>ISO 2</li>
+<li>ISO 3</li>
+<li rev="sh20i2">ISO 4</li>
+<li>VISA 2</li>
+<li>VISA 3</li>
+<li>VISA 4</li>
+<li>ECI 2</li>
+<li>ECI 3</li>
+</ul></p>
+<p>The algorithms are described in detail in <xref href="wskc_r_ap2me.dita#l0wskc02_ap2me"/>.</p>
+</conbody></concept>

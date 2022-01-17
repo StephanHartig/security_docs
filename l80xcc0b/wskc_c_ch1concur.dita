@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ch1concur" xml:lang="en-us">
+<title>Concurrent installations</title>
+<titlealts>
+<navtitle>Concurrent installations</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Concurrent installations</searchtitle>
+</titlealts>
+<shortdesc rev="sh15">These are background considerations for installation of the <ph rev="sh20i2"
+><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.1 RPM for a CEX7S</ph>
+alongside with earlier <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/>
+RPMs.</shortdesc><?Pub Caret 85?>
+<prolog><metadata>
+<keywords><indexterm>concurrent installations</indexterm>
+<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"></keyword></indexterm>
+<indexterm>environment variable<indexterm>key storage</indexterm></indexterm>
+<indexterm>key storage</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<ol>
+<li>The <synph><kwd>libcsulcca.so</kwd></synph> and <synph><kwd>libcsulsapi.so</kwd></synph>
+libraries for <ph rev="sh21i1"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+7.3</ph> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 6.* have many symbols
+with the same names. An application cannot deterministically link with both libraries. The first
+library in the link statement is used for all symbols that can be resolved there, after that the
+second library will be examined. At this point, either the linker will not allow the link to
+continue by throwing an error on the duplicate symbols, or will produce a hybrid-linked application.
+Either case gives the user the wrong answer. <p>A new or updated library cannot itself resolve this
+kind of conflict because: <ul>
+<li>There is no way to have a default set of symbols or card support in an updated host library. The
+link operation is a fundamental step in building the customer application and outside the control of
+the library or library installation process.</li>
+<li>One way to resolve name collisions is to change all of the function names in the new library.
+However, this would have greatly impacted the customer's ability to port applications forward, and
+this option was rejected.</li>
+</ul></p></li>
+<li>The key storage environment variables in the default user profile
+(<codeph>/etc/profile.d/csulcca.sh</codeph> and <codeph>/etc/profile.d/csulcca.csh</codeph>) are
+changed at installation time to point to the <filepath>/opt/IBM/CCA/keys/</filepath> path. Softlinks
+are added to older default installation paths to assist migration, but double-check that all of your
+key storage is accessible.</li>
+<li>See <xref href="wskc_c_ibdccpacf.dita#l0wskc02_ibdccpacf"/> for a concurrency and CPACF.</li>
+</ol>
+</conbody>
+</concept>
+<?Pub *0000002850?>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appgm" xml:lang="en-us">
+<title>Introduction to programming for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/></title>
+<titlealts>
+<navtitle>Program for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/></navtitle><?Pub Caret -1?>
+<searchtitle>Introduction to programming for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>By using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> application programming interface
+(API), you can obtain cryptographic and other services from the <ph><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> feature</ph> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<indexterm>programming</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<indexterm>API</indexterm></indexterm>
+<indexterm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"
+/><indexterm>API</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p otherprops="pdf">The following subtopics are discussed:</p>
+<ul otherprops="pdf">
+<li><xref href="wskc_c_ch1availccaverbs.dita#l0wskc02_ch1availccaverbs"></xref></li>
+<li><xref href="wskc_c_ch1ccafuncover.dita#l0wskc02_ch1ccafuncover"></xref></li>
+<li><xref href="wskc_c_s02cpacf.dita#l0wskc02_s02cpacf"></xref></li>
+<li><xref href="wskc_c_s02api.dita#l0wskc02_s02api"></xref></li>
+<li><xref href="wskc_c_compil_link.dita#l0wskc02_compil_link"></xref></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000002334?>

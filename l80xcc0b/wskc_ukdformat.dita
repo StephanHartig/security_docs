@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ukdformat" rev="sh15">
+  <title>Format</title>
+   <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"
+    />.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"
+            />)<indexterm>format</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <table pgwide="0" frame="all">
+      <tgroup cols="1" colsep="1" rowsep="1">
+        <colspec colname="col1" colwidth="468*"/>
+        <tbody>
+          <row>
+            <entry valign="top" align="left">
+              <codeblock>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>base_derivation_key_identifier_length</var></synph>,
+             <synph><var>base_derivation_key_identifier</var></synph>,
+             <synph><var>derivation_data_length</var></synph>,
+             <synph><var>derivation_data</var></synph>,
+             <synph><var>generated_key_identifier1_length</var></synph>,
+             <synph><var>generated_key_identifier1</var></synph>,
+             <synph><var>generated_key_identifier2_length</var></synph>,
+             <synph><var>generated_key_identifier2</var></synph>,
+             <synph><var>generated_key_identifier3_length</var></synph>,
+             <synph><var>generated_key_identifier3</var></synph>,
+             <synph><var>transport_key_identifier_length</var></synph>,
+             <synph><var>transport_key_identifier</var></synph>,
+             <synph><var>reserved1_length</var></synph>,
+             <synph><var>reserved1</var></synph>,
+             <synph><var>reserved2_length</var></synph>,
+             <synph><var>reserved2</var></synph>,
+             <synph><var>reserved3_length</var></synph>,
+             <synph><var>reserved3</var></synph>,
+             <synph><var>reserved4_length</var></synph>,
+             <synph><var>reserved4</var></synph>,
+             <synph><var>reserved5_length</var></synph>,
+             <synph><var>reserved5)</var></synph></codeblock></entry></row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refbody>
+</reference>

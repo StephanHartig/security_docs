@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp3rsaalg">
+<title>PKA key algorithms</title>
+<titlealts>
+<navtitle>PKA key algorithms</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): PKA key algorithms</searchtitle>
+</titlealts><shortdesc>Public key cryptography uses a key pair consisting of a public
+key and a private key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>PKA key algorithm</indexterm>
+<indexterm>RSA algorithm</indexterm>
+<indexterm>Elliptic Curve Digital Signature Algorithm (ECDSA)</indexterm>
+<indexterm>ECDSA algorithm</indexterm>
+<indexterm>algorithm<indexterm>RSA</indexterm></indexterm>
+<indexterm>algorithm<indexterm>PKA</indexterm></indexterm>
+<indexterm>algorithm<indexterm>ECDSA</indexterm></indexterm>
+<indexterm>algorithm<indexterm>ECC</indexterm></indexterm>
+<indexterm>Elliptic Curve Digital Signature Algorithm (ECDSA)</indexterm>
+<indexterm>Elliptic Curve Cryptography<indexterm>ECC</indexterm></indexterm>
+<indexterm>ECC<indexterm>Elliptic Curve Cryptography</indexterm></indexterm>
+<indexterm>CRYSTALS-Dilithium Digital Signature Algorithm<indexterm>CRDL-DSA</indexterm></indexterm>
+<indexterm>CRDL-DSA<indexterm>CRYSTALS-Dilithium Digital Signature Algorithm</indexterm></indexterm>
+<indexterm>ECDSA</indexterm>
+<indexterm>SHAKE-256</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The PKA public key uses one of the following algorithms: </p>
+<dl>
+<dlentry>
+<dt>Rivest-Shamir-Adleman (RSA)</dt>
+<dd>The RSA algorithm is the most widely used and accepted of the public key algorithms. It uses
+three quantities to encrypt and decrypt text: a public exponent (PU), a private exponent (PR), and a
+modulus (M). Given these three and some cleartext data, the algorithm generates ciphertext as
+follows: <codeblock>ciphertext = cleartext<sup>PU</sup>  (modulo M)</codeblock>
+<p> Similarly, the following operation recovers cleartext from ciphertext:
+<codeblock>cleartext = ciphertext<sup>PR</sup>  (modulo M)</codeblock></p></dd>
+</dlentry>
+<dlentry>
+<dt>Elliptic Curve Cryptography (ECC)</dt>
+<dd>Elliptic curve cryptography (ECC) is an approach to public-key cryptography based on the
+algebraic structure of elliptic curves over finite fields. One of the main benefits in comparison
+with non-ECC cryptography is the same level of security provided by keys of smaller size. <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> uses ECC for digital signatures and
+symmetric keys using the Diffie-Hellman key agreement scheme.</dd>
+</dlentry>
+<dlentry>
+<dt>Elliptic Curve Digital Signature Algorithm (ECDSA and EdDSA)</dt>
+<dd>The ECDSA <ph rev="sh21i1">and EdDSA</ph> algorithms use elliptic curve cryptography (an
+encryption system based on the properties of elliptic curves) to provide a variant of the Digital
+Signature Algorithm. </dd>
+</dlentry>
+<dlentry>
+<dt>CRYSTALS-Dilithium Digital Signature Algorithm (CRDL-DSA)</dt>
+<dd>CRYSTALS-Dilithium is a lattice-based digital signature scheme whose security is based on the
+hardness of finding short vectors in lattices. The CRYSTALS-Dilithium Digital Signature Algorithm
+(CRDL-DSA) is a quantum safe algorithm (QSA) and is a member of the CRYSTALS (Cryptographic Suite
+for Algebraic Lattices) suite of algorithms. The strength of a CRYSTALS-Dilithium key is represented
+by the size of its matrix of polynomials. For example, CRYSTALS-Dilithium (6,5) has a matrix size of
+6x5. The larger the matrix size, the stronger the key. CRYSTALS-Dilithium keys can only be used for
+digital signature generation and verification <ph rev="sh21i1">(see <xref href="wskc_r_dsg.dita"/>
+and <xref href="wskc_r_dsv.dita"/>)</ph>.<p>The required hash method for CRYSTALS-Dilithium DSA is
+SHAKE-256.</p></dd>
+</dlentry>
+</dl>
+</conbody></concept>

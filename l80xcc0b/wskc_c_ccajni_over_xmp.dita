@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ccajni_over_xmp" xml:lang="en-us">
+<title>JNI sample modules and sample code</title>
+<titlealts>
+<navtitle>JNI sample modules and sample code</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI sample modules and sample code for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>To illustrate the two JNI access methods and also how to use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> JNI to call <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs, sample modules are
+provided.</shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>JNI<indexterm>sample modules</indexterm><indexterm>sample code</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p> <dl><dlentry>
+<dt><filepath>mac.java</filepath></dt>
+<dd>illustrates JNI calls versus C calls to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. <p>This sample program calls the same
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs as the sample C language
+program named <filepath>mac.c</filepath>.</p>
+<p>This sample program uses the package infrastructure of the new JNI access method.</p> For more
+information about this sample program, see <xref
+href="wskc_c_codesamp_java.dita#l0wskc02_codesamp_java"/>.</dd>
+</dlentry><dlentry>
+<dt><filepath>RNGpk.java</filepath>
+</dt>
+<dd rev="shd3">illustrates the method available for calling the JNI. <ul>
+<li><tm tmtype="tm" trademark="Java">Java</tm> class implementations (<filepath>*.java</filepath>
+files) that call CCA JNI functions need an import line, such as this:
+<codeblock>import com.ibm.crypto.cca.jni.*;</codeblock></li>
+<li>The <tm tmtype="tm" trademark="Java">Java</tm> classpath must point to
+<filepath>CNM.jar</filepath>.</li>
+</ul></dd>
+</dlentry></dl></p>
+<p>The default location of the sample code is <filepath>/opt/IBM/<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>/samples</filepath> for
+both, SUSE and Red Hat distributions.</p><?Pub Caret 54?>
+</conbody>
+</concept>
+<?Pub *0000001994?>

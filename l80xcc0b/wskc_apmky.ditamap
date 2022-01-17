@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Managing AES, DES, and HMAC cryptographic keys</title><topicref href="wskc_r_apmky.dita">
+
+<topicref href="wskc_r_cki.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Clear Key Import (CSNBCKI)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ckiformat.dita" toc="no"/>
+<topicref href="wskc_r_ckiparameters.dita" toc="no"/>
+<topicref href="wskc_r_ckirestrictions.dita" toc="no"/>
+<topicref href="wskc_r_ckirequired.dita" toc="no"/>
+<topicref href="wskc_r_ckiusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc63.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_cvg1.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Control Vector Generate (CSNBCVG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_cvg1format.dita" toc="no"/>
+<topicref href="wskc_r_cvg1parameters.dita" toc="no"/>
+<topicref href="wskc_r_cvg1restrictions.dita" toc="no"/>
+<topicref href="wskc_r_cvg1required.dita" toc="no"/>
+<topicref href="wskc_r_cvg1usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc85.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_cvxl.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Control Vector Translate (CSNBCVT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc86.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc87.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc88.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc89.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc90.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc91.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_cvenc.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Cryptographic Variable Encipher (CSNBCVE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc79.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc80.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc81.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc82.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc83.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc84.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_dkx.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Data Key Export (CSNBDKX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dkxformat.dita" toc="no"/>
+<topicref href="wskc_r_dkxparameters.dita" toc="no"/>
+<topicref href="wskc_r_dkxrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_dkxrequired.dita" toc="no"/>
+<topicref href="wskc_r_dkxusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc103.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_dkm.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Data Key Import (CSNBDKM)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dkmformat.dita" toc="no"/>
+<topicref href="wskc_r_dkmparameters.dita" toc="no"/>
+<topicref href="wskc_r_dkmrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_dkmrequired.dita" toc="no"/>
+<topicref href="wskc_r_dkmusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc100.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_dkg.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Diversified Key Generate (CSNBDKG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_dkgformat.dita" toc="no"/>
+<topicref href="wskc_r_dkgparameters.dita" toc="no"/>
+<topicref href="wskc_r_dkgrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_dkgrequired.dita" toc="no"/>
+<topicref href="wskc_r_dkgusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc94.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_dkg2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Diversified Key Generate2 (CSNBDKG2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dkg2format.dita" toc="no"/>
+<topicref href="wskc_dkg2parameters.dita" toc="no"/>
+<topicref href="wskc_dkg2restrictions.dita" toc="no"/>
+<topicref href="wskc_dkg2required.dita" toc="no"/>
+<topicref href="wskc_dkg2usage.dita" toc="no"/>
+<topicref href="wskc_dkg2jniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_ddk.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Diversify Directed Key (CSNBDDK)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ddk_format.dita" toc="no"/>
+<topicref href="wskc_ddk_parameters.dita" toc="no"/>
+<topicref href="wskc_ddk_restrictions.dita" toc="no"/>
+<topicref href="wskc_ddk_commands.dita" toc="no"/>
+<topicref href="wskc_ddk_usage.dita" toc="no"/>
+<topicref href="wskc_ddk_jniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_vbecdhvb.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>EC Diffie-Hellman (CSNDEDH)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc95.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc96.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc97.dita" toc="no"/>
+<topicref href="wskc_r_vbecdhvb_req_cmd.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc98.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc99.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kex.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Export (CSNBKEX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kexformat.dita" toc="no"/>
+<topicref href="wskc_r_kexparameters.dita" toc="no"/>
+<topicref href="wskc_r_kexrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_kexrequired.dita" toc="no"/>
+<topicref href="wskc_r_kexusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc121.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kgn.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Generate (CSNBKGN)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kgnformat.dita" toc="no"/>
+<topicref href="wskc_r_kgnparameters.dita" toc="no"/>
+<topicref href="wskc_r_kgnrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_kgnrequired.dita" toc="no"/>
+<topicref href="wskc_r_kgnusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc122.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kgn2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Generate2 (CSNBKGN2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kgn2format.dita" toc="no"/>
+<topicref href="wskc_r_kgn2parameters.dita" toc="no"/>
+<topicref href="wskc_r_kgn2restrictions.dita" toc="no"/>
+<topicref href="wskc_r_kgn2required.dita" toc="no"/>
+<topicref href="wskc_r_kgn2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc123.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kim.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Import (CSNBKIM)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kimformat.dita" toc="no"/>
+<topicref href="wskc_r_kimparameters.dita" toc="no"/>
+<topicref href="wskc_r_kimrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_kimrequired.dita" toc="no"/>
+<topicref href="wskc_r_kimusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc124.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kpi.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Part Import (CSNBKPI)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kpiformat.dita" toc="no"/>
+<topicref href="wskc_r_kpiparameters.dita" toc="no"/>
+<topicref href="wskc_r_kpirestrictions.dita" toc="no"/>
+<topicref href="wskc_r_kpirequired.dita" toc="no"/>
+<topicref href="wskc_r_kpiusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc125.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kpi2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Part Import2 (CSNBKPI2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kpi2format.dita" toc="no"/>
+<topicref href="wskc_r_kpi2parameters.dita" toc="no"/>
+<topicref href="wskc_r_kpi2restrictions.dita" toc="no"/>
+<topicref href="wskc_r_kpi2required.dita" toc="no"/>
+<topicref href="wskc_r_kpi2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc126.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kyt.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Test (CSNBKYT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kytformat.dita" toc="no"/>
+<topicref href="wskc_r_kytparameters.dita" toc="no"/>
+<topicref href="wskc_r_kytrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_kytrequired.dita" toc="no"/>
+<topicref href="wskc_r_kytusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc150.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kyt2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Test2 (CSNBKYT2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_kyt2format.dita" toc="no"/>
+<topicref href="wskc_r_kyt2parameters.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc151.dita" toc="no"/>
+<topicref href="wskc_r_kyt2required.dita" toc="no"/>
+<topicref href="wskc_r_kyt2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc152.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_kyt_ext.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Test Extended (CSNBKYTX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc153.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc154.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc155.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc156.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc157.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc158.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktb.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Build (CSNBKTB)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktbformat.dita" toc="no"/>
+<topicref href="wskc_r_ktbparameters.dita" toc="no"/>
+<topicref href="wskc_r_ktbrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_ktbrequired.dita" toc="no"/>
+<topicref href="wskc_r_ktbusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc300.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktb2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Build2 (CSNBKTB2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktb2format.dita" toc="no"/>
+<topicref href="wskc_r_ktb2parameters.dita" toc="no"/>
+<topicref href="wskc_r_ktb2keywords.dita" toc="no"/>
+<topicref href="wskc_r_ktb2restrictions.dita" toc="no"/>
+<topicref href="wskc_r_ktb2required.dita" toc="no"/>
+<topicref href="wskc_r_ktb2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc138.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_bktc.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Change (CSNBKTC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_bktcformat.dita" toc="no"/>
+<topicref href="wskc_r_bktcparameters.dita" toc="no"/>
+<topicref href="wskc_r_bktcrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_bktcrequired.dita" toc="no"/>
+<topicref href="wskc_r_bktcusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc59.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_bktc2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Change2 (CSNBKTC2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_bktc2format.dita" toc="no"/>
+<topicref href="wskc_r_bktc2parameters.dita" toc="no"/>
+<topicref href="wskc_r_bktc2restrictions.dita" toc="no"/>
+<topicref href="wskc_r_bktc2required.dita" toc="no"/>
+<topicref href="wskc_r_bktc2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc60.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktp.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Parse (CSNBKTP)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktpformat.dita" toc="no"/>
+<topicref href="wskc_r_ktpparameters.dita" toc="no"/>
+<topicref href="wskc_r_ktprestrictions.dita" toc="no"/>
+<topicref href="wskc_r_ktprequired.dita" toc="no"/>
+<topicref href="wskc_r_ktpusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc140.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktp2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Token Parse2 (CSNBKTP2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc141.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc142.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc143.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc144.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc145.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktr1.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Translate (CSNBKTR)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktr1format.dita" toc="no"/>
+<topicref href="wskc_r_ktr1parameters.dita" toc="no"/>
+<topicref href="wskc_r_ktr1restrictions.dita" toc="no"/>
+<topicref href="wskc_r_ktr1required.dita" toc="no"/>
+<topicref href="wskc_r_ktr1usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc146.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ktr2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Key Translate2 (CSNBKTR2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ktr2format.dita" toc="no"/>
+<topicref href="wskc_r_ktr2parameters.dita" toc="no"/>
+<topicref href="wskc_r_ktr2restrictions.dita" toc="no"/>
+<topicref href="wskc_r_ktr2required.dita" toc="no"/>
+<topicref href="wskc_r_ktr2usage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc147.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_ckm.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Multiple Clear Key Import (CSNBCKM)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_ckmformat.dita" toc="no"/>
+<topicref href="wskc_r_ckmparameters.dita" toc="no"/>
+<topicref href="wskc_r_ckmrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_ckmrequired.dita" toc="no"/>
+<topicref href="wskc_r_ckmusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc64.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_spkd.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>PKA Decrypt (CSNDPKD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_spkdformat.dita" toc="no"/>
+<topicref href="wskc_r_spkdparameters.dita" toc="no"/>
+<topicref href="wskc_r_spkdrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_spkdrequired.dita" toc="no"/>
+<topicref href="wskc_r_spkdusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc214.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_spke.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>PKA Encrypt (CSNDPKE)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_spkeformat.dita" toc="no"/>
+<topicref href="wskc_r_spkeparameters.dita" toc="no"/>
+<topicref href="wskc_r_spkerestrictions.dita" toc="no"/>
+<topicref href="wskc_r_spkerequired.dita" toc="no"/>
+<topicref href="wskc_r_pkeuse.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc215.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_pee.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Prohibit Export (CSNBPEX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_peeformat.dita" toc="no"/>
+<topicref href="wskc_r_peeparameters.dita" toc="no"/>
+<topicref href="wskc_r_peerestrictions.dita" toc="no"/>
+<topicref href="wskc_r_peerequired.dita" toc="no"/>
+<topicref href="wskc_r_peeusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc187.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_peex.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Prohibit Export Extended (CSNBPEXX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc188.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc189.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc190.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc191.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc192.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc193.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_rkat.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Restrict Key Attribute (CSNBRKA)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc194.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc195.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc196.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc197.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc198.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc199.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_rng.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Random Number Generate (CSNBRNG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_rngformat.dita"/>
+<topicref href="wskc_r_rngparameters.dita" toc="no"/>
+<topicref href="wskc_r_rngrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_rngrequired.dita" toc="no"/>
+<topicref href="wskc_r_rngusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc260.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_rngl.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Random Number Generate Long (CSNBRNGL)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc261.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc262.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc263.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc264.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc265.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc266.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_rkx.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Remote Key Export (CSNDRKX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc253.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc254.dita" toc="no"> </topicref>
+<topicref href="wskc_r_l0wskc255.dita" toc="no"> </topicref>
+<topicref href="wskc_r_l0wskc256.dita" toc="no"> </topicref>
+<topicref href="wskc_r_l0wskc257.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc258.dita" toc="no"> </topicref>
+<topicref href="wskc_r_l0wskc259.dita" toc="no"> </topicref>
+</topicref>
+
+<topicref href="wskc_r_syx.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Symmetric Key Export (CSNDSYX)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_syxformat.dita" toc="no"/>
+<topicref href="wskc_r_syxparameters.dita" toc="no"/>
+<topicref href="wskc_r_syxrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_syxrequired.dita" toc="no"/>
+<topicref href="wskc_r_syxusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc290.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_pka.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Symmetric Key Export with Data (CSNDSXD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_pkaformat.dita" toc="no"/>
+<topicref href="wskc_pkaparameters.dita" toc="no"/>
+<topicref href="wskc_pkarestrictions.dita" toc="no"/>
+<topicref href="wskc_pkarequired.dita" toc="no"/>
+<topicref href="wskc_pkausage.dita" toc="no"/>
+<topicref href="wskc_pkajniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_syg.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Symmetric Key Generate (CSNDSYG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_sygformat.dita" toc="no"/>
+<topicref href="wskc_r_sygparameters.dita" toc="no"/>
+<topicref href="wskc_r_sygrestrictions.dita" toc="no"/>
+<topicref href="wskc_r_sygrequired.dita" toc="no"/>
+<topicref href="wskc_r_sygusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc213.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_syi.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Symmetric Key Import (CSNDSYI)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_syiformat.dita" toc="no"/>
+<topicref href="wskc_r_syiparameters.dita" toc="no"/>
+<topicref href="wskc_r_syirestrictions.dita" toc="no"/>
+<topicref href="wskc_r_syirequired.dita" toc="no"/>
+<topicref href="wskc_r_syiusage.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc276.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_r_syi2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Symmetric Key Import2 (CSNDSYI2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_syiformat2.dita" toc="no"/>
+<topicref href="wskc_r_syiparameters2.dita" toc="no"/>
+<topicref href="wskc_r_syirestrictions2.dita" toc="no"/>
+<topicref href="wskc_r_syirequired2.dita" toc="no"/>
+<topicref href="wskc_r_syiusage2.dita" toc="no"/>
+<topicref href="wskc_r_l0wskc277.dita" toc="no"></topicref>
+</topicref>
+
+<topicref href="wskc_r_tbc.dita">
+<topicmeta>
+<retrievalKeys><retkey>Trusted Block Create (CSNDTBC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc268.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc269.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc270.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc271.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc272.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc273.dita" toc="no"></topicref>
+</topicref>
+
+
+<topicref href="wskc_csnbukd.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>Unique Key Derive (CSNBUKD)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_ukdformat.dita" toc="no"/>
+<topicref href="wskc_ukdparameters.dita" toc="no"/>
+<topicref href="wskc_ukdrestrictions.dita" toc="no"/>
+<topicref href="wskc_ukdrequired.dita" toc="no"/>
+<topicref href="wskc_ukdusage.dita" toc="no"/>
+<topicref href="wskc_ukdjniv.dita" toc="no"/>
+</topicref>
+</topicref>
+</map>

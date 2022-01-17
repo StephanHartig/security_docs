@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="fpetrequired" rev="sh15">
+<title>Required commands</title><titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>)<indexterm>required
+            commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb requires the <cmdname>FPE Translate</cmdname> command (offset X'02D1') to be
+enabled in the active role. This ACP is ON by default in <tm tmtype="reg" trademark="z/OS"
+>z/OS</tm>. If DUKPT is specified, the verb also requires the <cmdname>UKPT - PIN Verify, PIN
+Translate</cmdname> command (offset X'00E1') to be enabled if you employ DUKPT processing.</p>
+</section>
+</refbody></reference>

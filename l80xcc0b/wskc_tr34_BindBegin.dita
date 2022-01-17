@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="TR34_BindBegin" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/>
+(CSNDT34B)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/></searchtitle>
+</titlealts>
+<shortdesc>Use the TR-34 Bind-Begin verb for operations that take place at the Key Distribution Host
+(KDH) during TR-34 Protocol Bind related operations, as specified in X9 TR34-2012.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/> (TR-34
+Bind-Begin)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34b"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/>)</indexterm></indexterm>
+<indexterm>TR-34 protocol</indexterm>
+<indexterm>X.509 certificate</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>The TR-34 protocol describes the data objects and cryptograms needed for securely provisioning a
+symmetric key from a Key Distribution Host (KDH) to a Key Receiving Device (KRD). Although designed
+for 1-way key distribution, such as between a host computer (KDH) and an ATM (KRD), the protocol can
+be used for peer-to-peer key distribution as well. The main requirement for either use of the
+protocol is a Certificate Authority (CA) trusted by both the KDH and the KRD.</p>
+<p>The TR-34 Bind-Begin verb is used to perform these operations:<ul>
+<li>BINDCR: The TR34 BIND token (CT-KDH) CREATE service.<ul>
+<li>CT-KRD: (INPUT, <i>input_token</i>). Credential token received from KRD, containing
+Cred-KRD.</li>
+<li>CRL-CA: (INPUT, <i>crl</i>). Certificate Revocation List from CA.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>CredKRD: (OUTPUT, <i>cred_krd</i>). (X.509 certificate) needed for future key distribution
+calls.</li>
+<li>CT-KDH: (OUTPUT, <i>output_token</i>). BIND token in DER format.</li>
+</ul></li>
+<li>UNBINDCR: The TR34 UNBIND token (UBT-KDH) CREATE service.<ul>
+<li>RT-KRD: (INPUT, <i>input_token</i>). Random number token received from KRD.</li>
+<li>CRL-CA: (INPUT, <i>crl</i>). Certificate Revocation List from CA.</li>
+<li>CredKDH: (INPUT, <i>cred_kdh</i>). KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>CredKRD: (INPUT, <i>cred_krd</i>). KRD credential (X.509 certificate) with ID and public
+key.</li>
+<li>D-kdh: (INPUT, <i>private_key_identifier</i>). Private key to sign data block.</li>
+<li>UBT-KDH: (OUTPUT, <i>output_token</i>) UNBIND token in DER format.</li>
+</ul></li>
+<li>REBINDCR: <ph rev="sh21i2">The TR34 REBIND token (RBTKDH) CREATE service.</ph><ul>
+<li>RT-KRD: (INPUT, <i>input_token</i>). Random number token received from KRD.</li>
+<li>CRL-CA: (INPUT, <i>crl</i>). Certificate Revocation List from CA.</li>
+<li>CredKDH-new: (INPUT, <i>cred_kdh</i>). New KDH credential (X.509 certificate) with ID and public
+key.</li>
+<li>CredKDH-old: (INPUT, <i>old_cred_kdh</i>). Old KDH credential (X.509 certificate) with ID and
+public key.</li>
+<li>CredKRD: (INPUT, <i>cred_krd</i>). KRD credential (X.509 certificate) with ID and public
+key.</li>
+<li>D-kdh: (INPUT, <i>private_key_identifier</i>). Old private key, needed to sign the REBIND data
+block.</li>
+<li>RBT-KDH: (OUTPUT, <i>output_token</i>) REBIND token in DER format.</li>
+</ul></li>
+</ul><note othertype="Notes" type="other">
+<ol>
+<li rev="sh20i1">This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> 
+compliant-tagged key tokens.</li>
+<li>The RT-KRD token can be created with correct formatting using the RT-KRD processing of the
+CSNBRNGL service. See <xref href="wskc_r_rngl.dita"/> for more details.</li>
+<li>RSA 2048 bit and 3072 bit keys will be supported by CCA. This allows strength equivalent to an
+AES 128-bit key. TR-34 explicitly supports only RSA 2048-bit keys so some vendors will only support
+that key size.</li>
+</ol>
+</note></p>
+</section></refbody>
+</reference>
+<?Pub *0000037185?>

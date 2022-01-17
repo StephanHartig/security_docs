@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_ch1howappprogobtserv" xml:lang="en-us">
+<title>How application programs obtain service</title>
+<titlealts>
+<navtitle>How application programs obtain service</navtitle>
+<searchtitle>How <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) application programs obtain service for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Application programs and utility programs obtain services
+from the security product by issuing service requests to the runtime
+subsystem of software and hardware. Use a procedure call according
+to the rules of your application language. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>security API</indexterm><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/><indexterm>service
+request</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+<indexterm>service request</indexterm>
+</indexterm>
+<indexterm>application programs<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service request</indexterm>
+</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library
+<indexterm>location</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> library
+<indexterm>location</indexterm></indexterm><indexterm>cryptographic services
+access layer</indexterm>
+<indexterm>security server</indexterm><indexterm>directory server</indexterm>
+<indexterm>key storage</indexterm><indexterm>key label</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>When the cryptographic services access layer receives requests concurrently from multiple
+application programs, it serializes the requests and returns a response for each request. There are
+other multiprocessing implications arising from the existence of a common master-key and a common
+key-storage facility. These implications are covered by separate topics of this publication.</p>
+<p>The way application programs and utilities are linked to the API services depends on the
+computing environment. In the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/>
+environment, the operating system dynamically links application security API requests to the
+subsystem shared object library code. Compile application programs that use <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> and link the compiled programs to the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> library. The library and its
+default distribution location is <synph><kwd>/usr/lib64/libcsulcca.so</kwd></synph>.</p>
+<p>Together, the security API shared library and the environment-dependent
+request routing mechanism act as an agent on behalf of the application
+and present a request to the server. Requests can be issued by one
+or more programs. Each request is processed by the server as a self-contained
+unit of work. The programming interface can be called concurrently
+by applications running as different processes. The security API can
+be used by multiple threads in a process and is thread safe.</p>
+<p>In each server environment, a device driver provided by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> supplies low-level control of the hardware
+and passes the request to the hardware device. Requests can require one or more I/O commands from
+the security server to the device driver and hardware.</p>
+<p>The security server and a directory server manage key storage.
+Applications can store locally used cryptographic keys in a key-storage
+facility. This is especially useful for long-life keys. Keys stored
+in key storage are referenced using a key label. Before deciding whether
+to use the key-storage facility or to let the application retain the
+keys, consider system design trade-off factors, such as key backup,
+the impact of master-key changing, the lifetime of a key, and so forth.</p>
+</conbody>
+</concept><?Pub Caret -2?>
+<?Pub *0000003473?>

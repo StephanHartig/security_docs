@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="fpetformat" rev="sh15">
+<title>Format</title><titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"
+    />.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmfpet"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"
+            />)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<tbody>
+<row>
+<entry valign="top">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclfpet"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>input_PAN_length</var></synph>,
+             <synph><var>input_PAN</var></synph>,
+             <synph><var>input_cardholder_name_length</var></synph>,
+             <synph><var>input_cardholder_name</var></synph>,
+             <synph><var>input_dtrack1_data_length</var></synph>,
+             <synph><var>input_dtrack1_data</var></synph>,
+             <synph><var>input_dtrack2_data_length</var></synph>,
+             <synph><var>input_dtrack2_data</var></synph>,
+             <synph><var>input_key_identifier_length</var></synph>,
+             <synph><var>input_key_identifier</var></synph>,
+             <synph><var>output_key_identifier_length</var></synph>,
+             <synph><var>output_key_identifier</var></synph>,
+             <synph><var>derivation_data_length</var></synph>,
+             <synph><var>derivation_data</var></synph>,
+             <synph><var>output_PAN_length</var></synph>,
+             <synph><var>output_PAN</var></synph>,
+             <synph><var>output_cardholder_name_length</var></synph>,
+             <synph><var>output_cardholder_name</var></synph>,
+             <synph><var>output_dtrack1_data_length</var></synph>,
+             <synph><var>output_dtrack1_data</var></synph>,
+             <synph><var>output_dtrack2_data_length</var></synph>,
+             <synph><var>output_dtrack2_data</var></synph>,
+             <synph><var>DUKPT_PIN_key_identifier_length</var></synph>,
+             <synph><var>DUKPT_PIN_key_identifier</var></synph>,
+             <synph><var>reserved1_length</var></synph>,
+             <synph><var>reserved1</var></synph>,
+             <synph><var>reserved2_length</var></synph>,
+             <synph><var>reserved2</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

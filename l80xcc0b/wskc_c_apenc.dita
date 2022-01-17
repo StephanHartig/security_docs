@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_apenc" xml:lang="en-us">
+<title>Protecting data</title>
+<titlealts>
+<navtitle>Protecting data</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Protecting data</searchtitle>
+</titlealts>
+<shortdesc>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> to protect
+sensitive data stored on your system, sent between systems, or stored off your system on magnetic
+tape.</shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>key<indexterm>protecting data</indexterm></indexterm>
+<indexterm>clear key<indexterm>protecting</indexterm></indexterm>
+<indexterm>data<indexterm>protecting</indexterm></indexterm>
+<indexterm>ciphertext<indexterm>deciphering</indexterm></indexterm>
+<indexterm>plaintext<indexterm>enciphering</indexterm></indexterm>
+<indexterm>clear key</indexterm>
+<indexterm>protecting data</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p> To protect data, encipher it under a key. When you want to read
+the data, decipher it from ciphertext to plaintext form.</p>
+<p><ph>CCA</ph> provides <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/>
+<ph>verbs</ph> to perform these functions. If you use a key to encipher data, you must use the same
+key to decipher the data. <ph>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> verbs use encrypted keys as input.</ph>
+You can <ph>also</ph> use clear keys, indirectly, by first using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/>
+<ph>verb</ph> and then using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"
+/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/>
+<ph>verbs</ph>.</p>
+<p otherprops="pdf">This topic describes the following verbs used for protecting data using DES or
+AES: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_r_dec.dita#l0wskc02_dec"/></li>
+<?Pub Caret -2?>
+<li><xref href="wskc_r_enc.dita#l0wskc02_enc"/></li>
+<li><xref href="wskc_r_syma_dec.dita#l0wskc02_syma_dec"/></li>
+<li><xref href="wskc_r_syma_enc.dita#l0wskc02_syma_enc"/></li>
+<li rev="sh15"><xref href="wskc_protdata_ciphertt2.dita#wskc_ctt2"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000004338?>

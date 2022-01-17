@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pkbrestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkb"/>.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh16">
+<ul>
+<li>The RSA key length is limited to the range of 512 - 4096 bits, with specific formats restricted
+to a maximum of 1024 or 2048 bits.</li>
+<li>When generating a key for use with ANSI X9.31 digital signatures, the key length must be 1024,
+1280, 1536, 1792, 2048, or 4096 bits.</li>
+<li>Allowable ECC key bit lengths are based on curve type. For Brainpool, the key length must be
+160, 192, 224, 256, 320, 384, or 512. For Prime, it must be 192, 224, 256, 384, or 521.</li>
+<li>Rule array keywords ECC-VER0 and ECC-VER1 are not supported in releases before Release 5.2.</li>
+<li>Optional ECC key-derivation information section (X'23') for an ECC private-key is not supported
+in releases before Release 5.2.</li>
+<li>RSA public exponent value of 5, 17, and 257 are not supported in releases before Release
+5.2.</li>
+</ul>
+</section>
+</refbody></reference>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_ibdccpacf" xml:lang="en-us">
+<title>Interaction between the default card and use of protected key CPACF</title>
+<titlealts>
+<navtitle>Interaction between the <term>default card</term> and use of Protected Key
+CPACF</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Interaction between the <term>default
+card</term> and use of Protected Key CPACF for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>While the CPACF can be used to encrypt and decrypt data in the absence of a <ph
+rev="shd3"><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph>, for
+protected key operations, a <ph rev="shd3"><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph> is still necessary and it must be
+the allocated or default adapter for the thread doing the processing. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CPACF<indexterm>default card</indexterm></indexterm>
+<indexterm>default card</indexterm><indexterm>CPACF<indexterm>preparation
+at startup</indexterm></indexterm><indexterm>key<indexterm>protected</indexterm></indexterm>
+<indexterm>protected key</indexterm></keywords>
+</metadata></prolog>
+<conbody/>
+</concept><?Pub Caret -3?>
+<?Pub *0000001473?>

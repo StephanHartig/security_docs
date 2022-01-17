@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_bktcrequired">
+<title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/></searchtitle>
+  </titlealts><shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>If you specify the <synph><kwd>RTCMK</kwd></synph> keyword, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> verb requires the <cmdname>Symmetric
+Key Token Change - RTCMK</cmdname> command (offset X'0090') to be enabled in the active role.</p>
+<p>If you specify the <synph><kwd>REFORMAT</kwd></synph> keyword, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc"/> verb requires the <cmdname>CKDS
+Conversion2 - Allow use of REFORMAT</cmdname> command (offset X'014C') to be enabled in the active
+role.</p>
+<p>If you specify the <synph><kwd>WRAP-ECB</kwd></synph> or <synph><kwd>WRAP-ENH</kwd></synph> key
+wrapping method, and the default key-wrapping method setting does not match this keyword, the
+<cmdname>CKDS Conversion2 - Allow wrapping override keywords</cmdname> command (offset X'0146') must
+be enabled in the active role.</p>
+<p>If the <synph><kwd>WRAP-ECB</kwd></synph> translation-control keyword is specified, and the key
+in the input key token is wrapped by the enhanced wrapping method
+(<synph><kwd>WRAP-ENH</kwd></synph>), the verb requires the <cmdname rev="shr2">CKDS Conversion2 -
+Convert from enhanced to original</cmdname> command (offset X'0147') to be enabled. An active role
+with offset X'0147' enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktr2"/> verb to translate a key from the
+enhanced key-wrapping method to the less-secure legacy method.</p></section>
+</refbody></reference>

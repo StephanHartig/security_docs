@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_syx">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> verb to transfer an application-supplied AES
+DATA (version <ph>X'04'</ph>), DES DATA, or variable-length symmetric
+key token key from encryption under the AES or DES master key to encryption
+ under an application-supplied RSA public key or AES EXPORTER key. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyx"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsyx"/>)</indexterm></indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>HMAC</indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The application-supplied key must be an AES, DES or HMAC internal
+key token or the label of an AES or DES key token in the AES or DES
+key storage file.</p></section>
+<section><p>The verb can also export an HMAC key that is contained in an internal variable-length symmetric
+key-token. The exported key is returned in an external variable-length symmetric key-token.</p></section>
+<section><p>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi"/> verb to import a key exported using the AES or
+DES algorithm, and the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsyi2"/> verb to import a key exported using
+the HMAC algorithm.</p></section>
+<section><p>Different methods are supported for formatting the output key.
+Not all of these methods are available for each supported source key-token.
+The <synph><kwd>AESKW</kwd></synph> key-formatting method uses an AES EXPORTER key-encrypting
+key to wrap the output key before returning it in an external variable-length
+symmetric key-token. The other key formatting methods each use a different
+scheme to format the key before it is enciphered using an asymmetric
+RSA public-key. The formatted and enciphered key is returned as an
+opaque data buffer, and is not in a key token.</p>
+<note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

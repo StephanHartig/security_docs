@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2genopkey">
+<title>Generating an operational key</title>
+  <titlealts>
+    <navtitle>Generating an operational key</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating an operational
+key</searchtitle>
+  </titlealts><shortdesc>There are different methods that you can use to generate an operational
+key.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>operational key<indexterm>generating</indexterm></indexterm>
+<indexterm>data-encrypting key<indexterm>generating</indexterm></indexterm>
+<indexterm>PINVER key</indexterm>
+<indexterm>PINGEN key</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Choose one of the following methods:
+<ul>
+<li>For <b>operational keys,</b> call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>) <ph>verb</ph>. <xref href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt1"/> and <xref href="wskc_r_kgnusage.dita#l0wskc02_kgnusage/l0wskc02_keygnt"/> show
+the key type and key form combinations for a single key and for a
+key pair.</li>
+<li>For <b>data-encrypting keys,</b> call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrng"/>)
+verb and specify the <synph><var>form</var></synph> parameter as ODD. Then pass the
+generated value to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcki"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcki"/>) <ph>verb</ph> or the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckm"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclckm"/>) <ph>verb</ph>.
+The DATA key type is now in operational form.</li>
+</ul></p>
+<p>You cannot generate a PIN verification (PINVER) key in operational
+form because the originator of the PIN generation (PINGEN) key generates
+the PINVER key in exportable form, which is sent to you to be imported.</p>
+</conbody></concept>

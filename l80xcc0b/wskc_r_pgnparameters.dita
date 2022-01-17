@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pgnparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpgn"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>PIN_generating_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/></indexterm></indexterm>
+<indexterm>processing rule<indexterm>IBM-PIN</indexterm></indexterm>
+<indexterm>processing rule<indexterm>IBM-PINO</indexterm></indexterm>
+<indexterm>processing rule<indexterm>GBP-PIN</indexterm></indexterm>
+<indexterm>processing rule<indexterm>VISA-PVV</indexterm></indexterm>
+<indexterm>processing rule<indexterm>INBK-PIN</indexterm></indexterm>
+<indexterm>PIN_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>PIN_check_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>data_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+<indexterm>returned_result parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>PIN_generating_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 64-byte key label or internal key token that identifies the PIN generation
+(<synph><kwd>PINGEN</kwd></synph>) key.</pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the <i>rule_array</i>
+variable. This value must be 1.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The process rule provides control information to the <ph>verb</ph>. The keyword is
+left-aligned in an 8-byte field and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keyword is described in <xref
+href="#l0wskc02_pgnparameters/l0wskc02_pinpr"/>.<table id="l0wskc02_pinpr" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Process Rule</i></b> (One, required)</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>GBP-PIN</kwd></synph></entry>
+<entry valign="top" align="left">The <tm trademark="IBM" tmtype="reg">IBM</tm> German Bank Pool PIN,
+which uses the institution <synph><kwd>PINGEN</kwd></synph> key to generate an institution PIN
+(IPIN).</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IBM-PIN</kwd></synph></entry>
+<entry valign="top" align="left">The <tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN, which is an
+institution-assigned PIN. It does not calculate the PIN offset.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>IBM-PINO</kwd></synph></entry>
+<entry valign="top" align="left">The <tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN offset,
+which is a customer-selected PIN and calculates the PIN offset (the output).</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>INBK-PIN</kwd></synph>
+</entry>
+<entry valign="top" align="left">The Interbank PIN <ph>that</ph> is generated.</entry>
+</row>
+<row>
+<entry valign="top" align="left"><synph><kwd>VISA-PVV</kwd></synph></entry>
+<entry valign="top" align="left">The VISA PIN validation value. Input is the customer PIN.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>PIN_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the PIN used for the <tm trademark="IBM" tmtype="reg">IBM</tm> algorithms
+only, <synph><kwd>IBM-PIN</kwd></synph> or <synph><kwd>IBM-PINO</kwd></synph>. Otherwise, this
+parameter is ignored. Specify an integer in the range 4 - 16. </pd></plentry>
+<plentry><pt>PIN_check_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the PIN offset used for the <synph><kwd>IBM-PINO</kwd></synph> process rule
+only. Otherwise, this parameter is ignored. Specify an integer from 4 - 16.<note>The PIN check
+length must be less than or equal to the integer specified in the
+<synph><var>PIN_length</var></synph> parameter.</note></pd></plentry>
+<plentry><pt>data_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Three 16-byte data elements required by the corresponding
+<synph><var>rule_array</var></synph> parameter. The data array consists of three 16-byte fields or
+elements whose specification depends on the process rule. If a process rule only requires one or two
+16-byte fields, the rest of the data array is ignored by the <ph>verb</ph>. <xref
+href="#l0wskc02_pgnparameters/l0wskc02_el"/> describes the array elements.<table id="l0wskc02_el"
+pgwide="1" frame="all">
+<title>Array elements for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/>
+verb</title>
+<desc>
+<p outputclass="summary">Array elements for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/> verb</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="5*"/>
+<colspec colname="col2" colwidth="16*"/>
+<thead>
+<row>
+<entry>Array element</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Clear_PIN</entry>
+<entry>Clear user selected PIN of 4 - 12 digits of 0 - 9. Left-aligned and
+padded with spaces. For <synph><kwd>IBM-PINO</kwd></synph>, this is the clear customer PIN (CSPIN).
+</entry>
+</row>
+<row>
+<entry>Decimalization_table</entry>
+<entry>Decimalization table for <tm trademark="IBM" tmtype="reg">IBM</tm>
+and GBP only. Sixteen digits of 0 - 9. <p>If the <cmdname>ANSI X9.8 PIN - Use stored decimalization
+table only</cmdname> access control point (<ph>X'0356'</ph>) is enabled in the active role, this
+table must match one of the active decimalization tables in the coprocessors.</p></entry>
+</row>
+<row>
+<entry>Trans_sec_parm</entry>
+<entry>For VISA only, the leftmost sixteen digits. Eleven digits of the
+personal account number (PAN). One digit key index. Four digits of customer selected PIN. <p>For
+Interbank only, sixteen digits. Eleven rightmost digits of the personal account number (PAN). A
+constant of 6. One digit key selector index. Three digits of PIN validation data.</p></entry>
+</row>
+<row>
+<entry>Validation_data</entry>
+<entry>Validation data for <tm trademark="IBM" tmtype="reg">IBM</tm> and
+<tm trademark="IBM" tmtype="reg">IBM</tm> German Bank Pool padded to 16 bytes. One to sixteen
+characters of hexadecimal account data left-aligned and padded on the right with blanks.</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p><xref href="#l0wskc02_pgnparameters/l0wskc02_proapa"/> lists the data array elements
+required by the process rule (<synph><var>rule_array</var></synph> parameter). The numbers refer to
+the process rule's position within the array. <table id="l0wskc02_proapa" pgwide="0" frame="all">
+<title>Array elements for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"
+/></title>
+<desc>
+<p outputclass="summary">Array elements for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpgn"/></p>
+</desc>
+<tgroup cols="7" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="109*"/>
+<colspec colname="col2" colwidth="46*"/>
+<colspec colname="col3" colwidth="52*"/>
+<colspec colname="col4" colwidth="48*"/>
+<colspec colname="col5" colwidth="63*"/>
+<colspec colname="col6" colwidth="57*"/>
+<colspec colname="col7" colwidth="53*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Process Rule</entry>
+<entry valign="bottom" align="center">IBM-PIN</entry>
+<entry valign="bottom" align="center">IBM-PINO</entry>
+<entry valign="bottom" align="center">GBP-PIN</entry>
+<entry valign="bottom" align="center">GBP-PINO</entry>
+<entry valign="bottom" align="center">VISA-PVV</entry>
+<entry valign="bottom" align="center">INBK-PIN </entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry valign="top" align="left">Decimalization_table</entry>
+<entry valign="top" align="center">1</entry>
+<entry valign="top" align="center">1</entry>
+<entry valign="top" align="center">1</entry>
+<entry valign="top" align="center">1</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">  </entry>
+</row>
+<row>
+<entry valign="top" align="left">Validation_data</entry>
+<entry valign="top" align="center">2</entry>
+<entry valign="top" align="center">2</entry>
+<entry valign="top" align="center">2</entry>
+<entry valign="top" align="center">2</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center"> </entry>
+</row>
+<row>
+<entry valign="top" align="left">Clear_PIN</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">3</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">3</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center"> </entry>
+</row>
+<row>
+<entry valign="top" align="left">Trans_sec_parm</entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center"> </entry>
+<entry valign="top" align="center">1</entry>
+<entry valign="top" align="center">1 </entry>
+</row>
+</tbody>
+</tgroup>
+</table></p><note>Generate offset for GBP algorithm is equivalent to <tm trademark="IBM"
+tmtype="reg">IBM</tm> offset generation with <synph><var>PIN_check_length</var></synph> of 4 and
+<synph><var>PIN_length</var></synph> of 6.</note></pd></plentry>
+<plentry><pt>returned_result</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The 16-byte generated output, left-aligned, and padded on the right with blanks.</pd></plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="tr31_keyl_block_header" xml:lang="en-us" rev="sh20i1">
+<title>TR-31 key block header</title>
+<titlealts>
+<navtitle>TR-31 optional block data</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): TR-31 key block header</searchtitle>
+</titlealts>
+<shortdesc/>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>TR-31 key block header</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>A TR-31 key block always begins with a key block header consisting of a required 16-byte
+fixed-length portion followed by from 0 – 99 variable-length optional blocks. <xref
+href="#tr31_keyl_block_header/tab_blck_head" format="dita"/> shows the format of the required
+fixed-length portion of the header and shows only those values supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>: <table colsep="1" frame="all"
+id="tab_blck_head" rowsep="1" scale="90"><title>Format and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supported values of the required header for
+a TR-31 key block</title><desc>
+<p outputclass="summary">Format and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> supported values of the required header for a TR-31 key block</p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="0.7*"/>
+<colspec colname="c2" colnum="2" colwidth="0.7*"/>
+<colspec colname="c3" colnum="3" colwidth="5.6*"/>
+<thead>
+<row valign="bottom">
+<entry>Offset (bytes)</entry>
+<entry>Length (bytes)</entry>
+<entry>TR-31 key block header field name</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry>1</entry>
+<entry><b>Key block version ID.</b> Identifies the version of the key block, which defines the
+method by which it is cryptographically protected and the content and layout of the block.<p>The
+following key block version ID values defined by TR-31 are the only ones supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>:</p><dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"A"</dt>
+<dd>Key block protected by the Key Variant Binding Method 2005 Edition (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VARXOR-A</b>).
+This method is deprecated and should not be used for any new development.</dd>
+</dlentry>
+<dlentry>
+<dt>"B"</dt>
+<dd>Key block protected by the Key Derivation Binding Method 2010 Edition (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>VARDRV-B</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"C"</dt>
+<dd>Key block protected by the Key Variant Binding Method 2010 Edition (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>VARXOR-C</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"D"</dt>
+<dd>Key block protected by the Key Derivation Binding Method 2017 Edition (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VARDRV-D</b>,
+Release 5.4 or later). </dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>1</entry>
+<entry>4</entry>
+<entry><b>Key block length.</b> Provides the key-block length after encoding. Length includes the
+entire block (header + encrypted confidential data + MAC).</entry>
+</row>
+<row>
+<entry>5 (1&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry><b>Key usage.</b> Provides information about the intended function of the protected
+key/sensitive data. <p>The following key usage values defined by TR-31 are the only ones supported
+by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>:<ul>
+<li>"B0"</li>
+<li>"C0"</li>
+<li>"D0"</li>
+<li>"E0", "E1", "E2", "E3", "E4", "E5"</li>
+<li>"K0", "K1", "K4"</li>
+<li>"M0", "M1", "M3", "M6", "M7"</li>
+<li>"P0"</li>
+<li>"V0", "V1", and "V2"</li>
+</ul>In addition, CCA supports the following proprietary key usage values: "10", "11", and
+"12".</p></entry>
+</row>
+<row>
+<entry>5 (2&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"B0"</dt>
+<dd>BDK base derivation key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>BDK</b>). This
+key is used to derive the initial PIN encryption key (IPEK) in the derived unique key per
+transaction (DUKPT) process defined in X9.24-1. An initial key is derived for individual devices
+such as PIN pads.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (3&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"C0"</dt>
+<dd>CVK card verification key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>CVK</b>).
+These are the keys used for computing or verifying (against a supplied value) a card verification
+code with the CVV, CVC, CVC2, and CVV2 algorithms. In CCA, this corresponds to keys used with two algorithms:<ol>
+<li>Visa CVV and MasterCard CVC codes are generated and verified using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs. These verbs require a key type
+of DATA or MAC/MACVER with a subtype extension (CV bits 0 – 3) of ANY-MAC, single-length CVVKEY-A
+and single-length CVVKEY-B, and a double-length CVVKEY-A (see the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmckc"/> verb). The MAC generate and MAC verify
+(CV bits 20 – 21) key usage values must be set appropriately.</li>
+<li>American Express CSC codes are generated and verified using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtrv"/> verb. This verb requires a key type of
+MAC or MACVER with a subtype extension of ANY-MAC or AMEX-CSC.</li>
+</ol><note>
+<ol compact="yes">
+<li>CCA and TR-31 represent CVV keys differently. This makes representations between the two
+incompatible. CCA represents the key-A and key-B keys as two 8-byte (single length) keys, while
+TR-31 represents these keys as one 16-byte (double length) key. Current Visa standards now require
+one 16-byte key. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsg"/> and
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcsv"/> verbs accept one 16-byte CVV
+key, using left and right key parts as key-A and key-B. See <xref href="wskc_r_vbspckcombine.dita"
+/>. This verb provides a way to combine two single-length MAC-capable keys into one double-length
+CVV key.</li>
+<li>Import and export of 8-byte CVVKEY-A and CVVKEY-B MAC/MACVER keys are only allowed using the IBM
+proprietary TR-31 key usage and mode of use values (ASCII "10" and "1", respectively) to indicate
+encapsulation of the IBM control vector in a TR-31 optional block since the 8-byte CVVKEY-A is
+meaningless and useless as a TR-31 "C0" key usage key of any mode of use.</li>
+</ol>
+</note><b>Security consideration:</b><ol compact="yes" id="ol_sjm_wyt_y3b">
+<li>There is asymmetry in the translation from a CCA DATA key to a TR-31 key when using the
+Export_to_TR31 verb. The asymmetry results from CCA DATA keys having attributes of both data
+encryption and MAC keys, while TR-31 separates data encryption keys from MAC keys. A CCA DATA key
+can be exported to a TR-31 "C0" key, provided that one or both applicable MAC generate and MAC
+verify control vector bits are on. However, a TR-31 "C0" key cannot be imported to the
+lower-security CCA DATA key. <b>It can only be imported</b> to a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key type of MAC or MACVER. This restriction
+eliminates the ability to export a MAC or MACVER key to a TR-31 key and re-importing it back as a
+DATA key with the capability to encipher, decipher, or both.</li>
+<li>Since the translation from key usage "C0" is controlled by rule array keywords when using the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtr31ki"/> verb, it is possible to
+convert an exported CCA CVVKEY-A or CVVKEY-B key into an AMEX-CSC key or the other way around. This
+can be restricted by not enabling offsets <ph>X'015A'</ph> (T31I Permit C0:G/C/V to TDES MAC/MACVER:
+CVVKEY-A) and <ph>X'015B'</ph> (T31I Permit C0:G/C/V to DES/TDES MAC/MACVER: AMEX-CSC) at the same
+time. However, if both CVVKEY-A and AMEX-CSC translation types are required, then offsets X'015A'
+and X'015B' must both be enabled in the active role. In this case, control is up to the development,
+deployment, and execution of the applications themselves.</li>
+</ol></dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (4&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"D0"</dt>
+<dd>Data encryption key using ECB, CBC, CFB, OFB, CCM, or CTR (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>ENC</b>).
+These keys are used for the encryption and decryption of data.<p><b>Security consideration:</b>
+There is asymmetry in the translation from a CCA DATA key to a TR-31 key. The asymmetry results from
+DATA keys having attributes of both data encryption and MAC keys, while TR-31 separates data
+encryption keys from MAC keys. A CCA DATA key can be exported to a TR-31 "D0" key, provided that one
+or both applicable Encipher or Decipher control vector bits are on. However, a TR-31 "D0" key cannot
+be imported to the lower-security CCA DATA key. <b>It can only be imported</b> to a CCA key type of
+ENCIPHER, DECIPHER, or CIPHER. This restriction eliminates the ability to export a CCA DATA key to a
+TR-31 key and re-importing it back as a CCA DATA key with the capability to MAC generate and MAC
+verify.</p></dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (5&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"E0"</dt>
+<dd>EMV/chip issuer master key: application cryptograms (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>EMVACMK</b>).<p><b>Note (also applies to key usage values "E1", "E2", "E3", "E4", and "E5"):</b>
+EMV/chip issuer master keys are used by the chip cards (also called integrated circuit cards, IC
+cards, or smart cards) to perform cryptographic operations or, in some cases, to derive keys used to
+perform operations. In CCA, these are (1) diversified key-generating keys (DES key type DKYGENKY),
+allowing derivation of operational keys, or (2) operational keys. Note that in this context, "master
+key" has a different meaning than a CCA master key. The master keys used in this context, also
+called KMCs, are described by EMV as DES master keys for personalization session keys. They are used
+to derive the corresponding chip card master keys and are not typically used directly for
+cryptographic operations other than key derivation. In CCA, these are usually key generating keys
+with derivation level DKYL1 (CV bits 12 – 14 = B’001’) used to derive other key generating keys (the
+chip card master keys). In some cases or for older EMV key derivation methods, the issuer master
+keys could be level DKYL0 (CV bits 12 – 14 = B’000’).</p></dd>
+</dlentry>
+<dlentry>
+<dt>"E1"</dt>
+<dd>EMV/chip issuer master key: secure messaging for confidentiality (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>EMVSCMK</b>).
+The note for key usage "E0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"E2"</dt>
+<dd>EMV/chip issuer master key: secure messaging for integrity (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>EMVSIMK</b>).
+The note for key usage "E0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"E3"</dt>
+<dd>EMV/chip issuer master key: data authentication code (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>EMVDAMK</b>).
+The note for key usage "E0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"E4"</dt>
+<dd>EMV/chip issuer master key: dynamic numbers (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>EMVDNMK</b>).
+The note for key usage "E0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"E5"</dt>
+<dd>EMV/chip issuer master key: card personalization (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>EMVCPMK</b>).
+The note for key usage "E0" also applies to this key usage.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (6&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"K0"</dt>
+<dd>Key encryption or wrapping key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>KEK</b>).<p><b>Note (also applies to key usage values "K1" and "K4"):</b> CCA mode support is the
+same for key block version IDs "B" and "C" due to the lack of distinction between TR-31 "K0" and
+"K1" in CCA keys. CCA does not distinguish between targeted protocols, so there is no good way to
+represent the difference. Also, most wrapping mechanisms now involve derivation or key variation
+steps.</p><p><b>Security consideration (also applies to key usage values "K1" and "K4"):</b> The CCA
+OKEYXLAT, EXPORTER, IKEYXLAT, or IMPORTER KEK translation to a TR-31 "K0" key usage with mode of use
+"B" (both wrap and unwrap) is not allowed for security reasons. Even with access-control point
+control, this capability would give an immediate path to turn a CCA EXPORTER key into a CCA IMPORTER
+key and the other way around.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"K1"</dt>
+<dd>TR-31 key block protection key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>KEK-WRAP</b>).
+The note for key usage "K0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"K4"</dt>
+<dd>ISO 20038 key block protection key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>KEK-WRK4</b>,
+Release 5.4 or later). The note for key usage "K0" also applies to this key usage.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (7&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"M0"</dt>
+<dd>ISO 16609 MAC algorithm 1 (using TDEA) key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>ISOMAC0</b>).<p><b>Note (also applies to key usage "M1" and "M3"):</b><ol id="ol_php_jb5_y3b">
+<li>"M0" and "M1" are identical except that "M0" does not support single-length (8-byte) DES keys
+while "M1" does.</li>
+<li>A CCA control vector has no bits defined to limit key usage by algorithm, such as CBC MAC (TR-31
+usage "M0" and "M1") or X9.19 (TR-31 usage "M3"). When importing a TR-31 key block, the resulting
+CCA key-token deviates from the restrictions of usages "M0", "M1", and "M3". Importing a TR-31 key
+block which allows MAC generation ("G" or "C") results in a control vector with the ANY-MAC
+attribute rather than for the restricted algorithm that is set in the TR-31 key block. The ANY-MAC
+attribute provides the same restrictions as what CCA currently uses for generating and verifying
+MACs.</li>
+</ol></p><p><b>Security consideration (also applies to key usage values "M1" and "M3"):</b> There is
+asymmetry in the translation from a CCA DATA key to a TR-31 key. The asymmetry results from CCA DATA
+keys having attributes of both data encryption keys and MAC keys, while TR-31 separates data
+encryption keys from MAC keys. A CCA DATA key can be exported to key usage "M0", "M1", "M3" or,
+beginning with Release 5.4, "M6", provided that one or both applicable MAC generate and MAC verify
+control vector bits are on. However, a key with key usage "M0", "M1", "M3", or "M6" cannot be
+imported to the lower-security CCA DATA key. <b>It can only be imported</b> to a CCA key type of MAC
+or MACVER. This restriction eliminates the ability to export a CCA MAC or MACVER key to a TR-31 key
+and re-importing it back as a CCA DATA key with the capability to Encipher, Decipher, or
+both.</p></dd>
+</dlentry>
+<dlentry>
+<dt>"M1"</dt>
+<dd>ISO 9797-1 MAC algorithm 1 (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>ISOMAC1</b>).
+The note for key usage "M0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"M3"</dt>
+<dd>ISO 9797-1 MAC algorithm 3 (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>ISOMAC3</b>).
+The note for key usage "M0" also applies to this key usage.</dd>
+</dlentry>
+<dlentry>
+<dt>"M6"</dt>
+<dd>ISO 9797-1:2011 MAC algorithm 5/CMAC (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>ISOMAC6</b>,
+Release 5.4 or later). These keys are used to compute or verify a code for message
+authentication.</dd>
+</dlentry>
+<dlentry>
+<dt>"M7"</dt>
+<dd>HMAC (maps to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>HMAC</b>, Release 5.6 or later). These keys are used to compute or verify a
+code for message authentication.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (8&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"P0"</dt>
+<dd>PIN encryption key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>PINENC</b>).
+These keys are used to protect PIN blocks.<note>
+<ol id="ol_lzh_kb5_y3b">
+<li>Mode of use "E" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>ENC-ONLY</b>) restricts PIN encryption keys to encrypting a PIN block and may
+be used to create or reencipher an encrypted PIN block (for key-to-key translation).</li>
+<li>Mode of use "D" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>DEC-ONLY</b>) restricts PIN encryption keys to decrypting a PIN block and is
+generally used in a PIN translation to decrypt the incoming PIN block.</li>
+</ol>
+</note><p><b>Security consideration: </b>It is highly recommended that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>INCL-CV</b> be
+used when exporting a DES key with key type IPINENC or OPINENC. This ensures the original CCA
+attributes are restored when importing the TR-31 key block back into CCA.</p>
+</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry>5 (9&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<p>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"V0"</dt>
+<dd>PIN verification, KPV, other algorithm key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>PINVO</b>).
+These keys are used to generate or verify a PIN using a PIN-calculation method for that key type.
+Key usage "V0" is intended to be a PIN-calculation method "other" than those defined for "V1"
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>PINV3624</b>) or "V2" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>VISAPVV</b>). Because CCA does not have a PIN-calculation method of "other"
+defined, it maps key usage "V0" with the subtype extension of NO-SPEC (CV bits 0 – 3 = B’0000’). Be
+aware that NO-SPEC allows any method, including "V1" and "V2", and this mapping is
+suboptimal.<p><b>Note (also applies to key usage "V1" and "V2"):</b><ol compact="yes"
+id="ol_ogz_nb5_y3b">
+<li>Mode of use "N" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>ANY</b>) has no special restrictions other than restrictions implied by the
+key usage. This is used by several vendors for a PIN generation or PIN verification key when the key
+block version ID is "A".</li>
+<li>Mode of use "G" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>GEN-ONLY</b>) is used for a PINGEN key that may not perform a PIN
+verification. This is the only mode available when the control vector in the CCA key-token, which is
+applicable with IBM-proprietary mode of use "10" (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>INCL-CV</b>),
+does NOT have the EPINVER control vector bit on.</li>
+<li>Key usage "C" (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>GENVER</b>) is the only output mode available for TR-31 when any of the CCA
+key-token PIN generating bits are on in the control vector (CPINGENA, EPINGENA, EPINGEN, or
+CPINGENA) in addition to the EPINVER bit.</li>
+</ol></p><p><b>Security consideration:</b><ol compact="yes" id="ol_pgz_nb5_y3b">
+<li>It is highly recommended that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>INCL-CV</b> be
+used when exporting a DES key with key type PINGEN or PINVER. This ensures the original CCA
+attributes are restored when importing the TR-31 key block back into CCA.</li>
+<li>TR-31 key blocks that are protected under legacy key block version ID "A" (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VARXOR-A</b>)
+use the same mode of use "N" (keyword <b>ANY</b>) for PINGEN and PINVER keys. For version ID "A"
+keys only, enabling both the PINGEN and PINVER access-control points at the same time in the active
+role while enabling offset X'01B0' (for mode "N") is NOT recommended. In other words, for this key
+usage, enabling the following four commands in the active role at the same time allows changing
+PINGEN keys into PINVER, and PINVER keys into PINGEN:<dl compact="yes">
+<dlhead>
+<dthd>Offset</dthd>
+<ddhd>Command</ddhd>
+</dlhead>
+<dlentry>
+<dt>X’014D'</dt>
+<dd>T31X Permit Version A TR-31 Key Blocks</dd>
+</dlentry>
+<dlentry rev="rel55">
+<dt>X’01B0'</dt>
+<dd>T31X Permit DES/TDES PINGEN and DES/TDES PINVER to V0/V1/V2:N</dd>
+</dlentry>
+<dlentry>
+<dt>X’0194'</dt>
+<dd>T31X Permit DES/TDES PINGEN: NO-SPEC to V0:N/C</dd>
+</dlentry>
+<dlentry>
+<dt>X’0193'</dt>
+<dd>T31X Permit DES/TDES PINVER: NO-SPEC to V0:N/V</dd>
+</dlentry>
+</dl></li>
+</ol></p></dd>
+</dlentry>
+</dl>
+</p>
+</entry>
+</row>
+<row>
+<entry>5 (10&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<p>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"V1"</dt>
+<dd>PIN verification, IBM 3624 key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>PINV3624</b>).
+The note for key usage "V0" also applies to this key usage.<p><b>Security consideration:</b><ol
+compact="yes" id="ol_tf5_pb5_y3b">
+<li>It is highly recommended that CSBNT31X rule-array keyword <b>INCL-CV</b> be used when exporting
+a DES key with key type PINGEN or PINVER. This ensures the original CCA attributes are restored when
+importing the TR-31 key block back into CCA.</li>
+<li>TR-31 key blocks that are protected under legacy key block version ID "A" (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VARXOR-A</b>)
+use the same mode of use "N" (keyword <b>ANY</b>) for PINGEN and PINVER keys. For version ID "A"
+keys only, enabling both the PINGEN and PINVER access-control points at the same time in the active
+role while enabling offset X'01B0' (for mode "N") is NOT recommended. In other words, for this key
+usage, enabling the following four commands in the active role at the same time allows changing
+PINGEN keys into PINVER, and PINVER keys into PINGEN:<p>
+<dl compact="yes">
+<dlhead>
+<dthd>Offset</dthd>
+<ddhd>Command</ddhd>
+</dlhead>
+<dlentry>
+<dt>X’014D'</dt>
+<dd>T31X Permit Version A TR-31 Key Blocks</dd>
+</dlentry>
+<dlentry rev="rel55">
+<dt>X’01B0'</dt>
+<dd>T31X Permit DES/TDES PINGEN and DES/TDES PINVER to V0/V1/V2:N</dd>
+</dlentry>
+<dlentry>
+<dt>X’0196'</dt>
+<dd>T31X Permit DES/TDES PINGEN: NO-SPEC/IBM-PIN/IBM-PINO to V1:N/V</dd>
+</dlentry>
+<dlentry>
+<dt>X’0195'</dt>
+<dd>T31X Permit DES/TDES PINVER: NO-SPEC/IBM-PIN/IBM-PINO to V1:N/V</dd>
+</dlentry>
+</dl>
+</p></li>
+</ol></p></dd>
+</dlentry>
+</dl>
+</p>
+<p>As defined by TR-31, numeric key block version IDs are reserved for proprietary key block
+definitions.</p>
+<p>
+<note>DK is an abbreviation for <i>Die Deutsch Kreditwirtschaft</i>, which is the German Banking
+Industry Committee (GBIC). A supported DK proprietary block always includes a 16-byte optional block
+that is valued to the following ASCII characters:<codeblock>"KS10DE#GBIC#OPT1"</codeblock></note>
+</p>
+</entry>
+</row>
+<row>
+<entry>5 (11&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry>2</entry>
+<entry>
+<p>
+<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"V2"</dt>
+<dd>PIN verification, Visa PVV key (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VISAPVV</b>).
+The note for key usage "V0" also applies to this key usage.<p><b>Security consideration:</b>
+<ol id="ol_tzd_rb5_y3b">
+<li>It is highly recommended that <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>INCL-CV</b> be
+used when exporting a DES key with key type PINGEN or PINVER. This ensures the original CCA
+attributes are restored when importing the TR-31 key block back into CCA.</li>
+<li>TR-31 key blocks that are protected under legacy key block version ID "A" (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>VARXOR-A</b>)
+use the same mode of use "N" (keyword <b>ANY</b>) for PINGEN and PINVER keys. For version ID "A"
+keys only, enabling both the PINGEN and PINVER access-control points at the same time in the active
+role while enabling offset X'01B0' (for mode "N") is NOT recommended. In other words, for this key
+usage, enabling the following four commands in the active role at the same time allows changing
+PINGEN keys into PINVER, and PINVER keys into PINGEN:<dl compact="yes">
+<dlhead>
+<dthd>Offset</dthd>
+<ddhd>Command</ddhd>
+</dlhead>
+<dlentry>
+<dt>X’014D'</dt>
+<dd>T31X Permit Version A TR-31 Key Blocks</dd>
+</dlentry>
+<dlentry rev="rel55">
+<dt>X’01B0'</dt>
+<dd>T31X Permit DES/TDES PINGEN and DES/TDES PINVER to V0/V1/V2:N</dd>
+</dlentry>
+<dlentry>
+<dt>X’0198'</dt>
+<dd>T31X Permit DES/TDES PINGEN: NO-SPEC/VISA-PVV to V2:N/C</dd>
+</dlentry>
+<dlentry>
+<dt>X’0197'</dt>
+<dd>T31X Permit DES/TDES PINVER: NO-SPEC/VISA-PVV to V2:N/V</dd>
+</dlentry>
+</dl></li>
+</ol></p></dd>
+</dlentry>
+</dl>
+</p>
+<p>As defined by TR-31, numeric key block version IDs are reserved for proprietary key block
+definitions.</p>
+<p>
+<note>DK is an abbreviation for <i>Die Deutsch Kreditwirtschaft</i>, which is the German Banking
+Industry Committee (GBIC). A supported DK proprietary block always includes a 16-byte optional block
+that is valued to the following ASCII characters:<codeblock>"KS10DE#GBIC#OPT1"</codeblock></note>
+</p>
+</entry>
+</row>
+<row>
+<entry>5 (12&NonBreakingSpace;of&NonBreakingSpace;12)</entry>
+<entry/>
+<entry>
+<p>The following proprietary key usage values are the only ones supported by CCA:<dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"10"</dt>
+<dd>IBM proprietary key usage that indicates usage is based on the DES control vector contained in
+an IBM proprietary optional block with the format defined in  <xref
+href="wskc_tr31_optional_block_data.dita#tr31_optional_block_data/tr31_ibm_opt_bl_tab1"/> (maps to
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>ATTR-CV</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"10"</dt>
+<dd>DK proprietary key usage for key diversification key generating key (AES KDKGENKY), KDKTYPEB to
+"10" (Release 5.4 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>TYPBTO10</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"11"</dt>
+<dd>DK proprietary key usage for key diversification key generating key (AES KDKGENKY), KDKTYPEA to
+"11" (Release 5.4 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>TYPATO11</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"12"</dt>
+<dd>DK proprietary key usage for key diversified key generating key (DES DKYGENKY), DKYL0, and DMPIN
+(Release 5.4 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>DMP0TO12</b>).</dd>
+</dlentry>
+</dl></p>
+</entry>
+</row>
+<row>
+<entry>7</entry>
+<entry>1</entry>
+<entry><b>Algorithm.</b> The approved algorithm for which the protected key may be used.<p>The
+following algorithm values defined by TR-31 are the only ones supported by CCA:</p><dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"A"</dt>
+<dd>Advanced Encryption Standard (AES) (Release 5.4 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> AES key in the source
+key-token).</dd>
+</dlentry>
+<dlentry>
+<dt>"D"</dt>
+<dd>Data Encryption Algorithm (DEA) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> single-length DES key in the source
+key-token).</dd>
+</dlentry>
+<dlentry>
+<dt>"H" (ASC X9 TR 31-2018)</dt>
+<dd>Hash-based message authentication code (HMAC) (specify the underlying hash algorithm in optional
+field with a block ID of "HM") (Release 5.6 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> HMAC key in the source
+key-token).</dd>
+</dlentry>
+<dlentry>
+<dt>"H" (ISO 20038)</dt>
+<dd>HMAC-SHA-1 (Release 5.6 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> HMAC key in the source
+key-token).</dd>
+</dlentry>
+<dlentry>
+<dt>"I" (ISO 20038)</dt>
+<dd>HMAC-SHA-2 (Release 5.6 or later) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> HMAC key in the source
+key-token).</dd>
+</dlentry>
+<dlentry>
+<dt>"T"</dt>
+<dd>Triple Data Encryption Algorithm (TDEA) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> double-length or, beginning with
+Release 5.4, triple-length Triple-DES key in the source key-token).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>8</entry>
+<entry>1</entry>
+<entry><b>Mode of use.</b> Defines the operation the protected key can perform.<p>The following mode
+of use values defined by TR-31 are the only ones supported by CCA:</p><dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"B"</dt>
+<dd>Both encrypt and decrypt data, wrap and unwrap keys (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>ENCDEC</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"C"</dt>
+<dd>Both generate and verify of check/PIN values (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>GENVER</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"D"</dt>
+<dd>Decrypt data, unwrap keys only (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>DEC-ONLY</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"E"</dt>
+<dd>Encrypt data, wrap keys only (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>ENC-ONLY</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"G"</dt>
+<dd>Generate of check/PIN values only (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>GEN-ONLY</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"N"</dt>
+<dd>No special restrictions (other than restrictions implied by the key usage) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword <b>ANY</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"V"</dt>
+<dd>Verify of check/PIN values only (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>VER-ONLY</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"X"</dt>
+<dd>Key used to derive other key(s) (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>DERIVE</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"1"</dt>
+<dd>IBM proprietary mode for keys (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>ATTR-CV</b>).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>9</entry>
+<entry>2</entry>
+<entry><b>Key version number.</b> Version number used to indicate that contents of the key block is
+a component, or to prevent reinjection of old keys.</entry>
+</row>
+<row>
+<entry>11</entry>
+<entry>1</entry>
+<entry><b>Exportability.</b> Defines whether the protected key may be transferred outside the
+cryptographic domain in which the key is found.<p>The following exportability values defined by
+TR-31 are the only ones supported by CCA:</p><dl compact="yes">
+<dlhead>
+<dthd>ASCII Value</dthd>
+<ddhd>Meaning</ddhd>
+</dlhead>
+<dlentry>
+<dt>"E"</dt>
+<dd>Extra sensitive: key exportable under a key-encrypting key meeting the requirements of X9.24
+Parts 1 or 2; no ECB mode KEK allowed (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>EXP-TRST</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"N"</dt>
+<dd>Non-exportable (maps to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/>
+rule-array keyword <b>EXP-NONE</b>).</dd>
+</dlentry>
+<dlentry>
+<dt>"S"</dt>
+<dd>Sensitive: key exportable under any key-encrypting key not necessarily meeting the requirements
+of X9.24 Parts 1 or 2 (maps to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkext31"/> rule-array keyword
+<b>EXP-ANY</b>).</dd>
+</dlentry>
+</dl></entry>
+</row>
+<row>
+<entry>12</entry>
+<entry>2</entry>
+<entry><b>Number of optional blocks.</b> Defines the number of optional blocks included in the key
+block. The minimum value is zero and the maximum is 99.</entry>
+</row>
+<row>
+<entry>14</entry>
+<entry>2</entry>
+<entry><b>Reserved for future use.</b> Filled with ASCII zero characters.</entry>
+</row>
+<row>
+<entry nameend="c3" namest="c1">
+<note>Information specific to TR-31 is taken from ASC X9 TR 31-2018: <cite>Interoperable Secure Key
+Exchange Key Block Specification</cite>.</note>
+</entry>
+</row>
+</tbody>
+</tgroup></table></p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000006107?>

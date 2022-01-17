@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Secure Key Solution with the Common Cryptographic Architecture Application Programmer's Guide</title>
+<topicref href="wskc_cca_linuxonz.dita">
+<topicref href="wskc_cca_pdf.dita">
+</topicref>
+<topicref href="wskc_aboutdoc.dita">
+<topicref href="wskc_r_revisions.dita">
+<topicref format="dita" href="wskc_soc10_2021.dita" scope="local" type="reference"/>
+<topicref format="dita" href="wskc_soc09_2020.dita" scope="local" type="reference"/>
+<topicref format="dita" href="wskc_soc08_2018.dita" scope="local" type="reference"/>
+</topicref>
+<topicref href="wskc_c_whouse.dita"></topicref>
+<topicref href="wskc_r_distspecific.dita"></topicref>
+<topicref href="wskc_r_terms.dita"></topicref>
+<topicref href="wskc_c_hardwareneeds.dita"></topicref>
+<topicref href="wskc_c_howuse.dita"></topicref>
+<topicref href="wskc_c_wherefindmore.dita">
+<topicref href="wskc_c_l0wskc222.dita"></topicref>
+</topicref>
+</topicref>
+<topicref href="wskc_c_pt1.dita">
+<topicref format="ditamap" href="wskc_appgm.ditamap"/>
+<topicref format="ditamap" href="wskc_pci_hsm_compliance.ditamap"/>
+<topicref format="ditamap" href="wskc_apint.ditamap"/>
+<topicref format="ditamap" href="wskc_pkaint.ditamap"/>
+<topicref href="wskc_c_l0wskc03_zapgtr31.dita"></topicref>
+<topicref format="ditamap" href="wskc_understand_mkeys.ditamap"/>
+</topicref>
+<topicref href="wskc_r_pt2a.dita">
+<topicref format="ditamap" href="wskc_acc.ditamap"/>
+<topicref format="ditamap" href="wskc_apmky.ditamap"/>
+<topicref format="ditamap" href="wskc_apenc.ditamap"/>
+<topicref format="ditamap" href="wskc_apmac.ditamap"/>
+<topicref format="ditamap" href="wskc_zapgkyst.ditamap"/>
+<topicref format="ditamap" href="wskc_appin.ditamap"/>
+<topicref format="ditamap" href="wskc_appin_dk.ditamap"/>
+<topicref format="ditamap" href="wskc_tr34.ditamap"/>
+<topicref format="ditamap" href="wskc_pk3.ditamap"/>
+<topicref format="ditamap" href="wskc_pk4.ditamap"/>
+<topicref format="ditamap" href="wskc_l0wskc03_zapgtr31v.ditamap"/>
+<topicref format="ditamap" href="wskc_utility_verbs.ditamap"/>
+</topicref>
+<topicref href="wskc_appendix_part.dita">
+<topicref format="ditamap" href="wskc_aprec.ditamap"></topicref>
+<topicref format="ditamap" href="wskc_aptkn.ditamap"/>
+<topicref format="ditamap" href="wskc_kegekf.ditamap"/>
+<topicref format="ditamap" href="wskc_ap1me.ditamap"/>
+<topicref format="dita" href="wskc_keytvec.dita"/>
+<topicref format="ditamap" href="wskc_ap2me.ditamap"/>
+<topicref format="ditamap" href="wskc_zapgapd2.ditamap"/>
+<topicref format="ditamap" href="wskc_apn.ditamap"/>
+<topicref format="ditamap" href="wskc_acodas.ditamap"/>
+<topicref format="ditamap" href="wskc_pci_hsm_reference.ditamap"/>
+<topicref format="dita" href="wskc_aes_dukpt.dita"/>
+<topicref format="ditamap" href="wskc_codesamp.ditamap"/>
+<topicref format="ditamap" href="wskc_setup.ditamap"/>
+<topicref format="ditamap" href="wskc_install.ditamap"/>
+<topicref format="ditamap" href="wskc_coexist.ditamap"/>
+<topicref format="ditamap" href="wskc_utilities.ditamap"/>
+<topicref format="dita" href="wskc_alpha_security_api.dita"/>
+<topicref format="ditamap" href="wskc_oc_token.ditamap"/>
+<topicref format="dita" href="wskc_r_l0wskc03_abbrev.dita"/>
+</topicref>
+</topicref>
+</map>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_appbdesnulkeytok" rev="sh20i1">
+<title>Null key tokens</title>
+<titlealts>
+<navtitle>Null key tokens</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Null key tokens</searchtitle>
+</titlealts>
+<shortdesc>With some <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs, a null
+key-token can be used instead of an internal or an external key-token. A verb generally accepts a
+null key token as a signal to use a key token with default values. <ph>A null key token always has a
+value of <ph>X'00'</ph> as its first byte.</ph></shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>null key token<indexterm>format</indexterm></indexterm>
+<indexterm>key token<indexterm>DES<indexterm>null</indexterm></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section rev="sh20i1">
+<title>Null AES key-token</title>
+<p>A null AES key-token consists of 64 bytes of X'00'.</p>
+</section>
+<section>
+<title>Null DES key-token</title>
+<p rev="sh20i1">A null DES key-token is indicated by the value X'00' at offset zero in a key token,
+a key-token record in key storage, a key-token variable, or a key-identifier variable. The (DES)
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/> verb accepts input with offset
+zero valued to X'00'. In this special case, the verb treats information starting at offset 16 as an
+enciphered, single-length key. In a very limited sense, this special case can be considered a null
+DES key-token.</p>
+<p><xref href="#l0wskc02_appbdesnulkeytok/l0wskc02_nulky"/> shows the format for a DES null key
+token. </p>
+<table id="l0wskc02_nulky" pgwide="1" frame="all"><title>DES null key token format</title><desc>
+<p outputclass="summary">DES null key token format</p>
+</desc><tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="8*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>0</entry>
+<entry><ph>X'00'</ph> (flag indicating this is a null key token).</entry>
+</row>
+<row>
+<entry>1 - 15</entry>
+<entry>Reserved (set to binary zeros).</entry>
+</row>
+<row>
+<entry>16 - 23</entry>
+<entry>Single-length encrypted key, left half of double-length encrypted key, or Part A of
+triple-length encrypted key.</entry>
+</row>
+<row>
+<entry>24 - 31</entry>
+<entry><ph>X'0000000000000000'</ph> if a single-length encrypted key, the right half of
+double-length encrypted key, or Part B of triple-length encrypted key.</entry>
+</row>
+<row>
+<entry>32 - 39</entry>
+<entry><ph>X'0000000000000000'</ph> if a single-length encrypted key or double-length encrypted
+key.</entry>
+</row>
+<row>
+<entry>40 - 47</entry>
+<entry>Reserved (set to binary zeros).</entry>
+</row>
+<row>
+<entry>48 - 55</entry>
+<entry>Part C of a triple-length encrypted key.</entry>
+</row>
+<row>
+<entry>56 - 63</entry>
+<entry>Reserved (set to binary zeros).</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+<section rev="sh20i1">
+<title>Null PKA key-token</title>
+<p>PKA key-storage uses an 8-byte structure, shown in <xref
+href="wskc_r_rsamee_intext.dita#rsamee_intext/l0wskc02_rsapka2"/>, to represent a null PKA key
+token. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmprr"/> verb returns this
+structure if a key record with a null PKA key-token is read. When examining PKA key-storage, expect
+key records without a key token containing specific key values to be represented by a null PKA
+key-token. In the case of key-storage records, the record length (offset 2 and 3) can be greater
+than 8.</p>
+</section>
+</refbody>
+</reference>

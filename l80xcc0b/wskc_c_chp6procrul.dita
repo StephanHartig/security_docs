@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_chp6procrul" xml:lang="en-us">
+<title>Processing rules</title>
+<titlealts>
+<navtitle>Processing rules</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Processing rules</searchtitle>
+</titlealts>
+<shortdesc>You can use different types of processing rules
+for block chaining.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>processing rule<indexterm>description</indexterm></indexterm>
+<indexterm>block chaining</indexterm><indexterm>ANSI X9.23 processing
+rule</indexterm><indexterm>processing rule<indexterm>ANS X9.23</indexterm></indexterm>
+<indexterm>processing rule<indexterm>CBC</indexterm></indexterm>
+<indexterm>CBC processing rule</indexterm><indexterm>processing rule<indexterm>CUSP</indexterm></indexterm>
+<indexterm>processing rule<indexterm>ECB</indexterm></indexterm>
+<indexterm>processing rule<indexterm>IPS</indexterm></indexterm>
+<indexterm>processing rule<indexterm>PKCS-PAD</indexterm></indexterm>
+<indexterm>output chaining vector (OCV)<indexterm>description</indexterm></indexterm>
+<indexterm>record chaining</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p><xref href="wskc_c_apxcipm.dita#l0wskc02_apxcipm"></xref> describes
+the cipher processing rules in detail.</p>
+<p>CCA handles chaining for each block of data, from the first block
+until the last complete block of data in each <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"></keyword> call.
+There are different types of <i>processing rules</i> you can choose
+for block chaining:  <dl><dlentry>
+<dt>ANSI X9.23</dt>
+<dd>Data is not necessarily in exact multiples of the block size.
+This processing rule pads the plaintext so the ciphertext produced
+is in exact multiples of the block size.</dd>
+</dlentry><dlentry>
+<dt>Cipher block chaining (CBC)</dt>
+<dd>Data must be an exact multiple of the block size, and output will
+have the same length.</dd>
+</dlentry><dlentry>
+<dt>Cryptographic Unit Support Program (CUSP)</dt>
+<dd>CBC mode (cipher block chaining) that is compatible with <tm
+tmtype="reg" trademark="IBM">IBM</tm>&rsquo;s CUSP and PCF products.
+The data need not be in exact multiples of the block size. The ciphertext
+is the same length as the plaintext.</dd>
+</dlentry><dlentry>
+<dt>Electronic Code Book (ECB)</dt>
+<dd>The data length must be a multiple of the block size. See <xref
+href="wskc_c_ecb_mode.dita#l0wskc01_ecb_mode"></xref>.</dd>
+</dlentry><dlentry>
+<dt>Information Protection System (IPS)</dt>
+<dd>CBC mode that is compatible with <tm tmtype="reg" trademark="IBM">IBM</tm>&rsquo;s
+IPS product. The data need not be in exact multiples of the block
+size. The ciphertext is the same length as the plaintext.</dd>
+</dlentry><dlentry>
+<dt>PKCS-PAD</dt>
+<dd>The data is padded on the right with between one and 16 bytes
+of pad characters, making ciphertext a multiple of the block size.</dd>
+</dlentry></dl></p>
+<p>The resulting chaining value (except for ECB mode), after an <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"></keyword> call,
+is known as an <i>output chaining vector (OCV)</i>. When there are
+multiple cipher requests, the application can pass the OCV from the
+previous <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"></keyword> call,
+as the input chaining vector (ICV) in the next <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"></keyword> or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"></keyword> call.
+This produces chaining between successive calls, which is known as <i>record
+chaining</i>. CCA provides the ICV selection keyword CONTINUE in the <synph><var>rule_array</var></synph> parameter
+used to select record chaining with the CBC processing rule.</p>
+</conbody>
+</concept>
+<?Pub *0000004183?>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc117">
+<title>Groups in the <ph rev="sh16a">RPM or DEB</ph></title>
+  <titlealts>
+    <navtitle>Groups in the RPM  or DEB</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Groups in the RPM or DEB</searchtitle>
+  </titlealts><shortdesc>These groups are created for the purpose of loading master keys.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>CCA RPM<indexterm>groups</indexterm></indexterm>
+<indexterm>CCA DEB<indexterm>groups</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>They are added during <ph rev="sh16a">RPM or DEB</ph> installation as updates to
+<synph><kwd>/etc/groups</kwd></synph>. See <xref
+href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_ccagrp"/>. <ul>
+<li>cca_admin</li>
+<li>cca_clrmk</li>
+<li>cca_lfmkp</li>
+<li>cca_cmkp</li>
+<li>cca_setmk</li>
+</ul></p>
+</conbody></concept>

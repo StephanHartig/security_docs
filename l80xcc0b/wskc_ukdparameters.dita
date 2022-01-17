@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ukdparameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></searchtitle>
+</titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"
+/><indexterm>parameters</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"
+/><indexterm>parameters</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table> A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. Values are in the range <ph rev="sh21i2">1 - 9.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>An array of 8-byte keywords providing the processing control information to the verb. The
+keywords must be in contiguous storage with each of the keywords left-justified in its own 8-byte
+location and padded on the right with blanks. The <parmname>rule_array</parmname> keywords are
+described in <xref href="#ukdparameters/ukdparameters_table" format="dita"/>. <table pgwide="1"
+frame="all" id="ukdparameters_table">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> control information</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="4*"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2" rev="sh21i1"><b><i>DUKPT algorithm</i></b> (One,
+optional.)</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry rev="sh21i1">Specifies to derive keys using the DES DUKPT algorithm as described in
+X9.24 2007 Part 1. This is the default. All input skeleton tokens
+must be DES tokens and all generated output tokens are DES tokens.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>A-DUKPT</kwd></synph></entry>
+<entry>Specifies to derive keys using the AES DUKPT algorithm as described in
+X9.24 2017 Part 3.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token output type</i></b> (One, required for K3IPEK,
+otherwise not allowed.)</entry>
+</row>
+<row>
+<entry><synph><kwd>TDES-TOK</kwd></synph></entry>
+<entry>Specifies that the output initial PIN encryption key (IPEK) should be wrapped by the TDES
+transport key and returned in an external TDES token. <p rev="sh21i1">When the
+<keyword>A-DUKPT</keyword> keyword is specified, this keyword is not allowed.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>TR31-TOK</kwd></synph></entry>
+<entry rev="sh21i1">Specifies that the output IPEK should be wrapped by the TDES transport key if
+DES is specified, or wrapped by the AES transport key if ADUKPT is specified. In both cases, wrapped
+IPEK is returned in a TR-31 key block.
+<note rev="sh21i1">A TR-31 key block cannot be written to key storage because it is not a CCA key-token. 
+A TR-31 key block is only returned in the variable identified by the 
+<parmname>generated_key3_identifier parameter</parmname>, 
+even if the parameter identifies a key label on input.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key wrapping method</i></b> (One, optional. The default is
+USECONFG.) The access control point <cmdname>Unique Key Derive – Override Default Wrapping
+Method</cmdname> must be enabled to specify these keywords.
+<p rev="sh21i1">These keywords are only valid when DES keys are derived and therefore not 
+allowed with the A-DUKPT keyword.</p>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry>Specifies to wrap the key using the configuration setting for the default wrapping
+method. The default wrapping method configuration setting may be changed using the TKE. This keyword
+is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the original wrapping method.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method.</entry>
+</row>
+
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col2" rev="sh21i2"><b><i>Output key selection for <parmname>generated_key_identifier1</parmname> 
+</i></b> (one, optional). ). Specify at least one output key selection keyword. 
+Not valid with the K3IPEK, PIN-DATA or the A-DUKPT keyword. </entry>
+</row>
+<row>
+<entry><synph><kwd>K1DATA</kwd></synph></entry>
+<entry>The returned key type for this keyword is a DATA ENCRYPTION key. This is the output key
+selection keyword for the <parmname>generated_key_identifier1_length</parmname> and
+<parmname>generated_key_identifier1</parmname> parameters. <p>The output value
+<parmname>generated_key_identifier1</parmname> is created and is a data encryption key. The skeleton
+token provided in that parameter on input must be one of the permitted data encryption key types for
+this callable service. For valid values see <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"/>.</p><p rev="sh21i1">When the
+<keyword>A-DUKPT</keyword> keyword is specified, this keyword is not allowed.</p></entry>
+</row>
+
+<row>
+<entry namest="col1" nameend="col2" rev="sh21i2"><b><i>Output key selection for <parmname>generated_key_identifier2</parmname> 
+</i></b>  (one, optional).  Specify at least one output key selection keyword. 
+Not valid with the K3IPEK or the PIN-DATA keyword. When A-DUKPT keyword is used, this keyword is not allowed.</entry>
+</row>
+<row>
+<entry><synph><kwd>K2MAC</kwd></synph></entry>
+<entry>The returned key type for this keyword is a MAC key. This is the output key selection keyword
+for the <parmname>generated_key_identifier2_length</parmname> and
+<parmname>generated_key_identifier2</parmname> parameters. <p>The output value
+<parmname>generated_key_identifier2</parmname> is created and is a MAC key. The skeleton token
+provided in that parameter on input must be one of the permitted MAC key types for this callable
+service. For valid values, see <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"/>.</p><p rev="sh21i1">When the
+<keyword>A-DUKPT</keyword> keyword is specified, this keyword is not allowed.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh21i2"><b><i>Output key selection for <parmname>generated_key_identifier3</parmname> 
+</i></b>  (one, optional).  Specify at least one output key selection keyword. 
+</entry>
+</row>
+<row>
+<entry><synph><kwd>K3IPEK</kwd></synph></entry>
+<entry><ph rev="sh21i1">When used in conjugation with the DES keyword it specifies to use the
+<parmname>generated_key3_identifier</parmname> parameter to identify on input a null key token.</ph>
+The returned key for this keyword is the initial PIN encryption key (IPEK). This is an output key
+selection keyword for the <parmname>generated_key_identifier3_length</parmname> and
+<parmname>generated_key_identifier3</parmname> parameters. <p>The output value
+<parmname>generated_key_identifier3</parmname> is created and is the initial PIN encryption key
+wrapped by the TDES transport key and returned in an external symmetric token or TR-31 key block as
+indicated by the token output type keyword. The skeleton token provided in that parameter on input
+must be one of the permitted PIN key types for this callable service. For valid values see <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"/>.</p>
+<p rev="sh21i1">When used in conjugation with the A-DUKPT keyword it specifies to use the
+<parmname>generated_key3_identifier</parmname> parameter to identify on input a null key token. On
+output, the initial PIN encryption key (IPEK) is returned AES-wrapped using the key identified by
+the <parmname>transport_key_identifier</parmname> parameter. The IPEK is created by taking the
+information from the derivation data. The key is returned in an external non-CCA TR-31 key
+block.</p>
+<p>This keyword may not be combined with any other output key selection keyword.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>K3PIN</kwd></synph></entry>
+<entry>The returned key type for this keyword is a PIN key. This is an output key selection keyword
+for the <parmname>generated_key_identifier3_length</parmname> and
+<parmname>generated_key_identifier3</parmname> parameters. <p>The output value
+<parmname>generated_key_identifier3</parmname> is created and is a PIN key. The skeleton token
+provided in that parameter on input must be one of the permitted PIN key types for this callable
+service. For valid values see <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"/>.</p><p rev="sh21i1">When the
+<keyword>A-DUKPT</keyword> keyword is specified, this keyword is not allowed.</p></entry>
+</row>
+<row>
+<entry><synph><kwd>PIN-DATA</kwd></synph></entry>
+<entry>The returned key type for this keyword is a PIN key, which is returned in a DATA key token.
+This is an output key selection keyword for the
+<parmname>generated_key_identifier3_length</parmname> and
+<parmname>generated_key_identifier3</parmname> parameters. <p>The output value
+<parmname>generated_key_identifier3</parmname> is created and is a DATA key. The skeleton token
+provided in that parameter on input must be one of the permitted <cite>PIN key with rule keyword
+PIN-DATA</cite> key types for this callable service. For valid values, see <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"/>.</p><p>To use this
+option:</p><ul>
+<li>Control Vector bit 61 (Not-CCA) is set to a B'1'.</li>
+<li>Access control point <cmdname>Unique Key Derive – Allow PIN-DATA processing</cmdname> must be
+enabled.</li>
+</ul><p rev="sh21i1">When the <keyword>A-DUKPT</keyword> keyword is specified, this keyword is not
+allowed.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Data encryption direction or initiation</i></b> (one,
+optional, with <b>K1DATA</b>, otherwise not allowed).</entry>
+</row>
+<row>
+<entry><synph><kwd>REQ-ENC</kwd></synph></entry>
+<entry>Specifies to derive a data encryption key to be used to send or process a request. See  <xref
+href="wskc_ukdusage.dita#ukdusage/dukpt_key_var"/>.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSP-ENC</kwd></synph></entry>
+<entry>Specifies to derive a data encryption key to be used to send or process a response. See <xref
+href="wskc_ukdusage.dita#ukdusage/dukpt_key_var"/>.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>MAC direction or initiation</i></b> (one, optional, with
+<b>K2MAC</b>, otherwise not allowed).</entry>
+</row>
+<row>
+<entry><synph><kwd>REQ-MAC</kwd></synph></entry>
+<entry>Specifies to derive a MAC key to be used to send or process a request. See  <xref
+href="wskc_ukdusage.dita#ukdusage/dukpt_key_var"/>.</entry>
+</row>
+<row>
+<entry><synph><kwd>RSP-MAC</kwd></synph></entry>
+<entry>Specifies to derive a MAC key to be used to send or process a response. See  <xref
+href="wskc_ukdusage.dita#ukdusage/dukpt_key_var"/>.</entry>
+</row>
+
+<row rev="sh21i2">
+<entry namest="col1" nameend="col2"><b><i>Translation control</i></b> (optional). This is valid only
+with key-wrapping method WRAP-ENH or with USECONFG when the default wrapping method is WRAP-ENH.
+This option has no effect on a key with a control vector valued to binary zeros. <p>This keyword is
+only valid when DES keys are derived.</p>
+</entry>
+</row>
+<row rev="sh21i2">
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy method once it has been wrapped with the enhanced method. 
+Set bit 56 of the control vector to B'1' (ENH-ONLY).</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>base_derivation_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>base_derivation_key_identifier</parmname> parameter in bytes. <ph
+rev="sh21i1">When the DES keyword is used then set the value to 64. When the A-DUKPT keyword is
+specified, set the value to the length of the variable-length symmetric key-token, version X'05' AES
+DKYGENKY. The maximum value is 3500.</ph></pd>
+</plentry>
+<plentry>
+<pt>base_derivation_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><p rev="sh21i1">For DES, the base derivation key is the key from which the operational keys are derived using the
+DUKPT algorithms defined in ANSI X9.24 2007 Part 1. The base derivation key must be an internal
+key token or the label of an internal key token containing a double-length KEYGENKY key with the
+UKPT bit (bit 18) set to 1 in the control vector.
+</p>
+<p rev="sh21i1">For A-DUKPT, the base derivation key is the key from which the operational keys are derived using the
+DUKPT algorithms defined in ANSI X9.24 2017 Part 3. The base derivation key must be an internal key token or the label 
+of an internal key token containing an AES DKYGENKY version X'05' variable-length
+symmetric key token with the A-DUKPT bit set to 1 in the low-order byte of key usage field 1.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>derivation_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>derivation_data</parmname> parameter in bytes. 
+<ph rev="sh21i1">For DES, this value must be 10. For A-DUKPT, this value
+must be 20.</ph></pd>
+</plentry>
+<plentry>
+<pt>derivation_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">When the DES keyword is specified, this parameter is a pointer to a string 
+variable containing the 80-bit current-key serial number (CKSN) used as input to the 
+DUKPT derivation process. The CKSN is a concatenation of the 59-bit initial key serial number 
+(the value that was loaded when the PIN keypad was initialized) followed by the 21-bit current 
+encryption counter. The device increments the encryption counter for each new transaction.</ph>
+<p rev="sh21i1">When the A-DUKPT keyword is specified,this parameter is a pointier to a string variable
+that contains the derivation data structure which is 20 bytes long. If the initial terminal key is
+being derived then Key Usage Indicator offset 2 must be set to 0x8001 = Key Derivation, Initial key
+(this value cannot be used for a working key). When deriving a working key specify valid working key
+derivation data values. See <xref href="wskc_aes_dukpt.dita"/> for details. 
+Additionally, in this topic, you find information about allowed derived working keys sizes.</p></pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>generated_key_identifier1</parmname> parameter in bytes. <p
+rev="sh21i1">When the DES keyword is specified and keyword K1DATA is specified, set the value to 64. 
+When the DES keyword is specified and the K1DATA is not specified set it to 0. 
+On output, the variable is updated with the length of the data returned in the 
+<parmname>generated_key_identifier1</parmname> variable.</p>
+<p rev="sh21i1">When the A-DUKPT keyword is specified on output, the verb sets the variable to the length 
+of the returned <parmname>generated_key_identifier1</parmname> variable. 
+On input this is the size of the buffer large enough to contain the generated key token. 
+The maximum value is 3500. When the A-DUKPT keyword is specified with the K3IPEK keyword, 
+set this value to 0.</p></pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh21i1">For DES, on input,</ph> this parameter must be a DES Data encryption key
+token or a skeleton token of a DES data encryption key, with one of the data encryption control
+vectors as shown in <xref href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions"
+format="dita"/>. To derive a compliant-tagged key token, a compliant-tagged skeleton token must be
+supplied.<p>On output, <parmname>generated_key_identifier1</parmname> contains the data encryption
+token with the derived data encryption key.</p>
+<p rev="sh21i1">For A-DUKPT, on input, this must be a skeleton token for a DES, AES, or HMAC key. To
+derive a compliant-tagged key token, a compliant-tagged skeleton token must be supplied. On output,
+<parmname>generated_key_identifier1</parmname> contains the key token as specified in the
+<parmname>derived_data</parmname> structure. See the supported <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key types for AES-DUKPT derived working
+keys in <xref href="wskc_aes_dukpt.dita"/>.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>generated_key_identifier2</parmname> parameter in bytes. <ph
+rev="sh21i1">For DES, when K2MAC is specified set the value to 64, otherwise set it to 0. For
+A-DUKPT, this value must be 0.</ph>
+<p rev="sh21i1">On output, the variable is updated with the length of data returned in the
+<parmname>generated_key_identifier2</parmname> variable.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, this must be a DES MAC key token or a skeleton token of a DES MAC key, with one of
+the MAC control vectors as shown in <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions" format="dita"/>. To derive a
+compliant-tagged key token, a compliant-tagged skeleton token must be supplied.<p>On output,
+<parmname>generated_key_identifier2</parmname> contains the MAC token with the derived MAC
+key.</p><p rev="sh21i1">When the A-DUKPT keyword is specified the value must be null.</p></pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier_length3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>generated_key_identifier3</parmname> parameter in bytes. <p
+rev="sh21i1"><b>For DES keyword:</b> If rule-array keyword K3IPEK, K3PIN, or PIN-DATA is specified
+set the value to 64, otherwise set it to 0. On output, the variable is updated with the length of
+the data returned in the <parmname>generated_key _identifier3</parmname> variable.</p>
+<p rev="sh21i1"><b>For A-DUKPT and K3IPEK keywords:</b> On input, this is the size of the buffer. On
+output, the verb sets the variable to the length of the returned
+<parmname>generated_key_identifier3</parmname> variable. On input this is the size of the buffer
+large enough to contain the generated key token. The maximum value is 3500.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>generated_key_identifier3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The input and output values for this parameter depends on the keyword specified in the
+rule_array parameter. The <parmname>rule_array</parmname> keyword for the
+<parmname>generation_key_identifier3</parmname> parameter can be either PIN-DATA or K3PIN. <ul>
+<li>When rule array keyword is PIN-DATA, input must be a data key token or skeleton token of a data
+key with one of the <term>PIN key with rule keyword PIN-DATA</term>-control-vectors as shown in
+<xref href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions" format="dita"/>. On
+output, this parameter contains the data token with the derived PIN key.</li>
+<li>When rule array keyword is K3PIN, input must be a DES PIN key token or a skeleton token of a DES
+PIN key, with one of the PIN control vectors as shown in <xref
+href="wskc_ukdrestrictions.dita#ukdrestrictions/csnbukd_restrictions" format="dita"/>. On output,
+this parameter contains the PIN token with the derived PIN key.</li>
+<li rev="sh21i1">When rule array keyword is K3IPEK, input must be a null key token. Depending on the token output
+type keyword specified, the IPEK is either returned in an external CCA fixed-length DES key-token
+(TDES-TOK) or in an external non-CCA TR-31 key block (TR31-TOK). When TDES-TOK is specified,
+on output, the IPEK is returned in an external DES key-token wrapped by the TDES transport key.
+The control vector in the returned double-length DATA key-token is valued to binary zeros. When
+TR31-TOK is specified with the DES keyword, on output, the IPEK is returned in an external TR-31
+key block wrapped by the TDES transport key. When TR-31-TOK is specified with the A-DUKPT
+keyword, on output, the IPEK is returned in an external TR-31 key block wrapped by the AES
+transport key. The key usage indicator in the AES-DUKPT derivation data must be set to X'8001'
+(Key Derivation Initial Key).</li>
+</ul><p>To derive a compliant-tagged key token, a compliant-tagged skeleton token must be supplied.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>transport_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>transport_key_identifier</parmname> parameter in bytes. 
+If the transport key identifier is not used, the length must be 0.
+<p rev="sh21i1">When DES is specified with TDES-TOK or TR31-TOK, the length must be 64.</p>
+<p rev="sh21i1">When A-DUKPT and TR31-TOK are specified, the length must the length of the AES transport key
+specified in the <parmname>transport_key_identifier</parmname>. The maximum value is 725.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>transport_key_identifier</pt>
+<pd rev="sh21i1">
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">When the DES keyword is specified the <parmname>transport_key_identifier</parmname>
+parameter is a pointer to a string variable containing an operational fixed-length DES key-token or
+the key label of such a record in DES key-storage. The key token must have a key type of EXPORTER.
+In addition, it must have a control vector with bit 21 = B'1' (EXPORT).</p>
+<p rev="sh21i1"> If keyword TDES-TOK is specified, this parameter identifies the key-encrypting key
+used to wrap the IPEK in an external CCA key-token. If TR31-TOK is specified, this parameter
+identifies the key- encrypting key used to wrap the IPEK in an external non-CCA TR-31 key block.</p>
+<p rev="sh21i1">If A-DUKPT is specified, and derived data specified to generate an AES key this parameter
+identifies the key encrypting key used for exporting TR-31 key blocks, namely AES EXPORTER with
+EXPTT31D and WR-AES usage.</p>
+</pd>
+</plentry>
+<plentry>
+<pt>reserved1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Ignored</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Ignored</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved3_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter must be zero. </pd>
+</plentry>
+<plentry>
+<pt>reserved3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Ignored</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved4_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter must be zero. </pd>
+</plentry>
+<plentry>
+<pt>reserved4</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Ignored</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+<plentry>
+<pt>reserved5_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter must be zero.</pd>
+</plentry>
+<plentry>
+<pt>reserved5</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Ignored</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

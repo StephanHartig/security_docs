@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>
+<ph>verb</ph> to generate an AES key of type DATA, or either one or two odd parity DES keys of
+<i>any</i> type. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>)</indexterm></indexterm>
+<indexterm>key<indexterm>generating<indexterm>encrypted</indexterm></indexterm></indexterm>
+<indexterm> key encrypting key</indexterm>
+<indexterm>odd parity</indexterm>
+<indexterm>DATA</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The DES keys can be single-length (8-byte), double-length (16-byte),
+or, in the case of <synph><kwd>DATA</kwd></synph> keys, triple-length (24-byte). The
+AES keys can be 16, 24 or 32 bytes in length. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> <ph>verb</ph> does
+not produce keys in clear form; all keys are returned in encrypted
+form. When two keys are generated (DES only), each key has the same
+clear value, although this clear value is not exposed outside the
+secure cryptographic feature.</p></section>
+<section><p>For AES, the verb returns only one copy of the key, enciphered
+under the AES master key. For DES, the verb selectively returns one
+copy of the key or two, with each copy enciphered under a user-specified
+DES key-encrypting key.</p></section>
+<section><p>This <ph>verb</ph> returns the key to the application program that
+called it and the application program can then use the CCA key storage
+verbs to store the key in the key storage file.</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

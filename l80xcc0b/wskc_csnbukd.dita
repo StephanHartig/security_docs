@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbukd" rev="sh15">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> verb performs
+    the key derivation process as defined in ANSI X9.24 Part 1.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>)</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p rev="sh21i1">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmukd"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclukd"/>) verb can perform the key derivation
+process for DES-DUKPT as defined in ANSI X9.24 2007 Part 1 or the key derivation process for
+AES-DUKPT as defined in ANSI X9.24 2017 Part 3.</p>
+      <p>The process derives keys from two values: the base derivation key and the derivation
+        data:</p>
+      <ul>
+        <li rev="sh21i1">The base derivation key is the key from which the others are derived. For
+        DES-DUKPT, this must be a DES KEYGENKY with the UKPT bit (bit 18) set to 1 in the Control Vector. For AES-DUKPT, this must
+        be an AES DKYGENKY key with the A-DUKPT bit set to 1 in the low-order byte of key usage field 1.</li>
+        <li>The derivation data is used to make the derived key specific to a particular device and
+to a specific transaction from that device. The derivation data, called the Current Key Serial
+Number (CKSN), is the 80-bit concatenation of the device's 59-bit Initial Key Serial Number value
+and the 21-bit value of the current encryption counter which the device increments for each new
+transaction. <ph rev="sh21i1">The derivation data for AES-DUKPT, as described in ANSI X9.24-3, is
+used to provide input parameters for the AES DUKPT key derivation function. The derivation data for
+AES-DUKPT is defined in <xref href="wskc_aes_dukpt.dita"/></ph>.</li>
+      </ul>
+      <p>The initial pin encryption key (IPEK) is derived from the base derivation key and the
+initial derivation data. Specify the K3IPEK rule array keyword to return the IPEK. </p>
+      <p>Rule array keywords determine the types and number of keys derived on a particular call.
+See the rule array parameter description for more information. </p>
+      <p>Output keys are wrapped using the mode configured as the default wrapping mode, either
+        enhanced wrapping mode (WRAP-ENH) or original ECB wrapping mode (WRAP-ECB).</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note>
+    </section>
+</refbody>
+</reference>

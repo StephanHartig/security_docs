@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_spkdparameters">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpkd"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/></indexterm></indexterm>
+<indexterm>PKCS-1.2</indexterm>
+<indexterm>ZERO-PAD</indexterm>
+<indexterm>PKA_enciphered_keyvalue_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>PKA_enciphered_keyvalue parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>data_structure_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>data_structure parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>PKA_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>PKA_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>Chinese Remainder Theorem</indexterm>
+<indexterm>Modulus-Exponent format</indexterm>
+<indexterm>target_keyvalue_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+<indexterm>target_keyvalue parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<ph rev="shd3">A pointer to an integer variable containing the number of elements in the
+<i>rule_array</i> variable. This value must be 1 or 2.</ph></pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+The keyword that provides control information to the verb.
+The keyword is left-aligned in an 8-byte field and padded on the right
+with blanks. The <synph><var>rule_array</var></synph> keywords are described in <xref href="#l0wskc02_spkdparameters/l0wskc02_spkd_tab1"/>.
+<table id="l0wskc02_spkd_tab1" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> control information</title><desc><p outputclass="summary">Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpkd"/> control information</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry valign="top" align="left">Keyword</entry>
+<entry valign="top" align="left">Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Recovery method</i></b> (one required). Specifies the
+method to use to recover the key value.</entry></row>
+<row rev="sh16">
+<entry><synph><kwd>PKCS-1.2</kwd></synph></entry>
+<entry>Specifies that the key is formatted as defined in the RSA PKCS #1 v2.0 standard for the
+RSAES-PKCS1-v1_5 encryption/decryption scheme. Formerly known as the block-type 02 method. See <xref
+href="wskc_c_appdpkcs1form.dita#l0wskc02_appdpkcs1form"/>.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>PKCSOAEP</kwd></synph></entry>
+<entry>Specifies that the key is formatted as defined in the RSA PKCS #1 v2.0 standard for the
+RSAES-OAEP encryption/decryption scheme. See <xref
+href="wskc_c_appdpkcs1form.dita#l0wskc02_appdpkcs1form"/>.</entry>
+</row>
+<row>
+<entry><synph><kwd>ZERO-PAD</kwd></synph></entry>
+<entry>The input <parmname>PKA_enciphered_keyvalue</parmname> is decrypted using the RSA private
+key. The entire result (including leading zeros) is returned in the
+<parmname>target_keyvalue</parmname> field. The <parmname>PKA_key_identifier</parmname> must be an
+external RSA token or the label of an external token.</entry></row>
+<row rev="shd3">
+<entry namest="col1" nameend="col2"><b><i>Hash method</i></b>  (One required for <synph><kwd>PKCSOAEP</kwd></synph>, 
+not allowed for any other recovery method).
+</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>SHA-1</kwd></synph></entry>
+<entry>Specifies to use the SHA-1 hash method to calculate the OAEP message hash.</entry>
+</row>
+<row rev="shd3">
+<entry><synph><kwd>SHA-256</kwd></synph></entry>
+<entry>Specifies to use the SHA-256 hash method to calculate the OAEP message hash.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>  </pd></plentry>
+<plentry><pt>PKA_enciphered_keyvalue_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>PKA_enciphered_keyvalue</var></synph> parameter in bytes. The
+maximum size that you can specify is 256 bytes. The length should be the same as the modulus length
+of the <synph><var>PKA_key_identifier</var></synph>.</pd></plentry>
+<plentry><pt>PKA_enciphered_keyvalue</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field contains the key value protected under an RSA public key. This byte-length string
+is left-aligned within the <synph><var>PKA_enciphered_keyvalue</var></synph> parameter.</pd></plentry>
+<plentry><pt>data_structure_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This value must be 0.</pd></plentry>
+<plentry><pt>data_structure</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This parameter is ignored.</pd></plentry>
+<plentry><pt>PKA_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>PKA_key_identifier</var></synph> parameter. When the
+<synph><var>PKA_key_identifier</var></synph> is a key label, this field specifies the length of the
+label. The maximum size that you can specify is 2500 bytes.</pd></plentry>
+<plentry><pt>PKA_key_identifier</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p rev="sh21i1">For PKA keys, an internal private key token, the label of an internal private key
+token, or an external private key token containing a clear private key.  For RSA keys, the key may
+be in modulus-exponent or Chinese Remainder Theorem format. For secure PKCS #11 keys, this is the 44-byte handle 
+of the private key, prefixed with an EBCDIC equal sign character (‘=’ or x’7E’), and padded on the right 
+with spaces for a total length of 64 bytes. The corresponding public key was used to wrap the key value.</p>
+</pd></plentry>
+<plentry><pt>target_keyvalue_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>target_keyvalue</var></synph> parameter. The maximum size that
+you can specify is 256 bytes. On return, this field is updated with the actual length of
+<synph><var>target_keyvalue</var></synph>.<p>If <synph><kwd>ZERO-PAD</kwd></synph> is specified,
+this length will be the same as the <synph><var>PKA_enciphered_keyvalue_length</var></synph> which
+is equal to the RSA modulus byte length.</p></pd></plentry>
+<plentry><pt>target_keyvalue</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>This field will contain the decrypted, parsed key value. If
+<synph><kwd>ZERO-PAD</kwd></synph> is specified, the decrypted key value, including leading zeros,
+will be returned.</pd></plentry>
+</parml></section>
+</refbody></reference>

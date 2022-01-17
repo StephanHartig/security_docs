@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_sha256bmkvm">
+<title>SHA-256 based master-key verification method</title>
+  <titlealts>
+    <navtitle>SHA-256 based master-key verification method </navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): SHA-256 based master-key verification
+method</searchtitle>
+  </titlealts><shortdesc>A SHA-256 hash algorithm is calculated on the quantity X'01' prep-ended to the 24-byte
+    register contents.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>For AES, there will be verification patterns for both the AES master
+key and for AES operational keys that are used to encipher or decipher
+data. The verification pattern on the master key is called the MKVP.
+The verification pattern on operational keys is referred to as a key-verification
+pattern (KVP).</p>
+<p>Both the MKVP and KVP for AES will use the same algorithm.  Both
+will be computed with the following process.
+<ol>
+<li>Compute the SHA-256 hash of the string formed by prepending the
+byte <ph>X'01'</ph> to the cleartext key value.</li>
+<li>Take the leftmost eight bytes of the hash as the verification
+pattern.</li>
+</ol></p>
+<p>This value is truncated to eight bytes because this is the length
+allocated for the verification in several CCA structures and APIs.
+ For example, the AES key token has eight bytes for the MKVP, and
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verbs have an eight-byte parameter for
+the verification pattern.</p>
+</conbody></concept>

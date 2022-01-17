@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_wherefindmore" xml:lang="en-us">
+<title>Where to find more information</title>
+<shortdesc>You can find other <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+product publications that might be helpful when developing applications and systems that exploit the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> Crypto Express
+features.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>other documentation</indexterm>
+<indexterm>related publications</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>While there is substantial commonality in the API supported by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> products, and while this document seeks to
+guide you to the subset supported by <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>, other individual product publications
+might provide further insight into potential issues of compatibility.</p>
+<dl>
+<dlentry>
+<dt><tm tmtype="reg" trademark="IBM">IBM</tm> 4769 Cryptographic Coprocessors - CEX7S</dt>
+<dd>All of the <tm tmtype="reg" trademark="IBM">IBM</tm> 4769-related publications can be obtained
+from the product web site:
+<codeblock><xref href="https://www.ibm.com/security/cryptocards/pciecc4/library" format="html" scope="external">IBM CEX7S / 4769 library</xref></codeblock>
+</dd>
+</dlentry>
+<dlentry>
+<dt><tm tmtype="reg" trademark="IBM">IBM</tm> 4768 Cryptographic Coprocessors - CEX6S</dt>
+<dd>All of the <tm tmtype="reg" trademark="IBM">IBM</tm> 4768-related publications can be obtained
+from the product web site:
+<codeblock><xref href="https://www.ibm.com/security/cryptocards/pciecc3/library" format="html" scope="external">CEX6S / 4768 – Library</xref></codeblock>
+</dd>
+</dlentry>
+<dlentry>
+<dt><tm tmtype="reg" trademark="IBM">IBM</tm> 4767 Cryptographic Coprocessors - CEX5S</dt>
+<dd>All of the <tm tmtype="reg" trademark="IBM">IBM</tm> 4767-related publications can be obtained
+from the product web site:
+<codeblock><xref href="https://www.ibm.com/security/cryptocards/pciecc2/library" format="html" scope="external">CEX5S / 4767 - Library</xref></codeblock>
+</dd>
+</dlentry>
+</dl>
+<p>Other documents referenced in this book are: </p>
+<ul>
+<li><cite>CCA Basic Services Reference and Guide for the IBM 4767 and IBM 4765 PCIe Cryptographic
+Coprocessors</cite></li>
+<li><xref
+href="https://www-01.ibm.com/servers/resourcelink/svc00100.nsf/pages/zOSV2R4sc147511?OpenDocument"
+format="html" scope="external"><cite>z/OS Cryptographic Services ICSF Trusted Key Entry Workstation
+User’s Guide</cite></xref></li>
+<li rev="sh21i3"><xref
+href="https://www-01.ibm.com/servers/resourcelink/svc00100.nsf/pages/zOSICSFFmidHCR77C1Publications?OpenDocument"
+format="html" scope="external"><cite>z/OS Cryptographic Services publications for
+ICSF</cite></xref></li>
+<li>For <ph conref="lxcommon.dita#phrases/ph_loz_and_lone"/>: <ul>
+<li><ph conref="lxcommon.dita#pubs/cit-zl-dd"/>
+</li>
+</ul></li>
+<li rev="sh21i1">See the following web site for distribution-specific documentation about <ph
+conref="lxcommon.dita#phrases/ph_loz_and_lone"/>:<ul>
+<li><xref href="https://www.ibm.com/docs/en/linux-on-systems?topic=linuxone-distributions"
+format="html" scope="external"><cite>Distributions</cite></xref></li>
+</ul></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000004482?>

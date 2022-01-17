@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc142">
+<title>Parameters</title>
+  <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts>
+<shortdesc rev="sh15">The parameters for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_token parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_material_state parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>payload parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_verification_pattern_type parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_verification_pattern parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_wrapping_method parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_hash_algorithm parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>key_name parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>TLV_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+<indexterm>verb_data parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>key_token_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>key_token</parmname> variable.</pd></plentry>
+<plentry><pt>key_token</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an external or internal variable-length symmetric
+key-token to be disassembled. This parameter must not point to a key label.</pd></plentry>
+<plentry><pt>key_type</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a keyword for the key type of the input key. The
+keyword is 8 bytes in length and is left-aligned and padded on the right with space characters.
+Valid <synph><var>key_type</var></synph> keywords are shown
+here:<codeblock rev="sh15">
+CIPHER       DESUESCV     DKYGENKY     EXPORTER     IMPORTER
+MAC          PINCALC      PINPROT      PINPRW       SECMSG
+</codeblock><p
+rev="shd3">Key types are described in <xref href="wskc_c_keys.dita#l0wskc02_keys"/>.</p></pd></plentry>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of 8-byte elements in the
+<synph><var>rule_array</var></synph> variable. The minimum returned value is 3, and the maximum
+returned value is approximately 50. To determine the exact count required, and also the required
+lengths of the other string variables, specify a value of zero. This causes the verb to return all
+count and length values without updating any string variables.<p>On output, the variable is updated
+with the actual count of the rule-array keywords. An error is returned if a key token cannot be
+parsed or any of the output buffers are too small.</p></pd></plentry>
+<plentry id="ktp2_rarray_parm"><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length, and are left-aligned and padded on the right with space characters. The returned rule array
+keywords express the contents of the token. <p>While <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/>) assembles an internal variable-length
+symmetric key-token in application storage from information that you supply via the key words in the
+verb's <parmname>rule_array</parmname> parameter, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> disassembles an input key-token into
+separate pieces of information which are stored in this verb's <parmname>rule_array</parmname> as
+output. Some of the keywords of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmktb2"
+/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> therefore have the
+same meaning.</p><table id="ktp2_keywords" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/></title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/></p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="14*"/>
+<thead>
+<row>
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b>Header section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Token identifier</i></b> (one
+required)</entry>
+</row>
+<row>
+<entry><synph><kwd>EXTERNAL</kwd></synph></entry>
+<entry>Specifies to disassemble an external variable-length symmetric key-token.</entry>
+</row>
+<row>
+<entry><synph><kwd>INTERNAL</kwd></synph></entry>
+<entry>Specifies to disassemble an internal variable-length symmetric key-token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b>Wrapping information section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="left"><b><i>Key status</i></b> (one
+returned). Refer to the <parmname>key_material_state</parmname> variable for additional
+details.</entry>
+</row>
+<row>
+<entry><synph><kwd>NO-KEY</kwd></synph></entry>
+<entry>Key token does not contain a key. The payload variable is empty.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY</kwd></synph></entry>
+<entry>Key token contains a partial or complete key. The payload variable contains the clear or
+encrypted key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key verification pattern (KVP) type</i></b>
+<note>Not a keyword. Value returned in <parmname>key_verification_pattern_type</parmname>
+variable.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>KVP</i></b>
+<note>Not a keyword. Value returned in <parmname>key_verification_pattern</parmname>
+variable.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Encrypted section key-wrapping method</i></b>
+<note>Not a keyword. Value returned in <parmname>key_wrapping_method</parmname>
+variable.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Hash algorithm used for wrapping</i></b>
+<note>Not a keyword. Value returned in <parmname>key_hash_algorithm</parmname>
+variable.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b>Associated data section</b></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Type of algorithm for which the key can be used</i></b>
+(one returned)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies the AES algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>DES</kwd></synph></entry>
+<entry>Specifies the DES algorithm.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+<entry>Specifies the HMAC algorithm.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key type</i></b>
+<note>Not a keyword. Value returned in <parmname>key_type</parmname> variable.</note>
+</entry>
+</row>
+<row rev="shd3">
+<entry namest="col1" nameend="col2">Key-usage field keywords depend on key type: <dl>
+<dlhead>
+<dthd>Key type</dthd>
+<ddhd>Reference</ddhd>
+</dlhead>
+<dlentry>
+<dt>CIPHER</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/cipher_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>DESUESCV</dt>
+<dd>No key-usage field keywords.</dd>
+</dlentry>
+<dlentry>
+<dt>DKYGENKY</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/dkygenky_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>EXPORTER</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/exporter_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>IMPORTER</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/importer_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>MAC</dt>
+<dd>For AES token algorithm, refer to <xref
+href="wskc_r_ktb2keywords.dita#ktb2keywords/aes_mac_keywords"/>. For HMAC token algorithm, refer to
+<xref href="wskc_r_ktb2keywords.dita#ktb2keywords/hmac_mac_keywords"/>. </dd>
+</dlentry>
+<dlentry>
+<dt>PINCALC</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pincalc_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>PINPROT</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pinprot_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>PINPRW</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/pinprw_keywords"/>.</dd>
+</dlentry>
+<dlentry>
+<dt>SECMSG</dt>
+<dd>Refer to <xref href="wskc_r_ktb2keywords.dita#ktb2keywords/ktb2_secmsg_table"/>.</dd>
+</dlentry>
+</dl>
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 1,
+high order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Symmetric-key export control</var></synph> (one
+returned, all key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEX-SYM</kwd></synph></entry>
+<entry>Prohibit export using symmetric key.</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRT-SYM</kwd></synph></entry>
+<entry>Allow export using symmetric key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Unauthenticated asymmetric-key export
+control</var></synph> (one returned, all key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEXUASY</kwd></synph></entry>
+<entry>Prohibit export using an unauthenticated asymmetric key.</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRTUASY</kwd></synph></entry>
+<entry>Allow export using unauthenticated asymmetric key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Authenticated asymmetric-key export
+control</var></synph> (one returned, all key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEXAASY</kwd></synph></entry>
+<entry>Prohibit export using authenticated asymmetric key.</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRTAASY</kwd></synph></entry>
+<entry>Allow export using authenticated asymmetric key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 1,
+low-order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>DES-key export control</var></synph> (one returned,
+AES algorithm only)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEX-DES</kwd></synph></entry>
+<entry>Prohibit export using DES key</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRT-DES</kwd></synph></entry>
+<entry>Allow export using DES key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>AES-key export control</var></synph> (one returned,
+AES algorithm only)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEX-AES</kwd></synph></entry>
+<entry>Prohibit export using AES key.</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRT-AES</kwd></synph></entry>
+<entry>Allow export using AES key. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>RSA-key export control</var></synph> (one returned,
+AES algorithm only)</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEX-RSA</kwd></synph></entry>
+<entry>Prohibit export using RSA key</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRT-RSA</kwd></synph></entry>
+<entry>Allow export using RSA key.</entry>
+</row>
+<row>
+<entry><synph><kwd>NOEX-RAW</kwd></synph></entry>
+<entry>Prohibit export using raw key</entry>
+</row>
+<row>
+<entry><synph><kwd>XPRT-RAW</kwd></synph></entry>
+<entry>Allow export using raw key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 2,
+high order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Key completeness</var></synph> (one returned, all
+key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>MIN3PART</kwd></synph></entry>
+<entry>Key if present is incomplete. Key requires at least 2 more parts.</entry>
+</row>
+<row>
+<entry><synph><kwd>MIN2PART</kwd></synph></entry>
+<entry>Key if present is incomplete. Key requires at least 1 more part.</entry>
+</row>
+<row>
+<entry><synph><kwd>MIN1PART</kwd></synph></entry>
+<entry>Key if present is incomplete. Key can be completed or have more parts added.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEYCMPLT </kwd></synph></entry>
+<entry>Key if present is complete. No more parts can be added.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 2,
+low-order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Security history</var></synph> (one returned, all
+key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>UNTRUSTD</kwd></synph></entry>
+<entry>Key was encrypted with an untrusted KEK.</entry>
+</row>
+<row>
+<entry><synph><kwd>WOTUATTR</kwd></synph></entry>
+<entry>Key was in a format without type/usage attributes.</entry>
+</row>
+<row>
+<entry><synph><kwd>WWEAKKEY</kwd></synph></entry>
+<entry>Key was encrypted with key weaker than itself.</entry>
+</row>
+<row>
+<entry><synph><kwd>NOTCCAFM</kwd></synph></entry>
+<entry>Key was in a non-CCA format.</entry>
+</row>
+<row>
+<entry><synph><kwd>WECBMODE</kwd></synph></entry>
+<entry>Key was encrypted in ECB mode.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 3,
+high order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Pedigree original rules</var></synph> (one returned,
+all key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>POUNKNWN</kwd></synph></entry>
+<entry>Unknown.</entry>
+</row>
+<row>
+<entry><synph><kwd>POOTHER</kwd></synph></entry>
+<entry>Other. Method other than those defined here, probably used in UDX.</entry>
+</row>
+<row>
+<entry><synph><kwd>PORANDOM </kwd></synph></entry>
+<entry>Randomly generated.</entry>
+</row>
+<row>
+<entry><synph><kwd>POKEYAGR </kwd></synph></entry>
+<entry>Established by key agreement such as Diffie-Hellman.</entry>
+</row>
+<row>
+<entry><synph><kwd>POCLRKC</kwd></synph></entry>
+<entry>Created from cleartext key components.</entry>
+</row>
+<row>
+<entry><synph><kwd>POCLRKV</kwd></synph></entry>
+<entry>Entered as a cleartext key value.</entry>
+</row>
+<row>
+<entry><synph><kwd>PODERVD</kwd></synph></entry>
+<entry>Derived from another key.</entry>
+</row>
+<row>
+<entry><synph><kwd>POKPSEC</kwd></synph></entry>
+<entry>Cleartext keys or key parts that were entered at TKE and secured from there to the target
+card.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" valign="top" align="center"><synph><kwd>Key-management field 3,
+low-order byte</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var> Pedigree current rule</var></synph> (one returned,
+all key types)</entry>
+</row>
+<row>
+<entry><synph><kwd>PCUNKNWN</kwd></synph></entry>
+<entry>Unknown.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCOTHER</kwd></synph></entry>
+<entry>Other. Method other than those defined here, probably used in UDX.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCRANDOM</kwd></synph></entry>
+<entry>Randomly generated.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCKEYAGR</kwd></synph></entry>
+<entry>Established by key agreement such as Diffie-Hellman.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCCLCOMP</kwd></synph></entry>
+<entry>Created from cleartext key components.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCCLVAL</kwd></synph></entry>
+<entry>Entered as a cleartext key value.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCDERVD</kwd></synph></entry>
+<entry>Derived from another key.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMVARWP</kwd></synph></entry>
+<entry>Imported from CCA version <ph>X'05'</ph> variable-length symmetric key-token with pedigree
+field.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMVARNP</kwd></synph></entry>
+<entry>Imported from CCA version <ph>X'05'</ph> variable-length symmetric key-token with no pedigree
+field.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMWCV</kwd></synph></entry>
+<entry>Imported from CCA key-token that contained a nonzero control vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMNOCV</kwd></synph></entry>
+<entry>Imported from CCA key-token that had no control vector or contained a zero control
+vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMT31WC </kwd></synph></entry>
+<entry>Imported from a TR-31 key block that contained a control vector (ATTR-CV option).</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMT31NC</kwd></synph></entry>
+<entry>Imported from a TR-31 key block that did not contain a control vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMPK1-2</kwd></synph></entry>
+<entry>Imported using PKCS 1.2 RSA encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMOAEP</kwd></synph></entry>
+<entry>Imported using PKCS OAEP encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMPKA92</kwd></synph></entry>
+<entry>Imported using PKA92 RSA encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCMZ-PAD</kwd></synph></entry>
+<entry>Imported using RSA ZERO-PAD encryption.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCCNVTWC</kwd></synph></entry>
+<entry>Converted from a CCA key-token that contained a nonzero control vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCCNVTNC </kwd></synph></entry>
+<entry>Converted from a CCA key-token that had no control vector or contained a zero control
+vector.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCKPSEC</kwd></synph></entry>
+<entry>Cleartext keys or key parts that were entered at TKE and secured from there to the target
+card.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCXVARWP</kwd></synph></entry>
+<entry>Exported from CCA version <ph>X'05'</ph> variable-length symmetric key-token with pedigree
+field.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCXVARNP </kwd></synph></entry>
+<entry>Exported from CCA version <ph>X'05'</ph> variable-length symmetric key-token with no pedigree
+field.</entry>
+</row>
+<row>
+<entry><synph><kwd>PCXOAEP</kwd></synph></entry>
+<entry>Exported using PKCS OAEP encryption.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" align="center"><synph><kwd>Optional clear key or encrypted AESKW
+payload section</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Payload</var></synph>
+<note>Not a keyword. Value returned in the payload variable.</note></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_material_state</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the indicator for the current state of the key
+material. The valid values are: <dl compact="yes">
+<dlentry>
+<dt>0</dt>
+<dd>No key present (internal or external)</dd>
+</dlentry>
+<dlentry>
+<dt>1</dt>
+<dd>Key is clear (internal), payload bit length is clear-key bit length</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>Key is encrypted under a KEK (external)</dd>
+</dlentry>
+<dlentry>
+<dt>3</dt>
+<dd>Key is encrypted under the master key (internal)</dd>
+</dlentry>
+</dl></pd></plentry>
+<plentry><pt>payload_bit_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bits in the token payload. If no
+key is present, the returned value is 0.<p>If a clear key is present, the returned value is in the
+following range: <dl compact="yes">
+<dlentry>
+<dt>AES</dt>
+<dd>128, 192, or 256</dd>
+</dlentry>
+<dlentry>
+<dt>HMAC</dt>
+<dd>80 - 2048</dd>
+</dlentry>
+</dl></p></pd></plentry>
+<plentry><pt>payload</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the key material payload. The
+<synph><var>payload</var></synph> parameter must be addressable up to the nearest byte boundary
+above the <synph><var>payload_bit_length</var></synph> if the
+<synph><var>payload_bit_length</var></synph> is not a multiple of 8. This field will contain the
+clear key or the encrypted key material.</pd></plentry>
+<plentry><pt>key_verification_pattern_type</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the indicator for the type of key verification
+pattern used. The valid values are: <dl compact="yes">
+<dlentry>
+<dt>0</dt>
+<dd>No KVP</dd>
+</dlentry>
+<dlentry>
+<dt>1</dt>
+<dd>AESMK (8 left-most bytes of SHA-256 hash(<ph>X'01'</ph> || clear AES MK))</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>KEK VP (8 left-most bytes of SHA-256 hash(<ph>X'01'</ph> || clear KEK))</dd>
+</dlentry>
+</dl></pd></plentry>
+<plentry><pt>key_verification_pattern_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>key_verification_pattern</var></synph> parameter. The valid values are 0, 8, or 16. The
+value 16 is reserved.</pd></plentry>
+<plentry><pt>key_verification_pattern</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the key verification pattern (KVP) of the
+key-encrypting key used to wrap this key. If the
+<synph><var>key_verification_pattern_type</var></synph> value indicates that a key verification
+pattern is present, the pattern will be copied from the token, otherwise this variable is
+empty.</pd></plentry>
+<plentry><pt>key_wrapping_method</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the indicator for the encrypted section
+key-wrapping method used to protect the key payload. The valid values are: <dl compact="yes">
+<dlentry>
+<dt>0</dt>
+<dd>NONE (for clear keys or no key)</dd>
+</dlentry>
+<dlentry>
+<dt>2</dt>
+<dd>AESKW (for external or internal key wrapped with an AES KEK)</dd>
+</dlentry>
+<dlentry>
+<dt>3</dt>
+<dd>PKOAEP2 (for external tokens wrapped with an RSA public key)</dd>
+</dlentry>
+</dl></pd></plentry>
+<plentry><pt>key_hash_algorithm</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the indicator for the hash algorithm used for
+wrapping in the key token. The valid values are as follows: <table pgwide="0" rowheader="firstcol">
+<desc>
+<p outputclass="summary">Hash algorithms for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"/> verb</p>
+</desc>
+<tgroup cols="5">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="4*"/>
+<colspec colname="col4" colwidth="4*"/>
+<colspec colname="col5" colwidth="4*"/>
+<thead>
+<row>
+<entry colname="col1" morerows="1" valign="bottom" align="center">Value</entry>
+<entry colname="col2" morerows="1" valign="bottom" align="center">Hash algorithm</entry>
+<entry namest="col3" nameend="col5" valign="bottom" align="center">Key-wrapping method</entry>
+</row>
+<row valign="bottom">
+<entry colname="col3" align="center"><ph>X'00'</ph> (clear key)</entry>
+<entry colname="col4" align="center"><ph>X'02'</ph> (AESKW)</entry>
+<entry colname="col5" align="center"><ph>X'03'</ph> (PKOAEP2)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1" align="center">0</entry>
+<entry colname="col2" align="center">No hash</entry>
+<entry colname="col3" align="center">X</entry>
+<entry colname="col4" align="center"/>
+<entry colname="col5" align="center"/>
+</row>
+<row>
+<entry colname="col1" align="center">1</entry>
+<entry colname="col2" align="center">SHA-1</entry>
+<entry colname="col3" align="center"/>
+<entry colname="col4" align="center"/>
+<entry colname="col5" align="center">X</entry>
+</row>
+<row>
+<entry colname="col1" align="center">2</entry>
+<entry colname="col2" align="center">SHA-256</entry>
+<entry colname="col3" align="center"/>
+<entry colname="col4" align="center">X</entry>
+<entry colname="col5" align="center">X</entry>
+</row>
+<row>
+<entry colname="col1" align="center">4</entry>
+<entry colname="col2" align="center">SHA-384</entry>
+<entry colname="col3" align="center"/>
+<entry colname="col4" align="center"/>
+<entry colname="col5" align="center">X</entry>
+</row>
+<row>
+<entry colname="col1" align="center">8</entry>
+<entry colname="col2" align="center">SHA-512</entry>
+<entry colname="col3" align="center"/>
+<entry colname="col4" align="center"/>
+<entry colname="col5" align="center">X</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>key_name_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>key_name</var></synph> variable. The returned value can be 0 or 64.</pd></plentry>
+<plentry><pt>key_name</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the optional key label to be stored in the
+associated data structure of the key token. If there is no key name, then this variable is
+empty.</pd></plentry>
+<plentry><pt>TLV_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<synph><var>TLV_data</var></synph> variable. The returned value is currently always zero.</pd></plentry>
+<plentry><pt>TLV_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the optional tag-length-value (TLV) section. This
+field is currently unused.</pd></plentry>
+<plentry><pt>user_associated_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>user_associated_data_length</var></synph> parameter is a pointer to an
+integer variable containing the number of bytes of data in the
+<synph><var>user_associated_data</var></synph> variable. The returned value is 0 - 255.</pd></plentry>
+<plentry><pt>user_associated_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing the user-associated data to be stored in the key
+token. This user-definable data is cryptographically bound to the key if it is encrypted. If there
+is no user-defined associated data, this variable is empty.</pd></plentry>
+<plentry rev="sh15">
+<pt>verb_data_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes of data in the
+<parmname>verb_data</parmname> variable. The returned value is zero if the returned
+<parmname>key_type</parmname> variable is not DKYGENKY. Otherwise the value can be greater than zero
+and is a multiple of 8.</pd>
+</plentry>
+<plentry rev="sh15">
+<pt>verb_data</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing any related key-usage field keywords of an AES
+DKYGENKY key for the for the type of key to be diversified:<table pgwide="0" frame="all">
+<desc>
+<p outputclass="summary">Meaning of verb_data keywords for DKYGENKY type of key to diversify</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="9*"/>
+<thead>
+<row>
+<entry>DKYGENKY type of key to diversify</entry>
+<entry>Meaning of verb_data keywords</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>D-CIPHER</entry>
+<entry>Key usage fields for AES CIPHER key.</entry>
+</row>
+<row>
+<entry>D-EXP</entry>
+<entry>Key usage fields for AES EXPORTER key.</entry>
+</row>
+<row>
+<entry>D-IMP</entry>
+<entry>Key usage fields for AES IMPORTER key.</entry>
+</row>
+<row>
+<entry>D-MAC</entry>
+<entry>Key usage fields for AES MAC key.</entry>
+</row>
+<row>
+<entry>D-PPROT</entry>
+<entry>Key-usage fields for AES PINPROT key.</entry>
+</row>
+<row>
+<entry>D-PCALC</entry>
+<entry>Key-usage fields for AES PINCALC key.</entry>
+</row>
+<row>
+<entry>D-PPRW</entry>
+<entry>Key-usage fields for AES PINPRW key.</entry>
+</row>
+<row>
+<entry rev="sh16">D-SECMSG</entry>
+<entry>Key-usage fields for AES SECMSG key.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+</parml></section>
+</refbody></reference>

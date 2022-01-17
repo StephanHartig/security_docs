@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kgn2parameters">
+<title>Parameters</title>
+<titlealts>
+<navtitle>Parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/></searchtitle>
+</titlealts><shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>clear_key_bit_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_type_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_type_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_name_1_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_name_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_name_2_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_name_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data_1_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data_2_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>user_associated_data_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_encrypting_key_identifier_1_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_encrypting_key_identifier_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_encrypting_key_identifier_2_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>key_encrypting_key_identifier_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_1_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_1 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_2_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+<indexterm>generated_key_identifier_2 parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The number of keywords you supplied in the <synph><var>rule_array</var></synph> parameter.
+This value must be <ph rev="sh16">2, 3, or 4.</ph></pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>rule_array</var></synph> contains keywords that provide control information
+to the verb. The keywords must be in contiguous storage with each of the keywords left-aligned in
+its own 8-byte location and padded on the right with blanks. The
+<synph><var>rule_array</var></synph> keywords are described in 
+<xref href="#l0wskc02_kgn2parameters/l0wskc02_kg2_ra"/>.
+<table id="l0wskc02_kg2_ra" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="3*"/>
+<colspec colname="col2" colwidth="20*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Keyword</entry>
+<entry colname="col2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token algorithm</i></b> (One required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES</kwd></synph></entry>
+<entry>Specifies to generate an AES key token. </entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC</kwd></synph>
+</entry>
+<entry>Specifies to generate an HMAC key token. </entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Key form</i></b> (One, required) The first two characters
+refer to <synph><var>key_type_1</var></synph>. The next two characters refer to
+<synph><var>key_type_2</var></synph>. See <xref href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage"/>
+for details.</entry>
+</row>
+<row>
+<entry><synph><kwd>EX</kwd></synph></entry>
+<entry rev="sh16">Return one copy of the key enciphered under an exporter KEK with
+key usage GEN-EXEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>EXEX</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, both enciphered under exporter 
+key-encrypting keys with key usage GEN-EXEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>IM</kwd></synph></entry>
+<entry rev="sh16">Return one copy of the key enciphered under an importer KEK with
+key usage GEN-IMEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>IMEX</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, the first enciphered under an importer 
+KEK with key usage GEN-IMEX, and the second under an exporter KEK with key usage 
+GEN-IMEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>IMIM</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, 
+both enciphered under importer KEKs with key usage GEN-IMIM.</entry>
+</row>
+<row>
+<entry><synph><kwd>OP</kwd></synph></entry>
+<entry rev="sh16i1">Return one copy of the key enciphered under the AES master key.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPEX</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, the first enciphered key under the 
+AES master key and the second under an exporter KEK with key usage GEN-OPEX.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPIM</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, the first enciphered key under the 
+AES master key and the second under an importer KEK with key usage GEN-OPIM.</entry>
+</row>
+<row>
+<entry><synph><kwd>OPOP</kwd></synph></entry>
+<entry rev="sh16i1">Return two copies of the key, both enciphered under the 
+AES master key.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">
+<b><i>Payload Version for generated_key_identifier_1</i></b> (one, optional) <note rev="sh16">If
+<synph><kwd>TOKEN</kwd></synph> is specified for <parmname>key_type_1</parmname>, the payload format
+version is determined by the information in the key token identified by the
+<parmname>generated_key_identifier_1</parmname> parameter unless specifically overridden by one of
+the following keywords.</note>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>V0PYLDK1</kwd></synph></entry>
+<entry rev="sh16i1">Return a key token identified by the
+<parmname>generated_key_identifier_1</parmname> parameter with a payload formatted 
+using the less secure legacy variable-length version 0 format. This is the default if the
+<parmname>key_type_1</parmname> variable is not valued to <synph><kwd>TOKEN</kwd></synph> and the
+key type is AES CIPHER, AES EXPORTER, AES IMPORTER, or HMAC MAC. Only valid with those key
+types.</entry>
+</row>
+<row>
+<entry><synph><kwd>V1PYLDK1</kwd></synph></entry>
+<entry rev="sh16">Return a key token using the
+<parmname>generated_key_identifier_1</parmname> parameter with a payload formatted using the more
+secure fixed-length version 1 format. This is the default if the <parmname>key_type_1</parmname>
+variable is not valued to <synph><kwd>TOKEN</kwd></synph> and the key type is not AES CIPHER, AES
+EXPORTER, AES IMPORTER, or HMAC MAC. Not valid with HMAC MAC. <note>This option produces a key token
+that is not compatible with releases before Release 4.4.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh16">
+<b><i>Payload Version for generated_key_identifier_2</i></b> (one, optional when generating a key
+pair, otherwise not allowed) <note>If <synph><kwd>TOKEN</kwd></synph> is specified for
+<parmname>key_type_2</parmname> when generating a key pair, the payload format version is determined
+by the information in the key token identified by the
+<parmname>generated_key_identifier_2</parmname> parameter unless specifically overridden by one of
+the following keywords.</note>
+</entry>
+</row>
+<row>
+<entry><synph><kwd>V0PYLDK2</kwd></synph></entry>
+<entry rev="sh16">Return a key token identified by the
+<parmname>generated_key_identifier_2</parmname> parameter with a payload formatted using the
+original variable-length version 0 format. This is the default if the
+<parmname>key_type_2</parmname> variable is not valued to <synph><kwd>TOKEN</kwd></synph> and the
+key type is AES CIPHER, AES EXPORTER, AES IMPORTER, or HMAC MAC. Only valid with those key
+types.</entry>
+</row>
+<row>
+<entry><synph><kwd>V1PYLDK2</kwd></synph></entry>
+<entry rev="sh16">Return a key token using the
+<parmname>generated_key_identifier_2</parmname> parameter with a payload formatted using the more
+secure fixed-length version 1 format. This is the default if the <parmname>key_type_2</parmname>
+variable is not valued to <synph><kwd>TOKEN</kwd></synph> and the key type is not AES CIPHER, AES
+EXPORTER, AES IMPORTER, or HMAC MAC. Not valid with HMAC MAC. <note>This option produces a key token
+that is not compatible with releases before Release 4.4.</note></entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>clear_key_bit_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of clear-key bits to randomly
+generate and return encrypted in the generated key or keys. If a generated key token has a key type
+of <synph><kwd>TOKEN</kwd></synph>, this value overrides any key length contained in the key token.
+The value can be 128, 192, and 256 for AES keys, and 80 - 2048 for HMAC keys.</pd></plentry>
+<plentry id="kgn2_ktype_1" rev="sh16">
+<pt>key_type_1, key_type_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <synph><var>key_type_1</var></synph> and <synph><var>key_type_2</var></synph> parameters
+are pointers to 8-byte string variables, each containing a keyword that is left aligned and padded
+on the right with space characters. The keyword specifies the key type of the key being generated.
+If a single copy of the key is being generated, set the <synph><var>key_type_2</var></synph>
+variable to eight space characters. <p>The verb returns each copy of the generated key in a default
+key token that it builds, or updates a key token that is provided. Keyword TOKEN indicates that the
+verb is to return an updated key token that contains the key-usage and key-management fields of the
+key token that is provided by the corresponding <parmname>key_identifier_1</parmname> or
+<parmname>key_identifier_2</parmname> parameter. A keyword other than TOKEN indicates that a null
+key-token is provided and that the verb is to build and return a default key-token for the specified key type 
+(AES key types CIPHER, EXPORTER, or IMPORTER only).</p><p>Valid type combinations depend
+on the key form, and are documented in <xref
+href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab1"/> and <xref
+href="wskc_r_kgn2usage.dita#l0wskc02_kgn2usage/kgn2usage_tab2"/>.</p>
+<p>The 8-byte keyword for the <synph><var>key_type_1</var></synph> 
+or <synph><var>key_type_2</var></synph> parameters can be one of
+the following:</p>
+<table pgwide="0">
+<title>Keywords and associated algorithms for key_type_1/2 parameter</title>
+<desc>
+<p outputclass="summary">Keywords and associated algorithms for <i>key_type_1/2</i> parameter</p>
+</desc>
+<tgroup cols="2">
+<colspec colname="col1"/>
+<colspec colname="col2"/>
+<thead>
+<row>
+<entry>Keyword</entry>
+<entry>Algorithm</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>CIPHER</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph></entry>
+</row>
+<row>
+<entry><synph><kwd>EXPORTER</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph></entry>
+</row>
+<row>
+<entry><synph><kwd>IMPORTER</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph></entry>
+</row>
+<row>
+<entry><synph><kwd>MAC</kwd></synph></entry>
+<entry><synph><kwd>AES</kwd></synph> or <synph><kwd>HMAC</kwd></synph></entry>
+</row>
+<row>
+<entry><synph><kwd>MACVER</kwd></synph></entry>
+<entry><synph><kwd>HMAC</kwd></synph></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2">Specify the keyword <synph><kwd>TOKEN</kwd></synph> when
+supplying a key token in the <synph><var>generated_key_identifier_1/2</var></synph>
+parameter.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>If <synph><var>key_type_1</var></synph> or <synph><var>key_type_2</var></synph> is
+<synph><kwd>TOKEN</kwd></synph>, the associated data in the
+<synph><var>generated_key_identifier_1</var></synph> or
+<synph><var>generated_key_identifier_2</var></synph> parameter is used to derive the key
+type.</p></pd>
+</plentry>
+<plentry><pt>key_name_1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>key_name</var></synph> parameter for
+<synph><var>generated_key_identifier_1</var></synph>. Valid values are 0 and 64. </pd></plentry>
+<plentry><pt>key_name_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh16">A pointer to a string variable containing the optional key label that is
+placed in the associated data of the key token identified by the
+<parmname>generated_key_identifier_1</parmname> variable. If present, it must be a valid key label.
+This data is cryptographically bound to the first copy of the key.</ph></pd></plentry>
+<plentry><pt>key_name_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the <synph><var>key_name</var></synph> parameter for
+<synph><var>generated_key_identifier_2</var></synph>. Valid values are 0 and 64. When only one key
+is being generated, <ph rev="sh16i1">set this value to 0.</ph></pd></plentry>
+<plentry><pt>key_name_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh16">A pointer to a string variable containing the optional key label that is
+placed in the associated data of the key token identified by the
+<parmname>generated_key_identifier_2</parmname> variable. If present, it must be a valid key label.
+This data is cryptographically bound to the first copy of the key.</ph><p>When only one key is being
+generated, this parameter is ignored.</p></pd></plentry>
+<plentry><pt>user_associated_data_1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the user-associated data parameter for
+<synph><var>generated_key_identifier_1</var></synph>. The valid values are 0 - 255 bytes.</pd></plentry>
+<plentry><pt>user_associated_data_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>User-associated data to be stored in the associated data structure for
+<synph><var>generated_key_identifier_1</var></synph>. </pd></plentry>
+<plentry><pt>user_associated_data_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry><b>Direction:</b></entry>
+<entry>Input</entry>
+</row>
+<row>
+<entry><b>Type:</b></entry>
+<entry>Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the user-associated data parameter for
+<synph><var>generated_key_identifier_2</var></synph>. The valid values are 0 - 255 bytes. When only
+one key is being generated, this parameter is ignored.</pd></plentry>
+<plentry><pt>user_associated_data_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>User associated data to be stored in the associated data structure for
+<synph><var>generated_key_identifier_2</var></synph>. <p>When only one key is being generated, this
+parameter is ignored.</p></pd></plentry>
+<plentry><pt>key_encrypting_key_identifier_1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the buffer for <synph><var>key_encrypting_key_identifier_1</var></synph> in
+bytes. When the key form rule is <synph><kwd>OP</kwd></synph>, <synph><kwd>OPOP</kwd></synph>,
+<synph><kwd>OPIM</kwd></synph>, or <synph><kwd>OPEX</kwd></synph>, this length must be zero. When
+the key form rule is <synph><kwd>EX</kwd></synph>, <synph><kwd>EXEX</kwd></synph>,
+<synph><kwd>IM</kwd></synph>, <synph><kwd>IMEX</kwd></synph>, or <synph><kwd>IMIM</kwd></synph>, the
+value must be between the actual length of the token and 725 bytes when
+<synph><var>key_encrypting_key_identifier_1</var></synph> is a token.<p>The value must be 64 bytes
+when <synph><var>key_encrypting_key_identifier_1</var></synph> is a label.</p></pd></plentry>
+<plentry><pt>key_encrypting_key_identifier_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>When <synph><var>key_encrypting_key_identifier_1_length</var></synph> is zero, this
+parameter is ignored. Otherwise, <synph><var>key_encrypting_key_identifier_1</var></synph> contains
+an internal key token containing the AES importer or exporter key-encrypting key, or a key
+label.<p>If the token supplied was encrypted under the old master key, the token will be returned
+encrypted under the current master key.</p></pd></plentry>
+<plentry><pt>key_encrypting_key_identifier_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the buffer for <synph><var>key_encrypting_key_identifier_2</var></synph> in
+bytes. When the key form rule is <synph><kwd>OPOP</kwd></synph>, this length must be zero. When the
+key form rule is <synph><kwd>EXEX</kwd></synph>, <synph><kwd>IMEX</kwd></synph>,
+<synph><kwd>IMIM</kwd></synph>, <synph><kwd>OPIM</kwd></synph>, or <synph><kwd>OPEX</kwd></synph>,
+the value must be between the actual length of the token and 725 when
+<synph><var>key_encrypting_key_identifier_2</var></synph> is a token. The value must be 64 when
+<synph><var>key_encrypting_key_identifier_2</var></synph> is a label.<p>When only one key is being
+generated, this parameter is ignored.</p></pd></plentry>
+<plentry><pt>key_encrypting_key_identifier_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>When <synph><var>key_encrypting_key_identifier_2_length</var></synph> is zero, this
+parameter is ignored. Otherwise, <synph><var>key_encrypting_key_identifier_2</var></synph> contains
+an internal key token containing the AES importer or exporter key-encrypting key, or a key
+label.<p>If the token supplied was encrypted under the old master key, the token will be returned
+encrypted under the current master key.</p><p>When only one key is being generated, this parameter
+is ignored.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length of the buffer for the
+<synph><var>generated_key_identifier_1</var></synph> parameter in bytes. The maximum value is 900
+bytes.<p>On output, the parameter will hold the actual length of the
+<synph><var>generated_key_identifier_1</var></synph>.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The buffer for the first generated key token.<p>On input, if you specify a
+<synph><var>key_type_1</var></synph> of <synph><kwd>TOKEN</kwd></synph>, then the buffer contains a
+valid key token of the key type you want to generate. The key token must be left-aligned in the
+buffer. Otherwise, this parameter must be binary zeros. See <xref
+href="#l0wskc02_kgn2parameters/kgn2_ktype_1"/> for valid key types.</p><p>On output, the buffer
+contains the generated key token. </p><p rev="sh20i1">To generate a compliant-tagged key token, a compliant-tagged skeleton token must be supplied.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>On input, the length of the buffer for the
+<synph><var>generated_key_identifier_2</var></synph> in bytes. The minimum value is 120 bytes and
+the maximum value is 725 bytes. The maximum value is 900 bytes.<p>On output, the parameter will hold
+the actual length of the <synph><var>generated_key_identifier_2</var></synph>.</p><p>When only one
+key is being generated, this parameter is ignored.</p></pd></plentry>
+<plentry><pt>generated_key_identifier_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The buffer for the second generated key token.<p>On input, if you specify a
+<synph><var>key_type_2</var></synph> of <synph><kwd>TOKEN</kwd></synph>, then the buffer contains a
+valid key token of the key type you want to generate. The key token must be left-aligned in the
+buffer. Otherwise, this parameter must be binary zeros. See <xref
+href="#l0wskc02_kgn2parameters/kgn2_ktype_1"/> for valid key types.</p><p>On output, the buffer
+contains the generated key token. </p><p>When only one key is being generated, this parameter is
+ignored</p><p rev="sh20i1">To generate a compliant-tagged key token, a compliant-tagged skeleton
+token must be supplied.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="acodas_xmp_role_ds" xml:lang="en-us" rev="sh16">
+<title>Role data structure example</title>
+<titlealts>
+<navtitle>Role data structure sample</navtitle>
+<?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Role data structure example</searchtitle>
+</titlealts>
+<shortdesc>View an example of a role data structure  together with explanations of the
+contents.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>access control data structures<indexterm>role data structure example</indexterm></indexterm>
+<indexterm>role data structure example</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><xref href="#acodas_xmp_role_ds/role_struct_sample" format="dita"/> shows the contents of a
+sample role data structure.</p>
+<fig id="role_struct_sample">
+<title>Role data structure example</title>
+<codeblock>
+01 00 00 66 2a 4e 65 77 20 64 65 66 61 75 6c 74   ....*New default
+20 72 6f 6c 65 20 31 2a ab cd 00 00 44 45 46 41    role 1*....DEFA
+55 4c 54 20 23 45 01 0f 17 1e 7c 00 00 02 00 00   ULT #E....|.....
+00 00 01 17 00 23 00 00 f0 ff ff ff ff ff ff ff   .....#..........
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff   ................
+ff ff ff ff ff ff ff ff ff ff ff 02 00 02 17 00   ................
+03 00 00 8f 99 fe                                 ..........
+</codeblock>
+</fig>
+<p> This structure contains the following data fields: </p>
+<dl>
+<dlentry>
+<dt>01 00</dt>
+<dd>The role structure version number.</dd>
+</dlentry>
+<dlentry>
+<dt>00 66</dt>
+<dd>The length of the role structure, including the length field itself.</dd>
+</dlentry>
+<dlentry>
+<dt>*New default role 1*</dt>
+<dd>The 20-character comment describing this role.</dd>
+</dlentry>
+<dlentry>
+<dt>AB CD</dt>
+<dd>The checksum for the role. <note>The checksum value is not used.</note></dd>
+</dlentry>
+<dlentry>
+<dt>00 00</dt>
+<dd>A reserved field, which must be filled with zeros.</dd>
+</dlentry>
+<dlentry>
+<dt>DEFAULT</dt>
+<dd>The Role ID for this role. The role in this example replaces the DEFAULT role.</dd>
+</dlentry>
+<dlentry>
+<dt>23 45</dt>
+<dd>The required authentication strength field.</dd>
+</dlentry>
+<dlentry>
+<dt>01 0F</dt>
+<dd>The lower time limit. X'01' is the hour, and X'0F' is the minute (decimal 15), so the lower time
+limit is 1:15 AM, UTC.</dd>
+</dlentry>
+<dlentry>
+<dt>17 1E</dt>
+<dd>The upper time limit. X'17' is the hour (decimal 23), and X'1E' is the minute (30), so the upper
+time limit is 23:30 UTC.</dd>
+</dlentry>
+<dlentry>
+<dt>7C</dt>
+<dd>This byte maps the valid days of the week for the role. The first (high order) bit represents
+Sunday, the second represents Monday, and so on. Hex 7C is binary 01111100, and enables the weekdays
+Monday through Friday.</dd>
+</dlentry>
+<dlentry>
+<dt>00</dt>
+<dd>This byte is a reserved field. It must be zero.</dd>
+</dlentry>
+<dlentry>
+<dt>Access-control-point list</dt>
+<dd>The remainder of the role structure contains the access control point list described in <xref
+href="wskc_acodas_xmp_acp.dita#acodas_xmp_acp"/>.</dd>
+</dlentry>
+</dl>
+</conbody>
+</concept>
+<?Pub *0000003873?>

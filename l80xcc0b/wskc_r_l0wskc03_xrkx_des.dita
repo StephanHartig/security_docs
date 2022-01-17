@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc03_xrkx_des" xml:lang="en-us">
+<title>External RKX DES key tokens</title>
+<titlealts>
+<navtitle>RKX DES key tokens</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): External RKX DES key tokens</searchtitle>
+</titlealts>
+<shortdesc>The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)
+verb and DES key-storage verbs use a special RKX key token. </shortdesc>
+<prolog><metadata>
+<keywords>
+<indexterm>RKX DES key tokens<indexterm>external</indexterm></indexterm>
+<indexterm>external RKX DES key tokens</indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p><xref href="#l0wskc03_xrkx_des/l0wskc03_xrkx_tab1"></xref> defines
+an external fixed-length DES key-token called an <synph><var>RKX key-token</var></synph>.
+An RKX key-token is a special token used exclusively by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)
+verb and DES key-storage verbs (for example, <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkrw"></keyword>).
+No other verbs use or reference an RKX key-token or key-token record.
+For additional information about the usage of RKX key tokens, see <xref
+href="wskc_c_rkload.dita#l0wskc02_rkload"></xref>. Verbs other than <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> and
+the DES key-storage do not support RKX key tokens or RKX key token
+records.</p></section>
+<section><p>As can be seen in the table, RKX key tokens are 64 bytes
+in length, have a token identifier flag (<ph>X'02'</ph>), a token
+version number (<ph>X'10'</ph>), and room for encrypted keys, same
+as normal fixed-length DES key tokens. Unlike normal fixed-length
+DES key tokens, RKX key tokens do not have a control vector, flag
+bits, and a token-validation value. In addition, RKX key tokens have
+a confounder value, a MAC value, and room for a third encrypted key.</p></section>
+<section><p> <table id="l0wskc03_xrkx_tab1" pgwide="1"><title>External
+RKX DES key-token format, version <ph><ph>X'10'</ph></ph></title><desc><p
+outputclass="summary">External RKX DES key-token format</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="1*"/>
+<colspec colname="col3" colwidth="8*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Offset</entry>
+<entry colname="col2">Length</entry>
+<entry colname="col3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1">00</entry>
+<entry colname="col2">1</entry>
+<entry colname="col3"><ph>X'02'</ph> (a token identifier flag that
+indicates an external key-token)</entry>
+</row>
+<row>
+<entry colname="col1">01</entry>
+<entry colname="col2">3</entry>
+<entry colname="col3">Reserved, binary zero</entry>
+</row>
+<row>
+<entry colname="col1">04</entry>
+<entry colname="col2">1</entry>
+<entry colname="col3">Token version number (<ph>X'10'</ph>)</entry>
+</row>
+<row>
+<entry colname="col1">05</entry>
+<entry colname="col2">2</entry>
+<entry colname="col3">Reserved, binary zero</entry>
+</row>
+<row>
+<entry colname="col1">07</entry>
+<entry colname="col2">1</entry>
+<entry colname="col3">Key length in bytes, including confounder</entry>
+</row>
+<row>
+<entry colname="col1">08</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Confounder</entry>
+</row>
+<row>
+<entry colname="col1">16</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Key left</entry>
+</row>
+<row>
+<entry colname="col1">24</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Key middle (binary zero if not used)</entry>
+</row>
+<row>
+<entry colname="col1">32</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Key right (binary zero if not used)</entry>
+</row>
+<row>
+<entry colname="col1">40</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Rule ID <p>The trusted block rule identifier
+used to create this key token. A subsequent call to <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkx"></keyword>)
+can use this token with a trusted block rule that references the rule
+ID that was used to create this token. The trusted block rule can
+be compared with this rule ID for verification purposes.</p> <p>The
+Rule ID is an 8-byte string of ASCII characters, left-aligned and
+padded on the right with space characters. Acceptable characters are
+A...Z, a...z, 0...9, - (<ph>X'2D'</ph>), and _ (<ph>X'5F'</ph>). All
+other characters are reserved for future use.</p></entry>
+</row>
+<row>
+<entry colname="col1">48</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">Reserved, binary zero</entry>
+</row>
+<row>
+<entry colname="col1">56</entry>
+<entry colname="col2">8</entry>
+<entry colname="col3">MAC value <p>ISO 16609 CBC-mode Triple-DES MAC,
+computed over the 56 bytes starting at offset 0 and including the
+encrypted key value and the rule ID using the same MAC key that is
+used to protect the trusted block itself.</p> <p>This MAC value guarantees
+that the key and the rule ID cannot be modified without detection,
+providing integrity and binding the rule ID to the key itself. This
+MAC value must verify with the same trusted block used to create the
+key, thus binding the key structure to that specific trusted block.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table> <note><ol>
+<li>A fixed, randomly derived variant is exclusive-ORed with the MAC
+key before it is used to encipher the generated or exported key and
+confounder.</li>
+<li>The MAC key is located within a trusted block (internal format)
+and can be recovered by decipherment under a variant of the PKA master
+key.</li>
+<li>The trusted block is originally created in external form by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"></keyword> verb,
+and then converted to internal form by the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"></keyword> verb
+prior to the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"></keyword> call.</li>
+</ol> </note></p></section>
+</refbody>
+</reference>
+<?Pub *0000006333?>

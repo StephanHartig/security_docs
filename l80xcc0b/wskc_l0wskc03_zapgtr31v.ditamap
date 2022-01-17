@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>TR-31 symmetric key management verbs</title><topicref href="wskc_r_l0wskc03_zapgtr31v.dita">
+<topicref href="wskc_r_vbspkextr31.dita">
+<topicmeta>
+<retrievalKeys><retkey>Key Export to TR31 (CSNBT31X)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc302.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc303.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc304.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc305.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc306.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_vbtr31ki.dita">
+<topicmeta>
+<retrievalKeys><retkey>TR31 Key Import (CSNBT31I)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc307.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc308.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc309.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc310.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc311.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc312.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc313.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_vbtr31kp.dita">
+<topicmeta>
+<retrievalKeys><retkey>TR31 Key Token Parse (CSNBT31P)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc314.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc315.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc316.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_vbtr31ko.dita">
+<topicmeta>
+<retrievalKeys><retkey>TR31 Optional Data Build (CSNBT31O)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc317.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc318.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc319.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc320.dita" toc="no"></topicref>
+</topicref>
+<topicref href="wskc_r_vbtr31kr.dita">
+<topicmeta>
+<retrievalKeys><retkey>TR31 Optional Data Read (CSNBT31R)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_r_l0wskc321.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc322.dita" toc="no"></topicref>
+<topicref href="wskc_r_l0wskc323.dita" toc="no"></topicref>
+</topicref>
+</topicref>
+</map>

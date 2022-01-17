@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ffxd_required" rev="sh21i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>)<indexterm>required commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The access control points shown in <xref href="#ffxd_required/ffxd_acps" format="dita"/> control
+the use of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/> service.</p>
+<p>
+<table frame="all" pgwide="0" id="ffxd_acps"  rev="sh21i2"><title>Access controls in the domain role that control
+the function of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/>
+service</title><desc>
+<p outputclass="summary">Access controls in the domain role that control the function of 
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ffxd"/> service.</p>
+</desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="30*"/>
+<colspec colname="col3" colwidth="7*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Access control</entry>
+<entry>Offset</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Verb level</entry>
+<entry><cmdname>Format Preserving Algorithms Encipher</cmdname>.</entry>
+<entry>0399</entry>
+</row>
+<row>
+<entry>FF1</entry>
+<entry><cmdname>Format Preserving Algorithms Encipher/Decipher – Allow FF1</cmdname>.</entry>
+<entry>0396</entry>
+</row>
+<row>
+<entry>FF2</entry>
+<entry><cmdname>Format Preserving Algorithms Encipher/Decipher – Allow FF2</cmdname>.</entry>
+<entry>0397</entry>
+</row>
+<row>
+<entry>FF2.1</entry>
+<entry><cmdname>Format Preserving Algorithms Encipher/Decipher – Allow FF2.1</cmdname>.</entry>
+<entry>0398</entry>
+</row>
+</tbody>
+</tgroup></table>
+</p>
+</section>
+</refbody>
+</reference>

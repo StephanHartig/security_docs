@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kyt2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb to
+generate or verify a secure, cryptographic verification pattern (also referred to
+as a key-check value) for <ph rev="sh21i1">AES, DES,
+and HMAC keys</ph> contained in a variable-length symmetric key-token. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>)</indexterm></indexterm>
+<indexterm>key verification pattern</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>A key to test can be in the clear, <ph rev="sh21i1"> encrypted under the master key, or
+encrypted under a key-encrypting key.</ph> In addition, the verb permits you to test the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master keys. Keywords in the
+<synph><var>rule_array</var></synph> parameter specify whether the verb generates or verifies a
+verification pattern. See <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"/>.</p>
+<p>When the verb tests a verification pattern against a key, you must supply the verification
+pattern from a previous call to <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"
+/>. This verb returns the verification result in the return code and reason code.</p>
+<p rev="sh21i1">For DES, CCA key tokens may be external and internal, fixed-length (versions 00 or 01) tokens, or external
+variable-length tokens with a DESUSECV key.</p>
+<p rev="sh21i1">For HMAC, CCA key tokens are external and internal variable-length (version 05) key tokens.</p>
+<p rev="sh21i1">External TR-31 key blocks may contain a DES, AES, or HMAC key. DES key blocks may be wrapped with a
+DES or AES key-encrypting key. AES and HMAC key blocks must be wrapped with an AES key-encrypting key.</p>
+<p rev="sh21i1">DES wrapped key blocks (key block protection method VARXOR-A, VARDRV-B, and VARXOR-C) contain DES keys. 
+AES wrapped key blocks (VARDRV-D) may contain DES, AES, or HMAC keys.</p>
+<p rev="sh21i1">Clear key tokens are not supported.</p>
+<p rev="sh21i1">You can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkyt2"/> verb to return the key length of an
+AES or DES key in a secure key token. The information is returned in the
+<parmname>verification_pattern</parmname> parameter.</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

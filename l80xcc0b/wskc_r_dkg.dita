@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dkg">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> verb to generate a key based on the key-generating
+key, the processing method, and the parameter supplied. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/>)</indexterm>
+<indexterm>key generating key</indexterm>
+<indexterm>control vector</indexterm>
+<indexterm>key token</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The control vector of the key-generating key also determines the
+type of target key that can be generated.</p></section>
+<section><p>To use this verb, specify the following: 
+<ul>
+<li>The <i>rule_array</i> keyword to select the diversification
+process.</li>
+<li>The operational key-generating key from which the diversified
+keys are generated. The control vector associated with this key restricts
+the use of this key to the key generation process. This control vector
+also restricts the type of key that can be generated.</li>
+<li>The data and length of data used in the diversification process.</li>
+<li>The generated-key could be an internal token or a skeleton token
+containing the desired CV of the generated-key. The generated key
+CV must be one that is permitted by the processing method and the
+key-generating key. The generated key will be returned in this parameter.</li>
+<li>A key generation method keyword.</li>
+</ul></p></section>
+<section><p>This verb generates diversified keys as follows:
+<ul>
+<li>Determines if it can support the process specified in the <i>rule_array</i>.</li>
+<li>Recovers the key-generating key and checks the key-generating
+key class and the specified usage of the key-generating key.</li>
+<li>Determines that the control vector in the generated-key token
+is permissible for the specified processing method.</li>
+<li>Determines that the control vector in the generated-key token
+is permissible by the control vector of the key-generating key.</li>
+<li>Determines the required data length from the processing method
+and the generated-key CV. Validates the <synph><var>data_length</var></synph>.</li>
+<li>Generates the key appropriate to the specific processing method.
+Adjusts parity of the key to odd. Creates the internal token and returns
+the generated diversified key.</li>
+</ul></p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

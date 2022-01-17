@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_fhk_chmk">
+<title>Changing the master key for two or more adapters that have the same master key, with shared
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage</title>
+<titlealts>
+<navtitle>Changing the master key for  adapters with same master key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Changing the master key for two or more
+adapters that have the same master key, with shared <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage</searchtitle>
+</titlealts><shortdesc rev="sh18i1">Because the verification pattern of the current master key (CMK) is stored
+in a header in key storage, changing the master key for a configuration of multiple adapters
+required extra care in prior releases. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>master key<indexterm>changing</indexterm></indexterm>
+<indexterm>current master key<indexterm>CMK</indexterm></indexterm>
+<indexterm>CMK<indexterm>current master key</indexterm></indexterm>
+<indexterm>key storage</indexterm>
+<indexterm>verification pattern</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>utility</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p rev="sh18i1">Starting with the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+6.0 host library, the master key verification pattern in the key storage header is not checked with
+the purpose of allowing or disallowing the use of an adapter. Therefore, the old workaround ( change
+the master key for one card, move key storage files to a temporary location, change the master key
+for the other cards, move the key storage files back), is no longer needed. There is no change to
+the format of the key storage files themselves, the change is only to the key storage handling in
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> host library.</p>
+</conbody></concept>

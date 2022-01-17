@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="wskc_domain_query" xml:lang="en-us" rev="sh20i2">
+<title>Domain query capabilities</title>
+<titlealts>
+<navtitle>Domain query capabilities</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Domain selection capabilities for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>If you exploit multiple domains, you can query information about the domains in
+use.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>domain selection capabilities<indexterm>single domain
+configuration</indexterm><indexterm>any domain configuration</indexterm></indexterm>
+<indexterm>CSU_DEFAULT_DOMAIN</indexterm>
+<indexterm>environment variable<indexterm>CSU_DEFAULT_DOMAIN</indexterm></indexterm>
+<indexterm>single domain configuration</indexterm>
+<indexterm>any domain configuration</indexterm>
+<indexterm>multi-domain load-balancing</indexterm>
+<indexterm>load-balancing <indexterm>multi-domain</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>To find out the available domains on your partition use the <cmdname>lszcrypt</cmdname> command
+as shown in <xref href="wskc_domain_selection.dita"/>.</p>
+<p>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclcfq"/> verb to find out
+the enabled control and usage domains. Also, use this verb to query the number of domains allocated
+for the system.</p>
+</conbody>
+</concept>
+<?Pub *0000002305?>

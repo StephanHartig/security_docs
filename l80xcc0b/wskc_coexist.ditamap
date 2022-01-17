@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_k">
+<title>Coexistence of CEX7C and previous <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/> features</title>
+<topicref href="wskc_c_coexist.dita">
+<topicref href="wskc_c_ch1concur.dita"/>
+<topicref href="wskc_c_ch1dual.dita"/>
+</topicref>
+</map>
+

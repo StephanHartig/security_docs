@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mvr">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/></searchtitle>
+  </titlealts>
+<shortdesc>When the receiver gets a message, an application program calls
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</indexterm></indexterm>
+<indexterm>Message Authentication Code (MAC)<indexterm>verifying</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)<indexterm>methods</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This <ph>verb</ph> verifies a 4-byte, 6-byte, or 8-byte Message
+Authentication Code (MAC) for an application-supplied text string.
+This <ph>verb</ph> verifies a MAC by generating another MAC and comparing
+it with the MAC received with the message. This process takes place
+entirely within the secure module on the coprocessor. If the two codes
+are the same, the message sent was the same one received. A return
+code indicates whether the MACs are the same. The generated MAC never
+appears in storage and is not revealed outside the cryptographic feature.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> <ph>verb</ph> can use any of the following methods
+to generate the MAC for authentication:
+<ul>
+<li>The ANSI X9.9-1 single key algorithm, a single-length MAC verification
+or MAC generation key (or a data-encrypting key), and the message
+text.</li>
+<li>The ANSI X9.19 optional double key algorithm, a double-length <ph>MAC
+verification or</ph> MAC generation key and the message text.</li>
+<li>Using the Europay, MasterCard and Visa (EMV) padding rules.</li>
+</ul></p>
+<p>The method used to verify the MAC should correspond with the method used to generate the MAC.</p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

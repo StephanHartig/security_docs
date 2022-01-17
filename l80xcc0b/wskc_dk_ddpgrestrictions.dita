@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ddpgrestrictions">
+<title>Restrictions</title>
+<titlealts>
+<navtitle>Restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"/></searchtitle>
+</titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclddpg"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<ul>
+<li>Use of the Visa PVV PIN-calculation method always produces a four-digit output rather than
+padding the output with binary zeros to the length of the PIN. </li>
+<li>A key identifier length must be 64 for a key label.</li>
+<li rev="sh20i1">Support for three-key Triple-DES keys is not available in releases before Release
+5.4 and Release 6.2. Beginning with Release 5.4 and Release 6.2, this verb supports triple-length
+DES keys. For a list of supported three-key Triple-DES key types beginning with Release 5.4 and
+Release 6.2, see <xref href="wskc_triple_tdes_keys.dita#triple_tdes_keys/bsm_three_key_tdes"/>.</li>
+</ul>
+</section>
+</refbody>
+</reference>

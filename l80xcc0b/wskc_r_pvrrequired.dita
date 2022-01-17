@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pvrrequired">
+<title>Required commands</title>
+ <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpvr"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb requires the following commands to be enabled in the active role: </p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpvr"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="4*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Rule-array keyword</entry>
+<entry colname="col2">Offset</entry>
+<entry colname="col3">Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><synph><kwd>IBM-PIN</kwd></synph>, <synph><kwd>IBM-PINO</kwd></synph></entry>
+<entry colname="col2"><ph>X'00AB'</ph></entry>
+<entry colname="col3"><cmdname>Encrypted PIN Verify - 3624</cmdname></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>GBP-PIN</kwd></synph></entry>
+<entry colname="col2"><ph>X'00AC'</ph></entry>
+<entry colname="col3"><cmdname>Encrypted PIN Verify - GBP</cmdname></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>VISA-PVV</kwd></synph>, <synph><kwd>VISAPVV4</kwd></synph></entry>
+<entry colname="col2"><ph>X'00AD'</ph></entry>
+<entry colname="col3"><cmdname>Encrypted PIN Verify - VISA PVV</cmdname></entry>
+</row>
+<row>
+<entry colname="col1"><synph><kwd>INBK-PIN</kwd></synph></entry>
+<entry colname="col2"><ph>X'00AE'</ph></entry>
+<entry colname="col3"><cmdname>Encrypted PIN Verify - Interbank</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>This verb also requires the <cmdname>UKPT - PIN Verify, PIN Translate</cmdname> command (offset
+X'00E1') to be enabled in the active role if you employ UKPT processing.</p>
+<note>A role with offset X'00E1' enabled can also use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb with UKPT processing.</note></section>
+<section><p>An enhanced PIN security mode is available for extracting PINs from an  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm"/> 3624 encrypted PIN-block using the
+<synph><kwd>PADDIGIT</kwd></synph> PIN-extraction method. This mode limits checking of the PIN to
+decimal digits, and a minimum PIN length of four is enforced. No other PIN-block consistency
+checking will occur. To activate this mode, enable the <cmdname>Enhanced PIN Security</cmdname>
+command (offset <ph>X'0313'</ph>) in the active role.</p>
+<p>Whenever the <cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname> command
+(offset X'0356') is enabled in the active role, the Decimalization_table element of the
+<synph><var>data_array</var></synph> value must match one of the PIN decimalization tables that are
+in the active state on the coprocessor. Use of this command provides improved security and control
+for PIN decimalization tables. The <synph><kwd>VISA-PVV</kwd></synph>,
+<synph><kwd>VISAPVV4</kwd></synph>, and <synph><kwd>INBK-PIN</kwd></synph> PIN calculation methods
+do not have a Decimalization_table element and are therefore not affected by this command.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is
+enabled in the domain role, the PIN block format in the <parmname>input_PIN_profile</parmname>
+parameter must not be ISO-1.</p></section>
+</refbody></reference>

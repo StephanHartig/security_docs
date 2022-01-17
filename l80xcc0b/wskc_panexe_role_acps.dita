@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference id="panexe_role_acps" xml:lang="en-us" rev="sh16">
+<title>Using panel.exe to show the active role and ACPs</title>
+<titlealts>
+<navtitle>panel.exe: show active role and ACPs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Using panel.exe to show the active role
+and ACPs</searchtitle>
+</titlealts>
+<shortdesc>You can use the <cmdname>panel.exe</cmdname> utility to list the name of the role for the
+current domain, to show all the ACP settings for that role, and to query the setting of a particular
+ACP for that role.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>utilities<indexterm>panel.exe</indexterm></indexterm>
+<indexterm>panel.exe<indexterm>show active role</indexterm><indexterm>show access control
+points</indexterm></indexterm>
+<indexterm>active role<indexterm>show with panel.exe</indexterm></indexterm>
+<indexterm>ACPs<indexterm>show with panel.exe</indexterm></indexterm>
+<indexterm>access control points<indexterm>show with panel.exe</indexterm></indexterm>
+<indexterm>default role</indexterm>
+<indexterm>role<indexterm>default role</indexterm></indexterm>
+<indexterm>domain<indexterm>default role</indexterm></indexterm>
+<indexterm>DEFALTXX/DFLTXXXX</indexterm>
+<indexterm>DFLTXXXX</indexterm>
+<indexterm>enable ACPs</indexterm>
+<indexterm>disable ACPs</indexterm>
+<indexterm>ACPs<indexterm>enable, disable</indexterm></indexterm>
+<indexterm>access control points<indexterm>enable, disable</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>Each domain of the coprocessor has a role assigned which defines the capabilities of every
+application running in that domain. Installations that make use of a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke_only"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>) workstation can configure the role for
+each domain to enable or disable capabilities. A capability is called an access control point, or
+ACP for short. </p>
+<p rev="sh18i2">The role visible to and used by a domain is called the default role for that domain.
+The 8-byte name of the role depends on the number of the domain and the generation of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cryptocoproc"/>.  Examples of names are
+<codeph>DEFALT02</codeph> for domain 2 on a CEX3C or CEX4C adapter (derived from the
+<codeph>DEFALTXX</codeph> style of naming), or <codeph>DFLT0035</codeph> for domain 35 on a CEX5C or
+higher adapter (derived from the <codeph>DFLTXXXX</codeph> style of naming, introduced with the
+CEX5C support on  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/z13"/> systems). </p>
+<p>Invoke <cmdname>panel.exe</cmdname> for particular purposes as follows: </p>
+</section>
+<section><title>To list the role for the domain:</title>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen># panel.exe --list-roles</screen></p>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy syntax</b></p>
+<screen># panel.exe -mrl</screen>
+<p rev="sh18i2">The output is the same in both interface versions:</p>
+<screen>   
+Showing returned list of ROLEs:
+
+[DFLT0019]
+---------------------------
+API CALL details:
+CSUAACM [LSTROLES] card [DV73R354] number of items [1]
+---------------------------
+</screen>
+<p><b>Data explained:</b></p>
+<p>The only visible role to this domain has the 8 byte ASCII name <codeph>DFLT0019</codeph>, where
+<codeph>19</codeph> stands for domain 19. For more information on roles, see <xref
+conref="wskc_conref-l0wskc04.dita#links/icsf_tke_ug"/>.</p>
+<note>With <cmdname>panel.exe</cmdname>, you can only see the <codeph>DEFALTXX/DFLTXXXX</codeph>
+roles for each domain. You cannot see further administrative roles. Also, on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>, you cannot create or use
+multiple roles for use by different applications on one domain. If you require different roles for
+applications, <ph rev="sh18i1">these applications must use different domains,</ph> because all
+applications in a domain share the same permissions granted by the
+<codeph>DEFALTXX/DFLTXXXX</codeph> role. </note>
+</section> 
+<section>
+<title>To show the ACPs for that role:</title>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen>
+# panel.exe --show-role --role "DFLT0019"
+# panel.exe --show-role --role=DFLT0019
+</screen></p>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy syntax</b></p>
+<screen># panel.exe -mrp "DEFALT02"</screen>
+<p rev="sh18i2">The output is the same in both interface versions:</p>
+<screen>
+Showing returned ROLE DATA:
+
+API CALL details:
+CSUAACM [GET-ROLE ] card [DV73R354] ROLE [DFLT0019] size [208]
+ version:    [0001] 
+ comment:    [System default role ] 
+ authstr:    [0000] 
+ time range: [00:00] - [00:00] 
+ DOW:        [fe] 
+ ACP Segments for role: 5 
+ ACP Segment [0] has [31] Bytes for bits [0x0008 - 0x00ff] 
+  [ 03 f0 ] &lt;&lt; ACP bits [0x0008 - 0x0017]
+  [ ff 70 ] &lt;&lt; ACP bits [0x0018 - 0x0027]
+  &lt;…data continues…>   </screen>
+<p><u>Output explanation:</u></p>
+<p> The shown output is a parsed version of the role and access control point data structures
+described in <xref href="wskc_acodas_intro.dita#acodas_intro"/>, to make it human-accessible. The
+size of the entire returned data structure is 208 bytes, for the role with ID DFLT0019. </p>
+<p>The <apiname>authstr</apiname>, <apiname>time range</apiname>, and <apiname>DOW</apiname> fields
+are meaningless for a default role like this.</p>
+<p>There are five ACP segments to be shown. The start of the data for the first or 0<sup>th</sup>
+segment is shown, it has 31 bytes of data that specify ACPs from offset 0x0008 to 0x00ff. Then each
+of those 31 bytes is shown in hexadecimal at left, with information at right to indicate the ACP
+bits that correspond to that hexadecimal byte. This information is useful to understand the role
+structure or to check your own program that might try to pull and process the same information. </p>
+<p><b>Example:</b></p>
+<codeblock>[ 03 f0 ] &lt;&lt; ACP bits [0x0008 – 0x0017]</codeblock>
+<fig expanse="column" id="panex_acp">
+<title>ACP setting for a role</title>
+<image href="l0wskc02_fig28.jpg" placement="break" width="500">
+<alt>ACP setting for a role</alt>
+</image>
+</fig>
+<p><xref href="#panexe_role_acps/panex_acp" format="dita"/> shows how to interpret the output from
+the command <codeph rev="sh18i2">panel.exe --show-role --role=DFLT0019</codeph>. For example, you
+can see that ACP X'000E' is enabled for role <codeph>DFLT0019</codeph>.</p>
+</section>
+<section><title>To query a particular ACP value for that role</title>
+<p>(ENABLED means <codeph>1</codeph>, DISABLED means <codeph>0</codeph>)</p>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> default
+syntax</b><screen>
+# panel.exe --query-acps --role=DFLT0019 --acps=0x0204
+# panel.exe --query-acps --role "DFLT0019" --acps 0x0204</screen></p>
+<p rev="sh18i2"><b><cmdname>panel.exe</cmdname> legacy syntax</b></p>
+<screen># panel.exe -mrq "DEFALT02" 0x0204</screen>
+<p rev="sh18i2">The output is the same in both interface versions:</p>
+<screen>
+Role ID [DFLT0019]: ACP [0x0204] is [ENABLED]
+</screen>
+
+</section>
+</refbody>
+</reference>
+<?Pub *0000002489?>

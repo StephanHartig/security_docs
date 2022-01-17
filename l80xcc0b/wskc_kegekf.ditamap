@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us" id="appendix_c">
+<title>Key forms and types used in the Key Generate verb</title>
+<topicref href="wskc_c_kegekf.dita">
+<topicref href="wskc_c_chp2genopkey.dita"/>
+<topicref href="wskc_c_chp2genimpkey.dita"/>
+<topicref href="wskc_c_chp2genexpkey.dita"/>
+<topicref href="wskc_c_chp2exslkeyone.dita"/>
+<topicref href="wskc_c_chp2exopimsldltlkeytwo.dita"/>
+<topicref href="wskc_c_opexku.dita"/>
+<topicref href="wskc_c_chp2eximexsldlkeytwo.dita"/>
+<topicref href="wskc_c_chp2exexexsldltwo.dita"/>
+</topicref>
+</map>

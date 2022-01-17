@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_vparms">
+<title>Parameters common to all verbs</title>
+<titlealts>
+<navtitle>Parameters common to all verbs</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters common to all verbs for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts><shortdesc>A parameter is an address pointer to the associated variable in
+application program storage.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm>common parameters</indexterm></indexterm>
+<indexterm>return_code parameter</indexterm>
+<indexterm>reason_code parameter</indexterm>
+<indexterm>exit_data_length parameter</indexterm>
+<indexterm>exit_data parameter</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The first four parameters (<parmname>return_code</parmname>, <parmname>reason_code</parmname>,
+<parmname>exit_data_length</parmname>, and <parmname>exit_data</parmname>) are the same for all
+verbs:</p>
+<parml>
+<plentry><pt>return_code </pt>
+<pd>The return code specifies the general result of the verb. <xref
+href="wskc_r_aprec.dita#l0wskc02_aprec"/> lists the return codes.</pd></plentry>
+<plentry><pt>reason_code </pt>
+<pd>The reason code specifies the result of the verb that is returned to the application program.
+Each return code has different reason codes assigned to it that indicate specific processing
+problems. <xref href="wskc_r_aprec.dita#l0wskc02_aprec"/> lists the reason codes.</pd></plentry>
+<plentry><pt>exit_data_length </pt>
+<pd>A pointer to an integer value containing the length of the string (in bytes) that is returned by
+the <parmname>exit_data</parmname> value. This parameter should point to a value of zero, to ensure
+compatibility with any future extension or other operating environment.</pd></plentry>
+<plentry><pt>exit_data </pt>
+<pd>The data that is passed to an installation exit. Exits are not supported and no exit data is
+allowed in this parameter. <note type="other" othertype="Restriction">The
+<parmname>exit_data_length</parmname> and <parmname>exit_data</parmname> variables must be declared
+in the parameter list. The <parmname>exit_data_length</parmname> parameter should be set to
+<ph>B'0'</ph>.</note></pd></plentry>
+</parml>
+</conbody></concept>

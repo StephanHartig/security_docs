@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_num-dect">
+<title>NUM-DECT</title>
+  <titlealts>
+    <navtitle>NUM-DECT</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): NUM-DECT</searchtitle>
+  </titlealts><shortdesc>This <i>rule_array</i> keyword causes a 4-byte
+binary number to be returned. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>NUM-DECT</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This is the number of bytes required for the <synph><var>verb_data</var></synph> variable
+when the <synph><kwd>STATDECT</kwd></synph> rule-array keyword is specified.</p></section>
+</refbody></reference>

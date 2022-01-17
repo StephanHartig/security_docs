@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_x98_enf">
+<title>ANSI X9.8 PIN - Enforce PIN block restrictions</title>
+<titlealts>
+<navtitle>ANSI X9.8 PIN - Enforce PIN block restrictions</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.8 PIN - Enforce PIN block
+restrictions</searchtitle>
+</titlealts><shortdesc>When the ANSI X9.8 PIN - Enforce PIN block restrictions access
+control point is enabled, restrictions are enforced.</shortdesc>
+<prolog><metadata><keywords><!--Insert <indexterm> tags here--></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The following restrictions are enforced: </p>
+<ul>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs will not accept <tm
+trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN format in the output profile parameter when the input
+profile parameter is not <tm trademark="IBM" tmtype="reg">IBM</tm> 3624.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> verb will not accept
+ISO-0 or ISO-3 formats in the input PIN profile unless ISO-0 or ISO-3 is in the output PIN
+profile.</li>
+<li>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs will not accept ISO-1 or ISO-2
+formats in the output profile parameter when the input profile parameter contains ISO-0, ISO-3, or
+VISA4.</li>
+<li>When the input profile parameter for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs contains either ISO-0 or ISO-3
+formats, the PAN within the decrypted PIN block will be extracted. This PAN must be the same as the
+PAN that was supplied as the input PAN parameter, and this PAN must be the same as the PAN supplied
+as the output PAN parameter.</li>
+<li>The input PAN and output PAN parameters for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs must be equivalent.</li>
+<li>When the rule array for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcpa"
+/> verb contains VISA-PVV, the input PIN profile must contain ISO-0 or ISO-3 formats.</li>
+</ul>
+</conbody></concept>

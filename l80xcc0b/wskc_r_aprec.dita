@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc02_aprec" xml:lang="en-us">
+<title>Return codes and reason codes</title>
+<titlealts>
+<navtitle>Return and reason codes</navtitle><?Pub Caret 7?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Return codes and reason       codes</searchtitle>
+</titlealts>
+<shortdesc>Read the contained reference information that describes
+the return codes and reason codes     reported at the conclusion of
+verb processing.</shortdesc>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<refbody>
+<section><p>Reason code numbers narrow down the meaning of a return
+code. All reason code numbers are unique and associated with a single
+return code. Generally, you can base your application program design
+on the return codes.</p></section>
+<section><p>Each verb supplies a return code and a reason code in
+the variables identified by the <synph><var>return_code</var></synph> and <synph><var>reason_code</var></synph> parameters.
+See <xref href="wskc_c_vparms.dita#l0wskc02_vparms"></xref>.</p></section>
+</refbody>
+</reference>
+<?Pub *0000001428?>

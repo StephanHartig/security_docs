@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2mesauthproc">
+<title>Processing message authentication code</title>
+<titlealts>
+<navtitle>Processing message authentication</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Processing message authentication
+code</searchtitle>
+</titlealts><shortdesc>The process of verifying the integrity and authenticity of transmitted
+messages is called <i>message authentication</i>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>MAC<indexterm>managing</indexterm></indexterm>
+<indexterm>message authentication<indexterm>definition</indexterm></indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>MACVER</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Message authentication code (MAC) processing allows you to verify
+that a message was not altered or a message was not fraudulently introduced
+onto the system. You can check that a message you have received is
+the same one sent by the message originator. The message itself can
+be in clear or encrypted form. The comparison is performed within
+the cryptographic coprocessor. Because both the sender and receiver
+share a secret cryptographic key used in the MAC calculation, the
+MAC comparison also ensures the authenticity of the message.</p>
+<p>In a similar manner, MACs can be used to ensure the integrity of
+data stored on the system or on removable media, such as tape.</p>
+<p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key typing makes it possible to
+give one party a key that can only be used to generate a MAC, and to give another party a
+corresponding key that can only be used to verify the MAC. This ensures that the second party cannot
+impersonate the first by generating MACs with their version of the key.</p>
+<p>The coprocessor provides support for both single-length and double-length
+MAC generation and MAC verification keys. With the ANSI X9.9-1 single
+key algorithm, use the single-length MAC and MACVER keys.</p>
+<p>CCA provides support for the use of data-encrypting keys in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs, and also the use of a MAC
+generation key in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb.
+This support permits <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> MAC verbs to
+interface more smoothly with non-CCA key distribution system.</p>
+<p>HMAC codes are computed using the FIPS-198 Keyed-Hash Message Authentication
+Code method. See <xref href="wskc_c_apmac.dita#l0wskc02_apmac"/>.</p>
+<p>These verbs are used to process MACs:
+<ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr"/>)</li>
+</ul></p>
+</conbody></concept>

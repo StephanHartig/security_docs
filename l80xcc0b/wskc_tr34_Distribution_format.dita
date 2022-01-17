@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Dcsfb4-gen391_format" xml:lang="en-us" rev="hw20i1">
+<title>Format</title>
+<titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"
+/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>(
+			<synph><var>return_code</var></synph>,	
+			<synph><var>reason_code</var></synph>,	
+			<synph><var>exit_data_length</var></synph>,			
+			<synph><var>exit_data</var></synph>,			
+			<synph><var>rule_array_count</var></synph>,
+			<synph><var>rule_array</var></synph>,
+			<synph><var>source_key_identifier_length</var></synph>,
+			<synph><var>source_key_identifier</var></synph>,
+			<synph><var>unwrap_kek_identifier_length</var></synph>,
+			<synph><var>unwrap_kek_identifier</var></synph>,
+			<synph><var>freshness_indicator_length</var></synph>,
+			<synph><var>freshness_indicator</var></synph>,	
+			<synph><var>crl_length</var></synph>,			
+			<synph><var>crl</var></synph>,			
+			<synph><var>cred_kdh_length</var></synph>,
+			<synph><var>cred_kdh</var></synph>,
+			<synph><var>cred_krd_length</var></synph>,
+			<synph><var>cred_krd</var></synph>,
+			<synph><var>private_key_identifier_length</var></synph>,
+			<synph><var>private_key_identifier</var></synph>,
+			<synph><var>key_version_number</var></synph>,
+			<synph><var>opt_blocks_length</var></synph>,	
+			<synph><var>opt_blocks</var></synph>,
+			<synph><var>output_token_length</var></synph>, 	
+			<synph><var>output_token</var></synph>,
+			<synph><var>reserved_data_length</var></synph>, 	
+			<synph><var>reserved_data</var></synph>)</codeblock>
+</section>
+</refbody>
+</reference>
+<?Pub *0000077566?>

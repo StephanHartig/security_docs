@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appcmaskarrprep" xml:lang="en-us">
+<title>Mask array preparation</title>
+<titlealts>
+<navtitle>Mask array preparation</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Mask array preparation</searchtitle>
+</titlealts>
+<shortdesc>A mask array consists of seven 8-byte elements: A<sub>1</sub>,
+B<sub>1</sub>, A<sub>2</sub>, B<sub>2</sub>, A<sub>3</sub>, B<sub>3</sub>,
+and B<sub>4</sub>. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>mask array preparation</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>You choose the values of the array elements such that each of the
+following four expressions evaluates to a string of binary zeros.
+(See <xref href="#l0wskc02_appcmaskarrprep/l0wskc02_cvxl2"></xref>.)
+Set the <b>A</b> bits to the value you require for the corresponding
+control vector bits. In expressions <xref
+href="#l0wskc02_appcmaskarrprep/l0wskc02_mask1"></xref> through <xref
+href="#l0wskc02_appcmaskarrprep/l0wskc02_mask3"></xref>, set the <b>B</b> bits
+to select the control vector bits to be evaluated. In expression <xref
+href="#l0wskc02_appcmaskarrprep/l0wskc02_mask4"></xref>, set the <b>B</b> bits
+to select the source and target control vector bits to be evaluated.
+Also, use the following control vector information: <sl>
+<sli><b>C<sub>1</sub></b> is the control vector associated with the
+left half of the KEK.</sli>
+<sli><b>C<sub>2</sub></b> is the control vector associated with the
+source key or selected source-key half/halves.</sli>
+<sli><b>C<sub>3</sub></b> is the control vector associated with the
+target key or selected target-key half/halves.</sli>
+</sl> <ol>
+<li id="l0wskc02_mask1">(C<sub>1</sub> XOR A<sub>1</sub>) logical-AND
+B<sub>1</sub>  <p>This expression tests whether the KEK used to encipher
+the key meets your criteria for the desired translation.</p></li>
+<li id="l0wskc02_mask2">(C<sub>2</sub> XOR A<sub>2</sub>) logical-AND
+B<sub>2</sub>  <p>This expression tests whether the control vector
+associated with the source key meets your criteria for the desired
+translation.</p></li>
+<li id="l0wskc02_mask3">(C<sub>3</sub> XOR A<sub>3</sub>) logical-AND
+B<sub>3</sub>  <p>This expression tests whether the control vector
+associated with the target key meets your criteria for the desired
+translation.</p></li>
+<li id="l0wskc02_mask4">(C<sub>2</sub> XOR C<sub>3</sub>) logical-AND
+B<sub>4</sub>  <p>This expression tests whether the control vectors
+associated with the source key and the target key meet your criteria
+for the desired translation.</p></li>
+</ol></p>
+<p>Encipher two copies of the mask array, each under a different cryptographic-variable
+key (key type CVARENC). Use two different keys so the enciphered-array
+copies are unique values. When using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph>,
+the <synph><var>mask_array_left</var></synph> parameter and the <synph><var>mask_array_right</var></synph> parameter
+identify the enciphered mask arrays. The <synph><var>array_key_left</var></synph> parameter
+and the <synph><var>array_key_right</var></synph> parameter identify
+the internal keys for deciphering the mask arrays. The <synph><var>array_key_left</var></synph> parameter
+must have a key type of CVARXCVL and the <synph><var>array_key_right</var></synph> parameter
+must have a key type of CVARXCVR. The cryptographic process deciphers
+the arrays and compares the results; for the service to continue,
+the deciphered arrays must be equal. If the results are not equal,
+the service returns the return and reason code for data that is not
+valid (8/385).</p>
+<p>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"></keyword> <ph>verb</ph> to
+create the key pairs CVARENC-CVARXCVL and CVARENC-CVARXCVR. Each key
+in the key pair must be generated for a different node. The CVARENC
+keys are generated for, or imported into, the node where the mask
+array will be enciphered. After enciphering the mask array, you should
+destroy the enciphering key. The CVARXCVL and CVARXCVR keys are generated
+for, or imported into, the node where the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph> 
+will be performed.</p>
+<p>If using the <synph><kwd>BOTH</kwd></synph> keyword to process
+both halves of a double-length key, remember that bits 41, 42, 104,
+and 105 are different in the left and right halves of the CCA control
+vector and must be ignored in your mask-array tests (that is, make
+the corresponding <b>B<sub>2</sub></b> and/or <b>B<sub>3</sub></b> bits
+equal to zero). </p>
+<p>When the control vectors pass the masking tests, the verb does
+the following:  <ul>
+<li>Deciphers the source key. In the decipher process, the service
+uses a key that is formed by the XOR of the KEK and the control vector
+in the key token variable the <synph><var>source_key_token</var></synph> parameter
+identifies.</li>
+<li>Enciphers the deciphered source key. In the encipher process,
+the <ph>verb</ph> uses a key that is formed by the XOR of the KEK
+and the control vector in the key token variable the <synph><var>target_key_token</var></synph> parameter
+identifies.</li>
+<li>Places the enciphered key in the key field in the key token variable
+the <synph><var>target_key_token</var></synph> parameter identifies.</li>
+</ul> <fig expanse="column" id="l0wskc02_cvxl2"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb
+mask_array processing</title>
+<image href="l0wskc02_fig15.jpg" placement="break" width="500"><alt>verb
+mask_array processing</alt></image>
+</fig></p>
+</conbody>
+</concept>
+<?Pub *0000005806?>

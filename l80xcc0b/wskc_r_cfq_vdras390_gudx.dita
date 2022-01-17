@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_cfq_vdras390_gudx">
+<title>GET-UDX</title>
+<titlealts>
+<navtitle>GET-UDX</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): GET-UDX</searchtitle>
+</titlealts>
+<shortdesc>This <i>rule_array</i> keyword causes a variable
+length list of 2-byte UDX identifiers to be returned. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>GET-UDX</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>The identifiers represent the authorized UDX verb IDs for the adapter. A UDX is a set of one or
+        more custom CCA APIs added to the adapter, using the installable code feature. Unless the
+        programming source has also provided an updated host library, these UDX calls are not
+        accessible from the <keyword
+          conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ibm_z_systems"/>
+        <tm trademark="Linux" tmtype="tm">Linux</tm> host library. If an updated host library is
+        provided, refer to the accompanying documentation for usage.</p></section>
+<section><p>The maximum number of names to be returned is 100. Using this number,
+the maximum size buffer is 6400 bytes.</p></section>
+</refbody></reference>

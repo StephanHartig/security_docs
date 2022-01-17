@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_algover" xml:lang="en-us">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> DES-key verification
+algorithm</title>
+<titlealts>
+<navtitle>CCA DES-key verification</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): CCA DES-key verification
+algorithm</searchtitle>
+</titlealts>
+<shortdesc>The cryptographic engines provide a method for verifying
+the value of a DES cryptographic key or key part without revealing
+information about the value of the key or key part.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>CCA DES-key verification</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verification method first
+creates a random number. A one-way cryptographic function combines the random number with the key or
+key part. The verification method returns the result of this one-way cryptographic function (the
+<i>verification pattern</i>) and the random number.</p>
+<note>A one-way cryptographic function is a function in which it is
+easy to compute the output from a given input, but it is not computationally
+feasible to compute the input given an output.</note>
+<p>For information about how you can use an application program to
+invoke this verification method, see <xref
+href="wskc_r_kyt.dita#l0wskc02_kyt"></xref>.</p>
+<p>The CCA DES key verification algorithm does the following:  <ol>
+<li>Sets <i>KKR&prime;</i> = <i>KKR</i> XOR <i>RN</i></li>
+<li>Sets <i>K1</i> = <ph>X'4545454545454545'</ph></li>
+<li>Sets <i>X1</i> = DES encoding of <i>KKL</i> using key <i>K1</i></li>
+<li>Sets <i>K2</i> = <i>X1</i> XOR <i>KKL</i></li>
+<li>Sets <i>X2</i> = DES encoding of <i>KKR&prime;</i> using key <i>K2</i></li>
+<li>Sets <i>VP</i> = <i>X2</i> XOR <i>KKR&prime;</i></li>
+</ol> </p>
+<p>where:  <dl><dlentry>
+<dt>RN</dt>
+<dd>Is the random number generated or provided</dd>
+</dlentry><dlentry>
+<dt>KKL</dt>
+<dd>Is the value of the single-length key, or is the left half of
+the double-length key</dd>
+</dlentry><dlentry>
+<dt>KKR</dt>
+<dd>Is XL8'00' if the key is a single-length key, or is the value
+of the right half of the double-length key</dd>
+</dlentry><dlentry>
+<dt>VP</dt>
+<dd>Is the verification pattern</dd>
+</dlentry></dl> </p>
+</conbody>
+</concept>
+<?Pub *0000002328?>

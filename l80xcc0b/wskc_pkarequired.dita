@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_pkarequired">
+  <title>Required commands</title>
+  <titlealts>
+    <navtitle>Required commands</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+  </titlealts>
+<shortdesc>The required commands for <keyword
+      conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> (<keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclsxd"/>)<indexterm>required
+            commands</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> verb requires the
+          <cmdname>Symmetric Key Export with Data</cmdname> command (offset X'02B5') to be enabled
+        in the active role. </p>
+      <p>In addition, the verb requires the following commands to be enabled in the active role
+        based on the key-formatting method and the token algorithm:</p>
+<table id="pka_required_table" pgwide="0" frame="all">
+        <title>Required commands for the <keyword
+            conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> verb</title>
+        <desc>
+          <p outputclass="summary">Required commands for the <keyword
+              conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpka"/> verb</p>
+        </desc>
+        <tgroup cols="4">
+          <colspec colname="col1" colwidth="17*"/>
+          <colspec colname="col2" colwidth="14*"/>
+          <colspec colname="col3" colwidth="12*"/>
+          <colspec colname="col4" colwidth="50*"/>
+          <thead>
+            <row>
+              <entry>Key-formatting method</entry>
+              <entry>Algorithm</entry>
+              <entry>Offset</entry>
+              <entry>Command</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>PKCS-EXT</entry>
+              <entry>AES</entry>
+              <entry>X'0130'</entry>
+              <entry><cmdname>Symmetric Key Export - AES, PKCSOAEP,
+PKCS-1.2</cmdname></entry>
+            </row>
+            <row>
+              <entry>PKCS-EXT</entry>
+              <entry>DES</entry>
+              <entry>X'0105'</entry>
+              <entry><cmdname>Symmetric Key Export - DES, PKCS-1.2</cmdname></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+<p>The <cmdname>Symmetric Key Export with Data - Special</cmdname> command (offset
+X'02B6') affects which key types are allowed for the source key token. When offset X'02B6' is
+enabled in the active role, any key type can be used. When it is not enabled in the active role, the
+following rules apply: </p>
+      <ul>
+        <li>Token algorithm AES:<p>If the source AES key is in a fixed-length symmetric key-token,
+            the key is always allowed. If the source AES key is in a variable-length symmetric
+            key-token, the key type must be CIPHER. </p></li>
+        <li>Token algorithm DES:<p>The source DES key must be in a fixed-length symmetric key-token
+            and have one of the following:</p><ul>
+            <li>A control vector with bit 61 = B'1' (NOT-CCA)</li>
+            <li>A key type of DATAC</li>
+            <li>A key type of DKYGENKY with subtype DKYL0</li>
+          </ul></li>
+      </ul>
+    </section>
+  </refbody>
+</reference>

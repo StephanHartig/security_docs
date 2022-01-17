@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<map xml:lang="en-us">
+<title>Financial services for DK PIN methods</title>
+<topicref href="wskc_c_appin_dk.dita">
+<topicref href="wskc_dk_weak_pin_table.dita"/>
+<topicref href="wskc_dk_pin_methods.dita"/>
+<topicref href="wskc_dk_ddpgdeterm.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK Deterministic PIN Generate (CSNBDDPG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_ddpgformat.dita" toc="no"/>
+<topicref href="wskc_dk_ddpgparameters.dita" toc="no"/>
+<topicref href="wskc_dk_ddpgrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_ddpgrequired.dita" toc="no"/>
+<topicref href="wskc_dk_ddpgusage.dita" toc="no"/>
+<topicref href="wskc_dk_ddpgjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dmpmigpin.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK Migrate PIN (CSNBDMP)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dmpformat.dita" toc="no"/>
+<topicref href="wskc_dk_dmpparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dmprestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dmprequired.dita" toc="no"/>
+<topicref href="wskc_dk_dmpusage.dita" toc="no"/>
+<topicref href="wskc_dk_dmpjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dpmtpanmod.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PAN Modify in Transaction (CSNBDPMT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpmtformat.dita" toc="no"/>
+<topicref href="wskc_dk_dpmtparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dpmtrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dpmtrequired.dita" toc="no"/>
+<topicref href="wskc_dk_dpmtusage.dita" toc="no"/>
+<topicref href="wskc_dk_dpmtjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dptpantrans.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PAN Translate (CSNBDPT)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dptformat.dita" toc="no"/>
+<topicref href="wskc_dk_dptparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dptrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dptrequired.dita" toc="no"/>
+<topicref href="wskc_dk_dptusage.dita" toc="no"/>
+<topicref href="wskc_dk_dptjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dpcpinchange.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PIN Change (CSNBDPC)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpcformat.dita" toc="no"/>
+<topicref href="wskc_dk_dpcparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dpcrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dpcrequired.dita" toc="no"/>
+<topicref href="wskc_dk_dpcusage.dita" toc="no"/>
+<topicref href="wskc_dk_dpcjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dpvpinverify.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PIN Verify (CSNBDPV)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpvformat.dita" toc="no"/>
+<topicref href="wskc_dk_dpvparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dpvrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dpvrequired.dita" toc="no"/>
+<topicref href="wskc_dk_dpvusage.dita" toc="no"/>
+<topicref href="wskc_dk_dpvjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_dpnuprwcard.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PRW Card Number Update (CSNBDPNU)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpnuformat.dita" toc="no"/>
+<topicref href="wskc_dk_dpnuparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dpnurestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dpnurequired.dita" toc="no"/>
+<topicref href="wskc_dk_dpnuusage.dita" toc="no"/>
+<topicref href="wskc_dk_dpnujniv.dita" toc="no"/>
+</topicref>
+
+<topicref href="wskc_dk_dpnuprwcard2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PRW Card Number Update2 (CSNBDCU2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpnuformat2.dita" toc="no"/>
+<topicref href="wskc_dk_dpnuparameters2.dita" toc="no"/>
+<topicref href="wskc_dk_dpnurestrictions2.dita" toc="no"/>
+<topicref href="wskc_dk_dpnurequired2.dita" toc="no"/>
+<topicref href="wskc_dk_dpnuusage2.dita" toc="no"/>
+<topicref href="wskc_dk_dpnujniv2.dita" toc="no"/>
+</topicref>
+
+
+<topicref href="wskc_dk_dpcgprwcmac.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK PRW CMAC Generate (CSNBDPCG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_dpcgformat.dita" toc="no"/>
+<topicref href="wskc_dk_dpcgparameters.dita" toc="no"/>
+<topicref href="wskc_dk_dpcgrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_dpcgrequired.dita" toc="no"/>
+<topicref href="wskc_dk_dpcgusage.dita" toc="no"/>
+<topicref href="wskc_dk_dpcgjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_drpgranpin.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK Random PIN Generate (CSNBDRPG)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_drpgformat.dita" toc="no"/>
+<topicref href="wskc_dk_drpgparameters.dita" toc="no"/>
+<topicref href="wskc_dk_drpgrestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_drpgrequired.dita" toc="no"/>
+<topicref href="wskc_dk_drpgusage.dita" toc="no"/>
+<topicref href="wskc_dk_drpgjniv.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_drpgranpin2.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK Random PIN Generate2 (CSNBDRG2)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_drpgformat2.dita" toc="no"/>
+<topicref href="wskc_dk_drpgparameters2.dita" toc="no"/>
+<topicref href="wskc_dk_drpgrestrictions2.dita" toc="no"/>
+<topicref href="wskc_dk_drpgrequired2.dita" toc="no"/>
+<topicref href="wskc_dk_drpgusage2.dita" toc="no"/>
+<topicref href="wskc_dk_drpgjniv2.dita" toc="no"/>
+</topicref>
+<topicref href="wskc_dk_drpregpin.dita">
+<topicmeta>
+<retrievalKeys>
+<retkey>DK Regenerate PRW (CSNBDRP)</retkey>
+</retrievalKeys>
+</topicmeta>
+<topicref href="wskc_dk_drpformat.dita" toc="no"/>
+<topicref href="wskc_dk_drpparameters.dita" toc="no"/>
+<topicref href="wskc_dk_drprestrictions.dita" toc="no"/>
+<topicref href="wskc_dk_drprequired.dita" toc="no"/>
+<topicref href="wskc_dk_drpusage.dita" toc="no"/>
+<topicref href="wskc_dk_drpjniv.dita" toc="no"/>
+</topicref>
+</topicref>
+</map>

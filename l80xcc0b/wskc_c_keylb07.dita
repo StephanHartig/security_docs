@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="keylb07">
+<title>Key-label content</title>
+<titlealts>
+<navtitle>Key-label content</navtitle>
+<searchtitle/>
+</titlealts><shortdesc>Use a key label to identify a record in key storage managed by
+a CCA implementation. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>key label</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The key label must be left-aligned in the 64-byte string variable
+used as input to the verb. Some verbs use a key label while others
+use a key identifier. Calls that use a key identifier accept either
+a key token or a key label.</p>
+<p>A key-label character string has the following properties: 
+<ul>
+<li>It contains 64 bytes of data.</li>
+<li>The first character is within the range <ph>X'20'</ph> - <ph>X'FE'</ph>.
+If the first character is within this range, the input is treated
+as a key label, even if it is otherwise not valid. Inputs beginning
+with a byte valued in the range <ph>X'00'</ph> - <ph>X'1F'</ph> are
+considered to be some form of key token. A first byte valued to <ph>X'FF'</ph> is
+not valid.</li>
+<li>The first character of the key label cannot be numeric (0  - 
+9).</li>
+<li>The label is ended by a space character on the right (in ASCII
+it is <ph>X'20'</ph>, and in EBCDIC it is <ph>X'40'</ph>). The remainder
+of the 64-byte field is padded with space characters.</li>
+<li>Construct a label with 1 - 7 name tokens, each separated by a
+period (.). The key label must not end with a period.</li>
+<li>A name token consists of 1 - 8 characters in the character set
+A - Z, 0 - 9, and three additional characters relating to different
+character symbols in the various national language character sets
+as listed in <xref href="#keylb07/keylb07_tab1"/>.
+<table id="keylb07_tab1" pgwide="0" frame="all">
+<title>Valid symbols for the name token</title><desc><p outputclass="summary">Valid
+symbols for the name token</p></desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="4*"/>
+<colspec colname="col3" colwidth="6*"/>
+<thead>
+<row>
+<entry>ASCII systems</entry>
+<entry>EBCDIC systems</entry>
+<entry>USA graphic (for reference)</entry></row>
+</thead>
+<tbody>
+<row>
+<entry><ph>X'23'</ph></entry>
+<entry><ph>X'7B'</ph></entry>
+<entry>#</entry></row>
+<row>
+<entry><ph>X'24'</ph></entry>
+<entry><ph>X'5B'</ph></entry>
+<entry>$</entry></row>
+<row>
+<entry><ph>X'40'</ph></entry>
+<entry><ph>X'7C'</ph></entry>
+<entry>@</entry></row>
+</tbody>
+</tgroup>
+</table> The alphabetic and numeric characters and the period should
+be encoded in the normal character set for the computing platform
+that is in use, either ASCII or EBCDIC. 
+<p>
+<note><ol>
+<li>Some CCA implementations accept the characters a - z and fold
+these to their uppercase equivalents, A - Z. For compatibility reasons,
+only use the uppercase alphabetic characters.</li>
+<li>Some implementations internally transform the EBCDIC encoding
+of a key label to an ASCII string. Also, the label might be put in
+tokenized form by dropping the periods and formatting each name token
+into 8-byte groups, padded on the right with space characters.</li></ol>
+</note></p></li>
+</ul></p>
+<p>Some verbs accept a key label containing a wild card represented
+by an asterisk (*). (<ph>X'2A'</ph> in ASCII; <ph>X'5C'</ph> in EBCDIC).
+When a verb permits the use of a wild card, the wild card can appear
+as the first character, as the last character, or as the only character
+in a name token. Any of the name tokens can contain a wild card.</p>
+<p>Examples of valid key labels include the following: 
+<codeblock>    A
+    ABCD.2.3.4.5555
+    ABCDEFGH
+    BANKSYS.XXXXX.43*.PDQ</codeblock></p>
+<p>Examples of key labels that are not valid are listed in <xref href="#keylb07/keylb07_tab2"/>.
+<table id="keylb07_tab2">
+<title>Key labels that
+are not valid</title><desc><p outputclass="summary">Key labels that are not valid</p></desc>
+<tgroup cols="2">
+<colspec colname="col1" colwidth="67*"/>
+<colspec colname="col2" colwidth="131*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Key label not valid</entry>
+<entry colname="col2">Problem with key label</entry></row>
+</thead>
+<tbody>
+<row>
+<entry colname="col1"><codeph>A/.B</codeph></entry>
+<entry colname="col2">A slash is an unacceptable character</entry></row>
+<row>
+<entry colname="col1"><codeph>ABCDEFGH9</codeph></entry>
+<entry colname="col2">Name token is greater than 8 characters</entry></row>
+<row>
+<entry colname="col1"><codeph>1111111.2.3.4.55555</codeph></entry>
+<entry colname="col2">First character cannot be numeric</entry></row>
+<row>
+<entry colname="col1"><codeph>A1111111.2.3.4.55555.6.7.8</codeph></entry>
+<entry colname="col2">Number of name tokens exceeds 7</entry></row>
+<row>
+<entry colname="col1"><codeph>BANKSYS.XXXXX.*43*.D</codeph></entry>
+<entry colname="col2">Number of wild cards exceeds 1</entry></row>
+<row>
+<entry colname="col1"><codeph>A.B.</codeph></entry>
+<entry colname="col2">Last character cannot be a period</entry></row>
+</tbody>
+</tgroup>
+</table> </p>
+</conbody></concept>

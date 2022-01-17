@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_howmac">
+<title>How MACs are used</title>
+<titlealts>
+<navtitle>How MACs are used</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): How MACs are used</searchtitle>
+</titlealts><shortdesc>When a message is sent, an application program can generate an
+authentication code for it using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> <ph>verb</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>ANSI 9.9-1 algorithm</indexterm>
+<indexterm>ANSI X9.19 optional double MAC procedure</indexterm>
+<indexterm>Message Authentication Code (MAC)<indexterm>generating</indexterm></indexterm>
+<indexterm>Message Authentication Code (MAC)<indexterm>verifying</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><ph>CCA</ph> supports the ANSI X9.9-1 basic procedure and both
+the ANSI X9.19 basic procedure and optional double key MAC procedure.
+The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb computes the text of the
+Message Authentication Code using the algorithm and a key. The ANSI X9.9-1 or ANSI X9.19
+basic procedures accept either a single-length MAC generation (MAC)
+key or a data-encrypting (DATA) key, and the message text. The ANSI
+X9.19 optional double key MAC procedure accepts a  double-length MAC
+key and the message text. The originator of the message sends the
+MAC with the message text.</p>
+<p>When the receiver gets the message, an application program calls
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb generates a MAC using the same
+algorithm as the sender and either the single-length or double-length
+MAC verification key, the single-length or double-length MAC generation
+key, or DATA key, and the message text. The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> <ph>verb</ph> compares
+the MAC it generates with the one sent with the message and issues
+a return code that indicates whether the MACs match. If the return
+code indicates that the MACs match, the receiver can accept the message
+as genuine and unaltered. If the return code indicates that the MACs
+do not match, the receiver can assume the message is either <ph>fraudulent</ph> or
+has been altered. The newly computed MAC is not revealed outside the
+cryptographic <ph>coprocessor</ph>.</p>
+<p>In a similar manner, MACs can be used to ensure the integrity of
+data stored on the system or on removable media, such as tape.</p>
+<p>Secure use of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verbs requires the use
+of MAC and MACVER keys in these verbs, respectively. To accomplish
+this, the originator of the message generates a MAC/MACVER key pair,
+uses the MAC key in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb, and exports the MACVER key
+to the receiver. The originator of the message enforces key separation
+on the link by encrypting the MACVER key under a transport key that
+is not an NOCV key before exporting the key to the receiver. With
+this type of key separation enforced, the receiver can receive only
+a MACVER key and can use only this key in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb. This
+ensures that the receiver cannot alter the message and produce a valid
+MAC with the altered message. These security features are not present
+if DATA keys are used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb or if DATA or MAC keys
+are used in the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb.</p>
+<p>By using MACs you get the following benefits:
+<ul>
+<li><b>For data transmitted over a network,</b> you
+can validate the authenticity of the message as well as ensure the
+data has not been altered during transmission. For example, an active
+eavesdropper can tap into a transmission line and interject <ph>fraudulent</ph> messages
+or alter sensitive data being transmitted. If the data is accompanied
+by a MAC, the recipient can use a <ph>verb</ph> to detect whether
+the data has been altered. Because both the sender and receiver share
+a secret key, the receiver can use a <ph>verb</ph> that calculates
+a MAC on the received message and compares it to the MAC transmitted
+with the message. If the comparison is equal, the message could be
+accepted as unaltered. Furthermore, because the shared key is secret,
+when a MAC is verified it can be assumed that the sender was, in fact,
+the other person who knew the secret key.</li>
+<li><b>For data stored on tape or DASD,</b> you can
+ensure that the data read back onto the system was the same as the
+data written onto the tape or DASD. For example, someone might be
+able to bypass access controls. Such an access might escape the notice
+of auditors. However, if a MAC is stored with the data, and verified
+when the data is read, you can detect alterations to the data.</li>
+</ul></p>
+</conbody></concept>

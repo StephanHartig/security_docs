@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2genimpkey">
+<title>Generating an importable key</title>
+  <titlealts>
+    <navtitle>Generating an importable key</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Generating an importable
+key</searchtitle>
+  </titlealts><shortdesc>To generate an importable key form, call the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>) <ph>verb</ph>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>importable key<indexterm>generating</indexterm></indexterm>
+<indexterm>DATA</indexterm>
+<indexterm>MAC</indexterm>
+<indexterm>DATAM</indexterm>
+<indexterm>PINGEN</indexterm>
+<indexterm>DATAC</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>If you want a DATA, MAC, PINGEN, DATAM, or DATAC key type in importable
+form, obtain it directly by generating a single key. If you want any
+other key type in importable form, request a key pair where either
+the first or second key type is importable (IM). Discard the generated
+key form that you do not need.</p>
+</conbody></concept>

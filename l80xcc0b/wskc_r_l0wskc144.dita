@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="l0wskc144" xml:lang="en-us">
+<title>Usage notes</title>
+  <titlealts>
+    <navtitle>Usage notes</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts>
+<shortdesc>The usage notes for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"></keyword>.</shortdesc><?Pub
+Caret 21?>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp2"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"></keyword>)<indexterm>usage
+notes</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section><p>If an error occurs while processing the input token, all output lengths are updated to zero and
+an error is  returned.</p></section>
+</refbody>
+</reference>
+<?Pub *0000000902?>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_rngl">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb uses the cryptographic feature to generate a cryptographic-quality random
+number from 1 - 8192 bytes in length. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</indexterm></indexterm>
+<indexterm>random number</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrng2"/>)</indexterm>
+<indexterm>RT-KRD</indexterm>
+<indexterm>KRD Random Number Token<indexterm>RT-KRD</indexterm></indexterm>
+<indexterm>Key Receiving Device (KRD) Random Number Token<indexterm>RT-KRD</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Choose the parity of each generated random byte as even, odd, or
+random. This verb returns the random number in a string variable.</p>
+<p>Because this verb uses cryptographic processes, the quality of the output is better than that
+which higher-level language compilers typically supply.</p>
+<p rev="sh21i3">The service can optionally return the random number bytes as either raw bytes in the
+<parmname>random_number</parmname> output parameter or as an ASN.1 formatted token with the
+<term>pkcs-9-at-randomNonce</term> Object Identifier, suitable for use in the ANSI TR-34 Key
+Exchange protocol. This ASN.1 formatted token is known as the <term>KRD Random Number Token</term>
+(RT-KRD) in ANSI TR-34.</p></section>
+</refbody></reference>

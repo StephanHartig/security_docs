@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_pcuformat">
+<title>Format</title>
+ <titlealts>
+    <navtitle>Format</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/></searchtitle>
+  </titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpcu"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<table pgwide="0" frame="all">
+<tgroup cols="1" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<tbody>
+<row>
+<entry valign="top">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpcu"/>(
+             <synph><var>return_code</var></synph>,
+             <synph><var>reason_code</var></synph>,
+             <synph><var>exit_data_length</var></synph>,
+             <synph><var>exit_data</var></synph>,
+             <synph><var>rule_array_count</var></synph>,
+             <synph><var>rule_array</var></synph>,
+             <synph><var>authentication_master_key_length</var></synph>,
+             <synph><var>authentication_master_key</var></synph>,
+             <synph><var>encryption_master_key_length</var></synph>,
+             <synph><var>encryption_master_key</var></synph>,
+             <synph><var>key_generation_data_length</var></synph>,
+             <synph><var>key_generation_data</var></synph>,
+             <synph><var>new_reference_PIN_key_length</var></synph>,
+             <synph><var>new_reference_PIN_key</var></synph>,
+             <synph><var>new_reference_PIN_block</var></synph>,
+             <synph><var>new_reference_PIN_profile</var></synph>,
+             <synph><var>new_reference_PAN_data</var></synph>,
+             <synph><var>current_reference_PIN_key_length</var></synph>,
+             <synph><var>current_reference_PIN_key</var></synph>,
+             <synph><var>current_reference_PIN_block</var></synph>,
+             <synph><var>current_reference_PIN_profile</var></synph>,
+             <synph><var>current_reference_PAN_data</var></synph>,
+             <synph><var>output_PIN_data_length</var></synph>,
+             <synph><var>output_PIN_data</var></synph>,
+             <synph><var>output_PIN_profile</var></synph>,
+             <synph><var>output_PIN_message_length</var></synph>,
+             <synph><var>output_PIN_message</var></synph>)</codeblock></entry></row>
+</tbody>
+</tgroup>
+</table>
+</refbody></reference>

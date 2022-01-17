@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_apmac" xml:lang="en-us">
+<title>Verifying data integrity and authenticating messages</title>
+<titlealts>
+<navtitle>Data integrity and message authentication</navtitle><?Pub
+Caret -1?>
+<searchtitle><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"></keyword>):
+Verifying data integrity and authenticating messages</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> provides methods to
+verify the integrity of transmitted messages and stored data</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>Message Authentication Code (MAC)<indexterm>description</indexterm></indexterm>
+<indexterm>data integrity<indexterm>verifying</indexterm></indexterm>
+<indexterm>authenticating messages</indexterm><indexterm>Modification
+Detection Code (MDC)</indexterm><indexterm>message<indexterm>authenticating</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<conbody>
+<p>The methods provided are:  <ul>
+<li>Message authentication code (MAC)</li>
+<li>Hash functions, including Modification Detection Code (MDC) processing
+and one-way hash generation</li>
+</ul> <note>You can also use digital signatures (see <xref
+href="wskc_r_pk3.dita#l0wskc02_pk3"></xref>) to authenticate messages.</note></p>
+<p>The choice of <ph>verb</ph> depends on the security requirements
+of the environment in which you are operating. If you need to ensure
+the authenticity of the sender as well as the integrity of the data
+and both the sender and receiver can share a secret key, consider
+Message Authentication Code processing. If you need to ensure the
+integrity of transmitted data in an environment where it is not possible
+for the sender and the receiver to share a secret cryptographic key,
+consider hashing functions.</p>
+<p otherprops="pdf">The verbs described in this topic include: </p>
+<ul otherprops="pdf">
+<li><xref href="wskc_r_zapghmacg.dita#l0wskc02_zapghmacg"/></li>
+<li><xref href="wskc_r_zapghmacv.dita#l0wskc02_zapghmacv"/></li>
+<li><xref href="wskc_r_mgn.dita#l0wskc02_mgn"/></li>
+<li rev="sh15"><xref href="wskc_mgn2.dita#wskc_mgn2"/></li>
+<li><xref href="wskc_r_mvr.dita#l0wskc02_mvr"/></li>
+<li rev="sh15"><xref href="wskc_mvr2.dita#wskc_mvr2"/></li>
+<li><xref href="wskc_r_mdc_generate.dita#l0wskc02_mdc_generate"/></li>
+<li><xref href="wskc_r_owh.dita#l0wskc02_owh"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000002673?>

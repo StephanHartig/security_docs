@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_raaokp">
+<title>The <parmname>rule_array</parmname> and other keyword parameters</title>
+<titlealts>
+<navtitle>The <parmname>rule_array</parmname> and other keyword parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): The <parmname>rule_array</parmname> and
+other keyword parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"
+/></searchtitle>
+</titlealts><shortdesc>The <parmname>rule_array</parmname> parameter and some other parameters use keywords to
+transfer information. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>rule_array parameter</indexterm>
+<indexterm>key type</indexterm>
+<indexterm>rule_array_count parameter</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Generally, a <parmname>rule_array</parmname> consists of a variable number of data elements that
+contain keywords that control specific details of the verb process. Almost all keywords, in a
+<parmname>rule_array</parmname> or otherwise, are eight bytes in length, and should be uppercase,
+left-aligned, and padded on the right with space characters. Because not all implementations fold
+lowercase characters to uppercase, you should always code the keywords in uppercase.</p>
+<p>The number of keywords in a <parmname>rule_array</parmname> is specified by a
+<parmname>rule_array_count</parmname> variable, an integer that defines the number of 8-byte
+elements in the array.</p>
+<p>In some cases, a <parmname>rule_array</parmname> is used to convey information other than
+keywords between your application and the server. This is, however, an exception. For a list of key
+types that are passed in the <parmname>rule_array</parmname> keyword, see <xref
+href="wskc_c_keys.dita#l0wskc02_keys/l0wskc02_keytrulearray"/>.</p>
+</conbody></concept>

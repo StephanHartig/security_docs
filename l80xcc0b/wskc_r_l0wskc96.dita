@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc96">
+<title>Parameters</title>
+ <titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Parameters for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameter definitions for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclecdh"/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>private_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>private_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>private_KEK_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>private_KEK_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>public_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>public_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>chaining_vector_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>chaining_vector parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>party_info_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>party_info parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>key_bit_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>output_KEK_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>output_KEK_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier_length parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+<indexterm>output_key_identifier parameter<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> verb</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For the definitions of the <synph><var>return_code</var></synph>, <synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>,
+and <synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.</p></section><section>
+<parml>
+<plentry><pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<synph><var>rule_array</var></synph> variable. Valid values are 1 - 6.</pd></plentry>
+<plentry><pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an array of keywords. The keywords are 8 bytes in
+length and must be left-aligned and padded on the right with space characters. The
+<synph><var>rule_array</var></synph> keywords for this verb are shown below: <table pgwide="0"
+frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmecdh"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="8*"/>
+<thead>
+<row rowsep="1">
+<entry>Keyword</entry>
+<entry>Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row rev="sh21i1">
+<entry namest="col1" nameend="col2"><i>Scheme</i> (one, optional).</entry>
+</row>
+<row rev="sh21i1">
+<entry><b>ECDH</b></entry>
+<entry>Specifies to follow the Elliptic Curve Diffie Hellman Key Agreement Scheme. This is the default.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2" rev="sh16"><i>Key agreement</i> (one required). Initiator and responder must have a 
+sufficient level of trust such that they each derive
+only one element of any key pair. DERIV01 is designed for CCA-to-CCA interaction.</entry>
+</row>
+<row>
+<entry><b>DERIV01</b></entry>
+<entry>Use input skeleton key-token and derive one element of any key pair. Denotes ANS X9.63
+protocol static unified model key-agreement scheme (see NIST SP800-56A).</entry>
+</row>
+<row>
+<entry><b>DERIV02</b></entry>
+<entry>Use input skeleton key-token and derive one element of any key pair. Denotes key
+derivation function ANS-X9.63-KDF (refer to ANS X9.63-2011 section 5.6.3).</entry>
+</row>
+<row>
+<entry><b>PASSTHRU</b></entry>
+<entry>Skip key derivation step and return raw Z material. <note>This keyword is available only for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>.</note></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Transport key-type</i> (one, optional; one required if
+<synph><var>output_KEK_key_identifier</var></synph> is a label)</entry>
+</row>
+<row>
+<entry><synph><kwd>OKEK-AES</kwd></synph></entry>
+<entry>The <synph><var>output_KEK_key_identifier</var></synph> represents an AES
+key-token.</entry>
+</row>
+<row>
+<entry><synph><kwd>OKEK-DES</kwd></synph></entry>
+<entry>The <synph><var>output_KEK_key_identifier</var></synph> represents a DES
+key-token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><synph><var>Output key-type</var></synph> (one, optional;
+required if <synph><var>output_key_identifier</var></synph> is a label)</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-AES</kwd></synph></entry>
+<entry>The outbound key-encrypting key represents an AES skeleton key-token.</entry>
+</row>
+<row>
+<entry><synph><kwd>KEY-DES</kwd></synph></entry>
+<entry>The outbound key-encrypting key represents a DES skeleton key-token.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Key-wrapping method</i> (one, optional). DES only.</entry>
+</row>
+<row>
+<entry><synph><kwd>USECONFG</kwd></synph></entry>
+<entry rev="shd3">This is the default. Specifies to wrap the key using the configuration setting for
+the default wrapping method. The default wrapping method configuration setting may be changed using
+the TKE. This keyword is ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ECB</kwd></synph></entry>
+<entry>Specifies to wrap the key using the legacy wrapping method. This keyword is
+ignored for AES keys.</entry>
+</row>
+<row>
+<entry><synph><kwd>WRAP-ENH</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method. Valid only for
+DES keys.</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH2</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method and SHA-256. Valid only for 
+<synph><kwd>TRIPLE</kwd></synph> or <synph><kwd>TRIPLE-O</kwd></synph>. This method requires CV bit 56 = B’1’ (ENH-ONLY). 
+This is the default for <synph><kwd>TRIPLE</kwd></synph> and <synph><kwd>TRIPLE-O</kwd></synph>.
+</entry>
+</row>
+<row rev="sh21i1">
+<entry><synph><kwd>WRAPENH3</kwd></synph></entry>
+<entry>Specifies to wrap the key using the enhanced wrapping method with TDES-CMAC and the SHA-256 hashing algorithm. 
+This keyword sets CV bit 56 = B’1’ (ENH-ONLY), which is required for the <synph><kwd>WRAPENH3</kwd></synph> wrapping method.
+</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Translation control</i> (optional). This
+is valid only with key-wrapping method <synph><kwd>WRAP-ENH</kwd></synph> or with
+<synph><kwd>USECONFG</kwd></synph> when the default wrapping method is
+<synph><kwd>WRAP-ENH</kwd></synph>. This option cannot be used on a key with a control vector valued
+to binary zeros.</entry>
+</row>
+<row>
+<entry><synph><kwd>ENH-ONLY</kwd></synph></entry>
+<entry>Specifies to restrict the key from being wrapped with the legacy wrapping method once it has
+been wrapped with the enhanced wrapping method. Sets bit 56 (ENH-ONLY) of the control vector to
+<ph>B'1'</ph>.<p rev="sh21i1">This restricts translation to the legacy method. If the keyword is not
+specified, translation to the legacy method is allowed. This keyword is not valid if processing a
+zero CV data key.</p></entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><i>Hash method</i> (one, optional). Only valid with DERIV02 key
+agreement keyword.</entry>
+</row>
+<row>
+<entry>SHA-224</entry>
+<entry>Specifies the use of the SHA-224 method.</entry>
+</row>
+<row>
+<entry>SHA-256</entry>
+<entry>Specifies the use of the SHA-256 method. This is the default.</entry>
+</row>
+<row>
+<entry>SHA-384</entry>
+<entry>Specifies the use of the SHA-384 method.</entry>
+</row>
+<row>
+<entry>SHA-512</entry>
+<entry>Specifies the use of the SHA-512 method.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd></plentry>
+<plentry><pt>private_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>private_key_identifier</var></synph> variable.</pd></plentry>
+<plentry><pt>private_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an internal or external ECC key-token, or a key
+label identifying a PKA key-storage record for such a token. The ECC key-token will contain a
+public-private key pair. A clear private-key is only allowed when rule-array keyword DERIV01 is
+specified. <p>The ECC curve type and size must be the same as the type <ph rev="sh21i1">(Prime,
+Brainpool, or Koblitz)</ph> and size of the ECC key-token specified by the
+<parmname>public_key_identifier</parmname> parameter. The key-usage flag of the ECC key-token
+identified by the <parmname>private_key_identifier</parmname> parameter must permit key
+establishment (either <synph><kwd>KEY-MGMT</kwd></synph> or <synph><kwd>KM-ONLY</kwd></synph>).</p>
+<p>For rule-array keyword DERIV02, the ECC key-token identified by the
+<parmname>private_key_identifier</parmname> parameter must contain an ECC key-derivation information
+section (section identifier X'23'). Refer to <xref href="wskc_r_ecckt.dita#l0wskc02_ecckt/eccpubx23"
+/>.</p>
+</pd></plentry>
+<plentry><pt>private_KEK_key_identifier_length</pt>
+<pd>
+<table colsep="0" frame="none" outputclass="presentation" pgwide="2"
+rowsep="0">
+<tgroup cols="2"><colspec colname="col1" colwidth="1*"/><colspec
+colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>A pointer to an integer variable containing the number of
+bytes in the <synph><var>private_KEK_key_identifier</var></synph> variable. The maximum
+value is 900. If the <synph><var>private_key_identifier</var></synph> contains an internal
+ECC token, this value must be a zero.</p></pd></plentry>
+<plentry><pt>private_KEK_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh16">A pointer to a string variable containing an internal KEK key-token, or the 
+key label of such a record in AES key storage. The KEK key-token must be present if the 
+key token specified by the <parmname>private_key_identifier</parmname> contains an external 
+encrypted ECC key-token.</ph> 
+</pd></plentry>
+<plentry><pt>public_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>public_key_identifier</var></synph> variable.<p>Note that even though this 
+variable is not currently updated on output, it is reserved as an output field for 
+future use.</p></pd></plentry>
+<plentry><pt>public_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table><ph rev="sh16">A pointer to a string variable containing an ECC key-token, or a 
+key label identifying an AES key-storage record for such a key token. The ECC curve type 
+and size must be the same as the type and size of the ECC key-token specified by the 
+<synph><var>private_key_identifier</var></synph> parameter. 
+If the <parmname>public_key_identifier</parmname> parameter identifies a key token 
+containing a public-private key pair, no attempt to decrypt the private part is made.</ph>
+<p>Note that even though this variable is not currently updated on
+output, it is reserved as an output field for future use.</p>
+</pd></plentry>
+<plentry><pt>chaining_vector_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>chaining_vector</var></synph> variable. This field is currently not used. The value must
+be 0.</pd></plentry>
+<plentry><pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a buffer that is currently reserved.</pd></plentry>
+<plentry><pt>party_info_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>party_info</var></synph> variable. The value must be 8 - 64 for DERIV01. For DERIV02,
+the value must be 0 - 256.</pd></plentry>
+<plentry><pt>party_info</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. <ph rev="sh16">For DERIV01, the string contains the 
+combined entity identifier information, including nonce. This information must contain data 
+of both entities according to NIST SP800-56A Section 5.8. For DERIV02, the string contains 
+optional shared data according to ANS X9.63-2011 section 5.6.3.</ph></pd></plentry>
+<plentry><pt>key_bit_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bits of key material to derive and
+place in the provided output key-token. The value must be 0 if the
+<synph><kwd>PASSTHRU</kwd></synph> rule-array keyword is specified. The value must be 64 - 256.</pd></plentry>
+<plentry><pt>reserved_1_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>reserved_1</var></synph> variable. The value must be 0.</pd></plentry>
+<plentry><pt>reserved_1</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that is currently not used.</pd></plentry>
+<plentry><pt>reserved_2_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>reserved_2</var></synph> variable. The value must be 0.</pd></plentry>
+<plentry><pt>reserved_2</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that is currently not used.</pd></plentry>
+<plentry><pt>reserved_3_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>reserved_3</var></synph> variable. The value must be 0.</pd></plentry>
+<plentry><pt>reserved_3</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that is currently not used.</pd></plentry>
+<plentry><pt>reserved_4_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>reserved_4</var></synph> variable. The value must be 0.</pd></plentry>
+<plentry><pt>reserved_4</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that is currently not used.</pd></plentry>
+<plentry><pt>reserved_5_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>reserved_5</var></synph> variable. The value must be 0.</pd></plentry>
+<plentry><pt>reserved_5</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable that is currently not used.</pd></plentry>
+<plentry><pt>output_KEK_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>output_KEK_key_identifier</var></synph> variable. The maximum value is 900. The
+<synph><var>output_KEK_key_identifier_length</var></synph> must be zero if
+<synph><var>output_key_identifier</var></synph> will contain an internal token or if the
+<synph><kwd>PASSTHRU</kwd></synph> rule-array keyword was specified.</pd></plentry>
+<plentry><pt>output_KEK_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing an internal KEK key-token, or a key label
+identifying a key-storage record for such a token. This parameter must identify a KEK key-token
+whenever the <synph><var>output_key_identifier</var></synph> specifies an external key-token. If the
+<synph><var>output_key_identifier</var></synph> specifies a DES key-token, then the
+<synph><var>output_KEK_key_identifier</var></synph> must identify a legacy DES KEK, otherwise it
+must identify a variable-length symmetric AES KEK key-token.<p>If this variable contains a key
+label, specify a transport key-type rule-array keyword (<synph><kwd>OKEK-DES</kwd></synph> or
+<synph><kwd>OKEK-AES</kwd></synph>) to identify which key-storage dataset contains the key token. If
+a transport key-type keyword is specified, it must match the type of key identified by this
+parameter, whether the key is in key storage or not.</p><p>If the
+<synph><var>output_KEK_key_identifier</var></synph> specifies a legacy DES KEK, then the key token
+must contain either an EXPORTER control vector with bit 21 on (EXPORT) or an IMPORTER control vector
+with bit 21 set to <ph>B'1'</ph> (IMPORT). The XLATE bit (bit 22) is not checked. Similarly, if the
+<synph><var>output_KEK_key_identifier</var></synph> identifies a variable-length symmetric AES KEK,
+then the KEK must be have a key type of EXPORTER or IMPORTER. Key-usage field 1 of the KEK must be
+set so that the key can be used for EXPORT or IMPORT. In addition, key-usage field 4 must be set so
+that the key can wrap DERIVATION class keys.</p></pd></plentry>
+<plentry><pt>output_key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of bytes in the
+<synph><var>output_key_identifier</var></synph> variable. On input, the
+<synph><var>output_key_identifier</var></synph> length variable must be set to the total size of the
+buffer pointed to by the <synph><var>output key identifier</var></synph> parameter. On output, this
+variable contains the number of bytes of data returned by the verb in the
+<synph><var>output_key_identifier</var></synph> variable. The maximum allowed value is 900
+bytes.</pd></plentry>
+<plentry><pt>output_key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable. On input, it must contain an internal or an external
+skeleton key-token, or a key label identifying a key-storage record for such a token. The skeleton
+key-token must be one of the following: <dl>
+<dlentry>
+<dt>DES (legacy DES key-token)</dt>
+<dd>
+<ul>
+<li><synph><kwd>CIPHER</kwd></synph>, <synph><kwd>DECIPHER</kwd></synph>, or
+<synph><kwd>ENCIPHER</kwd></synph></li>
+<li><synph><kwd>EXPORTER</kwd></synph> or <synph><kwd>IMPORTER</kwd></synph></li>
+</ul>
+</dd>
+</dlentry>
+<dlentry>
+<dt>AES</dt>
+<dd>
+<ul>
+<li><synph><kwd>DATA</kwd></synph> (legacy AES key-token)</li>
+<li><synph><kwd>CIPHER</kwd></synph> (variable-length symmetric key-token) with key-usage field set
+so that the key can be used for decryption, encryption, or both)</li>
+<li><synph><kwd>EXPORTER</kwd></synph> or <synph><kwd>IMPORTER</kwd></synph> (variable-length
+symmetric key-token)</li>
+</ul>
+</dd>
+</dlentry>
+</dl><p>On successful completion, this variable contains either: <ul>
+<li>An updated key-token that contains the generated symmetric key material, or the key label of the
+key-token that has been updated in key storage.</li>
+<li>"Z" data (in the clear) if the <synph><kwd>PASSTHRU</kwd></synph> rule-array keyword was
+specified.</li>
+</ul></p><p>If this variable contains an external key-token on input, then the
+<synph><var>output_KEK_key_identifier</var></synph> is used to securely encrypt it for output. If
+this variable contains a key label, specify an output key-type rule-array keyword
+(<synph><kwd>KEY-DES</kwd></synph> or <synph><kwd>KEY-AES</kwd></synph>) to identify which
+key-storage dataset contains the key token. If an output key-type keyword is specified, it must
+match the type of key identified by this parameter, whether the key is in key storage or
+not.</p><p>If this variable identifies an external DES key-token, then the
+<synph><var>output_KEK_key_identifier</var></synph> must identify a DES KEK key-token. If this
+variable is present and identifies an external key-token other than a DES key-token, then the
+<synph><var>output_KEK_key_identifier</var></synph> must identify an AES KEK key-token.</p></pd></plentry>
+</parml></section>
+</refbody></reference>

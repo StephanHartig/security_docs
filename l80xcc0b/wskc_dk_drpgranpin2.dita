@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csnbdrpgranpin_2" rev="sh20i1">
+  <title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/></searchtitle>
+  </titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> verb to
+generate a random PIN of a selected length and calculate a PIN reference value or word (PRW) as
+outlined in the DK specification. Other PIN processes can use the PRW to verify the PIN. In
+addition, this verb can optionally return an encrypted PIN block (EPB) together with a verifying PIN
+block MAC, and it can optionally return a chip encrypted PIN block (CHIP-EPB).</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/>)</indexterm>
+        <indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)</indexterm>
+        <indexterm>verb<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrg2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/>)</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+  <section>
+<note/> This verb deprecates the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdrpg"/>(<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldrpg"/>) verb. In addition to providing all
+the function of CSNBDRPG, this verb supports the output of a chip-encrypted PIN block. </section>
+<section><b>Weak PINs:</b> The random PIN generation process generates a new PIN until the generated
+PIN is not found in the weak PIN table. </section>
+<section>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/> verb performs the
+following tasks: <ul>
+<li>Generates a random PIN of the selected length and creates a PIN block in a DK-defined format
+that is used to return a PIN print key to be printed on a PIN mailer.</li>
+<li>Generates a PRW random number and calculates a PIN reference value. These values are returned
+for later use in other PIN processes to verify the PIN.</li>
+<li>If the rule array specifies to return an encrypted PIN block (EPB), the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/> verb returns an encrypted PIN block
+together with a verifying PIN block MAC using CMAC calculated over the concatenation of the
+encrypted PIN block and permanent card data (<parmname>card_p_data)</parmname>. This information can
+be stored for later use in personalizing replacement cards.</li>
+<li>If the rule array specifies <synph><kwd>CHIP-EPB</kwd></synph>, the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrg2"/> verb returns a chip encrypted PIN
+block.</li>
+</ul><note rev="sh20i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key
+tokens.</note></section>
+  </refbody>
+</reference>

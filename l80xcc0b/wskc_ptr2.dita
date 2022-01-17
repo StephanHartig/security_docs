@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="ptr2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> verb changes
+(translates) PIN-block encryption and optionally formats a PIN into a different PIN-block format
+(reformats). This verb can be used in an interchange-network application, or to change the PIN block
+to conform to the format and encryption key used in a PIN-verification database. This verb can also
+be used to perform derived unique key per transaction (DUKPT) PIN-block encryption (ANS X9.24) for
+both input and output PIN blocks. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr2"/>
+(<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>)</indexterm></indexterm>
+<indexterm>authenticated PAN change</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb is a superset of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>) verb and deprecates <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>. In addition to providing all the
+function of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>, it supports the
+AES encrypted ISO-4 PIN-block (as defined in ISO 9564-1) and <term>authenticated PAN change</term>
+support. Note that <term>authenticated PAN change</term> support only applies to ISO-4 to ISO-4
+PIN-block format translations.</p>
+<p rev="sh21i1">The derived unique-key-per-transaction (DUKPT) algorithm is available. Both
+DES-DUKPT (ANSI x9.24-1 2007) and AES-DUKPT (ANSI x9.24-3 2017) are supported. This support is
+available for the <parmname>input_PIN_encrypting_key_identifier</parmname> and the
+<parmname>output_PIN_encrypting_key_identifier</parmname> parameters for both REFORMAT and TRANSLAT
+process rules. The <parmname>rule_array</parmname> keyword determines which PIN key or PIN keys are
+derived keys.</p>
+<p>These PIN-block formats are supported: </p><ul>
+<li><tm tmtype="reg" trademark="IBM">IBM</tm> 3624</li>
+<li>ISO-0 (same as ANS X9.8, VISA-1, and ECI-1)</li>
+<li>ISO-1 (same as ECI-4)</li>
+<li>ISO-2</li>
+<li>ISO-3</li>
+<li>ISO-4 (not supported by <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"
+/>)</li>
+</ul><p> The verb operates in one of two modes, either <i>translate</i> or <i>reformat</i>:</p><ul>
+<li>In <i>translate</i> mode, the verb decrypts a PIN block using the input key or that is derived
+from other information provided. The cleartext information is then encrypted using the output key or
+that is derived from other information provided. The cleartext is not examined.</li>
+<li>In <i>reformat</i> mode, the verb performs the translate-mode functions and, in addition,
+processes the cleartext information. Following the rules specified in the rule array, the PIN is
+recovered from the input cleartext PIN-block and formatted into an output PIN-block for
+encryption.</li>
+</ul><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> defines PIN rules that
+affect how PIN blocks can be reformatted. To have this verb enforce the PIN rules defined by
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/>, enable the <cmdname
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0350"/> command (offset <ph>X'0350'</ph>) or the
+more restrictive <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0352"/> command (offset
+<ph>X'0352'</ph>) in the active role. If both of these commands are enabled, the more restrictive
+offset <ph>X'0352'</ph> overrides <ph>X'0350'</ph>. For more details on these commands see <xref
+href="wskc_ptr2_required.dita"/>.</p><p><xref
+href="wskc_ptr2_required.dita#ptr2_required/ptr2reqxlate"/> provides a matrix of allowed and not
+allowed reformatting between PIN-block formats when <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ansix98"/> PIN rules are being enforced (that is,
+offset <ph>X'0350'</ph>, <ph>X'0352'</ph>, or both are enabled in the active role), as well as any
+exceptions.</p><p>The verb performs an <term>authenticated PAN change</term> when
+(1)&NonBreakingSpace;<b>PAN-CHG</b> is specified in the rule array, (2)&NonBreakingSpace;the
+<cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset X'038B') is
+enabled in the active role, and (3)&NonBreakingSpace;the input and output PIN-block formats are both
+ISO-4.</p><p>If all three conditions are true, the <parmname>authentication_data</parmname>
+parameter must identify a length-value structure that includes a NIST SP 800-38B CMAC. This CMAC
+along with the AES MAC key identified by the <parmname>authentication_key_identifier</parmname>
+parameter are used to verify if the PAN change request is allowed. If the CMAC verification is
+successful, the PAN change request is allowed. Otherwise, it is not allowed.</p><note>
+<ol>
+<li>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</li>
+<li>When running with host warning mode enabled, commands that may be performed using the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/> service because they are legacy
+commands duplicated between <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/>
+and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/>, are reported to warning
+mode logs using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr"/> verb
+identifier.</li>
+<li>With the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset
+<ph>X'038B'</ph>) enabled in the active role, all PAN change requests must be authenticated. Support
+for <term>authenticated PAN changes</term> is only available when the input and output PIN-block
+formats are both ISO-4.</li>
+<li>When both PIN blocks have a PAN, if only one is an ISO-4 PIN-block (for example, ISO-0 to ISO-4
+or ISO-4 to ISO-3) and the 12 rightmost digits of the PANs are equal (which excludes the ISO-4 check
+digit), the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x038B"/> command (offset
+<ph>X'038B'</ph>) does not prevent a reformat and the reformat is allowed, provided that the
+reformat is otherwise authorized.</li>
+<li>Beginning with Release 5.5, the key used to verify the CMAC must have key usage PTR2AUTH when
+the <cmdname conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/x0395"/> command (offset
+<ph>X'0395'</ph>) is enabled in the active role.</li>
+</ol>
+</note><p>When the verb needs to perform an authenticated PAN change, the authentication_data
+variable must contain a length-value structure that includes the NIST SP 800-38B CMAC to be
+verified, and the <i>authentication_key_identifier</i> parameter must identify the key to use to
+verify the CMAC. The CMAC is generated or verified using the following message:</p><codeblock>
+Message = Old PAN &DoubleVerticalBar; New PAN &DoubleVerticalBar; Optional additional authentication data
+</codeblock>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn2"/> verb can be used to
+generate the CMAC.</p>
+<p rev="sh21i1">When the PAN format rule is <keyword>PANAUTAS</keyword>, the PAN data must be ASCII
+character data.</p>
+<codeblock rev="sh21i1">
+Authentication value = 
+CMAC( (Old PAN) || (New PAN) || (Optional additional authentication data) )
+</codeblock>
+<p rev="sh21i1">When the PAN format rule is <keyword>PANAUTI4</keyword>, the PAN data is formatted
+according to ISO 9564-1 PAN format. </p>
+<codeblock rev="sh21i1">
+Authentication value = 
+CMAC( (Old PAN) ISO 9564 FMT || (New PAN) ISO 9564 FMT 
+|| (Optional additional authentication data) )
+</codeblock>
+<p><xref href="#ptr2/ptr2_iso_95641" format="dita"/> shows the format of an ISO 9564-1 plaintext PAN
+field.</p>
+<table id="ptr2_iso_95641" frame="all" rowsep="1" colsep="1"><title>ISO 9564-1 plaintext PAN field format</title>
+<desc><p outputclass="summary">ISO 9564-1 plaintext PAN field format</p></desc>
+<tgroup cols="17">
+<colspec align="left" colname="c1" colnum="1" colwidth="2.5*"/>
+<colspec align="center" colname="c2" colnum="2" colwidth="1*"/>
+<colspec align="center" colname="c3" colnum="3" colwidth="1*"/>
+<colspec align="center" colname="c4" colnum="4" colwidth="1*"/>
+<colspec align="center" colname="c5" colnum="5" colwidth="1*"/>
+<colspec align="center" colname="c6" colnum="6" colwidth="1*"/>
+<colspec align="center" colname="c7" colnum="7" colwidth="1*"/>
+<colspec align="center" colname="c8" colnum="8" colwidth="1*"/>
+<colspec align="center" colname="c9" colnum="9" colwidth="1*"/>
+<colspec align="center" colname="c10" colnum="10" colwidth="1*"/>
+<colspec align="center" colname="c11" colnum="11" colwidth="1*"/>
+<colspec align="center" colname="c12" colnum="12" colwidth="1*"/>
+<colspec align="center" colname="c13" colnum="13" colwidth="1*"/>
+<colspec align="center" colname="c14" colnum="14" colwidth="1*"/>
+<colspec align="center" colname="c15" colnum="15" colwidth="1*"/>
+<colspec align="center" colname="c16" colnum="16" colwidth="1*"/>
+<colspec align="center" colname="c17" colnum="17" colwidth="1*"/>
+<thead>
+<row>
+<entry namest="c1" nameend="c17" align="center"><b>First 8 bytes of 16-byte ISO 9564-1 plaintext PAN field</b></entry>
+</row>
+</thead>
+<tbody>
+<row valign="bottom">
+<entry><b>ISO 9564-1 PAN field</b></entry>
+<entry namest="c2" nameend="c3"><b>Bits 01 – 08</b></entry>
+<entry namest="c4" nameend="c5"><b>Bits 09 – 16</b></entry>
+<entry namest="c6" nameend="c7"><b>Bits 17 – 24</b></entry>
+<entry namest="c8" nameend="c9"><b>Bits 25 – 32</b></entry>
+<entry namest="c10" nameend="c11"><b>Bits 33 – 40</b></entry>
+<entry namest="c12" nameend="c13"><b>Bits 41 – 48</b></entry>
+<entry namest="c14" nameend="c15"><b>Bits 49 – 56</b></entry>
+<entry namest="c16" nameend="c17"><b>Bits 57 – 64</b></entry>
+</row>
+<row valign="middle">
+<entry valign="top">Part 1 of 2</entry>
+<entry>M</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A</entry>
+<entry>A/0</entry>
+<entry>A/0</entry>
+<entry>A/0</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c17" align="center"><b>Second 8 bytes of 16-byte ISO 9564-1 plaintext
+PAN field</b></entry>
+</row>
+<row valign="bottom">
+<entry><b>ISO 9564-1 PAN field</b></entry>
+<entry namest="c2" nameend="c3"><b>Bits 65 – 72</b></entry>
+<entry namest="c4" nameend="c5"><b>Bits 73 – 80</b></entry>
+<entry namest="c6" nameend="c7"><b>Bits 81 – 88</b></entry>
+<entry namest="c8" nameend="c9"><b>Bits 89 – 96</b></entry>
+<entry namest="c10" nameend="c11"><b>Bits 97 – 104</b></entry>
+<entry namest="c12" nameend="c13"><b>Bits 105 – 112</b></entry>
+<entry namest="c14" nameend="c15"><b>Bits 113 – 120</b></entry>
+<entry namest="c16" nameend="c17"><b>Bits 121 – 128</b></entry>
+</row>
+<row valign="middle">
+<entry valign="top">Part 2 of 2</entry>
+<entry>A/0</entry>
+<entry>A/0</entry>
+<entry>A/0</entry>
+<entry>A/0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+<entry>0</entry>
+</row>
+<row>
+<entry namest="c1" nameend="c17" align="left">where: <dl compact="yes">
+<dlentry>
+<dt>M</dt>
+<dd>PAN length, a 4-bit field with permissible values X'0' – X'7' that indicates a PAN length of 12
+plus the value of the field (ranging from 12 – 19). If the PAN is less than 12 digits, the digits
+are right justified and padded to the left with binary zeros, and M is set to X'0'.</dd>
+</dlentry>
+<dlentry>
+<dt>A</dt>
+<dd>PAN digit, a 4-bit field with permissible values of X'0' – X'9'.</dd>
+</dlentry>
+<dlentry>
+<dt>0</dt>
+<dd>Pad digit, a 4-bit field with the only permissible value of X'0'.</dd>
+</dlentry>
+<dlentry>
+<dt>A/0</dt>
+<dd>PAN/Pad digit, where the designation of these fields is determined by the PAN length field,
+M.</dd>
+</dlentry>
+</dl></entry>
+</row>
+</tbody>
+</tgroup></table><p><xref href="#ptr2/sptpbl" format="dita"/> shows the supported PIN-block format
+translations along with the algorithm, key type, and required key usage attributes of each key for
+this verb based on the combination of input and output PIN-block formats and whether the
+authenticated PAN-change option is allowed.</p><note>PIN-block format ISO-1 is not allowed when
+<cmdname>Disallow ISO-1 PIN Format Usage</cmdname> command (offset X'032F') is enabled in the active
+role.</note><p rev="sh21i1"><b>Note on DUKPT</b> on <xref href="#ptr2/sptpbl" format="dita"/>: Any
+AES input or output key can only specify AES DUKPT methods, because AES DUKPT can generate both DES
+and AES keys. In contrast, DES DUKPT can only generate DES keys.</p><table colsep="1" frame="all"
+id="sptpbl" rowsep="1"><title>Supported PIN-block format translations for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclptr2"/></title><desc>
+<p outputclass="summary">Supported PIN-block format translations along with the algorithm, key type,
+and required key usage attributes of each key for this verb based on the combination of input and
+output PIN-block formats and whether the authenticated PAN-change option is allowed</p>
+</desc><tgroup cols="6">
+<colspec colname="c1" colnum="1" colwidth="7*"/>
+<colspec colname="c2" colnum="2" colwidth="7*"/>
+<colspec colname="c3" colnum="3" colwidth="12*"/>
+<colspec colname="c4" colnum="4" colwidth="14*"/>
+<colspec colname="c5" colnum="5" colwidth="14*"/>
+<colspec colname="c6" colnum="6" colwidth="16*"/>
+<thead>
+<row>
+<entry namest="c1" nameend="c2">PIN-block format</entry>
+<entry morerows="1">Authenticated PAN-change option allowed</entry>
+<entry morerows="1">Input key</entry>
+<entry morerows="1">Output key</entry>
+<entry morerows="1">Authentication key</entry>
+</row>
+<row>
+<entry>Input</entry>
+<entry>Output</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><b>ISO-0</b></entry>
+<entry><b>ISO-4</b></entry>
+<entry>No</entry>
+<entry>DES IPINENC with REFORMAT</entry>
+<entry>AES PINPROT with ENCRYPT, REFORMAT, and ISO-4</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-1</b></entry>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1">No</entry>
+<entry morerows="1">DES IPINENC with REFORMAT</entry>
+<entry>AES PINPROT with ENCRYPT, REFORMAT, and ISO-4, without RFMT1TO4</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>AES PINPROT with ENCRYPT, REFORMAT, and ISO-4, with RFMT1TO4</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry><b>ISO-4</b></entry>
+<entry><b>ISO-0</b></entry>
+<entry>No</entry>
+<entry>AES PINPROT with DECRYPT, REFORMAT, and ISO-4</entry>
+<entry>DES OPINENC with REFORMAT </entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1"><b>ISO-1</b></entry>
+<entry morerows="1">No</entry>
+<entry>AES PINPROT with DECRYPT, REFORMAT, and ISO-4, without RFMT4TO1</entry>
+<entry morerows="1">DES OPINENC with REFORMAT </entry>
+<entry morerows="1">N/A</entry>
+</row>
+<row>
+<entry>AES PINPROT with DECRYPT, REFORMAT, and ISO-4, with RFMT4TO1 (Release 5.5 or later)</entry>
+</row>
+<row>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry morerows="1"><b>ISO-4</b></entry>
+<entry>No</entry>
+<entry>AES PINPROT with DECRYPT, PINXLATE, and ISO-4</entry>
+<entry>AES PINPROT with ENCRYPT, PINXLATE, and ISO-4</entry>
+<entry>N/A</entry>
+</row>
+<row>
+<entry>Yes</entry>
+<entry>AES PINPROT with DECRYPT, REFORMAT, and ISO-4</entry>
+<entry>AES PINPROT with ENCRYPT, REFORMAT, and ISO-4</entry>
+<entry>AES MAC with VERIFY and CMAC. In addition, if offset <ph>X'0395'</ph> (Release 5.5 or later)
+is enabled in the active role, the key must include PTR2AUTH usage.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<indexterm>CKSN</indexterm><indexterm>current key serial number</indexterm>
+<p>Each supported PIN-block format translation requires its own access-control command to be enabled
+in the active role. These commands are shown in <xref
+href="wskc_ptr2_required.dita#ptr2_required/pftracc"/>. </p>
+</section>
+</refbody>
+</reference>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_tdes1">
+<title>Triple DES encryption</title>
+<titlealts>
+<navtitle>Triple DES encryption</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Triple DES encryption</searchtitle>
+</titlealts><shortdesc>Triple DES encryption uses a triple-length DATA key comprised of three 8-byte DES keys to
+encipher eight bytes of data.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>Triple DES encryption</indexterm>
+<indexterm>DES encryption<indexterm>triple</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>To encipher the data it uses the following method:
+<ul>
+<li>Encipher the data using the first key</li>
+<li>Decipher the result using the second key</li>
+<li>Encipher the second result using the third key</li>
+</ul></p>
+<p>The procedure is reversed to decipher data that has been triple-DES
+enciphered:
+<ul>
+<li>Decipher the data using the third key</li>
+<li>Encipher the result using the second key</li>
+<li>Decipher the second result using the first key</li>
+</ul></p>
+<p>A variation of the triple-DES algorithm supports the use of a double-length
+DATA key comprised of two 8-byte DATA keys. In this method, the first
+8-byte key is reused in the last encipherment step.</p>
+<p>Due to export regulations, triple-DES encryption might not be available
+on your processor.</p>
+</conbody></concept>

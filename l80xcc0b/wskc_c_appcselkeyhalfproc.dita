@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_appcselkeyhalfproc" xml:lang="en-us">
+<title>Selecting the key-half processing mode</title>
+<titlealts>
+<navtitle>Key-half processing mode</navtitle><?Pub Caret 1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Selecting the key-half processing
+mode</searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> <ph>verb</ph> to
+change a control vector associated with a key. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>key-half processing</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p><i>rule_array</i> keywords determine which key halves are processed
+in the call, as shown in <xref
+href="#l0wskc02_appcselkeyhalfproc/l0wskc02_cvx99"></xref>.  <fig
+expanse="column" id="l0wskc02_cvx99"><title><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmcvt"></keyword> verb</title>
+<image href="l0wskc02_fig16.jpg" placement="break" width="500"><alt>verb</alt>
+</image>
+</fig> <dl>
+<dlhead>
+<dthd>Keyword</dthd><ddhd>Description</ddhd>
+</dlhead>
+<dlentry>
+<dt>SINGLE</dt>
+<dd>This keyword causes the control vector of the left half of the
+source key to be changed. The updated key half is placed into the
+left half of the target key in the target key token. The right half
+of the target key is unchanged.  <p>The <synph><kwd>SINGLE</kwd></synph> keyword
+is useful when processing a single-length key or when first processing
+the left half of a double-length key (to be followed by processing
+the right half).</p></dd>
+</dlentry><dlentry>
+<dt>RIGHT</dt>
+<dd>This keyword causes the control vector of the right half of the
+source key to be changed. The updated key half is placed into the
+right half of the target key of the target key token. The left half
+of the source key is copied unchanged into the left half of the target
+key in the target key token.</dd>
+</dlentry><dlentry>
+<dt>BOTH</dt>
+<dd>This keyword causes the control vector of both halves of the source
+key to be changed. The updated key is placed into the target key in
+the target key token.  <p>A single set of control information must
+permit the control vector changes applied to each key half. Normally,
+control vector bit positions 41, 42, 105, and 106 are different for
+each key half. Therefore, set bits 41 and 42 to <ph>B'00'</ph> in
+mask array elements B<sub>1</sub>, B<sub>2</sub>, and B<sub>3</sub>.</p> <p>You
+can verify that the source and target key tokens have control vectors
+with matching bits in bit positions 40-42 and 104-106, the <q>form
+field</q> bits. Ensure bits 40-42 of mask array B<sub>4</sub> are
+set to <ph>B'111'</ph>.</p></dd>
+</dlentry><dlentry>
+<dt>LEFT</dt>
+<dd>This keyword enables you to supply a single-length key and obtain
+a double-length key. The source key token must contain:  <ul>
+<li>The KEK-enciphered single-length key</li>
+<li>The control vector for the single-length key (often this is a
+null value)</li>
+<li>A control vector, stored in the source token where the right-half
+control vector is normally stored, used in decrypting the single-length
+source key when the key is being processed for the target right half
+of the key.</li>
+</ul> <p>The verb first processes the source and target tokens as
+with the <synph><kwd>SINGLE</kwd></synph> keyword. Then the source
+token is processed using the single-length enciphered key and the
+source token right-half control vector to obtain the actual key value.
+The key value is then enciphered using the KEK and the control vector
+in the target token for the right-half of the key.</p> <p>This approach
+is frequently of use when you must obtain a double-length CCA key
+from a system that supports only a single-length key, for example
+when processing PIN keys or key-encrypting keys received from non-CCA
+systems.</p></dd>
+</dlentry></dl></p>
+<p>To prevent the verb from ensuring each key byte has odd parity,
+you can specify the <synph><kwd>NOADJUST</kwd></synph> keyword. If
+you do not specify the <synph><kwd>NOADJUST</kwd></synph> keyword,
+or if you specify the <synph><kwd>ADJUST</kwd></synph> keyword, the
+verb ensures each byte of the target key has odd parity.</p>
+</conbody>
+</concept>
+<?Pub *0000004305?>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_bktc2">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb to
+re-encipher a <ph rev="shd3">variable-length HMAC or AES</ph> key from encryption under the old
+master-key to encryption under the current master-key and to update the keys in <ph rev="shd3"
+>internal HMAC or AES</ph> key tokens.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtc2"/>)</indexterm></indexterm>
+<indexterm>variable-length HMAC key </indexterm>
+<indexterm>variable-length AES key </indexterm>
+<indexterm>AES key <indexterm>variable-length</indexterm></indexterm>
+<indexterm>HMAC key <indexterm>variable-length</indexterm></indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<note><ol>
+<li>An application system is responsible for keeping all of its keys
+in a usable form. When the master key is changed, the <ph><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/name4765"/></ph> implementations
+can use an internal key that is enciphered by either the current or
+the old master-key. Before the master key is changed a second time,
+it is important to have a key re-enciphered under the current master-key
+for continued use of the key. Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtc2"/> verb to re-encipher
+such a keys.</li>
+<li>Previous implementations of <tm trademark="IBM" tmtype="reg">IBM</tm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> products had additional
+capabilities with this verb such as deleting key records and key tokens in key storage. Also, use of
+a wild card (*) was supported in those implementations. </li></ol>
+</note></section>
+</refbody></reference>

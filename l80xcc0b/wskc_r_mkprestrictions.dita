@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mkprestrictions">
+<title>Restrictions</title>
+ <titlealts>
+    <navtitle>Restrictions</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Restrictions for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/></searchtitle>
+  </titlealts>
+<shortdesc>The restrictions for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmkp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmkp"/>)<indexterm>restrictions</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>General restrictions: </p>
+<ul>
+<li>You must set up the groups for the users who will be loading the master keys to the cards. Each
+part of the load process is owned by a different <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linux"/> group created by the RPM install
+procedure, and verified in the host library implementing the API allowing master key processing. To
+complete a specific step, the user must have membership in the proper group. See <synph><kwd>Master
+key load</kwd></synph> (Step <xref
+href="wskc_t_insconrpm.dita#l0wskc02_insconrpm/l0wskc02_install_rpm_mkl"/>).</li>
+<li>When writing your own application using this verb, you must link it with the
+<codeph>/usr/lib64/libcsulccamk.so</codeph> library.</li>
+</ul></section>
+</refbody></reference>

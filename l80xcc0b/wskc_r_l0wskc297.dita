@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc297">
+<title>Trusted block organization</title>
+ <titlealts>
+    <navtitle>Trusted block organization</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Trusted block organization</searchtitle>
+  </titlealts>
+<shortdesc>A trusted block is a concatenation of a header followed by an unordered
+set of sections. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>trusted block sections</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Some elements are required, while others are optional. The data
+structures of these sections are summarized in <xref href="#l0wskc297/l0wskc02_zapgtblk_tab1"/>.</p></section>
+<table id="l0wskc02_zapgtblk_tab1" pgwide="0" frame="none">
+<title>Trusted block sections and their
+use</title><desc><p outputclass="summary">Trusted block sections and their use</p></desc>
+<tgroup cols="3" colsep="0" rowsep="1">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="2*"/>
+<colspec colname="col3" colwidth="3*"/>
+<thead>
+<row rowsep="0">
+<entry valign="top">Section</entry>
+<entry valign="top">Reference</entry>
+<entry valign="top">Usage</entry></row>
+</thead>
+<tbody>
+<row>
+<entry valign="top">Header</entry>
+<entry valign="top"><xref href="wskc_r_tblocksec.dita#l0wskc02_tblocksec/l0wskc02_zapgtblk_tab2"/></entry>
+<entry valign="top">Trusted block token header</entry></row>
+<row>
+<entry valign="top"><ph>X'11'</ph></entry>
+<entry valign="top"><xref href="wskc_r_tbs11.dita#l0wskc02_tbs11/l0wskc02_srsas04"/></entry>
+<entry valign="top">Trusted block public key</entry></row>
+<row>
+<entry valign="top"><ph>X'12'</ph></entry>
+<entry valign="top"><xref href="wskc_r_tbs12.dita#l0wskc02_tbs12/l0wskc02_srsas06"/></entry>
+<entry valign="top">Trusted block rule</entry></row>
+<row>
+<entry valign="top"><ph>X'13'</ph></entry>
+<entry valign="top"><xref href="wskc_r_tbs13.dita#l0wskc02_tbs13/l0wskc02_srsas08"/></entry>
+<entry valign="top">Trusted block name (key label)</entry></row>
+<row>
+<entry valign="top"><ph>X'14'</ph></entry>
+<entry valign="top"><xref href="wskc_r_tbs14.dita#l0wskc02_tbs14/l0wskc02_srsas10"/></entry>
+<entry valign="top">Trusted block information</entry></row>
+<row>
+<entry valign="top"><ph>X'15'</ph></entry>
+<entry valign="top"><xref href="wskc_r_tbs15.dita#l0wsck02_tbs15/l0wskc02_srsasff"/></entry>
+<entry valign="top">Trusted block application-defined data</entry></row>
+</tbody>
+</tgroup>
+</table>
+<section><p>Every trusted block starts with a token header.  The first byte
+of the token header determines the key form:
+<ul>
+<li>An external header (first byte <ph>X'1E'</ph>), created by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmtbc"/> verb</li>
+<li>An internal header (first byte <ph>X'1F'</ph>), imported from an
+active external trusted block by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verb</li>
+</ul></p></section>
+<section><p>Following the token header of a trusted block is an unordered set
+of sections. A trusted block is formed by concatenating these sections
+to a trusted block header:
+<ul>
+<li>An optional public-key section (trusted block section identifier <ph>X'11'</ph>)
+<p>The
+trusted block trusted RSA public key section includes the key itself
+in addition to a key-usage flag. No multiple sections are allowed.</p></li>
+<li>An optional rule section (trusted block section identifier <ph>X'12'</ph>)
+<p>A
+trusted block can have zero or more rule sections.  </p>
+<ol>
+<li>A trusted block with no rule sections can be used by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptc"/> and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpki"/> verbs.
+ A trusted block with no rule sections can also be used by the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdsv"/> verb,
+provided there is an RSA public key section that has its key-usage
+flag bits set to allow digital signature operations.</li>
+<li>At least one rule section is required when the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkx"/> verb
+is used to:
+<ul>
+<li>Generate an RKX key-token	</li>
+<li>Export an RKX key-token	</li>
+<li>Export a CCA DES key-token</li>
+<li>Encrypt the clear generated or exported key using the provided
+vendor certificate</li>
+</ul></li>
+<li>If a trusted block has multiple rule sections, each rule section
+must have a unique 8-character Rule ID.</li>
+</ol></li>
+<li>An optional name (key label) section (trusted block section identifier <ph>X'13'</ph>)
+<p>The
+trusted block name section provides a 64-byte variable to identify
+the trusted block, just as key labels are used to identify other CCA
+keys. This name, or label, enables a host access-control system such
+as <tm trademark="RACF" tmtype="reg">RACF</tm> to use the name to
+verify that the application has authority to use the trusted block.
+No multiple sections are allowed.</p></li>
+<li>A required information section (trusted block section identifier <ph>X'14'</ph>)
+<p>The
+trusted block information section contains control and security information
+related to the trusted block. The information section is required
+while the others are optional. This section contains the cryptographic
+information that guarantees its integrity and binds it to the local
+system. No multiple sections are allowed.</p></li>
+<li>An optional application-defined data section (trusted block section
+identifier <ph>X'15'</ph>)
+<p>The trusted block application-defined
+data section can be used to include application-defined data in the
+trusted block.  The purpose of the data in this section is defined
+by the application.  CCA does not examine or use this data in any
+way.  No multiple sections are allowed.</p></li>
+</ul></p></section>
+</refbody></reference>

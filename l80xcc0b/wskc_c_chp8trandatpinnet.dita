@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp8trandatpinnet">
+<title>Translating data and PINs in networks</title>
+  <titlealts>
+    <navtitle>Translating data and PINs in networks</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Translating data and PINs in
+networks</searchtitle>
+  </titlealts><shortdesc>More and more data is being transmitted across networks where,
+for various reasons, the keys used on one network cannot be used on
+another network. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>personal identification number (PIN)<indexterm>translation
+of, in networks</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Encrypted data and PINs that are transmitted across these boundaries
+must be translated securely from encryption under one key to encryption
+under another key. For example, a traveler visiting a foreign city
+might want to use an ATM to access an account at home. The PIN entered
+at the ATM might need to be encrypted at the ATM and sent over one
+or more financial networks to the traveler's home bank. At the
+home bank, the PIN must be verified before access is allowed. On intermediate
+systems (between networks), applications can use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> <ph>verb</ph> to
+re-encrypt a PIN block from one key to another. Running on CCA, such
+applications can ensure that PINs never appear in the clear and that
+the PIN-encrypting keys are isolated on their own networks. </p>
+</conbody></concept>

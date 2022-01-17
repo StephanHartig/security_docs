@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="wskc_dkg2required">
+<title>Required commands</title><titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/> required commands.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldkg2"/>)<indexterm>required
+commands</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb requires the
+following commands to be enabled in the active role:</p>
+<table>
+<desc>
+<p outputclass="summary">Required commands for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkg2"/> verb</p>
+</desc>
+<tgroup cols="3">
+<colspec colname="col1" colwidth="7*"/>
+<colspec colname="col2" colwidth="3*"/>
+<colspec colname="col3" colwidth="10*"/>
+<thead>
+<row>
+<entry>Rule-array keyword</entry>
+<entry>Offset </entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><synph><kwd>KDFFM-DK</kwd></synph> (Release 4.4 or later)</entry>
+<entry><ph>X'02D3'</ph></entry>
+<entry><cmdname>Diversified Key Generate2 - KDFFM-DK</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>KLEN192</kwd></synph> and <synph><kwd>KLEN256</kwd></synph> (Release 4.4 or
+later)</entry>
+<entry><ph>X'02D4'</ph></entry>
+<entry><cmdname>Allow DKG2 Generated Key Length Option with KDFFM-DK Keyword</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>MK-OPTC</kwd></synph> (Release 4.4 or later)</entry>
+<entry><ph>X'02D2'</ph></entry>
+<entry><cmdname>Diversified Key Generate2 - MK-OPTC</cmdname></entry>
+</row>
+<row>
+<entry><synph><kwd>SESS-ENC</kwd></synph></entry>
+<entry><ph>X'02CC'</ph></entry>
+<entry><cmdname>Diversified Key Generate2 - AES EMV1 SESS</cmdname></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p>An additional command is required when the key usage fields of the key token identified by the
+<parmname>generating_key_identifier</parmname> parameter specify a type of key to diversify of D-ALL
+(any type of key allowed). In this case, the verb requires the <cmdname rev="shr2">Diversified Key
+Generate2 - DALL</cmdname> command (offset X'02CD') to be enabled in the active role.</p>
+</section>
+</refbody></reference>

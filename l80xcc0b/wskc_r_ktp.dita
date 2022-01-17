@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_ktp">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp2"/></searchtitle>
+  </titlealts><shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb disassembles a key token into separate pieces
+of information. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclbtp"/>)</indexterm></indexterm>
+<indexterm>key token</indexterm>
+<indexterm>control vector</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb can disassemble an external key token or an internal
+key token in application storage.</p></section>
+<section><p>Use the <synph><var>key_token</var></synph> parameter to specify the key token to
+disassemble.</p></section>
+<section><p>This verb returns some of the key token information in a set of
+variables identified by individual parameters and the remaining key
+token information as keywords in the <i>rule_array</i>.</p></section>
+<section><p>Control vector information is returned in keywords found in the <i>rule_array</i> when the verb can fully parse the control
+vector. Otherwise, the verb returns return code 4, reason code 2039.</p></section>
+<section><p>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmbtp"/> verb performs no cryptographic services.</p></section>
+</refbody></reference>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc235">
+<title>Related information</title> <titlealts>
+    <navtitle>Related information</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Related information for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/></searchtitle>
+  </titlealts>
+<shortdesc>Related information about <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/>.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmrkl"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclrkl"/>)<indexterm>related information</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>See <xref href="wskc_c_keysrule.dita#l0wskc02_keysrule"/>.</p></section>
+</refbody></reference>

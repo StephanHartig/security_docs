@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="wskc_pka_pim" xml:lang="en-us" rev="sh18i1">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/></searchtitle>
+</titlealts>
+<shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/> verb to
+manage the public key infrastructure stored inside the adapter. </shortdesc>
+<?Pub Caret 135?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpim"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpim"/></indexterm>
+<indexterm>PKI<indexterm>public key infrastructure</indexterm></indexterm>
+<indexterm>public key infrastructure<indexterm>PKI</indexterm></indexterm>
+<indexterm>trust parent</indexterm>
+<indexterm>X.509 certificate</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>You can manage a public key infrastructure inside the HSM to enable the use of standard-compliant
+X.509 certificates with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>. For such
+certificates, you use a so-called trust parent, which is the certificate installed from the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/tke"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>). The trust parent is the root of the
+trust chain of certificates that validate an operational X.509 certificate. The trust parent could
+be an actual certificate authority (CA) root certificate, or it could be a sub-CA certificate. The
+security is the same from the perspective of the adapter because the trust parent is installed under
+dual control security by administrators of the adapter. </p>
+<p>Thus, the management of trust parents requires dual-control administrative capabilities through
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>, while management of
+operational certificates is similar to existing public key tokens. The <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpim"/>OK interface to the public key
+infrastructure (PKI) in the HSM allows some limited management and query functions that do not
+require administrative authentication.</p>
+<p>You supply the following information:</p>
+<ul>
+<li>To import a trust parent on the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/atke"/>:<ul>
+<li>Supply a X.509 certificate that is DER or PEM encoded (binary DER), 64-byte label to initiate
+import.</li>
+<li>Generate a hash of the X.509 certificate, a 64-byte label and a keyword to complete import.</li>
+<li>A trust parent from a  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> point
+of view may actually be a sub-CA certificate when considered from the view of an external PKI:<ul>
+<li>The distinction for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> is that a
+trust parent:<ul>
+<li>establishes a new line of trust in the HSM, much like a master wrapping key</li>
+<li>is loaded under dual control: load of a trust root is protected by two access control points,
+one for each phase of the process. </li>
+</ul></li>
+<li>Loading a sub-CA certificate as a trust parent is expected for some workflows: <ul>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> does not implement a full PKI
+hierarchy internally. So any operational X.509 certificate should have its trust parent, namely the
+certificate for the issuer, loaded to the HSM. </li>
+<li>This is reasonable from a security perspective given that a sub-CA loaded as a trust parent has
+been loaded by two administrators, and so the same level of trust is justified.</li>
+</ul><note>As a PKI participant, <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+cannot validate the signature on a sub-CA certificate loaded as a trust parent,  since the issuer
+certificate is not part of the internal PKI.</note></li>
+</ul></li>
+<li>The HSM has no independent access to a network and thus:  <ul>
+<li>cannot use NTP to maintain accurate timing for trust parent expiration</li>
+<li>cannot interrogate external revocation lists. </li>
+</ul></li>
+</ul></li>
+<li>To list trust parents (by label) :<ul>
+<li>Supply a keyword. </li>
+<li>Supply a buffer to hold the information.</li>
+</ul></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001751?>

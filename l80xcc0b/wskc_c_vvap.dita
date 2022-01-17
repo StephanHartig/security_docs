@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc02_vvap" xml:lang="en-us">
+<title>Verbs, variables, and parameters</title>
+<titlealts>
+<navtitle>Verbs, variables, and parameters</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Verbs, variables, and parameters for
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+</titlealts>
+<shortdesc>Certain information is included for each verb,
+including the entry-point name and the parameter list.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>entry point</indexterm><indexterm>pseudonym</indexterm>
+<indexterm>verb<indexterm>parameter list</indexterm></indexterm>
+<indexterm>verb<indexterm>entry point name</indexterm></indexterm>
+<indexterm>security API</indexterm><indexterm>entry point name<indexterm>prefix</indexterm></indexterm>
+<indexterm>verb<indexterm>prefix</indexterm><indexterm>format</indexterm><indexterm>parameters</indexterm></indexterm>
+<indexterm>verb<indexterm>variable types</indexterm></indexterm>
+<indexterm>variable types</indexterm><indexterm>verb<indexterm>restrictions</indexterm></indexterm>
+<indexterm>verb<indexterm>required commands</indexterm></indexterm>
+<indexterm>verb<indexterm>JNI version</indexterm></indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Each verb has an entry-point name and a fixed-length parameter list. <xref
+href="wskc_r_pt2a.dita#l0wskc02_pt2a"/> provides  the following information for each verb: <ul>
+<li>Pseudonym</li>
+<li>Entry-point name</li>
+<li>Description</li>
+<li>Format</li>
+<li>Parameters</li>
+<li>Restrictions</li>
+<li>Required commands</li>
+<li>Usage notes</li>
+<li>JNI version</li>
+</ul></p>
+<p> <dl><dlentry>
+<dt>Pseudonym</dt>
+<dd>Also known as a general-language name or verb name. This name describes the function that the
+verb performs, such as <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> or
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmsad2"/>.</dd>
+</dlentry><dlentry>
+<dt>Entry-point name</dt>
+<dd>Also known as a computer-language name. This name is used in your program to call the verb. Each
+verb's 7 or 8 character entry-point name begins with one of the following prefixes: <dl>
+<dlentry>
+<dt>CSNB</dt>
+<dd>Generally, the AES and DES verbs</dd>
+</dlentry>
+<dlentry>
+<dt>CSND</dt>
+<dd>Public key cryptography verbs, including RSA and Elliptic Curve</dd>
+</dlentry>
+<dlentry>
+<dt>CSUA</dt>
+<dd>Cryptographic-node and hardware-control verbs</dd>
+</dlentry>
+</dl>The last three or four letters in the entry-point name after the prefix identify the specific
+verb in a group and are often the first letters of the principal words in the verb pseudonym.
+<p>When verbs are described throughout this publication, they are sometimes referred to by the
+pseudonym, and at other times by the pseudonym followed by the entry-point name in parenthesis. An
+example of this is: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkgn"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/>).</p>
+<p>The verb prefixes used here are different from those used by the Integrated Cryptographic Service Facility (ICSF).
+</p></dd>
+</dlentry><dlentry>
+<dt>Description</dt>
+<dd>The verb is described in general terms. Be sure to read the parameter
+descriptions because these add additional detail.</dd>
+</dlentry><dlentry>
+<dt>Format</dt>
+<dd>The format section for each verb lists the entry-point name followed by the list of parameters
+for the verb. You must code all the parameters, and they must be in the order listed. <table
+frame="none" pgwide="0">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry colname="col1">
+<codeblock>entry-point name(
+                 <synph><var>return_code</var></synph>,
+                 <synph><var>reason_code</var></synph>,
+                 <synph><var>exit_data_length</var></synph>,
+                 <synph><var>exit_data</var></synph>,
+                 <synph><var>parameter_5</var></synph>,
+                 <synph><var>parameter_6</var></synph>,
+                 <synph><var>...</var></synph>
+                 <synph><var>parameter_n</var></synph>)</codeblock>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table></dd>
+</dlentry><dlentry>
+<dt>Parameters</dt>
+<dd>All information exchanged between your application program and a verb is through the variables
+identified by the parameters in the procedure call. These parameters are pointers to the variables
+contained in application program storage that contain information to be exchanged with the verb.
+Each verb has a fixed-length parameter list and though all parameters are not always used by the
+verb, they must be included in the call. <p>The first four parameters are the same for all of the
+verbs. For a description of these parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"/>.
+For the description of the remaining parameters, see the definitions with the individual verbs.</p>
+<p>In the description for each parameter, data flow direction and data type are indicated, as
+follows.</p><dl>
+<dlentry>
+<dt>Direction</dt>
+<dd>
+<dl>
+<dlentry>
+<dt>Input</dt>
+<dd>The application program sends the variable to the verb (to the called routine).</dd>
+</dlentry>
+<dlentry>
+<dt>Output</dt>
+<dd>The verb returns the variable to the application program.</dd>
+</dlentry>
+<dlentry>
+<dt>Input/Output</dt>
+<dd>The application program sends the variable to the verb or the verb returns the variable to the
+application program, or both.</dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Type</dt>
+<dd>Data identified by a verb parameter can be a single value or a one-dimensional array. If a
+parameter identifies an array, each data element of the array is of the same data type. If the
+number of elements in the array is variable, a preceding parameter identifies a variable that
+contains the actual number of elements in the associated array. Unless otherwise stated, a variable
+is a single value, not an array.<p>For each verb, the parameter descriptions use the following terms
+to describe the type of variable:</p><dl>
+<dlentry>
+<dt>Integer</dt>
+<dd>A <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> integer (CCAINT).
+On <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/>, this is defined as the
+system type <term>long</term>. On other platforms this has been defined as a 4-byte (32-bit),
+signed, two's-complement binary number. (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/> has always defined the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> integer as <term>long</term>).</dd>
+</dlentry>
+<dlentry>
+<dt>String</dt>
+<dd>A series of bytes where the sequence of the bytes must be maintained. Each byte can take on any
+bit configuration. The string consists only of the data bytes. No string terminators, field-length
+values, or typecasting parameters are included. Individual verbs can restrict the byte values within
+the string to characters or numerics. <p>Character data must be encoded in the native character set
+of the computer where the data is used. Exceptions to this rule are noted where necessary.</p></dd>
+</dlentry>
+<dlentry>
+<dt>Array</dt>
+<dd>An array of values, which can be integers or strings. Only one-dimensional arrays are permitted.
+For information about the parameters that use arrays, see <xref
+href="wskc_c_raaokp.dita#l0wskc02_raaokp"/>.</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl><?Pub Caret 11?>
+</dd>
+</dlentry><dlentry>
+<dt>Restrictions</dt>
+<dd>Any restrictions are noted.</dd>
+</dlentry><dlentry>
+<dt>Required commands</dt>
+<dd>Access control points required to use the verb are described here.</dd>
+</dlentry><dlentry>
+<dt>Usage notes</dt>
+<dd>Usage notes about this verb are listed.</dd>
+</dlentry><dlentry>
+<dt>JNI version</dt>
+<dd>If the verb has a Java Native Interface version, it is described.</dd>
+</dlentry></dl></p>
+</conbody>
+</concept>
+<?Pub *0000008832?>

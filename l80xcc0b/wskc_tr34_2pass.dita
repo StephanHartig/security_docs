@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_2pass" xml:lang="en-us">
+<title>2-pass key transport</title>
+<titlealts>
+<navtitle>2-pass key transport</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow: 2-pass key
+transport</searchtitle>
+</titlealts>
+<shortdesc>This key transport typically installs a Terminal Master Key (TMK) at the Key Receiving
+Device (KRD). '2-pass' indicates that the KRD is expected to be online for the initial part of the
+protocol where a random number token is requested. If the KRD is expected to be offline, the
+'1-pass' protocol may be more appropriate.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>2-pass key transport</indexterm>
+<indexterm>RT-KRD</indexterm>
+<indexterm>Key Receiving Device (KRD) Random Number Token<indexterm>RT-KRD</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<p>Another name for the key is the TR-31 wrapping key name: Key Block Protection Key (KBPK). These
+represent the same key, a key-encrypting key (KEK), that is shared by the KDH and KRD so that more
+keys can be shared without going through the entire TR-34 protocol again. However, the type of key
+transported can be any type of key supported by the TR-31 key block that is carried in the TR-34
+protocol token. For this flow, the assumption is that a typical KEK is being exchanged.</p>
+</section>
+<section>
+<title>Setup steps for key transport</title>
+<p><b><u>On KDH </u></b><ol>
+<li>Refresh CRL-CA if needed:<p>If CRL-CA held by the KDH, representing that the CA shared between
+the KRD and KDH is not fresh any longer, the KDH should obtain a new CRL-CA before doing the next
+step.</p></li>
+<li>Create TMK/KBPK: The KEK to be shared with the other party.<p><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> has restrictions on the type of key that
+can be used to wrap another key for TR-31 export (the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkext31"/>
+<parmname>wrap_kek_identier</parmname>). Therefore, one of these key types should be
+generated for exchange:</p><dl>
+<dlentry>
+<dt>DES:</dt>
+<dd>
+<ol>
+<li>KDH-Wrapping-KEK:<ol>
+<li>This is an known or random value EXPORTER KEK created using the TKE workstation or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi"/>.</li>
+<li>This key is used with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/> to
+create the KRD-Import-KEK, which must be generated in external form under a KEK according to
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/> processing restrictions. </li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage.</li>
+</ol></li>
+<li>KDH-Export-KEK: <ol>
+<li>This is the KDH copy of the TMK key that will be used later to wrap keys being exported to the
+ATM. </li>
+<li>Type: DES EXPORTER key for wrapping output TR-31 key blocks. </li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage.</li>
+</ol></li>
+<li>KRD-Import-KEK: <ol>
+<li>This is the KRD copy of the TMK key that will be used later by the ATM to unwrap TR-31 key
+blocks for key distribution completion.</li>
+<li>Type: DES IMPORTER or IKEYXLAT key for unwrapping input TR-31 key blocks.</li>
+<li>This is the key (Kn) to be exported using TR-34. Because the key is in a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token, the notation (Kn-T) is used.</li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage until export.</li>
+</ol></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services: <ol>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb"/> service to create
+skeleton tokens for the EXPORTER/IMPORTER copies of the key.</li>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn"/> service to
+generate a new DES key and populate to each token.</li>
+</ol></li>
+</ol>
+</dd>
+</dlentry>
+<dlentry>
+<dt>AES:</dt>
+<dd>
+<ol>
+<li>KDH-Wrapping-KEK:<ol>
+<li>This is an known or random value EXPORTER KEK created using the TKE workstation or <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkpi2"/>.</li>
+<li>This key is used with <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> to
+create the KRD Import KEK, which must be generated in external form under a KEK according to
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> processing restrictions. </li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage.</li>
+</ol></li>
+<li>KDH-Export-KEK: <ol>
+<li>This is the KDH copy of the TMK key that is used later to wrap keys being exported to the ATM. </li>
+<li>Type: AES EXPORTER key with usage EXPTT31D for wrapping output TR-31 key blocks. </li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage.</li>
+</ol></li>
+<li>KRD-Import-KEK: <ol>
+<li>This is the KRD copy of the TMK key that will be used later by the ATM to unwrap TR-31 key
+blocks for key distribution completion.</li>
+<li>Type: AES IMPORTER key with usage IMPTT31D for unwrapping input TR-31 key blocks.</li>
+<li>This is the key (Kn) to be exported using TR-34. Since the key is in a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> token, the notation (Kn-T) is used.</li>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage until export.</li>
+</ol></li>
+<li><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> services: <ol>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclktb2"/> service to create
+skeleton tokens for the EXPORTER/IMPORTER copies of the key.</li>
+<li>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkgn2"/> service to
+generate a new AES key and populate each token. Note that the key strength must be 128 bit if key
+strength rules are to be followed for PCI PTS HSM compliance and other standards. The maximum TR-34
+wrapping key strength is AES 128-bit.</li>
+</ol></li>
+</ol>
+</dd>
+</dlentry>
+</dl></li>
+</ol></p>
+</section>
+<section>
+<title>Protocol steps for key transport</title>
+<p>
+<ol>
+<li><b><u>On KDH</u></b><ol>
+<li>The KDH TR-34 application requests a random number from the KRD. </li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>KRD TR-34 application receives the random number request and processes it.<ol>
+<li><b>Overview: </b>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/> using the keyword RT-KRD to
+create the TR-34 token that contains random number that is needed by the KDH.</li>
+<li><b>INPUT</b>:<ul>
+<li>RN-length: Length of the random number needed.</li>
+</ul></li>
+<li><b>OUTPUT</b>:<ul>
+<li>RT-KRD: Random number token.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring until the TR-34 Key Transport token
+(KT-KDH) is received that matches this RT-KRD random number.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li>Send RT-KRD to KDH. Also, store RT-KRD locally in application space for a later validation
+step.</li>
+</ol></li>
+<li><b><u>On KDH</u></b><ol>
+<li>Create the Key Transport token:<ol>
+<li><b>Overview: </b>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/> using keyword 2PASSCRE.</li>
+<li><b>INPUT</b>: <ol>
+<li>Kn-T: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token to be exported
+to the KRD.<p><b>KEY STORAGE</b>: Stored in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage.</p></li>
+<li>RT-KRD: <term>Key Receiving Device (KRD) Random Number Token</term> (RT-KRD) received from
+KRD.<p><b>KEY STORAGE</b>: Stored in application space until this call happens.</p></li>
+<li>CRL-CA: Certificate Revocation List from CA.<p><b>KEY STORAGE</b>: Stored in application space
+or key ring.</p></li>
+<li>CredKRD: KRD credential with ID and public key. The public key from this is used to RSA-encipher
+the RSA-encrypted part of the key block.<p><b>KEY STORAGE</b>: Stored in application space or key
+ring.</p></li>
+<li>CredKDH: KDH credential with ID and public key.<p><b>KEY STORAGE</b>: Stored in application
+space or key ring.</p></li>
+<li>D-kdh: Private key to sign data block.<p><b>KEY STORAGE</b>: Stored in <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key storage.</p></li>
+<li><b>KBH inputs:</b> TR-31 KBH for a terminal master key is not actually variable, but a
+peer-to-peer exchange will have more inputs to describe keys.</li>
+</ol></li>
+<li><b>OUTPUT</b>: <ul>
+<li>KT-KDH: Key transport (2-pass) token. <p><b>KEY STORAGE</b>: Stored in application space until
+sent to KRD.</p></li>
+</ul></li>
+</ol></li>
+<li>KDH sends the KT-KDH token to the KRD.</li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>The KRD receives the KT-KDH token from the KDH and must process it to complete the Key
+Transport.</li>
+<li>Create key token to hold output TMK (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> / peer-to-peer step).<ul>
+<li>Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service CSNBKTB or
+CSNBKTB2 to create Kn-TS, a skeleton <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> key token appropriate for a importing the TMK/KBPK.</li>
+</ul></li>
+<li>Process the KT-KDH token received from the KDH.<ol>
+<li><b>Overview: </b>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34r"/>  using keyword 2PASSRCV.</li>
+<li><b>INPUT</b>: <ol>
+<li>KT-KDH: Key transport (2-pass) token received from KDH.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space until processed.</li>
+</ul></li>
+<li>CredKDH: KDH credential with ID and public key.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space or key ring.</li>
+</ul></li>
+<li>RT-KRD: Token originally sent by the KRD to the KDH and used now for validation.<ul>
+<li><b>KEY STORAGE</b>: Stored in application space.</li>
+</ul></li>
+<li>D-krd: The private key matching the public key in CredKRD. D-krd is stored in the KRD (but not
+in the HSM). Used to RSA-decipher part of the KT-KDH key block. <ul>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage for peer-to-peer / <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+TR-34.</li>
+</ul></li>
+</ol></li>
+<li><b>OUTPUT</b>:<ul>
+<li>Kn-T: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> key token containing the
+transported TMK/KBPK.<ul>
+<li><b>KEY STORAGE</b>: Stored in <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+key storage on KRD.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+</ol></li>
+<li><b><u>On KRD </u></b><ol>
+<li>key-check value generated and returned to KDH.<ul>
+<li>The KRD generates a key-check value (KCV) for Kn-T using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/> using keywords GENERATE and ENC-ZERO
+or CMACZERO depending on the key algorithm. KRD sends this to the KDH. There is no special encoding
+for the KCV.</li>
+</ul></li>
+</ol></li>
+<li><b><u>On KDH</u></b><ol>
+<li>key-check value verified by KDH:<ul>
+<li>KDH verifies the KCV against the original Kn-T that was sent for export using TR-34. The
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkyt2"/>´using keywords VERIFY and ENC-ZERO or
+CMACZERO depending on the key algorithm can be used for this value.</li>
+</ul></li>
+</ol></li>
+</ol>
+</p>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

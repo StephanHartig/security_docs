@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="l0wskc02_emvmac" xml:lang="en-us">
+<title>EMV MAC</title>
+<titlealts>
+<navtitle>EMV MAC</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): EMV MAC</searchtitle>
+</titlealts>
+<shortdesc>The EMV smart card standards define MAC generation and
+verification processes that are the same as ANSI X9.9 and ANSI X9.19
+Optional Procedure 1 (ISO/IEC 9797-1, Algorithm 3), except for padding
+added to the end of the message. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>EMV MAC smart card standard</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>Append one byte of <ph>X'80'</ph> to the original message. Then
+append additional bytes, as required, of <ph>X'00'</ph> to form an
+extended message, which is a multiple of eight bytes in length.</p>
+<p><ph>In the ANSI X9.9 and ANSI X9.19 Optional Procedure 1 standards, the leftmost 32 bits (4
+bytes) of O</ph><sub><i>n</i></sub><ph> are taken as the MAC. In the EMV standards, the MAC value is
+between four and eight bytes in length. CCA provides support for the leftmost four, six, and eight
+bytes of MAC value.</ph>
+<fig id="l0wskc02_fig21" expanse="column">
+<title>MAC calculation method</title>
+<image href="l0wskc02_fig21.jpg" placement="break" width="600">
+<alt>MAC calculation method</alt>
+</image>
+</fig><?Pub Caret -1?>
+</p>
+</conbody>
+</concept>
+<?Pub *0000001368?>

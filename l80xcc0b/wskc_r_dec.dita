@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_dec">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>)</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>)</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/></searchtitle>
+</titlealts><shortdesc>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> <ph>verb</ph> to decipher data using the <ph>DES</ph> cipher
+block chaining mode. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbcldec"/>)</indexterm></indexterm>
+<indexterm>data<indexterm>deciphering</indexterm></indexterm>
+<indexterm>Decipher processing rule</indexterm>
+<indexterm>processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></indexterm></indexterm>
+<indexterm>ANSI X9.23 processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></indexterm></indexterm>
+<indexterm>CBC processing rule<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></indexterm></indexterm>
+<indexterm>Cryptographic Unit Support Program (CUSP)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></indexterm></indexterm>
+<indexterm>Information Protection System (IPS)<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/></indexterm></indexterm>
+<indexterm>ANSI X9.23 padding</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>CCA supports the following processing rules to decipher data. You
+choose the type of processing rule that the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> <ph>verb</ph> should
+use for block chaining.</p></section>
+<section>
+<dl>
+<dlentry>
+<dt>ANSI X9.23</dt>
+<dd>For cipher block chaining. The ciphertext must be an exact multiple of eight bytes, but the
+plaintext will be between 1 and 8 bytes shorter than the ciphertext. The
+<synph><var>text_length</var></synph> will also be reduced to show the original length of the plaintext.</dd>
+</dlentry>
+<dlentry>
+<dt>Cipher Block Chaining (CBC)</dt>
+<dd>The ciphertext must be an exact multiple of eight bytes and the plaintext will have the same
+length.</dd>
+</dlentry>
+<dlentry>
+<dt>Cryptographic Unit Support Program (CUSP)</dt>
+<dd>CBC mode (cipher block chaining) that is compatible with <tm trademark="IBM" tmtype="reg"
+>IBM</tm>’s CUSP and PCF products. The data need not be in exact multiples of eight bytes. The
+ciphertext is the same length as the plaintext.</dd>
+</dlentry>
+<dlentry>
+<dt>Information Protection System (IPS)</dt>
+<dd>CBC mode (cipher block chaining) that is compatible with <tm trademark="IBM" tmtype="reg"
+>IBM</tm>’s IPS product. The data need not be in exact multiples of eight bytes. The ciphertext is
+the same length as the plaintext.</dd>
+</dlentry>
+</dl>
+</section>
+<section><p>The cipher block chaining (CBC) mode uses an initial chaining value (ICV) in its processing. The
+first eight bytes of ciphertext is deciphered and then the ICV is XORed with the resulting eight
+bytes of data to form the first 8-byte block of plaintext. Thereafter, the 8-byte block of ciphertext is
+deciphered and XORed with the previous 8-byte block of ciphertext until all the ciphertext
+is deciphered.</p></section>
+<section><p>The selection between single-DES decryption mode and triple-DES
+decryption mode is controlled by the length of the key supplied in
+the <synph><var>key_identifier</var></synph> parameter. If a single-length key is supplied,
+single-DES decryption is performed. If a double-length or triple-length
+key is supplied, triple-DES decryption is performed.</p></section>
+<section><p>A different ICV could be passed on each call to the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> <ph>verb</ph>.
+However, the same ICV that was used in the corresponding <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> <ph>verb</ph> must
+be passed.</p></section>
+<section><p>Short blocks are text lengths of between one and seven bytes. A
+short block can be the only block. Trailing short blocks are blocks
+of between one and seven bytes that follow an exact multiple of eight
+bytes. For example, if the text length is 21, there are two 8-byte
+blocks and a trailing short block of five bytes. <ph>Because the DES
+processes</ph> text only in exact multiples of eight bytes, some special
+processing is required to decipher such short blocks.</p></section>
+<section><p>These methods of treating short blocks and trailing short blocks do not increase the length of
+the ciphertext compared to the length of the plaintext. If the plaintext was <i>padded</i> during
+encipherment, the length of the ciphertext will always be an exact multiple of eight bytes.</p></section>
+<section><p><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> supports the ANSI X9.23 padding
+method. </p>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

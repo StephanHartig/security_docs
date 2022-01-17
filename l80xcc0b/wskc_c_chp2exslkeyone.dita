@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_chp2exslkeyone">
+<title>Examples of single-length keys in one form only</title>
+  <titlealts>
+    <navtitle>Examples of single-length keys in one form only</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Examples of single-length keys in one
+form only</searchtitle>
+  </titlealts><shortdesc>An example of single-length keys.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>single-length key<indexterm>purpose</indexterm></indexterm>
+<indexterm>key<indexterm>single-length</indexterm></indexterm>
+<indexterm>OP key form</indexterm>
+<indexterm>IM key form</indexterm>
+<indexterm>EX key form</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<codeblock> Key   Key
+ Form   1
+
+ OP   DATA  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/> data. Use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdkx"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>
+            to send encrypted key to another cryptograpic partner. Then
+            communicate the ciphertext.
+ OP   MAC   <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/>. Because no MACVER key exists, there is no
+            secure communication of the MAC with another cryptographic
+            partner.
+ IM   DATA  <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>, and then <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmenc"/> or <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmdec"/>. Then <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkex"/>
+            to communicate ciphertext and key with another cryptographic
+            partner.
+ EX   DATA  You can send this key to a cryptographic partner, but you
+            can do nothing with it directly. Use it for the key
+            distribution service. The partner could then use <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkim"/>
+            to get it in operational form, and use it as in OP DATA
+            above.</codeblock>
+</conbody></concept>

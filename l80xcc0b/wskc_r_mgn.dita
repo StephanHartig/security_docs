@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_mgn">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</title>
+ <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>):  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/></searchtitle>
+  </titlealts>
+<shortdesc>When a message is sent, an application program can generate an
+authentication code for it using the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> <ph>verb</ph>. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmgn"/>)</indexterm></indexterm>
+<indexterm>Message Authentication Code (MAC)<indexterm>generating</indexterm></indexterm>
+<indexterm>ANSI X9.9-1</indexterm>
+<indexterm>ANSI X9.19</indexterm>
+<indexterm>Europay padding rule</indexterm>
+<indexterm>MasterCard padding rule</indexterm>
+<indexterm>Visa (EMV) padding rule</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>This verb generates a 4-byte, 6-byte, or 8-byte Message Authentication Code (MAC) for an
+application-supplied text string. </p></section>
+<section><p>This verb computes the message authentication code (MAC) using one of the following methods: <ul>
+<li>Using the ANSI X9.9-1 single key algorithm, a single-length MAC generation key or
+data-encrypting key, and the message text.</li>
+<li>Using the ANSI X9.19 optional double key algorithm, a double-length MAC generation key and the
+message text.</li>
+<li>Using the Europay, MasterCard and Visa (EMV) padding rules.</li>
+</ul></p></section>
+<section><p>The MAC can be the leftmost 32 or 48 bits of the last block of
+the ciphertext or the entire last block (64 bits) of the ciphertext.
+The originator of the message sends the Message Authentication Code
+with the message text.</p>
+<p rev="sh21i1">The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmgn"/> verb also
+supports the TDES-CMAC algorithm specified in NIST SP800-38B (2005). For the TDES-CMAC procedure,
+you identify a double-length, or triple-length MAC key and the message text.</p>
+<note>This verb supports <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/>
+compliant-tagged key tokens.</note></section>
+</refbody></reference>

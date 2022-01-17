@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="actformat" rev="sh16">
+<title>Format</title>
+<titlealts>
+<navtitle>Format</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Format of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></searchtitle>
+</titlealts>
+<shortdesc>The format of <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"
+/>)<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<table pgwide="0">
+<tgroup cols="1">
+<colspec colname="col1"/>
+<tbody>
+<row>
+<entry colname="col1">
+<codeblock><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>(
+                     <synph><var>return_code</var></synph>,
+                     <synph><var>reason_code</var></synph>,
+                     <synph><var>exit_data_length</var></synph>,
+                     <synph><var>exit_data</var></synph>,
+                     <synph><var>rule_array_count</var></synph>,
+                     <synph><var>rule_array</var></synph>,
+                     <synph><var>role_ID_length</var></synph>,
+                     <synph><var>role_ID</var></synph>,
+                     <synph><var>output_data_length</var></synph>,
+                     <synph><var>output_data</var></synph>,
+                     <synph><var>reserved1_length</var></synph>,
+                     <synph><var>reserved1</var></synph>, 
+                     <synph><var>reserved2_length</var></synph>,
+                     <synph><var>reserved2</var></synph>)
+</codeblock>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</refbody>
+</reference>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_cksn">
+<title>Current key serial number</title>
+<titlealts>
+<navtitle>Current key serial number</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Current key serial number</searchtitle>
+</titlealts><shortdesc>The current key serial number is the concatenation of the initial
+key serial number (a 59-bit value) and the encryption counter (a 21-bit
+value).</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>UKPT<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The concatenation is an 80-bit (10-byte) value. <xref href="#l0wskc02_cksn/l0wskc02_ukpt1"/> shows the format of the current key serial
+number.</p>
+<p>When <synph><kwd>UKPT</kwd></synph> or <synph><kwd>DUKPT</kwd></synph> is specified, the PIN profile
+parameter is extended to a 48-byte field and must contain the current
+key serial number.</p>
+<table id="l0wskc02_ukpt1" pgwide="1" frame="all">
+<title>Format of the Current Key Serial Number Field</title>
+<desc>
+<p outputclass="summary">Format of the Current Key Serial Number Field</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="18*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>24 - 47</entry>
+<entry>Character representation of the current key serial number used to
+derive the initial PIN encrypting key. <ph>It is left-aligned and padded with 4 blanks.</ph></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody></concept>

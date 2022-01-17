@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE ibmbook PUBLIC "-//IBM//DTD DITA IBM BookMap//EN"
+ "ibmbook.dtd">
+<ibmbook xml:lang="en-us">
+<ibmbooktitle>
+<ibmbooklibrary><ph conref="lxcommon.dita#phrases/lib_title"/>
+</ibmbooklibrary>
+<ibmmainbooktitle>Secure Key Solution with the Common Cryptographic
+Architecture Application Programmer's Guide<titleline>Version 7.3</titleline></ibmmainbooktitle>
+<ibmshorttitle>Common Cryptographic Architecture Application Programmer's Guide</ibmshorttitle>
+</ibmbooktitle>
+<bookmeta>
+<authorinformation id="bblab">
+<organizationinfo><namedetails><organizationnamedetails>
+<organizationname>IBM Deutschland Research &amp; Development GmbH</organizationname>
+</organizationnamedetails></namedetails>
+<addressdetails><administrativearea>Information Development</administrativearea><term>Department
+3282</term><thoroughfare>Schoenaicher Strasse 220</thoroughfare><locality><localityname>71032
+Boeblingen</localityname></locality><country>Germany</country></addressdetails>
+<emailaddresses><emailaddress>eservdoc@de.ibm.com</emailaddress>
+</emailaddresses></organizationinfo>
+</authorinformation>
+<publisherinformation><printlocation> </printlocation>
+</publisherinformation>
+<prodinfo><prodname>Linux on z Systems</prodname>
+</prodinfo>
+<bookid><booknumber>SC33-8294-11</booknumber><maintainer href="#bblab">
+</maintainer></bookid>
+<bookrights><copyrfirst><year>2007</year></copyrfirst><copyrlast>
+<year>2022</year>
+</copyrlast><bookowner><organization>IBM</organization></bookowner>
+<bookrestriction value="confidential"/>
+</bookrights>
+</bookmeta>
+<ibmfrontmatter>
+<specialnotices href="lxcommon_specialnotice.dita">
+</specialnotices>
+<editionnotices href="wskc_ednotices.dita">
+</editionnotices>
+<frontbooklists>
+<toc/>
+<figurelist/>
+<tablelist/></frontbooklists>
+<preface href="wskc_aboutdoc.dita">
+<topicref href="wskc_r_revisions.dita">
+<topicref format="dita" href="wskc_soc11_2022.dita" scope="local" type="reference"/>
+<topicref format="dita" href="wskc_soc10_2021.dita" scope="local" type="reference"/>
+<topicref format="dita" href="wskc_soc09_2020.dita" scope="local" type="reference"/>
+</topicref>
+<topicref href="wskc_c_whouse.dita"></topicref>
+<topicref href="wskc_r_distspecific.dita"></topicref>
+<topicref href="wskc_r_terms.dita"></topicref>
+<topicref href="wskc_c_hardwareneeds.dita"></topicref>
+<topicref href="wskc_c_howuse.dita"></topicref>
+<topicref href="wskc_c_wherefindmore.dita">
+<topicref href="lxcommon_library.dita"/>
+<topicref href="wskc_c_l0wskc222.dita"></topicref>
+</topicref>
+</preface>
+</ibmfrontmatter>
+<part href="wskc_c_pt1.dita">
+<chapter format="ditamap" href="wskc_appgm.ditamap"/>
+<chapter format="ditamap" href="wskc_pci_hsm_compliance.ditamap"/>
+<chapter format="ditamap" href="wskc_apint.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_pkaint.ditamap"></chapter>
+<chapter href="wskc_c_l0wskc03_zapgtr31.dita"></chapter>
+<chapter format="ditamap" href="wskc_understand_mkeys.ditamap"></chapter>
+</part>
+<part href="wskc_r_pt2a.dita">
+<chapter format="ditamap" href="wskc_acc.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_apmky.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_apenc.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_apmac.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_zapgkyst.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_appin.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_appin_dk.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_tr34.ditamap"/>
+<chapter format="ditamap" href="wskc_l0wskc03_zapgtr31v.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_pk3.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_pk4.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_utility_verbs.ditamap"></chapter>
+</part>
+<part href="wskc_appendix_part.dita">
+<chapter format="ditamap" href="wskc_aprec.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_aptkn.ditamap"></chapter>
+<chapter format="ditamap" href="wskc_kegekf.ditamap"/>
+<chapter format="ditamap" href="wskc_ap1me.ditamap"/>
+<chapter format="dita" href="wskc_keytvec.dita"/>
+<chapter format="ditamap" href="wskc_ap2me.ditamap"/>
+<chapter format="ditamap" href="wskc_zapgapd2.ditamap"/>
+<chapter format="ditamap" href="wskc_apn.ditamap"/>
+<chapter format="ditamap" href="wskc_acodas.ditamap"/>
+<chapter format="ditamap" href="wskc_pci_hsm_reference.ditamap"/>
+<chapter format="dita" href="wskc_aes_dukpt.dita"/>
+<chapter format="ditamap" href="wskc_codesamp.ditamap"/>
+<chapter format="ditamap" href="wskc_setup.ditamap"/>
+<chapter format="ditamap" href="wskc_install.ditamap"/>
+<chapter format="ditamap" href="wskc_coexist.ditamap"/>
+<chapter format="ditamap" href="wskc_utilities.ditamap"/>
+<chapter format="dita" href="wskc_alpha_security_api.dita"/>
+<chapter format="ditamap" href="wskc_oc_token.ditamap"/>
+<chapter format="dita" href="wskc_r_l0wskc03_abbrev.dita"/>
+</part>
+<appendix href="lxcommon_accessibility.dita">
+</appendix>
+<ibmbackmatter>
+<topicref href="lxcommon_notices.dita">
+<topicref href="wskc_c_notproginterinfo.dita"/>
+<topicref href="wskc_c_nottrade.dita"></topicref>
+</topicref>
+<backbooklists>
+<glossarylist href="wskc_glossary.dita">
+</glossarylist>
+</backbooklists>
+<backbooklists>
+<indexlist/></backbooklists>
+</ibmbackmatter>
+</ibmbook>
+<?Pub *0000007733?>

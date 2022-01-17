@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference   PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_stoknbin">
+<title>Number representation in trusted blocks</title>
+<titlealts>
+<navtitle>Number representation in trusted blocks</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Number representation in trusted
+blocks</searchtitle>
+</titlealts>
+<shortdesc>The number format in trusted blocks.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>trusted block<indexterm>number representation</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<ul>
+<li>All length fields are in binary.</li>
+<li>All binary fields (exponents, lengths, and so forth) are stored with the high-order byte first
+(big-endian format). Thus the least significant bits are to the right and preceded with zero-bits to
+the width of a field.</li>
+<li>In variable-length binary fields, that have an associated field-length value, leading bytes that
+would otherwise contain X'00' can be dropped. Thus, these fields can be shortened to contain only
+the significant bits.</li>
+</ul></section>
+</refbody></reference>

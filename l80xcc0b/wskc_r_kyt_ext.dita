@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="l0wskc02_kyt_ext">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</title>
+  <titlealts>
+    <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/></searchtitle>
+  </titlealts>
+<shortdesc>This verb is essentially the same as Key Test (CSNBKYT).</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclkye"/>)</indexterm></indexterm>
+<indexterm>verification pattern</indexterm>
+<indexterm>key part</indexterm>
+<indexterm>external key</indexterm>
+<indexterm>clear key</indexterm>
+<indexterm>GENERATE</indexterm>
+<indexterm>VERIFY</indexterm>
+<indexterm>SYM-MK</indexterm>
+<indexterm>ASYM-MK</indexterm>
+<indexterm>AES-MK</indexterm>
+<indexterm>KEY-KM</indexterm>
+<indexterm>KEY-NKM</indexterm>
+<indexterm>KEY-OKM</indexterm>
+<indexterm>ENC-ZERO</indexterm>
+<indexterm>KEY-ENC</indexterm>
+<indexterm>KEY-ENCD</indexterm>
+<indexterm>TOKEN</indexterm>
+<indexterm>MDC-4</indexterm>
+<indexterm>SHA-1</indexterm>
+<indexterm>SHA-256</indexterm>
+<indexterm>NOADJUST</indexterm>
+<indexterm>ADJUST</indexterm>
+<indexterm>odd parity</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>For further information, see <xref href="wskc_r_kyt.dita#l0wskc02_kyt"/>. The differences
+are:
+<ul>
+<li>In addition to operating on internal keys and key parts, this
+verb also operates on external keys and key parts.</li>
+<li>This verb does not operate on clear keys, and does not accept <i>rule_array</i> keywords <synph><kwd>CLR-A128</kwd></synph>, <synph><kwd>CLR-A192</kwd></synph>, <synph><kwd>CLR-A256</kwd></synph>, <synph><kwd>KEY-CLR</kwd></synph>,
+and <synph><kwd>KEY-CLRD</kwd></synph>.</li>
+</ul></p></section>
+<section><p>See also <xref href="wskc_r_kyt.dita#l0wskc02_kyt"/> for operating only on internal
+keys.</p></section>
+<section><p>Use this verb to verify the value of a key or key part in an external
+or internal key token. This verb supports two options:
+<dl>
+<dlentry><dt>GENERATE</dt>
+<dd>To compute and return a verification pattern for a specified
+key.</dd></dlentry>
+<dlentry><dt>VERIFY</dt>
+<dd>To verify that a passed verification pattern is correct for
+the specified key.
+<p>The verification pattern and the verification
+process do not reveal any information about the value of the tested
+key, other than equivalency of two key values. Several verification
+algorithms are supported.</p></dd></dlentry>
+</dl></p></section>
+<section><p>This verb supports testing of AES, DES, and PKA master keys, and enciphered keys or key parts.
+<i>rule_array</i> keywords are used to specify information about the target key that is not implicit
+from other verb parameters.</p></section>
+<section><p>When testing the master keys, there are two sets of <i>rule_array</i> keywords
+to indicate what key to test:
+<ol>
+<li>The <synph><kwd>SYM-MK</kwd></synph>, <synph><kwd>ASYM-MK</kwd></synph>, and
+<synph><kwd>AES-MK</kwd></synph> master-key selector keywords indicate whether to test the DES
+(symmetric) master key, the PKA (asymmetric) master key, or the AES master key.</li>
+<li>The <synph><kwd>KEY-KM</kwd></synph>, <synph><kwd>KEY-NKM</kwd></synph>, and <synph><kwd>KEY-OKM</kwd></synph> key
+or key-part <i>rule_array</i> keywords choose among
+the current-master-key register, the new-master-key register, and
+the old-master-key register.</li>
+</ol></p></section>
+<section><p>Not specifying a master-key selector keyword (<synph><kwd>SYM-MK</kwd></synph>, <synph><kwd>ASYM-MK</kwd></synph>,
+or <synph><kwd>AES-MK</kwd></synph>) means that the DES (symmetric) and PKA (asymmetric)
+master keys have the same value, and that you want to test that value.</p></section>
+<section><p>Several key test algorithms are supported by the verb. See <xref href="wskc_c_keyverm.dita#l0wskc02_keyverm"/>. Some are implicitly selected based on the
+type of key you are testing, while others are optional and selected
+by specifying a verification process rule keyword. You can specify
+one of the following:
+<ol>
+<li>The <synph><kwd>ENC-ZERO</kwd></synph> keyword to encrypt a block of binary zeros
+with the specified key. This verb returns the leftmost 32 bits of
+the encryption result as the verification pattern. The encrypted block
+consists of 16 bytes of binary zeros for AES, and eight bytes for
+DES and Triple-DES keys. This method is valid only with the <synph><kwd>TOKEN</kwd></synph> keyword
+for AES, and <synph><kwd>KEY-ENC</kwd></synph> and <synph><kwd>KEY-ENCD</kwd></synph> keywords for DES.</li>
+<li>The <synph><kwd>MDC-4</kwd></synph> keyword to compute a 16-byte verification pattern
+using the MDC-4 algorithm. This keyword is valid only when computing
+the verification pattern for a DES (symmetric) or PKA (asymmetric)
+master key.</li>
+<li>The <synph><kwd>SHA-1</kwd></synph> keyword to compute the verification pattern
+using the SHA-1 hashing method. This keyword is valid only when computing
+the verification pattern for the DES (symmetric) or PKA (asymmetric)
+master key.</li>
+<li>The <synph><kwd>SHA-256</kwd></synph> keyword to compute the verification pattern
+using the SHA-256 hashing method. This keyword is valid only when
+computing the verification pattern for an AES key.</li>
+</ol></p></section>
+<section><p><xref href="wskc_r_kyt.dita#l0wskc02_kyt/l0wskc02_kyt_tab1"/> describes the use of the <synph><var>random_number</var></synph> and <synph><var>verification_pattern</var></synph> fields
+for each of the available verification methods.</p></section><section>
+<note>For historical reasons, the verification information
+is passed in two 8-byte variables pointed to by the <synph><var>random_number</var></synph> and <synph><var>verification_pattern</var></synph> parameters.
+The <synph><kwd>GENERATE</kwd></synph> option returns information in these two variables,
+and the <synph><kwd>VERIFY</kwd></synph> option uses the information provided in these
+two variables. If the verb cannot verify the information provided,
+it returns a return code of 4 and a reason code of 1. For simplicity,
+these two variables can be two 8-byte elements of a 16-byte array,
+which is processed by your application program as a single quantity.
+Both parameters must be coded when calling the API.</note></section>
+<section><p>DES and Triple-DES keys reserve the low-order bit of each byte for parity. If parity is used, the
+low-order bit is set so that the total number of <ph>B'1'</ph> bits in the byte is odd. These parity
+adjustment keywords allow you to control how the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmkye"/> verb handles the parity bits: </p>
+<dl>
+<dlentry>
+<dt>NOADJUST</dt>
+<dd>Specifies not to alter the parity bit values in any way. This is the default.</dd>
+</dlentry>
+<dlentry>
+<dt>ADJUST</dt>
+<dd>Specifies to modify the low-order bit of each byte as necessary for odd parity. <p>This is done
+on the cleartext value of the key before the verification pattern is computed. The parity adjustment
+is performed only on a temporary copy of the key within the card, and does not affect the key value
+in the <synph><var>key_identifier</var></synph> parameter.</p></dd>
+</dlentry>
+</dl>
+<note rev="sh18i1">This verb supports <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/pcihsm2016"/> compliant-tagged key tokens.</note></section>
+</refbody></reference>

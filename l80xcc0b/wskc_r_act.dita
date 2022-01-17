@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="csuaact" rev="sh16">
+<title><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>)</title>
+ <titlealts>
+ <navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>)</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/></searchtitle>
+  </titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> verb allows you
+to track the usage of ACPs for a defined span of time, and also allows you to query that tracking
+information.</shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>)</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/>)</indexterm>
+<indexterm>verb<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> (<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/>)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section><p>Use the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmact"/> verb to start or
+stop tracking of access control points (ACPs) that are queried by applications. You can also use
+this verb to maintain ACP tracking information. Some key points to consider are: </p>
+<ul>
+<li>Tracking is started, stopped, and maintained on a per role basis, for one or more role IDs at a
+time.</li>
+<li>Tracking of ACPs occurs between START and STOP requests.</li>
+<li>Whenever an application, that is running under a role ID that is being tracked,  causes an ACP
+to be queried, this ACP is tracked.</li>
+<li>ACP information is returned on the basis of the selected role ID. <ul>
+<li>Data size: <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclact"/> uses the same
+access-control-point list data structure and transfer semantics as the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmacm"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclacm"/>) verb. Both verbs also share the same
+transfer size limitations, if any. It is deemed unlikely that role tracking data for one role passes
+the maximum data transfer size for a platform since typically data for a single role is
+returned.</li>
+<li>If a SIZEDATA request for a given list of roles results in an error that indicates the total
+size is too large to transfer, try reducing the size of the list of roles by dividing it into
+multiple queries.</li>
+</ul></li>
+<li>Tracking configuration and data is retained inside the cryptographic coprocessor until cleared
+by a specific request or re-initialization.</li>
+</ul>
+<p> To use this verb, do the following: </p>
+<ol>
+<li>Specify the desired function to perform in the rule array. Choose whether to start or stop
+access control tracking, whether to retrieve collected tracking data or the size of that data. You
+can also choose to query if tracking is enabled, or clear tracking information.</li>
+<li>Use the <parmname>role_ID</parmname> parameter to optionally identify one or more 8-character
+role IDs to be tracked. If no role IDs are specified (that is, the
+<parmname>role_ID_length</parmname> variable is 0), the verb operates on the <ph rev="sh16i1"
+>default role, which all users may use</ph>.</li>
+<li>Specify a buffer large enough to receive any output data.</li>
+</ol>
+<note>
+<ol>
+<li>Tracking of role IDs has minor performance implications. From the initialization of a role ID
+tracking structure after a START until it is cleared, either by the CLRDATA option of this verb or
+by a reinitialization of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+application in the coprocessor, two identical copies of the tracking structure are maintained. One
+is an in-memory copy, and the other is an in-storage copy. The in-memory copy serves to provide the
+least impact on performance, while the in-storage copy serves to survive a power outage. During the
+period that a role ID is being tracked, any attempt by that role to access an ACP causes the role ID
+access control point list of the in-memory copy to be checked. When an ACP (offset) in the list is
+checked and found to be set to B'1' (at least one access attempt for this ACP, whether successful or
+not, has been recorded), no further processing is performed. Otherwise, the offset in both the
+in-memory and in-storage lists is changed to B'1' from B'0'. This update to both lists only occurs
+once per ACP accessed.</li>
+<li rev="sh16"><xref href="wskc_acodas_intro.dita#acodas_intro"/> describes the roles and role
+structures and provides examples of access control data structures for the roles.</li>
+<li>You can also perform ACP tracking with the help of the <cmdname>panel.exe</cmdname> utility.
+Refer to <xref href="wskc_c_l0wskc43.dita#l0wskc43"/> and to <xref
+href="wskc_panexe_track_acps.dita#panexe_track_acps"/>.</li>
+</ol>
+</note></section>
+</refbody></reference>

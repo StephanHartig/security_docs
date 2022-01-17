@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"  "ibm-task.dtd">
+<task id="oc_keymig" xml:lang="en-us">
+<title>Migrating to a new <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master
+key</title>
+<titlealts>
+<navtitle>Migrating the master key</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Migrating to a new <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key on <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/linuxonz"/></searchtitle>
+<?Pub Caret -1?>
+</titlealts>
+<shortdesc>If you need to migrate a <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"
+/> key to a new wrapping <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master
+key (MK), use the <cmdname>pkcscca</cmdname> tool as described in this topic.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>migration <indexterm>master key</indexterm><indexterm>
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> master
+keys</indexterm></indexterm>
+<indexterm>master key migration</indexterm>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key
+migration</indexterm>
+<indexterm>pkcscca tool<indexterm>master key migration</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody>
+<prereq>
+<p>Prerequisite for using the key migration function described in this topic is that you have
+installed <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> version 3.4 or
+higher.</p>
+</prereq>
+<context>
+<p>There may be situations when <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+master keys must be changed. All <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>
+secret and private keys are enciphered (wrapped) with a master key (MK). After a <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key is changed, the keys wrapped
+with an old master key need to be re-enciphered with the new master key. Only keys which are marked
+as CKA_EXTRACTABLE=TRUE can be migrated. However, by default all keys are marked as CKA_EXTRACTABLE.
+So only those keys where the user explicitly chooses to mark them as non extractable, for example,
+by setting CKA_EXTRACTABLE=FALSE cannot be migrated.</p>
+<p> Use the <cmdname>pkcscca</cmdname> tool to migrate wrapped <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> keys.</p>
+<p>After a new master key is loaded and set, perform the following steps:</p>
+</context>
+<steps>
+<step>
+<cmd> Stop all processes that are currently using <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>.</cmd>
+<substeps>
+<substep>
+<cmd>Stop all applications that use <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/>.</cmd>
+</substep>
+<substep>
+<cmd>Find out whether the <codeph>pkcsslotd</codeph> daemon is running by issuing the following
+command:</cmd>
+<info><screen rev="sh21i1">
+$ systemctl status pkcsslotd   /* for Linux distributions providing systemd */
+$ ps awx | grep pkcsslotd</screen>If the daemon is running, the command output shows a process for
+<codeph>pkcsslotd</codeph>.</info>
+</substep>
+<substep>
+<cmd>If applicable, stop the daemon by issuing a command of this form:</cmd>
+<info>
+<screen>$ systemctl stop pkcsslotd.service /* for Linux distributions providing systemd */</screen>
+</info>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd> Back up the token object repository of the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>. For example, you can use the
+following commands: </cmd>
+<info>
+<screen>cd /var/lib/opencryptoki/cca/
+      tar -cvzf ~/cca/TOK_OBJ_backup.tgz TOK_OBJ</screen>
+</info>
+</step>
+<step>
+<cmd> Migrate the keys of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/>
+object repository with the <cmdname>pkcscca</cmdname> migration tool.</cmd>
+<info>
+<screen>
+pkcscca -m keys -s &lt;slotid> -k &lt;aes|apka|asym|sym>
+</screen>
+<p>The following parameters are mandatory:</p>
+<dl>
+<dlentry>
+<dt>-s</dt>
+<dd>slot number for the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/></dd>
+</dlentry>
+<dlentry>
+<dt>-k</dt>
+<dd>master key type to be migrated: <userinput>aes</userinput>, <userinput>apka</userinput>,
+<userinput>asym</userinput>, or <userinput>sym</userinput>
+</dd>
+</dlentry>
+</dl>
+<p>The following parameter is optional:</p>
+<dl>
+<dlentry>
+<dt>-m keys</dt>
+<dd>re-encipers private keys only with a new <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key.</dd>
+</dlentry>
+</dl>
+<p>All the specified token objects representing extractable keys that are found for the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ccatoken"/> are re-encrypted and ready for use.
+Keys with an attribute CKA_EXTRACTABLE=FALSE are not eligible for migration. The keys that failed to
+migrate are displayed to the user.</p>
+</info>
+<stepxmp>
+<note othertype="Example" type="other"><screen>$ pkcscca -m keys -s 2 -k sym</screen> migrates all
+private keys wrapped with symmetric master keys found in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> plug-in for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> in PKCS slot 2.</note>
+</stepxmp>
+</step>
+<step>
+<cmd>Re-start the previously stopped <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/ocrypto"/> processes. </cmd>
+<info>Start or restart pkcsslotd if it was stopped in step 1. 
+</info>
+</step>
+</steps>
+<result>All specified keys, for example, all private and secret keys (for asymmetric and symmetric
+cryptography) are now re-encrypted with the new <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> master key and are ready for use in
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> verbs. </result>
+</taskbody>
+</task>
+<?Pub *0000007650?>

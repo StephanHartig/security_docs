@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE plugin PUBLIC "-//IBM//DTD DITA Eclipse Map Collection//EN"
+ "eclipsemap.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<plugin id="com.ibm.linux.z.wskc.doc" xml:lang="en-us">
+<pluginmeta>
+<providerName>IBM</providerName>
+<copyright>
+<copyryear year="2022"/>
+<copyrholder/>
+</copyright>
+<plugininfo><pluginname>Secure Key Solution with the Common Cryptographic Architecture Application Programmer's Guide</pluginname>
+<vrmlist><vrm release="0" version="8"/></vrmlist>
+</plugininfo>
+</pluginmeta>
+<primarytocref format="ditamap" href="lxcc_ic.ditamap" scope="local"/>
+</plugin>
+

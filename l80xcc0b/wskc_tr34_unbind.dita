@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference rev="hw20i1" id="tr34_unbind" xml:lang="en-us">
+<title>UNBIND</title>
+<titlealts>
+<navtitle>UNBIND</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) TR-34 user flow: UNBIND</searchtitle>
+</titlealts>
+<abstract><shortdesc>Unbind a Key Receiving Device (KRD) from a Key Distribution Host (KDH).
+</shortdesc>This is done before the KRD is taken out of service or if the KDH otherwise needs to
+remove ownership/bind/keys from a KRD. These are the steps, in sequence, with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service APIs identified:</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>UNBIND</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody><section>
+<ol>
+<li><b><u>On KDH </u></b><ul>
+<li>The KDH requests a random number from the KRD. </li>
+</ul></li>
+<li><b><u>On KRD</u></b><ul>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbsprngl"/> with keyword RT-KRD to create the
+TR-34 token that contains the random number that is needed by the KDH.<ol>
+<li><b>INPUT</b>:<ul>
+<li>RN-Length: Length of the random number needed.</li>
+</ul></li>
+<li><b>OUTPUT</b>:<ul>
+<li>RT-KRD: Random number token.</li>
+</ul></li>
+</ol></li>
+<li>Send RT-KRD to KDH and also store RT-KRD locally in application space for the later validation
+step.</li>
+</ul></li>
+<li><b><u>On KDH</u></b><ol>
+<li>If CRL-CA held by the KDH, representing the CA shared between the KRD and KDH, is not fresh any
+longer, the KDH should obtain a new CRL-CA before doing the next step.</li>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34b"/> with keyword UNBINDCR. <ul>
+<li><b>INPUT</b>: <ol>
+<li>RT-KRD: Random number token received from KRD. </li>
+<li>CRL-CA: Certificate Revocation List from CA.</li>
+<li>CredKRD: KRD credential with ID and public key.</li>
+<li>CredKDH: KDH credential with ID and public key.</li>
+<li>D-kdh: Private key to sign data block.</li>
+</ol></li>
+<li><b>OUTPUT</b>: <ul>
+<li>UBT-KDH: UNBIND token.</li>
+</ul></li>
+</ul></li>
+<li>KDH sends the UBT-KDH token to the KRD.</li>
+</ol></li>
+<li><b><u>On KRD</u></b><ol>
+<li>The KRD receives the UBT-KDH token from the KDH and now must process it to complete the
+UNBIND.</li>
+<li>Call <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> service <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34c"/> with keyword UNBINDRV.<ul>
+<li><b>INPUT</b>: <ol>
+<li>UBT-KDH token: UNBIND token received from KDH.</li>
+<li>CredKRD: KRD credential with ID and public key.</li>
+<li>CredKDH: KDH credential with ID and public key.</li>
+<li>RT-KRD: Token originally sent by the KRD to the KDH, used now for validation.</li>
+</ol></li>
+<li><b>OUTPUT</b>:<ul>
+<li>UBT-KDH – is – valid: (yes or no/error).</li>
+</ul></li>
+</ul></li>
+<li>The application on the KRD removes all the keys associated with the KDH that sent the UNBIND
+request, which completes the UNBIND phase. </li>
+</ol></li>
+</ol>
+</section></refbody>
+</reference>
+<?Pub *0000003278?>

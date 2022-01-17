@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="Dcsfb4-gen395_accesspt" xml:lang="en-us" rev="hw20i1">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Access control points for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbct34d"/>)<indexterm>access control
+points</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>This verb requires the following commands to be enabled in the active role:</p>
+<table frame="all" rowsep="1" colsep="1" pgwide="1"><desc>
+<p outputclass="summary">Access control points for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmt34d"/></p>
+</desc><tgroup cols="3">
+<colspec colname="c1" colnum="1" colwidth="4*"/>
+<colspec colname="c2" colnum="2" colwidth="3*"/>
+<colspec colname="c3" colnum="3" colwidth="20*"/>
+<thead>
+<row>
+<entry>Rule array keyword</entry>
+<entry>Offset</entry>
+<entry>Command</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>2PASSCRE</entry>
+<entry>X'01FA'</entry>
+<entry>TR-34 Key Distribution – Allow 2PASSCRE.</entry>
+</row>
+<row>
+<entry>1PASSCRE</entry>
+<entry>X'01FB'</entry>
+<entry>TR-34 Key Distribution – Allow 1PASSCRE.</entry>
+</row>
+<row>
+<entry>PKI-NONE</entry>
+<entry>X'01FF'</entry>
+<entry>Permit X.509 without PKI root validation.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<table frame="all" rowsep="1" colsep="1" id="TR34exp" pgwide="1" scale="80"><title>Valid <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> to TR-34 Export Translations and required
+commands</title><desc>
+<p outputclass="summary">Valid <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> to
+TR-34 Export Translations and Required Access Controls. This table contains columns for TR-31 key
+usage keyword, Access control name, Offset (hex), and Specific key type and control vector
+attributes and a row for "K0" and "K1": TR-31 key encryption or wrapping, or key block protection
+keys.</p>
+</desc><tgroup cols="4">
+<colspec colname="c1" colnum="1" colwidth="1.28*"/>
+<colspec colname="c2" colnum="2" colwidth="3.45*"/>
+<colspec colname="c3" colnum="3" colwidth="1*"/>
+<colspec colname="c4" colnum="4" colwidth="1.81*"/>
+<thead>
+<row>
+<entry>TR-31 key usage keyword</entry>
+<entry>Command</entry>
+<entry>Offset (hex)</entry>
+<entry>Specific key type and control vector attributes</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="c1" nameend="c4">"K0" and "K1": TR-31 key encryption or wrapping, or key block
+protection keys</entry>
+</row>
+<row>
+<entry>
+<lines>KEK
+KEK-WRAP
+</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES EXPORTER to K0 or K1</entry>
+<entry>0242</entry>
+<entry morerows="1">See <xref
+href="wskc_tr34_Distribution_parameters.dita#Dcsfb4-gen392_parameters/exportDEStr34"/>.</entry>
+</row>
+<row>
+<entry>
+<lines>KEK
+KEK-WRAP
+</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES IMPORTER to K0 or K1</entry>
+<entry>0243</entry>
+</row>
+<row>
+<entry>
+<lines>KEK</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES EXPORTER to K0</entry>
+<entry>0244</entry>
+<entry morerows="3">See <xref
+href="wskc_tr34_Distribution_parameters.dita#Dcsfb4-gen392_parameters/AESexporttr34"/>.</entry>
+</row>
+<row>
+<entry>
+<lines>KEK
+KEK-WRAP
+</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES EXPORTER to K1</entry>
+<entry>0245</entry>
+</row>
+<row>
+<entry>
+<lines>KEK</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES IMPORTER to K0</entry>
+<entry>0246</entry>
+</row>
+<row>
+<entry>
+<lines>KEK
+KEK-WRAP
+</lines>
+</entry>
+<entry>TR-34 Key Distribution - Permit DES IMPORTER to K1</entry>
+<entry>0247</entry>
+</row>
+</tbody>
+</tgroup></table>
+</section>
+</refbody>
+</reference>
+<?Pub *0000077566?>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc58" xml:lang="en-us">
+<title>ANSI X9.23 cipher block chaining</title>
+<titlealts>
+<navtitle>ANSI X9.23 cipher block chaining</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): ANSI X9.23 cipher block
+chaining</searchtitle>
+</titlealts>
+<shortdesc>ANSI X9.23 defines an enhancement to the basic cipher block
+chaining (CBC) mode of ANSI X3.106 so that the system can process
+data with a length that is not an exact multiple of eight bytes. </shortdesc>
+<prolog><metadata>
+<keywords><indexterm>ANSI X9.23 cipher block chaining</indexterm>
+<indexterm>4700-PAD</indexterm><indexterm>SNA-SLE</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<p>The ANSI X9.23 method always appends from 1 - 8 bytes to the plaintext
+before encipherment. The last appended byte is the count of the added
+bytes and is in the range of <ph>X'01'</ph> - <ph>X'08'</ph>. The
+standard defines that any other added bytes, or pad characters, be
+random.</p>
+<p>When the coprocessor enciphers the plaintext, the resulting ciphertext
+is always 1 - 8 bytes longer than the plaintext.  See <xref
+href="#l0wskc58/l0wskc02_x923enc"></xref>.  This is true even if the
+length of the plaintext is a multiple of eight bytes.  When the coprocessor
+deciphers the ciphertext, it uses the last byte of the deciphered
+data as the number of bytes to remove from the end (pad bytes, if
+any, and count byte).  The result is the original plaintext.  See <xref
+href="#l0wskc58/l0wskc02_x923dec"></xref>. </p>
+<p>The output chaining vector can be used as feedback with this method
+in the same way as with the X3.106 method. </p>
+<p>The ANSI X9.23 method requires the caller to supply an initialization
+vector, and it does not allow specification of a pad character. <note>The
+ANSI X9.23 standard has been withdrawn, but the X9.23 padding method
+is retained in CCA for compatibility with applications that rely on
+this method.</note></p>
+<p>
+<fig expanse="column" id="l0wskc02_x923enc">
+<title>Enciphering using the ANSI X9.23 method</title>
+<image href="wskc_l0wskc58_1.jpg" width="500"><alt>Enciphering using the ANSI X9.23
+method</alt></image>
+</fig>
+<fig expanse="column" id="l0wskc02_x923dec">
+<title>Deciphering using the ANSI X9.23 method</title>
+<image href="wskc_l0wskc58_2.jpg" width="500"><alt>Deciphering using the ANSI X9.23
+method</alt></image>
+</fig>
+<?Pub Caret 0?>
+</p>
+</conbody>
+</concept>
+<?Pub *0000005065?>

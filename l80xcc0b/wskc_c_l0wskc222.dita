@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc222">
+<title>Cryptography publications</title>
+<titlealts>
+<navtitle>Cryptography publications</navtitle>
+<searchtitle/>
+</titlealts><shortdesc>The publications listed in this topic describe cryptographic standards, research, and
+practices relevant to the coprocessor.</shortdesc>
+<prolog><metadata><keywords>
+<indexterm>cryptography publications</indexterm>
+<indexterm>publications about cryptography</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<ul>
+<li>Accredited Standards Committee X9, Inc.: X9 TR-31 2010: <cite>Interoperable Secure Key Exchange
+Block Specification for Symmetric Algorithms</cite></li>
+<li>American Express Travel Related Services Company, Inc.: <cite>American Express Hardware Security
+Module (HSM): Function Requirements</cite>, August, 2011. </li>
+<li>American National Standards Institute (ANSI). ANSI is the official
+U.S. representative to the International Organization for Standardization
+(ISO) and, via the U.S. National Committee, the International Electrotechnical
+Commission (IEC). ANSI is also a member of the International Accreditation
+Forum (IAF).
+<ul>
+<li>ANSI X9.24-1:2009 <cite>Retail Financial Services Symmetric Key Management -- Part 1: Using
+Symmetric Techniques.</cite></li>
+<li>ANSI X9.24-2:2006 <cite>Retail
+Financial Services Symmetric Key Management -- Part 2: Using Asymmetric
+Techniques for the Distribution of Symmetric Keys.</cite></li>
+<li>ANSI X9.62:2005 <cite>Public
+Key Cryptography for the Financial Services Industry: The Elliptic
+Curve Digital Signature Algorithm (ECDSA).</cite></li>
+<li>ANSI X9.102:2008 <cite>Symmetric Key Cryptography for the Financial Services Industry --
+Wrapping of Keys and Associated Data</cite>. </li>
+</ul></li>
+<li><cite>ECC Brainpool Standard Curves and Curve Generation</cite>, v.1.0, October 19, 2005 </li>
+<li><cite>Elliptic Curve Cryptography (ECC) Brainpool Standard Curves and Curve Generation</cite>
+(RFC 5639), Manfred Lochter and Johannes Merkle, IETF Trust, March 2010. Available at <xref
+href="http://www.rfc-editor.org/rfc/rfc5639.txt" format="html" scope="external"/></li>
+<li>Federal Information Processing Standards (FIPS), issued by the U.S. National Institute of
+Standards and Technology (NIST, see <xref href="http://www.nist.gov/itl/" format="html"
+scope="external"/>). The listed FIPS publications are available from this web site: <xref
+href="https://csrc.nist.gov/publications/fips" format="html" scope="external"><cite>Computer
+Security Resource Center</cite>.</xref><ul>
+<li>FIPS PUB 140-2 <cite> Security Requirements for Cryptographic Modules</cite>, May, 2001.</li>
+<li>FIPS PUB 180-4 <cite>Secure Hash Standard (SHS)</cite>, May, 2012.</li>
+<li>FIPS PUB 186-4 <cite>Digital Signature Standard (DSS)</cite>, July, 2013.</li>
+<li>FIPS PUB 197 <cite>Advanced Encryption Standard (AES)</cite>, November, 2001. </li>
+<li>FIPS PUB 198-1 <cite>The Keyed-Hash Message Authentication Code (HMAC)</cite>, July, 2008.</li>
+</ul></li>
+<li>International Organization for Standardization (ISO). ISO is the
+world's largest developer and publisher of International Standards.
+ISO is a network of the national standards institutes of many countries,
+one member per country, with a Central Secretariat in Geneva, Switzerland,
+that coordinates the system.
+<ul>
+<li>ISO 16609:2004 <cite>Banking
+-- Requirements for Message Authentication Using Symmetric Techniques.</cite></li>
+<li>ISO/DIS 9564-1 <cite>Financial
+Services -- Personal Identification Number (PIN) Management and Security
+-- Part 1: Basic Principles and Requirements for PINs in Card-Based
+Systems.</cite></li>
+<li><xref href="https://www.iso.org/standard/61246.html" format="html" scope="external">ISO
+9564-4:2016 <cite> Financial services -- Personal Identification Number (PIN) management and
+security -- Part 4: Requirements for PIN handling in eCommerce for Payment
+Transactions</cite></xref>
+</li>
+<li><xref href="https://www.iso.org/standard/64400.html" format="html" scope="external">ISO
+20038:2017 <cite> Banking and related financial services -- Key wrap using AES</cite></xref></li>
+</ul></li>
+<li>International Organization for Standardization/International Electrotechnical
+Commission (ISO/IEC)
+<ul>
+<li>ISO/IEC 9796-1:1997 <cite>Information
+Technology -- Security Techniques -- Digital Signature Schemes Giving
+Message Recovery -- Part 1: Mechanisms Using Redundancy.</cite></li>
+<li>ISO/IEC 11770-3:2008 <cite>Information
+Technology -- Security Techniques -- Key Management -- Part 3: Mechanisms
+Using Asymmetric Techniques.</cite></li>
+</ul></li>
+<li>National Institute of Standards and Technology (NIST) Special Publications (SP), U.S. Dept. of
+Commerce <ul>
+<li>NIST SP 800-38D <cite>Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode
+(GCM) and GMAC</cite>, November 2007. Available at <xref
+href="http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf" format="pdf"
+scope="external"/>.</li>
+<li>NIST SP 800-38A <cite>Recommendation for Block Cipher Modes of Operations: Methods and
+Techniques</cite>, 2001 Edition. Available at <xref
+href="http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf" format="pdf"
+scope="external"/>.</li>
+<li>NIST SP 800-38B <cite>Recommendation for Block Cipher Modes of Operation: The CMAC Mode for
+Authentication</cite>, May 2005. Available at: <xref
+href="https://csrc.nist.gov/publications/detail/sp/800-38b/final" format="html" scope="external"
+/>.</li>
+<li>NIST SP 800-56A <cite>Recommendation for Pair-Wise Key Establishment Schemes Using Discrete
+Logarithm Cryptography (Revision 3)</cite>. Available at <xref
+href="https://doi.org/10.6028/NIST.SP.800-56Ar3" format="html" scope="external"/>. </li>
+<li>NIST SP 800-90A Revision 1 <cite><i>Recommendation for Random Number Generation Using
+Deterministic Random Bit Generators</i></cite>, June 2015. Available at: <xref
+href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf" format="pdf"
+scope="external"/>.</li>
+<li>NIST SP 800-108 <cite>Recommendation for Key Derivation Using Pseudorandom Functions
+(Revised)</cite>, October 2009 Edition. Available at: <xref
+href="http://csrc.nist.gov/publications/nistpubs/800-108/sp800-108.pdf" format="pdf"
+scope="external"/>.</li>
+<li><cite>The NIST SP 800-90A Deterministic Random Bit Generator Validation System
+(DRBGVS)</cite>, updated: October 29, 2015. Available at: <xref
+href="http://csrc.nist.gov/groups/STM/cavp/documents/drbg/DRBGVS.pdf" format="pdf" scope="external"
+/>.</li>
+</ul></li>
+<li rev="sh21i1"><b>OASIS Standards</b>
+<ul>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/pkcs11-base-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Base Specification Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-profiles/v3.0/pkcs11-profiles-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Profiles Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-curr/v3.0/pkcs11-curr-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Current Mechanisms Specification Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-hist/v3.0/pkcs11-hist-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Historical Mechanisms Specification Version 3.0</xref></codeblock>
+</li>
+</ul></li>
+
+<li><cite>Visa Integrated Circuit Card Specification (VIS) Version 1.5</cite>, Visa International
+Service Association and Visa Inc. Available at <xref
+href="https://www.scribd.com/doc/87334890/Visa-VIS-Specification-15-May-2009" format="html"
+scope="external"/>.</li>
+</ul>
+</conbody></concept>

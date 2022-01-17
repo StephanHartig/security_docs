@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<map id="ch_opencryptoki" xml:lang="en-US">
+<title>openCryptoki</title>
+<topicref href="wskc_c_oc_opencryptoki.dita">
+<topicref href="wskc_c_oc_conf.dita">
+<topicref href="wskc_r_oc_conf_file.dita"/>
+<topicref href="wskc_t_oc_strt_deamon.dita"/>
+<topicref href="wskc_r_oc_ccatok_init.dita"/>
+<topicref href="wskc_c_oc_recognize.dita"/>
+</topicref>
+<topicref href="wskc_r_oc_use_token.dita">
+<topicref href="wskc_r_oc_mechanisms.dita"/>
+<topicref href="wskc_r_oc_restrictions.dita"/>
+</topicref>
+<topicref href="wskc_t_oc_mig.dita"/>
+<topicref href="wskc_t_oc_keymig.dita"/>
+<topicref href="wskc_r_oc_trace.dita"/>
+</topicref>
+</map>
+<?Pub *0000000931?>

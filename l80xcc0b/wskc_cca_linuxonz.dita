@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l0wskc_cca_linuxonz" xml:lang="en-us">
+<title>Secure Key Solution with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> Programmer's Guide</title>
+<titlealts>
+<navtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> 7.3</navtitle>
+<searchtitle>Secure Key Solution with the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> Application Programmer's
+Guide</searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>) provides a variety of services for
+cryptography and data-security. Use the service APIs for <ph
+conref="lxcommon.dita#phrases/ph_linuxs"/> on <ph conref="lxcommon.dita#phrases/ph_ibmz"/> and <ph
+conref="lxcommon.dita#phrases/ph_linuxone"/> provided in the <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> releases 7.2 and 7.3.</shortdesc><?Pub
+Caret 0?>
+<prolog><metadata>
+<keywords><indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>)</indexterm>
+</keywords>
+</metadata></prolog>
+<conbody></conbody>
+</concept>
+<?Pub *0000001454?>

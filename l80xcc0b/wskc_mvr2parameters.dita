@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//IBM//DTD DITA IBM Reference//EN" "ibm-reference.dtd">
+<reference xml:lang="en-us" id="mvr2parameters" rev="sh15">
+<title>Parameters</title>
+<titlealts>
+    <navtitle>Parameters</navtitle>
+    <searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): JNI version of <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"/></searchtitle>
+  </titlealts>
+<shortdesc>The parameters for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"
+/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclmvr2"
+/>)<indexterm>parameters</indexterm></indexterm>
+<indexterm>key_identifier parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb</indexterm></indexterm>
+<indexterm>message_text_length parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb</indexterm></indexterm>
+<indexterm>mesage_text parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb</indexterm></indexterm>
+<indexterm>rule_array_count parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> verb</indexterm></indexterm>
+<indexterm>rule_array parameter<indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr"/> verb</indexterm></indexterm>
+<indexterm>control information<indexterm>for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/></indexterm></indexterm>
+<indexterm>X9.9-1 keyword</indexterm>
+<indexterm>segmenting<indexterm>control keywords</indexterm></indexterm>
+<indexterm>MAC<indexterm>length keywords</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>For the definitions of the <synph><var>return_code</var></synph>,
+<synph><var>reason_code</var></synph>, <synph><var>exit_data_length</var></synph>, and
+<synph><var>exit_data</var></synph> parameters, see <xref href="wskc_c_vparms.dita#l0wskc02_vparms"
+/>.</p>
+</section>
+<section>
+<parml>
+<plentry>
+<pt>rule_array_count</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to an integer variable containing the number of elements in the
+<parmname>rule_array</parmname> variable. This value must be 1, 2, or 3.</pd>
+</plentry>
+<plentry>
+<pt>rule_array</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String array</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The <parmname>rule_array</parmname> contains keywords that provide control information to
+the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> callable service. The
+keywords are described in <xref href="#mvr2parameters/table_mvr2parm" format="dita"/>.<table
+id="table_mvr2parm" pgwide="1" frame="all">
+<title>Keywords for <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> control
+information</title>
+<desc>
+<p outputclass="summary">Keywords for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmmvr2"/> control information</p>
+</desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="4*"/>
+<colspec colname="col2" colwidth="32*"/>
+<thead>
+<row>
+<entry valign="bottom" align="left">Keyword</entry>
+<entry valign="bottom" align="left">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Token algorithm</i></b> (One, required)</entry>
+</row>
+<row>
+<entry><synph><kwd>AES </kwd></synph></entry>
+<entry>Specifies the use of the AES CMAC algorithm to generate a MAC.</entry>
+</row>
+<row>
+<entry><synph><kwd>HMAC </kwd></synph></entry>
+<entry>Specifies the use of the HMAC algorithm to generate a MAC.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Hash method</i></b> (One required for HMAC only)</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-1 </kwd></synph></entry>
+<entry>Specifies the use of the SHA-1 hash method.</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-224 </kwd></synph></entry>
+<entry>Specifies the use of the SHA-224 hash method.</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-256 </kwd></synph></entry>
+<entry>Specifies the use of the SHA-256 hash method.</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-384 </kwd></synph></entry>
+<entry>Specifies the use of the SHA-384 hash method.</entry>
+</row>
+<row>
+<entry><synph><kwd>SHA-512 </kwd></synph></entry>
+<entry>Specifies the use of the SHA-512 hash method.</entry>
+</row>
+<row>
+<entry namest="col1" nameend="col2"><b><i>Segmenting Control</i></b> (One optional)</entry>
+</row>
+<row>
+<entry><synph><kwd>FIRST </kwd></synph></entry>
+<entry>First call. This is the first segment of data from the application program.</entry>
+</row>
+<row>
+<entry><synph><kwd>LAST</kwd></synph></entry>
+<entry>Last call. This is the last data segment.</entry>
+</row>
+<row>
+<entry><synph><kwd>MIDDLE </kwd></synph></entry>
+<entry>Middle call. This is an intermediate data segment.</entry>
+</row>
+<row>
+<entry><synph><kwd>ONLY </kwd></synph></entry>
+<entry>Only call. Segmenting is not employed by the application program. This is the default
+value.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></pd>
+</plentry>
+<plentry>
+<pt>key_identifier_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Length of the <parmname>key_identifier</parmname> parameter in bytes. If the key_identifier
+parameter contains a label, the value must be 64. Otherwise, the value must be at least the actual
+token length, up to 725.</pd>
+</plentry>
+<plentry>
+<pt>key_identifier</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The identifier of the key to verify the MAC. The key identifier is an operational token or
+the key label of an operational token in key storage. <p>For the AES algorithm, the key algorithm
+must be AES, the key type must be MAC, and the key usage fields must indicate GENERATE or VERIFY and
+must indicate CMAC.</p>
+<p rev="sh21i1">For the HMAC algorithm, the key identifier may be a clear or secure operational key token. The key
+algorithm must be HMAC and the key usage fields must indicate GENERATE or VERIFY and the hash
+method selected.</p><p>If the
+token supplied was encrypted under the old master key, the token is returned encrypted under the
+current master key.</p></pd>
+</plentry>
+<plentry>
+<pt>message_text_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The length of the cleartext you supply in the <parmname>message_text</parmname> parameter.
+The maximum length of text is 214783647 bytes. For FIRST and MIDDLE calls, the
+<parmname>message_text_length</parmname> must be:<ul>
+<li>a multiple of 64 for the SHA-1, SHA-224, and SHA-256 hash methods,  </li>
+<li>a multiple of 128 for the SHA-384 and SHA-512 hash methods,</li>
+<li>a multiple of 16 for the AES CMAC method.</li>
+</ul></pd>
+</plentry>
+<plentry>
+<pt>message_text</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table> The application-supplied text for which the MAC is generated.</pd>
+</plentry>
+<plentry>
+<pt>chaining_vector_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Specifies the length in bytes of the <parmname>chaining_vector</parmname> parameter. The
+value must be 128. </pd>
+</plentry>
+<plentry>
+<pt>chaining_vector</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input/Output</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>A pointer to a string variable containing a work area that the security server
+uses to carry segmented data between procedure calls. When the segmenting control is
+<synph><kwd>FIRST</kwd></synph> or <synph><kwd>ONLY</kwd></synph>, this value is ignored but must be
+declared. Important: Application programs must not alter the contents of this variable between
+related <synph><kwd>FIRST</kwd></synph>, <synph><kwd>MIDDLE</kwd></synph>, and
+<synph><kwd>LAST</kwd></synph> calls.</pd>
+</plentry>
+<plentry>
+<pt>mac_length</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">Integer</entry>
+</row>
+</tbody>
+</tgroup>
+</table>Specifies the length in bytes of the <parmname>mac</parmname> parameter. <ph rev="shd3">The
+value must be equal to the number of MAC bytes to be verified, up to a maximum of 64.</ph>
+</pd>
+</plentry>
+<plentry>
+<pt>mac</pt>
+<pd><table colsep="0" frame="none" outputclass="presentation" pgwide="2" rowsep="0">
+<tgroup cols="2">
+<colspec colname="col1" colwidth="1*"/>
+<colspec colname="col2" colwidth="5*"/>
+<tbody>
+<row>
+<entry colname="col1"><b>Direction:</b></entry>
+<entry colname="col2">Input</entry>
+</row>
+<row>
+<entry colname="col1"><b>Type:</b></entry>
+<entry colname="col2">String</entry>
+</row>
+</tbody>
+</tgroup>
+</table>The field that contains the MAC value you want to verify.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>

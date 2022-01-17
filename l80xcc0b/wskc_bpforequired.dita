@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="pforequired" rev="sh15" xml:lang="en-us">
+<title>Required commands</title>
+<titlealts>
+<navtitle>Required commands</navtitle><?Pub Caret -1?>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Required commands for  <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"/></searchtitle>
+</titlealts>
+<shortdesc>The required commands for <keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"></keyword>.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm><keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmpfo"></keyword> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbclpfo"></keyword>)<indexterm>required
+            commands</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>
+<p>This verb requires the <cmdname>Recover PIN From Offset</cmdname> command (offset X'02B0') to be
+enabled in the active role.</p>
+<p>When the <cmdname>ANSI X9.8 PIN - Enforce PIN block restrictions</cmdname> command (offset
+X'0350') is enabled in the active role, only a PIN-block format keyword of ISO-0 or ISO-3 is allowed
+in the input <parmname>PIN_profile</parmname> parameter. Note that offset X'0350' also affects
+access control of the <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmptr"/> and the
+<keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/vbnmspn"/> verbs. </p>
+<p>When the <cmdname>ANSI X9.8 PIN - Use stored decimalization tables only</cmdname> command (offset
+X'0356') is enabled in the active role, the <parmname>Decimalization_table</parmname> element of the
+<parmname>data_array</parmname> value must match one of the PIN decimalization tables that are in
+the active state on the coprocessor. Use of this command provides improved security and control for
+PIN decimalization tables. </p>
+<p>An enhanced PIN security mode is available for formatting an encrypted PIN-block into IBM 3624
+format. This mode limits checking of the PIN to decimal digits; no other PIN-block consistency
+checking will occur. To activate this mode, enable the <cmdname>Enhanced PIN Security</cmdname>
+command (offset X'0313') in the active role. </p>
+<p rev="sh21i1">When the <cmdname>Disallow translation from DES wrapping to weaker DES wrapping</cmdname> access control point is
+enabled in the domain role, this service will fail if the <parmname>PIN_encryption_key_identifier</parmname> is stronger than 
+the <parmname>PIN_generation_key_identifier</parmname>.</p>
+<p rev="sh21i1">When the <cmdname>Disallow PIN block format ISO-1</cmdname> access control is enabled in the domain role, 
+the PIN block format in the <parmname>PIN_profile</parmname> parameter is not allowed to be ISO-1.</p>
+<p>In releases before Release 5.4 and Release 6.2, triple-length TDES keys are not supported, thus
+limiting an outbound TDES key to double length. Beginning with Release 5.4, Triple-length TDES keys
+are supported, and an outbound TDES key can be double-length or triple-length. This makes it
+possible for data that is encrypted using a triple-length key to be translated to data encrypted
+using a weaker double-length key. Such a translation reduces the security of the data and causes a
+security exposure, and <keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/> normally
+restricts such a translation from occurring. To override this restriction, the <cmdname>Translate
+from DES Key to Weaker DES Key</cmdname> command (offset X’01C3’) must be enabled in the active
+role.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002554?>

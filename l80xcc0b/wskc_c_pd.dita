@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//IBM//DTD DITA IBM Concept//EN" "ibm-concept.dtd">
+<concept xml:lang="en-us" id="l0wskc02_pd">
+<title>Pad digit</title>
+<titlealts>
+<navtitle>Pad digit</navtitle>
+<searchtitle><keyword conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca_long"/> (<keyword
+conref="wskc_conref-l0wskc04.dita#conref-l0wskc04/cca"/>): Pad digit</searchtitle>
+</titlealts><shortdesc>Some PIN formats require the pad digit parameter. </shortdesc>
+<prolog><metadata><keywords>
+
+<indexterm>pad digit<indexterm>format</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>If the PIN format does not need a pad digit, the verb ignores this parameter. <xref
+href="#l0wskc02_pd/l0wskc02_padcpa"/> shows the format of a pad digit. The PIN profile pad digit
+must be specified in upper case.</p>
+<table id="l0wskc02_padcpa" pgwide="1" frame="all">
+<title>Format of
+a pad digit</title><desc><p outputclass="summary">Format of a pad digit</p></desc>
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="2*"/>
+<colspec colname="col2" colwidth="18*"/>
+<thead>
+<row>
+<entry>Bytes</entry>
+<entry>Description</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>16 - 22</entry>
+<entry>Seven space characters</entry></row>
+<row>
+<entry>23</entry>
+<entry>Character representation of a hexadecimal
+pad digit or a space if a pad digit is not needed. Characters must
+be one of the following: digits 0 - 9, letters A - F, or a blank.</entry></row>
+</tbody>
+</tgroup>
+</table>
+<p>Each PIN format supports only a pad digit in a certain range. <xref href="#l0wskc02_pd/l0wskc02_padr"/> lists the valid pad digits for each PIN block
+format.
+<table id="l0wskc02_padr" pgwide="1" frame="all">
+<title>Pad digits
+for PIN block formats</title><desc><p outputclass="summary">Pad digits for PIN block formats</p></desc>
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="col1" colwidth="129*"/>
+<colspec colname="col2" colwidth="166*"/>
+<colspec colname="col3" colwidth="173*"/>
+<thead>
+<row>
+<entry>PIN Block Format</entry>
+<entry>Output PIN Profile</entry>
+<entry>Input PIN Profile</entry></row>
+</thead>
+<tbody>
+<row>
+<entry>ECI-2</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>ECI-3</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>ISO-0</entry>
+<entry>F</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>ISO-1</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>ISO-2</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>ISO-3</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry>
+</row>
+<row rev="sh21i1">
+<entry>ISO-4</entry>
+<entry>Pad digit is not used</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>VISA-2</entry>
+<entry>0 - 9</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>VISA-3</entry>
+<entry>0 - F</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>VISA-4</entry>
+<entry>F</entry>
+<entry>Pad digit is not used</entry></row>
+<row>
+<entry>3621</entry>
+<entry>0 - F</entry>
+<entry>0 - F</entry></row>
+<row>
+<entry>3624</entry>
+<entry>0 - F</entry>
+<entry>0 - F</entry></row>
+<row>
+<entry>4704-EPP</entry>
+<entry>F</entry>
+<entry>Pad digit is not used</entry></row>
+</tbody>
+</tgroup>
+</table></p>
+<p>The verb returns an error indicating that the PAD digit is not
+valid if all of these conditions are met:
+<ul>
+<li>The <cmdname>Enhanced PIN Security</cmdname> (offset X'0313') access control point is enabled in
+the active role.</li>
+<li>The output PIN profile specifies 3624 as the PIN-block format.</li>
+<li>The output PIN profile specifies a decimal digit (0 - 9) as the
+PAD digit.</li>
+</ul></p>
+<section><title>Recommendations for the pad digit</title><indexterm>pad digit</indexterm><p><tm
+trademark="IBM" tmtype="reg">IBM</tm> recommends to use a non-decimal pad digit in the range of A -
+F when processing <tm trademark="IBM" tmtype="reg">IBM</tm> 3624 PIN blocks.</p><p>If you use a
+decimal pad digit, the creator of the PIN block must ensure that the calculated PIN does not contain
+the pad digit, or unpredictable results might occur.</p><p>For example, you can exclude a specific
+decimal digit from being in any calculated PIN by using the <tm trademark="IBM" tmtype="reg"
+>IBM</tm> 3624 calculation procedure and by specifying a decimalization table that does not contain
+the desired decimal pad digit.</p></section>
+</conbody></concept>
