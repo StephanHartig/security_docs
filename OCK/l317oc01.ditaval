@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><val>
-<prop action="exclude" att="otherprops" val="java"/>
-<prop action="include" att="otherprops" val="pdf"/>
-<prop action="exclude" att="otherprops" val="NOTpdf"/> 
-<revprop action="flag" val="shv2" changebar="|"/>
-<revprop action="flag" val="v2i1" changebar="|"/>
-</val>
