@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ock_tokens" xml:lang="en-us">
+<title>Token specifications</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>Token specifications</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Token specifications</searchtitle>
+</titlealts>
+<shortdesc><keyword conref="lxoc_conref.dita#lxoc_conref/App_devs"/> find documentation about
+available token mechanisms to be invoked from cryptographic applications. <keyword
+conref="lxoc_conref.dita#lxoc_conref/ock_admins"/> find additional token-specific tools and
+information about required token-specific configurations, if applicable. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>token-specific configurations</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm> token-specific
+configurations</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Each token plugged into <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> can implement a
+selection of the provided <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms to be
+used in application programs. The names of these mechanisms start with the prefix
+<codeph>"CKM_"</codeph>. For example, the <codeph>CKM_AES_KEY_GEN</codeph> mechanism generates an
+AES cryptographic key. This mechanism is offered by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/>, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/>, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>, and the <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/>, and can therefore be used to generate an AES key
+by any application that accesses one or more of these tokens.</p>
+<p>Companies which collaborate with the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+open source community can contribute their company-specific mechanisms to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>. For example, all mechanisms <ph rev="shv2">which
+<ph conref="lxcommon.dita#phrases/ph_ibmtm"/> adds to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> in addition to the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11">s</keyword> standard</ph> start with the
+vendor-specific prefix <codeph>"CKM_IBM_"</codeph>. An example for an <ph
+conref="lxcommon.dita#phrases/ph_ibmtm"/>-specific <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms is <codeph>CKM_IBM_SHA3_384_HMAC</codeph>
+which you can use from an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> to sign and
+verify a message using the SHA3-384 hash function. </p>
+<p>Issue the <cmdname>pkcsconf</cmdname> command with the <option>-m</option> parameter to display
+all mechanisms that are supported by the token of interest residing in the slot specified with
+parameter <option>-c</option>. <screen>$ pkcsconf -m -c &lt;slot></screen></p>
+<p>For example, if you want to display all supported <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms of an <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> that resides in slot number <codeph>1</codeph>
+in your environment, issue the following command:</p>
+<screen># pkcsconf -m -c 1</screen>
+<p>The output depends on the supported Crypto Express coprocessors together with the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version. The beginning of the output list may look
+as shown in <xref href="#lxoc_ock_tokens/sample_mechs" format="dita"/>. The name corresponds to the
+<keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> specification. Each mechanism provides its
+supported key size and some further properties such as hardware support and mechanism information
+flags. These flags provide information about the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> functions that may use the mechanism. Typical
+functions are for example, <term>encrypt</term>, <term>decrypt</term>, <term>wrap key</term>,
+<term>unwrap key</term>, <term>sign</term>, or <term>verify</term>. For some mechanisms, the flags
+show further attributes that describe the supported variants of the mechanism.</p>
+<fig id="sample_mechs"><title>List of supported mechanisms for a certain token</title></fig>
+<screen>
+Mechanism #0
+        Mechanism: 0x0 (CKM_RSA_PKCS_KEY_PAIR_GEN)
+        Key Size: 512-4096
+        Flags: 0x10001 (CKF_HW|CKF_GENERATE_KEY_PAIR)
+Mechanism #1
+        Mechanism: 0x1 (CKM_RSA_PKCS)
+        Key Size: 512-4096
+        Flags: 0x67B01 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT|CKF_SIGN|CKF_SIGN_RECOVER|CKF_VERIFY|CKF_VERIFY_RECOVER|CKF_WRAP|CKF_UNWRAP)
+Mechanism #2
+        Mechanism: 0x3 (CKM_RSA_X_509)
+        Key Size: 512-4096
+        Flags: 0x67B01 (CKF_HW|CKF_ENCRYPT|CKF_DECRYPT|CKF_SIGN|CKF_SIGN_RECOVER|CKF_VERIFY|CKF_VERIFY_RECOVER|CKF_WRAP|CKF_UNWRAP)
+&mldr;</screen>
+<p><xref href="lxoc_tok_common.dita"/> provides documentation that applies to all <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token types.</p>
+<p otherprops="pdf">The following token-specific information is provided:</p>
+<ul otherprops="pdf">
+<li><xref href="lxoc_tok_cca.dita"/></li>
+<li><xref href="lxoc_tok_ica.dita"/></li>
+<li><xref href="lxoc_tok_ep11.dita"/></li>
+<li><xref href="lxoc_tok_soft.dita"/></li>
+<li><xref href="lxoc_tok_all_dir.dita"/></li>
+<li><xref href="lxoc_tok_icsf.dita"/></li>
+</ul>
+<note rev="shv2"><ph conref="lxcommon.dita#phrases/ph_loz_and_lone"/> do not support the Trusted
+Platform Module (TPM) token library.</note>
+</conbody>
+</concept>
+<?Pub *0000003393?>

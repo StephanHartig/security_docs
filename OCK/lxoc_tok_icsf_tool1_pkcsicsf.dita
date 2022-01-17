@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="lxoc_tok_icsf_tool1_pkcsicsf" xml:lang="en-us">
+<title>Configuring the <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> -
+<cmdname>pkcsicsf</cmdname> utility</title>
+<titlealts>
+<navtitle>pkcsicsf</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Configuring the <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/> with <cmdname>pkcsconf</cmdname></searchtitle>
+</titlealts>
+<shortdesc>Use the <cmdname>pkcsicsf</cmdname> utility to add an <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/> to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> or to list available <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftoks"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>pkcsficsf tool</indexterm>
+<indexterm>tools<indexterm>pkcsficsf</indexterm></indexterm>
+</keywords>
+<?Pub Caret 141?>
+</metadata>
+</prolog>
+<refbody>
+<section>
+<p>Adding an <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> creates an entry in the
+<filepath>opencryptoki.conf</filepath> file for this token. It also creates a
+<filepath>token_name.conf</filepath> configuration file in the same directory as the
+<filepath>opencryptoki.conf</filepath> file, containing ICSF specific information. This information
+is read by the <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/>. </p>
+<p>The <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> must bind and authenticate to an
+LDAP server. Several SASL authentication mechanisms (Simple Authentication and Security Layer
+mechanisms) are supported. You must specify one of these mechanisms when listing the available
+<keyword conref="lxoc_conref.dita#lxoc_conref/icsftoks"/> or when adding an <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/>. <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> currently supports adding only one <keyword
+conref="lxoc_conref.dita#lxoc_conref/icsftok"/>. </p>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ock_admins"/> can either allow the LDAP calls to
+utilize existing LDAP configurations, such as <filepath>ldap.conf</filepath> or
+<filepath>.ldaprc</filepath> for bind and authentication information. Or they can set the bind and
+authentication information within <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> by using
+this utility and its options. The information is placed in the <filepath>token_name.conf</filepath>
+file to be used in the LDAP calls. When using simple authentication, the user is prompted for the
+RACF password when listing or adding a token.</p>
+<codeblock>
+ pkcsicsf  [-h]  [-l|-a token name] [-b BINDDN] [-c client-cert-file] [-C CA-cert-file] 
+           [-k privatekey] [-m mechanism] [-u URI]
+</codeblock>
+</section>
+<section>
+<title>Options</title>
+<parml>
+<plentry>
+<pt> -a token_name</pt>
+<pd>adds the specified <keyword conref="lxoc_conref.dita#lxoc_conref/icsftok"/> to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>.</pd>
+</plentry>
+<plentry>
+<pt>-b bind_name</pt>
+<pd>specifies the distinguished name to bind when using simple authentication.</pd>
+</plentry>
+</parml>
+<parml>
+<plentry>
+<pt>-c client_cert_file</pt>
+<pd>specifies the client certification file when using SASL authentication.</pd>
+</plentry>
+<plentry>
+<pt>-C CA_cert_file</pt>
+<pd>specifies the certificate authority (CA) certification file when using SASL authentication.</pd>
+</plentry>
+<plentry>
+<pt>-k private_key</pt>
+<pd>specifies the client private key file when using SASL authentication.</pd>
+</plentry>
+<plentry>
+<pt>-m auth_mechanism</pt>
+<pd>specifies the authentication mechanism to use when binding to the LDAP server. Specify either
+<codeph>simple</codeph> or <codeph>sasl</codeph>).</pd>
+</plentry>
+<plentry>
+<pt>-l</pt>
+<pd>lists available <keyword conref="lxoc_conref.dita#lxoc_conref/icsftoks"/>.</pd>
+</plentry>
+<plentry>
+<pt>-h</pt>
+<pd>shows usage information for this utility.</pd>
+</plentry>
+</parml>
+</section>
+</refbody>
+</reference>
+<?Pub *0000003180?>

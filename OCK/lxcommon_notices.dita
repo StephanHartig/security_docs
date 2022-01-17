@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Inc?>
+<topic id="lxcommon_notices" xml:lang="en-us">
+<title>Notices</title>
+<prolog><metadata>
+<keywords>
+<!--Insert <indexterm> tags here-->
+</keywords>
+</metadata></prolog>
+<body id="notices_body">
+<!--Use this always.-->
+<p>This information was developed for products and services offered
+in the U.S.A.               <!--OR INSERT YOUR COUNTRY--> <tm
+tmclass="ibm" tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> may
+not offer the products, services, or features discussed in this document
+in other countries. Consult your local <tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> representative
+for information on the products and services currently available in
+your area. Any reference to an <tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> product,
+program, or service is not intended to state or imply that only that <tm
+tmclass="ibm" tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> product,
+program, or service may be used. Any functionally equivalent product,
+program, or service that does not infringe any <tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> intellectual
+property right may be used instead. However, it is the user's responsibility
+to evaluate and verify the operation of any non-IBM product, program,
+or service.</p>
+<p><tm tmclass="ibm" tmowner="IBM Corporation" tmtype="reg"
+trademark="IBM">IBM</tm> may have patents or pending patent applications
+covering subject matter described in this document. The furnishing
+of this document does not give you any license to these patents. You
+can send license inquiries, in writing, to: <lines><tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> Director of Licensing
+IBM Corporation
+North Castle Drive
+Armonk, NY  10504-1785
+U.S.A.</lines></p>
+<!--Use this section AS-IS.-->
+<p><b>The following paragraph does not apply to the United Kingdom
+or any other country where such provisions are inconsistent with local
+law:</b> INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS
+PUBLICATION <q>AS IS</q> WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+Some states do not allow disclaimer of express or implied warranties
+in certain transactions, therefore, this statement may not apply to
+you.</p>
+<p>This information could include technical inaccuracies or typographical
+errors. Changes are periodically made to the information herein; these
+changes will be incorporated in new editions of the publication. <tm
+tmclass="ibm" tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> may
+make improvements and/or changes in the product(s) and/or the program(s)
+described in this publication at any time without notice.</p>
+<!--The following paragraph addresses general issues of exposure in publishing
+non-IBM Web addresses.  Some sites might require IPL review of these references because of specific attributes of specific
+products or specific uses of Web addresses. If you know (or
+think you know) of questionable circumstances
+surrounding a non-IBM Web address that you want to use, contact your site IPL.-->
+<p>Any references in this information to non-IBM Web sites are provided
+for convenience only and do not in any manner serve as an endorsement
+of those Web sites. The materials at those Web sites are not part
+of the materials for this <tm tmclass="ibm" tmowner="IBM Corporation"
+tmtype="reg" trademark="IBM">IBM</tm> product and use of those Web
+sites is at your own risk.</p>
+<!--Use the following in all books.-->
+<p><tm tmclass="ibm" tmowner="IBM Corporation" tmtype="reg"
+trademark="IBM">IBM</tm> may use or distribute any of the information
+you supply in any way it believes appropriate without incurring any
+obligation to you.</p>
+<p>The licensed program described in this information and all licensed
+material available for it are provided by <tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> under
+terms of the <tm tmclass="ibm" tmowner="IBM Corporation" tmtype="reg"
+trademark="IBM">IBM</tm> Customer Agreement, <tm tmclass="ibm"
+tmowner="IBM Corporation" tmtype="reg" trademark="IBM">IBM</tm> International
+Program License Agreement, or any equivalent agreement between us.</p>
+<!--Statement of Direction/Intent. Use the following in all documents that
+contain statements about future direction or intent.-->
+<p>All statements regarding IBM's future direction or intent are subject
+to change or withdrawal without notice, and represent goals and objectives
+only.</p>
+<!--Planning-Type Statements. Use the following in all documents that are released before the product it supports is released and that contains information that could change before the product is available.-->
+<p>This information is for planning purposes only. The information
+herein is subject to change before the products described become available.</p>
+</body><?Pub Caret?>
+</topic>
+<?Pub *0000005260?>

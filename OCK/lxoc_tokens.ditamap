@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_tokens_map" title="Token specifications" xml:lang="en-US">
+<!-- -->
+<topicref href="lxoc_tok_common.dita"><topicmeta><navtitle>Common token information</navtitle></topicmeta>
+<topicref href="lxoc_tok_common_adding.dita"><topicmeta><navtitle>Adding tokens</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_common_recognize.dita">
+<topicmeta><navtitle>Recognize an ICA token</navtitle></topicmeta>
+</topicref>
+<topicref href="lxoc_tok_common_ecc.dita"><topicmeta><navtitle>Common ECC .h file</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_common_baseline.dita"><topicmeta><navtitle>Baseline Provider</navtitle></topicmeta></topicref>
+</topicref>
+<!-- -->
+<topicref href="lxoc_tok_cca.dita"><topicmeta><navtitle>CCA token</navtitle></topicmeta>
+<topicref href="lxoc_tok_cca_mech.dita"><topicmeta><navtitle>CCA token mechanisms</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_cca_curves.dita"><topicmeta><navtitle>CCA token ECC curves</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_cca_restrict.dita"><topicmeta><navtitle>CCA token usage notes</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_cca_tool1.dita"><topicmeta><navtitle>pkcscca tool</navtitle></topicmeta></topicref>
+</topicref>
+<!-- -->
+<topicref href="lxoc_tok_ica.dita"><topicmeta><navtitle>libica token</navtitle></topicmeta>
+<topicref href="lxoc_tok_ica_mech.dita"><topicmeta><navtitle>ICA token mechanisms</navtitle></topicmeta>
+</topicref>
+<topicref href="lxoc_tok_ica_restrict.dita"><topicmeta><navtitle>ICA token restrictions</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ica_curves.dita"><topicmeta><navtitle>ICA token ECC curves</navtitle></topicmeta></topicref>
+
+</topicref>
+<topicref href="lxoc_tok_ep11.dita"><topicmeta><navtitle>EP11 token</navtitle></topicmeta>
+<topicref href="lxoc_tok_ep11_conffile.dita"><topicmeta><navtitle>Configuring EP11 tokens</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_mech.dita"><topicmeta><navtitle>EP11 token mechanisms</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_curves.dita"><topicmeta><navtitle>EP11 token ECC curves</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_restrict.dita"><topicmeta><navtitle>EP11 token restrictions</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_restrict_ex.dita"><topicmeta><navtitle>EP11: Restrictions to extended evaluations</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_tool1_migrate.dita"><topicmeta><navtitle>pkcsep11_migrate tool</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_ep11_tool2_session.dita"><topicmeta><navtitle>pkcsep11_session tool</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_tok_soft.dita"><topicmeta><navtitle>Soft token</navtitle></topicmeta>
+<topicref href="lxoc_tok_soft_mech.dita"><topicmeta><navtitle>Soft token mechanisms</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_tok_all_dir.dita"><topicmeta><navtitle>Token directories</navtitle></topicmeta></topicref>
+<topicref href="lxoc_tok_icsf.dita"><topicmeta><navtitle>ICSF token</navtitle></topicmeta>
+<topicref href="lxoc_tok_icsf_tool1_pkcsicsf.dita"><topicmeta><navtitle>pkcsicsf tool</navtitle></topicmeta></topicref></topicref>
+<topicref href="lxoc_tok_ibm_mechfeat.dita">
+<topicmeta><navtitle>IBM-specific enhancements of openCryptoki</navtitle></topicmeta>
+<topicref href="lxoc_tok_ibmmechs.dita">
+<topicmeta>
+<navtitle>IBM-specific mechanisms</navtitle>
+</topicmeta>
+</topicref>
+<topicref href="lxoc_tok_ibm_feat1_reencrypt.dita">
+<topicmeta>
+<navtitle>Re-encrypt data with a mechanism</navtitle>
+</topicmeta>
+</topicref>
+</topicref>
+</map>

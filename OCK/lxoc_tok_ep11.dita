@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ep11_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/></searchtitle>
+</titlealts>
+<shortdesc>An <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> is a secure key token. A
+list of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> is provided, as well as information about the
+purpose and use of the tools <cmdname>pkcsep11_migrate</cmdname> and
+<cmdname>pkcsep11_session</cmdname>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You can read some information about secure keys in <xref href="lxoc_tok_cca.dita"/>.</p>
+<p>As a prerequisite for an operational <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11lib"/> (also called <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11"/> host library in other documentations) must be installed
+(see <xref href="lxoc_ock_features.dita#lxoc_ock_features/stack_process_flow"/>). </p>
+<p>For <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>, you can introduce one or
+multiple tokens into the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> framework (see
+<xref href="lxoc_tok_common_adding.dita"/>) and configure them differently. For
+information on how to install the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11lib"/> and on
+how to configure a certain <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> using a token
+specific configuration file, refer to <xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html"
+scope="external">Exploiting Enterprise PKCS #11 using openCryptoki</xref>.</p>
+<?Pub Caret 204?>
+</conbody>
+</concept>
+<?Pub *0000003393?>

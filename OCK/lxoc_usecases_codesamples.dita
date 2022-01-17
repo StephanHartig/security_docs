@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="codesamples" xml:lang="en-us" rev="shv2">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> code samples (C)</title>
+<titlealts>
+<navtitle>Code samples (C)</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and  <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Code samples (C)</searchtitle>
+</titlealts>
+<shortdesc>To develop an application that uses <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>, you need to access the library. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>coding
+samples</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>There are two ways to access the library:<ul>
+<li>Load shared objects using dynamic library calls (dlopen)</li>
+<li>Link the library to your application during build time</li>
+</ul><?Pub Caret 48?></section>
+</refbody>
+</reference>
+<?Pub *0000000960?>

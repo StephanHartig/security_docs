@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="l31xce00_installing_ocryptoki" xml:lang="en-us">
+<title>Installing <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+</title>
+    <!--SH: Acrolinx run on Apr. 14, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>Installing <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></navtitle>
+<searchtitle>Installing <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></searchtitle>
+</titlealts>
+<shortdesc>The available tokens are part of the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> package. The package comes with manual pages (man
+pages) that describe the usage of the tools and the format of the configuration files. The <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> package in turn is shipped with the <ph
+conref="lxcommon.dita#phrases/ph_loz"/> distributions. <ph rev="shv2">This package might be split
+into several packages by the distributions, thus allowing to install individual tokens
+separately.</ph></shortdesc>
+<prolog><metadata>
+<keywords><indexterm>installing <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>installing
+<indexterm>from RPM</indexterm><indexterm>from DEB</indexterm></indexterm><indexterm>installing from
+source package</indexterm></indexterm><indexterm>source package</indexterm>
+<indexterm>RPM</indexterm>
+<indexterm>DEB</indexterm></keywords>
+</metadata></prolog>
+<conbody>
+<section>       <p>Check whether you already installed <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"
+/> in your current environment, for
+example:<screen>
+$ rpm -qa | grep -i opencryptoki /* for RPM */ 
+$ dpkg -l | grep -i opencryptoki /* for DEB */</screen><note>The
+command examples are distribution dependent. <codeph>opencryptoki</codeph> must in certain
+distributions be specified as <codeph>openCryptoki</codeph> (case-sensitive). </note></p> 
+     <p>You should see all installed <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+packages. If required packages are missing, use the installation tool of your Linux distribution to
+install the appropriate <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> RPM or DEB.</p>
+<note othertype="Notes" type="other">
+<ul>
+<li rev="shv2">You can update an installed version of <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> with a package of a newer version. Depending on the
+tokens to be used, further libraries need to be installed and cryptographic adapters must be
+enabled. If you had built <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> from the source
+before, you <ph rev="v1i2">must</ph> remove any previous <ph rev="v1i2">installation</ph> of
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><ph rev="v2i1"> (<apiname>make
+uninstall</apiname>)</ph>, before you can install a distribution package for a new <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version.</li>
+<li>Some tokens need a token-specific library to be installed on the system as a prerequisite for
+usage. These are mentioned for each token in <xref href="lxoc_tokens_part.dita"/>.</li>
+</ul>
+</note>
+</section>
+<section>
+<title>Installing from the RPM or DEB package</title>
+            <p>The <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> packages are delivered
+by the distributors. Distributors build these packages as RPM or DEB packages for delivering them to
+customers.</p>
+            <p>Customers can install these <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+packages by using the installation tool of their selected distribution.</p>
+            <p>If you received <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> as an
+<term>RPM</term> package, follow the <term>RPM</term> installation process that is described in the
+<xref href="https://linux.die.net/man/8/rpm" format="html" scope="external"><cite>RPM Package
+Manager</cite></xref> man page. If you received an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+<term>DEB</term> package, you can use the <cite>dpkg - package manager for Debian</cite> described
+in the <xref href="https://linux.die.net/man/1/dpkg" format="html" scope="external"><cite>dpkg man
+page</cite></xref>.</p>
+<p>The installation from either an <term>RPM</term> or <term>DEB</term> package is the
+preferred installation method. </p>
+        </section>
+        <section>
+            <title>Installing from the source package</title>
+            <p>As an alternative, for example for development purposes, you can get the latest
+version (inclusive latest patches) from the <xref
+href="https://github.com/opencryptoki/opencryptoki" format="html" scope="external">GitHub
+repository</xref> and build it yourself. But this version is not serviced. It is suitable for
+non-production systems and early feature testing, but you should not use it for production.</p>
+            <p>In this case, refer to the <codeph>INSTALL</codeph> file in the top level of the
+source tree. You can start from the instructions that are provided with the subtopics of this
+<codeph>INSTALL</codeph> file and select from the described alternatives. If you use this
+installation method parallel to the installation of a package from your distributor, then you should
+keep both installations isolated from each other.</p>
+            <ol>
+                <li>Download the latest version of the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> sources from:
+<codeblock><xref href="https://github.com/opencryptoki/opencryptoki/releases" format="html" scope="external"/></codeblock></li>
+                <li>Decompress and extract the compressed tape archive (tar.gz - file). There is a
+new directory named like <filepath>opencryptoki-3.xx.x</filepath>. </li>
+                <?Pub Caret 67?>
+                <li>Change to that directory and issue the following scripts and commands:<p>
+<screen>
+$ ./bootstrap.sh
+$ ./configure    
+$ make
+$ make install</screen>
+</p><p>The scripts or commands perform the following functions:</p><dl compact="yes">
+<dlentry>
+<dt>bootstrap</dt>
+<dd>Initial setup, basic configurations</dd>
+</dlentry>
+<dlentry>
+<dt>configure</dt>
+<dd>Check configurations and build the makefile. You can specify several options here to overwrite
+the defaults. For example, not all tokens are built as the default. To build the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/> as an example, specify <codeph>./configure
+--enable_ccatok</codeph></dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>make</dt>
+<dd>Compile and link</dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>make install</dt>
+<dd>Install the libraries</dd>
+</dlentry>
+</dl></li>
+            </ol>
+            <note>When installing <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> from the
+source package, the location of some installed files will differ from the location of files
+installed from an RPM or DEB package.</note>
+        </section>
+</conbody>
+</concept>
+<?Pub *0000005621?>

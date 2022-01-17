@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE ibmbook PUBLIC "-//IBM//DTD DITA IBM BookMap//EN"
+ "..\..\dita\dtd\ibmbook.dtd">
+<ibmbook xml:lang="en-us">
+<ibmbooktitle>
+<ibmbooklibrary><ph conref="lxcommon.dita#phrases/lib_title"/></ibmbooklibrary>
+<ibmmainbooktitle><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> - An Open Source
+Implementation of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+<!-- ****Vorlage für eine Leerzeile mit no-break space U+00A0 aus dem Insert special character
+Edit > Insert from Character Map ... <titleline> </titleline><titleline>Version 3.16</titleline> **** -->
+</ibmmainbooktitle>
+</ibmbooktitle>
+<bookmeta>
+<authorinformation id="corp">
+<organizationinfo><namedetails><organizationnamedetails>
+<organizationname>IBM Deutschland Research &amp; Development GmbH</organizationname>
+</organizationnamedetails></namedetails>
+<addressdetails><administrativearea>Information Development</administrativearea><term>Department
+3282</term><thoroughfare>Schoenaicher Strasse 220</thoroughfare><locality><localityname>71032
+Boeblingen</localityname></locality><country>Germany</country></addressdetails>
+<emailaddresses><emailaddress>eservdoc@de.ibm.com</emailaddress>
+</emailaddresses></organizationinfo>
+</authorinformation>
+<publisherinformation><printlocation> </printlocation>
+</publisherinformation>
+<prodinfo><prodname><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></prodname>
+</prodinfo>
+<bookid><booknumber><keyword>SC34-7730-01</keyword></booknumber>
+<maintainer href="#corp"></maintainer></bookid>
+<bookrights><copyrfirst><year>2021</year></copyrfirst>
+<!--<copyrlast> <year>2022</copyrlast>--><bookowner><organization>IBM</organization></bookowner>
+<!--<bookrestriction value="confidential"/>--></bookrights>
+</bookmeta>
+<ibmfrontmatter>
+<editionnotices href="lxoc_editionnotice.dita"><topicmeta><navtitle>Edition notice</navtitle></topicmeta></editionnotices>
+<frontbooklists>
+<toc/></frontbooklists>
+<preface href="lxoc_about_whatis_ock.dita"/>
+<topicref href="lxoc_soc.dita">
+<topicref href="lxoc_new_for_317.dita"/>
+</topicref>
+</ibmfrontmatter>
+<part href="lxoc_features_part.dita">
+<chapter format="ditamap" href="lxoc_features.ditamap" scope="local"/>
+</part>
+<part href="lxoc_tools_part.dita">
+<chapter format="ditamap" href="lxoc_tools.ditamap"/>
+</part>
+<part href="lxoc_tokens_part.dita">
+<chapter format="ditamap" href="lxoc_tokens.ditamap" scope="local"/>
+</part>
+<part href="lxoc_usecases_part.dita">
+<chapter format="ditamap" href="lxoc_usecases.ditamap" scope="local"/>
+</part>
+<ibmbackmatter>
+<topicref href="lxoc_literature.dita"></topicref>
+<topicref href="lxcommon_accessibility.dita"></topicref>
+<topicref href="lxcommon_notices.dita">
+<topicref href="lxoc_trademarks.dita"></topicref>
+</topicref>
+<backbooklists>
+<indexlist/></backbooklists>
+</ibmbackmatter>
+</ibmbook>

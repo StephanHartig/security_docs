@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ica_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> mechanisms</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> mechanisms</searchtitle>
+</titlealts>
+<shortdesc>View a list of mechanisms provided by <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> which you can use to exploit the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> features for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> from within your application. Use the
+<cmdname>pkcsconf -m -c &lt;ICA_token_slot></cmdname> command to list the mechanisms (algorithms),
+that are supported by the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>mechanisms for the
+<keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/><indexterm>supported <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<p>The command output depends on the <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/>
+version, whether <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> is running in FIPS mode,
+and on the processor generation. The output of the <cmdname>pkcsconf -m -c &lt;slot></cmdname>
+command corresponds to the list shown in <xref href="#lxoc_ica_token/ica_mechanisms" format="dita"/>
+which presents all mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> on an <ph
+conref="lxcommon.dita#phrases/ph_ibmz15"/> machine.</p>
+</section>
+<section>
+<table id="ica_mechanisms"><title>Supported mechanism list for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></title><desc>
+<p outputclass="summary">Table with 4 columns that contain information about <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/>.</p>
+</desc><tgroup cols="4">
+<colspec colname="col1" colwidth="14*"/>
+<colspec colname="col2" colwidth="6*"/>
+<colspec colname="col3" colwidth="11*"/>
+<colspec colname="col4" colwidth="5*"/>
+<thead>
+<row>
+<entry>Mechanism</entry>
+<entry>Key sizes in bits or bytes</entry>
+<entry>Properties</entry>
+<entry>Support with OC version</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>CKM_RSA_PKCS_KEY_PAIR_GEN</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, GENERATE_KEY_PAIR</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, SIGN, SIGN_RECOVER, VERIFY, VERIFY_RECOVER, WRAP,
+UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_X_509</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, SIGN, SIGN_RECOVER, VERIFY, VERIFY_RECOVER, WRAP,
+UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS_OAEP</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA1_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_RSA_PKCS</entry>
+<entry>512-4096 bits</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_RSA_PKCS_PSS</entry>
+<entry>512-4096 bits</entry>
+<entry>HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_224</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_224_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_224_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_256</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_256_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_256_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_KEY_GEN</entry>
+<entry>8-8 bytes</entry>
+<entry rev="shv2">HW, GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_ECB</entry>
+<entry>8-8 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_CBC</entry>
+<entry>8-8 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_CBC_PAD</entry>
+<entry>8-8 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_KEY_GEN</entry>
+<entry>24-24 bytes</entry>
+<entry rev="shv2">HW, GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_ECB</entry>
+<entry>24-24 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC</entry>
+<entry>24-24 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_MAC</entry>
+<entry>24-24 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_MAC_GENERAL</entry>
+<entry>24-24 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CBC_PAD</entry>
+<entry>24-24 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CMAC_GENERAL</entry>
+<entry>16-24 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES3_CMAC</entry>
+<entry>16-24 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_OFB64</entry>
+<entry>8-8 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_CFB64</entry>
+<entry>8-8 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_DES_CFB8</entry>
+<entry>8-8 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_MD5_HMAC</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_MD5_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA_1</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA_1_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA_1_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA256_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA224_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_HMAC</entry>
+<entry rev="shv2">HW, n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA384_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_HMAC</entry>
+<entry>n/a</entry>
+<entry rev="shv2">HW, SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_SHA512_HMAC_GENERAL</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_GENERIC_SECRET_KEY_GEN</entry>
+<entry>80-2048 bits</entry>
+<entry rev="shv2">HW, GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_KEY_PAIR_GEN</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, GENERATE_KEY_PAIR, EC_F_P, EC_OID</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA1</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA224</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA256</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA384</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDSA_SHA512</entry>
+<entry>160-521 bits</entry>
+<entry>SIGN, VERIFY, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_ECDH1_DERIVE</entry>
+<entry>160-521 bits</entry>
+<entry rev="shv2">HW, DERIVE, EC_F_P, EC_F_P, <ph rev="shv2">EC_OID</ph></entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_KEY_GEN</entry>
+<entry>16-32 bytes</entry>
+<entry rev="shv2">HW, GENERATE</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_ECB</entry>
+<entry>16-32 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CBC</entry>
+<entry>16-32 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_MAC</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_MAC_GENERAL</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CBC_PAD</entry>
+<entry>16-32 bytes</entry>
+<entry rev="shv2">HW, ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CTR</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_GCM</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CMAC_GENERAL</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CMAC</entry>
+<entry>16-32 bytes</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_OFB</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CFB64</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CFB8</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_AES_CFB128</entry>
+<entry>16-32 bytes</entry>
+<entry>ENCRYPT, DECRYPT, WRAP, UNWRAP</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_224</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_256</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_384</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_512</entry>
+<entry>n/a</entry>
+<entry>DIGEST</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_224_HMAC</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_256_HMAC</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_384_HMAC</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+<row>
+<entry>CKM_IBM_SHA3_512_HMAC</entry>
+<entry>n/a</entry>
+<entry>SIGN, VERIFY</entry>
+<entry>before 3.16</entry>
+</row>
+</tbody>
+</tgroup></table>
+<p rev="shv2">Certain mechanisms indicate the <codeph>HW</codeph> flag in the <b>Properties</b>
+column (short form for the CKF_HW). If for theses mechanisms, the CKF_HW flag is set to TRUE, the
+pertaining cryptographic operations are performed by the cryptographic hardware. If the flag is not
+set for these mechanisms, the operations are performed in software.</p>
+<p rev="shv2">For a description of mechanisms with a name pattern of <codeph>CKM_IBM_...</codeph>
+refer to <xref href="lxoc_tok_ibmmechs.dita"/>.</p>
+</section>
+</conbody>
+</concept>

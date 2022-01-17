@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"  "ibm-task.dtd">
+<task id="lxoc_server_setup" xml:lang="en-us">
+<title>Server side setup</title>
+<!--SH: Acrolinx not run -->
+<titlealts>
+<navtitle>Server side setup</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and  <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Server side setup</searchtitle>
+</titlealts>
+<shortdesc>The user scenario describes how to set up a <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/> on a server, which is an <ph
+conref="lxcommon.dita#phrases/ph_ibmz15"/> system running a <keyword
+conref="lxoc_conref.dita#lxoc_conref/linux"/> operating system.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>user scenario<indexterm>server side setup</indexterm></indexterm>
+<indexterm>server side setup</indexterm>
+<indexterm>Ubuntu 21.04</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody><prereq>The server can be set up on various <ph conref="lxcommon.dita#phrases/ph_ibmz"/> systems and with various versions of 
+<keyword conref="lxoc_conref.dita#lxoc_conref/linux"/>. 
+For the scenario illustrated here, it is assumed that you have an Ubuntu 21.04 installation on an <ph conref="lxcommon.dita#phrases/ph_ibmz15"/> machine. 
+Open a <keyword conref="lxoc_conref.dita#lxoc_conref/linux"/> command line on the server to
+set up an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/>.</prereq>
+<steps>
+<step>
+<cmd>Install the <cmdname>p11-kit</cmdname> package.</cmd><info>This tool provides a way to load and
+enumerate <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> modules and also provides a
+standard configuration setup for installing <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+modules in such a way that they are discoverable.<p>To install the <cmdname>p11-kit</cmdname>
+package and the <cmdname>p11tool</cmdname>, enter the following
+command:</p><screen># apt install p11-kit p11-kit-modules gnutls-bins </screen></info>
+</step>
+<step>
+<cmd>Create and edit an <filepath>opencryptoki.module</filepath> configuration file in the shown
+filepath: <filepath>/etc/pkcs11/modules/opencryptoki.module</filepath></cmd><info>Enter the following line into this configuration file: <screen rev="v2i1">
+module: /lib64/opencryptoki/libopencryptoki.so</screen>
+</info>
+</step>
+<step>
+<cmd>To list the available <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> modules, enter
+the following command:</cmd><info>
+<screen># p11-kit list-modules</screen> You will see an output similar to the following: <screen>
+p11-kit-trust: p11-kit-trust.so
+    library-description: PKCS#11 Kit Trust Module
+    library-manufacturer: PKCS#11 Kit
+    library-version: 0.23
+    token: System Trust
+        manufacturer: PKCS#11 Kit
+        model: p11-kit-trust
+        serial-number: 1
+        hardware-version: 0.23
+        flags:
+               write-protected
+               token-initialized
+<ph rev="v2i1">opencryptoki: /lib64/opencryptoki/libopencryptoki.so</ph>
+    library-description: openCryptoki
+    library-manufacturer: IBM
+    library-version: 3.16
+    token: soft
+        manufacturer: IBM
+        model: Soft
+        serial-number: 
+        flags:
+               rng
+               login-required
+               user-pin-initialized
+               clock-on-token
+               token-initialized
+</screen>
+</info>
+</step>
+<step>
+<cmd>To list the available tokens using the <cmdname>p11tool</cmdname> utility, enter the following
+command:</cmd><info><screen># p11tool --list-tokens</screen> You will see an output similar to the following: <screen>Token 0:
+        URL: pkcs11:model=p11-kit-trust;manufacturer=PKCS%2311%20Kit;serial=1;token=System%20Trust
+        Label: System Trust
+        Type: Trust module
+        Flags: uPIN uninitialized
+        Manufacturer: PKCS#11 Kit
+        Model: p11-kit-trust
+        Serial: 1
+        Module: p11-kit-trust.so
+
+Token 1:
+        URL: pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft              
+        Label: soft
+        Type: Generic token
+        Flags: RNG, Requires login
+        Manufacturer: IBM
+        Model: Soft
+        Serial: 
+        Module: <ph rev="v2i1">opencryptoki: /lib64/opencryptoki/libopencryptoki.so</ph>
+ </screen>
+<p>As you can see in the example, the <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/> is
+available now as <cmdname>Token 1</cmdname>. With the shown URL, you can access this
+token.</p></info>
+</step>
+<step id="server_start_p11kit">
+<cmd>To start the <cmdname>p11-kit</cmdname> server to allow remote clients to access the token,
+enter the following command:</cmd><info>
+<screen>
+# p11-kit server --provider <ph rev="v2i1">opencryptoki: /lib64/opencryptoki/libopencryptoki.so</ph> "pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft"</screen>
+As output, you will see the following generated commands: <screen>
+P11_KIT_SERVER_ADDRESS=unix:path=/run/user/0/p11-kit/pkcs11-1296159; export P11_KIT_SERVER_ADDRESS;
+P11_KIT_SERVER_PID=1296160; export P11_KIT_SERVER_PID;</screen>
+</info></step>
+<step>
+<cmd>To set and export the following two environment variables, copy and paste the commands from the
+output from step <xref href="#lxoc_server_setup/server_start_p11kit" format="dita">5</xref> and
+enter them into a command line: </cmd><info>
+<screen>
+# P11_KIT_SERVER_ADDRESS=unix:path=/run/user/0/p11-kit/pkcs11-1296159; export P11_KIT_SERVER_ADDRESS;
+# P11_KIT_SERVER_PID=1296160; export P11_KIT_SERVER_PID;</screen>
+</info></step>
+</steps>
+<result>You can now continue to set up the client as described in <xref
+href="lxoc_usecases_config_client.dita"/>.</result>
+</taskbody>
+</task>
+<?Pub *0000003393?>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="lobject_samples" xml:lang="en-us" rev="shv2">
+<title>Object handling procedures</title>
+<titlealts>
+<navtitle>Object handling procedures</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Procedures for object handling</searchtitle>
+</titlealts>
+<shortdesc>When you use your sample code with a static linked library you can access the APIs
+directly. View some <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> code samples for
+procedures dealing with object handling.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>object handling</indexterm>
+<indexterm>code sample<indexterm>object handling</indexterm></indexterm>
+<indexterm>sample code<indexterm>object handling</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<?Pub Caret 0?>
+<section>
+<title>C_CreateObject:</title>
+<screen>/*
+ * create a key object with C_CreateObject
+ */
+CK_RV createKeyObject(CK_SESSION_HANDLE hSession, CK_BYTE_PTR key, CK_ULONG keyLength) {
+  CK_RV rc;
+
+  CK_OBJECT_HANDLE hKey;
+  CK_BBOOL true = TRUE;
+  CK_BBOOL false = FALSE;
+  CK_OBJECT_CLASS keyClass = CKO_SECRET_KEY;
+  CK_KEY_TYPE keyType = CKK_AES;
+  CK_ATTRIBUTE keyTempl[] = {
+    {CKA_CLASS, &amp;keyClass, sizeof(keyClass)},
+    {CKA_KEY_TYPE, &amp;keyType, sizeof(keyType)},
+    {CKA_ENCRYPT, &amp;true, sizeof(true)},
+    {CKA_DECRYPT, &amp;true, sizeof(true)},
+    {CKA_SIGN, &amp;true, sizeof(true)},
+    {CKA_VERIFY, &amp;true, sizeof(true)},
+    {CKA_TOKEN, &amp;true, sizeof(true)}, 		/* token object  */
+    {CKA_PRIVATE, &amp;false, sizeof(false)},	/* public object */
+    {CKA_VALUE, keyValue, keyLength},	/* AES key       */
+    {CKA_LABEL, "My_AES_Key", sizeof("My_AES_Key")}
+  };
+  rc = C_CreateObject(hSession, keyTempl, sizeof (keyTempl)/sizeof (CK_ATTRIBUTE), &amp;hKey);
+  if (rc != CKR_OK) {
+	printf("Error creating key object: 0x%X\n", rc); return rc;
+  }
+  printf("AES Key object creation successful.\n");
+  <ph rev="i1v01">return CKR_OK;</ph>
+}
+</screen>
+</section>
+<section>
+<title>C_FindObjects:</title>
+<screen>/*
+ * findObjects
+ */
+CK_RV getKey(CK_CHAR_PTR label, int labelLen, CK_OBJECT_HANDLE_PTR hObject,
+	     CK_SESSION_HANDLE hSession) {
+  CK_RV rc;
+  CK_ULONG ulMaxObjectCount = 1;
+  CK_ULONG ulObjectCount;
+  CK_ATTRIBUTE objectMask[] = { {CKA_LABEL, label, labelLen} };
+  rc = C_FindObjectsInit(hSession, objectMask, 1);
+  if (rc != CKR_OK) {
+	printf("Error FindObjectsInit: 0x%X\n", rc); return rc;
+  }
+  rc = C_FindObjects(hSession, hObject, ulMaxObjectCount, &amp;ulObjectCount);
+  if (rc != CKR_OK) {
+	printf("Error FindObjects: 0x%X\n", rc); return rc;
+  }
+  rc = C_FindObjectsFinal(hSession);
+  if (rc != CKR_OK) {
+	printf("Error FindObjectsFinal: 0x%X\n", rc); return rc;
+  }
+  <ph rev="i1v01">return CKR_OK;</ph>
+}
+</screen>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001770?>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="staticlinkedlib" xml:lang="en-us" rev="shv2">
+<title>Shared linked library</title>
+<titlealts>
+<navtitle>Shared linked library</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Shared linked library</searchtitle>
+</titlealts>
+<shortdesc>When you use your sample code with a static linked library you can access the APIs
+directly. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>shared linked library</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>At the compile time you need to specify the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+library:<codeblock scale="80">gcc sample_shared.c -g -O0 -o sample_shared /usr/lib64/opencryptoki/libopencryptoki.so
+</codeblock><p>The presented samples that interact with the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> API are based on the shared linked <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> library. </p></section>
+<?Pub Caret 0?>
+</refbody>
+</reference>
+<?Pub *0000001770?>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_reencrypt" xml:lang="en-us" rev="shv2">
+<title>Re-encrypting data with a mechanism</title>
+<titlealts>
+<navtitle>Re-encrypt data with a mechanism</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Re-encrypting data with a new key and
+mechanism</searchtitle>
+</titlealts>
+<!--SH: Acrolinx never ran-->
+<shortdesc>The vendor-specific function <apiname>C_IBM_ReencryptSingle()</apiname> is available in
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and is supported by all tokens. You can use
+it to re-encrypt data encrypted with a given key and mechanism with another key and mechanism. This
+function is useful for secure key encryption with an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> or a <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/>, because during the process, the data is never
+visible in the clear anywhere outside the <keyword
+conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>C_IBM_ReencryptSingle</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>The <apiname>C_IBM_ReencryptSingle</apiname> function has the following signature:</p>
+<codeblock>
+CK_RV C_IBM_ReencryptSingle(CK_SESSION_HANDLE hSession,
+                            CK_MECHANISM_PTR pDecrMech,
+                            CK_OBJECT_HANDLE hDecrKey,
+                            CK_MECHANISM_PTR pEncrMech,     
+                            CK_OBJECT_HANDLE hEncrKey,
+                            CK_BYTE_PTR pEncryptedData,
+                            CK_ULONG ulEncryptedDataLen,
+                            CK_BYTE_PTR pReencryptedData,
+                            CK_ULONG_PTR pulReencryptedDataLen);
+</codeblock>
+<p>Because the new function is non-standard, it does not appear in the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+<codeph>CK_FUNCTION_LIST</codeph> structure returned by <apiname>C_GetFunctionList()</apiname>. To
+invoke this function, you must either locate the desired function in the main DLL using
+<codeph>dlsym()</codeph>, or link the application program with the main DLL. You can also use
+<apiname>C_GetInterface()</apiname> to get the interface called <apiname>Vendor IBM</apiname>. This
+interface also provides the <apiname>C_IBM_ReencryptSingle()</apiname> function. </p>
+<p>Like other <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> functions, this function
+returns output in a variable-length buffer, conforming to the convention defined by <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>.</p>
+<p>If <parmname>pReencryptedData</parmname> is <codeph>NULL_PTR</codeph>, then the function only
+uses parameter <parmname>*pulReencryptedDataLen</parmname> to return a number of bytes which would
+suffice to hold the cryptographic output produced from the input to the function. This number may
+exceed the precise number of bytes needed, but not to a very high extent. </p>
+<p>If <parmname>pReencryptedData</parmname> is not <codeph>NULL_PTR</codeph>, then
+<parmname>*pulReencryptedDataLen</parmname> must contain the size in bytes of the buffer pointed to
+by <parmname>pReencryptedData</parmname>. If that buffer is large enough to hold the cryptographic
+output produced by the function, then that cryptographic output is placed there, and
+<parmname>CKR_OK</parmname> is returned. If the buffer is not large enough, then
+<parmname>CKR_BUFFER_TOO_SMALL</parmname> is returned. In either case,
+<parmname>*pulReencryptedDataLen</parmname> is set to hold the exact number of bytes needed to hold
+the produced cryptographic output. </p>
+<p>The function generally allows to specify any combination of decryption and encryption mechanisms.
+However, not all combinations work with all data sizes. Mechanisms that do not perform any padding,
+require that the data to be encrypted is a multiple of the block size. Also some mechanisms have
+certain size limitations (for example, RSA). If the data size after decryption with the decryption
+mechanism conflicts with the requirements of the encryption mechanisms, then the re-encrypt
+operation may fail with <parmname>CKR_DATA_LEN_RANGE</parmname>. Also, not all tokens may support
+all mechanism combinations. <parmname>CKR_MECHANISM_INVALID</parmname> is returned if one of the
+mechanisms specified is not supported for the re-encrypt operation.</p>
+</conbody>
+</concept>
+<?Pub *0000004141?>

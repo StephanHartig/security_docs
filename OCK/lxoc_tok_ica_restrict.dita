@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="lxci_restrictions_oc" xml:lang="en-us">
+<title>Usage notes for the <keyword conref="lxoc_conref.dita#lxoc_conref/icalib"/> functions</title>
+<titlealts>
+<navtitle>Usage notes for the <keyword conref="lxoc_conref.dita#lxoc_conref/icalib"/>
+functions</navtitle>
+<?Pub Caret -1?>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Usage notes for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/icalib"/> functions</searchtitle>
+</titlealts>
+<shortdesc><!--I f one day there will be more content in this topic, align it to the TOC structure of EP11 and CCA tokens: one level higher ! --></shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"
+/><indexterm>restrictions</indexterm></indexterm>
+<indexterm>restrictions<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/icalib"
+/></indexterm></indexterm>
+<indexterm>usage notes<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/icalib"
+/></indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<section>As of <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> version 3.6, the
+<apiname>C_SeedRandom</apiname> function of the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> always returns
+CKR_RANDOM_SEED_NOT_SUPPORTED.</section>
+</refbody>
+</reference>
+<?Pub *0000004604?>

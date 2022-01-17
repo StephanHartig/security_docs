@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_references" xml:lang="en-us">
+<title>References</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>References</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>:  <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> References</searchtitle>
+</titlealts>
+<shortdesc>To learn more about the use and features of <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>, you can read the referenced literature.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>referenced literature</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<ul>
+<li>
+<codeblock><xref href="https://github.com/opencryptoki/opencryptoki/blob/master/doc/opencryptoki-howto.md" format="html" scope="external">PKCS #11 openCryptoki for Linux HOWTO</xref>
+</codeblock>
+</li>
+<li>
+<codeblock><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html" scope="external">Exploiting Enterprise PKCS #11 using openCryptoki</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_cca.html" format="html" scope="external">Secure Key Solution with the Common Cryptographic Architecture Application Programmer's Guide</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ci.html" format="html" scope="external">libica Programmer's Reference</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="http://docs.oasis-open.org/pkcs11/pkcs11-ug/v2.40/pkcs11-ug-v2.40.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Usage Guide Version 2.40</xref></codeblock>
+</li>
+</ul>
+<p><b>OASIS Standards</b></p>
+<ul>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/pkcs11-base-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Base Specification Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-profiles/v3.0/pkcs11-profiles-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Profiles Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-curr/v3.0/pkcs11-curr-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Current Mechanisms Specification Version 3.0</xref></codeblock>
+</li>
+<li>
+<codeblock><xref href="https://docs.oasis-open.org/pkcs11/pkcs11-hist/v3.0/pkcs11-hist-v3.0.html" format="html" scope="external">PKCS #11 Cryptographic Token Interface Historical Mechanisms Specification Version 3.0</xref></codeblock>
+</li>
+</ul>
+<?Pub Caret 204?>
+</conbody>
+</concept>
+<?Pub *0000003393?>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="l31xce00_extended_evaluations" xml:lang="en-us">
+  <title>Restriction to extended evaluations</title>
+    <titlealts>
+    <navtitle>Restriction to extended evaluations</navtitle>
+    <searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Restriction to extended evaluations</searchtitle>
+  </titlealts>
+<abstract>
+<shortdesc>For <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> versions up to 3.8, the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> only supported those functions and
+mechanisms that are available on an adapter that is configured to comply to the extended
+evaluations. These extended evaluations meet public sector requirements with regard to both FIPS and
+Common Criteria certifications. </shortdesc>
+<p>For more details, see the <xref href="http://www.redbooks.ibm.com/abstracts/sg248451.html?Open"
+format="html" scope="external"><cite>IBM z14 Technical Guide</cite>.</xref></p>
+<p>Starting with the current version of the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11"/>
+enablement, you can control the use of certain mechanisms within a domain of an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11coproc"/> by configuring this coprocessor by means of
+access control points (ACPs). So except for one restriction, the use of mechanisms is no longer
+restricted to the limitations imposed by the extended evaluations.</p>
+</abstract>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>extended evaluations<indexterm>configuring</indexterm></indexterm>
+        <indexterm>configuring<indexterm>extended evaluations</indexterm></indexterm>
+        <indexterm>configuring extended evaluations</indexterm>
+<indexterm>C_GetMechanismList</indexterm>
+<indexterm>C_GetMechanismInfo</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>Read the information about filter mechanisms in
+<codeblock><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html" scope="external">Exploiting Enterprise PKCS #11 using openCryptoki</xref></codeblock>
+for information on how to manage the access to <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"
+/> mechanisms using ACPs. The available mechanisms and their attributes are then reflected by the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> functions
+<apiname>C_GetMechanismList</apiname> and <apiname>C_GetMechanismInfo</apiname>. However, there is
+one restriction on RSA mechanisms that cannot be reflected in the result of
+<apiname>C_GetMechanismInfo</apiname>: The <codeph>CKA_PUBLIC_EXPONENT</codeph> must have a value of
+at least 17. </p>
+    </section>
+  </refbody>
+</reference>

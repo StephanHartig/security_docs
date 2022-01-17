@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="lxoc_common_attribs" xml:lang="en-us" rev="shv2">
+<title>How to apply attributes to objects</title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> attributes</navtitle>
+<?Pub Caret -1?>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: How to apply attributes to objects in
+<keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></searchtitle>
+</titlealts>
+<shortdesc>In <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>, an attribute defines a
+characteristic of an object, for example, for a generated key.  In <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>, there are general attributes, such as whether the
+object is private or public. There are also attributes that are specific to a particular type of
+object, such as a modulus or exponent for RSA keys.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>attributes <indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"
+/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+<indexterm>attributes</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Attributes determine the characteristics of an object or how a mechanism is applied to an
+object.</p>
+<p> Attributes are denoted by names starting with the prefix <codeph>'CKA_'</codeph>. Some attributes are valid for one certain object type, 
+others are valid for multiple object types.</p>
+<p>The type is specified on an object through the CKA_CLASS attribute of the object. Especially, the
+CKA_CLASS attribute determines which further attributes are associated with an object. Other typical
+attributes contain the value of an object or determine whether an object is a token object.</p>
+</conbody>
+</concept>
+<?Pub *0000000808?>

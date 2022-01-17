@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_dmap_main" xml:lang="en-us" title="openCryptoki - An Open Source Implementation of PKCS #11">
+<topicmeta>
+<prodinfo>
+<prodname>openCryptoki</prodname>
+<vrmlist>
+<vrm version="3" release="17"/>
+</vrmlist>
+</prodinfo>
+</topicmeta>
+<topicref href="lxoc_linuxonz.dita">
+<topicref href="lxoc_pdf.dita">
+<topicmeta>
+<navtitle>PDF file</navtitle>
+</topicmeta>
+</topicref>
+<topicref href="lxoc_about_whatis_ock.dita">
+<topicmeta>
+<navtitle>About this document</navtitle>
+</topicmeta>
+</topicref>
+<topicref href="lxoc_soc.dita">
+<topicmeta>
+<navtitle>Summary of changes</navtitle>
+</topicmeta>
+<topicref href="lxoc_new_for_317.dita"/>
+</topicref>
+<topicref href="lxoc_features_part.dita"><topicmeta><navtitle>openCryptoki features part</navtitle></topicmeta>
+<topicref format="ditamap" href="lxoc_features.ditamap" scope="local"><topicmeta><navtitle>openCryptoki</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_tools_part.dita"><topicmeta><navtitle>openCryptoki common tools</navtitle></topicmeta>
+<topicref format="ditamap" href="lxoc_tools.ditamap" scope="local"><topicmeta><navtitle>Tools</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_tokens_part.dita"><topicmeta><navtitle>openCryptoki token-specific part</navtitle></topicmeta>
+<topicref format="ditamap" href="lxoc_tokens.ditamap" scope="local"><topicmeta><navtitle>Token specifications</navtitle></topicmeta></topicref>
+</topicref>
+<topicref href="lxoc_usecases_part.dita"><topicmeta><navtitle>openCryptoki use cases</navtitle></topicmeta>
+<topicref format="ditamap" href="lxoc_usecases.ditamap" scope="local"><topicmeta><navtitle>Programming basics and user scenarios</navtitle></topicmeta></topicref>
+</topicref>
+</topicref>
+</map>
+<?Pub *0000002266?>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="lxoc_client_setup" xml:lang="en-us">
+<title>Client side setup</title>
+<!--SH: Acrolinx not run -->
+<titlealts>
+<navtitle>Client side setup</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: Client side setup</searchtitle>
+</titlealts>
+<shortdesc>Learn how to set up an x86 client in the client-server environment illustrated in this
+user scenario, so that you can exploit a <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/>,
+previously installed on a remote server.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>user scenario<indexterm>client side setup</indexterm></indexterm>
+<indexterm>client side setup</indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody>
+<prereq>It is assumed that you want to access and exploit the functions of the remote <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/> from an x86 client running under a <keyword
+conref="lxoc_conref.dita#lxoc_conref/linux"/> system from a Red Hat Enterprise Linux 7.9
+distribution.</prereq><steps>
+<step>
+<cmd>Open a <keyword conref="lxoc_conref.dita#lxoc_conref/linux"/> command line. To install the
+<apiname>p11-kit</apiname> utility, enter the following command:</cmd>
+<info>
+<screen>$ sudo yum install p11-kit</screen>
+</info></step>
+<step id="client_usr_runtime">
+<cmd>To query the user run-time path, enter the following command:</cmd>
+<info><screen>
+$ systemd-path user-runtime</screen> You will see an output similar to the following:
+<screen>
+/run/user/1000</screen></info></step>
+<step>
+<cmd>To forward the local UNIX socket to the remote socket, enter the following commands, using the
+information from step <xref href="#lxoc_client_setup/client_usr_runtime" format="dita">2</xref> and
+then log in as a root user into the remote server:</cmd>
+<info>
+<screen> 
+$ mkdir /run/user/1000/p11-kit/
+$ ssh -L /run/user/1000/p11-kit/pkcs11-1296159:/run/user/0/p11-kit/pkcs11-1296159 root@&lt;remote_server_name> 
+</screen>
+</info></step>
+<step><cmd>To export the <cmdname>p11-kit</cmdname> server address environment variable, enter the
+following command:</cmd><info>
+<screen>$ P11_KIT_SERVER_ADDRESS=unix:path=/run/user/1000/p11-kit/pkcs11-1296159; export P11_KIT_SERVER_ADDRESS;
+ </screen>
+</info></step>
+<step><cmd>As the Red Hat Enterprise Linux 7.9 distribution does not package the
+<filepath>p11-kit-client.so</filepath> file, you need to build it from the source. Therefore, clone
+the shown GitHub repository. To achieve this, enter the following command sequence:</cmd><info>
+<screen>
+$ git clone https://github.com/p11-glue/p11-kit.git 
+$ cd p11-kit
+$ git checkout 0.23.10
+$ ./autogen.sh
+$ ./configure
+$ make
+ </screen>
+</info></step>
+<step><cmd>To view a list of available tokens, use the <cmdname>p11tool</cmdname>:</cmd><info>
+<screen>$ p11tool --provider /&lt;path>/p11-kit-client.so --list-tokens
+ </screen>
+</info><info>You will see an output similar to the following, showing that the <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/> is remotely available. <screen>Token 0:
+        URL: pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft
+        Label: soft
+        Type: Generic token
+        Manufacturer: IBM
+        Model: Soft
+        Serial: </screen></info></step>
+<step><cmd>To view a list of available mechanisms of the <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/>, use the <cmdname>p11tool</cmdname> utility:</cmd><info>
+<screen>$ p11tool --provider /&lt;path>/p11-kit-client.so --list-mechanisms "pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft"
+ </screen>
+</info><info>You will see an output list similar to the following (see also <xref
+href="lxoc_tok_soft_mech.dita"/>): <screen>[0x0000] CKM_RSA_PKCS_KEY_PAIR_GEN
+[0x0120] CKM_DES_KEY_GEN
+[0x0131] CKM_DES3_KEY_GEN
+[0x0001] CKM_RSA_PKCS
+[0x0006] CKM_SHA1_RSA_PKCS
+[0x0040] CKM_SHA256_RSA_PKCS
+[0x0041] CKM_SHA384_RSA_PKCS
+[0x0042] CKM_SHA512_RSA_PKCS
+[0x000d] CKM_RSA_PKCS_PSS
+[0x0003] CKM_RSA_X_509
+[0x0009] CKM_RSA_PKCS_OAEP
+[0x0005] CKM_MD5_RSA_PKCS
+[0x0006] CKM_SHA1_RSA_PKCS
+[0x0020] CKM_DH_PKCS_KEY_PAIR_GEN
+[0x0121] CKM_DES_ECB
+[0x0132] CKM_DES3_ECB
+[0x0134] CKM_DES3_MAC
+[0x0220] CKM_SHA_1
+[0x0221] CKM_SHA_1_HMAC
+[0x0250] CKM_SHA256
+[0x0251] CKM_SHA256_HMAC
+[0x0260] CKM_SHA384
+[0x0261] CKM_SHA384_HMAC
+[0x0270] CKM_SHA512
+[0x0271] CKM_SHA512_HMAC
+[0x0210] CKM_MD5
+[0x0211] CKM_MD5_HMAC
+[0x0370] CKM_SSL3_PRE_MASTER_KEY_GEN
+[0x0380] CKM_SSL3_MD5_MAC
+[0x0381] CKM_SSL3_SHA1_MAC
+[0x1080] CKM_AES_KEY_GEN
+[0x1081] CKM_AES_ECB
+[0x1083] CKM_AES_MAC
+[0x0350] CKM_GENERIC_SECRET_KEY_GEN
+[0x1040] CKM_ECDSA_KEY_PAIR_GEN
+[0x1041] CKM_ECDSA
+[0x1042] CKM_ECDSA_SHA1</screen></info></step>
+<step><cmd>Use the <cmdname>p11tool</cmdname> utility to issue the following command to generate an
+RSA private and public key pair of a length of 2048 bits:</cmd><info>
+<screen>$ p11tool --provider /&lt;path>/p11-kit-client.so --generate-rsa --bits 2048 --login "pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft" 
+</screen>
+<p>You will see an output similar to the following;</p>
+<screen>warning: no --outfile was specified and the generated public key will be printed on screen.
+note: in some tokens it is impossible to obtain the public key in any other way after generation.
+warning: Label was not specified. Label: my-rsa-key Token 'soft' with URL
+'pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft' requires user PIN 
+Enter PIN: 
+-----BEGIN PUBLIC KEY----- 
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzwrYewbV0LybCcb9inQ4
+1n/jReFtjrYGx2M4B373em+gMiaDlc+T8Y9yvofDoEwZkjN2OOkUPD2GFb8P88a5
+jGF8M+FlkZe+E7XlcHvttFPlULHDpAIXK0UnZJrbAR1ncP8O9lKqhV3CdrXw8dwm
+ovdG/FVCyaKv4IlGVj4OKwx5IL0L9JBoSluRRtPNqwSYrXKGEYUjfko+PXm7MVuu
+DQv2Ckr6KDEnIsk8U7W9hOHWfjZ4OVKSpbqPlRmG5whWL/hYoGQ181IDXeMajH/1
+KgQAI7ree8JS2R4/Os0fzR7+Rp6AvpE4BQ6rXZOkO/7EQLbiCSq930TWsE9IEbMT 
+xQIDAQAB 
+-----END PUBLIC KEY-----
+</screen>
+<!--<p rev="sh21i1">???? Alternatively, you can use the <cmdname>p11sak</cmdname> utility to generate the desired RSA private and public key pair:</p><screen rev="sh21i1">$ p11sak generate-key rsa 2048</screen>-->
+</info></step>
+<step><cmd>Issue the following command to list all available objects in the token:</cmd><info>
+<screen>$ p11tool --provider /&lt;path>/p11-kit-client.so --list-all --login "pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft"</screen>
+<p>You are prompted for your user PIN:</p>
+<screen>
+Token 'soft' with URL 'pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft' requires user PIN
+ Enter PIN: &lt;USER PIN>
+ [...]
+
+Object 6:
+         URL: pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft;id=%8a%b8%84%b3%f0%60%1c%32%2e%19%6e%f1%55%7f%30%e3%bf%6c%f3%82;object=my-rsa-key;type=private
+         Type: Private key
+         Label: my-rsa-key
+         Flags: CKA_WRAP/UNWRAP; CKA_PRIVATE; CKA_SENSITIVE; 
+         ID: 8a:b8:84:b3:f0:60:1c:32:2e:19:6e:f1:55:7f:30:e3:bf:6c:f3:82
+
+Object 7:
+         URL: pkcs11:model=Soft;manufacturer=IBM;serial=;token=soft;id=%8a%b8%84%b3%f0%60%1c%32%2e%19%6e%f1%55%7f%30%e3%bf%6c%f3%82;object=my-rsa-key;type=public
+         Type: Public key
+         Label: my-rsa-key
+         Flags: CKA_WRAP/UNWRAP; 
+         ID: 8a:b8:84:b3:f0:60:1c:32:2e:19:6e:f1:55:7f:30:e3:bf:6c:f3:82
+</screen>
+</info></step>
+</steps>
+<result>On your client, you can now write cryptographic applications that exploit the mechanisms of
+the <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"> </keyword> using the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> API (see also <xref href="lxoc_usecases_basics.dita"
+/>). </result>
+</taskbody>
+</task>
+<?Pub *0000003393?>

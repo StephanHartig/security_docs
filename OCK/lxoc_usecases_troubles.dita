@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<reference id="troubles" xml:lang="en-us" rev="shv2">
+<title>Trouble shooting</title>
+<titlealts>
+<navtitle>Trouble shooting</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Trouble shooting</searchtitle>
+</titlealts>
+<shortdesc>When you run into troubles while working with <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>, the information provided in this topic may help you
+to resolve your problem.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>trouble shooting</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>trouble
+shooting</indexterm></indexterm>
+<indexterm>check list<indexterm>trouble shooting)</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<refbody>
+<?Pub Caret 0?>
+<section>
+<p>To react on error messages related to <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>,
+perform a series of checks:</p>
+<ol>
+<li><xref href="#troubles/checklist" format="dita"/></li>
+<li><xref href="#troubles/checksyslog" format="dita"/></li>
+<li><xref href="#troubles/checktracing" format="dita"/></li>
+<li><xref href="#troubles/fincheck" format="dita"/></li>
+</ol>
+</section>
+<section id="checklist">
+<title>Walk through a check list</title>
+<ol>
+<li>
+<p>Is the current user authorized in the <term>pkcs11</term> group?</p>
+<p>The <term>pkcs11</term> group must be defined in file <filepath>/etc/group</filepath> of the
+system. An entry in this file, like for example: <codeph>pkcs11:x:989:root</codeph>, indicates that
+the <term>root</term> user is a member of the <term>pkcs11</term> group. To add a user to this
+group, issue the following command: <codeph>usermod -aG pkcs11 &lt;user></codeph>.</p>
+<p>Every user of <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> must be a member of this
+pkcs11 group. For more information, read <xref
+href="lxoc_ock_features.dita#lxoc_ock_features/access_control"/>.</p>
+</li>
+<li>
+<p>Is the slot manager daemon <cmdname>pkcsslotd</cmdname> up and running?</p>
+<p>The <cmdname>pkcsslotd</cmdname> daemon must be active in the system to coordinate token accesses
+from multiple processes. For more information, read <xref
+href="lxoc_ock_features.dita#lxoc_ock_features/slot_manager"/> and <xref
+href="lxoc_ock_pkcsconf.dita#ep11_stackoverview/start_slotd"/>.</p>
+</li>
+<li>
+<p>Is the host library of the token installed that you want to exploit? </p>
+<ul>
+<li>For the <keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/>, the host library and its
+default distribution location is
+<filepath>/usr/lib64/libcsulcca.so.&lt;v>.&lt;r>.&lt;m></filepath>.</li>
+<li>For the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/>, the library and its
+default distribution location is
+<filepath>/usr/lib64/libica.so.&lt;v>.&lt;r>.&lt;m></filepath>.</li>
+<li>For the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>, the library and its default
+distribution location is <filepath>/usr/lib64/libep11.so.&lt;v>.&lt;r>.&lt;m></filepath>.</li>
+<li>For the <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/>, the library and its default
+distribution location is <filepath>/usr/lib64/libcrypto.so.&lt;v>.&lt;r>.&lt;m></filepath>.</li>
+</ul>
+</li>
+<li>
+<p>Are the required <keyword conref="lxoc_conref.dita#lxoc_conref/cryptocoprocs"/> available and
+online?</p>
+<p>Use the <cmdname>lszcrypt</cmdname> command to display a list of available cryptographic devices
+and their online status.</p>
+<screen>
+# lszcrypt
+
+CARD.DOMAIN TYPE  MODE        STATUS  REQUESTS
+----------------------------------------------
+08          CEX7C CCA-Coproc  online     10484
+08.0031     CEX7C CCA-Coproc  online     10484
+09          CEX7C CCA-Coproc  online        34
+09.0031     CEX7C CCA-Coproc  online        34
+0a          CEX7P EP11-Coproc online     24766
+0a.0031     CEX7P EP11-Coproc online     24766
+0b          CEX7P EP11-Coproc online     15420
+0b.0031     CEX7P EP11-Coproc online     15420
+
+</screen>
+</li>
+<li>
+<p>Are the slot definitions correctly specified in the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> configuration file
+(<filepath>/etc/opencryptoki/opencryptoki.conf</filepath>)?</p>
+<p>A list of all available tokens is required before you can use <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>. This list is provided by the global configuration
+file called<filepath> opencryptoki.conf</filepath>. For more information, read <xref
+href="lxoc_ock_config_file.dita"/>.</p>
+</li>
+</ol>
+</section>
+<section id="checksyslog">
+<title>Checking the syslog messages</title>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> issues the following syslog messages (alphabetically sorted).
+Numbers (placeholder x) and names like for example &lt;file>, will be replaced in the real output.
+Check the messages and correct the mentioned error.</p>
+<codeblock>
+C_Initialize: Invalid number of functions passed in argument structure.
+C_Initialize: Application specified that OS locking is invalid. 
+              PKCS11 Module requires OS locking.
+C_Initialize: Module failed to attach to shared memory. Verify that the slot management daemon 
+              is running, errno=x
+C_Initialize: Module failed to create a socket. 
+              Verify that the slot management daemon is running.
+C_Initialize: Module failed to retrieve slot infos from slot deamon.
+C_Initialize: Application specified that library can't create OS threads. PKCS11 Module 
+              requires to create threads when event support is enabled.
+
+Cannot read size
+Cannot read boolean
+Cannot malloc x bytes to read in token object &lt;file> (ignoring it)
+Cannot read token object &lt;file> (ignoring it)
+Cannot restore token object &lt;file> (ignoring it)
+Cannot read header
+
+chmod(&lt;file>): &lt;strerror>
+
+connect_socket: failed to find socket file, errno=x
+connect_socket: pkcs11 group does not exist, errno=x
+connect_socket: incorrect permissions on socket file
+connect_socket: failed to create socket, errno=x
+connect_socket: failed to connect to slotmanager daemon, errno=x
+
+Could not open &lt;lockfilename>
+
+&lt;dlerror>
+
+Directory(&lt;dir>) missing: &lt;strerror>
+
+DL_Load: dlopen() failed for [&lt;dll_location>]; dlerror = &lt;dlerror>
+
+ep11_load_host_lib: Error loading shared library &lt;file>' [&lt;strerror>]
+ep11_load_host_lib: Error loading shared library 'libep11.so[.3|.2|.1]' [&lt;strerror>]
+ep11_login_handler: Error: VHSM-Pin blob of adapter &lt;apqn> is not equal to other adapters 
+                    for same session
+ep11_login_handler: Error: Pin blob of adapter &lt;apqn> is not equal to other adapters 
+                    for same session
+ep11_resolve_lib_sym: Error: &lt;dlerror>
+
+ep11tok_load_libica: Error loading shared library '&lt;file>' [&lt;strerror>]
+ep11tok_load_libica: Failed to initialize the target lock
+ep11tok_load_libica: Error: EP 11 library initialization failed
+ep11tok_load_libica: Failed to get the EP11 library version rc=x
+ep11tok_load_libica: Failed to get the target info rc=x
+ep11tok_load_libica: Error: CKR_IBM_WK_NOT_INITIALIZED occurred, no master key set ?
+ep11tok_load_libica: Error: CKR_FUNCTION_CANCELED occurred, control point 13 
+                     (generate or derive symmetric keys including DSA parameters) disabled ?
+ep11tok_load_libica: Warning: Could not get mk_vp, protected key support not available.
+ep11tok_login_session: Error: A VHSM-PIN is required for VHSM_MODE.
+ep11tok_handle_apqn_event: Failed to get the target info rc=x
+
+
+fchmod(&lt;file>): &lt;strerror>
+fchown(&lt;file>): &lt;strerror>
+fchown(&lt;file>,-1,pkcs11) failed: &lt;strerror>. Tracing is disabled.
+
+getgrnam() failed: &lt;strerror>
+getgrnam(pkcs11) failed: &lt;strerror>. Tracing is disabled.
+getgrnam(): &lt;strerror>
+getpwuid(): &lt;strerror>
+
+init_socket_data: read error on daemon socket, errno=x
+init_socket_data: read returned with eof but we still expect x bytes from daemon
+
+Invalid strength configuration in policy!
+
+lock directory path too long
+lock file path too long
+
+mkdir(&lt;file>): &lt;strerror>
+
+OPENCRYPTOKI_TRACE_LEVEL '&lt;string>' is invalid. Tracing disabled.
+
+open(&lt;file>) failed: &lt;strerror>. Tracing disabled.
+open(&lt;file>): &lt;strerror>
+
+Parsing policy configuration failed!
+
+POLICY: Could not retrieve "pkcs11" group!
+POLICY: Could not stat configuration file &lt;file>: &lt;strerror>
+POLICY: Configuration file &lt;file> should be owned by "root"
+POLICY: Configuration file &lt;file> should have group "pkcs11"!
+POLICY: Configuration file &lt;file> has wrong permissions!
+POLICY: Unknown curve "&lt;curve>" in line &lt;line>
+POLICY: allowedmechs has wrong type!
+POLICY: allowedcurves has wrong type!
+POLICY: allowedmgfs has wrong type!
+POLICY: allowedkdfs has wrong type!
+POLICY: allowedprfs has wrong type!
+POLICY: Failed to open &lt;file>: &lt;strerror>
+POLICY: Could not allocate policy private data!
+POLICY: Strength definition &lt;file> failed to parse!
+POLICY: Failed to open &lt;file>: &lt;strerror>
+POLICY: Policy definition &lt;file> failed to parse!
+
+POLICY VIOLATION: CKM_AES_KEY_GEN needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_AES_KEY_WRAP needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_AES_GCM needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_PKCS5_PBKD2 needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKP_PKCS5_PBKD2_HMAC_SHA512 needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: Token-Store encryption method not allowed for slot &lt;slot>!
+POLICY VIOLATION: Token-Store requires SHA1 for slot &lt;slot>!
+POLICY VIOLATION: Token-Store requires MD5 for slot &lt;slot>!
+POLICY VIOLATION: CKM_DES3_KEY_GEN needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_AES_KEY_GEN needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: Unknown Token-Store encryption method for slot &lt;slot>!
+POLICY VIOLATION: CKM_AES_KEY_GEN needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_AES_CBC needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKM_PKCS5_PBKD2 needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: CKP_PKCS5_PBKD2_HMAC_SHA256 needed by Token-Store for slot &lt;slot>
+POLICY VIOLATION: Token-Store encryption key too weak for slot &lt;slot>!
+
+read_adapter_config_file: Error: EP 11 config file ''&lt;file>' not found
+read_adapter_config_file: Error: EP 11 config file '&lt;file>' is too large
+read_adapter_config_file: Error: Expected APQN_ALLOWLIST, APQN_ANY, LOGLEVEL, FORCE_SENSITIVE, 
+                          CPFILTER, STRICT_MODE, VHSM_MODE, OPTIMIZE_SINGLE_PART_OPERATIONS, 
+                          PKEY_MODE, DIGEST_LIBICA, or USE_PRANDOM keyword, found '&lt;token> 
+                          in config file '&lt;file>'
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>', 
+                          expected 'END' or adapter number
+read_adapter_config_file: Error: Expected valid adapter number, found '&lt;token>' 
+                          in config file '&lt;file>'
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>, 
+                          expected domain number (2nd number)
+read_adapter_config_file: Error: Expected valid domain number (2nd number), found '&lt;token>' 
+                          in config file &lt;file>
+read_adapter_config_file: Error: Too many APQNs in config file '&lt;file>'
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>', 
+                          expected LOGLEVEL value
+read_adapter_config_file: Error: Invalid LOGLEVEL value '&lt;token>' in config file &lt;file>
+read_adapter_config_file: Warning: LOGLEVEL setting is not supported any more. Use opencryptoki 
+                          logging/tracing facilities instead.
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>', 
+                          expected CP-Filter file name
+read_adapter_config_file: Error: CP-Filter config file name '&lt;file>' is too long in 
+                          config file '&lt;file>'
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>, 
+                          expected libica path, 'DEFAULT', or 'OFF'
+read_adapter_config_file: Error: libica path '&lt;token>' is too long in config file '&lt;file>'
+read_adapter_config_file: Error: Unexpected end of file found in config file '&lt;file>', 
+                          expected pkey_mode 0 .. 3
+read_adapter_config_file: Error: unsupported pkey mode '&lt;token> in config file '&lt;file>'
+read_adapter_config_file: Error: At least one APQN mode needs to be present in config file 
+                          '&lt;file>': APQN_ALLOWLIST or APQN_ANY
+read_adapter_config_file: Error: Only one APQN mode can be present in config file '&lt;file>': 
+                          APQN_ALLOWLIST or APQN_ANY
+read_adapter_config_file: Error: At least one APQN needs to be defined in config file '&lt;file>'
+read_cp_filter_config_file: Warning: EP 11 CP-filter config file '&lt;file>' does not exist, 
+                            no filtering will be used
+read_cp_filter_config_file: Error: Expected valid control point name or number, 
+                            found '&lt;ftoken>' in CP-filter config file '&lt;file>'
+read_cp_filter_config_file: Error: Expected valid mechanism name or number, found '&lt;token>' 
+                            in CP-filter config file '&lt;file>'
+read_cp_filter_config_file: Error: Out of memory while parsing CP-filter config file '&lt;file>'
+
+SHM segment has wrong gid/mode combination (expected: x/0x; got: x/0x)
+
+start_event_thread: pthread_create failed, errno=x
+
+token_specific_init: Error loading library: 'libcsulcca.so' [&lt;dlerror>]
+
+Trace level x is out of range. Tracing disabled.
+
+Token object &lt;file> appears corrupted (ignoring it)
+
+Tspi_Key_GetPubKey failed: rc=x
+
+Username(&lt;name>) too long
+
+Warning: CCA symmetric master key is not yet loaded
+Warning: CCA asymmetric master key is not yet loaded 
+Warning: Your TPM is not configured to allow reading the public SRK by anyone but the owner. 
+         Use tpm_restrictsrk -a to allow reading the public SRK
+Warning: Adapter &lt;apqn1> has different control points than adapter &lt;apqn2>, using minimum
+Warning: Adapter &lt;apqn1> has a different number of control points than adapter &lt;apqn2>, 
+         using maximum
+Warning: Adapter &lt;apqn1> has a different API versionversion than the previous CEXxP adapters: x
+Warning: Adapter &lt;apqn1> has a different firmware version than the previous CEXxP adapters: x.x
+</codeblock>
+</section>
+<section id="checktracing">
+<title>Apply tracing</title>
+<p>If you successfully checked all issues as described in the previous sections, you may start to
+exploit the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> tracing capabilities. If a log
+level > 0 is activated by setting the environment variable OPENCRYPTOKI_TRACE_LEVEL, then log
+entries are written to file <filepath>/var/log/opencryptoki/trace.&lt;process_id></filepath>.
+<keyword conref="lxoc_conref.dita#lxoc_conref/App_devs"/> may apply the higher tracing log levels 4
+and 5. </p>
+<p>For detailed information, read <xref href="lxoc_ock_features.dita#lxoc_ock_features/log_trace"
+/>.</p>
+</section>
+<section id="fincheck">
+<title>Final check</title>
+<p>Finally, if your <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> environment is
+successfully set up, you can check your settings using the <cmdname>pkcsconf</cmdname> utility as
+described in <xref href="lxoc_ock_pkcsconf.dita"/>.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000001770?>
