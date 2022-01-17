@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="lxoc_usecaeses_structure" xml:lang="en-us">
+<title>Structure of an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application</title>
+<titlealts>
+<navtitle>Structure of an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+application</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: Structure of an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application</searchtitle>
+</titlealts>
+<shortdesc>The basic structure of an application that uses an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> token in order to encrypt and decrypt with an RSA
+key pair is described in this topic. You can use it as a template for general cryptographic
+applications. </shortdesc>
+<?Pub Caret 0?>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application<indexterm>general
+structure</indexterm><indexterm>template</indexterm></indexterm>
+<indexterm>template<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+application</indexterm></indexterm>
+<indexterm>general structure<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+application</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody>
+<prereq>Consider two things: <ol>
+<li>Identify the slot ID of the token you want to utilize.</li>
+<li>Check whether the mechanisms that you must use or want to use are supported by the selected
+token.</li>
+</ol></prereq>
+<steps>
+<step id="date_types">
+<cmd>Provide the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> data types, functions,
+attributes and all other available items for programming via the following ANSI C header files. </cmd>
+<info>
+<codeblock>
+#include pkcs11.h   /* top-level Cryptoki include file, in turn includes pkcs11t.h and pkcs11f.h */ 
+#include &lt;pkcs11types.h>
+#include &lt;stdlib.h>
+#include &lt;errno.h>
+#include &lt;stdio.h>
+#include &lt;dlfcn.h>
+#include &lt;defs.h><!--pkcs11 from OCK specs, rest from EP11 docu--></codeblock>
+</info>
+</step>
+<step><cmd>Use function <apiname>C_Initialize</apiname> to initialize <term>Cryptoki</term>.</cmd><info>
+<codeblock>
+CK_RV C_Initialize(CK_VOID_PTR pInitArgs);
+);</codeblock>
+<p>An application becomes an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application by
+calling the <apiname>C_Initialize</apiname> function from one of its threads. After this call, the
+application can call other <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> functions.</p>
+</info></step>
+<step><cmd>Use function <apiname>C_InitToken</apiname> to initialize the desired token in the
+specified slot. (if token not yet initialized, for example,  with
+<apiname>pkcsconf</apiname>).</cmd><info>
+<codeblock>
+CK_RV C_InitToken(
+      CK_SLOT_ID slotID,
+      CK_UTF8CHAR_PTR pPin,
+      CK_ULONG ulPinLen,
+      CK_UTF8CHAR_PTR pLabel
+);
+</codeblock>
+</info></step>
+<step><cmd>Use function <apiname>C_OpenSession</apiname> to open a connection between an application
+and a particular token.</cmd><info>
+<codeblock>CK_RV openSession(CK_SLOT_ID slotID, CK_FLAGS sFlags,
+CK_SESSION_HANDLE_PTR phSession) {
+CK_RV rc;
+rc = C_OpenSession(slotID, sFlags, NULL, NULL, phSession);
+}
+printf("Open session successful.\n");
+return CKR_OK;
+}</codeblock>
+</info></step>
+<step><cmd>Use function <apiname>C_Login</apiname> to log a user into a token. Variable
+<parmname>userType</parmname> specifies the user role (SO or normal User).</cmd><info>
+<codeblock>CK_RV loginSession(CK_USER_TYPE userType, CK_CHAR_PTR pPin,
+CK_ULONG ulPinLen, CK_SESSION_HANDLE hSession) {
+CK_RV rc;
+rc = C_Login(hSession, userType, pPin, ulPinLen);
+
+printf("Login session successful.\n");
+return CKR_OK;
+}</codeblock>
+</info></step>
+<step><cmd>Use function <apiname>C_GenerateKeyPair</apiname> to generate an RSA private and public
+key pair. The used mechanism is <apiname>CKM_RSA_PKCS_KEY_PAIR_GEN</apiname>.</cmd><info>
+<codeblock>
+CK_SESSION_HANDLE hSession;
+CK_OBJECT_HANDLE hPublicKey, hPrivateKey;
+CK_MECHANISM mechanism = {
+  <apiname>CKM_RSA_PKCS_KEY_PAIR_GEN</apiname>, NULL_PTR, 0
+};
+
+CK_ULONG modulusBits = 768;
+CK_BYTE publicExponent[] = { 3 };
+CK_BYTE subject[] = {...};
+CK_BYTE id[] = {123};
+CK_BBOOL true = CK_TRUE;
+
+CK_ATTRIBUTE publicKeyTemplate[] = {
+  {CKA_ENCRYPT, &amp;true, sizeof(true)},
+  {CKA_VERIFY, &amp;true, sizeof(true)},
+  {CKA_WRAP, &amp;true, sizeof(true)},
+  {CKA_MODULUS_BITS, &amp;modulusBits, sizeof(modulusBits)},
+  {CKA_PUBLIC_EXPONENT, publicExponent, sizeof (publicExponent)}
+};
+
+CK_ATTRIBUTE privateKeyTemplate[] = {
+  {CKA_TOKEN, &amp;true, sizeof(true)},
+  {CKA_PRIVATE, &amp;true, sizeof(true)},
+  {CKA_SUBJECT, subject, sizeof(subject)},
+  {CKA_ID, id, sizeof(id)},
+  {CKA_SENSITIVE, &amp;true, sizeof(true)},
+  {CKA_DECRYPT, &amp;true, sizeof(true)},
+  {CKA_SIGN, &amp;true, sizeof(true)},
+  {CKA_UNWRAP, &amp;true, sizeof(true)}
+};
+
+CK_RV rv;
+
+rv = C_GenerateKeyPair(
+  hSession, &amp;mechanism,
+  publicKeyTemplate, 5,
+  privateKeyTemplate, 8,
+  &amp;hPublicKey, &amp;hPrivateKey);
+if (rv == CKR_OK) {
+  .
+  .
+}
+</codeblock>
+</info></step>
+<step id="not_coded"><cmd>Use functions <apiname>C_EncryptInit</apiname> and
+<apiname>C_Encrypt</apiname> to initialize an encryption operation and to encrypt data with the
+previously generated RSA private key.</cmd><info>
+<codeblock>
+#define PLAINTEXT_BUF_SZ 200
+#define CIPHERTEXT_BUF_SZ 256
+
+CK_ULONG firstPieceLen, secondPieceLen;
+CK_SESSION_HANDLE hSession;
+CK_OBJECT_HANDLE hKey;
+CK_BYTE iv[8];
+CK_MECHANISM mechanism = {
+  CKM_DES_CBC_PAD, iv, sizeof(iv)
+};
+
+CK_BYTE data[PLAINTEXT_BUF_SZ];
+CK_BYTE encryptedData[CIPHERTEXT_BUF_SZ];
+CK_ULONG ulEncryptedData1Len;
+CK_ULONG ulEncryptedData2Len;
+CK_ULONG ulEncryptedData3Len;
+CK_RV rv;
+...
+firstPieceLen = 90;
+secondPieceLen = PLAINTEXT_BUF_SZ-firstPieceLen;
+rv = C_EncryptInit(hSession, &amp;mechanism, hKey);
+
+if (rv == CKR_OK) {
+  /* Encrypt first piece */
+  ulEncryptedData1Len = sizeof(encryptedData);
+  rv = C_EncryptUpdate(
+    hSession,
+    &amp;data[0], firstPieceLen,
+    &amp;encryptedData[0], &amp;ulEncryptedData1Len);
+  
+
+  /* Encrypt second piece */
+  ulEncryptedData2Len = sizeof(encryptedData)-ulEncryptedData1Len;
+  rv = C_EncryptUpdate(
+    hSession,
+    &amp;data[firstPieceLen], secondPieceLen,
+    &amp;encryptedData[ulEncryptedData1Len], &amp;ulEncryptedData2Len);
+  if (rv != CKR_OK) { ... }
+
+  /* Get last little encrypted bit */
+
+  ulEncryptedData3Len =
+    sizeof(encryptedData)-ulEncryptedData1Len-ulEncryptedData2Len;
+  rv = C_EncryptFinal(
+    hSession,
+    &amp;encryptedData[ulEncryptedData1Len+ulEncryptedData2Len],
+    &amp;ulEncryptedData3Len);
+  if (rv != CKR_OK) {...}
+
+}
+</codeblock>
+</info></step>
+<step><cmd>Use function <apiname>C_Logout</apiname> to logout from the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> session and close the session.</cmd><info>
+<codeblock>
+   rv = fn->C_Logout(session);
+     if (rv != CKR_OK) goto err; 
+
+    rv = fn->C_CloseSession(session);
+     if (rv != CKR_OK) goto err;</codeblock>
+</info></step>
+<step><cmd>Use function <apiname>C_Finalize</apiname> to finalize the operation.</cmd><info>
+<codeblock>
+ rv = fn->C_Finalize(NULL);
+     if (rv != CKR_OK) goto err;</codeblock>
+</info></step>
+
+
+
+
+
+</steps>
+</taskbody>
+</task>
+<?Pub *0000002485?>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_intro_pkcs11" xml:lang="en-us">
+<title>What is <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>?</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>What is <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>?</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: What is <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>?</searchtitle>
+</titlealts>
+<shortdesc>
+<b><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></b> is a popular cryptographic standard
+for the support of cryptographic hardware. It defines a platform-independent API called
+<term>Cryptoki</term> to access cryptographic devices, such as hardware security modules (HSMs).
+With this API, applications can address these cryptographic devices through so-called tokens and can
+perform cryptographic functions as implemented by these tokens. This standard, first developed by
+the RSA Laboratories in cooperation with representatives from industry, science, and governments, is
+now an open standard lead-managed by the <cite>OASIS PKCS 11 Technical Committee</cite>. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs_long"/></indexterm>
+<indexterm>Cryptoki</indexterm>
+<indexterm>token</indexterm>
+<indexterm>cryptographic token</indexterm>
+<indexterm>cryptography<indexterm>asymmetric</indexterm><indexterm>public
+key</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> can support so called hardware tokens
+which may be cryptographic accelerators or hardware security modules (HSMs). The <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> standard is independent of specific cryptographic
+hardware, yet allows to deal with many hardware specific implementations. It can support the use of
+multiple possibly different tokens. Due to the popularity of <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>, many software products that perform cryptographic
+operations, provide plug-in mechanisms that if configured will redirect cryptographic functions to a
+<keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> library of mechanisms. For example, the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>
+<keyword conref="lxoc_conref.dita#lxoc_conref/webssphere"/> Application Server and the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/> HTTP Server can be configured to use a <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> library.</p>
+<p>The <term>Cryptoki</term> API provides access to a number of so-called slots. A slot
+is a possibility to connect to a cryptographic device (for example, to an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/> Crypto Express adapter). Typically, a slot contains a
+token, while a cryptographic device is connected to the slot. An application can connect to multiple
+tokens in a subset of those slots.</p>
+<p>In addition, further cryptographic libraries can call <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> functions, for example, Java Cryptography
+Architecture (JCA), IBM Global Security Kit (<i>GSKit</i>), GnuTLS, or, in case of <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/>, by using for example, a <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> engine from the OpenSC project.</p>
+<p><term>Cryptoki</term> abstracts from the cryptographic device, that is, it makes
+each device look logically like every other device, regardless of the implementation technology.
+Whether it is a specific hardware device that requires a special device driver or a solution
+completely based on software (for example, a client for a cryptographic service), the
+<term>Cryptoki</term> API looks exactly the same. Hence, applications (<keyword
+conref="lxoc_conref.dita#lxoc_conref/app_devs"/>) only interact with <term>Cryptoki</term>. The
+concrete <term>Cryptoki</term> implementation takes care of the interaction with the selected
+token.</p>
+<p><term>Cryptoki</term> is likely to be implemented as a library supporting the functions in the
+interface, and applications will be linked to the library. It follows an object-based approach,
+addressing the goals of technology independence (any kind of HW device) and resource sharing. It
+also presents to applications a common, logical view of the device that is called a cryptographic
+<term>token</term>. <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> assigns a slot ID to
+each token. An application using the <term>Cryptoki</term> API identifies the
+token that it wants to access by specifying the appropriate slot ID.</p>
+<p>For more information about <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>, refer to this
+URL: </p>
+<p><codeph><xref conref="lxoc_conref.dita#links/pkcs11_standard_url"/></codeph></p>
+</conbody>
+</concept>
+<?Pub *0000003393?>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_ep11mech" xml:lang="en-us" rev="shv2">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific add-ons</title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms</navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms of the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>: </searchtitle>
+</titlealts>
+<shortdesc>Check out which <keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific features
+are supported by a <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> and which mechanisms
+and attributes are available to exploit it.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>mechanism<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific
+mechanisms - <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/><indexterm>
+<keyword conref="lxoc_conref.dita#lxoc_conref/ibm"/>-specific mechanisms</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section/>
+</conbody>
+</concept>
+<?Pub *0000003393?>

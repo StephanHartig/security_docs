@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_cca_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/></title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/></navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/></searchtitle>
+</titlealts>
+<shortdesc>A <keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/> is a secure key token. Any
+key generation is processed in a <keyword conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/>. A
+clear key is generated and wrapped by a master key which resides only within the <keyword
+conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/>. The clear key is then deleted and is never
+visible outside the coprocessor. The wrapped clear key is called a secure key and can only be
+unwrapped by using the master key within the coprocessor. Secure keys can safely be stored on a
+system, because they cannot be used for decrypting or encrypting without the master key.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm><keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/></indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>A list of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ccatoken"/> is provided, as well as information about
+the purpose and use of the <cmdname>pkcscca</cmdname> tool.</p>
+<p>As a prerequisite for an operational <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccatoken"/>, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ccalib"/> (also called <keyword
+conref="lxoc_conref.dita#lxoc_conref/cca"/> host library in other documentations) must be installed
+(see <xref href="lxoc_ock_features.dita#lxoc_ock_features/stack_process_flow"/>). For information on 
+how to install the <keyword conref="lxoc_conref.dita#lxoc_conref/ccalib"/>, refer to <xref
+href="https://www.ibm.com/docs/en/linux-on-systems?topic=chs-secure-key-solution-common-cryptographic-architecture-application-programmers-guide"
+format="html" scope="external"><cite>Secure Key Solution with the Common Cryptographic Architecture
+Application Programmer's Guide</cite></xref>.</p>
+</conbody>
+</concept>
+<?Pub *0000003393?>

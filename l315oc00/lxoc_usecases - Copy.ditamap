@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_usecases_map" title="Programming basics and user scenarios" xml:lang="en-US">
+<topicref href="lxoc_usecases_basics.dita" navtitle="Programming with openCyptoki">
+
+<topicref href="lxoc_usecases_objects.dita" navtitle="How to create objects"/>
+<topicref href="lxoc_usecases_attributes.dita" navtitle="How to apply attributes to objects"/>
+<topicref href="lxoc_usecases_structure.dita" navtitle="Structure of an openCryptoki application"/>
+<topicref href="lxoc_usecases_sampleprog.dita" navtitle="Sample openCryptoki application"/>
+</topicref>
+<topicref href="lxoc_usecases_config.dita" navtitle="Configuration applications">
+<topicref href="lxoc_usecases_config_server.dita" navtitle="Server side setup"/>
+<topicref href="lxoc_usecases_config_client.dita" navtitle="Client side setup"/>
+</topicref>
+</map>

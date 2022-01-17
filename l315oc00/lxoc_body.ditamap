@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<!-- NOT USED AT ALL IN OPENCRYPTOKI BOOK -->
+<map id="lxoc_body" xml:lang="en-US" title="openCryptoki - An Open Source Implementation of PKCS #11">
+<topicref href="lxoc_about_whatis_ock.dita" navtitle="What is openCryptoki"/>
+<topicref href="lxoc_features_part.dita" navtitle="openCryptoki features part">
+<topicref format="ditamap" href="lxoc_features.ditamap" navtitle="openCryptoki" scope="local"/></topicref>
+<topicref href="lxoc_tools_part.dita" navtitle="openCryptoki common tools"/>
+<topicref format="ditamap" href="lxoc_tools.ditamap" navtitle="Tools" scope="local"/>
+<topicref href="lxoc_tokens_part.dita" navtitle="openCryptoki token-specific part"/>
+<topicref format="ditamap" href="lxoc_tokens.ditamap" navtitle="openCryptoki" scope="local"/>
+<topicref href="lxoc_usecases_part.dita" navtitle="openCryptoki use cases"/>
+<topicref format="ditamap" href="lxoc_usecases.ditamap" navtitle="openCryptoki" scope="local"/>
+</map>
+

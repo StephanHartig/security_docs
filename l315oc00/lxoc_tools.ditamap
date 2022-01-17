@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="lxoc_tools_body" title="openCryptoki common tools" xml:lang="en-US">
+<topicref href="lxoc_ock_pkcsconf.dita" navtitle="pkcsconf utility"/>
+<topicref href="lxoc_tool_p11sak.dita" navtitle="p11sak tool"/>
+<topicref href="lxoc_tool_pkcstok_migrate.dita" navtitle="pkcstok_migrate tool"/>
+</map>

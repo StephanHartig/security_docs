@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="l31xce00_configuring_ep11tok" xml:lang="en-us">
+ <title>Adding tokens to <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></title>
+  <!--SH: Acrolinx run on Apr. 11, 2014, remaining flags cannot be avoided-->
+ <titlealts>
+  <navtitle>Adding tokens to <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></navtitle>
+  <?Pub Caret -1?>
+  <searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: Adding tokens to <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></searchtitle>
+ </titlealts>
+ <shortdesc>You can introduce one or multiple token instances of any type into the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> framework. For this purpose, you must define a slot
+entry for each desired token in the global <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+configuration file called <filepath>opencryptoki.conf</filepath>. This section
+describes in detail how to add tokens of type <keyword conref="lxoc_conref.dita#lxoc_conref/ep11"/>
+(<keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>), because this covers all possible
+features. Perform the same actions analogously for other token types. Wherever a feature is only
+available for <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>, this is indicated.</shortdesc>
+ <prolog>
+  <metadata>
+   <keywords>
+    <indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"
+/><indexterm>configuring</indexterm></indexterm>
+    <indexterm id="configuring">configuring <indexterm><keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/></indexterm><indexterm>multiple <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/></indexterm></indexterm>
+<indexterm>multiple <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"
+/><indexterm>configuring</indexterm></indexterm>
+        <indexterm>configuration file<indexterm>ep11tok01.conf</indexterm></indexterm>
+        <indexterm><indexterm>ep11tok01.conf</indexterm></indexterm>
+        <indexterm>ep11tok01.conf configuration file</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/></indexterm>
+   </keywords>
+  </metadata>
+ </prolog>
+ <conbody>
+<note>Currently, for <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/> only,
+you can configure each token instance differently using a specific <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/> (see <xref href="lxoc_tok_ep11_conffile.dita"
+/>).<p>For example, if you want to configure multiple <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokens">to</keyword>, you can assign dedicated adapters and
+domains to different tokens respectively. This ensures data isolation between multiple
+applications.</p></note>
+<p>If you use multiple <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>, you must specify
+a unique token directory in the slot entry for each token, using the <codeph>tokname</codeph>
+attribute. This token directory receives the token-individual information (like for example, key
+objects, user PIN, SO PIN, or hashes). Thus, the information for a certain <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> is separated from other <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>.</p>
+
+<p>The default <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> directory is
+<filepath>/var/lib/opencryptoki/ep11tok/</filepath>. You can use the default only for a single
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> . Resulting examples for multiple
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> directories can be: <codeblock>
+/var/lib/opencryptoki/ep11token1/
+/var/lib/opencryptoki/ep11token2/
+</codeblock></p>
+<note>A certain token configuration applies to all applications that use this <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>.</note>
+<section><title>Adding a slot entry for each <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> in <filepath>opencryptoki.conf</filepath>
+</title><indexterm>slot entry,
+defining</indexterm><indexterm><filepath>opencryptoki.conf</filepath></indexterm><p>As already
+mentioned, the default <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> configuration file
+<codeph>opencryptoki.conf</codeph> provides a slot entry for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>. It is preconfigured to slot #4. Each slot entry
+must set the <codeph>stdll</codeph> attribute to <codeph>libpkcs11_ep11.so</codeph>. Check this
+default entry to find out whether you can use it as is.</p><p>For each configured <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>, you must create a specific <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>. This <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11"/>-specific configuration file defines the target adapters
+and target adapter domains to which the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>
+sends its cryptographic requests.</p><p>In turn, each slot entry in the global <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> configuration file must specify this <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>. For this purpose, use the
+<codeph>confname</codeph> attribute with the unique name of the respective <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/> as value. </p>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/></indexterm>
+<p>The example from <xref href="#l31xce00_configuring_ep11tok/lxce_global_ock_configfile"
+format="dita"/> configures two <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/> in slots
+4 and 5. It defines the names of the specific token configuration files to be
+<codeph>ep11tok01.conf</codeph> and <codeph>ep11tok02.conf</codeph>. Per default, these files are
+searched in the directory where <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> searches
+its global configuration file. <xref href="#l31xce00_configuring_ep11tok/lxoc_ep11tok_config"
+format="dita"/> shows an example of an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"
+/>.</p><?Pub Caret 109?><fig id="lxce_global_ock_configfile" expanse="column">
+<title>Multiple <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> instances</title>
+<screen>
+slot 4
+{
+stdll = libpkcs11_ep11.so
+confname = ep11tok01.conf
+tokname = ep11token01 
+description = "Ep11 Token"
+manufacturer = "IBM"
+hwversion = "4.11"
+firmwareversion = "2.0"
+}
+
+slot 5
+{
+stdll = libpkcs11_ep11.so
+confname = ep11tok02.conf  /* only for EP11 tokens  */
+tokname = ep11token02 
+}
+
+</screen>
+</fig><fig id="lxoc_ep11tok_config" expanse="column">
+<title>Sample of an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+</title>
+<codeblock>
+#
+# EP11 token configuration
+#
+APQN_WHITELIST
+0 0
+0 1
+2 84
+END
+FORCE_SENSITIVE
+STRICT_MODE
+VHSM_MODE
+CPFILTER /etc/opencryptoki/ep11cpfilter.conf
+OPTIMIZE_SINGLE_PART_OPERATIONS
+DIGEST_LIBICA DEFAULT
+USE_PRANDOM
+</codeblock>
+</fig>
+</section>
+ </conbody>
+</concept>
+<?Pub *0000000808?>

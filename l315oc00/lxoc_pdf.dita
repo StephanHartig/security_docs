@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="l31xce00_pdf" otherprops="NOTpdf" xml:lang="en-us">
+<title>PDF file</title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>PDF of <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: An open source
+implementation of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></navtitle>
+<searchtitle>PDF file: <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: An open source
+implementation of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></searchtitle>
+<?Pub Caret -1?>
+</titlealts>
+<abstract>
+<shortdesc>You can view and print this information in PDF format.</shortdesc>
+<p><xref href="../pdf/l315oc00.pdf" format="pdf" scope="external">--> PDF file</xref></p>
+</abstract>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+<conbody>
+<p>You need <tm tmtype="tm" trademark="Adobe">Adobe</tm> Reader installed on your system to view or
+print the PDF. You can download a free copy from the <tm tmtype="tm" trademark="Adobe">Adobe</tm>
+Web site at <codeblock><xref conref="lxcommon.dita#links/getadobe"/></codeblock></p>
+</conbody>
+</concept>
+<?Pub *0000002274?>

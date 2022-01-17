@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_soft_token" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/></title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/></navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/></searchtitle>
+</titlealts>
+<shortdesc>The <keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/> is often used for test
+purposes before you let your application access one of the other available tokens in <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>. View a list of <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> mechanisms supported by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/>.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/softtoken"/></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>As a prerequisite for an operational <keyword
+conref="lxoc_conref.dita#lxoc_conref/softtoken"/>, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/> library called <apiname>libcrypto</apiname> must be
+installed (see <xref href="lxoc_ock_features.dita#lxoc_ock_features/stack_process_flow"/>).</p>
+<?Pub Caret 204?>
+</conbody>
+</concept>
+<?Pub *0000003393?>

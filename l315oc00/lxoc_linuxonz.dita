@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--onzArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<topic id="opencryptokicontainer" xml:lang="en-us">
+<title><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> - An Open Source Implementation of
+<keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></title>
+<titlealts>
+<navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Open Source <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></navtitle>
+<searchtitle><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> - An Open Source
+Implementation of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> - Guide and
+Reference</searchtitle>
+</titlealts><abstract><shortdesc><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> is an open source implementation
+of the <term>Cryptoki API</term> defined by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> Cryptographic Token Interface Standard. </shortdesc><p>This documentation is intended for <keyword conref="lxoc_conref.dita#lxoc_conref/ock_admins"/>
+who manage the so called tokens that are plugged into the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> framework.</p>
+<p>It is also intended for <keyword conref="lxoc_conref.dita#lxoc_conref/app_devs"/> who write
+<keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> programs that exploit the cryptographic
+services provided by a configured <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>
+token.</p></abstract>
+<prolog><metadata>
+<keywords/>
+</metadata></prolog>
+</topic>
+<?Pub *0000001874?>

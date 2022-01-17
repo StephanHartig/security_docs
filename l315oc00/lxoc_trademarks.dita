@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<topic  id="lxoc_trademarks" xml:lang="en-us">
+<title>Trademarks</title><body>
+<!--IBM trademarks paragraph-->
+<p conref="lxcommon.dita#trademarks/ibmtm"></p>
+<!--Adobe statement-->
+<p conref="lxcommon.dita#trademarks/adobetm"></p>
+<!--Linux statement-->
+<p conref="lxcommon.dita#trademarks/linuxtm"></p>
+</body><?Pub Caret -2?>
+</topic>

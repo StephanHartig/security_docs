@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<concept id="lxce_ep11_conffile" xml:lang="en-us">
+<title>Defining an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>-specific configuration
+file</title>
+<!--SH: Acrolinx run on Apr. 11, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>Defining an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>-specific
+configuration file</navtitle>
+<?Pub Caret -1?>
+<searchtitle><ph conref="lxcommon.dita#phrases/ph_loz_and_lone"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Defining an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>-specific configuration file</searchtitle>
+</titlealts>
+<shortdesc>One default configuration file for the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> called <codeph>ep11tok.conf</codeph> is delivered
+by <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>. You must adapt it according to your
+installation's system environment. If you use multiple <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokens"/>, you must provide an individual token
+configuration file for each token. Each slot entry in the global configuration file
+<filepath>opencryptoki.conf</filepath> defines these configuration file names. </shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm><indexterm>configuring</indexterm></indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>APQN_WHITELIST</indexterm></indexterm>
+<indexterm>APQN_WHITELIST</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>STRICT_MODE</indexterm></indexterm>
+<indexterm>STRICT_MODE</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>VHSM_MODE</indexterm></indexterm>
+<indexterm>VHSM_MODE</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>CPFILTER</indexterm></indexterm>
+<indexterm>CPFILTER</indexterm>
+<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>OPTIMIZE_SINGLE_PART_OPERATIONS</indexterm></indexterm>
+<indexterm>OPTIMIZE_SINGLE_PART_OPERATIONS</indexterm>
+<indexterm>access control point<indexterm>ACP</indexterm></indexterm>
+<indexterm>domain control point<indexterm>access control point</indexterm></indexterm>
+<indexterm>ACP<indexterm>access control point</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>In the example from <xref href="lxoc_tok_common_adding.dita"/>, these names are defined as
+<codeph>ep11tok01.conf</codeph> and <codeph>ep11tok02.conf</codeph>. If the environment variable
+<codeph>OCK_EP11_TOKEN_DIR</codeph> is set, then the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> looks for the configuration file or files in the
+directory specified with this variable. If <codeph>OCK_EP11_TOKEN_DIR</codeph> is not set, then the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>s are searched in the global <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> directory, for example:
+<filepath>/etc/opencryptoki/ep11tok.conf</filepath>.</p>
+<p><b>Example:</b> If a slot entry in <filepath>opencryptoki.conf </filepath> specifies
+<codeph>confname = ep11tok02.conf</codeph>, and you set the environment variable
+<codeph>OCK_EP11_TOKEN_DIR</codeph> like:
+<codeblock>export OCK_EP11_TOKEN_DIR=/home/user/ep11token</codeblock>then your <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/> appears here:
+<codeblock>&lt;root>/home/user/ep11token/ep11tok02.conf 
+</codeblock> You can use the shown example to set your own token directory for test purposes.</p>
+<note>The setting of this environment variable is ignored, if a program trying to access the
+designated <keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> is marked with file permission
+<codeph>setuid</codeph>. </note>
+<p>The following is a list of available options for an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>.</p>
+<parml>
+<plentry>
+<pt>APQN_WHITELIST</pt>
+<pd>
+<p>Because different <keyword conref="lxoc_conref.dita#lxoc_conref/ep11"/> hardware security modules
+(HSM) can use different wrapping keys (referred to as master keys in the <keyword
+conref="lxoc_conref.dita#lxoc_conref/atke"/> environment), users need to specify which HSM, in
+practice an adapter/domain pair, can be used by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> as a target for cryptographic requests. Therefore,
+an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/> contains a list of adapter/domain
+pairs to be used.</p>
+<p>You start this list of adapter/domain pairs starting with a line containing the keyword
+<codeph>APQN_WHITELIST</codeph>. Next follows the list which can specify up to 512 adapter/domain
+pairs, denoted by decimal numbers in the range 0 - 255. Each pair designates an adapter (first
+number) and a domain (second number) accessible to the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/>. Close the list using the keyword END. </p>
+<p>Alternatively, you can use the keyword <codeph>APQN_ANY</codeph> to define that all
+adapter/domain pairs with <keyword conref="lxoc_conref.dita#lxoc_conref/ep11"/> firmware, that are
+available to the system, can be used as target adapters. This is the default.</p>
+<note othertype="Notes" type="other">
+<ul>
+<li>The term <term>APQN</term> stands for adjunct processor queue number. It designates the
+combination of a <keyword conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/> (adapter) and a
+domain, a so-called adapter/domain pair. At least one adapter/domain pair must be specified.</li>
+<li>If more than one APQN is used by a token, then these APQNs must be configured with
+the same master key.</li>
+</ul>
+</note>
+<p>An adapter/domain pair is displayed by the <cmdname>lszcrypt</cmdname> tool or in the
+<codeph>sys</codeph> file system (for example, in <codeph>/sys/bus/ap/devices</codeph>) in the form
+<term>card .domain</term>, where both numbers are displayed in hexadecimal format.</p>
+<p>There are two ways to specify the cryptographic adapter: </p>
+<ul>
+<li>either as an explicit list of adapter/domain pairs: <codeblock>
+ APQN_WHITELIST
+  8 13
+  10 13
+ END</codeblock>
+<p>The adapter and domain can be given in decimal, octal (with leading 0), or hexadecimal (with
+leading 0x) notation:</p>
+<codeblock>
+ APQN_WHITELIST
+  8 0x0d
+  0x0a 13
+ END</codeblock>
+<p>Valid adapter and domain values are in the range 0 to 255.</p>
+</li>
+<li>or as any available cryptographic adapters: <codeblock>APQN_ANY</codeblock>
+</li>
+</ul>
+<p>In the example from <xref href="#lxce_ep11_conffile/lxce_ep11tok_config" format="dita"/>, adapter
+0 with domains 0 and 1, and adapter 2 with domain 84 are specified as target for requests from the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/>. In <xref
+href="#lxce_ep11_conffile/f_lxce_apqn" format="dita"/>, these adapter/domain pairs are shown in
+hexadecimal notation as APQNs (00,0000), (00,0001), and (02,0054).</p>
+<fig expanse="column" id="f_lxce_apqn">
+<title>Cryptographic configuration for an LPAR</title>
+<image href="lxoc_f_apqn.jpg" placement="break" width="600" id="image_tgz_mt4_23b">
+<alt>Cryptographic configuration for an LPAR</alt>
+</image>
+<?Pub Caret 0?>
+</fig>
+</pd>
+</plentry>
+<plentry>
+<pt>FORCE_SENSITIVE</pt>
+<pd>Specify this option to force that the default for CKA_SENSITIVE is CK_TRUE for secret keys. For
+more information, see <xref href="lxoc_tok_ep11_restrict.dita"/>.</pd>
+</plentry>
+<plentry>
+<pt>STRICT_MODE</pt>
+<pd>In strict-mode, all session-keys strictly belong to the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11session"/> that created it. When the <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11session"/> ends, all session keys created for this
+session can no longer be used. <p>For more information, read <xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ep.html" format="html"
+scope="external">Exploiting Enterprise PKCS #11 using openCryptoki</xref>.</p></pd>
+</plentry>
+<plentry>
+<pt>VHSM_MODE</pt>
+<pd>In VHSM-mode (virtual-HSM), all keys generated by the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> strictly belong to the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> that created it. Every <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> running in this mode requires a VHSM card-PIN
+which must be set using the <cmdname>pkcsep11_session</cmdname> tool. </pd>
+</plentry>
+<plentry>
+<pt>CPFILTER</pt>
+<pd>The list of mechanisms returned by <apiname>C_GetMechanismList</apiname> is filtered using the
+domain or access control point (ACP) settings of the used <keyword
+conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/>s. The <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11"/> access control point filter configuration file
+(ACP-filter configuration file) is used to associate certain access (domain) control points with
+mechanisms that are dependent on these access control points. The default ACP-filter configuration
+file is <filepath>ep11cpfilter.conf</filepath> located in the same directory as this <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>. You can optionally specify the name or
+location, or both, of the ACP-filter file:
+<codeblock>CPFILTER /etc/opencryptoki/ep11cpfilter.conf</codeblock></pd>
+</plentry>
+<plentry>
+<pt>OPTIMIZE_SINGLE_PART_OPERATIONS</pt>
+<pd>Set this option to optimize the performance of single part sign- and verify-operations, as well
+as of single part encrypt- or decrypt-operations. Then the <apiname>init</apiname> call is not
+passed through the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11lib"/> as long as there is no
+corresponding multi-part operation. <p>When this option is enabled, error handling can be slightly
+different, when errors from the deferred <apiname>init</apiname> call are presented during the first
+update call or during the calls to <apiname>C_Sign</apiname>, <apiname>C_Verify</apiname>,
+<apiname>C_Encrypt</apiname>, or <apiname>C_Decrypt</apiname> for a single part operation. That is,
+the first update call on a multi part operation or the mentioned calls for a single part operation
+may return errors, which are usually not returned by the update call. Such errors may be for
+example:</p><sl>
+<sli>CKR_OBJECT_HANDLE_INVALID</sli>
+<sli>CKR_ATTRIBUTE_VALUE_INVALID</sli>
+<sli>CKR_KEY_HANDLE_INVALID</sli>
+<sli>CKR_KEY_SIZE_RANGE</sli>
+<sli>CKR_KEY_TYPE_INCONSISTENT</sli>
+<sli>CKR_MECHANISM_INVALID</sli>
+<sli>CKR_MECHANISM_PARAM_INVALID</sli>
+</sl></pd>
+</plentry>
+<plentry>
+<pt>DIGEST_LIBICA <varname>&lt;libica-path></varname> | DEFAULT | OFF</pt>
+<pd>To improve the performance of required hash functions, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> on initialization loads the default <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> library. If required, the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> invokes the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> SHA-based hash functions, because the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> library performs these hash functions on the <keyword
+conref="lxoc_conref.dita#lxoc_conref/cpacf"/>, thus avoiding hash processing on a <keyword
+conref="lxoc_conref.dita#lxoc_conref/cryptocoproc"/> which results in I/O operations to the adapter.
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> provides an <keyword
+conref="lxoc_conref.dita#lxoc_conref/openssl"/> based software fall-back, in case CPACF or a certain
+hashing function of CPACF is not available. In case a <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> operation fails, because neither the hardware nor the
+software support is available, or if <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> is not
+available at all, then the request is passed to the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11"/> library instead.</p><p>With the DIGEST_LIBICA option,
+you can control which <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> library is loaded:</p><parml>
+<plentry>
+<pt>DEFAULT</pt>
+<pd>The default <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> library is loaded. If
+<keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> could not be found, a message is issued to
+<filepath>syslog</filepath>, and all hash based functions use the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11lib"/>.<p>The same behavior is applied if the DIGEST_LIBICA
+option is not specified at all.</p></pd>
+</plentry>
+<plentry>
+<pt>&lt;libica-path></pt>
+<pd>The specified library is loaded. If it can not be found, a message is issued to
+<filepath>syslog</filepath>, and token initialization fails.</pd>
+</plentry>
+<plentry>
+<pt>OFF</pt>
+<pd>No <keyword conref="lxoc_conref.dita#lxoc_conref/libica"/> is loaded, and all hash based
+functions use the <keyword conref="lxoc_conref.dita#lxoc_conref/ep11lib"/>.</pd>
+</plentry>
+</parml><p>If DIGEST_LIBICA is not specified, then the default <keyword
+conref="lxoc_conref.dita#lxoc_conref/libica"/> library is loaded (same behavior as for DIGEST_LIBICA
+DEFAULT).</p>
+</pd>
+</plentry>
+<plentry>
+<pt>USE_PRANDOM</pt>
+<pd>Set this option to control from where the <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> reads random data. With USE_PRANDOM specified, the
+<keyword conref="lxoc_conref.dita#lxoc_conref/ep11token"/> reads random data from
+<filepath>/dev/prandom</filepath>, or from <filepath>/dev/urandom</filepath> if
+<filepath>/dev/prandom</filepath> is not available. The default is to read the random data using the
+<apiname>m_GenerateRandom</apiname> function from the <keyword
+conref="lxoc_conref.dita#lxoc_conref/cexallplong"/>. </pd>
+</plentry>
+</parml>
+<section id="ep11_confile_sample"><title>Sample of an <keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11token"/> configuration file</title><indexterm><keyword
+conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/>
+<indexterm>sample</indexterm></indexterm><fig id="lxce_ep11tok_config" expanse="column">
+<title>Sample of an <keyword conref="lxoc_conref.dita#lxoc_conref/ep11tokconfig"/></title>
+<codeblock>
+#
+# EP11 token configuration
+#
+APQN_WHITELIST
+0 0
+0 1
+2 84
+END
+FORCE_SENSITIVE
+STRICT_MODE
+VHSM_MODE
+CPFILTER /etc/opencryptoki/ep11cpfilter.conf
+OPTIMIZE_SINGLE_PART_OPERATIONS
+DIGEST_LIBICA DEFAULT
+USE_PRANDOM
+</codeblock>
+</fig></section>
+</conbody>
+</concept>
+<?Pub *0000000808?>

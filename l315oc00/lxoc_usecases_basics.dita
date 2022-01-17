@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="lxoc_usecaes_basics" xml:lang="en-us">
+<title>Programming with <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></title>
+<!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+<titlealts>
+<navtitle>Programming with <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></navtitle>
+<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: Programming with <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></searchtitle>
+</titlealts>
+<shortdesc>Learn how to write applications from scratch that are using the functions from a certain
+token in the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> framework.</shortdesc>
+<prolog>
+<metadata>
+<keywords>
+<indexterm/>
+</keywords>
+</metadata>
+</prolog>
+<conbody>
+<section>
+<title>How it works</title>
+<p>Shortly spoken, an <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application must
+specify, which token(s) it uses. Then it can invoke <codeph>C_...()</codeph> functions of <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>. Where required, input to these functions is an
+appropriate <codeph>CKM_</codeph> mechanism that must be offered by the selected token. The
+mechanism defines how to perform the using function. For example, the <codeph>CKM_RSA_PKCS</codeph>
+mechanism defines to functions <codeph>C_EncryptInit()</codeph> and <codeph>C_Encrypt()</codeph> to
+encrypt clear text with a (previously generated) private RSA key.</p>
+<p> Each mechanism is coded in such a way that it exploits one or more adequate APIs from the
+connected cryptographic library specified with the token definition in the
+<filepath>opencryptoki.conf</filepath> file.</p>
+</section>
+<section>
+<title>Terminology</title>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> application programs deal with the
+following main items:</p>
+<ul>
+<li>Functions: Prefix <codeph>C_</codeph></li>
+<li>Data types or general constants: Prefix <codeph>CK_</codeph></li>
+<li>Attributes: Prefix <codeph>CKA_</codeph></li>
+<li>Mechanisms: Prefix <codeph>CKM_</codeph></li>
+<li>Return codes: Prefix <codeph>CKR_</codeph></li>
+</ul>
+</section>
+</conbody>
+</concept>
+<?Pub *0000003393?>

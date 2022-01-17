@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ica_recognize" xml:lang="en-us" rev="shv2">
+	<title>How to recognize the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></title>
+	<!--SH: Acrolinx run on Apr. 11, 2014, remaining flags cannot be avoided-->
+	<titlealts>
+		<navtitle>Recognize the <keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></navtitle>
+		<searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/>: <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> and how to recognize the <keyword
+conref="lxoc_conref.dita#lxoc_conref/libicatoken"/></searchtitle>
+	</titlealts>
+	<abstract>
+		<shortdesc>You can use the <cmdname>pkcsconf -t</cmdname> command to display a table that
+			shows all available tokens. You can check the slot and token information, and the PIN
+			status at any time.</shortdesc>
+	</abstract>
+	<prolog>
+		<metadata>
+			<keywords>
+				<indexterm>status information</indexterm>
+				<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/><indexterm>status
+information</indexterm></indexterm>
+				<indexterm>pkcsconf -t</indexterm>
+				<indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/><indexterm>status
+information</indexterm></indexterm>
+			</keywords>
+		</metadata>
+	</prolog>
+	<conbody>
+		<section>
+			<p>The following information provided by the <cmdname>pkcsconf -t</cmdname> command about the
+<keyword conref="lxoc_conref.dita#lxoc_conref/libicatoken"/> is returned in the <term>Token
+Info</term> section, where, for example, <codeph>Token #1 Info</codeph> displays information about
+the token plugged into slot number 1.<fig id="tokunin">
+<title>Token info before initialization</title>
+<screen rev="30i1">
+$ pkcsconf -t
+Token #0 Info:
+        Label: IBM ICA  PKCS #11
+        Manufacturer: IBM Corp.
+        Model: IBM ICA
+        Serial Number: 123
+        Flags: 0x880045 (RNG|LOGIN_REQUIRED|CLOCK_ON_TOKEN|USER_PIN_TO_BE_CHANGED|SO_PIN_TO_BE_CHANGED)
+        Sessions: 0/18446744073709551614
+        R/W Sessions: 18446744073709551615/18446744073709551614
+        PIN Length: 4-8
+        Public Memory: 0xFFFFFFFFFFFFFFFF/0xFFFFFFFFFFFFFFFF
+        Private Memory: 0xFFFFFFFFFFFFFFFF/0xFFFFFFFFFFFFFFFF
+        Hardware Version: 1.0
+        Firmware Version: 1.0
+        Time: 14:48:30
+</screen>
+</fig><?Pub Caret 294?></p>
+			<p>The most important information is as follows:<ul>
+					<li>The token <parmname>Label</parmname> you assigned at the initialization phase (<codeph>IBM
+ICA PKCS #11</codeph>, in the example). You can initialize or change a token label by using the
+<codeph>pkcsconf -I</codeph> command. In the output from <xref href="#ica_recognize/tokin"
+format="dita"/> you see the label changed to <codeph>icatest</codeph>.</li>
+					<li>The <parmname>Model</parmname> name is unique and designates the token that
+						is in use. </li>
+					<li>The <parmname>Flags</parmname> provide information about the token initialization status,
+the PIN status, and features such as <b><i>Random Number Generator</i></b> (RNG). They also provide
+information about requirements, such as <b><i>Login required</i></b>, which means that there is at
+least one mechanism that requires a session log-in to use that cryptographic function. <p>The flag
+USER_PIN_TO_BE_CHANGED indicates that the user PIN must be changed before the token can be used. The
+flag SO_PIN_TO_BE_CHANGED indicates that the SO PIN must be changed before administration commands
+can be used.</p><p>For more information about the flags provided in this output, see the description
+of the TOKEN_INFO structure and the Token Information Flags in the <xref
+href="lxoc_conref.dita#links/pkcs11_standard_url"/>.</p></li>
+					<li>The <parmname>PIN length</parmname> range declared for this token.</li>
+				</ul></p>
+<fig id="tokin">
+<title>Token info after initialization</title>
+<screen rev="30i1">
+Token #0 Info:
+        Label: icatest
+        Manufacturer: IBM Corp.
+        Model: IBM ICA
+        Serial Number: 123
+        Flags: 0x44D (RNG|LOGIN_REQUIRED|USER_PIN_INITIALIZED|CLOCK_ON_TOKEN|TOKEN_INITIALIZED)
+        Sessions: 0/18446744073709551614
+        R/W Sessions: 18446744073709551615/18446744073709551614
+        PIN Length: 4-8
+        Public Memory: 0xFFFFFFFFFFFFFFFF/0xFFFFFFFFFFFFFFFF
+        Private Memory: 0xFFFFFFFFFFFFFFFF/0xFFFFFFFFFFFFFFFF
+        Hardware Version: 1.0
+        Firmware Version: 1.0
+        Time: 14:56:24
+</screen>
+</fig>
+<p><xref href="#ica_recognize/tokunin" format="dita"/> shows the information for an uninitialized
+token, and <xref href="#ica_recognize/tokin" format="dita"/> shows the information for an
+initialized one.</p>
+		</section>
+	</conbody>
+</concept>
+<?Pub *0000003131?>

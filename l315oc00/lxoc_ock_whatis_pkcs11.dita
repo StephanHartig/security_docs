@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="l31xce00_whatis_pkcs11" xml:lang="en-us">
+    <title>Introducing <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></title>
+    <!--SH: Acrolinx run on Apr. 10, 2014, remaining flags cannot be avoided-->
+    <titlealts>
+        <navtitle><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></navtitle>
+        <searchtitle><ph conref="lxcommon.dita#phrases/lib_title"/> and <keyword
+conref="lxoc_conref.dita#lxoc_conref/ocrypto"/>: Introducing <keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></searchtitle>
+    </titlealts>
+<shortdesc>The <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs_long"/> (<keyword
+conref="lxoc_conref.dita#lxoc_conref/pkcs"/>) comprise a group of cryptographic standards that
+provide guidelines and application programming interfaces (APIs) for the usage of cryptographic
+methods. This document describes the use of <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"
+/>, which is an open source implementation of a C/C++ API standard called <term>Cryptoki</term>,
+defined by <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>.</shortdesc>
+<prolog>
+        <metadata>
+            <keywords>
+                <indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/></indexterm>
+                <indexterm><keyword conref="lxoc_conref.dita#lxoc_conref/pkcs_long"/></indexterm>
+                <indexterm>Cryptoki</indexterm>
+                <indexterm>token</indexterm>
+                <indexterm>cryptographic token</indexterm>
+                <indexterm>cryptography<indexterm>asymmetric</indexterm><indexterm>public
+                        key</indexterm></indexterm>
+            </keywords>
+        </metadata>
+    </prolog>
+    <conbody>
+<p><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> is the open source implementation of
+this API and is used for devices that hold cryptographic information and perform cryptographic
+functions. </p>
+<p>Though the <keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> standard offers C header
+files, you can also implement the interface in other programming languages than C or C++.</p>
+</conbody>
+</concept>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE ibmbook PUBLIC "-//IBM//DTD DITA IBM BookMap//EN"
+ "..\..\dita\dtd\ibmbook.dtd">
+<ibmbook xml:lang="en-us">
+<ibmbooktitle>
+<ibmbooklibrary><ph conref="lxcommon.dita#phrases/lib_title"/></ibmbooklibrary>
+<ibmmainbooktitle><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/> - An Open Source
+Implementation of <keyword conref="lxoc_conref.dita#lxoc_conref/pkcs11"/>
+<!-- ****Vorlage für eine Leerzeile mit no-break space U+00A0 aus dem Insert special character
+Edit > Insert from Character Map ... <titleline> </titleline><titleline>Version 3.16</titleline> **** -->
+</ibmmainbooktitle>
+</ibmbooktitle>
+<bookmeta>
+<authorinformation id="corp">
+<organizationinfo><namedetails><organizationnamedetails>
+<organizationname>IBM Deutschland Research &amp; Development GmbH</organizationname>
+</organizationnamedetails></namedetails>
+<addressdetails><administrativearea>Information Development</administrativearea><term>Department
+3282</term><thoroughfare>Schoenaicher Strasse 220</thoroughfare><locality><localityname>71032
+Boeblingen</localityname></locality><country>Germany</country></addressdetails>
+<emailaddresses><emailaddress>eservdoc@de.ibm.com</emailaddress>
+</emailaddresses></organizationinfo>
+</authorinformation>
+<publisherinformation><printlocation> </printlocation>
+</publisherinformation>
+<prodinfo><prodname><keyword conref="lxoc_conref.dita#lxoc_conref/ocrypto"/></prodname>
+</prodinfo>
+<bookid><booknumber><keyword>SC34-7730-00</keyword></booknumber>
+<maintainer href="#corp"></maintainer></bookid>
+<bookrights><copyrfirst><year>2021</year></copyrfirst>
+<!--<copyrlast> <year/> </copyrlast>--><bookowner><organization>IBM</organization></bookowner>
+<!--<bookrestriction value="confidential"/>--></bookrights>
+</bookmeta>
+<ibmfrontmatter>
+<editionnotices href="lxoc_editionnotice.dita"><topicmeta><navtitle>Edition notice</navtitle></topicmeta></editionnotices>
+<frontbooklists>
+<toc/></frontbooklists>
+<preface href="lxoc_about_whatis_ock.dita" navtitle="What is openCryptoki"/>
+<!--  *** template for first update edition **** <topicref href="lxoc_soc.dita" navtitle="Summary of changes">
+<topicref href="lxoc_new_for_316.dita" navtitle="Updates for openCryptoli 3.16"/>
+</topicref>-->
+</ibmfrontmatter>
+<part href="lxoc_features_part.dita" navtitle="openCryptoki features part">
+<chapter format="ditamap" href="lxoc_features.ditamap" navtitle="openCryptoki" scope="local"/>
+</part>
+<part href="lxoc_tools_part.dita" navtitle="openCryptoki common tools">
+<chapter format="ditamap" href="lxoc_tools.ditamap" navtitle="Tools" scope="local"/>
+</part>
+<part href="lxoc_tokens_part.dita" navtitle="openCryptoki token-specific part">
+<chapter format="ditamap" href="lxoc_tokens.ditamap" navtitle="openCryptoki" scope="local"/>
+</part>
+<part href="lxoc_usecases_part.dita" navtitle="openCryptoki use cases">
+<chapter format="ditamap" href="lxoc_usecases.ditamap" navtitle="openCryptoki" scope="local"/>
+</part>
+<ibmbackmatter>
+<topicref href="lxoc_literature.dita" navtitle="References"></topicref>
+<topicref href="lxcommon_accessibility.dita" navtitle="Accessibility"></topicref>
+<topicref href="lxcommon_notices.dita" navtitle="Notices">
+<topicref href="lxoc_trademarks.dita" navtitle="Trademarks"></topicref>
+</topicref>
+<backbooklists>
+<indexlist/></backbooklists>
+</ibmbackmatter>
+</ibmbook>
