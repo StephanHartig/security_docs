@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE plugin PUBLIC "-//IBM//DTD DITA Eclipse Map Collection//EN"
+ "eclipsemap.dtd">
+<plugin id="com.ibm.linux.z.lxct" xml:lang="en-us">
+<pluginmeta>
+<providerName>IBM</providerName>
+<copyright>
+<copyryear year="2019"/>
+<copyrholder>IBM</copyrholder>
+</copyright>
+<plugininfo>
+<pluginname>How to set an AES master key</pluginname>
+<vrmlist>
+<vrm release="9" version="1"/>
+</vrmlist>
+</plugininfo>
+</pluginmeta>
+<primarytocref format="ditamap" href="lxct_ic.ditamap" navtitle="How to set an AES master key" scope="local"/>
+</plugin>

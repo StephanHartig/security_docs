@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_proc_load_key_parts" xml:lang="en-us">
+<title>Loading key parts</title>
+<titlealts>
+<navtitle>Load key parts</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Load key parts</searchtitle>
+</titlealts>
+<shortdesc>After the generation of the key parts on the smart cards you load them onto the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.  </shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<context>Both key administrators must load their key part. The process for both differs slightly, so
+both loading actions are described in this procedure. </context>
+<steps>
+<step id="mkgen_load">
+<cmd>On the <uicontrol>Crypto Module Administration</uicontrol> dialog, in the <uicontrol>Key
+Type</uicontrol> list select the <uicontrol>AES Master Key</uicontrol> entry. Right click to open
+its context menu and select <uicontrol>Load all key parts from … Smart card</uicontrol> as shown in
+<xref href="#ltke_proc_load_key_parts/ltke_f_load_keyparts" format="dita"/>.</cmd>
+<info>
+<fig expanse="page" id="ltke_f_load_keyparts">
+<title>Load all key parts from smart card</title>
+<image width="650" href="ltke_f_load_keyparts.jpg" placement="break">
+<alt>Unload signature key</alt>
+</image>
+</fig>
+</info>
+<substeps>
+<substep>
+<cmd>When prompted, enter the number of key parts (<userinput>2</userinput>) to be loaded.</cmd>
+</substep>
+<substep id="clear_">
+<cmd>When the <uicontrol>New AES Master Key</uicontrol> register is not empty, answer
+<uicontrol>Yes</uicontrol> to the <uicontrol>Clear Key Register</uicontrol> question (<xref
+href="#ltke_proc_load_key_parts/ltke_f_clear_key_register" format="dita"/>), because the currently
+loaded new master key will now be stored in this register.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_clear_key_register">
+<title>Clear the key register</title>
+<image href="ltke_f_clear_key_register.jpg" placement="break" width="300">
+<alt>Clear the key register</alt>
+</image>
+</fig>
+<p>To clear the <uicontrol>New AES Master Key</uicontrol> register, you need a signature key and a
+certain level of authority. Authority 20 with the role <uicontrol>CCAFst</uicontrol> is allowed to
+perform this action. So, when prompted, select smart card reader 1 as the source of the signature
+key and insert the <uicontrol>CCAFst</uicontrol> smart card.</p>
+<p>In the message about the successful clearing of the key register, press the
+<uicontrol>OK</uicontrol> button.</p>
+</info>
+</substep>
+<substep>
+<cmd>Select the first key part by pressing <uicontrol>OK</uicontrol> in the <uicontrol>Load Master
+Key</uicontrol> dialog as shown in <xref
+href="#ltke_proc_load_key_parts/ltke_f_select_first_keypart" format="dita"/>.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_select_first_keypart">
+<title>Select first key part to be loaded</title>
+<image href="ltke_f_select_first_keypart.jpg" placement="break" width="200">
+<alt>Select first key part to be loaded</alt>
+</image>
+</fig>
+</info>
+</substep>
+<substep>
+<cmd>In the upcoming prompt, selecting smart card reader 1 as the source for key part 1 and press
+the <uicontrol>Continue</uicontrol> button.</cmd>
+</substep>
+<substep>
+<cmd>In <xref href="#ltke_proc_load_key_parts/ltke_f_load_keyparts_result" format="dita"/>, select
+the shown AES key part 1 and press <uicontrol>OK</uicontrol>.</cmd>
+<info>
+<fig expanse="page" id="ltke_f_load_keyparts_result">
+<title>Load first key part</title>
+<image width="650" href="ltke_f_load_keyparts_result.jpg" placement="break">
+<alt>Load first key part</alt>
+</image>
+</fig>
+<p>Press <uicontrol>OK</uicontrol> to proceed to the <uicontrol>Key part information</uicontrol>
+dialog (<xref href="#ltke_proc_load_key_parts/ltke_f_load_key_part" format="dita"/>).</p>
+</info>
+</substep>
+<substep>
+<cmd>Now press the <uicontrol>Load key</uicontrol> button.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_load_key_part">
+<title>Key part information</title>
+<image href="ltke_f_load_key_part.jpg" placement="break" width="350">
+<alt>Key part information</alt>
+</image>
+</fig>
+<p>Press <uicontrol>OK</uicontrol> in the upcoming confirmation message (<msgph>Command was executed
+successfully</msgph>) to proceed.</p>
+</info>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd>Select the last (second) key part.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_intermediate_load">
+<title>Select last (second) key part</title>
+<image href="ltke_f_intermediate_load.jpg" placement="break" width="200">
+<alt>Select last (second) key part</alt>
+</image>
+</fig>
+<p>Press <uicontrol>OK</uicontrol> to load the second key part. </p>
+<p>If the <uicontrol>CCAFst</uicontrol> administrator now tries to continue, an error message is
+displayed, because the key administrator with authority 20 may only load the first key part. Now the
+second key administrator needs to continue to process this step.</p>
+<fig expanse="column" id="fig_wdr_pwr_mfb">
+<title>Error ...</title>
+<image href="ltke_f_error_load20.jpg" placement="break" width="450">
+<alt>Error ...</alt>
+</image>
+</fig>
+<p>Press <uicontrol>Retry</uicontrol> to use the smart card with key part 2 owned by the key
+administrator with authority 21. When prompted, select smart card reader 2 as the source of the
+required signature key and press <uicontrol>Continue</uicontrol>. Then insert the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart card 2 into reader 2 and enter the password for
+this smart card. As expected, the wizard offers to use authority index 21 in <xref
+href="#ltke_proc_load_key_parts/fig_v5b_lxr_mfb" format="dita"/>. </p>
+<fig expanse="column" id="fig_v5b_lxr_mfb">
+<title>Specify authority index</title>
+<image href="ltke_f_auth21_for_load2.jpg" placement="break" width="400">
+<alt>Specify authority index</alt>
+</image>
+</fig>
+<p>Press the <uicontrol>Continue</uicontrol> button and then select smart card reader 2 as the
+source of the missing master key part to be loaded. </p>
+</info>
+</step>
+<step>
+<cmd>Now you can load key part 2, the last key part in our scenario.</cmd>
+<info>You see a view showing information about the AES key part 2 (see <xref
+href="#ltke_proc_load_key_parts/fig_bgn_cyr_mfb" format="dita"/>) that you have been previously
+generated on the inserted smart card. <fig expanse="page" id="fig_bgn_cyr_mfb">
+<title>Load key part 2</title>
+<image width="650" href="ltke_f_load_keypart2_result2.jpg" placement="break">
+<alt>Load key part 2</alt>
+</image>
+</fig><p>Now proceed with key part 2 as previously described for key part 1 in <xref
+href="#ltke_proc_load_key_parts/ltke_f_load_keyparts_result" format="dita"/>. Press
+<uicontrol>OK</uicontrol> until you return to <xref
+href="#ltke_proc_load_key_parts/ltke_f_new_mk_full" format="dita"/> where you can see that the
+<uicontrol>New AES Master Key</uicontrol> register is now <uicontrol>Full</uicontrol>.</p><fig expanse="page" id="ltke_f_new_mk_full">
+<title>Key parts loaded into New AES Master Key register</title>
+<image width="650" placement="break" href="ltke_f_new_mk_full.jpg">
+<alt>Key parts loaded into New AES Master Key register</alt>
+</image>
+</fig></info>
+</step>
+</steps>
+<result>Now both key administrators finished loading the complete master key into the <uicontrol>New
+AES Master Key</uicontrol> register on the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/>. </result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

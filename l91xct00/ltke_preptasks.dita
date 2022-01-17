@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"  "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ltke_preptasks" xml:lang="en-us">
+<title>Establishing the security environment</title>
+<titlealts>
+<navtitle>Establishing security environment</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Establishing the security
+environment</searchtitle>
+</titlealts>
+<?Pub Caret 0?>
+<shortdesc>For a key management on the host <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/> using smart cards, you first need to enable
+the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card support and establish the
+connection between the applicable host and the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+workstation. Also, use the <uicontrol>Setup Module Policy</uicontrol> wizard to create required
+authorities and assign signature keys and roles to them.</shortdesc>
+<conbody>
+<p otherprops="pdf">Complete these one-time tasks before you can use the secure <keyword
+conref="ltke_conref.dita#lxdc_conref/tke_only"/> features for key management:</p>
+<ul otherprops="pdf">
+<li><xref href="ltke_setting_smartcard_env.dita#ltke_setting_smartcard_env"/></li>
+<li><xref href="ltke_start_tke_prog.dita#ltke_start_tke_prog"/></li>
+<li><xref href="ltke_proc_create_roles.dita#ltke_proc_create_roles"/></li>
+</ul>
+</conbody>
+</concept>
+<?Pub *0000002485?>

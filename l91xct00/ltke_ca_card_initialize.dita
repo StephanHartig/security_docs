@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"  "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<task id="ltke_tke_card_initialize" xml:lang="en-us">
+<title>Initialize a CA smart card and <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart
+cards</title>
+<?Pub Caret 0?>
+<titlealts>
+<navtitle>Initialize CA and <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Initialize a CA smart card and <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards</searchtitle>
+</titlealts>
+<shortdesc>A certificate authority (CA) smart card is an entity that establishes a zone using the
+<uicontrol>Smart Card Utility Program</uicontrol> (SCUP). A CA smart card is protected by two
+6-digit PINs. This CA smart card is required to create and initialize <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards. Use the <uicontrol>TKE Smart Card
+Wizard</uicontrol> to accomplish the initialization of both card types.</shortdesc>
+<taskbody>
+<prereq>In a real live production environment, this task must be performed in common by all involved
+administrators.</prereq><context>
+<p>You employ a CA smart card to create <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart
+cards. You then use <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards on which you
+generate the roles for administrating the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapters"/> and the keys.</p>
+</context>
+<steps>
+<step>
+<cmd>On the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> console in <xref
+href="#ltke_tke_card_initialize/ltke_f_scup" format="dita"/>, open the <uicontrol>Smart Card Utility
+Program</uicontrol>. </cmd>
+<info>
+<fig expanse="page" id="ltke_f_scup">
+<title>TKE Console - starting the Smart Card Utility Program</title>
+<image href="ltke_f_scup.jpg" placement="break" width="650">
+<alt>TKE Console - starting the Smart Card Utility Program</alt>
+</image>
+</fig>
+</info>
+</step>
+<step id="logon1">
+<cmd>Log on to the local <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> of the
+<keyword conref="ltke_conref.dita#lxdc_conref/atkews"/>.</cmd>
+<info>You must sign on with a profile that is on the associated <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>. Therefore, depending on how you have
+initialized your environment, the <uicontrol>Crypto Adapter Logon</uicontrol> window is displayed
+with profile IDs that represent a single or group passphrase logon. The individual or group profile
+you choose must have enough authority to do the functions that need to be performed. In this
+scenario, use the TKEADM profile to be allowed to initialize a CA smart card and to enroll the
+<keyword conref="ltke_conref.dita#lxdc_conref/atkews"/>. The TKEADM profile is a system-supplied
+role and profile which is created when the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> on the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> is initialized. It is intended for a person with the
+responsibility of initially setting up a <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>,
+completing migration tasks, or managing the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>.
+<fig expanse="column" id="ltke_f_init_logon_tkeadm">
+<title>Select the TKEADM profile</title>
+<image width="350" href="ltke_f_init_logon_tkeadm.jpg" placement="break">
+<alt>Select the TKEADM profile</alt>
+</image>
+</fig><p>After entering the correct passphrase, the <uicontrol>Smart Card Utility
+Program</uicontrol> opens. Start the <uicontrol>TKE Smart Card Wizard</uicontrol> from the
+<uicontrol>File</uicontrol> drop-down menu as shown in <xref
+href="#ltke_tke_card_initialize/ltke_f_init1_wizard_invoke" format="dita"/>.</p><fig
+expanse="column" id="ltke_f_init1_wizard_invoke">
+<title>Invoke the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> Smart Card Wizard</title>
+<image width="600" href="ltke_f_init1_wizard_invoke.jpg" placement="break">
+<alt>Invoke the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> Smart Card Wizard</alt>
+</image>
+</fig>
+<p>On the welcome panel, read the information, then press <uicontrol>Next</uicontrol>.</p></info>
+</step>
+<step>
+<cmd>On the upcoming window, you select the required CA and <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart card types as shown in the <uicontrol><keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> Smart Card Wizard</uicontrol> in <xref
+href="#ltke_tke_card_initialize/ltke_f_init2_select_cards" format="dita"/>. Then press the
+<uicontrol>Next</uicontrol> button and let the wizard guide you through the creation and
+initialization of one CA smart card and four <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+smart cards as required for the scenario.</cmd>
+<info>
+<p>
+<fig expanse="column" id="ltke_f_init2_select_cards">
+<title>Select smart card types to be created</title>
+<image width="600" href="ltke_f_init2_select_cards.jpg" placement="break">
+<alt>Select smart card types to be created</alt>
+</image>
+</fig>
+</p>
+<p>In an environment where a zone is already defined by a CA smart card, you only need to select the
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards and you can continue with step
+<xref href="#ltke_tke_card_initialize/crea_tke_smartcards" format="dita"/>.</p>
+</info>
+</step>
+<step>
+<cmd>Press <uicontrol>OK</uicontrol> on the information message that appears. </cmd>
+<info>
+<p>When prompted, insert a new smart card to be initialized and personalized as a CA smart card into
+smart card reader 1. Then press <uicontrol>OK</uicontrol>. An information is displayed that the
+smart card is being initialized. Press <uicontrol>OK</uicontrol> again.</p>
+<p>If your smart card is not new, you get a warning that all data will be overwritten (not shown
+here). Press <uicontrol>Cancel</uicontrol>, if you want to keep the card unchanged and insert a new
+smart card.</p>
+</info>
+</step>
+<step>
+<cmd>You are prompted to enter two six-digit PINs. Each PIN must be entered twice.</cmd>
+</step>
+<step>
+<cmd>Enter a zone description and a description for the CA smart card.</cmd>
+<info>For our scenario, enter <i>testlinux</i> as the zone description. <fig expanse="column" id="ltke_f_create_ca_card4">
+<title>Enter a zone description</title>
+<image width="350" href="ltke_f_create_ca_card4.jpg" placement="break">
+<alt>Enter a zone description</alt>
+</image>
+</fig>
+<p>The CA smart card is initialized and personalized.</p> Press <uicontrol>OK</uicontrol> to confirm
+the successful creation. Optionally, you can make a backup of the CA smart card. </info>
+</step>
+<step>
+<cmd>Press <uicontrol>Yes</uicontrol> on the <uicontrol>Enroll <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> crypto adapter</uicontrol> dialog in <xref
+href="#ltke_tke_card_initialize/ltke_f_create_ca_card7" format="dita"/>. With this action, you
+enroll the crypto adapter installed on the  <keyword conref="ltke_conref.dita#lxdc_conref/atkews"/>,
+in the <i>testlinux</i> zone.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_create_ca_card7">
+<title>Enrolling the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> crypto adapter in the
+<i>testlinux</i> zone</title>
+<image width="400" href="ltke_f_create_ca_card7.jpg" placement="break">
+<alt>Enrolling the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> crypto adapter in the
+<i>testlinux</i> zone </alt>
+</image>
+</fig>
+</info>
+</step>
+<step>
+<cmd>Enroll a locally installed <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"
+/>.</cmd>
+<info>
+<p>
+<fig expanse="column" id="fig_i5m_5lc_mfb">
+<title>Enroll a locally installed <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"
+/></title>
+<image href="ltke_f_create_ca_card8.jpg" placement="break" width="400">
+<alt>Enroll a locally installed <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/></alt>
+</image>
+</fig>
+</p>
+<p>Pressing <uicontrol>OK</uicontrol> to confirm your selection displays information about the
+successful enrollment of the <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/>. The
+wizard now starts the creation of the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart
+cards.</p>
+</info>
+</step>
+<step id="crea_tke_smartcards">
+<cmd>Create four <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards, two for module
+adminivstration, and two for key administration.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_create_ca_card10">
+<title>Creating <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards</title>
+<image height="125" href="ltke_f_create_ca_card10.jpg" placement="break" width="400">
+<alt>Creating <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards </alt>
+</image>
+</fig>
+<p>After pressing <uicontrol>OK</uicontrol>, the wizard offers you four available <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart card types. The first one is for role
+<uicontrol>MAIss (Module Admin Issue)</uicontrol>:</p>
+<fig expanse="column" id="ltke_f_maiss">
+<title>Creating the <uicontrol>MAIss (Module Admin Issue)</uicontrol> smart card</title>
+<image height="125" href="ltke_f_maiss.jpg" placement="break" width="400">
+<alt>Creating the <uicontrol>MAIss</uicontrol> (Module Admin Issue) smart card </alt>
+</image>
+</fig>Pressing <uicontrol>YES</uicontrol> prompts you to insert the first of the four required smart
+cards into reader 2 (not shown here). After inserting the smart card into the reader, you are
+informed about building the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card for
+this role.<p>In a scenario where a CA smart card is already available, and you start with the
+creation of the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards, you are at first
+prompted to insert this CA smart card into reader 1 and enter the two PINs. Then you are prompted to
+insert the first <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card into reader 2.
+Finally, you are informed about the building process.</p><fig expanse="column" id="ltke_f_create_ca_card13">
+<title>Process information</title>
+<image href="ltke_f_create_ca_card13.jpg" placement="break" width="350">
+<alt>Process information </alt>
+</image>
+</fig><p>The first module administrator now must enter a PIN twice to protect the new smart
+card.</p><fig expanse="column" id="fig_hrl_rqc_mfb">
+<title>Personalize a <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card</title>
+<image href="ltke_f_create_ca_card14.jpg" placement="break" width="350">
+<alt>Personalize a <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card </alt>
+</image>
+</fig><p>The <uicontrol><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> Smart Card
+Wizard</uicontrol> now creates the smart card for the <uicontrol>MAIss</uicontrol> role.</p><fig expanse="column" id="ltke_f_maiss_success">
+<title>Personalizing the MAIss smart card</title>
+<image href="ltke_f_maiss_success.jpg" placement="break" width="400">
+<alt>Personalizing the MAIss smart card</alt>
+</image>
+</fig><p>Press <uicontrol>OK</uicontrol>. The wizard now asks whether you want to create a smart
+card for the <uicontrol>MACos</uicontrol> (Module Admin Cosign) role. Answer by pressing
+<uicontrol>Yes</uicontrol> to let the second module administrator create the second smart card with
+role <uicontrol>MACos</uicontrol> in the same way. </p><p>The onwner of the
+<uicontrol>MAIss</uicontrol> authority may issue module administration commands, which must be
+co-signed by the owner of the <uicontrol>MACos</uicontrol> authority.</p><p>After creating these two
+smart card types for module administrating, the wizard asks you for the number of key
+administrators. For the scenario described here, select <uicontrol>2</uicontrol> to distribute the
+key parts on two smart cards owned by two key administrators.</p>
+<fig expanse="column" id="fig_o1k_fnc_mfb">
+<title>Distribute the key parts on two smart cards</title>
+<image href="ltke_f_create_ca_card11.jpg" placement="break" width="400">
+<alt>Distribute the key parts on two smart cards </alt>
+</image>
+</fig>
+</info>
+</step>
+<step id="tke_card_ccafst">
+<cmd>Initialize two <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards to be owned by
+the two key administrators.</cmd>
+<info>
+<p>The two roles for the key administrators are called <uicontrol>CCAFst</uicontrol> (CCA First Key
+Admin) and <uicontrol>CCAMl1</uicontrol> (CCA Middle/Last Key Admin 1).</p>
+<fig expanse="column" id="ltke_f_create_ca_card12">
+<title>Initialize CCAFst smart card</title>
+<image href="ltke_f_create_ca_card12.jpg" placement="break" width="400">
+<alt>Initialize CCAFst smart card </alt>
+</image>
+</fig>
+<p>The process of creating the <uicontrol>CCAFst</uicontrol> and <uicontrol>CCAMl1</uicontrol> smart
+cards is the same as described for <uicontrol>MAIss</uicontrol> in step <xref
+href="#ltke_tke_card_initialize/crea_tke_smartcards" format="dita"/>.</p>
+<p>After a successful personalization of all four smart cards, the wizard offers you to create
+another set of <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards, for example for
+backup. Select <uicontrol>No</uicontrol> in our scenario. </p>
+</info>
+</step>
+</steps>
+<result>
+<p>After completion, you get information that the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards have been successfully created. These cards
+are now ready to accept role and authority information and a signature key.</p>
+<fig expanse="column" id="fig_zrh_225_pgb">
+<title>Overview of enrolled smart cards</title>
+<image href="ltke_f_four_roles_created.jpg" placement="break" width="450">
+<alt>Overview of enrolled smart cards </alt>
+</image>
+</fig>
+<p>You can exit the <uicontrol>Smart Card Utility Program</uicontrol> (SCUP) now.</p>
+</result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

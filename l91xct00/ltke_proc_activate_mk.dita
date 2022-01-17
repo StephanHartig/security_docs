@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_proc_activate_mk" xml:lang="en-us">
+<title>Activating the master key</title>
+<titlealts>
+<navtitle>Activate master key</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Activate the master key</searchtitle>
+</titlealts>
+<shortdesc>Finish the AES master key creation by setting the new master key as the current master
+key. In our scenario, both key administrators are authorized to perform this task.</shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<prereq>Most probably, there will be data encrypted by a secure key wrapped by the currently valid
+master key. Therefore, you should activate a new master key only after ensuring that no data loss
+will occur. If you maintain a secure key repository, perform this procedure only if the keys in this
+repository are already re-enciphered under the key you want to make current. For <keyword
+conref="ltke_conref.dita#lxdc_conref/linux"/>, you find information about re-enciphering utilities
+for a key repository in <cite>Pervasive Encryption for Data Volumes</cite> available at:
+<codeblock scale="80"><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxdc/lxdc_linuxonz.html" format="html" scope="external"/></codeblock>
+</prereq>
+<context>For each domain on a <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>, the
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> maintains three master key registers (see
+<xref href="#ltke_proc_activate_mk/ltke_f_set_immediate" format="dita"/>):<dl>
+<dlentry>
+<dt>New AES Master Key</dt>
+<dd>This register contains the new master key to be set. While the new master key remains in this
+register, it cannot be used to generate new secure keys until it is activated as described in this
+topic. Activation transfers the new master key into the <uicontrol>AES Master Key</uicontrol>
+register and clears the New AES Master Key register.</dd>
+</dlentry>
+<dlentry>
+<dt>Old AES Master Key</dt>
+<dd>This register contains the previously used master key. Secure keys enciphered with the master
+key contained in the OLD register can still be used until the master key is changed again.</dd>
+</dlentry>
+<dlentry>
+<dt>AES Master Key</dt>
+<dd>This register contains the currently valid master key.</dd>
+</dlentry>
+</dl></context>
+<steps>
+<step id="mkgen_current">
+<cmd>Select <uicontrol>Set, immediate</uicontrol> from the AES Master key pull-down choice as shown
+in <xref href="#ltke_proc_activate_mk/ltke_f_set_immediate" format="dita"/>. </cmd>
+<info><fig expanse="page" id="ltke_f_set_immediate">
+<title>AES master key status: Full</title>
+<image width="650" href="ltke_f_set_immediate.jpg" placement="break">
+<alt>AES master key status: Full</alt>
+</image>
+</fig>The <uicontrol>Set, immediate</uicontrol> action transfers the master key from the
+<uicontrol>New AES Master Key</uicontrol> register (CECDE…) to the <uicontrol>AES Master
+Key</uicontrol> register. This master key will from now on be used to generate a secure key by
+wrapping the clear key. The <uicontrol>Set, immediate</uicontrol> action also transfers the previous
+master key from the <uicontrol>AES Master Key</uicontrol> register to the <uicontrol>Old AES Master
+Key</uicontrol> register. <note type="important">You can proactively re-encipher existing secure keys with the new
+master key which is still stored in the <uicontrol>New AES Master Key</uicontrol> register. Such
+re-enciphered secure keys are not valid until the new master key is activated to become the current
+master key. <p>So changing the master key must be coordinated between the persons who change the
+master key and the persons who own the secure keys, or who own applications that use the secure
+keys, or who own the data that is encrypted with these secure keys. </p><p>If you maintain secure
+keys in a key repository, or some type of a cryptographic key data set (CKDS), these keys need to be
+re-enciphered before the new master key is activated. If you implemented the <keyword
+conref="ltke_conref.dita#lxdc_conref/secinf"/>, using a key repository as described in <xref
+href="https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxdc/lxdc_linuxonz.html"
+format="html" scope="external">Pervasive Encryption for Data Volumes</xref>, the available utilities
+support you in a staged re-enciphering of the secure keys in this repository: In a first stage, a
+secure key is re-enciphered with the key in the <uicontrol>New AES Master Key</uicontrol> register.
+The re-enciphered key is kept in the repository in a separate file. This ensures that while the new
+master key has not been set active, the secure keys continue to be valid. Once the new master key
+has been set active, the second stage of the re-enciphering process replaces the secure key with its
+re-enciphered version which was previously created during the first stage. </p>
+</note><p>Before you can execute the <uicontrol>Set, immediate</uicontrol> action, you get a warning
+that informs you about the result of this action.</p><fig expanse="column" id="ltke_f_warning">
+<title>Warning</title>
+<image href="ltke_f_warning.jpg" placement="break" width="500">
+<alt>Warning</alt>
+</image>
+</fig><p>
+<note type="important">In our scenario, there is no previous master key in the <uicontrol>Old AES
+Master Key</uicontrol> register. If this register is not empty in your environment, ensure that you
+really do no longer need the master key that may be stored in this register, because you will no
+longer be able to read any data that is encrypted with a secure key created with this old master
+key. You might consider re-enciphering existing secure keys wrapped by the old master key with the
+new master key before activating the new master key.</note>
+</p></info>
+</step>
+<step id="mkgen_finish">
+<cmd>If you are sure about your key hierarchy and usage, press the <uicontrol>OK</uicontrol> button
+at the end of the warning (<xref href="#ltke_proc_activate_mk/ltke_f_warning" format="dita"
+/>).</cmd>
+<info>You can see the result in <xref href="#ltke_proc_activate_mk/ltke_f_aes_mk_result"
+format="dita"/>. The master key with a hash beginning with <codeph>CECDED…</codeph> is now in the
+<uicontrol>AES Master Key</uicontrol> register with status <uicontrol>Valid</uicontrol>. <fig
+expanse="page" id="ltke_f_aes_mk_result">
+<title>Checking the new valid AES master key</title>
+<image width="650" href="ltke_f_aes_mk_result.jpg" placement="break">
+<alt>Checking the new valid AES master key</alt>
+</image>
+</fig>If applicable, a previously current master key is saved on the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> in the <uicontrol>Old AES Master
+Key</uicontrol> register for recovery actions, as long as you do not overwrite this register by
+generating a new current AES master key. </info>
+</step>
+</steps>
+<result>Now you have loaded and activated one AES master key on one domain on one <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>. The <keyword
+conref="ltke_conref.dita#lxdc_conref/loz"/> instance, where the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> is attached can use this master key to generate
+a secure key for data and volume encryption.</result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><val>
+
+
+
+
+
+
+   <prop action="exclude" att="otherprops" val="NOTpdf"/>
+   <prop action="include" att="otherprops" val="pdf"/>
+   
+
+   <revprop action="flag" changebar="|" val="tkei1"/>
+   </val>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"  "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ltke_setting_smartcard_env" xml:lang="en-us">
+<title>Enabling the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card support</title>
+<titlealts>
+<navtitle>Enabling <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card
+support</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Enabling the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart card support</searchtitle>
+</titlealts>
+<shortdesc>For the scenario described in this document, an enabled smart card environment is
+required. You can use a wizard to create and initialize the smart cards required for setting up this
+environment.</shortdesc>
+<?Pub Caret 0?>
+<conbody/>
+</concept>
+<?Pub *0000002485?>

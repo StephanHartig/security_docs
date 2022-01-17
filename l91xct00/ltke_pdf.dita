@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<task id="lxct_pdf" otherprops="NOTpdf" xml:lang="en-us">
+<title>PDF file for How to set an AES master key</title>
+<titlealts>
+<navtitle>PDF for How to set an AES master key</navtitle>
+<searchtitle>PDF file for How to set an AES master key</searchtitle>
+</titlealts>
+<abstract>
+<shortdesc>You can view and print a PDF of this information.</shortdesc>
+<p>To view or download the PDF version of this information, select <xref
+href="http://public.dhe.ibm.com/software/dw/linux390/docu/l91xct00.pdf" format="pdf"
+scope="external">How to set an AES master key</xref>.</p>
+</abstract>
+<prolog>
+<metadata>
+<keywords>
+<indexterm>How to set an AES master key<indexterm>PDF for printing</indexterm></indexterm>
+</keywords>
+</metadata>
+</prolog>
+<taskbody>
+<steps>
+<stepsection>
+<p>To save a PDF on your workstation for viewing or printing:</p>
+</stepsection>
+<step>
+<cmd>Right-click the PDF link in your browser.</cmd>
+</step>
+<step>
+<cmd>Click the option that saves the PDF locally.</cmd>
+</step>
+<step>
+<cmd>Navigate to the directory in which you want to save the PDF.</cmd>
+</step>
+<step>
+<cmd>Click <uicontrol>Save</uicontrol>.</cmd>
+</step>
+</steps>
+<postreq>You need <tm tmtype="tm" trademark="Adobe">Adobe</tm> Reader installed on your system to
+view or print the PDF. You can download a free copy from the <tm tmtype="tm" trademark="Adobe"
+>Adobe</tm> Web site at
+<codeblock><xref format="html" href="http://get.adobe.com/reader/" scope="external"/></codeblock></postreq>
+</taskbody>
+</task>

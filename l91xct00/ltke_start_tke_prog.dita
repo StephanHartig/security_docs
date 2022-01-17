@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_start_tke_prog" xml:lang="en-us">
+<title>Creating and connecting a host </title>
+<titlealts>
+<navtitle>Create and connect a host</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Creating and connecting a host </searchtitle>
+</titlealts>
+<shortdesc>You need to define and connect the <keyword conref="ltke_conref.dita#lxdc_conref/loz"/>
+host system to the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/> program (<keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>). Then you can create master keys on any attached
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapters"/> and use them for cryptographic
+operations.</shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<prereq>Defining the host is a one time task. Check the <uicontrol>Host ID</uicontrol> list of the
+dialog shown in <xref href="#ltke_start_tke_prog/ltke_f_defined_hosts" format="dita"/>, whether the
+host is already available. In our scenario, this list is empty, which may not be the case in a real
+environment. If your host is already defined to the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>, you can continue with step <xref
+href="#ltke_start_tke_prog/host_open" format="dita"/>. Else, start at the beginning of the
+procedure. <p> Ensure the following: </p><ul>
+<li>The host to which you want to connect the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+must be an up and running <keyword conref="ltke_conref.dita#lxdc_conref/loz"/> instance with an
+attached <keyword conref="ltke_conref.dita#lxdc_conref/cca"/>
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.</li>
+<li>The <apiname>catcher.exe</apiname>
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> daemon, listening to port 50003, is started on
+this host.</li>
+</ul></prereq>
+<steps>
+<step id="ini_tke">
+<cmd>Invoke the <uicontrol><keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/></uicontrol>
+program from the <uicontrol>Trusted Key Entry Console</uicontrol> in <xref
+href="ltke_proc_tke_logon.dita#ltke_proc_tke_logon/ltke_f_console"/>. </cmd>
+<info>This initial window provides access to applications and utilities available on the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> workstation. </info>
+</step>
+<step id="click_tke">
+<cmd>In the list of applications, click on <uicontrol><keyword
+conref="ltke_conref.dita#lxdc_conref/tke_only"/></uicontrol>.</cmd>
+<info>Similar as described in step <xref
+href="ltke_ca_card_initialize.dita#ltke_tke_card_initialize/logon1"/> of <xref
+href="ltke_ca_card_initialize.dita"/>, whenever you launch a <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> application or utility, you must sign on with a profile
+that has enough authority to do the functions that are performed by the selected application or
+utility. The steps described here use the system-provided default TKEUSER user profile.<fig
+expanse="column" id="ltke_f_adapter_logon">
+<title>Crypto Adapter Logon</title>
+<image href="ltke_f_adapter_logon.jpg" placement="break" width="350">
+<alt>Crypto Adapter Logon</alt>
+</image>
+</fig></info>
+</step>
+<step id="tke_user">
+<cmd>Select the TKEUSER profile (or an existing profile of your choice) and click
+<uicontrol>OK</uicontrol>.</cmd>
+<info>In the subsequent <uicontrol>Passphrase Logon</uicontrol> dialog, log-on with the passphrase
+associated with the TKEUSER profile. A window is displayed (<xref
+href="#ltke_start_tke_prog/ltke_f_defined_hosts" format="dita"/>) that normally shows a list of the
+host systems defined to the <keyword conref="ltke_conref.dita#lxdc_conref/tke"/>. <fig
+expanse="column" id="ltke_f_defined_hosts">
+<title>Host systems defined to the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/></title>
+<image href="ltke_f_defined_hosts.jpg" placement="break" width="600">
+<alt>Host systems defined to the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/></alt>
+</image>
+</fig></info>
+</step>
+<step id="host_create">
+<cmd> To define a new host to the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>, open the
+context menu for hosts (<xref href="#ltke_start_tke_prog/ltke_f_defined_hosts" format="dita"/>), and
+select the <uicontrol>Create Host</uicontrol> action. The <uicontrol>Create New Host</uicontrol>
+dialog opens.</cmd>
+<info>
+<p>
+<fig expanse="column" id="ltke_f_create_host">
+<title>Create a new host</title>
+<image href="ltke_f_create_host.jpg" placement="break" width="400">
+<alt>Create a new host</alt>
+</image>
+</fig>
+</p>
+<p>Enter the values of the host to which your <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> is connected. Input for all entry fields is
+required, except for an optional host description. It is assumed that this host is a <keyword
+conref="ltke_conref.dita#lxdc_conref/linux"/> instance on an <keyword
+conref="ltke_conref.dita#lxdc_conref/ibmzsystems"/> system running the
+<apiname>catcher.exe</apiname>
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> daemon, listening to port 50003. After
+pressing <uicontrol>OK</uicontrol>, the new host is visible within the list of <uicontrol>Host
+ID</uicontrol>s (<xref href="#ltke_start_tke_prog/ltke_f_open_host" format="dita"/>) and the
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> is connected with all detected <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/> attached to this host.</p>
+</info>
+</step>
+<step id="host_open">
+<cmd>Open the new or applicable host and select the attached  <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> on which you want to set the master key on one
+of its domains.</cmd>
+<info>
+<p>From the host's context menu select action <uicontrol>Open Host</uicontrol>.</p>
+<fig expanse="column" id="ltke_f_open_host">
+<title>Open the host</title>
+<image href="ltke_f_open_host.jpg" placement="break" width="600">
+<alt>Open the host</alt>
+</image>
+</fig>
+</info>
+<substeps>
+<substep id="host_logon">
+<cmd>Log on to the selected host with the appropriate credentials.</cmd>
+<info>
+<fig expanse="column" id="ltke_f_logon_host">
+<title>Log on to the host</title>
+<image href="ltke_f_logon_host.jpg" placement="break" width="400">
+<alt>. Log on to the host</alt>
+</image>
+</fig>
+</info>
+</substep>
+<substep id="crypto_verify">
+<cmd>If applicable, the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> now requests a
+verification of any new detected <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.
+Check the displayed information. </cmd>
+<info>
+<fig expanse="column" id="ltke_f_auth_module">
+<title>Authenticate crypto module</title>
+<image width="500" href="ltke_f_auth_module.jpg" placement="break">
+<alt>Authenticate crypto module</alt>
+</image>
+</fig>
+<p>Press the <uicontrol>Yes</uicontrol> button to continue if you see information about the expected
+coprocessor.</p>
+<p>The <uicontrol>Crypto Modules </uicontrol> view of <xref
+href="#ltke_start_tke_prog/tke_f_crypto_list" format="dita"/> now displays the available adapters.
+In our scenario, three adapters in <keyword conref="ltke_conref.dita#lxdc_conref/cca"/> coprocessor
+mode are available on the current host, one CEX6C module and two CEX5C modules.</p>
+</info>
+</substep>
+<substep id="crypto_open">
+<cmd>Open the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.</cmd>
+<info><p>Select a <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> of your choice and
+trigger action <uicontrol>Open Crypto Module</uicontrol> from its context menu. </p><fig
+expanse="page" id="tke_f_crypto_list">
+<title>List of crypto modules</title>
+<image width="650" href="ltke_f_crypto_list.jpg" placement="break">
+<alt>List of crypto modules</alt>
+</image>
+</fig>The <uicontrol>Crypto Module Administration</uicontrol> dialog for the selected <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> opens (see <xref
+href="ltke_proc_create_roles.dita#ltke_proc_create_roles/ltke_f_smp1_general"/>). </info>
+</substep>
+</substeps>
+</step>
+</steps>
+<result>The attached <keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> is now ready for
+communication with the <keyword conref="ltke_conref.dita#lxdc_conref/tke"/>.</result>
+<postreq>Depending on your current environment, you now need to define the required roles and
+authorities for module administration and for loading and setting master keys. </postreq>
+</taskbody>
+</task>
+<?Pub *0000002485?>

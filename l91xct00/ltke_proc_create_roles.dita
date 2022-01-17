@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_proc_create_roles" xml:lang="en-us">
+<title>Creating the required roles and authorities</title>
+<titlealts>
+<navtitle>Create roles and authorities</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Create the required roles and
+authorities</searchtitle>
+</titlealts>
+<shortdesc>Use the <uicontrol>Setup Module Policy</uicontrol> wizard to create the proposed suitable
+roles and authorities.</shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<prereq>You need the four initialized <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart
+cards produced as described in <xref href="ltke_ca_card_initialize.dita#ltke_tke_card_initialize"/>.
+These cards do not yet contain any signature keys. The generation of these signature keys is part of
+the described procedure.</prereq>
+<context>
+<p>An authority is identified to the host <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> or domain by the <term>authority index</term>.
+Each authority has an associated role that defines which actions the authority can perform, that is,
+which signed commands the authority can issue or co-sign. </p>
+<p>Each authority is furthermore created together which an authority signature key. This signature
+key is actually a key pair. An authority sends a command (a request to perform an action) to a host
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> or domain. It signs its commands using
+the private key of its signature key pair. The host <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> or domain verifies the signature by using the
+public key of the same key pair. If the verification is successful, and the requested action is
+allowed by the associated role, the command can be performed.</p>
+<p>This procedure is described for role <uicontrol>CCAFst</uicontrol>. You need to perform the same
+steps for roles <uicontrol>CCAMl1</uicontrol>, <uicontrol>MAIss</uicontrol>, and
+<uicontrol>MACos</uicontrol> accordingly.</p>
+</context>
+<steps>
+<step id="crypto_sigkey">
+<cmd>In the <uicontrol>Crypto Module Administration</uicontrol> window, press the <uicontrol>Setup
+Module Policy</uicontrol> button (see <xref
+href="ltke_proc_create_roles.dita#ltke_proc_create_roles/ltke_f_smp1_general"/>).</cmd>
+<info>
+<fig expanse="page" id="ltke_f_smp1_general">
+<title>Crypto Module Administration</title>
+<image width="650" height="350" href="ltke_f_smp1_general.jpg" placement="break">
+<alt>Crypto Module Adminstration</alt>
+</image>
+</fig>
+<p>There are two other paths to invoke the <uicontrol>Setup Module Policy</uicontrol> wizard. From
+the <uicontrol>Crypto Module Adminstration</uicontrol> window shown in <xref
+href="#ltke_proc_create_roles/ltke_f_smp1_general" format="dita"/>, you can either select the
+<uicontrol>Roles</uicontrol> or the <uicontrol>Authorities</uicontrol> tab. In both cases, you then
+open the context menu from the window's white space and select option <uicontrol>Setup Module
+Policy</uicontrol>.</p><p>The <uicontrol>Setup Module Policy</uicontrol> welcome window
+opens.</p><fig expanse="column" id="ltke_f_smp2_intro">
+<title>Setup Module Policy welcome window</title>
+<image width="600" href="ltke_f_smp2_intro.jpg" placement="break">
+<alt>Setup Module Policy welcome window</alt>
+</image>
+</fig>
+<p>Pressing <uicontrol>Next</uicontrol> invokes an information message that a set of module-specific
+roles will be created. </p> Press <uicontrol>OK</uicontrol> to display <xref
+href="#ltke_proc_create_roles/ltke_f_smp4_source_sigkey" format="dita"/>.</info>
+</step>
+<step>
+<cmd>Select the source of the signature key for the roles.</cmd>
+<info>
+<p>For all crypto module types, a default authority with index 0 is created on the crypto module
+when it is manufactured or reinitialized. Starting with the CEX6C, a default authority with index 99
+is additionally created. The default authority for index 99 uses a 512-bit Brainpool ECC key. Select
+<uicontrol>Default key for index 99</uicontrol> for a CEX6C. For prior versions of the coprocessor
+choose <uicontrol>Default key for index 0</uicontrol>.</p>
+<fig expanse="column" id="ltke_f_smp4_source_sigkey">
+<title>Source of the signature key</title>
+<image width="350" height="250" href="ltke_f_smp4_source_sigkey.jpg" placement="break">
+<alt>Source of the signature key</alt>
+</image>
+</fig>
+<p>Then, in <xref href="#ltke_proc_create_roles/ltke_f_smp5_default99_confirm" format="dita"/>,
+select the authority index which is associated with INITADM's signature key and the INITADM role. In
+the scenario, the authority index 99 is associated with the default signature key for index 99. </p>
+<fig expanse="column" id="ltke_f_smp5_default99_confirm">
+<title>Specify authority index for the signature key</title>
+<image width="350" height="250"  href="ltke_f_smp5_default99_confirm.jpg" placement="break">
+<alt>Specify authority index for the signature key</alt>
+</image>
+</fig>
+<p>Press the <uicontrol>Continue</uicontrol> button in <xref
+href="#ltke_proc_create_roles/ltke_f_smp5_default99_confirm" format="dita"/>. On the succeeding
+confirmation message, press <uicontrol>OK</uicontrol> to display <xref
+href="#ltke_proc_create_roles/ltke_f_roles_completed" format="dita"/>.</p>
+<fig expanse="column" id="ltke_f_roles_completed">
+<title>Roles created</title>
+<image width="400" href="ltke_f_roles_completed.jpg" placement="break">
+<alt>Roles created</alt>
+</image>
+</fig>
+</info>
+</step>
+<step>
+<cmd>Let the wizard continue to create the required authorities.</cmd>
+<info>Press the <uicontrol>Next </uicontrol> button as shown in <xref
+href="#ltke_proc_create_roles/ltke_f_smp8_auth_create" format="dita"/>. <fig expanse="column"
+id="ltke_f_smp8_auth_create">
+<title>Starting to create authorities</title>
+<image height="200" href="ltke_f_smp8_auth_create.jpg" placement="break" width="400">
+<alt>Starting to create authorities</alt>
+</image>
+</fig>
+<p>Insert the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart card that you created with
+role <b><uicontrol>CCAFst</uicontrol></b> into smart card reader 2. </p><fig expanse="column" id="ltke_f_smp9_auth_smart_profile">
+<title>Creating authorities</title>
+<image width="600" href="ltke_f_smp9_auth_smart_profile.jpg" placement="break">
+<alt>Creating authorities</alt>
+</image>
+</fig>
+<p>Press <uicontrol>OK</uicontrol>. The wizard confirms that the smart card is new without a
+signature key on it.</p><fig expanse="column" id="ltke_f_smp10_no_auth_message">
+<title>Generating an authority signature key</title>
+<image width="350" href="ltke_f_smp10_no_auth_message.jpg" placement="break">
+<alt>Generating an authority signature key</alt>
+</image>
+</fig>
+<p>Confirm with <uicontrol>OK</uicontrol>. On the <uicontrol>Select Key Type</uicontrol> dialog
+(<xref href="#ltke_proc_create_roles/ltke_f_smp11_ecc_key" format="dita"/>) specify your desired key
+type for the signature key to be generated. For the scenario, a <uicontrol>320-bit EC
+key</uicontrol> is used.</p><fig expanse="column" id="ltke_f_smp11_ecc_key">
+<title>Select signature key type</title>
+<image width="250" href="ltke_f_smp11_ecc_key.jpg" placement="break">
+<alt>Select signature key type</alt>
+</image>
+</fig>
+<p>When prompted, enter the PIN on the smart card. Then the wizard notifies you about the successful
+creation of the signature key.</p><fig expanse="column" id="ltke_f_keygen_success">
+<title>Signature key successfully stored</title>
+<image width="400" href="ltke_f_keygen_success.jpg" placement="break">
+<alt>Signature key successfully stored</alt>
+</image>
+</fig>
+</info>
+</step>
+<step>
+<cmd>Press <uicontrol>OK</uicontrol> on the notification about the generated signature key.</cmd>
+<info>
+<p>You get a message about the successful creation of the authority.  The wizard creates the
+following authorities:</p>
+<lines>Authority 10 with role <uicontrol>MAIss</uicontrol>
+Authority 11 with role <uicontrol>MACos</uicontrol>
+Authority 20 with role <uicontrol>CCAFst</uicontrol>
+Authority 21 with role <uicontrol>CCAMl</uicontrol>
+</lines>
+<fig expanse="column" id="ltke_f_smp13_auth20_succ">
+<title>Authority successfully created</title>
+<image width="350" href="ltke_f_smp13_auth20_succ.jpg" placement="break">
+<alt>Authority successfully created</alt>
+</image>
+</fig>
+</info>
+</step>
+<step>
+<cmd>Press <uicontrol>OK</uicontrol> on the message and continue to create the next required
+authority, until you finished to handle all four  role/authority combinations (profiles).</cmd>
+<info>
+<fig expanse="column" id="ltke_f_smp13b_auth21_yes">
+<title>Create another authority</title>
+<image href="ltke_f_smp13b_auth21_yes.jpg" placement="break" width="600">
+<alt>Create another authority</alt>
+</image>
+</fig>
+<p>Press <uicontrol>Yes</uicontrol> and then insert the next <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart card in reader 2 to create the authority for the
+next role. Again, select type <uicontrol>320-bit EC key</uicontrol>. After a successful creation of
+all authorities by all involved administrators, a completion notice is shown (<xref
+href="#ltke_proc_create_roles/ltke_f_smp14_auth20_21_succ" format="dita"/>).</p>
+<fig expanse="column" id="ltke_f_smp14_auth20_21_succ">
+<title>Authority and role completion notice</title>
+<image width="350" href="ltke_f_all_auth_created.jpg" placement="break">
+<alt>Authority and role completion notice</alt>
+</image>
+</fig>
+<p>Press <uicontrol>OK</uicontrol>.</p>
+</info>
+</step>
+<step>
+<cmd>Limit the INITADM authority.</cmd>
+<info>Now that you created all required profiles for your security environment, you must remove all
+authority from the default INITADM role. <fig expanse="column" id="fig_skn_xqm_pgb">
+<title>Limit the INITADM authority</title>
+<image width="350" href="ltke_f_limit_initadm.jpg" placement="break">
+<alt>Limit the INITADM authority</alt>
+</image>
+</fig>
+<p>Pressing <uicontrol>Yes</uicontrol> displays a message about the successful command execution.
+Press <uicontrol>OK</uicontrol> on subsequent information dialogs until the wizard returns to the
+<uicontrol>Crypto Module Administration</uicontrol> dialog.</p>
+</info>
+</step>
+<step>
+<cmd> If required, change the roles <uicontrol>CCAFst</uicontrol> and <uicontrol>CCAMl</uicontrol>
+to include the privilege for activating the new master key. This is shown for
+<uicontrol>CCAFst</uicontrol>. This step is not applicable for roles <uicontrol>MAIss</uicontrol>
+and <uicontrol>MACos</uicontrol>.</cmd>
+<info>
+<p>In <xref href="#ltke_proc_create_roles/ltke_f_smp18_change_ccafst" format="dita"/>, select
+<uicontrol>Change Role</uicontrol> from the context menu of <uicontrol>CCAFst</uicontrol> and check
+<uicontrol>Set AES master key</uicontrol> as shown in <xref
+href="#ltke_proc_create_roles/ltke_f_setmk" format="dita"/>.<fig expanse="column"
+id="ltke_f_smp18_change_ccafst">
+<title>Changing the roles</title>
+<image width="600" href="ltke_f_smp18_change_ccafst.jpg" placement="break">
+<alt>Changing the roles</alt>
+</image>
+</fig>
+<fig expanse="column" id="ltke_f_setmk">
+<title>Including <uicontrol>Set AES master key</uicontrol> for role
+<uicontrol>CCAFst</uicontrol></title>
+<image width="400" href="ltke_f_setmk.jpg" placement="break">
+<alt>Including Set AES master key for role CCAFst</alt>
+</image>
+</fig>
+</p>
+<p>This action requires a signature key and sufficient authority. Use the authority of the
+<uicontrol>MAIss</uicontrol> role for issuing the role change and use the
+<uicontrol>MACos</uicontrol> role for co-signing the command. The wizard guides you through this
+procedure with adequate prompts.</p>
+</info>
+</step>
+<step>
+<cmd>Verify your created roles by selecting the appropriate tab as shown in <xref
+href="#ltke_proc_create_roles/ltke_f_smp16_roles_result" format="dita"/>.</cmd>
+<info>
+<p>To verify the privileges allowed for role <uicontrol>CCAFst</uicontrol>, select this role from
+<xref href="#ltke_proc_create_roles/ltke_f_smp16_roles_result" format="dita"/>, and invoke
+<uicontrol>View Role</uicontrol> from its context menu to see the result shown in <xref
+href="#ltke_proc_create_roles/ltke_f_smp16_1_view_first_role" format="dita"/>.</p>
+<fig expanse="column" id="ltke_f_smp16_roles_result">
+<title>View roles</title>
+<image width="600" href="ltke_f_smp16_roles_result.jpg" placement="break">
+<alt>View roles</alt>
+</image>
+</fig>
+<fig expanse="column" id="ltke_f_smp16_1_view_first_role">
+<title>View privileges for role CCAFst</title>
+<image width="400" href="ltke_f_smp16_1_view_first_role.jpg" placement="break">
+<alt>View privileges for role CCAFst</alt>
+</image>
+</fig>
+<p>For the <uicontrol>CCAMl</uicontrol> role, you can view the privileges in <xref
+href="#ltke_proc_create_roles/ltke_f_smp16_2_view_second_role" format="dita"/>.</p>
+<fig expanse="column" id="ltke_f_smp16_2_view_second_role">
+<title>View privileges for role CCAMl</title>
+<image width="400" href="ltke_f_smp16_2_view_second_role.jpg" placement="break">
+<alt>View privileges for role CCAMl</alt>
+</image>
+</fig>
+</info>
+</step>
+</steps>
+<result>After you completed this procedure for all required roles (<uicontrol>CCAFst</uicontrol>,
+<uicontrol>CCAMl</uicontrol>, <uicontrol>MAIss</uicontrol>, and <uicontrol>MACos</uicontrol>), your
+security environment is readily set up. The key administrators owning the pertaining smart cards can
+now commonly start to generate and load the key parts and activate the new master key to be used as
+the current master key as described in <xref href="ltke_proc_activate_mk.dita#ltke_proc_activate_mk"
+/>.</result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="ltke_scenario" xml:lang="en-us">
+<title>Scenario</title>
+<titlealts>
+<navtitle>Scenario</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Scenario</searchtitle>
+</titlealts>
+<shortdesc>An AES master key, which is composed from two key parts, is created and
+activated.</shortdesc>
+<?Pub Caret 0?>
+<refbody>
+<section>
+<p>In the scenario described in this document, a security environment is established with two
+authorities for module administrators who manage the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>, and another two authorities for key
+administrators who create and activate a new master key. Only if both authorities work together, the
+required tasks can be completed. This approach is called dual control security.</p>
+<p> The key parts are generated on two separate smart cards by two key administrators with different
+privileges.   The key parts are loaded from the smart cards onto the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>. </p>
+<p>The first key administrator is authorized to create and load the first key part. The second key
+administrator is authorized to create and load the second key part. Loading the second key part will
+automatically create the final master key. Both key administrators will be authorized to activate
+the new master key.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002485?>

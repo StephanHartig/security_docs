@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_proc_connect_host_coproc" xml:lang="en-us">
+<title>Create the required roles and authorities</title>
+<titlealts>
+<navtitle>Create roles and authorities</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Create the required roles and
+authorities</searchtitle>
+</titlealts>
+<shortdesc>In our scenario, we will grant one user the authority for just generating master key
+parts. The second user must in addition be allowed to load the key parts and thus combine the
+complete master key. He also needs the authority to activate the new master key.</shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<steps>
+<step id="crypto_sigkey">
+<cmd>Load the signature key of the pre-defined INITADM role.</cmd>
+<info>As a prerequisite for creating a role that is authorized to set a new AES master key on the
+crypto adapter, you need an existing role with the following rights: <ul compact="yes">
+<li>Access Control -> Access control, issue</li>
+<li>Access Control ->Access control, co-sign </li>
+</ul><p> Normally, such a role already exists after a successful initial setup of a TKE environment.
+This role has the name (role ID) INITADM. You can use action <uicontrol>View Role</uicontrol> from
+this role's context menu to check: </p><fig expanse="page" id="ltke_f_check_role">
+<title>View Role</title>
+<image width="650" href="ltke_f_check_role.jpg" placement="break">
+<alt>View Role</alt>
+</image>
+</fig><p>You can also apply both rights to two separate roles. But this is not shown in this
+scenario.</p><p>Now you must load the mentioned INITADM role. To do this, use <uicontrol>Function ->
+Load signature key</uicontrol> (<xref href="#ltke_proc_connect_host_coproc/ltke_f_load_sigkey"
+format="dita"/>) to load the authority which contains the signature key. An authority can have an
+optional name and is composed of the authority index, a role, and a signature key.</p><p>Loading a
+signature key is more like a suggestion which is checked later when an operation is made. You must
+suggest a signature key and an authority index. Later, when you try to perform an operation which
+needs privileges, the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> checks if the suggested
+authority index exists and the signature key is the same. The suggestion will be even remembered
+when you switch to another card.</p><fig expanse="page" id="ltke_f_load_sigkey">
+<title>Load signature key</title>
+<image width="600" height="150" href="ltke_f_load_sigkey.jpg" placement="break">
+<alt>Load signature key</alt>
+</image>
+</fig><p><xref href="#ltke_proc_connect_host_coproc/ltke_f_source_sigkey_initadm" format="dita"/>
+opens. At first select the source where INITADM's signature key is stored. </p><p>For all crypto
+module types, a default authority with index 0 is created on the crypto module when it is
+initialized during hardware installation or after zeroising. Starting with the CEX6C, a default
+authority with index 99 is created at the same time as the default authority with index 0. The index
+99 uses a 512-bit Brainpool ECC key. </p><p> Select <uicontrol>Default key for index 99</uicontrol>
+for a CEX6C. For prior versions of the coprocessor choose <uicontrol>Default key for index
+0</uicontrol>.</p><fig expanse="column" id="ltke_f_source_sigkey_initadm">
+<title>Select source of signature key for INITADM</title>
+<image width="400" height="300" href="ltke_f_source_sigkey_initadm.jpg" placement="break">
+<alt>Select source of signature key for INITADM</alt>
+</image>
+</fig>Then select the authority index which is associated with INITADM's signature key and the
+INITADM role. In our case, the authority index 99 is associated with the default signature key
+(which you can verify from <xref href="#ltke_proc_connect_host_coproc/ltke_f_auth99" format="dita"/>
+by selecting <uicontrol>Authorities</uicontrol>). <fig expanse="column"
+id="ltke_f_default99_confirm">
+<title>Specify authority index</title>
+<image href="ltke_f_default99_confirm.jpg" placement="break" width="400">
+<alt>Specify authority index</alt>
+</image>
+</fig><fig expanse="page" id="ltke_f_auth99">
+<title>Initial authority index 99 associated with role INITADM</title>
+<image width="700" height="150" href="ltke_f_auth99.jpg" placement="break">
+<alt>Initial authority index 99 associated with role INITADM</alt>
+</image>
+</fig></info>
+</step>
+<step id="crypto_role">
+<cmd>Create a role that is authorized to perform the actions for setting a new master key. </cmd>
+<info>With the signature loaded, you act with the rights of INITADM and therefore you can create a
+new role. Click on the <uicontrol>Roles</uicontrol> tab and select <uicontrol>Create
+Role</uicontrol> via the context menu as shown in <xref
+href="#ltke_proc_connect_host_coproc/ltke_f_create_role_action" format="dita"/>.<fig expanse="page"
+id="ltke_f_create_role_action">
+<title>Managing roles</title>
+<image width="650" href="ltke_f_create_role_action.jpg" placement="break">
+<alt>Managing roles</alt>
+</image>
+</fig><p>The <uicontrol>Create New Role</uicontrol> dialog opens. Now define a role named AES_ADM
+and grant all rights for administrating AES master keys. <xref
+href="#ltke_proc_connect_host_coproc/ltke_f_access_rights" format="dita"/> only shows the relevant
+access rights. Select them as shown. To allow AES_ADM to maintain AES master keys for specific
+domains, select the appropriate <uicontrol>Domain Access</uicontrol> rights at the bottom of the
+<uicontrol>Create New Role</uicontrol> window.</p><fig expanse="column" id="ltke_f_access_rights">
+<title>Creating a new role</title>
+<image height="450" href="ltke_f_access_rights.jpg" placement="break">
+<alt>Creating a new role</alt>
+</image>
+</fig>After completing all selections required for the role, click <uicontrol>Send
+Updates</uicontrol> to create the role. </info>
+</step>
+<step id="crypto_authority">
+<cmd>Create an authority with associated signature key and authority index and associated role
+AES_ADM.</cmd>
+<info>To be able to use the AES_ADM role, an authority with associated signature key and authority
+index must be created and associated to AES_ADM. Perform sub-steps <xref
+href="#ltke_proc_connect_host_coproc/ltke_sub1" format="dita"/> and <xref
+href="#ltke_proc_connect_host_coproc/ltke_sub2" format="dita"/> for this purpose.</info>
+<substeps>
+<substep id="ltke_sub1">
+<cmd>Generate a signature key using the context menu <uicontrol>Generate Signature Key</uicontrol>
+from the <uicontrol>Authorities</uicontrol> tab. (<xref
+href="#ltke_proc_connect_host_coproc/ltke_f_sig_auth" format="dita"/>). </cmd>
+<info>This step is required, if no other signature key is available, because you can use another
+existing signature key. <fig expanse="page" id="ltke_f_sig_auth">
+<title>Generate Signature Key and Create Authority</title>
+<image width="650" height="350" href="ltke_f_sig_auth.jpg" placement="break">
+<alt>Generate Signature Key and Create Authority</alt>
+</image>
+</fig>The <uicontrol>Generate Signature Key</uicontrol> dialog opens. You can insert a name for this
+key.<fig expanse="column" id="ltke_f_authority_aesadm">
+<title>Set Default Authority Index</title>
+<image href="ltke_f_authority_aesadm.jpg" placement="break" width="450">
+<alt>Set Default Authority Index</alt>
+</image>
+</fig>Press the <uicontrol>Continue</uicontrol> button. Then select <uicontrol>Smart
+card</uicontrol> as the target of the signature key: <fig expanse="column" id="ltke_f_smart_target">
+<title>Select target of signature key</title>
+<image href="ltke_f_smart_target.jpg" placement="break" width="300">
+<alt>Select target of signature key</alt>
+</image>
+</fig>Select an ECC key as key type:<fig expanse="column" id="ltke_f_ecc_key">
+<title>Select key type</title>
+<image href="ltke_f_ecc_key.jpg" placement="break" width="300">
+<alt>Select key type</alt>
+</image>
+</fig>Press the <uicontrol>Continue</uicontrol> button and confirm the successful key
+generation.<fig expanse="column" id="ltke_f_keygen_success">
+<title>Signature key successfully generated</title>
+<image href="ltke_f_keygen_success.jpg" placement="break" width="450">
+<alt>Signature key successfully generated</alt>
+</image>
+</fig></info>
+</substep>
+<substep id="ltke_sub2">
+<cmd>Select <uicontrol>Create Authority</uicontrol> from the <uicontrol>Authorities</uicontrol>
+context menu in <xref href="#ltke_proc_connect_host_coproc/ltke_f_sig_auth" format="dita"/>. </cmd>
+<info>First, you are prompted to select the source of the Authority Signature Key. You generated the
+key on a smart card, so specify Smart card as the source now. Enter the required PIN on the smart
+card reader when prompted. <p>Finally, in the last dialog of the process (<xref
+href="#ltke_proc_connect_host_coproc/ltke_f_create_auth" format="dita"/>) select the Authority Index
+and role AES_ADM that was created before. Then press <uicontrol>Send updates</uicontrol>.</p><fig
+expanse="page" id="ltke_f_create_auth">
+<title>Create New Authority</title>
+<image width="650" href="ltke_f_create_auth.jpg" placement="break">
+<alt>Create New Authority</alt>
+</image>
+</fig></info>
+</substep>
+</substeps>
+<info>Now you created an authority with an associated role that has sufficient rights to generate
+and load a master key.</info>
+</step>
+</steps>
+<result>Now the two users can start to compose, load and activate the new master key.</result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

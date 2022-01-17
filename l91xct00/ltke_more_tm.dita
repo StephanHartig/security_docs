@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="lxdc_quick_more_tm" xml:lang="en-us">
+<title>More information</title>
+<body>
+<ul>
+<li>To learn about security products for <ph conref="lxcommon.dita#phrases/ph_loz_and_lone"/>,
+search for the following terms in your web browser:
+<codeblock>IBM Knowledge Center -> Products -> Linux on IBM Systems -> Linux on Z and LinuxONE -> Security</codeblock><p>Or
+you can directly click or enter the following URL
+directly:</p><codeblock><xref href="https://www.ibm.com/support/knowledgecenter/de/linuxonibm/liaaf/security.html" format="html" scope="external"/></codeblock></li>
+<li>For information on the features and advantages of the <keyword
+conref="ltke_conref.dita#lxdc_conref/secinf"/>, search for this video in your web browser:
+<codeblock>Pervasive encryption for data volumes video</codeblock><p>Or you can directly click or
+enter the following URL
+directly:</p><codeblock><xref href="https://youtu.be/jDK3ZwEdX4I" format="html" scope="external"/></codeblock></li>
+<li>Documentation on how to establish and exploit the <keyword
+conref="ltke_conref.dita#lxdc_conref/secinf"/> is provided in the IBM Knowledge Center. Search for
+the following title in your web
+browser:<codeblock>(Linux on Z) Pervasive encryption for data volumes -></codeblock><p>Or you can
+directly click or enter the following URL
+directly:</p><codeblock scale="80"><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxdc/lxdc_linuxonz.html" format="html" scope="external"/></codeblock></li>
+</ul>
+</body>
+</topic>
+<?Pub *0000002485?>

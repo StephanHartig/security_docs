@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--onzArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<topic id="tke_mk_container" xml:lang="en-us">
+<title>Setting a master key on the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>
+</title>
+<titlealts>
+<navtitle>How to set an AES master key</navtitle>
+<searchtitle>How to set an AES master key on a <keyword
+conref="ltke_conref.dita#lxdc_conref/ccacoproc"/> using the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> workstation.</searchtitle>
+</titlealts>
+<abstract>
+<shortdesc>This publication outlines a procedure how to create an AES master key on an attached
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> configured in <keyword
+conref="ltke_conref.dita#lxdc_conref/ccacoproc"/> mode using the <keyword
+conref="ltke_conref.dita#lxdc_conref/tke_only"/> (<keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>) workstation functions. The <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> is connected to an <keyword
+conref="ltke_conref.dita#lxdc_conref/ibmzsystems"/> mainframe that runs an instance of <keyword
+conref="ltke_conref.dita#lxdc_conref/loz"/>.</shortdesc>
+<?Pub Caret 20?>
+<p>This information is not specific to a particular 
+<ph conref="lxcommon.dita#phrases/ph_linuxs"/> distribution. </p>
+</abstract>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+</topic>
+<?Pub *0000001874?>

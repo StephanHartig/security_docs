@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="ltke_procedure" xml:lang="en-us">
+<title>Setting an AES master key on a <keyword conref="ltke_conref.dita#lxdc_conref/ccacoproc"
+/></title>
+<titlealts>
+<navtitle>Setting MK on <keyword conref="ltke_conref.dita#lxdc_conref/ccacoproc"/></navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Setting a master key on a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> using the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/></searchtitle>
+</titlealts>
+<shortdesc>After completing the setup of the smart card environment, you can create an AES master
+key on an attached <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> running in <keyword
+conref="ltke_conref.dita#lxdc_conref/ccacoproc"/> mode. </shortdesc>
+<conbody>
+<p>In contrast to the one-time tasks described in <xref href="ltke_preptasks.dita#ltke_preptasks"/>,
+a master key change may occur multiple times, depending on your security policies. Therefore, all
+sub-tasks of this topic must be performed each time a master key change is necessary. </p>
+<p>Let two key administrators generate two parts of the master key on two separate smart cards
+(<uicontrol>CCAFst</uicontrol> and <uicontrol>CCAMl1</uicontrol> smart cards). Both users are
+authorized to create master key parts on a smart card and to load them onto the host coprocessor.
+The administrator with role <uicontrol>CCAMl1</uicontrol> is additionally authorized to combine the
+loaded key parts to create the final master key on the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/>. Both users are allowed to activate a loaded
+master key.</p>
+</conbody>
+</concept>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"  "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ltke_zone_concepts" xml:lang="en-us">
+<title>Zone concepts</title>
+<titlealts>
+<navtitle>Zone concepts</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Zone concepts</searchtitle>
+</titlealts>
+<?Pub Caret 0?>
+<shortdesc>Smart-card support for a <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+environment is designed around the concept of a zone to ensure the secure transfer of key parts
+between the members of the zone. A zone is created with a zone ID when you use the <uicontrol>Smart
+Card Utility Program</uicontrol> (SCUP) to create a CA smart card. In other words, a zone is defined
+by a CA smart card.</shortdesc>
+<conbody>
+<p>In the described scenario, these zone members can communicate with each other:</p>
+<ul>
+<li>a certificate authority (CA) smart card</li>
+<li>a <keyword conref="ltke_conref.dita#lxdc_conref/tke"/> (<keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>) that was enrolled in a zone using the CA smart
+card</li>
+<li>four <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards, two for the module
+administrators and two for the key administrators. All  <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards are created using the CA smart card. </li>
+</ul>
+<p>Within a zone, you use the CA smart card when you create the required  <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards. The <keyword
+conref="ltke_conref.dita#lxdc_conref/atkews"/> must be enrolled in the same zone as the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards.   </p>
+<p>Smart card support provides the ability to manage master key parts. The enrolled <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards are used to create and store key parts, or
+to load the key parts onto the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>. In
+addition, the smart cards can contain a key that is used to sign the load commands. </p>
+<p>A CA smart card is protected by two 6-digit PINs. <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards are secured by one 6-digit PIN. In your
+environment, you can distinguish between a CA administrator (owning the CA smart card), the module
+administrators managing access to the domains of a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/>, and the key administrators owning the
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards for key generation.</p>
+</conbody>
+</concept>
+<?Pub *0000002485?>

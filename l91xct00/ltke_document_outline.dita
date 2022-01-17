@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"  "ibm-concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="ltke_outline" xml:lang="en-us">
+<title>Getting started</title>
+<titlealts>
+<navtitle>Getting started</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Getting started</searchtitle>
+</titlealts>
+<?Pub Caret 0?>
+<shortdesc>As a single point of control, you require a <keyword
+conref="ltke_conref.dita#lxdc_conref/tke"/> (<keyword conref="ltke_conref.dita#lxdc_conref/atke"/>)
+to securely manage multiple <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/> with
+their domains, master keys and operational keys stored inside.</shortdesc>
+<conbody>
+<p>The  <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> provides the following secure
+services:</p>
+<ul>
+<li>Loading and maintaining master and operational keys into the host cryptographic hardware.</li>
+<li>Configuring and managing the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/> in
+the host, for example, configure a coprocessor for running in <keyword
+conref="ltke_conref.dita#lxdc_conref/ccacoproc"/> mode.</li>
+<li> Providing a host cryptographic hardware migration feature. The <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> allows you to collect data from one host <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> and apply the data to another host <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.</li>
+<li>Managing the involved smart cards.</li>
+</ul>
+<p>A <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> comprises the following components: </p>
+<ul>
+<li>the hardware: a workstation with a <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>
+which is used for secure communication with connected hosts</li>
+<li>the LIC (Licensed Internal Code) which includes an embedded operating system which supports one
+single application. No other applications or products can be installed on the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>.</li>
+<li>smart card readers and smart cards.</li>
+</ul>
+<p>Each <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> version is closely associated with the
+host platforms that it supports.</p>
+<p>The <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> implementation uses a zone concept to
+ensure the secure transfer of key parts. After a short introduction of this concept, this document
+outlines the process how to initialize a certificate authority smart card (CA smart card) and the
+required <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> smart cards within a zone. Following
+this, you are guided through a scenario how to set a master key on a <keyword
+conref="ltke_conref.dita#lxdc_conref/cca"/> coprocessor.</p>
+<note>The <keyword conref="ltke_conref.dita#lxdc_conref/tke"/> is a powerful appliance used to
+manage <keyword conref="ltke_conref.dita#lxdc_conref/ibmzsystems"/> 
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/>. It provides hardware-based key
+management services with proper encryption strength, dual controls, and security-relevant auditing.
+<p>There are multiple ways and methods for setting master keys on a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> (coprocessor). New users of the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> services may be overwhelmed by all the offered features
+and functions.</p><p>Therefore, the illustrated scenario presents one quick and easy path, but
+nevertheless a valid real-life approach, to generate and activate an AES master key on a domain of a
+<keyword conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/> configured in <keyword
+conref="ltke_conref.dita#lxdc_conref/cca"/> coprocessor mode. This master key is composed from two
+key parts, which are individually generated and owned by two persons in a <keyword
+conref="ltke_conref.dita#lxdc_conref/loz"/> installation.</p></note>
+<p><xref href="#ltke_outline/ltke_f_tke_environment" format="dita"/> depicts the environment in
+which the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> workstation applications work. In
+<keyword conref="ltke_conref.dita#lxdc_conref/loz"/>, the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> communicates with the host coprocessors using a
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> daemon called <apiname>catcher.exe</apiname>. 
+This daemon is listening on a certain port for <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> commands.</p>
+<p>In addition, a support element (SE) is required for cryptographic configuration. This is a
+dedicated workstation used for monitoring and operating <keyword
+conref="ltke_conref.dita#lxdc_conref/ibmzsystems"/> hardware. <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> commands must be permitted on the SE before any
+commands issued by the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> workstation can be
+processed.</p>
+<p>A master key is finally set within one or more domains of the attached coprocessors.</p>
+<fig expanse="column" id="ltke_f_tke_environment">
+<title>The <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> workstation environment</title>
+<image height="300" href="ltke_f_tke_environment.jpg" placement="break">
+<alt>The <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> workstation environment</alt>
+</image>
+</fig>
+</conbody>
+</concept>
+<?Pub *0000002485?>

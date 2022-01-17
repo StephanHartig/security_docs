@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE ibmbook PUBLIC "-//IBM//DTD DITA IBM BookMap//EN"
+ "..\..\dita\dtd\ibmbook.dtd">
+<?Pub Sty _display FontColor="red"?>
+<ibmbook xml:lang="en-us">
+<ibmbooktitle>
+<ibmbooklibrary><ph conref="lxcommon.dita#phrases/lib_title"/></ibmbooklibrary>
+<ibmmainbooktitle>How to set an AES master key</ibmmainbooktitle>
+</ibmbooktitle>
+<bookmeta><authorinformation></authorinformation>
+<publisherinformation>
+<printlocation> </printlocation>
+</publisherinformation>
+<prodinfo>
+<prodname>
+<keyword conref="ltke_conref.dita#lxdc_conref/tke"/>
+</prodname>
+<vrmlist>
+<vrm version=" Trusted Key Entry 9.1"/>
+</vrmlist>
+</prodinfo><bookid><booknumber>SC34-7712-00</booknumber></bookid><bookrights>
+<copyrfirst>
+<year>2019</year>
+</copyrfirst>
+<bookowner>
+<organization>IBM</organization>
+</bookowner>
+</bookrights>
+</bookmeta>
+<ibmfrontmatter>
+<editionnotices href="ltke_editionnotices.dita" navtitle="Edition notice"></editionnotices>
+<frontbooklists><toc/></frontbooklists>
+<preface  href="ltke_introduction.dita"  navtitle="About this document"></preface>
+</ibmfrontmatter>
+<chapter format="ditamap" href="l91xct00_body.ditamap" navtitle="How to set a master key" scope="local"/>
+<ibmbackmatter>
+<topicref href="ltke_more_tm.dita" navtitle="More information"/>
+<topicref href="lxcommon_accessibility.dita" navtitle="Accessibility"/>
+<topicref href="lxcommon_notices.dita" navtitle="Notices">
+<topicref href="ltke_trademarks.dita" navtitle="Trademarks"/>
+</topicref>
+</ibmbackmatter>
+</ibmbook>

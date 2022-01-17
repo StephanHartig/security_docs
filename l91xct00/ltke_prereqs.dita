@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="ltke_prereqs" xml:lang="en-us">
+<title>Prerequisites</title>
+<titlealts>
+<navtitle>Prerequisites</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Prerequisites</searchtitle>
+</titlealts>
+<shortdesc>On your <keyword conref="ltke_conref.dita#lxdc_conref/linux"/> host system, you must
+install the <keyword conref="ltke_conref.dita#lxdc_conref/cca"/> RPM or DEB package, which contains
+a <keyword conref="ltke_conref.dita#lxdc_conref/linux"/>
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> daemon. This daemon must be running and ready
+to receive <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> requests. Also, you must enable the
+involved coprocessor to perform <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+commands.</shortdesc>
+<?Pub Caret 0?>
+<refbody>
+<section>
+<p>You need to start the <apiname>catcher.exe</apiname> program, which is the <keyword
+conref="ltke_conref.dita#lxdc_conref/linux"/>
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> daemon to handle administrative commands
+between the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> and the <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/>. You can use the <apiname>CSUTKEcat</apiname>
+system initialization script to handle the daemon via <codeph>systemctl</codeph>. The
+<apiname>catcher.exe</apiname> daemon is automatically started by the <apiname>CSUTKEcat</apiname>
+system initialization script when <keyword conref="ltke_conref.dita#lxdc_conref/linux"/> starts. You
+can also use this script to start or stop the <apiname>catcher.exe</apiname> from the command line.
+To start the <apiname>catcher.exe</apiname>, use the command: </p>
+<screen># systemctl start CSUTKEcat.service</screen>
+<p>You must ensure that the firewall of your <keyword conref="ltke_conref.dita#lxdc_conref/linux"/>
+system allows to access the <apiname>catcher.exe</apiname> via port 50003, because this daemon
+listens for <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> commands on this port. These
+commands are translated into <cmdname>ioctl</cmdname> commands which communicate with the
+<apiname>zcrypt</apiname> device driver. </p>
+<p>To verify whether the <apiname>catcher.exe</apiname> daemon is running on your system, enter the
+following command and look for the daemon in the output list:</p>
+<screen># ps ax  
+
+...
+ 9689 ?        Ss     0:11 /opt/IBM/CCA/bin/<apiname>catcher.exe</apiname>
+...</screen>
+<p>This description shows how to set a master key on a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> that is running in <keyword
+conref="ltke_conref.dita#lxdc_conref/cca"/> mode. From the support element (SE), you must at first
+enable such coprocessors to perform <keyword conref="ltke_conref.dita#lxdc_conref/atke"/>
+commands.</p>
+<p>Therefore, logon to the appropriate support element. Open <uicontrol>Systems
+Management</uicontrol>, then select the system with the attached <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>. In the list of <uicontrol>Tasks</uicontrol>,
+navigate to <uicontrol>Configuration</uicontrol> and open the <uicontrol>Cryptographic
+Configuration</uicontrol> dialog (<xref href="#ltke_prereqs/ltke_f_permit" format="dita"/>). Select
+the appropriate <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> and press the
+<uicontrol><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> Commands...</uicontrol> button. In
+the upcoming dialog, select the <uicontrol>Permit <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> commands</uicontrol> check box and confirm your request
+when prompted. This action changes the text entry in the <uicontrol><keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> commands</uicontrol> column in <xref
+href="#ltke_prereqs/ltke_f_permit" format="dita"/> from <uicontrol>Denied</uicontrol> to
+<uicontrol>Permitted</uicontrol>. </p>
+<p>Fast path: <uicontrol>Logon SE → System Management → Tasks → Configuration → Cryptographic
+Configuration</uicontrol>
+</p>
+<fig expanse="column" id="ltke_f_permit">
+<title>Permit <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> commands </title>
+<image href="ltke_f_permit.jpg" placement="break" width="600">
+<alt>Permit <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> commands</alt>
+</image>
+</fig>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002485?>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//IBM//DTD DITA IBM Task//EN"
+ "ibm-task.dtd">
+<task id="ltke_proc_select_coproc" xml:lang="en-us">
+<title>Select the applicable <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/></title>
+<titlealts>
+<navtitle>Select <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/></navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Select the applicable <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/></searchtitle>
+</titlealts>
+<shortdesc>Select the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> on which you
+want to create a master key on one of its domains.</shortdesc>
+<?Pub Caret 0?>
+<taskbody>
+<context>The task comprises just one step which is required each time you want to manage master keys
+stored on the domains of the desired <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"
+/>.</context>
+<steps>
+<step id="crypto_open">
+<cmd>Open the <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.</cmd>
+<info>The <uicontrol>Crypto Modules </uicontrol> view of <xref
+href="#ltke_proc_select_coproc/tke_f_crypto_list" format="dita"/> now displays the available
+adapters. In our scenario, three adapters in <keyword conref="ltke_conref.dita#lxdc_conref/cca"/>
+coprocessor mode are available on the current host, one CEX6C module and two CEX5C modules. Select a
+crypto adapter of your choice and trigger action <b>Open Crypto Module </b> from its context menu.
+<fig expanse="page" id="tke_f_crypto_list">
+<title>List of crypto modules</title>
+<image width="650" href="ltke_f_crypto_list.jpg" placement="break">
+<alt>List of crypto modules</alt>
+</image>
+</fig>The <uicontrol>Crypto Module Administration</uicontrol> window for the selected crypto adapter
+opens (<xref href="#ltke_proc_select_coproc/ltke_f_cryptomod_admin" format="dita"/>). <fig
+expanse="page" id="ltke_f_cryptomod_admin">
+<title>Crypto Module Administration</title>
+<image width="650" href="ltke_f_cryptomod_admin.jpg" placement="break">
+<alt>Crypto Module Administration</alt>
+</image>
+</fig></info>
+</step>
+</steps>
+<result>Depending on your current environment, you now need to define the required roles and
+authorities for loading and setting master keys. In this case, continue with the procedure described
+in <xref href="ltke_proc_connect_host_coproc.dita#ltke_proc_connect_host_coproc"/>. <p>If the
+required access control infrastructure is already set up, you can continue with the procedure
+described in <xref href="ltke_proc_generate_key_parts.dita#ltke_proc_generate_key_parts"
+/>.</p></result>
+</taskbody>
+</task>
+<?Pub *0000002485?>

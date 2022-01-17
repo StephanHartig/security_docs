@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="lxdc_editionnotices" xml:lang="en-us">
+<title/>
+<prolog>
+<metadata/>
+</prolog>
+<body>
+<p>This edition applies to the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> version 9.1 and
+to all subsequent versions and modifications until otherwise indicated in new editions.</p>
+<?Pub Caret 89?>
+</body>
+</topic>
+<?Pub *0000000612?>

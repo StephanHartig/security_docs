@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<map id="l91xct00_dmap_main" xml:lang="en-us" title="How to set an AES master key">
+<topicmeta>
+<prodinfo>
+<prodname>TKE</prodname>
+<vrmlist>
+<vrm version="9" release="1"/>
+</vrmlist>
+</prodinfo>
+</topicmeta>
+<topicref href="lxct_linuxonz.dita">
+<topicref href="ltke_pdf.dita" navtitle="PDF file for How to set an AES master key"/>
+<mapref href="l91xct00_body.ditamap"/>
+</topicref>
+</map>
+<?Pub *0000002266?>

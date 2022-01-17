@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--0he effectiveArbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Concept//EN"  "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="ltke_introduction" xml:lang="en-us">
+<title>About this document</title>
+<titlealts>
+<navtitle>About this document</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: About this document</searchtitle>
+</titlealts>
+<?Pub Caret 0?>
+<body>
+<p>This publication outlines a procedure how to create an AES master key on a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> configured in <keyword
+conref="ltke_conref.dita#lxdc_conref/cca"/> coprocessor mode (shortly referred to as <keyword
+conref="ltke_conref.dita#lxdc_conref/ccacoproc"/>) using the <keyword
+conref="ltke_conref.dita#lxdc_conref/tke_only"/> (<keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/>) workstation. The <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> is connected to an <keyword
+conref="ltke_conref.dita#lxdc_conref/ibmzsystems"/> mainframe that runs an instance of  <keyword
+conref="ltke_conref.dita#lxdc_conref/loz"/>. </p>
+<section>
+<title>What this document describes</title>
+<p>There are multiple master key types and different methods how to create and set these keys using
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> capabilities. This document focuses on the
+creation and setting of an AES master key on a <keyword conref="ltke_conref.dita#lxdc_conref/cca"/>
+coprocessor.</p>
+</section>
+<section>
+<title>What this document does not describe</title>
+<p>This document does not describe the complete process of setting up a comprehensive security
+concept, nor does it demonstrate all security features available from the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> workstation.</p>
+</section>
+<section>
+<title>Further information</title>
+<p>For information about sophisticated features, for example, for using <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> domain groups, refer to the <cite>Trusted Key Entry
+Workstation User's Guide</cite> (SC14-7511) from the <xref
+href="https://www-304.ibm.com/servers/resourcelink/svc03100.nsf?Opendatabase" format="html"
+scope="external">IBM Resource Link</xref> or from the <xref
+href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.csfb600/toc.htm"
+format="html" scope="external">IBM Knowledge Center</xref>.</p>
+</section>
+<section>
+<title>Terminology</title>
+<p>A <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/> is also called a <keyword
+conref="ltke_conref.dita#lxdc_conref/cryptoadapter"/>. The <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> graphical user interface uses the term <term>crypto
+module</term> for a <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoproc"/>.</p>
+</section>
+</body>
+</topic>
+<?Pub *0000002485?>

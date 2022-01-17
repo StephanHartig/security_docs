@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE topic PUBLIC "-//IBM//DTD DITA IBM Topic//EN"
+ "ibm-topic.dtd">
+<?Pub Sty _display FontColor="red"?>
+<topic id="l31xce00_trademarks" xml:lang="en-us">
+<title>Trademarks</title>
+<body>
+<!--IBM trademarks paragraph-->
+<p conref="lxcommon.dita#trademarks/ibmtm"></p>
+<!--Adobe statement-->
+<p conref="lxcommon.dita#trademarks/adobetm"></p>
+<!--Linux statement-->
+<p conref="lxcommon.dita#trademarks/linuxtm"></p>
+</body><?Pub Caret -2?>
+</topic>
+<?Pub *0000000549?>

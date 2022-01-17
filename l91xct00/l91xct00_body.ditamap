@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN"
+ "ibm-map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<map id="ltke_body" xml:lang="en-US" title="How to set an AES master key on a CCA cryptographic coprocessor">
+
+<topicref href="ltke_document_outline.dita" navtitle="Getting started">
+<topicref href="ltke_scenario.dita" navtitle="Scenario"/>
+<topicref href="ltke_prereqs.dita" navtitle="Prerequisites"/>
+<topicref href="ltke_proc_tke_logon.dita" navtitle="TKE logon"/>
+</topicref>
+<topicref href="ltke_preptasks.dita" navtitle="Preparing security environment">
+<topicref href="ltke_setting_smartcard_env.dita" navtitle="How to set up the smart card environment">
+<topicref href="ltke_zone_concepts.dita" navtitle="Zone concepts"/>
+<topicref href="ltke_ca_card_initialize.dita" navtitle="Initialize a CA smart card"/>
+</topicref>
+<topicref href="ltke_start_tke_prog.dita" navtitle="Invoke TKE program and create host"/>
+<topicref href="ltke_proc_create_roles.dita" navtitle="Create roles"/>
+</topicref>
+
+<topicref href="ltke_procedure.dita" navtitle="How to set a master key on the coprocessor">
+<topicref href="ltke_proc_generate_key_parts.dita" navtitle="Generate key parts"/>
+<topicref href="ltke_proc_load_key_parts.dita" navtitle="Load key parts to coprocessor"/>
+<topicref href="ltke_proc_activate_mk.dita" navtitle="Activate the new master key"/>
+</topicref>
+
+</map>
+<?Pub *0000004609?>

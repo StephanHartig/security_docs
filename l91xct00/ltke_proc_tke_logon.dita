@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//IBM//DTD DITA IBM Reference//EN"
+ "ibm-reference.dtd">
+<reference id="ltke_proc_tke_logon" xml:lang="en-us">
+<title>Starting the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> console</title>
+<titlealts>
+<navtitle>Starting the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> console</navtitle>
+<searchtitle><keyword conref="ltke_conref.dita#lxdc_conref/atke"/> for <keyword
+conref="ltke_conref.dita#lxdc_conref/lib_title"/>: Starting the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> console on the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> workstation</searchtitle>
+</titlealts>
+<shortdesc>You can perform all tasks required for configuring your smart cards and for setting a new
+master key on attached <keyword conref="ltke_conref.dita#lxdc_conref/cryptocoprocs"/> from the
+<keyword conref="ltke_conref.dita#lxdc_conref/atke"/> console on the <keyword
+conref="ltke_conref.dita#lxdc_conref/atke"/> workstation.</shortdesc>
+<?Pub Caret 0?>
+<refbody><section>
+<p>You can configure that the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/> welcome
+dialog automatically loads on start-up. Click on <uicontrol>Launch the <keyword
+conref="ltke_conref.dita#lxdc_conref/tke_only"/> web application</uicontrol>. Then the initial
+<uicontrol>Trusted Key Entry Console</uicontrol> (<xref href="#ltke_proc_tke_logon/ltke_f_console"
+format="dita"/>) opens and offers access to a set of commonly used applications and utilities
+available on the <keyword conref="ltke_conref.dita#lxdc_conref/atke"/> workstation. <fig
+expanse="page" id="ltke_f_console">
+<title>TKE Console - starting the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/>
+program</title>
+<image href="ltke_f_console.jpg" placement="break" width="650">
+<alt>TKE Console - starting the <keyword conref="ltke_conref.dita#lxdc_conref/tke_only"/> program
+</alt>
+</image>
+</fig></p>
+</section><section>
+<title>What to do next</title>
+<p>Before you can create and load a master key, you must have completed all sub-tasks described in
+<xref href="ltke_preptasks.dita#ltke_preptasks"/>.</p>
+</section>
+</refbody>
+</reference>
+<?Pub *0000002485?>

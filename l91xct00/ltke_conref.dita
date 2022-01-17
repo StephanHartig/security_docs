@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE dita PUBLIC "-//IBM//DTD DITA IBM Composite//EN"
+ "ibm-ditabase.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<dita xml:lang="en-us">
+<topic id="lxdc_conref" xml:lang="en-us">
+<title>Text symbols</title>
+<prolog>
+<metadata>
+<keywords/>
+</metadata>
+</prolog>
+<body>
+<?Pub Caret 21?>
+<p><keyword id="cca">CCA</keyword></p>
+<p><keyword id="cryptoadapter">cryptographic adapter</keyword></p>
+<p><keyword id="cryptoadapters">cryptographic adapters</keyword></p>
+<p><keyword id="cryptocoproc">cryptographic coprocessor</keyword></p>
+<p><keyword id="ccacoproc">CCA coprocessor</keyword></p>
+<p><keyword id="cryptocoprocs">cryptographic coprocessors</keyword></p>
+<p><keyword id="ahsm">HSM</keyword></p>
+<p><keyword id="hsm">hardware security module</keyword></p>
+<p><keyword id="ibm"><tm trademark="IBM" tmtype="reg">IBM</tm></keyword></p>
+<p><keyword id="ibmzsystems"><tm tmtype="reg" trademark="IBM Z">IBM Z</tm></keyword></p>
+<p><keyword id="secinf">infrastructure for protected volume encryption</keyword></p>
+<p><keyword id="lib_title">Linux on Z and LinuxONE</keyword></p>
+<p><keyword id="linux"><tm tmtype="tm" trademark="Linux">Linux</tm></keyword></p>
+<p><keyword id="loz">Linux on Z</keyword></p>
+<p><keyword id="atke">TKE</keyword></p>
+<p><keyword id="atkews">TKE workstation</keyword></p>
+<p><keyword id="tke_only">Trusted Key Entry</keyword></p>
+<p><keyword id="tke">Trusted Key Entry workstation</keyword></p>
+<p><keyword id="zarch"><tm tmtype="reg" trademark="z/Architecture">z/Architecture</tm></keyword></p>
+<p><keyword id="z14"><tm tmtype="tm" trademark="z14">z14</tm></keyword></p>
+</body>
+<?Pub Caret -1?>
+</topic>
+<reference id="links" xml:lang="en-us">
+<title>Links</title>
+<refbody>
+<section>
+<ul>
+<li><xref href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=pkcs11" format="html"
+scope="external" id="pkcs11_standard_url">PKCS11 Cryptographic Token Interface Standard</xref></li>
+<li><xref href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaaf/lnz_r_ts.html"
+format="html" scope="external" id="scsi_howto">How to use FC-attached SCSI devices with
+Linux on System z</xref></li>
+</ul>
+</section>
+</refbody>
+</reference>
+<?tm 1344264666 148?>
+</dita>
+<?Pub *0000031271?>
